@@ -267,7 +267,7 @@ anyad eva saṃsthānaṃ guṇo mṛddravyāt । tena bhinnaḥ svabhāvaḥ k
 
 <ms_9a1–9a6>
 
-{(b.12214)}
+{b.12214-end}
 
 [13,1]
 
@@ -301,7 +301,7 @@ samarthaḥ kuta utpanna iti cet, svakāraṇebhyaḥ ॥
 
 tāny enam aparapratyayasannidhāna eva kiṃ janayanti, kadācid anyathāpi syuḥ । tataś caiko 'pi kvacij janayed iti cet, aparāparapratyayayogena pratikṣaṇaṃ bhinnaśaktayaḥ santanvantaḥ saṃskārāḥ, yady api kuta<ed_15><ms_10a1–10b3>ścit sāmyāt sarūpāḥ pratīyante, tathāpi bhinna evaiṣāṃ svabhāvaḥ, tena kiñcid eva kasyacit kāraṇam ॥
 
-{(b.122151)}
+{b.122151-end}
 
 [15,3]
 
@@ -347,7 +347,7 @@ sahitas tatsvabhāvo na kevala iti cet, anyas tarhi kevalaḥ, anyaḥ sahitaḥ
 
 yo 'pi manyate - akṣepakriyādharmaiva sa tasya svabhāvaḥ, na sa sāhityam apekṣate, kāryaṃ tu pratyayāntarāpekṣam iti sahitebhya eva jāyate, na kevalebhya iti, tasyāpi - kathaṃ sa kevalo 'pi karoty eva kāryaṃ ca tasmān notpadyata iti tadavastho virodhaḥ । na kevalaḥ karoty eveti <ed_18><ms_12a2–12b2>cet, katham idānīm akṣepakriyāsvabhāvaḥ । nanv etad eva paridīpitaṃ bhavati - karoty eveti । kāryaṃ cāyaṃ kevalo 'pi samarthaḥ san param apekṣamāṇaṃ katham upekṣeta । param anādṛtyaitat prasahya kuryāt । evaṃ hy anenātmanaḥ sāmarthyam api darśitaṃ bhavati । kāryaṃ param apekṣata iti tataḥ kevalād anutpattir uktā bhavati । sa kevalo 'pi samarthasvabhāva iti tata utpattir iti, ete caikatra kathaṃ syātām । tad ayam īrṣyāśalyavitudyamānamarmā viklavaṃ vikrośatīty upekṣām arhati ॥
 
-{(b.122152)}
+{b.122152-end}
 
 [18,8]
 
@@ -377,7 +377,7 @@ sahakāriṇaḥ samutpannaviśeṣāt kāraṇāt kāryotpattau viśeṣasyaivo
 
 nāsmākaṃ punaḥ punar vacane kaścid udvegaḥ । yady evam api lokasya nyāyapratipattiḥ syāt, punar api brūmaḥ । na viśeṣotpādanād eva sahakāriṇāṃ sahakāritvam, yena tadabhāvād viśeṣotpattāv asahakāriṇaḥ syuḥ, kiṃ tarhy ekārthakriyāpi । <G§ 2.24>sāpi na bhaven nirviśeṣāṇāṃ parasparataḥ, bhāve vā tadavasthāyām iva pṛthag api syāt । tathā ca tadviśeṣabhāvi kāryam api kevalāt syād iti cet, sarvam uktam - pratikṣaṇam aparāparaiḥ pratyayair yathā bhāvasantāne viśeṣotpattiḥ, yogyadeśatādyavasthābhedāḥ kāryakāriṇaḥ, teṣāṃ ca yata utpattiḥ, pratyekaṃ sāmarthye 'pi yathā kevalānām akriyā kartṛviśeṣapṛthagbhāvābhāvāt, kāryadvaividhyaṃ ca - sahakārijanitaviśeṣaparamparotpattidharmakam anyac ca, aṅkurādivad akṣepakārīndriyavijñānādivac ca, kāryakāraṇasvabhāvabhedād iti । <G§ 2.25>tatra sahakāribhyaḥ santānopakārāpekṣakāraṇakāryajanmany ādyaḥ sahakāriviśeṣo na sahakārikṛtaviśeṣajanmā 'nantarakāryavat । tataḥ prabhṛti ye viśeṣās te tajjanmā<ed_21><ms_14a2–14b3>nas tatprakṛtikatvāt, tasya teṣāṃ ceti nānavasthā । tathā yady akṣaṇiko 'pi bhāvo 'nāhitātiśayaḥ sahakāriṇādyaviśeṣahetuvat kāryaṃ kurvīta, karotu । sa punar asya svabhāvo 'kṣepakartṛdharmā cet, pṛthagbhāvasambhavāt, kevalo 'pi tathā syād ity uktam । atatsvabhāvas tu tadāpy akāraka eva ॥
 
-{(b.122)}
+{b.122-end}
 
 [21,6]
 
@@ -407,13 +407,13 @@ sa svayaṃ sthitidharmaiva, vināśahetvasambhave 'vasthānāt । tasya parasm
 
 <ms_15a3–15b3>
 
-{(b.1)}
+{b.1-end}
 
 [23,1]
 
 tasmāt saty asya vināśe vināśasvabhāvenaivānena bhavitavyam । tathāpi vyartho vināśahetur ity uktam, tena svabhāvato naśvare 'naśvare vā bhāve na vināśahetor upayogaḥ ॥
 
-{(b)}
+{b-end}
 
 [23,4]
 
@@ -793,7 +793,7 @@ anvayavyatirekayor api tarhi na pṛthaktvam, ekasya prayogād ubhayagater iti c
 
 <ms_25a6–25b1>
 
-{(d)}
+{d-end}
 
 [41,1]
 
