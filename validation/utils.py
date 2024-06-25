@@ -63,7 +63,7 @@ def keep_keepables(file_content):
 def clean_up_whitespace(content):
     # Define the regex replacements for cleaning up whitespace
     regex_replacements = [
-        [r'\t{2,}', r''],         # multiple tab
+        [r'\t{2,}', r'\t'],       # multiple tab
         [r' *(\n+) *', r'\1'],    # extraneous space adjacent to newline
         [r'\n{2,}', r'\n\n'],     # extraneous newline (max 2)
         [r' {2,}', r' '],         # duplicate space
