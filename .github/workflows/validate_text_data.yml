@@ -29,7 +29,10 @@ jobs:
 #         python -m pip install --upgrade pip
 #         pip install -r requirements.txt
 
+    - run: echo "setting execute permission for validation script"
+    - name: Set execute permission for validation script
+      run: chmod +x .github/scripts/validate_text_data.sh
+
     - run: echo "running validation script"
     - name: Run script
-      run: |
-        validate_text_data.sh
+      run: .github/scripts/validate_text_data.sh
