@@ -1,0 +1,30 @@
+File Source: SARIT
+
+
+Edition: Dharmottarapradīpa, D.B. Malvania, Patna 1955
+
+
+Extent: complete
+
+
+Input by: Aurorachana, Auroville; Liudmila Olalde
+
+
+Structural Notes: 
+
+Prose commentary based on the aphoristic Nyāyabindu, of which the chapter.sūtra structure is:
+	1.1–21
+	2.1–48
+	3.1–140
+
+Based on the pratīka-style of citation, the commentary is understood to not contain the full text of the Nyāyabindu. Therefore the latter, which was supplied in the edition, has been annotated as removable structural material here.
+
+Document candidates generated from prose paragraphs with identifiers of the type page_number,paragraph_number. Document grouping based on chapter.sūtra structure.
+
+
+Other Important Notes: 
+
+1) (none)
+
+
+(several other details recorded elsewhere)
