@@ -1,0 +1,35 @@
+name: Validate text data
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+    - run: echo "checking out repo"
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - run: echo "setting up Python"
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+#     - run: echo "installing Python dependencies"
+#     - name: Install dependencies
+#       run: |
+#         python -m pip install --upgrade pip
+#         pip install -r requirements.txt
+
+    - run: echo "running validation script"
+    - name: Run script
+      run: |
+        validate_text_data.sh
