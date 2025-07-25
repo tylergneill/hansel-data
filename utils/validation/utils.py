@@ -9,8 +9,8 @@ ABSOLUTE_PATH = os.path.dirname(os.path.abspath(__file__))
 CONFIG = {
     'max_ngram_size': 2,  # unigrams and bigrams
     'reference_ngrams_filepath': os.path.join(ABSOLUTE_PATH, 'reference_ngrams.json'),
-    'unfamiliar_ngrams_default_filepath': 'tmp/unfamiliar_ngrams.txt',
-    'bracketless_content_default_filepath': 'tmp/bracketless_content.txt',
+    'unfamiliar_ngrams_default_filepath': 'utils/validation/tmp/unfamiliar_ngrams.txt',
+    'bracketless_content_default_filepath': 'utils/validation/tmp/bracketless_content.txt',
     'long_sequence_threshold': 128,
     'residuals_ranking_k': 10,
     'residual_threshold': 100,

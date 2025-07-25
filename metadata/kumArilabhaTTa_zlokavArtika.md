@@ -1,16 +1,20 @@
-File Source: private exchange
+# File Source
 
+private exchange
 
-Edition: Dvārikādāsa Śāstrī, Vārāṇasī 1978
+# Edition
 
+Dvārikādāsa Śāstrī, Vārāṇasī 1978
 
-Extent: complete
+# Extent
 
+complete
 
-Input by: Helmut Krasser (missing Arthāpattipariccheda "5.8" added by Tyler Neill)
+# Input by
 
+Helmut Krasser (missing Arthāpattipariccheda "5.8" added by Tyler Neill)
 
-Structural Notes: 
+# Structural Notes
 
 The following overview, with {corresponding pages for Jhā's translation}, was supplied in Krasser's source file. I have added an artifical numbering of sections and subsections (I was not sure whether the Vṛttikāragrantha consists of two parts or not.) and the column of (Dvārikādāsa Śāstrī edition page numbers).
 
@@ -41,15 +45,12 @@ The following overview, with {corresponding pages for Jhā's translation}, was s
 7 vākyādhikaraṇa (VAA)					(598)	{486}
 8 vedapauruṣeyatādhikaraṇa (VPA)		(669)	{553}
 
-
 Document candidates were generated for each half-line, with identifiers based on the numbering explained above, plus the verse number within the section, plus "ab", "cd", or "ef" based on the pāda.
 
 Document grouping was based on labeled sections and subsections. Since document candidates were very small in this case, the recombination into larger documents based on these grouping boundaries was relatively important.
 
-
-Other Important Notes: 
+# Other Important Notes
 
 (none)
-
 
 (numerous other details recorded elsewhere)

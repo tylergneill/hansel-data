@@ -1,0 +1,51 @@
+{
+  "śukasaptati_o": {
+    "Title": "Śukasaptati, “Textus Ornatior”",
+    "Author": "(Unknown)",
+    "Source File": "Ambuda website “Proofing” section, extracted page-by-page. Content under CC0 (public domain) license.",
+    "Edition": "Based closely on Schmidt, Richard. “Der Textus ornatior der Śukasaptati.”  Abhandlungen der Philosophisch-Philologischen Classe der Königlich Bayerischen Akademie der Wissenschaften, Band XXI. München: Verl. d. K. Akademie, 1899.",
+    "PDFs": "Several scans easily available on Archive.org and GRETIL e-library.",
+    "Digitization": "Initial digitization steps on Ambuda platform: - `2022-08-13`: item created (and Google Cloud Vision OCR likely performed) by user `suhasm` - `2023-03-06`–`2023-05-08`: proofread once by user `shivjun1685` - `2025-05-24`–`2025-07-21`: proofread second time by Tyler Neill  In fact, the second “proofreading” was done offline,  with use of fresh OCR and generative AI to guarantee quality throughout, plus structural transformation for HANSEL, and the Ambuda website was updated with a form of this result with reduced structural markup.",
+    "Extent": "Complete (with very small lacunae).",
+    "Structure": "The work consists of 70 stories, plus a frame story introduction and conclusion.",
+    "Additional Notes": "(Editor's German translation available...)",
+    "Filename": "zukasaptati_o"
+  },
+  "śukasaptati_s": {
+    "Title": "Śukasaptati, “Textus Simplicior”",
+    "Author": "(Unknown)",
+    "Source File": "Word document by Villiam Gostishchev, obtained through private email exchange.",
+    "Edition": "Based closely on Schmidt, Richard. “Die Çukasaptati. Textus Simplicior.”  Abhandlungen für die Kunde des Morgenlandes, Band X, No. 1. Leipzig, 1893. (Band X as a whole, Nos. 1–4, was published in 1897.)",
+    "PDFs": [
+      "Archive (DLI & public.resource.org), entire Band X: https://archive.org/details/dli.ministry.08828/page/n9/mode/2up",
+      "Archive (V. Gostishchev), No. 1, better quality: ..."
+    ],
+    "Digitization": "202_–2025: Typed up by V. Gostishchev from edition; intensively proofread and structured. July 2025: Structurally transformed for HANSEL by Tyler Neill.",
+    "Extent": "Complete (with small lacunae).",
+    "Structure": "The work consists of 70 stories, plus a frame story introduction and conclusion.",
+    "Additional Notes": [
+      "Indian editions (e.g. ...) are based on this version, rather than the Ornatior, despite not making this clear.",
+      "V. Gostishchev's version (= bronze) contains chāyās from the Indian editions, plus ...",
+      "The editor's German translation can be found...",
+      "The separately-published Anmerkungen are also useful..."
+    ],
+    "Filename": "zukasaptati_s"
+  },
+  "kumārilabhaṭṭa_ślokavārtika": {
+    "File Source": "private exchange",
+    "Edition": "Dvārikādāsa Śāstrī, Vārāṇasī 1978",
+    "Extent": "complete",
+    "Input by": "Helmut Krasser (missing Arthāpattipariccheda \"5.8\" added by Tyler Neill)",
+    "Structural Notes": "The following overview, with {corresponding pages for Jhā's translation}, was supplied in Krasser's source file. I have added an artifical numbering of sections and subsections (I was not sure whether the Vṛttikāragrantha consists of two parts or not.) and the column of (Dvārikādāsa Śāstrī edition page numbers).  1 pratijñāsūtra (PJS)\t\t\t\t\t(3)\t\t{1} 2 codanāsūtra (CDS) \t\t\t\t\t(34)\t{21} 3 nimittasūtra (NMS)\t\t\t\t\t(96)\t{67} 4 pratyakṣasūtra (PAS)\t\t\t\t\t(97)\t{68} 5 autpattikasūtra \t\t \t5.1 vṛttikāragrantha (VKG)\t\t\t(149)\t{113} \t\t(\"5.2\" = vv. 17-26)\t\t\t\t(152)\t{116} \t5.3 nirālambanavāda (NAV)\t\t\t(155)\t{119} \t5.4 śunyavāda (SNV)\t\t\t\t\t(191)\t{148} \t5.5 anumānapariccheda (AMP)\t\t\t(246)\t{182} \t5.6 śabdapariccheda (SBP)\t\t\t(287)\t{207} \t5.7 upamānapariccheda (UMP)\t\t\t(307)\t{222} \t5.8 arthāpattipariccheda (AAP)\t\t(320)\t{230} \t5.9 abhāvapariccheda (ABH)\t\t\t(335)\t{243} \t5.10 citrākṣepavāda (CAV)\t\t\t(349)\t{253} \t5.11 sambandhākṣepavāda (SAV)\t\t(353)\t{254} \t5.12 sphoṭavāda (SPH)\t\t\t\t(361)\t{261} \t5.13 ākṛtivāda (AKV)\t\t\t\t(385)\t{281} \t5.14 apohavāda (APV)\t\t\t\t(400)\t{295} \t5.15 vanavāda (VAV)\t\t\t\t\t(435)\t{329} \t5.16 sambandhākṣepaparihāra (SAP)\t(453)\t{347} \t5.17 citrākṣepaparihāra (CAP)\t\t(483)\t{375} \t5.18 ātmavāda (ATV)\t\t\t\t\t(488)\t{382} 6 śabdanityatādhikaraṇa (SNA)\t\t\t(515)\t{409} 7 vākyādhikaraṇa (VAA)\t\t\t\t\t(598)\t{486} 8 vedapauruṣeyatādhikaraṇa (VPA)\t\t(669)\t{553}  Document candidates were generated for each half-line, with identifiers based on the numbering explained above, plus the verse number within the section, plus \"ab\", \"cd\", or \"ef\" based on the pāda.  Document grouping was based on labeled sections and subsections. Since document candidates were very small in this case, the recombination into larger documents based on these grouping boundaries was relatively important.",
+    "Other Important Notes": "(none)  (numerous other details recorded elsewhere)",
+    "Filename": "kumArilabhaTTa_zlokavArtika"
+  },
+  "bāṇa_kādambarī": {
+    "File Source": "SARIT",
+    "Edition": "Peter Peterson, 1883.",
+    "Extent": "complete",
+    "Input by": "Andrew Ollett (OCR, initial XML markup), Tyler Neill (OCR from scratch, merge Andrew's contributions, proofread)",
+    "Structural Notes": "The text has no inherent structure other than the widely recognized distinction of Pūrvabhāga (attributed to Bāṇa himself) and Uttarabhāga (completed by Bāṇa's son, Bhūṣaṇabhaṭṭa, after Bāṇa's death).  Paragraphs as created by Peterson are marked by starting page and line number.",
+    "Filename": "bANa_kAdambarI"
+  }
+}

@@ -1,3 +1,5 @@
+{pūrvabhāga}
+
 <1>
 
 [1,1]
@@ -5953,6 +5955,8 @@ garvaḥ svayamāgacchāmīti strīcāpalamananyaraktoyaṃ parijana iti svabha-
 ktinivedanalāghavaṃ pratyākhyānaśaṅkayā na saṃdiśāmītyaprabuddhabodhanama-
 napekṣitānujīvitaduḥkhadāruṇā syāmityatipraṇayitā jñāsyasi maraṇena
 prītimityasaṃbhāvyameveti.
+
+{uttarabhāga}
 
 <239>
 
