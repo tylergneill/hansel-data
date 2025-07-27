@@ -13,34 +13,46 @@ Content under CC0 (public domain) license.
 
 # Edition
 
-Based closely on Schmidt, Richard. “Der Textus ornatior der Śukasaptati.” 
-Abhandlungen der Philosophisch-Philologischen Classe der Königlich Bayerischen Akademie der Wissenschaften, Band XXI.
+Schmidt, Richard. “Der Textus ornatior der Śukasaptati.” 
+Abhandlungen der Philosophisch-Philologischen Classe 
+der Königlich Bayerischen Akademie der Wissenschaften, Band XXI.
 München: Verl. d. K. Akademie, 1899.
 
 # PDFs
 
-Several scans easily available on Archive.org and GRETIL e-library.
+- GRETIL e-library: https://opac.sub.uni-goettingen.de/DB=1.20/SET=1/TTL=1/SHW?FRST=2
+- Archive (x2): https://archive.org/details/sukasaptatitextornatedschmidt/Suk901__Sukasaptati_TextOrnat_ed_Schmidt/
 
-# Digitization
+# Digitization Level
 
-Initial digitization steps on Ambuda platform:
-- `2022-08-13`: item created (and Google Cloud Vision OCR likely performed) by user `suhasm`
-- `2023-03-06`–`2023-05-08`: proofread once by user `shivjun1685`
-- `2025-05-24`–`2025-07-21`: proofread second time by Tyler Neill
+Gold
 
-In fact, the second “proofreading” was done offline, 
-with use of fresh OCR and generative AI to guarantee quality throughout,
-plus structural transformation for HANSEL,
-and the Ambuda website was updated with a form of this result with reduced structural markup.
+# Digitization Notes
+
+- (Aug 2022) Ambuda user `suhasm`: item created, Google Cloud Vision OCR performed.
+- (Mar–May 2023) Ambuda user `shivjun1685`: proofread once.
+- (May–Jul 2025) Tyler Neill, proofread again (using fresh OCR and AI), restructured for HANSEL.
 
 # Extent
 
-Complete (with very small lacunae).
+- Complete (with very small lacunae).
+- 384pp in edition. 
+
+# File Size (KB)
+
+290
+
+# Genres
+
+- Kāvya
+- Kathā
 
 # Structure
 
-The work consists of 70 stories, plus a frame story introduction and conclusion.
+The work consists of 70 stories in a frame story.
+The frame story's introduction and conclusion are explicitly distinguished 
+as kathāvatāra (9pp in edition) and kathāvadhi (1p).
 
 # Additional Notes
 
-(Editor's German translation available...)
+- Editor's German translation on GRETIL e-library: https://opac.sub.uni-goettingen.de/DB=1.20/SET=1/TTL=1/SHW?FRST=1

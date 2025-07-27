@@ -20,10 +20,11 @@ but they are most likely not yet ready for clean NLP processing.
 
 ## Silver
 
-These items have been manually streamlined and restructured.
+These items have been manually streamlined and restructured according to HANSEL encoding guidelines,
+which are a very limited subset of SARIT's Sanskrit TEI guidelines.
 The streamlining frequently involves removing para-textual notes outright or prepping them to be automatically dropped.
 Most importantly, by definition, these items now pass the structural (`-s`) check with `utils.validation.validate`,
-which checks for valid use of permitted structural elements (mostly various kinds of brackets).
+which checks for valid use of permitted HANSEL structural elements (mostly various kinds of brackets).
 Given this validation, round-trip conversion between XML and plain-text representations is now possible with `utils.transforms`.
 
 ## Gold
