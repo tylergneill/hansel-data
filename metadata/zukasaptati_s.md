@@ -8,19 +8,19 @@
 
 # Source File
 
-Word document by Villiam Gostishchev, 
+Word document by Viliam Gostishchev, 
 obtained directly through private email exchange.
 
 # Edition
 
-Based closely on Schmidt, Richard. “Die Çukasaptati. Textus Simplicior.” 
+Schmidt, Richard. “Die Çukasaptati. Textus Simplicior.” 
 Abhandlungen für die Kunde des Morgenlandes, Band X, No. 1. Leipzig, 1893.
 (Band X as a whole, Nos. 1–4, was published in 1897.)
 
 # PDFs
 
+- Archive (V. Gostishchev), Band X, No. 1, better quality: ...
 - Archive (DLI & public.resource.org), entire Band X: https://archive.org/details/dli.ministry.08828/page/n9/mode/2up
-- Archive (V. Gostishchev), No. 1, better quality: ...
 
 # Digitization Level
 
@@ -50,9 +50,14 @@ Silver
 The work consists of 70 stories in a frame story.
 The frame story's introduction and conclusion are not explicitly distinguished.
 
+# Translations
+
+- German, editor = R. Schmidt, 1894, HathiTrust: https://catalog.hathitrust.org/Record/100160996
+- German, editor = R. Schmidt, 1913, Archive: https://archive.org/details/sukasap00suka/page/n7/mode/2up
+
 # Additional Notes
 
-- Indian editions (e.g. ...) are based on this version, rather than the Ornatior, despite not making this clear.
-- V. Gostishchev's version (= bronze) contains chāyās from the Indian editions, plus ...
-- The editor's German translation can be found...
-- The separately-published Anmerkungen are also useful...
+- The Simplicior is believed to be older than the Ornatior.
+- Indian editions (e.g. Ramakant Tripathi, Vārāṇasī, 1966, basis of the GRETIL text) are based on this Simplicior text by Schmidt.
+- V. Gostishchev's original version of the file (= bronze) contains added chāyās from the Indian editions and other useful notes.
+- See also the editor's: “Anmerkungen zu dem Textus simplicior der Śukasaptati”, ZDMG 48, 1894, 580-628.

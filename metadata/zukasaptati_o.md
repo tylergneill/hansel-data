@@ -20,7 +20,7 @@ München: Verl. d. K. Akademie, 1899.
 
 # PDFs
 
-- GRETIL e-library: https://opac.sub.uni-goettingen.de/DB=1.20/SET=1/TTL=1/SHW?FRST=2
+- GRETIL E-Library: http://gretil.sub.uni-goettingen.de/gretil_elib/Suk901__Sukasaptati_TextOrnat_ed_Schmidt.pdf
 - Archive (x2): https://archive.org/details/sukasaptatitextornatedschmidt/Suk901__Sukasaptati_TextOrnat_ed_Schmidt/
 
 # Digitization Level
@@ -53,6 +53,10 @@ The work consists of 70 stories in a frame story.
 The frame story's introduction and conclusion are explicitly distinguished 
 as kathāvatāra (9pp in edition) and kathāvadhi (1p).
 
+# Translations
+
+- German, editor = R. Schmidt, 1899, GRETIL E-Library: http://gretil.sub.uni-goettingen.de/gretil_elib/Suk899__Sukasaptati_TextOrnat_tr_Schmidt.pdf
+
 # Additional Notes
 
-- Editor's German translation on GRETIL e-library: https://opac.sub.uni-goettingen.de/DB=1.20/SET=1/TTL=1/SHW?FRST=1
+- The Simplicior text, q.v., is believed to be older than the Ornatior.

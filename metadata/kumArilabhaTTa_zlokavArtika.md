@@ -13,12 +13,13 @@ obtained second-hand through private exchange.
 
 # Edition
 
-Dvārikādāsa Śāstrī, Vārāṇasī 1978
-includes Pārthasārathi’s Nyāyaratnākara commentary...
+Dvārikādāsa Śāstrī, “Ślokavārttika of Śrī Kumārila Bhaṭṭa
+with the Commentary Nyāyaratnākara of Śrī Pārthasārathi Miśra.”
+Vārāṇasī: Tara Publications, 1978.
 
 # PDFs
 
-- (need to put on Archive myself...)
+- Archive: https://archive.org/details/SlokavarttikaNyayaratnakara/mode/2up
 
 # Digitization Level
 
@@ -76,6 +77,10 @@ Silver
 | 7    | vākyādhikaraṇa (VAA)           | 598     | 486         |
 | 8    | vedapauruṣeyatādhikaraṇa (VPA) | 669     | 553         |
 
+# Translations:
+
+- English, G. Jha, 1907, Archive: https://archive.org/details/in.ernet.dli.2015.282831/mode/2up
+
 # Additional Notes
 
-- Translation by ... Jha easily available online.
+- (none)
