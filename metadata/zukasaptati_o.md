@@ -20,8 +20,8 @@ München: Verl. d. K. Akademie, 1899.
 
 # PDFs
 
-- GRETIL E-Library: http://gretil.sub.uni-goettingen.de/gretil_elib/Suk901__Sukasaptati_TextOrnat_ed_Schmidt.pdf
-- Archive (x2): https://archive.org/details/sukasaptatitextornatedschmidt/Suk901__Sukasaptati_TextOrnat_ed_Schmidt/
+- [on GRETIL E-Library](http://gretil.sub.uni-goettingen.de/gretil_elib/Suk901__Sukasaptati_TextOrnat_ed_Schmidt.pdf)
+- [on Archive (x2)](https://archive.org/details/sukasaptatitextornatedschmidt/Suk901__Sukasaptati_TextOrnat_ed_Schmidt)
 
 # Digitization Level
 
@@ -51,11 +51,11 @@ Gold
 
 The work consists of 70 stories in a frame story.
 The frame story's introduction and conclusion are explicitly distinguished 
-as kathāvatāra (9pp in edition) and kathāvadhi (1p).
+as *kathāvatāra* (9pp in edition) and *kathāvadhi* (1p).
 
 # Translations
 
-- German, editor = R. Schmidt, 1899, GRETIL E-Library: http://gretil.sub.uni-goettingen.de/gretil_elib/Suk899__Sukasaptati_TextOrnat_tr_Schmidt.pdf
+- German, editor = R. Schmidt, 1899, [on GRETIL E-Library](http://gretil.sub.uni-goettingen.de/gretil_elib/Suk899__Sukasaptati_TextOrnat_tr_Schmidt.pdf)
 
 # Additional Notes
 

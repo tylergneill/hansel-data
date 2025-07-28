@@ -8,10 +8,12 @@ Changes:
   using skrutable.Transliterator.
 """
 
-from pathlib import Path
 import json
+import os
 import re
 import sys
+from pathlib import Path
+
 
 from skrutable.transliteration import Transliterator
 T = Transliterator(from_scheme="HK", to_scheme="IAST")   # HK → IAST
@@ -47,6 +49,13 @@ def parse_markdown(path: Path) -> dict:
     meta["Filename"] = path.name[:-3]
     return meta
 
+def get_file_extension(filename_without_extension):
+    search_folder = './texts/1_bronze'
+    for item in os.listdir(search_folder):
+        base_name, extension = os.path.splitext(item)
+        if base_name.lower() == filename_without_extension.lower():
+            return extension
+
 def main(folder: str):
     root = Path(folder)
     metadata_folder = root / 'metadata'
@@ -55,6 +64,14 @@ def main(folder: str):
         record = parse_markdown(md)
         translit_key = T.transliterate(md.stem)
         consolidated[translit_key] = record
+
+    for k, record in consolidated.items():
+
+        # convert file size (kb) to float
+        consolidated[k]['File Size (KB)'] = float(consolidated[k]['File Size (KB)'])
+
+        # detect and store bronze file type
+        consolidated[k]['Bronze Filetype'] = get_file_extension(consolidated[k]['Filename'])
 
     metadata_file = metadata_folder / '_metadata.json'
     metadata_file.write_text(json.dumps(consolidated, ensure_ascii=False, indent=2),

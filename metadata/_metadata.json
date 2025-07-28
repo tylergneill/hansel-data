@@ -5,8 +5,8 @@
     "Source File": "Ambuda website “Proofing” section, extracted page-by-page. Content under CC0 (public domain) license.",
     "Edition": "Schmidt, Richard. “Der Textus ornatior der Śukasaptati.”  Abhandlungen der Philosophisch-Philologischen Classe  der Königlich Bayerischen Akademie der Wissenschaften, Band XXI. München: Verl. d. K. Akademie, 1899.",
     "PDFs": [
-      "GRETIL E-Library: http://gretil.sub.uni-goettingen.de/gretil_elib/Suk901__Sukasaptati_TextOrnat_ed_Schmidt.pdf",
-      "Archive (x2): https://archive.org/details/sukasaptatitextornatedschmidt/Suk901__Sukasaptati_TextOrnat_ed_Schmidt/"
+      "[on GRETIL E-Library](http://gretil.sub.uni-goettingen.de/gretil_elib/Suk901__Sukasaptati_TextOrnat_ed_Schmidt.pdf)",
+      "[on Archive (x2)](https://archive.org/details/sukasaptatitextornatedschmidt/Suk901__Sukasaptati_TextOrnat_ed_Schmidt)"
     ],
     "Digitization Level": "Gold",
     "Digitization Notes": [
@@ -18,19 +18,20 @@
       "Complete (with very small lacunae).",
       "384pp in edition. "
     ],
-    "File Size (KB)": "290",
+    "File Size (KB)": 290.0,
     "Genres": [
       "Kāvya",
       "Kathā"
     ],
-    "Structure": "The work consists of 70 stories in a frame story. The frame story's introduction and conclusion are explicitly distinguished  as kathāvatāra (9pp in edition) and kathāvadhi (1p).",
+    "Structure": "The work consists of 70 stories in a frame story. The frame story's introduction and conclusion are explicitly distinguished  as *kathāvatāra* (9pp in edition) and *kathāvadhi* (1p).",
     "Translations": [
-      "German, editor = R. Schmidt, 1899, GRETIL E-Library: http://gretil.sub.uni-goettingen.de/gretil_elib/Suk899__Sukasaptati_TextOrnat_tr_Schmidt.pdf"
+      "German, editor = R. Schmidt, 1899, [on GRETIL E-Library](http://gretil.sub.uni-goettingen.de/gretil_elib/Suk899__Sukasaptati_TextOrnat_tr_Schmidt.pdf)"
     ],
     "Additional Notes": [
       "The Simplicior text, q.v., is believed to be older than the Ornatior."
     ],
-    "Filename": "zukasaptati_o"
+    "Filename": "zukasaptati_o",
+    "Bronze Filetype": ".txt"
   },
   "śukasaptati_s": {
     "Title": "Śukasaptati, “Textus Simplicior”",
@@ -38,8 +39,8 @@
     "Source File": "Word document by Viliam Gostishchev,  obtained directly through private email exchange.",
     "Edition": "Schmidt, Richard. “Die Çukasaptati. Textus Simplicior.”  Abhandlungen für die Kunde des Morgenlandes, Band X, No. 1. Leipzig, 1893. (Band X as a whole, Nos. 1–4, was published in 1897.)",
     "PDFs": [
-      "Archive (V. Gostishchev), Band X, No. 1, better quality: ...",
-      "Archive (DLI & public.resource.org), entire Band X: https://archive.org/details/dli.ministry.08828/page/n9/mode/2up"
+      "Band X, No. 1, better quality, [Archive (V. Gostishchev)(...)",
+      "Entire Band X, [on Archive (DLI & public.resource.org)](https://archive.org/details/dli.ministry.08828/page/n9/mode/2up)"
     ],
     "Digitization Level": "Silver",
     "Digitization Notes": [
@@ -50,15 +51,15 @@
       "Complete (with small lacunae).",
       "205pp in edition."
     ],
-    "File Size (KB)": "178",
+    "File Size (KB)": 178.0,
     "Genres": [
       "Kāvya",
       "Kathā"
     ],
     "Structure": "The work consists of 70 stories in a frame story. The frame story's introduction and conclusion are not explicitly distinguished.",
     "Translations": [
-      "German, editor = R. Schmidt, 1894, HathiTrust: https://catalog.hathitrust.org/Record/100160996",
-      "German, editor = R. Schmidt, 1913, Archive: https://archive.org/details/sukasap00suka/page/n7/mode/2up"
+      "German, editor = R. Schmidt, 1894, [on HathiTrust](https://catalog.hathitrust.org/Record/100160996)",
+      "German, editor = R. Schmidt, 1913, [on Archive](https://archive.org/details/sukasap00suka/page/n7/mode/2up)"
     ],
     "Additional Notes": [
       "The Simplicior is believed to be older than the Ornatior.",
@@ -66,7 +67,8 @@
       "V. Gostishchev's original version of the file (= bronze) contains added chāyās from the Indian editions and other useful notes.",
       "See also the editor's: “Anmerkungen zu dem Textus simplicior der Śukasaptati”, ZDMG 48, 1894, 580-628."
     ],
-    "Filename": "zukasaptati_s"
+    "Filename": "zukasaptati_s",
+    "Bronze Filetype": ".doc"
   },
   "kumārilabhaṭṭa_ślokavārtika": {
     "Title": "Ślokavārtika",
@@ -74,7 +76,7 @@
     "Source File": "Word document by Helmut Krasser, obtained second-hand through private exchange.",
     "Edition": "Dvārikādāsa Śāstrī, “Ślokavārttika of Śrī Kumārila Bhaṭṭa with the Commentary Nyāyaratnākara of Śrī Pārthasārathi Miśra.” Vārāṇasī: Tara Publications, 1978.",
     "PDFs": [
-      "Archive: https://archive.org/details/SlokavarttikaNyayaratnakara/mode/2up"
+      "[on Archive](https://archive.org/details/SlokavarttikaNyayaratnakara/mode/2up)"
     ],
     "Digitization Level": "Silver",
     "Digitization Notes": [
@@ -86,7 +88,7 @@
       "3,350 verses (mostly anuṣṭubh).",
       "664pp in edition (with commentary)"
     ],
-    "File Size (KB)": "457",
+    "File Size (KB)": 457.0,
     "Genres": [
       "Darśana",
       "Mīmāṃsā",
@@ -94,12 +96,13 @@
     ],
     "Structure": "| #    | Section                        | edition | Jha transl. | |------|--------------------------------|---------|-------------| | 1    | pratijñāsūtra (PJS)            | 3       | 1           | | 2    | codanāsūtra (CDS)              | 34      | 21          | | 3    | nimittasūtra (NMS)             | 96      | 67          | | 4    | pratyakṣasūtra (PAS)           | 97      | 68          | | 5    | autpattikasūtra                | ––      | ––          | | 5.1  | vṛttikāragrantha (VKG)         | 149     | 113         | | 5.2  | (VKG vv. 17–26)                | 152     | 116         | | 5.3  | nirālambanavāda (NAV)          | 155     | 119         | | 5.4  | śunyavāda (SNV)                | 191     | 148         | | 5.5  | anumānapariccheda (AMP)        | 246     | 182         | | 5.6  | śabdapariccheda (SBP)          | 287     | 207         | | 5.7  | upamānapariccheda (UMP)        | 307     | 222         | | 5.8  | arthāpattipariccheda (AAP)     | 320     | 230         | | 5.9  | abhāvapariccheda (ABH)         | 335     | 243         | | 5.10 | citrākṣepavāda (CAV)           | 349     | 253         | | 5.11 | sambandhākṣepavāda (SAV)       | 353     | 254         | | 5.12 | sphoṭavāda (SPH)               | 361     | 261         | | 5.13 | ākṛtivāda (AKV)                | 385     | 281         | | 5.14 | apohavāda (APV)                | 400     | 295         | | 5.15 | vanavāda (VAV)                 | 435     | 329         | | 5.16 | sambandhākṣepaparihāra (SAP)   | 453     | 347         | | 5.17 | citrākṣepaparihāra (CAP)       | 483     | 375         | | 5.18 | ātmavāda (ATV)                 | 488     | 382         | | 6    | śabdanityatādhikaraṇa (SNA)    | 515     | 409         | | 7    | vākyādhikaraṇa (VAA)           | 598     | 486         | | 8    | vedapauruṣeyatādhikaraṇa (VPA) | 669     | 553         |",
     "Translations:": [
-      "English, G. Jha, 1907, Archive: https://archive.org/details/in.ernet.dli.2015.282831/mode/2up"
+      "English, G. Jha, 1907, [on Archive](https://archive.org/details/in.ernet.dli.2015.282831/mode/2up)"
     ],
     "Additional Notes": [
       "(none)"
     ],
-    "Filename": "kumArilabhaTTa_zlokavArtika"
+    "Filename": "kumArilabhaTTa_zlokavArtika",
+    "Bronze Filetype": ".doc"
   },
   "bāṇa_kādambarī": {
     "Title": "Kādambarī",
@@ -110,8 +113,8 @@
     "Source File": "SARIT XML file by Andrew Ollett, downloaded from GitHub.",
     "Edition": "Peterson, Peter. “Kâdambarî.” Bombay: Government Central Book Depót, 1883.",
     "PDFs": [
-      "Google Books: https://play.google.com/store/books/details?id=tbMIAAAAQAAJ",
-      "Archive: https://archive.org/details/kdambarbybaedby00unkngoog"
+      "[on Google Books](https://play.google.com/store/books/details?id=tbMIAAAAQAAJ)",
+      "[on Archive](https://archive.org/details/kdambarbybaedby00unkngoog)"
     ],
     "Digitization Level": "Silver",
     "Digitization Notes": [
@@ -122,17 +125,18 @@
       "Complete.",
       "368pp in edition."
     ],
-    "File Size (KB)": "692",
+    "File Size (KB)": 692.0,
     "Genres": [
       "Kāvya",
       "Gadyakāvya"
     ],
     "Structure": "Pūrvabhāga 1–238. Uttarabhāga 239–368.",
     "Translations": [
-      "English, M.R. Kale, 1924, Archive: https://archive.org/details/in.ernet.dli.2015.121163/mode/2up",
-      "English, G. Layne, 1991, GRETIL E-Library: http://gretil.sub.uni-goettingen.de/gretil_elib/BaK991__Bana_Kadambari_EN_Layne.pdf "
+      "English, M.R. Kale, 1924, [on Archive](https://archive.org/details/in.ernet.dli.2015.121163/mode/2up)",
+      "English, G. Layne, 1991, [on GRETIL E-Library](http://gretil.sub.uni-goettingen.de/gretil_elib/BaK991__Bana_Kadambari_EN_Layne.pdf) "
     ],
     "Additional Notes": "(none)",
-    "Filename": "bANa_kAdambarI"
+    "Filename": "bANa_kAdambarI",
+    "Bronze Filetype": ".xml"
   }
 }

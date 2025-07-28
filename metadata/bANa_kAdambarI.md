@@ -19,8 +19,8 @@ Bombay: Government Central Book Depót, 1883.
 
 # PDFs
 
-- Google Books: https://play.google.com/store/books/details?id=tbMIAAAAQAAJ
-- Archive: https://archive.org/details/kdambarbybaedby00unkngoog
+- [on Google Books](https://play.google.com/store/books/details?id=tbMIAAAAQAAJ)
+- [on Archive](https://archive.org/details/kdambarbybaedby00unkngoog)
 
 # Digitization Level
 
@@ -52,8 +52,8 @@ Uttarabhāga 239–368.
 
 # Translations
 
-- English, M.R. Kale, 1924, Archive: https://archive.org/details/in.ernet.dli.2015.121163/mode/2up
-- English, G. Layne, 1991, GRETIL E-Library: http://gretil.sub.uni-goettingen.de/gretil_elib/BaK991__Bana_Kadambari_EN_Layne.pdf 
+- English, M.R. Kale, 1924, [on Archive](https://archive.org/details/in.ernet.dli.2015.121163/mode/2up)
+- English, G. Layne, 1991, [on GRETIL E-Library](http://gretil.sub.uni-goettingen.de/gretil_elib/BaK991__Bana_Kadambari_EN_Layne.pdf) 
 
 # Additional Notes
 

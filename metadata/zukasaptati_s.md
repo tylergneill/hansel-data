@@ -19,8 +19,8 @@ Abhandlungen für die Kunde des Morgenlandes, Band X, No. 1. Leipzig, 1893.
 
 # PDFs
 
-- Archive (V. Gostishchev), Band X, No. 1, better quality: ...
-- Archive (DLI & public.resource.org), entire Band X: https://archive.org/details/dli.ministry.08828/page/n9/mode/2up
+- Band X, No. 1, better quality, [Archive (V. Gostishchev)(...)
+- Entire Band X, [on Archive (DLI & public.resource.org)](https://archive.org/details/dli.ministry.08828/page/n9/mode/2up)
 
 # Digitization Level
 
@@ -52,8 +52,8 @@ The frame story's introduction and conclusion are not explicitly distinguished.
 
 # Translations
 
-- German, editor = R. Schmidt, 1894, HathiTrust: https://catalog.hathitrust.org/Record/100160996
-- German, editor = R. Schmidt, 1913, Archive: https://archive.org/details/sukasap00suka/page/n7/mode/2up
+- German, editor = R. Schmidt, 1894, [on HathiTrust](https://catalog.hathitrust.org/Record/100160996)
+- German, editor = R. Schmidt, 1913, [on Archive](https://archive.org/details/sukasap00suka/page/n7/mode/2up)
 
 # Additional Notes
 
