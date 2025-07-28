@@ -73,7 +73,7 @@ def main(folder: str):
         # detect and store bronze file type
         consolidated[k]['Bronze Filetype'] = get_file_extension(consolidated[k]['Filename'])
 
-    metadata_file = metadata_folder / '_metadata.json'
+    metadata_file = metadata_folder / 'transforms' / 'cumulative' / 'metadata.json'
     metadata_file.write_text(json.dumps(consolidated, ensure_ascii=False, indent=2),
                    encoding='utf-8')
     print(f'Wrote {metadata_file} ({len(consolidated)} files).')
