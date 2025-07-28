@@ -49,16 +49,17 @@ def parse_markdown(path: Path) -> dict:
 
 def main(folder: str):
     root = Path(folder)
+    metadata_folder = root / 'metadata'
     consolidated = {}
-    for md in root.glob('*.md'):
+    for md in metadata_folder.glob('*.md'):
         record = parse_markdown(md)
         translit_key = T.transliterate(md.stem)
         consolidated[translit_key] = record
 
-    dst = root / '_metadata.json'
-    dst.write_text(json.dumps(consolidated, ensure_ascii=False, indent=2),
+    metadata_file = metadata_folder / '_metadata.json'
+    metadata_file.write_text(json.dumps(consolidated, ensure_ascii=False, indent=2),
                    encoding='utf-8')
-    print(f'Wrote {dst} ({len(consolidated)} files).')
+    print(f'Wrote {metadata_file} ({len(consolidated)} files).')
 
 if __name__ == '__main__':
     main(sys.argv[1] if len(sys.argv) > 1 else '.')
