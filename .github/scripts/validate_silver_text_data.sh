@@ -4,8 +4,8 @@
 REPO_ROOT=$(git rev-parse --show-toplevel)
 
 # Define paths relative to the root directory
-TEXT_DATA_DIR="$REPO_ROOT/text_data"
-VALIDATION_SCRIPT="$REPO_ROOT/validation/validate.py"
+TEXT_DATA_DIR="$REPO_ROOT/texts/2_silver"
+VALIDATION_SCRIPT="$REPO_ROOT/utils/validation/validate.py"
 
 echo "validation script paths:"
 echo "REPO_ROOT: $REPO_ROOT"
