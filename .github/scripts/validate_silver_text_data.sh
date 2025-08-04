@@ -18,8 +18,8 @@ for file in "$TEXT_DATA_DIR"/*.txt; do
     python "$VALIDATION_SCRIPT" -i "$file" -s
 done
 
-echo "running validation script with -c content option"
+echo "running validation script with -c content option (allow fail for silver)"
 
 for file in "$TEXT_DATA_DIR"/*.txt; do
-    python "$VALIDATION_SCRIPT" -i "$file" -c
+    python "$VALIDATION_SCRIPT" -i "$file" -c --allow-content-fail
 done

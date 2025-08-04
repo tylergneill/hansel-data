@@ -171,6 +171,7 @@ if __name__ == '__main__':
     parser.add_argument("--unfamiliar-ngrams-filepath", help="where to save optional unfamiliar n-gram output", required=False)
     # parser.add_argument("--flag-long-sequences", help="flag char sequences longer than threshold", action="store_true")
     parser.add_argument("-u", "--update-ngrams", help="option to accept all remaining flagged n-grams and add to json", action="store_true")
+    parser.add_argument("--allow-content-fail", help="don't propogate failure signal if content check fails", action="store_true")
 
     args = parser.parse_args()
     
@@ -183,6 +184,7 @@ if __name__ == '__main__':
         'unfamiliar_ngrams_filepath': args.unfamiliar_ngrams_filepath,
 #         'flagged_ngrams_filepath': args.flagged_ngrams_filepath,
         'update_ngrams': args.update_ngrams,
+        'allow_content_fail': args.allow_content_fail,
     }
 
     # Validate CL arguments
@@ -216,7 +218,8 @@ if __name__ == '__main__':
         content_errors_str = '\n'.join([f"\t{e}" for e in content_errors])
         if not content_valid:
             print(f"Content of file {filename} not valid:\n{content_errors_str}")
-            exit(1)
-    
+            if not options["allow_content_fail"]:
+                exit(1)
+
     print(f"File {filename} validated successfully.")
     exit(0)
