@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  run-script:
+  run-silver-text-validation:
     runs-on: ubuntu-latest
 
     steps:
@@ -31,8 +31,8 @@ jobs:
 
     - run: echo "setting execute permission for validation script"
     - name: Set execute permission for validation script
-      run: chmod +x .github/scripts/validate_text_data.sh
+      run: chmod +x .github/scripts/validate_silver_text_data.sh
 
-    - run: echo "running validation script"
+    - run: echo "running silver validation script"
     - name: Run script
-      run: .github/scripts/validate_text_data.sh
+      run: .github/scripts/validate_silver_text_data.sh
