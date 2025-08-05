@@ -12,7 +12,7 @@ Usage
 -----
 ```bash
 python transform_plaintext_to_tei.py hansel.txt hansel.xml           # minimal
-python transform_plaintext_to_tei.py hansel.txt hansel.xml --pretty  # indented
+python transform_plaintext_to_tei.py hansel.txt hansel.xml --pretty  # extra newlines for human reading
 ```
 """
 
@@ -138,6 +138,9 @@ def build_tei(src_path: Path) -> etree._Element:
 
         # Page break milestone
         if (m := re.match(r'^<([^>]+)>', line)):
+            if text_parent is None:
+                _open_paragraph('implicit')
+            assert text_parent is not None
             etree.SubElement(text_parent, 'pb', attrib={'n': m.group(1).strip()})
             lb_counter = 2
             line = line[m.end():].lstrip()
@@ -186,12 +189,13 @@ def build_tei(src_path: Path) -> etree._Element:
             etree.SubElement(text_parent, 'caesura')
 
         # Line break milestone
+        assert text_parent is not None
         etree.SubElement(text_parent, 'lb', attrib={'n': str(lb_counter)})
         lb_counter += 1
 
         if close_l:
             current_l = None
-            text_parent = current_lg
+            text_parent = current_lg if current_lg is not None else current_p
 
     return root
 
@@ -209,7 +213,6 @@ if __name__ == '__main__':
     xml_output = _serialize(root_tree, pretty=args.pretty)
     # extra readability tweak: add newline after every <pb/> or <lb/> when pretty-printing
     if args.pretty:
-        # 1️⃣ newline after every <p>, <l>, <pb>, <lb>
-        xml_output = re.sub(r'(<[lp]b?[^>]*?>)([^\n])', r"\1\n\2", xml_output)
+        xml_output = re.sub(r'(<[lp]b[^>]*?>)([^\n])', r"\1\n\2", xml_output)
     Path(args.out).write_text(xml_output, encoding='utf-8')
     print(f'Wrote {args.out}')
