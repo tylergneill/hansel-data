@@ -1,21 +1,27 @@
 import re
 from lxml import etree
 
+# XML namespace constant for TEI
 _XML_NS = "http://www.w3.org/XML/1998/namespace"
 
+
 def make_xml_id(label: str) -> str:
+    """
+    Create an XML-safe @xml:id from a human label.
+    Special case: "page,line" → p{page}_{line}
+    Otherwise, prefix "v" and replace non-word chars with underscores.
+    """
     label = label.strip()
     # Page and line number case
     if "," in label:
-        page, line = map(str.strip, label.split(",", 1))
-        if page and line:
+        page, line_no = map(str.strip, label.split(",", 1))
+        if page and line_no:
             page_id = page.replace('.', '_')
-            line_id = line.replace('.', '_')
-            return f"p{page_id}_l{line_id}"
+            line_id = line_no.replace('.', '_')
+            return f"p{page_id}_{line_id}"
     # Fallback for general labels
     cleaned = re.sub(r"\W+", "_", label)
     return f"v{cleaned}"
-
 
 class TEIBuilder:
     def __init__(self, verse_only: bool = False):
@@ -28,7 +34,9 @@ class TEIBuilder:
         self.current_p = None
         self.current_lg = None
         self.current_l = None
-        self.letter_index = 0
+        # index for verse segment labels (ab, cd, ...)
+        self.verse_index = 0
+        # fallback line break counter
         self.lb_counter = 1
 
     def build(self, lines: list[str]) -> etree._Element:
@@ -45,8 +53,7 @@ class TEIBuilder:
         5) Otherwise     → prose + <lb/>
         """
         # 1) div markers {n}
-        div_match = re.match(r'^\{(\d+)\}$', line)
-        if div_match:
+        if div_match := re.match(r'^\{(\d+)\}$', line):
             num = div_match.group(1)
             new_div = etree.SubElement(
                 self.body,
@@ -63,10 +70,9 @@ class TEIBuilder:
             return
 
         # 2) paragraph markers [label] with inline content
-        p_match = re.match(r'^\[([^\]]+?)\]\s*(.*)$', line)
-        if p_match:
-            label = p_match.group(1).strip()
-            content = p_match.group(2)
+        if para_match := re.match(r'^\[([^\]]+?)\]\s*(.*)$', line):
+            label = para_match.group(1).strip()
+            content = para_match.group(2)
             pid = make_xml_id(label)
             new_p = etree.SubElement(
                 self.current_div,
@@ -83,11 +89,55 @@ class TEIBuilder:
             self.current_l = None
             return
 
-        # 3) page breaks <number>
-        # TODO: implement <pb> parsing
+        # 3) page breaks at start of line
+        if pb_match := re.match(r'^<([^>]+)>', line):
+            # implicit paragraph if needed
+            if self.current_p is None:
+                pid = make_xml_id("implicit")
+                new_p = etree.SubElement(
+                    self.current_div,
+                    'p',
+                    {f"{{{_XML_NS}}}id": pid, 'n': pid}
+                )
+                self.current_p = new_p
+            # emit page break
+            etree.SubElement(self.current_p, 'pb', attrib={'n': pb_match.group(1).strip()})
+            # reset verse counter after a page break
+            self.verse_index = 0
+            # trim line for further processing
+            line = line[pb_match.end():].lstrip()
+            if not line:
+                return
 
         # 4) verse lines (leading tab)
-        # TODO: implement <lg>, <l>, <caesura/> logic
+        if line.startswith("	"):
+            verse_text = line.lstrip("	")
+            # ensure paragraph context
+            if self.current_p is None:
+                pid = make_xml_id("implicit")
+                new_p = etree.SubElement(
+                    self.current_div,
+                    'p',
+                    {f"{{{_XML_NS}}}id": pid, 'n': 'implicit'}
+                )
+                self.current_p = new_p
+            parent = self.current_p
+            # open <lg> if needed
+            if self.current_lg is None:
+                self.current_lg = etree.SubElement(parent, 'lg')
+                self.verse_index = 0
+            # compute segment label (ab, cd, ...)
+            start = 2 * self.verse_index
+            seg = chr(ord('a') + start) + chr(ord('a') + start + 1)
+            self.verse_index += 1
+            # create <l n="seg">
+            self.current_l = etree.SubElement(self.current_lg, 'l', {'n': seg})
+            # set text and add caesura only if no trailing bars
+            self.current_l.text = verse_text
+            # detect trailing bars
+            if not re.search(r"(\|+)$", verse_text):
+                etree.SubElement(self.current_l, 'caesura')
+            return
 
         # 5) prose + <lb/> fallback
         # TODO: implement prose line <lb/> logic
