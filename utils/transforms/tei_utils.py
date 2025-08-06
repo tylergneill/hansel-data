@@ -31,14 +31,14 @@ def make_xml_id(label: str) -> str:
         page, line = map(str.strip, label.split(",", 1))
         if page and line:
             return f"p{page}_l{line.replace('.', '_')}"
-    return "p" + re.sub(r"\W+", "_", label)
+    return "v" + re.sub(r"\W+", "_", label)
 
 
-def serialize(root: etree._Element, pretty: bool = False) -> str:
+def serialize(root: etree._Element, pretty_print: bool = True) -> str:
     """Return the XML tree as a Unicode string; indent when *pretty* is True."""
-    if pretty and hasattr(etree, "indent"):          # lxml ≥ 4.5
+    if pretty_print and hasattr(etree, "indent"):          # lxml ≥ 4.5
         etree.indent(root, space="  ")
-    return etree.tostring(root, encoding="unicode", pretty_print=pretty)
+    return etree.tostring(root, encoding="unicode", pretty_print=pretty_print)
 
 # ---------------------------------------------------------------------------
 # Post-processing helpers

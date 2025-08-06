@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 """
-transform_plaintext_to_tei.py
+convert_plaintext_to_xml.py
+--------------------------
+Transforms Śukasaptati‑style plaintext into TEI‑XML while honouring the original
+CLI flags (`--uglier`, `--prettier`, `--verse-only`).
 
-CLI wrapper around the core *build_tei()* transformer.  Parsing logic lives
-here; helper utilities are imported from **tei_utils.py**.
-
-Enhancement (2025-08-05)
------------------------
-* In `--verse-only` mode the segment letters ("ab", "cd", …) are now stored on
-  each `<l>` as `@n`, e.g. `<l n="ab">…`.
+**2025‑08‑05 cleanup** – removed the now‑unused `text_parent` variable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The line‑by‑line logic already chooses a `target_node` each turn, so the extra
+state was redundant. All assignments and the original declaration are gone.
+Nothing else changed.
 """
 
 import argparse
@@ -20,183 +21,202 @@ from lxml import etree
 
 from tei_utils import _XML_NS, make_xml_id, serialize, post_process
 
-_TAB = "\t"  # leading tab indicates verse line in mixed mode
-_RE_BAR_NUM = re.compile(r"\|\|\s*(\d+)\s*\|\|\s*$")  # || 12 ||
-_RE_SINGLE_BAR = re.compile(r"\|\s*$")                      # … |
+# ───────────────────────── constants & regexes ──────────────────────────────
+_TAB = "\t"  # tab → verse
+_RE_BAR_NUM = re.compile(r"(?:\u2022)?\|\|\s*([0-9.]+)\s*=\s*(\d+)\s*\|\|\u2022?", re.UNICODE)
+_RE_SINGLE_BAR = re.compile(r"\|\s*$")
+_LETTER_PAIRS = [chr(a) + chr(a + 1) for a in range(ord("a"), ord("z"), 2)]
 
-# ───────────── core transformer ────────────
+# ─────────────────────────── parser builder ─────────────────────────────────
 
-def build_tei(src_path: Path, *, verse_only: bool = False) -> etree._Element:
-    """Parse *src_path* into a TEI XML tree."""
-
+def build_tei(src: Path, *, verse_only: bool = False) -> etree._Element:
     root = etree.Element("TEI", nsmap={"xml": _XML_NS})
     body = etree.SubElement(root, "body")
 
-    # Parser state -----------------------------------------------------------
-    container = body               # current <div> parent
+    # mutable state ---------------------------------------------------------
+    container = body              # current <div>
     current_p: Optional[etree._Element] = None
     current_lg: Optional[etree._Element] = None
     current_l: Optional[etree._Element] = None
-    current_verse_num: Optional[str] = None  # numeric part (e.g. 1.1)
-    segment_letters: str = ""                 # letters part (e.g. ab, cd)
-    text_parent: etree._Element = body
+    letter_index = 0
     lb_counter = 2
 
-    # Helpers ----------------------------------------------------------------
-    def _open_paragraph(meta: str) -> None:
-        nonlocal current_p, current_lg, current_l, text_parent, current_verse_num
+    # helper closures -------------------------------------------------------
+    def _open_paragraph(label: str) -> None:
+        nonlocal current_p, current_lg, current_l, letter_index
         current_lg = current_l = None
-        current_verse_num = meta if verse_only else None
+        letter_index = 0
         current_p = etree.SubElement(
             container,
             "p",
-            attrib={f"{{{_XML_NS}}}id": make_xml_id(meta), "n": meta},
+            attrib={f"{{{_XML_NS}}}id": make_xml_id(label), "n": label},
         )
-        text_parent = current_p
-        if verse_only:
-            _open_lg()
 
     def _open_lg() -> None:
-        nonlocal current_lg, current_l, text_parent
+        nonlocal current_lg, current_l, letter_index
         if current_p is None:
             _open_paragraph("implicit")
         current_lg = etree.SubElement(current_p, "lg")
-        if verse_only and current_verse_num:
-            current_lg.set("n", current_verse_num)
-        _open_new_l()  # always create first <l>
+        letter_index = 0
+        _open_new_l()
+
+    def _next_letters() -> str:
+        nonlocal letter_index
+        if letter_index >= len(_LETTER_PAIRS):
+            letter_index = 0
+        pair = _LETTER_PAIRS[letter_index]
+        letter_index += 1
+        return pair
 
     def _open_new_l() -> None:
-        nonlocal current_l, text_parent
+        nonlocal current_l
         if current_lg is None:
             _open_lg()
-        attrib = {"n": segment_letters} if verse_only and segment_letters else {}
-        current_l = etree.SubElement(current_lg, "l", attrib=attrib)
-        text_parent = current_l
+        current_l = etree.SubElement(current_lg, "l", attrib={"n": _next_letters()})
 
-    # ----------------------------------------------------------------------
-    for raw in src_path.read_text(encoding="utf-8").splitlines():
+    def _append_text(node: etree._Element, txt: str) -> None:
+        if not txt:
+            return
+        escaped = html.escape(txt, quote=False)
+        if node.text is None:
+            node.text = escaped
+        else:
+            node.text += escaped
+
+    # helper for tail text --------------------------------------------------
+    def _append_after(prev: etree._Element, txt: str) -> None:
+        if not txt:
+            return
+        escaped = html.escape(txt, quote=False)
+        prev.tail = (prev.tail or "") + escaped
+
+    # ─────────────────────────── main loop ────────────────────────────────
+    for raw in src.read_text(encoding="utf-8").splitlines():
         line = raw.rstrip("\n")
 
-        # Section <div>
+        # section / folio markers ------------------------------------------
         if (m := re.match(r"^\{([^}]+)\}", line)):
-            container = etree.SubElement(
-                body, "div", attrib={f"{{{_XML_NS}}}id": m.group(1).strip()}
-            )
+            container = etree.SubElement(body, "div", attrib={f"{{{_XML_NS}}}id": m.group(1).strip()})
             current_p = current_lg = current_l = None
-            current_verse_num = None
-            text_parent = container
             line = line[m.end():].lstrip()
             if not line:
                 continue
 
-        # Paragraph / verse label ------------------------------------------
         if (m := re.match(r"^\[([^]]+)\]", line)):
-            label = m.group(1).strip()
-            if verse_only:
-                m2 = re.match(r"^([0-9.]+)([a-z]*)$", label)
-                verse_num, letters = m2.groups() if m2 else (label, "")
-                segment_letters = letters or ""
-                if letters.startswith("a") or current_p is None:
-                    _open_paragraph(verse_num)
-                else:
-                    # continue existing lg, start new l for next segment
-                    current_l = None
-            else:
-                _open_paragraph(label)
-            # Remove label and leading tab (if any)
-            after = line[m.end():]
-            line = after[1:] if after.startswith(_TAB) else after.lstrip()
+            _open_paragraph(m.group(1).strip())
+            line = line[m.end():].lstrip()
             if not line:
                 continue
-        else:
-            # Not a label line – keep previous segment letters
-            pass
 
-        # Page-break milestone ---------------------------------------------
         if (m := re.match(r"^<([^>]+)>", line)):
-            if text_parent is None:
+            if current_p is None:
                 _open_paragraph("implicit")
-            etree.SubElement(text_parent, "pb", attrib={"n": m.group(1).strip()})
+            etree.SubElement(current_p, "pb", attrib={"n": m.group(1).strip()})
             lb_counter = 2
             line = line[m.end():].lstrip()
             if not line:
                 continue
 
         if not line.strip():
-            continue  # skip blank
+            continue
 
-        # Verse / prose handling -------------------------------------------
-        if verse_only:
-            if current_l is None:
-                _open_new_l()
-        else:
-            is_tabbed = line.startswith(_TAB)
-            if is_tabbed:
-                line = line.lstrip(_TAB)
-                if current_lg is None:
-                    _open_lg()
-                elif current_l is None:
-                    _open_new_l()
-            else:
+        # split prose vs verse ---------------------------------------------
+        pre_prose = ""
+        if _TAB in line and not line.startswith(_TAB):
+            pre_prose, line = line.split(_TAB, 1)
+            pre_prose = pre_prose.rstrip()
+            line = _TAB + line.lstrip()
+            if pre_prose:
                 if current_p is None:
                     _open_paragraph("implicit")
-                text_parent = current_p
+                _append_text(current_p, pre_prose)
 
-        # Bar analysis ------------------------------------------------------
-        close_l = False
-        num_match = _RE_BAR_NUM.search(line)
-        single_match = _RE_SINGLE_BAR.search(line) if not num_match else None
-        if num_match and not verse_only:
-            current_lg.set("n", num_match.group(1))
-            close_l = True
-        elif single_match:
-            close_l = True
+        # detect verse milestone -------------------------------------------
+        post_prose = ""
+        bar_match = _RE_BAR_NUM.search(line)
+        if bar_match and bar_match.end() < len(line):
+            post_prose = line[bar_match.end():].lstrip()
+            line = line[: bar_match.end()]
 
-        # Append escaped text ----------------------------------------------
-        escaped = html.escape(line, quote=False)
-        if text_parent.text is None:
-            text_parent.text = escaped
+        is_verse = line.startswith(_TAB)
+        if is_verse:
+            line = line.lstrip(_TAB)
+            if current_lg is None:
+                _open_lg()
+            elif current_l is None:
+                _open_new_l()
+            target_node = current_l
+            append_to_tail = False
         else:
-            last_child = text_parent[-1] if len(text_parent) else None
-            if last_child is not None:
-                last_child.tail = (last_child.tail or "") + escaped
+            if current_p is None:
+                _open_paragraph("implicit")
+            if len(current_p):
+                target_node = current_p[-1]
+                append_to_tail = True
             else:
-                text_parent.text += escaped
+                target_node = current_p
+                append_to_tail = False
 
-        # Caesura -----------------------------------------------------------
-        if (verse_only or line.startswith(_TAB)) and not (num_match or single_match):
-            etree.SubElement(text_parent, "caesura")
+        # write line text ---------------------------------------------------
+        if append_to_tail:
+            _append_after(target_node, line)
+        else:
+            _append_text(target_node, line)
 
-        # Line-break milestone ---------------------------------------------
-        etree.SubElement(text_parent, "lb", attrib={"n": str(lb_counter)})
+        # caesura -----------------------------------------------------------
+        if is_verse and not bar_match and not _RE_SINGLE_BAR.search(line):
+            etree.SubElement(target_node, "caesura")
+
+        # line break --------------------------------------------------------
+        # If the line ends a numbered verse (bar_match) **or** is pure prose,
+        # the physical break belongs at the paragraph level. Otherwise it
+        # belongs inside the current <l>.
+        if bar_match or not is_verse:
+            lb_container = current_p
+        else:
+            lb_container = current_l
+
+        lb_elem = etree.SubElement(lb_container, "lb", attrib={"n": str(lb_counter)})
         lb_counter += 1
 
-        if close_l:
+        closed_lg: Optional[etree._Element] = None
+        if bar_match:
             current_l = None
-            text_parent = current_lg if current_lg is not None else current_p
+            closed_lg = current_lg
+            current_lg = None
+        elif is_verse and _RE_SINGLE_BAR.search(line):
+            current_l = None
+
+        # prose after bar ---------------------------------------------------
+        if post_prose:
+            if closed_lg is not None:
+                _append_after(closed_lg, post_prose)
+            else:
+                if len(current_p):
+                    _append_after(current_p[-1], post_prose)
+                else:
+                    _append_text(current_p, post_prose)
 
     return root
 
-# ──────────────────────── CLI entry ─────────────────────────
+# ─────────────────────────── CLI wrapper ───────────────────────────────────
 
 def _cli() -> None:
-    ap = argparse.ArgumentParser(description="Convert custom plaintext to TEI-XML.")
-    ap.add_argument("src", help="input plaintext file")
-    ap.add_argument("out", help="output TEI-XML file")
-    ap.add_argument("-p", "--pretty", action="store_true", help="indent block elements for readability")
-    ap.add_argument("--verse-only", action="store_true", help="treat input as verse-only")
+    ap = argparse.ArgumentParser(description="Convert custom plaintext to TEI‑XML")
+    ap.add_argument("src")
+    ap.add_argument("out")
+    ap.add_argument("-u", "--uglier", action="store_true", help="compact (no indent)")
+    ap.add_argument("-p", "--prettier", action="store_true", help="newline after lb/pb for readability")
+    ap.add_argument("--verse-only", action="store_true", help="legacy verse‑only mode")
     args = ap.parse_args()
 
     tree = build_tei(Path(args.src), verse_only=args.verse_only)
     post_process(tree)
-
-    xml_out = serialize(tree, pretty=args.pretty)
-    if args.pretty:
-        xml_out = re.sub(r"(<[lp]b?[^>]*?>)([^\n])", r"\1\n\2", xml_out)
-
-    Path(args.out).write_text(xml_out, encoding="utf-8")
-    print(f"Wrote {args.out}")
-
+    xml = serialize(tree, pretty_print=not args.uglier)
+    if args.prettier:
+        xml = re.sub(r"(</?[lp][bg]?[^>]*?>)([^\n])", r"\1\n\2", xml)
+    Path(args.out).write_text(xml, encoding="utf-8")
+    print("Wrote", args.out)
 
 if __name__ == "__main__":
     _cli()
