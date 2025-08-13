@@ -48,4 +48,4 @@ def post_process(root: etree._Element) -> None:
 
 
 def add_extra_newlines(xml: str) -> str:
-    return re.sub(r"(</?[lp][bg]?[^>]*?>)(?!\n)", r"\1\n", xml)
+    return re.sub(r"(</?[lp][bg]?[^>]*?>|<caesura\s*/?>)(?!\n)", r"\1\n", xml)
