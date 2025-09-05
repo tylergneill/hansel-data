@@ -141,7 +141,7 @@ def validate_content(structured_content, options):
             save_ngram_counts(
                 updated_ref_ngram_counts,
                 CONFIG['reference_ngrams_filepath'],
-                CONFIG['max_ngram_size'],
+                # CONFIG['max_ngram_size'], # TODO: use later
             )
 
     return valid, errors
