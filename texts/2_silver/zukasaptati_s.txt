@@ -9,7 +9,7 @@
 [1,2]
 
 	praṇamya śāradāṃ devīṃ divyavijñānaśālinīm |
-	vacmi cetovinodārtham uddhāraṃ kīrasaṃmateḥ || 1.1 = 1 ||
+	vacmi cetovinodārtham uddhāraṃ kīrasaṃmateḥ || 1.1 (= 1) ||
 
 [1,4]
 
@@ -31,7 +31,7 @@ svarṇapañjarasthaḥ sthāpitaḥ paripoṣitaś ca | athaikadā rahasi
 [2,3]
 
 	pitros te duḥkhinor duḥkhāt pataty aśrucayo bhuvi |
-	tena pāpena te vatsa patanaṃ devaśarmavat || 1.2 = 2 ||
+	tena pāpena te vatsa patanaṃ devaśarmavat || 1.2 (= 2) ||
 
 [2,5]
 
@@ -55,9 +55,9 @@ jñānavatī kathaṃ ca tvaṃ jñānavān | tena vyādhenoktam |
 [3,6]
 
 	nijānvayapraṇītaṃ yaḥ samyag dharmaṃ niṣevate |
-	uttamādhamamadhyeṣu vikāreṣu parāṅmukhaḥ || 1.3 = 3 ||
+	uttamādhamamadhyeṣu vikāreṣu parāṅmukhaḥ || 1.3 (= 3) ||
 	sa gṛhī sa muniḥ sādhuḥ sa ca yogī sa dhārmikaḥ |
-	pitṛśuśrūṣako nityaṃ jantuḥ sādhāraṇaś ca yaḥ || 1.4 = 4 ||
+	pitṛśuśrūṣako nityaṃ jantuḥ sādhāraṇaś ca yaḥ || 1.4 (= 4) ||
 
 [3,10]
 
@@ -69,9 +69,9 @@ vinayaparaṃ vyādhaṃ papraccha | tenoktam |
 
 	na pūjayanti ye pūjyān mānyān no mānayanti ye |
 <4>
-	jīvanti nindyamānās te mṛtāḥ svargaṃ na yānti ca || 1.5 = 5 ||
+	jīvanti nindyamānās te mṛtāḥ svargaṃ na yānti ca || 1.5 (= 5) ||
 	vyādhena bodhitas tena sa yayau gṛham ātmanaḥ |
-	abhavat kīrtimān loke parataḥ kīrtibhājanam || 1.6 = 6 ||
+	abhavat kīrtimān loke parataḥ kīrtibhājanam || 1.6 (= 6) ||
 
 [4,4]
 
@@ -84,7 +84,7 @@ yatas tābhir evam uktam |
 [4,9]
 
 	tāvat pitā tathā bandhur yāvaj jīvati mānavaḥ |
-	mṛto mṛta iti jñātvā kṣaṇāt sneho nivartate || 1.7 = 7 ||
+	mṛto mṛta iti jñātvā kṣaṇāt sneho nivartate || 1.7 (= 7) ||
 
 <5>
 
@@ -107,11 +107,11 @@ sati tava buddhir asti | yadi nāsti tadā parābhavapadaṃ bhaviṣyasi |
 [6,1]
 
 yataḥ |	kautukānveṣiṇo nityaṃ durjanā vyasanāgame |
-	māsopavāsinī yadvad vaṇikputrakacagrahe || 1.8 = 8 ||
+	māsopavāsinī yadvad vaṇikputrakacagrahe || 1.8 (= 8) ||
 	papraccha sā tadā sārdhaṃ puṃścalībhiḥ kṛtādarā |
-	sasaṃbhramā jagādedaṃ kim idaṃ bhāṣitaṃ śuka || 1.9 = 9 ||
+	sasaṃbhramā jagādedaṃ kim idaṃ bhāṣitaṃ śuka || 1.9 (= 9) ||
 	yadi te kautukaṃ subhru parārthaṃ gaccha sundari |
-	sthirībhūya tvayā paścāt śrāvyeyaṃ mahatī kathā || 1.10 = 10 ||
+	sthirībhūya tvayā paścāt śrāvyeyaṃ mahatī kathā || 1.10 (= 10) ||
 
 [6,7]
 
@@ -129,13 +129,13 @@ pratipannaṃ tat karomi |
 [7,3]
 
 uktaṃ ca |	chijjaü sīsaṃ aha hou bandhaṇaṃ caaü savvahā lacchī |
-	paḍivaṇṇapālaṇe supurisāṇa jaṃ hou taṃ hou •|| 1.11 = 11 ||•
+	paḍivaṇṇapālaṇe supurisāṇa jaṃ hou taṃ hou •|| 1.11 (= 11) ||•
 tathā ca |	diḍhalohasiṅkhalāṇaṃ assāṇa vi vihapāsabandhāṇaṃ |
-	tāṇaṃ cia ahiaraaro vāābandho supurisassa •|| 1.12 = 12 ||•
+	tāṇaṃ cia ahiaraaro vāābandho supurisassa •|| 1.12 (= 12) ||•
 	adyāpi nojjhati haraḥ kila kālakūṭaṃ
 	kūrmo bibharti dharaṇīṃ khalu cātmapṛṣṭhe |
 	ambhonidhir vahati duḥsahavāḍavāgnim
-	aṅgīkṛtaṃ sukṛtinaḥ paripālayanti || 1.13 = 13 ||
+	aṅgīkṛtaṃ sukṛtinaḥ paripālayanti || 1.13 (= 13) ||
 
 [7,11]
 
@@ -155,7 +155,7 @@ sa ca tāṃ kaṣṭena sukomalavacanair anunīya svagṛhaṃ ninye |
 [8,9]
 
 	kathāṃ śrutvā śukenoktāṃ bhayavismayakāriṇīm |
-	puṃścalīvṛndasaṃyuktā suptā rātrau vaṇikpriyā || 1.14 = 14 ||
+	puṃścalīvṛndasaṃyuktā suptā rātrau vaṇikpriyā || 1.14 (= 14) ||
 
 [8,11]
 
@@ -168,9 +168,9 @@ iti śukasaptatau prathamā kathā ||
 [9,1]
 
 	sā tathaiva samaṃ tābhir dvitīye 'hni niśāmukhe |
-	śukam āpṛcchya calitā śukas tām idam abravīt || 2.1 = 15 ||
+	śukam āpṛcchya calitā śukas tām idam abravīt || 2.1 (= 15) ||
 	yatheṣṭaṃ gaccha suśroṇi yadi jānāsi duḥkṛte |
-	pratyuttaraṃ samāyāte yaśodevīva saṃkaṭe || 2.2 = 16 ||
+	pratyuttaraṃ samāyāte yaśodevīva saṃkaṭe || 2.2 (= 16) ||
 
 [9,5]
 
@@ -199,7 +199,7 @@ eva | yo dānaṃ kuryāt sa bhavet sarvasaṃpadāṃ sthānam |
 [10,10]
 
 uktaṃ ca |	kathayanti na yācante bhikṣāhārā gṛhe gṛhe |
-	arthibhyo dīyatāṃ nityam adātuḥ phalam īdṛśam || 2.3 = 17 ||
+	arthibhyo dīyatāṃ nityam adātuḥ phalam īdṛśam || 2.3 (= 17) ||
 
 [10,12]
 
@@ -213,9 +213,9 @@ sakhīyam iti kṛtvā na nivārayām āsa |
 [11,1]
 
 	rājaputraṃ rājaputrīṃ pratāryaivaṃ ca bhāmini |
-	yaśodevyā mahadbuddhyā nijakāryam anuṣṭhitam || 2.4 = 18 ||
+	yaśodevyā mahadbuddhyā nijakāryam anuṣṭhitam || 2.4 (= 18) ||
 	buddhir asti yadaiṣā te vraja subhru parāntikam |
-	bhaja nidrāṃ viśālākṣi mānyathā svaṃ viḍambaya || 2.5 = 19 ||
+	bhaja nidrāṃ viśālākṣi mānyathā svaṃ viḍambaya || 2.5 (= 19) ||
 
 [11,5]
 
@@ -234,7 +234,7 @@ athānyadine prabhāvatī śukaṃ pṛcchati | śukaḥ |
 [11,8]
 
 	gaccha devi kim āścaryaṃ yatra te ramate manaḥ |
-	nṛpavad yadi jānāsi paritrāṇaṃ tvam ātmanaḥ || 3.1 = 20 ||
+	nṛpavad yadi jānāsi paritrāṇaṃ tvam ātmanaḥ || 3.1 (= 20) ||
 
 [11,10]
 
@@ -262,7 +262,7 @@ yato rājñāṃ duṣṭanigrahaḥ śiṣṭapālanaṃ ca svargāya |
 
 uktaṃ ca |	prajāpīḍanasaṃtāpāt samudbhūto hutāśanaḥ |
 <13>
-	rājñaḥ kulaṃ śriyaṃ prāṇān nādagdhvā vinivartate || 3.2 = 21 ||
+	rājñaḥ kulaṃ śriyaṃ prāṇān nādagdhvā vinivartate || 3.2 (= 21) ||
 
 [13,2]
 
@@ -293,7 +293,7 @@ gaccha | yato bālakād api hitaṃ vākyaṃ grāhyam |
 [14,3]
 
 	kṛtāvajñaḥ purā devi vṛddhavākyaparāṅmukhaḥ |
-	patito brāhmaṇo 'narthe viṣakanyāvivāhane || 4.1 = 22 ||
+	patito brāhmaṇo 'narthe viṣakanyāvivāhane || 4.1 (= 22) ||
 
 [14,5]
 
@@ -309,12 +309,12 @@ laghuvayāś ca | tataś ca sā ātmano rūpalāvaṇyayauvanaṃ śuśoca |
 [14,13]
 
 	avidagdhaḥ patiḥ strīṇāṃ prauḍhāṇāṃ nāyako 'guṇī |
-	guṇināṃ tyāgināṃ stoko vibhavaś ceti duḥkhakṛt || 4.2 = 23 ||
+	guṇināṃ tyāgināṃ stoko vibhavaś ceti duḥkhakṛt || 4.2 (= 23) ||
 <15>
 	pāusasamaapavāso jovvaṇadiahe tahā a dāliddaṃ |
-	paḍhamasiṇehavioo tiṇṇi vi garuāi dukkhāiṃ •|| 4.3 = 24 ||•
+	paḍhamasiṇehavioo tiṇṇi vi garuāi dukkhāiṃ •|| 4.3 (= 24) ||•
 	appatthāve paḍhiaṃ kaṇṭhavihūṇaṃ ca gāiaṃ gīaṃ |
-	mā mā bhaṇantisuraaṃ tiṇṇi vi garuāi dukkhāiṃ •|| 4.4 = 25 ||•
+	mā mā bhaṇantisuraaṃ tiṇṇi vi garuāi dukkhāiṃ •|| 4.4 (= 25) ||•
 
 [15,5]
 
@@ -330,7 +330,7 @@ tasya brāhmaṇasya tasyāś cānyonyam anurāgaḥ saṃjātaḥ |
 uktaṃ ca |	prītiḥ syād darśanādyaiḥ prathamam atha manaḥsaṅgasaṃkalpabhāvo
 	nidrācchedas tanutvaṃ vapuṣi kaluṣatā cendriyāṇāṃ nivṛttiḥ |
 	hrīnāśonmādamūrcchāmaraṇam iti jagad yāty avasthā daśaitāḥ
-	lagnair yat puṣpabāṇaiḥ sa jayati madanaḥ saṃnirastānyadhanvī || 4.5 = 26 ||
+	lagnair yat puṣpabāṇaiḥ sa jayati madanaḥ saṃnirastānyadhanvī || 4.5 (= 26) ||
 
 [16,7]
 
@@ -360,11 +360,11 @@ ca duḥkhadāṃ muñca śīghram |
 uktaṃ ca |	vaidyaṃ pānarataṃ naṭaṃ kupaṭhitaṃ mūrkhaṃ parivrājakaṃ
 	yodhaṃ kāpuruṣaṃ viṭaṃ vivayasaṃ svādhyāyahīnaṃ dvijam |
 	rājyaṃ bālanarendramantrirahitaṃ mitraṃ chalānveṣi ca
-	bhāryāṃ yauvanagarvitāṃ pararatāṃ muñcanti ye paṇḍitāḥ || 4.6 = 27 ||
+	bhāryāṃ yauvanagarvitāṃ pararatāṃ muñcanti ye paṇḍitāḥ || 4.6 (= 27) ||
 	tathāpi kāminīlubdho dhikkṛtaḥ sādhubhis tadā |
-	tām evādāya calitas tatkṛte nihataḥ pathi || 4.7 = 28 ||
+	tām evādāya calitas tatkṛte nihataḥ pathi || 4.7 (= 28) ||
 	tad devi yaḥ karoty evam avajñāṃ vṛddhaśikṣitaḥ |
-	sa parābhavam āpnoti govindo brāhmaṇo yathā || 4.8 = 29 ||
+	sa parābhavam āpnoti govindo brāhmaṇo yathā || 4.8 (= 29) ||
 
 [18,9]
 
@@ -383,7 +383,7 @@ punar anyadine sā gamanāya śukaṃ pṛcchati | śukaḥ |
 [18,12]
 
 	gaccha devi vijānāsi yadi kartuṃ tvam uttaram |
-	sabhāyāṃ nṛpater yadvad viṣame bālapaṇḍitā || 5.1 = 30 ||
+	sabhāyāṃ nṛpater yadvad viṣame bālapaṇḍitā || 5.1 (= 30) ||
 
 <19>
 
@@ -405,7 +405,7 @@ bālapaṇḍitayā babhāṣe | tāta katham udvignacitta iva lakṣyase | kath
 viṣādasya kāraṇam | vidvadbhir vipady apy uccaiḥ sthātavyam |
 <20>
 uktaṃ ca |	saṃpadi yasya na harṣo vipadi viṣādo raṇe ca dhīratvam |
-	taṃ bhuvanatrayatilakaṃ jananī janayati sutaṃ viralam || 5.2 = 31 ||
+	taṃ bhuvanatrayatilakaṃ jananī janayati sutaṃ viralam || 5.2 (= 31) ||
 
 [20,3]
 
@@ -415,22 +415,22 @@ nagarān nirvāsayati |
 [20,5]
 
 yataḥ |	na sauhṛdaṃ na viśvāso na sneho na ca bandhutā |
-	kenāpi saha saṃsāre kuto rājñā chalārthinā || 5.3 = 32 ||
+	kenāpi saha saṃsāre kuto rājñā chalārthinā || 5.3 (= 32) ||
 
 [20,7]
 
 uktaṃ ca |	kāke śaucaṃ dyūtakāre ca satyaṃ sarpe kṣāntiḥ strīṣu kāmopaśāntiḥ |
-	klībe dhairyaṃ madyape tattvacintā rājā mitraṃ kena dṛṣṭaṃ śrutaṃ vā || 5.4 = 33 ||
+	klībe dhairyaṃ madyape tattvacintā rājā mitraṃ kena dṛṣṭaṃ śrutaṃ vā || 5.4 (= 33) ||
 
 [20,9]
 
 kiṃ ca |	nadīnāṃ nakhināṃ caiva śṛṅgiṇāṃ śastrapāṇinām |
-	viśvāso naiva kartavyaḥ strīṣu rājakuleṣu ca || 5.5 = 34 ||
+	viśvāso naiva kartavyaḥ strīṣu rājakuleṣu ca || 5.5 (= 34) ||
 	bhoginaḥ kañcukāsaktāḥ krūrāḥ kuṭilagaminaḥ |
-	duḥkhopasarpaṇīyāś ca rājāno bhujagā iva || 5.6 = 35 ||
+	duḥkhopasarpaṇīyāś ca rājāno bhujagā iva || 5.6 (= 35) ||
 	hasann api nṛpo hanti mānayann api durjanaḥ |
 <21>
-	spṛśann api gajo hanti jighrann api bhujaṅgamaḥ || 5.7 = 36 ||
+	spṛśann api gajo hanti jighrann api bhujaṅgamaḥ || 5.7 (= 36) ||
 
 [21,2]
 
@@ -440,7 +440,7 @@ jīvitum icchatā dvijaiḥ saha paradeśaṃ gantavyam |
 [21,4]
 
 uktaṃ ca |	tyajed ekaṃ kulasyārthe grāmasyārthe kulaṃ tyajet |
-	grāmaṃ janapadasyārthe ātmārthe pṛthivīṃ tyajet || 5.8 = 37 ||
+	grāmaṃ janapadasyārthe ātmārthe pṛthivīṃ tyajet || 5.8 (= 37) ||
 
 [21,6]
 
@@ -451,30 +451,30 @@ paraṃ svāmirahitānāṃ na kvāpi pūjā |
 
 yata uktam |
 	apradhānaḥ pradhānaḥ syād yadi seveta pārthivam |
-	pradhāno 'py apradhānaḥ syād yadi sevāvivarjitaḥ || 5.9 = 38 ||
+	pradhāno 'py apradhānaḥ syād yadi sevāvivarjitaḥ || 5.9 (= 38) ||
 	āsannam eva nṛpatir bhajate manuṣyaṃ
 	vidyāvihīnam akulīnam asaṃstutaṃ vā |
 	prāyeṇa bhūmipatayaḥ pramadā latāś ca
-	yaḥ pārśvato bhavati taṃ pariveṣṭayanti || 5.10 = 39 ||
+	yaḥ pārśvato bhavati taṃ pariveṣṭayanti || 5.10 (= 39) ||
 	ārohanti śanair bhṛtyā dhunvantam api pārthivam |
-	kopaprasādavastūnāṃ vicinvanti samīpagāḥ || 5.11 = 40 ||
+	kopaprasādavastūnāṃ vicinvanti samīpagāḥ || 5.11 (= 40) ||
 
 <22>
 
 [22,1]
 
 tathā ca |	vidyāvatāṃ mahecchānāṃ śilpavikramaśālinām |
-	sevāvṛttividāṃ caiva nāśrayaḥ pārthivaṃ vinā || 5.12 = 41 ||
+	sevāvṛttividāṃ caiva nāśrayaḥ pārthivaṃ vinā || 5.12 (= 41) ||
 	ye jātyādimahotsāhā nopagacchanti pārthivam |
-	teṣām āmaraṇaṃ bhikṣā prāyaś cittaṃ vinirmitam || 5.13 = 42 ||
+	teṣām āmaraṇaṃ bhikṣā prāyaś cittaṃ vinirmitam || 5.13 (= 42) ||
 	rogair grahair nṛpair grasto yo na vetti jaḍakriyaḥ |
-	madhyamantram upāyaṃ ca so 'vaśyaṃ tāta na sthiraḥ || 5.14 = 43 ||
+	madhyamantram upāyaṃ ca so 'vaśyaṃ tāta na sthiraḥ || 5.14 (= 43) ||
 uktaṃ ca |	sarpān vyāghrān gajān siṃhān dṛṣṭvopāyair vaśīkṛtān |
-	rājeti kiyatī mātrā dhīmatām apramādinām || 5.15 = 44 ||
+	rājeti kiyatī mātrā dhīmatām apramādinām || 5.15 (= 44) ||
 tathā ca |	rājānam eva saṃśritya vidvān yāti paronnatim |
-	vinā malayam anyatra candanaṃ na vivardhate || 5.16 = 45 ||
+	vinā malayam anyatra candanaṃ na vivardhate || 5.16 (= 45) ||
 	dhavalāny ātapatrāṇi vājinaś ca manoramāḥ |
-	sadā mattāś ca mātaṅgāḥ prasanne sati bhūpatau || 5.17 = 46 ||
+	sadā mattāś ca mātaṅgāḥ prasanne sati bhūpatau || 5.17 (= 46) ||
 
 [22,13]
 
@@ -485,7 +485,7 @@ viṣādībhava |
 
 yataḥ |	rājagrahe samāyāte viṣame kāryasaṃśaye |
 <23>
-	saṃdigdhamanasāṃ rājñāṃ pradhānāḥ saṃśayacchidaḥ || 5.18 = 47 ||
+	saṃdigdhamanasāṃ rājñāṃ pradhānāḥ saṃśayacchidaḥ || 5.18 (= 47) ||
 
 [23,2]
 
@@ -498,15 +498,15 @@ matsyānāṃ hāsyaṃ dṛṣṭaṃ śrutaṃ vā | kathaṃ mām abalājana�
 [23,7]
 
 yataḥ |	itaro 'pi na sāmānyo nṛpatir divyarūpabhṛt |
-	tvaṃ punar vikramādityo yathārtho 'si paraṃtapa || 5.19 = 48 ||
+	tvaṃ punar vikramādityo yathārtho 'si paraṃtapa || 5.19 (= 48) ||
 uktaṃ ca |	indrāt prabhutvaṃ jvalanāt pratāpaṃ krodhaṃ yamād vaiśravaṇāc ca vittam |
-	sattvasthire rāmajanārdanābhyām ādāya rājñaḥ kriyate śarīram || 5.20 = 49 ||
+	sattvasthire rāmajanārdanābhyām ādāya rājñaḥ kriyate śarīram || 5.20 (= 49) ||
 tathā ca bhārate |
 
 [23,12]
 
 	mā vṛkodara pādena ekādaśacamūpatim |
-	pañcānām api yo bharttā nāsāprakṛtimāninī (?) || 5.21 = 50 ||
+	pañcānām api yo bharttā nāsāprakṛtimāninī (?) || 5.21 (= 50) ||
 
 [23,14]
 
@@ -518,9 +518,9 @@ athānyebhyaś cet śrotuṃ kautukaṃ tarhi śṛṇu |
 [24,1]
 
 	iyaṃ rājñī na spṛśati hy asmān matsyān mahāsatī |
-	puruṣākhyān ato rājan hasitāḥ śapharā dhruvam || 5.22 = 51 ||
+	puruṣākhyān ato rājan hasitāḥ śapharā dhruvam || 5.22 (= 51) ||
 	paribhāvyas tvayā rājan ślokārtho 'yaṃ sadā hṛdi |
-	mūḍhadhīr anyathā deva yadi pṛcchasi māṃ punaḥ || 5.23 = 52 ||
+	mūḍhadhīr anyathā deva yadi pṛcchasi māṃ punaḥ || 5.23 (= 52) ||
 
 [24,5]
 
@@ -529,7 +529,7 @@ rājan rājapatnyāḥ sūryam apaśyantyās tat katham asatītvaśaṅkā syāt
 [24,6]
 
 	ślokārthe prastutārthe ca matsyānāṃ hasanaṃ budhāḥ |
-	sanṛpā na vijānanti api sarvārthakovidāḥ || 5.24 = 53 ||
+	sanṛpā na vijānanti api sarvārthakovidāḥ || 5.24 (= 53) ||
 
 [24,8]
 
@@ -553,7 +553,7 @@ nidrāṃ lebhe |
 [25,1]
 
 uktaṃ ca |	nidrā bhadre kutas teṣāṃ ye ṛṇavyādhipīḍitāḥ |
-	avidheyakalatrāś ca ye cānye kṛtavairiṇaḥ || 6.1 = 54 ||
+	avidheyakalatrāś ca ye cānye kṛtavairiṇaḥ || 6.1 (= 54) ||
 
 [25,3]
 
@@ -567,7 +567,7 @@ sā āha | rājan māṃ mā pṛccha |
 [25,6]
 
 yataḥ |	paścāttāpo 'tra bhavitā bhāryāyā vaṇijo yathā |
-	āgraheṇa kṛtaḥ patyau maṇḍakāgamanaṃ prati || 6.2 = 55 ||
+	āgraheṇa kṛtaḥ patyau maṇḍakāgamanaṃ prati || 6.2 (= 55) ||
 
 [25,8]
 
@@ -579,12 +579,12 @@ puṇyakṣayād dhanaṃ kṣīṇam | sa ca janaiḥ parityaktaḥ | yato jano
 
 uktaṃ ca |	yasyārthās tasya mitrāṇi yasyārthās tasya bāndhavāḥ |
 <26>
-	yasyārthāḥ sa pumāṃl loke yasyārthāḥ sa ca paṇḍitaḥ || 6.3 = 56 ||
+	yasyārthāḥ sa pumāṃl loke yasyārthāḥ sa ca paṇḍitaḥ || 6.3 (= 56) ||
 tathā ca bhārate |
 	jīvanto 'pi mṛtāḥ pañca śrūyante kila bhārata |
-	daridro vyādhito mūrkhaḥ pravāsī nityasevakaḥ || 6.4 = 57 ||
+	daridro vyādhito mūrkhaḥ pravāsī nityasevakaḥ || 6.4 (= 57) ||
 tathā ca |	iha loke hi dhanināṃ paro 'pi svajanāyate |
-	svajano 'pi daridrāṇāṃ tatkṣaṇād durjanāyate || 6.5 = 58 ||
+	svajano 'pi daridrāṇāṃ tatkṣaṇād durjanāyate || 6.5 (= 58) ||
 
 [26,7]
 
@@ -595,7 +595,7 @@ prāptaḥ | tataś cintitam | kim asau mama vidhāsyati |
 [26,10]
 
 uktaṃ ca |	bubhukṣitaḥ kiṃ na karoti pāpaṃ kṣīṇā narā niḥkaruṇā bhavanti |
-	prāṇārtham ete hi samācaranti mataṃ satāṃ yan na mataṃ tad eṣām || 6.6 = 59 ||
+	prāṇārtham ete hi samācaranti mataṃ satāṃ yan na mataṃ tad eṣām || 6.6 (= 59) ||
 
 <27>
 
@@ -616,7 +616,7 @@ guhyaṃ na kathayasi tat kaḥ snehaḥ |
 [28,3]
 
 uktaṃ ca |	dadāti pratigṛhṇāti guhyam ākhyāti pṛcchati |
-	bhuṅkte bhojayati caiva ṣaḍvidhaṃ prītilakṣaṇam || 6.7 = 60 ||
+	bhuṅkte bhojayati caiva ṣaḍvidhaṃ prītilakṣaṇam || 6.7 (= 60) ||
 
 [28,5]
 
@@ -628,7 +628,7 @@ pṛcchati | kathaṃ maṇḍakaprāptiḥ | patir āha | vidheḥ prasādāt |
 [28,9]
 
 uktaṃ ca |	dvīpād anyasmād api madhyād api jalanidher diśo 'py antāt |
-	ānīya jhaṭiti ghaṭayati vidhir abhimatam abhimukhībhūtaḥ || 6.8 = 61 ||
+	ānīya jhaṭiti ghaṭayati vidhir abhimatam abhimukhībhūtaḥ || 6.8 (= 61) ||
 
 [28,11]
 
@@ -636,7 +636,7 @@ kiṃ ca |	kṣutkṣāmasya karaṇḍapiṇḍitatanor mlānendriyasya kṣudh
 	kṛtvākhur vivaraṃ svayaṃ nipatito naktaṃ mukhe bhoginaḥ |
 	tṛptas tatpiśitena satvaram asau tenaiva yātaḥ pathā
 <29>
-	svasthās tiṣṭhata daivam eva hi nṛṇāṃ vṛddhau kṣaye kāraṇam || 6.9 = 62 ||
+	svasthās tiṣṭhata daivam eva hi nṛṇāṃ vṛddhau kṣaye kāraṇam || 6.9 (= 62) ||
 
 [29,2]
 
@@ -647,7 +647,7 @@ tadā tena daivopahatacittena kathitam |
 [29,5]
 
 uktaṃ ca |	yasmai devāḥ prayacchanti puruṣāya parābhavam |
-	buddhiṃ tasyāpakarṣanti na sa vetty ātmano hitam || 6.10 = 63 ||
+	buddhiṃ tasyāpakarṣanti na sa vetty ātmano hitam || 6.10 (= 63) ||
 
 [29,7]
 
@@ -659,7 +659,7 @@ buddhyā mucyate |
 uktaṃ ca |	rāmo hemamṛgaṃ na vetti nahuṣo yāne yunakti dvijān
 	viprād eva savatsadhenuharaṇe jātā matiś cārjune |
 	dyūte bhrātṛcatuṣṭayaṃ ca mahiṣīṃ dharmātmajo dattavān
-	prāyaḥ satpuruṣo 'py anarthasamaye buddhyā parityajyate || 6.11 = 64 ||
+	prāyaḥ satpuruṣo 'py anarthasamaye buddhyā parityajyate || 6.11 (= 64) ||
 
 [29,13]
 
@@ -693,7 +693,7 @@ sā cāha |
 [31,5]
 
 	devāgraho na kartavyaḥ paścāttāpo bhaviṣyati |
-	sthagikāsaktacittasya viprasyābhūt purā yathā || 7.1 = 65 ||
+	sthagikāsaktacittasya viprasyābhūt purā yathā || 7.1 (= 65) ||
 
 [31,7]
 
@@ -702,9 +702,9 @@ ca keśavo nāma brāhmaṇaḥ | tena kadācid iti cintitam | yad ahaṃ pitṛ
 na bhokṣye |
 <32>
 uktaṃ ca |	uttamāḥ svaguṇaiḥ khyātā madhyamāś ca pitur guṇaiḥ |
-	adhamā mātulaiḥ khyātā śvaśuraiś cādhamādhamāḥ || 7.2 = 66 ||
-kiṃ ca |	piara viḍhattaï davvḍaï caḍḍiri ko ṇa karei |
-	saïṁ viḍhavaï saïṁ bhojaaï viralā jaṇaṇi jaṇei •|| 7.3 = 67 ||•
+	adhamā mātulaiḥ khyātā śvaśuraiś cādhamādhamāḥ || 7.2 (= 66) ||
+kiṃ ca |	piara viḍhattaï davvaḍaï caḍḍiri ko ṇa karei |
+	saïṁ viḍhavaï saïṁ bhojaaï viralā jaṇaṇi jaṇei •|| 7.3 (= 67) ||•
 
 [32,5]
 
@@ -719,7 +719,7 @@ dadarśa | sa ca vipras tasyāgre kṛtāñjalipuṭas tasthau | tāpaso dhyāna
 [33,1]
 
 	kiṃ kasmai dīyate loke trāyate ko bhavārṇavāt |
-	asādhyaṃ sādhyate kasya kāle 'sminn atither aho || 7.4 = 68 ||
+	asādhyaṃ sādhyate kasya kāle 'sminn atither aho || 7.4 (= 68) ||
 
 [33,3]
 
@@ -729,9 +729,9 @@ tataḥ sa brāhmaṇa ūrdhvabāhur jagāda | tavāham atithir dhanārthī | t�
 [33,5]
 
 uktaṃ ca |	stokārthaprārthanān dīnān dṛṣṭvodārān hi yācakān |
-	khidyante 'tīva manasi api prāṇapradāyinaḥ || 7.5 = 69 ||
+	khidyante 'tīva manasi api prāṇapradāyinaḥ || 7.5 (= 69) ||
 kiṃ ca |	ahihūo vi a vivaā karei suaṇo parassa uvaāraṃ |
-	oṇei aṇṇadāvaṃ candaṇataruo sakhaṇḍo vi •|| 7.6 = 70 ||•
+	oṇei aṇṇadāvaṃ candaṇataruo sakhaṇḍo vi •|| 7.6 (= 70) ||•
 
 <34>
 
@@ -753,7 +753,7 @@ ca suptasya sindūraṃ gṛhītam | tato dravyābhāve kuṭṭinyā gṛhān n
 [35,4]
 
 uktaṃ ca |	viśvāsapratipannānāṃ vañcane kā vidagdhatā |
-	aṅkam āruhya suptaṃ hi hantuṃ kiṃ nāma pauruṣam || 7.7 = 71 ||
+	aṅkam āruhya suptaṃ hi hantuṃ kiṃ nāma pauruṣam || 7.7 (= 71) ||
 
 [35,5]
 
@@ -763,9 +763,9 @@ tato vivādaḥ saṃjātaḥ | kuṭṭiny āha |
 [35,7]
 
 	dhūrto 'sau matsutālubdho dhanahīno bhavaty asau |
-	manobhavagrahagrasto asamaṃjasam īdṛśam || 7.8 = 72 ||
+	manobhavagrahagrasto asamaṃjasam īdṛśam || 7.8 (= 72) ||
 	janair guṇair asaṃbhāvyaṃ rājñā kathaṃ saṃbhāvyate |
-	paraṃ satyam idaṃ jātaṃ sindūraṃ dhanadaṃ yataḥ || 7.9 = 73 ||
+	paraṃ satyam idaṃ jātaṃ sindūraṃ dhanadaṃ yataḥ || 7.9 (= 73) ||
 
 [35,11]
 
@@ -790,9 +790,9 @@ dvitīye 'hni saṃyāte rājānaṃ prāha | deva nāgrahaḥ kartuṃ yujyate 
 [36,8]
 
 yataḥ |	rājñā naivāgrahaḥ kāryaḥ śubhe vāśubhakarmaṇi |
-	tadaṅgāni hi bhūtāni rājñāṃ hi mahatī tanuḥ || 8.1 = 74 ||
+	tadaṅgāni hi bhūtāni rājñāṃ hi mahatī tanuḥ || 8.1 (= 74) ||
 	ākhyāte ca tava mayā vaṇikputryā yathābhavat |
-	na bahir na gṛhaṃ rājan tathā te 'pi bhaviṣyati || 8.2 = 75 ||
+	na bahir na gṛhaṃ rājan tathā te 'pi bhaviṣyati || 8.2 (= 75) ||
 
 <37>
 
@@ -816,7 +816,7 @@ yāvatā gṛham āgatā tāvatā gṛhaṃ dagdham |
 [38,4]
 
 	na gṛhaṃ na bahir bhūpa vaṇigvadhvā yathābhavat |
-	tathā tava mahārāja bhaviṣyati suniścayam || 8.3 = 76 ||
+	tathā tava mahārāja bhaviṣyati suniścayam || 8.3 (= 76) ||
 
 [38,6]
 
@@ -851,7 +851,7 @@ prāha | tarhi katham idaṃ daṇḍaṃ kurvan pāpabhāk na bhavasi |
 [40,4]
 
 uktaṃ ca |	dharmeṇa rāṣṭraṃ vindeta dharmeṇaivānupālayet |
-	dharmāc charaṇyatāṃ yāti rājā sarvabhayāpahaḥ || 9.1 = 77 ||
+	dharmāc charaṇyatāṃ yāti rājā sarvabhayāpahaḥ || 9.1 (= 77) ||
 
 [40,6]
 
@@ -863,7 +863,7 @@ matsyahāsyakāraṇaṃ papraccha | mantry āha | yady api gṛhaduścaritam ak
 [40,10]
 
 yataḥ |	arthanāśaṃ manastāpaṃ gṛhe duścaritāni ca |
-	vañcanaṃ cāpamānaṃ ca matimān na prakāśayet || 9.2 = 78 ||
+	vañcanaṃ cāpamānaṃ ca matimān na prakāśayet || 9.2 (= 78) ||
 
 <41>
 
@@ -876,7 +876,7 @@ tathāpi tu rājājñā mahatī |
 yataḥ |	prabhuḥ prītisnigdhāṃ dṛśam api na pāpeṣu visṛjet
 	kutaḥ ślāghyām ājñāṃ praṇayarasasāndreṇa manasā |
 	atītyādityāgniprabhṛti bhuvi dharmendriyam ayaṃ
-	nṛpākhyaṃ hi jyotiḥ prasabham idam aindraṃ vijayate || 9.3 = 79 ||
+	nṛpākhyaṃ hi jyotiḥ prasabham idam aindraṃ vijayate || 9.3 (= 79) ||
 
 [41,6]
 
@@ -902,7 +902,7 @@ nijavāsād visarjitā | śukaḥ prabhāvatīm āha |
 
 	tathā tvam api kalyāṇi mā kuruṣva vṛthāgraham |
 <43>
-	yad āgrahaparo loke vilakṣo vikramārkavat || 9.4 = 80 ||
+	yad āgrahaparo loke vilakṣo vikramārkavat || 9.4 (= 80) ||
 
 [43,2]
 
@@ -921,13 +921,13 @@ anyadā saśṛṅgārā prabhāvatī śukam āha |
 [43,5]
 
 	kiṃ kartavyaṃ mayā kīra tvaṃ vadādya priyaṃvada |
-	yadi te 'sti sakhī yāhi śṛṅgārīva sahāyinī || 10.1 = 81 ||
+	yadi te 'sti sakhī yāhi śṛṅgārīva sahāyinī || 10.1 (= 81) ||
 
 [43,7]
 
 prabhāvaty āha | katham etat | śuka āha | asti rājapuraṃ nāma sthānam |
 tatra devasākhyaḥ kauṭumbikaḥ | tatkalatre śṛṅgāravatī subhagā ca | parasparaparitrāṇakṛtabandhaparāyaṇe |
-parapuruṣalampaṭe prasiddhe ratakarmaṇi | (|| 10.2 = 82 ||) anyadā
+parapuruṣalampaṭe prasiddhe ratakarmaṇi | (|| 10.2 (= 82) ||) anyadā
 yāvat subhagā upapatinā saha gṛhāntar vidyate tāvad bahiḥsthānāt patir
 jhiṇṭahasto gṛhadvāri samāyayau | tadā sā kathaṃ bhavatv iti praśnaḥ |
 
@@ -951,13 +951,13 @@ iti śukasaptatau daśamī kathā ||
 [44,8]
 
 pradoṣasamaye 'nyasmin kāminī kāmamohitā | vinayena śukaṃ prāha gacchāmi
-yadi manyase | (|| 11.1 = 83 ||) śukaḥ prāha |
+yadi manyase | (|| 11.1 (= 83) ||) śukaḥ prāha |
 	
 	avaśyam eva gantavyaṃ tvayetthaṃ mama niścayaḥ |
 <45>
-	mano 'bhīṣṭe payo nimne gacchat kaḥ prativārayet || 11.2 = 84 ||
+	mano 'bhīṣṭe payo nimne gacchat kaḥ prativārayet || 11.2 (= 84) ||
 	gatayāpi tvayā tatra kartavyaṃ kiṃcid adbhutam |
-	yathā rambhikayā pūrvaṃ brāhmaṇārthe 'dbhutaṃ kṛtam || 11.3 = 85 ||
+	yathā rambhikayā pūrvaṃ brāhmaṇārthe 'dbhutaṃ kṛtam || 11.3 (= 85) ||
 
 [45,4]
 
@@ -972,16 +972,16 @@ tadākūtam |
 
 uktaṃ ca |
 	udīrito 'rthaḥ paśunāpi gṛhyate hayāś ca nāgāś ca vahanti noditāḥ |
-	anuktam apy ūhati paṇḍito janaḥ pareṅgitajñānaphalā hi buddhayaḥ || 11.4 = 86 ||
+	anuktam apy ūhati paṇḍito janaḥ pareṅgitajñānaphalā hi buddhayaḥ || 11.4 (= 86) ||
 
 <46>
 
 [46,1]
 
 kiṃ ca |	ṇaabbhantaragholantīe haaramaṇarāadiṭṭhīe |
-	puṇaruttapecchirīe bālaa kiṃ kiṃ ṇa bhaṇio si •|| 11.5 = 87 ||•
+	puṇaruttapecchirīe bālaa kiṃ kiṃ ṇa bhaṇio si •|| 11.5 (= 87) ||•
 	acchīhiṃ cia bhaṇiaṃ hiaatthaṃ jo jaṇo ṇa lakkhei |
-	teṇa paḍibohieṇa a kiṃ kīraï ṇa kkhu alleṇa •|| 11.6 = 88 ||•
+	teṇa paḍibohieṇa a kiṃ kīraï ṇa kkhu alleṇa •|| 11.6 (= 88) ||•
 
 [46,5]
 
@@ -1006,9 +1006,9 @@ nirvāhyate |
 [48,1]
 
 uktaṃ ca |	chijjaü sīsaṃ aha hou bandhaṇaṃ caaü savvahā lacchī |
-	paḍivaṇṇapālaṇe supurisāṇa jaṃ hou taṃ hou •|| 11.7 = 89 ||•
+	paḍivaṇṇapālaṇe supurisāṇa jaṃ hou taṃ hou •|| 11.7 (= 89) ||•
 	lajjijjaï jeṇa jaṇo maïlijjaï ṇiakulakkamo jeṇa |
-	kaṇṭhaṭṭhie vi jīe mā sundari taṃ kuṇijjāsu •|| 11.8 = 90 ||•
+	kaṇṭhaṭṭhie vi jīe mā sundari taṃ kuṇijjāsu •|| 11.8 (= 90) ||•
 
 [48,5]
 
@@ -1017,25 +1017,25 @@ rambhikā prāha | mā evaṃ vada |
 [48,6]
 
 	yato 'tidurlabhā rāmā pitṛmātṛparāyaṇā |
-	pitṛmātṛmayair bhūtvā bhoktavyā kāminī naraiḥ || 11.9 = 91 ||
+	pitṛmātṛmayair bhūtvā bhoktavyā kāminī naraiḥ || 11.9 (= 91) ||
 
 [48,8]
 
 uktaṃ ca |	kāmārtāṃ svayam āyātāṃ yo na bhuṅkte nitambinīm |
-	so 'vaśyaṃ narakaṃ yāti tanniḥśvāsahato naraḥ || 11.10 = 92 ||
+	so 'vaśyaṃ narakaṃ yāti tanniḥśvāsahato naraḥ || 11.10 (= 92) ||
 <49>
 	so kiṁva māṇaï para mahila jo ṇavi jaṃpi emva |
-	● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● •|| 11.11 = 93 ||•
+	● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● •|| 11.11 (= 93) ||•
 	jo ṇavi māṇaï ● ● ● ● so kiṁva māṇaï thī avarā i |
-	● ● ● ● ● ● mā kari ṇeha amhahaṃ bhaṅgu •|| 11.12 = 94 ||•
+	● ● ● ● ● ● mā kari ṇeha amhahaṃ bhaṅgu •|| 11.12 (= 94) ||•
 	śrūyate rukmiṇī pūrvaṃ kṛṣṇena madanāturā |
-	gṛhītā bhrātṛjāyāpi kaḥ kāmam atilaṅghayet || 11.13 = 95 ||
+	gṛhītā bhrātṛjāyāpi kaḥ kāmam atilaṅghayet || 11.13 (= 95) ||
 	virañcir api kāmārtaḥ svasutām abhilāṣukaḥ |
-	dṛśyate 'dyāpi viyati hāriṇīṃ tanum āśritaḥ || 11.14 = 96 ||
+	dṛśyate 'dyāpi viyati hāriṇīṃ tanum āśritaḥ || 11.14 (= 96) ||
 	vivāhe pārvatīṃ dṛṣṭvā harasya haravallabhām |
-	caskanda retas tasyāpi bālakhilyās tadudbhavāḥ || 11.15 = 97 ||
+	caskanda retas tasyāpi bālakhilyās tadudbhavāḥ || 11.15 (= 97) ||
 	tayaivaṃ bodhito mūrkhaḥ sa yāvad ramate na tām |
-	phūtkṛtaṃ muṣitāsmīti trāyatāṃ trāyatām aho || 11.16 = 98 ||
+	phūtkṛtaṃ muṣitāsmīti trāyatāṃ trāyatām aho || 11.16 (= 98) ||
 
 <50>
 
@@ -1066,7 +1066,7 @@ athānyadā sā calitā | śukaḥ prāha |
 [51,2]
 
 	viparīte samāyāte yadi vetsi tvam uttaram |
-	yathā śobhikayā proktaṃ vavvūle caṭite sati || 12.1 = 99 ||
+	yathā śobhikayā proktaṃ vavvūle caṭite sati || 12.1 (= 99) ||
 
 [51,4]
 
@@ -1097,7 +1097,7 @@ athānyedyuḥ prabhāvatī śukaṃ pṛcchati | śuka āha |
 [52,7]
 
 	vraja devi sukhaṃ bhuṅkṣva ardhabhukte patau yathā |
-	kṛtaṃ rājikayā citram uttaraṃ dhūlisaṃyutam || 13.1 = 100 ||
+	kṛtaṃ rājikayā citram uttaraṃ dhūlisaṃyutam || 13.1 (= 100) ||
 
 [52,9]
 
@@ -1130,7 +1130,7 @@ sā nitambinī anyedyuś calitā | śukenoktam |
 
 	yuktam eva viśālākṣi paraṃ rantuṃ yadṛcchayā |
 <54>
-	yady āyāte patau vetsi dhanaśrīr iva bhāṣitum || 14.1 = 101 ||
+	yady āyāte patau vetsi dhanaśrīr iva bhāṣitum || 14.1 (= 101) ||
 
 [54,2]
 
@@ -1143,11 +1143,11 @@ gate saṃsthiteva gṛhasthitā |
 [54,7]
 
 	na snāti na ca sā bhuṅkte na jalpati sakhīsamam |
-	nirastāśeṣasaṃskārā svadehe 'pi parāṅmukhī || 14.2 = 102 ||
+	nirastāśeṣasaṃskārā svadehe 'pi parāṅmukhī || 14.2 (= 102) ||
 	malayānilam ārūḍhaḥ kokilālāpaḍiṇḍimaḥ |
-	mallikāmodadūtaś ca madhupāravamaṅgalaḥ || 14.3 = 103 ||
+	mallikāmodadūtaś ca madhupāravamaṅgalaḥ || 14.3 (= 103) ||
 	anyadā tu samāyāto vasantaḥ kālarāṭ kṣitau |
-	mano 'pi vikriyāṃ yasmin yāti saṃyamināṃ kila || 14.4 = 104 ||
+	mano 'pi vikriyāṃ yasmin yāti saṃyamināṃ kila || 14.4 (= 104) ||
 
 [54,13]
 
@@ -1159,9 +1159,9 @@ vayaś ca mā vyarthaṃ vidhehi |
 [55,3]
 
 yataḥ |	vādyate śṛṇu rambhoru kokilārāvaḍiṇḍimaḥ |
-	madanasya nṛpasyeva vasantena dharātale || 14.5 = 105 ||
+	madanasya nṛpasyeva vasantena dharātale || 14.5 (= 105) ||
 	muñcantu māninaḥ sarve mānaṃ sevantu vallabhāḥ |
-	gatvaraṃ yauvanaṃ loke jīvitaṃ ca tathā calam || 14.6 = 106 ||
+	gatvaraṃ yauvanaṃ loke jīvitaṃ ca tathā calam || 14.6 (= 106) ||
 
 [55,7]
 
@@ -1194,7 +1194,7 @@ anyadā sā calitā |
 [56,12]
 
 	hasann āha śuko | yāhi yadi kartuṃ tvam uttaram |
-	vetsi yathā śriyādevyā nūpure 'pahṛte kṛtam || 15.1 = 107 ||
+	vetsi yathā śriyādevyā nūpure 'pahṛte kṛtam || 15.1 (= 107) ||
 
 <57>
 
@@ -1208,9 +1208,9 @@ sā cāpareṇa subuddhināmnā vaṇijā saha ramate | tato lokāpavāde
 [57,5]
 
 uktaṃ ca |	rattā picchanti guṇā dosā picchanti je viratta tti |
-	majjhatthā uṇa purisā dosā vi guṇā vi picchanti •|| 15.2 = 108 ||•
+	majjhatthā uṇa purisā dosā vi guṇā vi picchanti •|| 15.2 (= 108) ||•
 kiṃ ca |	mahilārattā purisā cheā vi ṇa saṃbharanti appāṇaṃ |
-	iare uṇa taruṇīṇaṃ purisā salilaṃ va hatthagaaṃ •|| 15.3 = 109 ||•
+	iare uṇa taruṇīṇaṃ purisā salilaṃ va hatthagaaṃ •|| 15.3 (= 109) ||•
 
 <58>
 
@@ -1261,7 +1261,7 @@ anyadā sā calitā śukaṃ prāha | śukāhaṃ narāntaraṃ gamiṣyāmi |
 [60,3]
 
 	satyam eva tvayābhāṇi kartavyaṃ yan mano 'nugam |
-	manas tu mugdhikā yadvad aśakyān khedayaty alam || 16.1 = 110 ||
+	manas tu mugdhikā yadvad aśakyān khedayaty alam || 16.1 (= 110) ||
 
 [60,5]
 
@@ -1296,10 +1296,10 @@ yad eva manaso 'bhīṣṭaṃ tad eva kāryam |
 [61,12]
 
 uktaṃ ca |	dṛṣṭipūtaṃ nyaset pādaṃ vastrapūtaṃ jalaṃ pibet |
-	satyapūtaṃ vaded vākyaṃ manaḥpūtaṃ samācaret || 17.1 = 111 ||
+	satyapūtaṃ vaded vākyaṃ manaḥpūtaṃ samācaret || 17.1 (= 111) ||
 <62>
 	mano 'nukūlaṃ kurvantu tanvi te duḥkham āgatam |
-	soḍhuṃ śaktās tathā vaktuṃ guṇāḍhyo brāhmaṇo yathā || 17.2 = 112 ||
+	soḍhuṃ śaktās tathā vaktuṃ guṇāḍhyo brāhmaṇo yathā || 17.2 (= 112) ||
 
 [62,3]
 
@@ -1323,7 +1323,7 @@ idam | tatas taṃ vilāsinīpārśvād gataṃ jñātvā maunaṃ vidhāya sthi
 [63,7]
 
 uktaṃ ca |	arthanāśaṃ manastāpaṃ gṛhe duścaritāni ca |
-	vañcanaṃ cāpamānaṃ ca matimān na prakāśayet || 17.3 = 113 ||
+	vañcanaṃ cāpamānaṃ ca matimān na prakāśayet || 17.3 (= 113) ||
 
 [63,9]
 
@@ -1337,7 +1337,7 @@ tayā vijane nītvā hastāt prasādya svarṇābharaṇaṃ dattam |
 [64,1]
 
 	soḍhuṃ tyaktuṃ ca yaḥ śakto manasā kṛtam anyathā |
-	mano 'nukūlatāṃ kurvan na sa nindyaḥ sadā satām || 17.4 = 114 ||
+	mano 'nukūlatāṃ kurvan na sa nindyaḥ sadā satām || 17.4 (= 114) ||
 
 [64,3]
 
@@ -1356,7 +1356,7 @@ anyadā sā calitā śukenoktā |
 [64,6]
 
 	gaccha devi na te doṣo gacchantyāḥ paraveśmani |
-	yadi kācic charīre te buddhiḥ sarṣapacauravat || 18.1 = 115 ||
+	yadi kācic charīre te buddhiḥ sarṣapacauravat || 18.1 (= 115) ||
 
 [64,8]
 
@@ -1372,7 +1372,7 @@ vadati | aho sarṣapāṇāṃ madhye na kiṃcit | tato rājñā sabhāyām
 [65,1]
 
 	baler varṣadine lokaḥ sarṣapān pañca rakṣakān |
-	haste badhnāti tan nūnam apramāṇam ataḥ param || 18.2 = 116 ||
+	haste badhnāti tan nūnam apramāṇam ataḥ param || 18.2 (= 116) ||
 
 [65,3]
 
@@ -1392,7 +1392,7 @@ anyadā prabhāvatī calitā | śukaḥ prāha |
 [65,7]
 
 	kuru yad rocate bhīru yadi kartuṃ tvam īśvarā |
-	yathā santikayā bhartā svacchandā ca vimocitāḥ || 19.1 = 117 ||
+	yathā santikayā bhartā svacchandā ca vimocitāḥ || 19.1 (= 117) ||
 
 [65,9]
 
@@ -1409,7 +1409,7 @@ tatra praviṣṭā | sa ca hāvabhāvādyair anukūlito bhuktaḥ |
 yuktam uktaṃ ca |	sanmārge tāvad āste prabhavati puruṣas tāvad evendriyāṇāṃ
 	lajjāṃ tāvad vidhatte vinayam api samālambate tāvad eva |
 	bhrūcāpākṛṣṭamuktāḥ śravaṇapathajuṣo nīlapakṣmāṇa ete
-	yāval līlāvatīnāṃ na hṛdi dhṛtimuṣo dṛṣṭibāṇāḥ patanti || 19.2 = 118 ||
+	yāval līlāvatīnāṃ na hṛdi dhṛtimuṣo dṛṣṭibāṇāḥ patanti || 19.2 (= 118) ||
 
 [66,8]
 
@@ -1435,7 +1435,7 @@ anyadā prabhāvatī śukaṃ papraccha | śukaḥ prāha |
 [67,5]
 
 	gaccha devi mano yatra ramate te narāntare |
-	kelikāvad yadā vetsi pativañcanam adbhutam || 20.1 = 119 ||
+	kelikāvad yadā vetsi pativañcanam adbhutam || 20.1 (= 119) ||
 
 [67,7]
 
@@ -1469,7 +1469,7 @@ anyasmin dine prabhāvatyā pṛṣṭaḥ śukaḥ prāha |
 [69,2]
 
 	vraja devi na doṣo 'sti vrajatāṃ sarvakarmasu |
-	buddhir asti yadā yeṣāṃ mandodaryāḥ sahāyinī || 21.1 = 118bis ||
+	buddhir asti yadā yeṣāṃ mandodaryāḥ sahāyinī || 21.1 (= 118bis) ||
 
 [69,4]
 
@@ -1491,7 +1491,7 @@ tayā kuṭṭinī gṛham āgatā saṃmānitā |
 uktaṃ ca |  mādhuryaṃ pramadājane sulalitaṃ dākṣiṇyam ārye jane
 	śauryaṃ śatruṣu mārdavaṃ gurujane dharmiṣṭhatā sādhuṣu |
 	marmajñeṣv anuvartanaṃ bahuvidhā mānaṃ jane garvite
-	śāṭhyaṃ pāpajane narasya kathitāḥ paryantam aṣṭau guṇāḥ || 21.2 = 119bis ||
+	śāṭhyaṃ pāpajane narasya kathitāḥ paryantam aṣṭau guṇāḥ || 21.2 (= 119bis) ||
 
 [70,9]
 
@@ -1500,15 +1500,15 @@ tayā ca sarvo 'pi mayūravṛttānto niveditaḥ | sā ca kuṭṭinī viśvās
 [70,11]
 
 uktaṃ ca |	na viśvased aviśvaste viśvaste 'pi na viśvaset |
-	viśvāsād bhayam utpannaṃ mūlād api nikṛntati || 21.3 = 120 ||
+	viśvāsād bhayam utpannaṃ mūlād api nikṛntati || 21.3 (= 120) ||
 	dāreṣu gopyaṃ puruṣasya kiṃcid gopyaṃ vayasyeṣu suteṣu kiṃcit |
 <71>
-	yuktaṃ na yuktaṃ manasā vicintya vaded vipaścin mahato 'nurodhāt || 21.4 = 121 ||
+	yuktaṃ na yuktaṃ manasā vicintya vaded vipaścin mahato 'nurodhāt || 21.4 (= 121) ||
 kiṃ ca |	sopacārāṇi vākyāni śatrūṇām iha lakṣayet |
-	avicāritagītārthā mṛgā yānti parābhavam || 21.5 = 122 ||
+	avicāritagītārthā mṛgā yānti parābhavam || 21.5 (= 122) ||
 kirāte 'py uktam |
 	vrajanti te mūḍhadhiyaḥ parābhavaṃ bhavanti māyāviṣu ye na māyinaḥ |
-	praviśya hi ghnanti śaṭhās tathāvidhān asaṃvṛtāṅgān niśitā iveṣavaḥ || 21.6 = 123 ||
+	praviśya hi ghnanti śaṭhās tathāvidhān asaṃvṛtāṅgān niśitā iveṣavaḥ || 21.6 (= 123) ||
 
 [71,7]
 
@@ -1521,7 +1521,7 @@ rājā prāha |
 [71,9]
 
 	mā hohi suhaggāhī mā pattihi jaṃ ṇa diṭṭhapaccakkhaṃ |
-	paccakkhammi vi diṭṭhe juttājuttaṃ viāṇāhi •|| 21.7 = 124 ||•
+	paccakkhammi vi diṭṭhe juttājuttaṃ viāṇāhi •|| 21.7 (= 124) ||•
 
 [71,11]
 
@@ -1535,7 +1535,7 @@ svayaṃ ca tatra gatvā tām abhāṣata | mugdhe yan mayūrabhakṣaṇaṃ k�
 [72,4]
 
 uktaṃ ca |	eṇaḥ kuraṅgo hariṇas tittirir lāba eva ca |
-	mayūracarmikūrmāś ca śreṣṭhā māṃsagaṇeṣv api || 21.8 = 125 ||
+	mayūracarmikūrmāś ca śreṣṭhā māṃsagaṇeṣv api || 21.8 (= 125) ||
 
 [72,6]
 
@@ -1548,12 +1548,12 @@ uktaṃ ca |	na nīcajanasaṃsargān naro bhadrāṇi paśyati |
 
 [72,9]
 
-	darśayaty eva vikṛtiṃ supriye 'pi khalo yataḥ || 21.9 = 126 ||
+	darśayaty eva vikṛtiṃ supriye 'pi khalo yataḥ || 21.9 (= 126) ||
 	nāśayitum eva nīcaḥ parakāryaṃ vetti na prasādhayitum |
-	pāṭayitum eva śaktir nākhor uddhartum annapiṭam || 21.10 = 127 ||
+	pāṭayitum eva śaktir nākhor uddhartum annapiṭam || 21.10 (= 127) ||
 <73>
 	dujjaṇajaṇasaṃsagge kāaccāo vi hoi vibuhāṇaṃ |
-	pecchaha tilehi pattaṃ khalasaṅge pīḍaṇaṃ jatto •|| 21.11 = 128 ||•
+	pecchaha tilehi pattaṃ khalasaṅge pīḍaṇaṃ jatto •|| 21.11 (= 128) ||•
 
 [73,3]
 
@@ -1562,7 +1562,7 @@ yāvat sā kuṭṭinī peṭāṃ hastena hanti tāvat sā vaṇikputrī savita
 [73,5]
 
 	vibhātā rajanī tāvad yāvad evaṃ kṛtaṃ mayā |
-	prabuddhaṃ ca tadā mātar nāgre kiṃcid vidṛśyate || 21.12 = 129 ||
+	prabuddhaṃ ca tadā mātar nāgre kiṃcid vidṛśyate || 21.12 (= 129) ||
 
 [73,6]
 
@@ -1586,7 +1586,7 @@ punaḥ prabhāvatyā pṛṣṭaḥ śukaḥ prāha |
 [74,2]
 
 	yāhi devi punar yāhi madīyaṃ matam īdṛśam |
-	yadi vetsy uttaraṃ kiṃcid yathā māḍhukayā kṛtam || 22.1 = 130 ||
+	yadi vetsy uttaraṃ kiṃcid yathā māḍhukayā kṛtam || 22.1 (= 130) ||
 
 [74,4]
 
@@ -1617,26 +1617,26 @@ anyadā sakhyas tāṃ puruṣāntarābhisaraṇāyaivam ūcuḥ |
 	yatra svedalavair alaṃ vilulitair vyālupyate candanaṃ
 	sacchedair maṇitaiś ca yatra raṇitaṃ na śrūyate nūpuram |
 	yatrāyānty acireṇa sarvaviṣayāḥ kāmaṃ tadekāgrataḥ
-	sakhyas tat surataṃ bhaṇāmi rataye śeṣā ca lokasthitiḥ || 23.1 = 131 ||
+	sakhyas tat surataṃ bhaṇāmi rataye śeṣā ca lokasthitiḥ || 23.1 (= 131) ||
 
 <76>
 
 [76,1]
 
 tathā ca |	saṃsaatula ṇa jahiṃ caḍaï tassu ṇa jīviu dhaṇu |
-	āi parā jahi lahijjaï taṃ ji bhaṇijjaï pemmu •|| 23.2 = 132 ||•
+	āi parā jahi lahijjaï taṃ ji bhaṇijjaï pemmu •|| 23.2 (= 132) ||•
 	ārogyaṃ param ānandaḥ sukham utsāha eva ca |
-	aiśvaryaṃ priyasaṃbhogaṃ vinā sarvaṃ nirarthakam || 23.3 = 133 ||
+	aiśvaryaṃ priyasaṃbhogaṃ vinā sarvaṃ nirarthakam || 23.3 (= 133) ||
 uktaṃ ca |	ātmānam ālokya ca śobhamānam ādarśabimbe stimitāyatākṣī |
-	haropayāne tvaritā babhūva strīṇāṃ priyālokaphalo hi veṣaḥ || 23.4 = 134 ||
+	haropayāne tvaritā babhūva strīṇāṃ priyālokaphalo hi veṣaḥ || 23.4 (= 134) ||
 
 [76,7]
 
 śukaḥ prāha |	sulabhāḥ puruṣā rājan satataṃ priyavādinaḥ |
-	apriyasya tu pathyasya vaktā śrotā ca durlabhaḥ || 23.5 = 135 ||
+	apriyasya tu pathyasya vaktā śrotā ca durlabhaḥ || 23.5 (= 135) ||
 	tataḥ kiṃ bahunoktena tvaṃ caitāḥ kṛtyakovidāḥ |
 <77>
-	kuṭṭinīcaritaṃ śrutvā tadvicārya tvarānvitā || 23.6 = 136 ||
+	kuṭṭinīcaritaṃ śrutvā tadvicārya tvarānvitā || 23.6 (= 136) ||
 
 [77,2]
 
@@ -1645,7 +1645,7 @@ prabhāvaty āha | katham etat | śuko 'bravīt | asti padmāvatī purī | yatra
 [77,3]
 
 	maṇikuṭṭimamārgeṣu śobhate ravivistaraḥ |
-	śeṣaphaṇamaṇirāgo vasudhām ivopāgataḥ || 23.7 = 137 ||
+	śeṣaphaṇamaṇirāgo vasudhām ivopāgataḥ || 23.7 (= 137) ||
 
 [77,5]
 
@@ -1654,9 +1654,9 @@ tatra sudarśano nāma rājā |
 [77,6]
 
 	śaśinā hariṇā caiva balinā kuśabhūbhujā |
-	kuśaśakticchalatyāgasaṃpad yasya na khaṇḍyate || 23.8 = 138 || (?)
+	kuśaśakticchalatyāgasaṃpad yasya na khaṇḍyate || 23.8 (= 138) || (?)
 	kiṃ tasya varṇyate rājñaḥ prajāpālanaśālinaḥ |
-	yasmiṃ lloke na dṛṣṭā hi doṣā ravikarair iva || 23.9 = 139 ||
+	yasmiṃ lloke na dṛṣṭā hi doṣā ravikarair iva || 23.9 (= 139) ||
 
 [77,10]
 
@@ -1667,11 +1667,11 @@ tasya śṛṅgārasundarī nāma bhāryā | tasya nṛpates tayā saha krīḍa
 
 	yatra sūraḥ kharo ghasro yatra dīrgho 'tiduḥsahaḥ |
 <78>
-	kharaś ca pavano bhīru grīṣme sarvam idaṃ kharam || 23.10 = 140 ||
+	kharaś ca pavano bhīru grīṣme sarvam idaṃ kharam || 23.10 (= 140) ||
 	candanaṃ śucivastraṃ ca pānīyaṃ śuciśītalam |
-	sevyamāno 'pi madhuraḥ śucir jayati nānyathā || 23.11 = 141 ||
+	sevyamāno 'pi madhuraḥ śucir jayati nānyathā || 23.11 (= 141) ||
 	madhyāhne candanaṃ yeṣāṃ sāyaṃ majjanasevanam |
-	rātrau vyajanavātaś ca teṣāṃ grīṣmo 'pi kiṃkaraḥ || 23.12 = 142 ||
+	rātrau vyajanavātaś ca teṣāṃ grīṣmo 'pi kiṃkaraḥ || 23.12 (= 142) ||
 
 [78,6]
 
@@ -1682,16 +1682,16 @@ gataḥ |
 [78,9]
 
 uktaṃ ca |	pratikūlatām upagate hi vidhau viphalatvam eti bahusādhanatā |
-	avalambanāya dinabhartur abhūn na patiṣyataḥ karasahasram api || 23.13 = 143 ||
+	avalambanāya dinabhartur abhūn na patiṣyataḥ karasahasram api || 23.13 (= 143) ||
 	tatrasthaḥ sa tathā bhānū rāgaśeṣo gatāṃśukaḥ |
-	bhātīva vidrumaghaṭaḥ srastaḥ saṃdhyāvadhūkarāt || 23.14 = 144 ||
+	bhātīva vidrumaghaṭaḥ srastaḥ saṃdhyāvadhūkarāt || 23.14 (= 144) ||
 	atrāntare viśālākṣi candro hantuṃ tamoripum |
-	udayādriśiraḥ sthātum udyato 'ṃśubhaṭair vṛtaḥ || 23.15 = 145 ||
+	udayādriśiraḥ sthātum udyato 'ṃśubhaṭair vṛtaḥ || 23.15 (= 145) ||
 <79>
 	prācīmukhe vibhātīndur udayādriśiraḥsthitaḥ |
-	dīpas tribhuvanasyeva pracchannasya tamisrayā || 23.16 = 146 ||
+	dīpas tribhuvanasyeva pracchannasya tamisrayā || 23.16 (= 146) ||
 	udayācalam ārūḍho bhāti candro niśāmukhe |
-	yāminīvanitotsaṅgaḥ śulkaḥ kṛṣṇaśiraḥsthitaḥ || 23.17 = 147 ||
+	yāminīvanitotsaṅgaḥ śulkaḥ kṛṣṇaśiraḥsthitaḥ || 23.17 (= 147) ||
 
 [79,5]
 
@@ -1703,10 +1703,10 @@ duḥkhārtā | candraḥ prāha | eko 'pi tvadīyaḥ sutaḥ ślāghyaḥ |
 [79,9]
 
 uktaṃ ca |	caturo madhuras tyāgī gambhīraś ca kalālayaḥ |
-	guṇagrāhī tathā caivaṃ eko 'pīdṛg varaḥ sutaḥ || 23.18 = 148 ||
+	guṇagrāhī tathā caivaṃ eko 'pīdṛg varaḥ sutaḥ || 23.18 (= 148) ||
 tathā ca |	kiṃ jātair bahubhiḥ putraiḥ śokasaṃtāpakārakaiḥ |
 <80>
-	varam ekaḥ kulālambī yatra viśrūyate kulam || 23.19 = 149 ||
+	varam ekaḥ kulālambī yatra viśrūyate kulam || 23.19 (= 149) ||
 
 [80,2]
 
@@ -1720,14 +1720,14 @@ gṛhṇāti |
 [80,8]
 
 tad yathā |	vaiśikīṃ kṛtrimāṃ vāṇīṃ vyalīkān śapathāṃs tathā |
-	kauṭilyaṃ kṛtrimaṃ bhāvaṃ kṛtrimaṃ ruditaṃ tathā || 23.20 = 150 ||
+	kauṭilyaṃ kṛtrimaṃ bhāvaṃ kṛtrimaṃ ruditaṃ tathā || 23.20 (= 150) ||
 	hāsyaṃ ca kṛtrimaṃ duḥkhaṃ sukhaṃ caivam apārthakam |
 <81>
-	yācanaṃ vinayopetaṃ snehabhāvo nirīhatā || 23.21 = 151 ||
+	yācanaṃ vinayopetaṃ snehabhāvo nirīhatā || 23.21 (= 151) ||
 	samatvaṃ sukhaduḥkheṣu dharmādharmasamakriyā |
-	bhujaṃgapurataś caiva kauṭilyakramadarśanam || 23.22 = 152 ||
+	bhujaṃgapurataś caiva kauṭilyakramadarśanam || 23.22 (= 152) ||
 tathā ca |	aharaṃ karaṃ kavolaṃ thaṇajualaṃ ṇāhimaṇḍalaṃ ramaṇaṃ |
-	itthiajaṇasāmaṇṇaṃ hiaaṃ jaṃ jassa taṃ tassa •|| 23.23 = 153 ||•
+	itthiajaṇasāmaṇṇaṃ hiaaṃ jaṃ jassa taṃ tassa •|| 23.23 (= 153) ||•
 
 [81,6]
 
@@ -1746,7 +1746,7 @@ prati sarvaṃ dāsyati | tayoktam | mātar māṃ vinā taddravyeṇa kim |
 [82,6]
 
 uktaṃ ca |	atikleśena ye hy arthā dharmasyātikrameṇa ca |
-	śatrūṇāṃ praṇipātena mā sma teṣu manaḥ kṛthāḥ || 23.24 = 154 ||
+	śatrūṇāṃ praṇipātena mā sma teṣu manaḥ kṛthāḥ || 23.24 (= 154) ||
 
 [82,8]
 
@@ -1756,11 +1756,11 @@ mātā āha | bhīru mā maivaṃ vada | mṛtyudo 'rthaḥ prāṇadaś ca |
 
 uktaṃ ca |	nāsāhasaṃ samālambya naro bhadrāṇi paśyati |
 <83>
-	sāhasī sarvakāryeṣu lakṣmībhājanam uttamam || 23.25 = 155 ||
+	sāhasī sarvakāryeṣu lakṣmībhājanam uttamam || 23.25 (= 155) ||
 	nābhittvā paramarmāṇi nākṛtvā karma duṣkaram |
-	nāhatvā matsyaghātīva prāpnoti mahatīṃ śriyam || 23.26 = 156 ||
+	nāhatvā matsyaghātīva prāpnoti mahatīṃ śriyam || 23.26 (= 156) ||
 	kālaḥ samaviṣamakaraḥ paribhavasanmānakārakaḥ kālaḥ |
-	kālaḥ karoti puruṣaṃ dātāraṃ yācitāraṃ ca || 23.27 = 157 ||
+	kālaḥ karoti puruṣaṃ dātāraṃ yācitāraṃ ca || 23.27 (= 157) ||
 
 [83,6]
 
@@ -1771,7 +1771,7 @@ gṛhītvā mānarahito niṣkāsitaḥ |
 [83,9]
 
 uktaṃ ca |	vesā vi ramanti jaṇaṃ piaṃ pi vañcanti atthaloheṇa |
-	tāṇa ṇamo vesāṇaṃ appā vi ṇa vallaho jāṇa •|| 23.28 = 158 ||•
+	tāṇa ṇamo vesāṇaṃ appā vi ṇa vallaho jāṇa •|| 23.28 (= 158) ||•
 
 <84>
 
@@ -1788,10 +1788,10 @@ sampadyante |
 uktaṃ ca |	cintām imāṃ vahasi kiṃ gajayūthanātha
 	yūthād viyogavinimīlitanetrayugma |
 	piṇḍaṃ gṛhāṇa piba vāri yathopanītaṃ
-	daivād bhavanti vipado kila sampado vā || 23.29 = 159 ||
+	daivād bhavanti vipado kila sampado vā || 23.29 (= 159) ||
 	kim anena dhanenāpi satvareṇa manasvinām |
 <85>
-	gate na jāyate khedo harṣaś caivāgatena ca || 23.30 = 160 ||
+	gate na jāyate khedo harṣaś caivāgatena ca || 23.30 (= 160) ||
 
 [85,2]
 
@@ -1804,10 +1804,10 @@ strībhiḥ ko na khaṇḍitaḥ |
 uktaṃ ca |	ko 'rthān prāpya na garvito viṣayiṇaḥ kasyāpado 'staṃ gatāḥ
 	strībhiḥ kasya na khaṇḍitaṃ bhuvi manaḥ ko nāma rājñāṃ priyaḥ |
 	kaḥ kālasya na gocarāntaragataḥ ko 'rthī gato gauravaṃ
-	ko vā durjanavāgurāsu patitaḥ kṣemeṇa yātaḥ pumān || 23.31 = 161 ||
+	ko vā durjanavāgurāsu patitaḥ kṣemeṇa yātaḥ pumān || 23.31 (= 161) ||
 <86>
 	ramaṇasihiṇantarāle bahalaare romarāitarugahaṇe |
-	hariharaṇaragovindā viḍambiā maaṇacoreṇa •|| 23.32 = 162 ||•
+	hariharaṇaragovindā viḍambiā maaṇacoreṇa •|| 23.32 (= 162) ||•
 
 [86,3]
 
@@ -1816,7 +1816,7 @@ tat tvaṃ punaḥ potaṃ bhṛtaṃ kṛtvā māṃ putrānvitāṃ tatra pre�
 [86,4]
 
 uktaṃ ca |	kṛte pratikṛtaṃ kuryā hiṃsite pratihiṃsitam |
-	tvayā luñcāpitāḥ pakṣā mayā luñcāpitaṃ śiraḥ || 23.33 = 163 ||
+	tvayā luñcāpitāḥ pakṣā mayā luñcāpitaṃ śiraḥ || 23.33 (= 163) ||
 
 [86,6]
 
@@ -1826,12 +1826,12 @@ dūṣaṇam |
 [86,8]
 
 uktaṃ ca |	diggajakūrmakulācalaphaṇipatividhṛtāpi calati vasudheyam |
-	pratipannam amalamanasāṃ na calati puṃsāṃ yugānte 'pi || 23.34 = 164 ||
+	pratipannam amalamanasāṃ na calati puṃsāṃ yugānte 'pi || 23.34 (= 164) ||
 tathā ca |	acalā calanti palae majjāaṃ sāarā vilaṃghanti |
-	garuā vi taha vikāle paḍivaṇṇa ṇa cca siḍhilenti •|| 23.35 = 165 ||•
+	garuā vi taha vikāle paḍivaṇṇa ṇa cca siḍhilenti •|| 23.35 (= 165) ||•
 <87>
 	dhīrā jāṇa pamāṇaṃ jimiavve taha vi jaṃpiavve a |
-	aïjimiajaṃpiāiṃ pacchā vacche apacchāiṃ •|| 23.36 = 166 ||•
+	aïjimiajaṃpiāiṃ pacchā vacche apacchāiṃ •|| 23.36 (= 166) ||•
 
 [87,3]
 
@@ -1854,7 +1854,7 @@ dvārasthaiva saśaṅkā hastasaṃjñayā ājuhāva |
 [88,4]
 
 	jagādeti cirāl labdho veśyāgṛhagato bhavān |
-	mlecchī bhūtā iyaṃ veśyā sarvasvaṃ me tvayā hṛtam || 23.37 = 167 ||
+	mlecchī bhūtā iyaṃ veśyā sarvasvaṃ me tvayā hṛtam || 23.37 (= 167) ||
 
 [88,6]
 
@@ -1888,7 +1888,7 @@ athānyasmin dine prabhāvatī śukaṃ papraccha | śuko 'py āha |
 
 	yāhi devi vijānāsi yadi jārasamanvitā |
 <90>
-	sajjanīva purā vaktuṃ bhartur agre kacagrahe || 24.1 = 168 ||
+	sajjanīva purā vaktuṃ bhartur agre kacagrahe || 24.1 (= 168) ||
 
 [90,2]
 
@@ -1918,7 +1918,7 @@ anyadā prabhāvatī śukaṃ gamanāya pṛcchati | śukaḥ prāha |
 [91,6]
 
 	kuru yad rocate kartuṃ yadi vetsi pratīṅgitam |
-	śvetāmbareṇa ruddhena yathā pūrvaṃ kṛtaṃ tathā || 25.1 = 169 ||
+	śvetāmbareṇa ruddhena yathā pūrvaṃ kṛtaṃ tathā || 25.1 (= 169) ||
 
 [91,8]
 
@@ -1947,7 +1947,7 @@ anyadā sā calitā | śukaḥ prāha |
 [92,10]
 
 	yāhi devi na te doṣo yadi jānāsi bhāṣitum |
-	ratnādevīva patyā tu prāptā jāradvayānvitā || 26.1 = 170 ||
+	ratnādevīva patyā tu prāptā jāradvayānvitā || 26.1 (= 170) ||
 
 <93>
 
@@ -1965,7 +1965,7 @@ putras tvadgṛhe śaraṇāgataḥ | mayā ca nārpitaḥ |
 
 yataḥ |	sa kṣatriyas trāṇasahaḥ satāṃ yas tat kārmukaṃ karmasu yasya śaktiḥ |
 <94>
-	vahan dvayīm apy aphale 'rthajāte karoty asaṃskārahatām ivoktim || 26.2 = 171 ||
+	vahan dvayīm apy aphale 'rthajāte karoty asaṃskārahatām ivoktim || 26.2 (= 171) ||
 
 [94,2]
 
@@ -1985,7 +1985,7 @@ anyadā prabhāvatī gamanāya śukaṃ pṛcchati sma | śukaḥ prāha |
 [94,6]
 
 	rambhoru gaccha kāmināṃ ko vighnaṃ kartum arhati |
-	mohinīva samarthā ced vicārīkartum īśvari || 27.1 = 172 ||
+	mohinīva samarthā ced vicārīkartum īśvari || 27.1 (= 172) ||
 
 [94,8]
 
@@ -2020,7 +2020,7 @@ anyadā prabhāvatī gamanāya śukaṃ papraccha | śukaḥ prāha |
 [96,2]
 
 	kṛśodari vrajādya tvaṃ yadi jānāsi bhāṣitum |
-	jārasaṃyuktayā pūrvaṃ yathā devikayā kṛtam || 28.1 = 173 ||
+	jārasaṃyuktayā pūrvaṃ yathā devikayā kṛtam || 28.1 (= 173) ||
 
 [96,4]
 
@@ -2054,7 +2054,7 @@ anyedyuḥ prabhāvatī gamanāya śukaṃ pṛcchati sma | so 'py āha |
 [97,8]
 
 	vraja devi vicāraṃ cet kartuṃ jānāsi bhāmini |
-	samaṃ jāreṇa saṃprāptā sundarīva yathā gṛhe || 29.1 = 174 ||
+	samaṃ jāreṇa saṃprāptā sundarīva yathā gṛhe || 29.1 (= 174) ||
 
 [97,10]
 
@@ -2082,7 +2082,7 @@ anyedyuḥ prabhāvatyā pṛṣṭaḥ śukaḥ prāha |
 [98,10]
 
 	gaccha devi viruddhaṃ te gamanaṃ na mataṃ mama |
-	viṣame yadi vetsi tvam uttaraṃ mūladevavat || 30.1 = 175 ||
+	viṣame yadi vetsi tvam uttaraṃ mūladevavat || 30.1 (= 175) ||
 
 <99>
 
@@ -2099,7 +2099,7 @@ tenoktam |
 [99,8]
 
 	yā yasya vallabhā loke ramyā sā tasya nāparā |
-	gadite dhūrtarājena tābhyāṃ muktaś ca tatkṣaṇāt || 30.2 = 176 ||
+	gadite dhūrtarājena tābhyāṃ muktaś ca tatkṣaṇāt || 30.2 (= 176) ||
 
 [99,10]
 
@@ -2120,7 +2120,7 @@ anyadā ca prabhāvatyā pṛṣṭaḥ śukaḥ provāca |
 [100,2]
 
 	yatheṣṭaṃ vraja kalyāṇi keliṃ kartuṃ kṛśodari |
-	śaśakasyeva te buddhir asti cet susahāyinī || 31.1 = 177 ||
+	śaśakasyeva te buddhir asti cet susahāyinī || 31.1 (= 177) ||
 
 [100,4]
 
@@ -2140,9 +2140,9 @@ siṃho 'pi mūrkhas taṃ jale dṛṣṭvā kupito jhampām adān mṛtaś ca 
 [101,6]
 
 	buddhir balavatī bhīrusattvānāṃ na parākramaḥ |
-	śaśakenālpasattvena hataḥ siṃhaḥ parākramī || 31.2 = 178 ||
+	śaśakenālpasattvena hataḥ siṃhaḥ parākramī || 31.2 (= 178) ||
 uktaṃ ca |	ekaṃ hanyān na vā hanyād iṣur mukto dhanuṣmatā |
-	sarāṣṭraṃ saprajaṃ hanti rājānaṃ mantriniścayaḥ || 31.3 = 179 ||
+	sarāṣṭraṃ saprajaṃ hanti rājānaṃ mantriniścayaḥ || 31.3 (= 179) ||
 
 [101,10]
 
@@ -2163,7 +2163,7 @@ athānyedyuḥ prabhāvatī calitā śukaṃ papraccha gamanāya | śukaḥ prā
 [102,2]
 
 	yāhi devi mano yatra gantuṃ te kamalānane |
-	rājinīva vijānāsi vaktuṃ dhūliviparyaye || 32.1 = 180 ||
+	rājinīva vijānāsi vaktuṃ dhūliviparyaye || 32.1 (= 180) ||
 
 [102,4]
 
@@ -2195,7 +2195,7 @@ athānyedyuḥ prabhāvatī gamanāyotsukā śukaṃ papraccha | śukaḥ prāha
 
 	ko doṣo gamyatāṃ devi yadi kartuṃ tvam īśvarā |
 <104>
-	viṣame mālinī yadvad rambhikā patisaṃnidhau || 33.1 = 181 ||
+	viṣame mālinī yadvad rambhikā patisaṃnidhau || 33.1 (= 181) ||
 
 [104,2]
 
@@ -2228,7 +2228,7 @@ pṛṣṭā kim idam iti tadā tayoktam |
 [106,7]
 
 	śraddhāhīnaṃ kṛtaṃ śrāddham idaṃ nūnaṃ tvayā priya |
-	ato 'bhuktvā kṣudhākrāntāḥ pitaras te vinirgatāḥ || 33.2 = 182 ||
+	ato 'bhuktvā kṣudhākrāntāḥ pitaras te vinirgatāḥ || 33.2 (= 182) ||
 
 [106,9]
 
@@ -2250,7 +2250,7 @@ athānyasmin dine gamanārthaṃ prabhāvatī śukaṃ papraccha | śukaḥ prā
 [107,2]
 
 	yāhi devi gatā vetsi bhaṅguraṃ yadi bhāṣitum |
-	kumāryai pāraḍīṃ (?) dattvā yathoktaṃ śambhunā purā || 34.1 = 183 ||
+	kumāryai pāraḍīṃ (?) dattvā yathoktaṃ śambhunā purā || 34.1 (= 183) ||
 
 [107,4]
 
@@ -2279,7 +2279,7 @@ apare 'hni sā śṛṅgārānvitā śukaṃ papraccha | śukaḥ prāha |
 [108,6]
 
 	gaccha devi na te doṣo yadi tatra gatā satī |
-	svārthaṃ kartuṃ vijānāsi tilakrayakaro yathā || 35.1 = 184 ||
+	svārthaṃ kartuṃ vijānāsi tilakrayakaro yathā || 35.1 (= 184) ||
 
 [108,8]
 
@@ -2329,7 +2329,7 @@ sukhaṃ bhoktum | śuka āha |
 [110,10]
 
 	sukham evānubhoktavyaṃ saṃsāre sundari dhruvam |
-	nāyinīva vijānāsi yadi vaktuṃ tvam uttaram || 36.1 = 185 ||
+	nāyinīva vijānāsi yadi vaktuṃ tvam uttaram || 36.1 (= 185) ||
 
 [110,12]
 
@@ -2340,7 +2340,7 @@ prabhāvaty āha | katham etat |
 [111,1]
 
 	kā kīra nāyinī kutra tayā kiṃ kṛtam uttaram |
-	kathāṃ kathaya kalyāṇīṃ kautukaṃ me kathākrame || 36.2 = 186 ||
+	kathāṃ kathaya kalyāṇīṃ kautukaṃ me kathākrame || 36.2 (= 186) ||
 
 [111,3]
 
@@ -2374,7 +2374,7 @@ athāpare 'hni prabhāvatī gamanāya śukaṃ pṛcchati sma | śuko 'py āha |
 [112,10]
 
 	yatheṣṭaṃ vraja kalyāṇi na te doṣo 'sti kaścana |
-	lāṅgalīva vijānāsi yadi kartuṃ tvam uttaram || 37.1 = 187 ||
+	lāṅgalīva vijānāsi yadi kartuṃ tvam uttaram || 37.1 (= 187) ||
 
 <113>
 
@@ -2411,7 +2411,7 @@ aparedyur yāminīsamaye prabhāvatī gamanāya śukaṃ papraccha | śukaḥ |
 [114,9]
 
 	vāñchitaṃ kartukāmānāṃ nāntarāyaṃ kṛśodari |
-	yadi kartuṃ vijānāsi yathā vipraḥ priyaṃvadaḥ || 38.1 = 188 ||
+	yadi kartuṃ vijānāsi yathā vipraḥ priyaṃvadaḥ || 38.1 (= 188) ||
 
 <115>
 
@@ -2447,14 +2447,14 @@ he śuka | ahaṃ gamiṣyāmi | śukaḥ prāha |
 [116,7]
 
 	vraja devi varaṃ yānaṃ tvaṃ bhoktuṃ subhagaṃ naram |
-	vaktuṃ ced viṣame vetsi tulāgrāhīva bhāmini || 39.1 = 189 ||
+	vaktuṃ ced viṣame vetsi tulāgrāhīva bhāmini || 39.1 (= 189) ||
 
 [116,9]
 
 prabhāvatī prāha | katham etat |
 	
 	kas tulāgrāhakaḥ kīra gṛhītā ca tulā kutaḥ |
-	viṣamaṃ ca kim āyātaṃ kathāṃ kathaya śobhanām || 39.2 = 190 ||
+	viṣamaṃ ca kim āyātaṃ kathāṃ kathaya śobhanām || 39.2 (= 190) ||
 
 <117>
 
@@ -2466,7 +2466,7 @@ kṣīṇadhano janais tyaktaḥ |
 [117,3]
 
 uktaṃ ca |	vidvān dhanī dhanī dātā dhanī sādhur guṇāgraṇīḥ |
-	sarvabandhur dhanī pūjyo dhanahīno gataprabhaḥ || 39.3 = 191 ||
+	sarvabandhur dhanī pūjyo dhanahīno gataprabhaḥ || 39.3 (= 191) ||
 
 [117,5]
 
@@ -2491,7 +2491,7 @@ pṛṣṭas tadā evaṃ jagāda |
 [119,1]
 
 	tulāṃ lohamayīṃ yatra khādante deva mūṣakāḥ |
-	gajaṃ tatra haret śyeno dārake ko 'tra vismayaḥ || 39.4 = 192 ||
+	gajaṃ tatra haret śyeno dārake ko 'tra vismayaḥ || 39.4 (= 192) ||
 
 [119,3]
 
@@ -2512,7 +2512,7 @@ anyedyuḥ sā prabhāvatī gamanāya śukaṃ pṛcchati sma | śukaḥ |
 [119,8]
 
 	gaccha tvaṃ gantukāmānāṃ gamanaṃ ca śubhaṃ bhuvi |
-	subuddhir iva ced vaktuṃ vijānāsi kṛtākṛtam || 40.1 = 193 ||
+	subuddhir iva ced vaktuṃ vijānāsi kṛtākṛtam || 40.1 (= 193) ||
 
 [119,10]
 
@@ -2552,7 +2552,7 @@ anyadā vaṇigvadhūḥ prāha | kīra yadi tvaṃ manyase tadā gacchāmi |
 [121,8]
 
 	yuktaṃ te gamanaṃ devi yadi tatra gatā satī |
-	saṃkaṭe khalu vetsi tvaṃ kiṃcid vaktuṃ dvijo yathā || 41.1 = 194 ||
+	saṃkaṭe khalu vetsi tvaṃ kiṃcid vaktuṃ dvijo yathā || 41.1 (= 194) ||
 
 [121,10]
 
@@ -2572,37 +2572,37 @@ ajānan kathaṃ bhavatv iti praśnaḥ | śuka uttaraṃ prāha | sa māntrika
 [122,9]
 
 	haüṃ jīvaṇu jāṇaüṃ kāiṁ caḍḍaï vāvaï sāiṁ |
-	ghalliu bambhaṇi vīsāsu païṁ bhuñjasu sukaasuhāiṁ •|| 41.2 = 195 ||•
+	ghalliu bambhaṇi vīsāsu païṁ bhuñjasu sukaasuhāiṁ •|| 41.2 (= 195) ||•
 	● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ●
 	vaṇaṃ iha ākhuriadantapahasantaaṃ |
-	kahiṃ pi ūurantaambehi siṅgariaṃ •|| 41.3 = 196 ||•
+	kahiṃ pi ūurantaambehi siṅgariaṃ •|| 41.3 (= 196) ||•
 	sarasakhīramāliaphalabhāraṇājhipraṃ |
-	kahiṃ pi ṭisburiṇijambuiṇiaasohiaṃ •|| 41.4 = 197 ||•
+	kahiṃ pi ṭimburiṇijambuiṇiaasohiaṃ •|| 41.4 (= 197) ||•
 <123>
 	kahiṃ pi karavandāijālasaṃrāiaṃ |
-	kahiṃ pi kappūrakaṅkolagandhavahaṃ •|| 41.5 = 198 ||•
+	kahiṃ pi kappūrakaṅkolagandhavahaṃ •|| 41.5 (= 198) ||•
 	devadāruppiaṅgucūamallīlaaṃ |
-	kahiṃ pi sirikhaṇḍaaïgarutarumaṇḍiaṃ •|| 41.6 = 199 ||•
+	kahiṃ pi sirikhaṇḍaaïgarutarumaṇḍiaṃ •|| 41.6 (= 199) ||•
 	ṇāapuṃṇāadāḍimavaraṇāḍambaraṃ |
-	maūraborīhiṃ kavivīhipīlughaṇaṃ •|| 41.7 = 200 ||•
+	maūraborīhiṃ kavivīhipīlughaṇaṃ •|| 41.7 (= 200) ||•
 	dīhaghaṇavāsajālīhiṃ aïkhohiaṃ |
-	kahiṃ pi ratta ● ● ● ● ● ● ● ḍambaraṃ •|| 41.8 = 201 ||•
-	popphalīviḍavaghaṇakammaruddhambaraṃ •|| 41.9 = 202 ||•
+	kahiṃ pi ratta ● ● ● ● ● ● ● ḍambaraṃ •|| 41.8 (= 201) ||•
+	popphalīviḍavaghaṇakammaruddhambaraṃ •|| 41.9 (= 202) ||•
 
 <124>
 
 [124,1]
 
 kiṃ ca |	rattakaṇavīre kaṇavīriaṃ phaliaṃ |
-	aṇṇavacchammi sevattiā phulliā •|| 41.10 = 203 ||•
+	aṇṇavacchammi sevattiā phulliā •|| 41.10 (= 203) ||•
 	aṇṇavacchammi kārandaāvacchaaṃ |
-	aṇṇavacchammi sindūraaṃ phulliaṃ •|| 41.11 = 204 ||•
+	aṇṇavacchammi sindūraaṃ phulliaṃ •|| 41.11 (= 204) ||•
 	aṇṇavacchammi phulantamandāraaṃ |
-	sirisaüttuṅgagandhohavaramāruaṃ •|| 41.12 = 205 ||•
+	sirisaüttuṅgagandhohavaramāruaṃ •|| 41.12 (= 205) ||•
 	aṇṇavacchammi sindūriātoraṇaṃ |
-	phulliaṃ maṇoharaṃ jaṇiaparisohiaṃ •|| 41.13 = 206 ||•
+	phulliaṃ maṇoharaṃ jaṇiaparisohiaṃ •|| 41.13 (= 206) ||•
 	aṇṇavacchammi juttaddaaṃ kundaaṃ |
-	malliṇomāliākusumā ghaṇapupphiā •|| 41.14 = 207 ||•
+	malliṇomāliākusumā ghaṇapupphiā •|| 41.14 (= 207) ||•
 	● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ●
 	● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ●
 
@@ -2628,7 +2628,7 @@ aparedyuḥ prabhāvatī gacchāmīti śukaṃ pratyāha | śukaḥ |
 [125,7]
 
 	sukhopabhogaḥ saṃsāre sāraḥ sarvāṅgasundari |
-	vraja ced vyāghramārīva vetsi vaktuṃ tvam uttaram || 42.1 = 208 ||
+	vraja ced vyāghramārīva vetsi vaktuṃ tvam uttaram || 42.1 (= 208) ||
 
 <126>
 
@@ -2646,7 +2646,7 @@ mahākānanam | tac ca kathaṃ bhūtam |
 	candaṇasattacchaāsaṇṇaaṃ saralavaratuṅgatarusāhasaṃchaṇṇaaṃ
 	kahiṃ pi sahaārakhajjūriaṃ phaṇasaamattālivihaṃgabhāriaṃ |
 	kahiṃ pi selupīluphapūriantaaṃ sarasaborabahutintiḍīchaṇṇaaṃ
-	dāḍimīphalabillaphalasugandhivāaaṃ •|| 42.2 = 209 & 210 ||•
+	dāḍimīphalabillaphalasugandhivāaaṃ •|| 42.2 (= 209 & 210) ||•
 
 <127>
 
@@ -2664,7 +2664,7 @@ bhayākulacitto naṣṭaḥ |
 
 	nijabuddhyā vimuktā sā bhayād vyāghrasya bhāmini |
 <128>
-	anyo 'pi buddhimāṁl loke mucyate mahato bhayāt || 42.3 = 211 ||
+	anyo 'pi buddhimāṁl loke mucyate mahato bhayāt || 42.3 (= 211) ||
 
 [128,2]
 
@@ -2683,7 +2683,7 @@ anyedyuḥ śukam āpṛcchati sma kāminī | śukaḥ prāha |
 [128,5]
 
 	vraja devi na te 'yuktaṃ vrajanaṃ gajagāmini |
-	vyāghramārīva buddhis te dvitīyāpi yadi sthirā || 43.1 = 212 ||
+	vyāghramārīva buddhis te dvitīyāpi yadi sthirā || 43.1 (= 212) ||
 
 [128,7]
 
@@ -2692,7 +2692,7 @@ prabhāvatī pṛcchati | katham etat |
 [128,8]
 
 	vyāghramārīkṛtāṃ buddhiṃ dvitīyāṃ vivadādhunā |
-	mahat kautukam atrārthe vidyate me priyaṃvada || 43.2 = 213 ||
+	mahat kautukam atrārthe vidyate me priyaṃvada || 43.2 (= 213) ||
 
 [128,10]
 
@@ -2701,7 +2701,7 @@ prabhāvatī pṛcchati | katham etat |
 [128,11]
 
 	taṃ dṛṣṭvā kānane vyāghraṃ naṣṭaṃ jātaṃ bhayākulam |
-	mṛgadhūrto hasann āha vyāghro naṣṭaḥ kuto bhayāt || 43.3 = 214 ||
+	mṛgadhūrto hasann āha vyāghro naṣṭaḥ kuto bhayāt || 43.3 (= 214) ||
 
 <129>
 
@@ -2723,12 +2723,12 @@ aṅgulyā tarjayanty uvāca |
 
 [129,14]
 	re re dhūrta tvayā dattaṃ mahyaṃ vyāghratrayaṃ purā |
-	viśvasyādyaikam ānīya kathaṃ yāsi vadādhunā || 43.4 = 215 ||
+	viśvasyādyaikam ānīya kathaṃ yāsi vadādhunā || 43.4 (= 215) ||
 <130>
 	ity uktvā dhāvitā tūrṇaṃ vyāghramārī bhayaṃkarā |
-	vyāghro 'pi sahasā naṣṭo galabaddhaśṛgālakaḥ || 43.5 = 216 ||
+	vyāghro 'pi sahasā naṣṭo galabaddhaśṛgālakaḥ || 43.5 (= 216) ||
 	nijabuddhyā punar muktā vyāghrajād devi sā bhayāt |
-	buddhir balavatī tanvi sarvakāryeṣu sarvadā || 43.6 = 217 ||
+	buddhir balavatī tanvi sarvakāryeṣu sarvadā || 43.6 (= 217) ||
 
 [130,5]
 
@@ -2747,7 +2747,7 @@ athānyedyur dināvasāne prabhāvatī śukaṃ pṛcchati | śukaḥ |
 [130,8]
 
 	ātmānaṃ saṃkaṭād devi yāhi ced vetsi rakṣitum |
-	yathātmā saṃkaṭāt tena jambukenāpi rakṣitaḥ || 44.1 = 218 ||
+	yathātmā saṃkaṭāt tena jambukenāpi rakṣitaḥ || 44.1 (= 218) ||
 
 [130,10]
 
@@ -2767,9 +2767,9 @@ atha tuṣṭo vyāghras tena vākyena tathety uktvā jambukaṃ muktvā sahasā
 [131,8]
 
 	buddhir varaṃ varārohe dhanamānasukhaiṣiṇām |
-	buddhihīnāḥ paraṃ kleśaṃ prāpnuvanti kṛśodari || 44.2 = 219 ||
+	buddhihīnāḥ paraṃ kleśaṃ prāpnuvanti kṛśodari || 44.2 (= 219) ||
 	balaṃ prajñāvihīnasya parakāryāya kevalam |
-	girikūṭopamāṅgasya kuñjarasyeva dṛśyate || 44.3 = 220 ||
+	girikūṭopamāṅgasya kuñjarasyeva dṛśyate || 44.3 (= 220) ||
 
 [131,12]
 
@@ -2791,7 +2791,7 @@ prāha |
 [132,1]
 
 	samayo 'yaṃ priyaṃ bhoktuṃ tava bhāmini saṃprati |
-	vañcitā vetsi cet kartuṃ kiṃcid viṣṇuḥ purā yathā || 45.1 = 219bis ||
+	vañcitā vetsi cet kartuṃ kiṃcid viṣṇuḥ purā yathā || 45.1 (= 219bis) ||
 
 [132,3]
 
@@ -2799,10 +2799,10 @@ prabhāvaty āha | katham etat | śuka āha | asti vilāsapuraṃ nāma nagaram 
 tatra ariṃdamo nāma rājā | tatra ca viṣṇunāmā brāhmaṇo
 ratilolupaḥ kuṭumbavarjito ratikarmaṇi sarvanārīduḥsaha iti nagare
 prasiddho babhūva | veśyābhir api na śakyate jetuṃ kiṃ punaḥ kulāṅganābhiḥ |
-tatra ratipriyā nāma gaṇikā | // yato gaṇikādīnāṃ bahavo bhedāḥ
+tatra ratipriyā nāma gaṇikā | (yato gaṇikādīnāṃ bahavo bhedāḥ
 paraṃ pañca prasiddhāḥ | teṣu saṃlīnāḥ sarve 'pi bhavanti | te ceme pañca
 gaṇikā vilāsinī rūpājīvā arthavṛttikā dārikā ceti | eteṣāṃ
-bhedānāṃ sā sarvottamā gaṇikā | \\ atha sā ṣoḍaśa drammān gṛhītvā
+bhedānāṃ sā sarvottamā gaṇikā |) atha sā ṣoḍaśa drammān gṛhītvā
 tam ājuhāva | tam āyāntaṃ dṛṣṭvā sā cāṭūktibhiḥ paricaryāṃ cakāra | so
 'pi cānyakāryanivṛttas tasminn eva ratikarmaṇi dattamanās tāṃ rantuṃ jetum ārebhe |
 <133>
@@ -2836,7 +2836,7 @@ athānyedyuḥ prabhāvatī śukaṃ pṛcchati | śukaḥ |
 [134,5]
 
 	yāhi devi gṛhaṃ muktvā yadi vetsi tvam uttaram |
-	yathā karagarānāthaḥ kṛtavān bhūtanigrahe || 46.1 = 220bis ||
+	yathā karagarānāthaḥ kṛtavān bhūtanigrahe || 46.1 (= 220bis) ||
 
 [134,7]
 
@@ -2863,9 +2863,9 @@ bhūtagrahe 'nivartite vipreṇoktam |
 [136,1]
 
 	karagaraṇāhaü āiaü bhūa eu vīsasiu ṭhiu dhutta |
-	āpaṇi boliu saṃbhari re kūḍaüṃ kiṃ maïṁ deva jutta •|| 46.2 = 221 ||•
+	āpaṇi boliu saṃbhari re kūḍaüṃ kiṃ maïṁ deva jutta •|| 46.2 (= 221) ||•
 uktaṃ ca |	manuṣyāḥ sukulotpannā api ca brahmacāriṇaḥ |
-	na bhavanti mṛṣāvācaḥ kiṃ punar devayonayaḥ || 46.3 = 222 ||
+	na bhavanti mṛṣāvācaḥ kiṃ punar devayonayaḥ || 46.3 (= 222) ||
 
 [136,5]
 
@@ -2888,7 +2888,7 @@ dinam ativāhya prabhāvatī śukaṃ pṛcchati | śukaḥ |
 [137,2]
 
 	gaccha devi gatā vetsi yadi kartuṃ tvam uttaram |
-	yathā karagarānāthaḥ kṛtavān bhūtasaṃkaṭe || 47.1 = 223 ||
+	yathā karagarānāthaḥ kṛtavān bhūtasaṃkaṭe || 47.1 (= 223) ||
 
 [137,4]
 
@@ -2907,9 +2907,9 @@ kṛtāñjalir bhūtvā tatkarṇam āśrityeti jagāda dvijaḥ |
 [137,15]
 
 	prāptā karagarā bhūta pṛṣṭhalagnātra me 'dhunā |
-	yad bhartā cātra saṃprāptas tad vyākhyātum ihāgataḥ || 47.2 = 224 ||
+	yad bhartā cātra saṃprāptas tad vyākhyātum ihāgataḥ || 47.2 (= 224) ||
 	śrutvaitad vacanaṃ bhīto bhūto vismitamānasaḥ |
-	yāmīti brāhmaṇaṃ proktvā (!) pātraṃ tyaktvā jagāma tat || 47.3 = 225 ||
+	yāmīti brāhmaṇaṃ proktvā (!) pātraṃ tyaktvā jagāma tat || 47.3 (= 225) ||
 
 <138>
 
@@ -2931,7 +2931,7 @@ athānyedyuḥ prabhāvatī śukaṃ pṛcchati | gacchāmi narāntaram iti | ś
 [138,5]
 
 	saṃbhogasukham evātra paramaṃ vraja sundari |
-	viṣame nirṇayaṃ kartuṃ vetsi cec chakaṭālavat || 48.1 = 226 ||
+	viṣame nirṇayaṃ kartuṃ vetsi cec chakaṭālavat || 48.1 (= 226) ||
 
 [138,7]
 
@@ -2944,9 +2944,9 @@ karadā abhavan |
 uktaṃ ca |	aprājñena ca kātareṇa ca guṇaḥ syāt sānurāgeṇa kaḥ
 	prajñāvikramaśālino 'pi hi bhavet kiṃ bhaktihīnāt phalam |
 	prajñāvikramabhaktayaḥ samuditā yeṣāṃ guṇā bhūtaye
-	te bhṛtyā nṛpateḥ kalatram itare saṃpatsu cāpatsu ca || 48.2 = 227 ||
+	te bhṛtyā nṛpateḥ kalatram itare saṃpatsu cāpatsu ca || 48.2 (= 227) ||
 kiṃ ca |	prajñāguptaśarīrasya kiṃ kariṣyanti saṃhatāḥ |
-	hastopadhṛtacchatrasya vāridhārā ivārayaḥ || 48.3 = 228 ||
+	hastopadhṛtacchatrasya vāridhārā ivārayaḥ || 48.3 (= 228) ||
 
 <139>
 
@@ -2965,7 +2965,7 @@ ghoṭike tāni ca lakṣaṇāni śālihotrajñātavyāni | yadā ca ko
 [139,10]
 
 uktaṃ ca |	bhūmeś ca deśasya guṇānvitasya bhṛtyasya vā buddhimataḥ praṇāśe |
-	bhṛtyapraṇāśe maraṇaṃ nṛpāṇāṃ naṣṭāpi bhūmiḥ sulabhā na bhṛtyāḥ || 48.4 = 229 ||
+	bhṛtyapraṇāśe maraṇaṃ nṛpāṇāṃ naṣṭāpi bhūmiḥ sulabhā na bhṛtyāḥ || 48.4 (= 229) ||
 
 [139,12]
 
@@ -2978,11 +2978,11 @@ ca evam uktavān |
 [140,3]
 
 	mānyas tvaṃ mama mitraṃ ca guruḥ svāmī niyogakaḥ |
-	āśrayasya sadā dātā kiṃ kaṃ na tvaṃ sadānagha || 48.5 = 230 ||
+	āśrayasya sadā dātā kiṃ kaṃ na tvaṃ sadānagha || 48.5 (= 230) ||
 uktaṃ ca |	svāmī durṇayavāraṇavyatikare śāstropadeśe gurur
 	viśrambhe hṛdayaṃ niyogasamaye dāso bhaye cāśrayaḥ |
 	dātā saptasamudrasīmarasanādānāntikāyāḥ kṣiteḥ
-	sarvākāram abhūt svayaṃ varasuhṛt ko vā na karṇo mama || 48.6 = 233 ||
+	sarvākāram abhūt svayaṃ varasuhṛt ko vā na karṇo mama || 48.6 (= 233) ||
 
 [140,9]
 
@@ -3010,7 +3010,7 @@ athāparedyuḥ dinakṛtyaṃ sā vidhāya śukam āpṛcchate | śukaḥ |
 [141,6]
 
 	saṃbhogasukham evādya bhoktuṃ te devi yujyate |
-	viṣame 'pi pravīṇāsi punaś cec chakaṭālavat || 49.1 = 234 ||
+	viṣame 'pi pravīṇāsi punaś cec chakaṭālavat || 49.1 (= 234) ||
 
 [141,8]
 
@@ -3028,7 +3028,7 @@ tato mantrī vadati | svāmin yuṣmat kṛtā saṃbhāvanāpi na niṣphalā |
 [142,5]
 
 uktaṃ ca |	suvaṃśasyāvadātasya śaśāṅkasyeva lāñchanam |
-	kṛcchreṣu vyarthayā yatra bhūpater bhartur ājñayā || 49.2 = 235 || (?)
+	kṛcchreṣu vyarthayā yatra bhūpater bhartur ājñayā || 49.2 (= 235) || (?)
 
 [142,7]
 
@@ -3054,7 +3054,7 @@ anyadā pradoṣe prabhāvatī calitā śukaṃ papraccha | śukaḥ |
 [143,2]
 
 	gaccha devi na te doṣo gamane ko 'pi dṛśyate |
-	viṣame yadi vetsi tvaṃ dharmabuddhir ivehitam || 50.1 = 236 ||
+	viṣame yadi vetsi tvaṃ dharmabuddhir ivehitam || 50.1 (= 236) ||
 
 [143,4]
 
@@ -3069,7 +3069,7 @@ tan niśamyatām | na ca yujyate vaktum |
 [143,11]
 
 yataḥ |	na vaktavyaṃ dhruvaṃ devi pāpaṃ dṛṣṭaṃ śrutaṃ mayā |
-	kathāpi khalu pāpānām alam aśreyase yataḥ || 50.2 = 237 ||
+	kathāpi khalu pāpānām alam aśreyase yataḥ || 50.2 (= 237) ||
 
 [143,13]
 
@@ -3105,7 +3105,7 @@ anyadā sā bālā śukaṃ papraccha | śukaḥ |
 [145,7]
 
 	yāhi devi ratāsvādalubdhe kāmini taṃ naram |
-	gāṅgilavad vijānāsi viṣame yadi bhāṣitum || 51.1 = 238 ||
+	gāṅgilavad vijānāsi viṣame yadi bhāṣitum || 51.1 (= 238) ||
 
 [145,9]
 
@@ -3125,7 +3125,7 @@ taskarāḥ sarve 'pi naṣṭāḥ |
 [146,8]
 
 	tasmādyo bhāṣituṃ vetti dharme cārthe smare tathā |
-	kastaṃ dharṣayituṃ śakto nareṣu kamalānane || 51.2 = 239 ||
+	kastaṃ dharṣayituṃ śakto nareṣu kamalānane || 51.2 (= 239) ||
 
 [146,10]
 
@@ -3144,7 +3144,7 @@ atikramya divaṃ prabhāvatī triyāmāsamaye dvijaṃ prāha | vrajāmīti | �
 [146,13]
 
 	vrajābhīṣṭaṃ naraṃ devi yadi kāryaṃ nijaṃ gatā |
-	jayaśrīr iva jānāsi kāryaṃ kartuṃ nijaṃ hitam || 52.1 = 240 ||
+	jayaśrīr iva jānāsi kāryaṃ kartuṃ nijaṃ hitam || 52.1 (= 240) ||
 
 <147>
 
@@ -3160,9 +3160,9 @@ sevituṃ yujyate |
 [147,7]
 
 uktaṃ yataḥ |	vidyāvatāṃ kulīnānāṃ śauryasaṃpattiśālinām |
-	sthānaṃ nareśabhavanam athavā yat tato 'dhikam || 52.2 = 241 ||
+	sthānaṃ nareśabhavanam athavā yat tato 'dhikam || 52.2 (= 241) ||
 uktaṃ ca |	santa eva satāṃ nityam āpattaraṇahetavaḥ |
-	gajānāṃ paṅkamagnānāṃ gajā eva dhuraṃdharāḥ || 52.3 = 242 ||
+	gajānāṃ paṅkamagnānāṃ gajā eva dhuraṃdharāḥ || 52.3 (= 242) ||
 
 [147,11]
 
@@ -3174,7 +3174,7 @@ vicāryaivaṃ sevitaḥ payasāṃ patiḥ triḥsaptakṛtva upoṣitais tai�
 [148,1]
 
 	nivṛttāḥ kṛtakṛtyās te labdhvā ratnacatuṣṭayam |
-	viśvastā vaṇijaḥ pārśve sarva eva samārpayan || 52.4 = 243 ||
+	viśvastā vaṇijaḥ pārśve sarva eva samārpayan || 52.4 (= 243) ||
 
 [148,3]
 
@@ -3205,14 +3205,14 @@ tat tvaṃ kathaṃ jñāsyasi | sā āha |
 
 	na caitat tāta vaktavyaṃ bhinnā buddhir hi dehiṣu |
 <150>
-	ko 'pi kiṃcid vijānāti jagaty atra kalāparaḥ || 52.5 = 244 ||
+	ko 'pi kiṃcid vijānāti jagaty atra kalāparaḥ || 52.5 (= 244) ||
 
 [150,2]
 
 kiṃ ca |	muṇḍe muṇḍe matir bhinnā kuṇḍe kuṇḍe navaṃ payaḥ |
-	tuṇḍe tuṇḍe navā vāṇī gehe gehe pativratā || 52.6 = 245 ||
+	tuṇḍe tuṇḍe navā vāṇī gehe gehe pativratā || 52.6 (= 245) ||
 	prajñāvisphāritākṣāṇāṃ vidravanti vipattayaḥ |
-	hastodyatapradīpānām andhakāra ivāgrataḥ || 52.7 = 246 ||
+	hastodyatapradīpānām andhakāra ivāgrataḥ || 52.7 (= 246) ||
 
 [150,6]
 
@@ -3247,7 +3247,7 @@ athāparedyuḥ prabhāvatī gamanāya śukaṃ pṛcchati | śukaḥ provāca |
 [151,9]
 
 	vraja rambhoru yuktaṃ te gamanaṃ viṣame sati |
-	cet kartum uttaraṃ vetsi carmakārakalatravat || 53.1 = 247 ||
+	cet kartum uttaraṃ vetsi carmakārakalatravat || 53.1 (= 247) ||
 
 [151,11]
 
@@ -3287,7 +3287,7 @@ athātivāhya dinaṃ prabhāvatī gamanotsukā punaḥ śukaṃ pṛcchati | sa
 [153,2]
 
 	ko doṣo gamyatāṃ devi yadi tvaṃ vetsi bhāṣitum |
-	dūtena bhāṣitaṃ yadvad viṣame nṛpateḥ puraḥ || 54.1 = 248 ||
+	dūtena bhāṣitaṃ yadvad viṣame nṛpateḥ puraḥ || 54.1 (= 248) ||
 
 [153,4]
 
@@ -3314,7 +3314,7 @@ samarpitavān |
 
 yataḥ |	gajāḥ santi hayāḥ santi vicitrāḥ santi saṃpadaḥ |
 <155>
-	tvadīye ca madīye ca durlabhaṃ bhasma yājñikam || 54.2 = 249 ||
+	tvadīye ca madīye ca durlabhaṃ bhasma yājñikam || 54.2 (= 249) ||
 
 [155,2]
 
@@ -3338,7 +3338,7 @@ uvāca |
 [155,10]
 
 	gaccha rambhoru gamanaṃ yujyate gajagāmini |
-	yadi vetsy uttaraṃ kartuṃ śrīdharo brāhmaṇo yathā || 55.1 = 250 ||
+	yadi vetsy uttaraṃ kartuṃ śrīdharo brāhmaṇo yathā || 55.1 (= 250) ||
 
 <156>
 
@@ -3371,7 +3371,7 @@ athāparedyuḥ prabhāvatī gamanāya śukaṃ pṛcchati | śukaḥ |
 [157,5]
 
 	yāhi devi gatā vetsi yadi kartuṃ tvam uttaram |
-	viṣame sāntako yadvad vaṇikputraḥ purākarot || 56.1 = 251 ||
+	viṣame sāntako yadvad vaṇikputraḥ purākarot || 56.1 (= 251) ||
 
 [157,7]
 
@@ -3386,7 +3386,7 @@ dravyaṃ muktvā haste ca khaṭikām ādāya yakṣādhīśam idam abravīt |
 [158,3]
 
 	dhanodgrāhaṇikā deva kṛteyaṃ tava sarvataḥ |
-	idaṃ dravyaṃ mayā labdhaṃ tiṣṭhaty anyac ca vṛddhimat || 56.2 = 252 ||
+	idaṃ dravyaṃ mayā labdhaṃ tiṣṭhaty anyac ca vṛddhimat || 56.2 (= 252) ||
 
 [158,5]
 
@@ -3403,10 +3403,10 @@ iti śukasaptatau ṣaṭpañcāśattamī kathā ||
 [158,9]
 
 	pradoṣe 'nyatra sā bālā punaḥ prāha vihaṅgamam |
-	sukhaṃ bhoktuṃ vrajāmy adya narāntararatodbhavam || 57.1 = 253 ||
+	sukhaṃ bhoktuṃ vrajāmy adya narāntararatodbhavam || 57.1 (= 253) ||
 śukaḥ |	yāhi devi yadā jñātā bhartrā tvaṃ vetsi bhāṣitum |
 <159>
-	yathā jñātaḥ purā rājñāvadad vidvān śubhaṃkaraḥ || 57.2 = 254 ||
+	yathā jñātaḥ purā rājñāvadad vidvān śubhaṃkaraḥ || 57.2 (= 254) ||
 
 [159,2]
 
@@ -3418,17 +3418,17 @@ tayoḥ paṇḍitarājñyoḥ prāvṛṭkālaḥ samāyayau | yatra ca |
 [159,6]
 
 	taḍinnirghoṣapaṭaho ghanagarjitagītakaḥ |
-	śikhisvarajayadhvajaḥ prāvṛṭkālanṛpo yayau || 57.3 = 255 ||
+	śikhisvarajayadhvajaḥ prāvṛṭkālanṛpo yayau || 57.3 (= 255) ||
 <160>
 	durdinaṃ vegavṛṣṭiś ca paṅkaś ca taḍitaḥ prabhā |
-	sadābhisārikāṇāṃ ca snehavyatikarāṇi ha || 57.4 = 256 ||
+	sadābhisārikāṇāṃ ca snehavyatikarāṇi ha || 57.4 (= 256) ||
 
 [160,3]
 
 uktaṃ ca |	jaï sasiṇehī taü maī jaï jīvaï sasiṇeha |
-	duhia payāahiṃ gaadhara kiṃ gacchasi khalageha •|| 57.5 = 257 ||•
+	duhia payāahiṃ gaadhara kiṃ gacchasi khalageha •|| 57.5 (= 257) ||•
 	kiṃ ca | ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● |
-	● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● •|| 57.6 = 258 ||•
+	● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● •|| 57.6 (= 258) ||•
 
 [160,7]
 
@@ -3444,7 +3444,7 @@ jagāda |
 	unnādāmbudavarddhitāndhatamasi prabhraṣṭadiṅmaṇḍale
 	kāle yāmikajāgarūkasubhaṭavyākīrṇakolāhale |
 	bhūpasyāsuhṛdarṇavāmbuvaḍabāvahnes tvam antaḥpurād
-	āyātāsi yad ambujākṣi kṛtakaṃ manye bhayaṃ yoṣitām || 57.7 = 259 ||
+	āyātāsi yad ambujākṣi kṛtakaṃ manye bhayaṃ yoṣitām || 57.7 (= 259) ||
 
 [161,5]
 
@@ -3454,12 +3454,12 @@ cāṭūktibhiś ca mahiṣīṃ toṣayām āsa |
 [161,7]
 
 uktaṃ ca |	ṇa kuṇanti je pahuttaṃ kuviaṃ dāsa vva je pasāanti |
-	te ccia mahilāṇa piā sesā sāmī cia varāā •|| 57.8 = 260 ||•
+	te ccia mahilāṇa piā sesā sāmī cia varāā •|| 57.8 (= 260) ||•
 	nāyakeṣūttamaḥ so 'tha mahiṣī nāyikāsu ca |
-	śayanaṃ cottamaṃ ninye tridhābhedavikalpanāt || 57.9 = 261 ||
+	śayanaṃ cottamaṃ ninye tridhābhedavikalpanāt || 57.9 (= 261) ||
 <162>
 	uttamādhamamadhyaiś ca bhedaiḥ syān nāyakas tridhā |
-	nāyikāś ca tathā jñeyās tayoś ca śayanaṃ tridhā || 57.10 = 262 ||
+	nāyikāś ca tathā jñeyās tayoś ca śayanaṃ tridhā || 57.10 (= 262) ||
 
 [162,3]
 
@@ -3468,11 +3468,11 @@ tatra nāyakaguṇāḥ |
 [162,4]
 
 	hato manyusahasrair yaḥ saṃtapto madanāgninā |
-	raktaś ca yo viraktāyāṃ so 'dhamaḥ parikīrtitaḥ || 57.11 = 263 ||
+	raktaś ca yo viraktāyāṃ so 'dhamaḥ parikīrtitaḥ || 57.11 (= 263) ||
 	kāminībhiḥ smarārtābhiḥ satataṃ kāmyate hi yaḥ |
-	na tāḥ kāmayate namro madhyamo nāyakaḥ smṛtaḥ || 57.12 = 264 ||
+	na tāḥ kāmayate namro madhyamo nāyakaḥ smṛtaḥ || 57.12 (= 264) ||
 	raktāṃ yo bhāminīṃ devi saktāṃ kāmayate sadā |
-	tayāpi kāmyate 'tyartham uttamaḥ so 'bhidhīyate || 57.13 = 265 ||
+	tayāpi kāmyate 'tyartham uttamaḥ so 'bhidhīyate || 57.13 (= 265) ||
 
 [162,10]
 
@@ -3481,12 +3481,12 @@ nāyikās tridhā |
 [162,11]
 
 	kārye gṛhṇāti roṣaṃ yā gataroṣā priyānugā |
-	rasajñā kṛtyakuśalā sottamā nāyikā smṛtā || 57.14 = 266 ||
+	rasajñā kṛtyakuśalā sottamā nāyikā smṛtā || 57.14 (= 266) ||
 <163>
 	asthāne kopamānā yā yā duḥkhānunayā tathā |
-	māninī mānahīnā ca kṣaṇāt sā madhyamā smṛtā || 57.15 = 267 ||
+	māninī mānahīnā ca kṣaṇāt sā madhyamā smṛtā || 57.15 (= 267) ||
 	lubdhā yātīva capalā vacane nīrasākṣarā |
-	duḥkhaprasādhanābhijñākṛtajñā sādhamā matā || 57.16 = 268 ||
+	duḥkhaprasādhanābhijñākṛtajñā sādhamā matā || 57.16 (= 268) ||
 
 [163,5]
 
@@ -3495,14 +3495,14 @@ tayoś ca śayanaṃ tridhā |
 [163,6]
 
 	pārśvayor unnatiṃ nītaṃ nimnamadhye priyasya tat |
-	vimardaṃ sahate 'tyarthaṃ suratāsaktayos tayoḥ || 57.17 = 269 ||
+	vimardaṃ sahate 'tyarthaṃ suratāsaktayos tayoḥ || 57.17 (= 269) ||
 	madhyamasya punaḥ kāryaṃ śayanaṃ samabhūmikam |
-	praviralāṅgasaṃsparśā nityaṃ yāti niśā yathā || 57.18 = 270 ||
+	praviralāṅgasaṃsparśā nityaṃ yāti niśā yathā || 57.18 (= 270) ||
 	dveṣyasya tulyam uttuṅgaṃ madhye nīcaṃ ca pārśvayoḥ |
 <164>
-	na śakyeta kalākalpo yatra rantuṃ nirantaram || 57.19 = 271 ||
+	na śakyeta kalākalpo yatra rantuṃ nirantaram || 57.19 (= 271) ||
 	ity anunnatatalpasthā bhuktā muktā vipaścitā |
-	mahiṣī ratisaṃtuṣṭā pratyūṣe svagṛhaṃ yayau || 57.20 = 272 ||
+	mahiṣī ratisaṃtuṣṭā pratyūṣe svagṛhaṃ yayau || 57.20 (= 272) ||
 
 [164,4]
 
@@ -3514,7 +3514,7 @@ saṃjātaḥ | sa rājñā jñātaḥ kathaṃ bhavitv iti praśnaḥ |
 [164,8]
 
 yataḥ |	dīnasyāpi gṛhe doṣe kṛte bhavati nigrahaḥ |
-	kiṃ punaḥ pṛthivīpālagṛhe doṣo vimucyate || 57.21 = 273 ||
+	kiṃ punaḥ pṛthivīpālagṛhe doṣo vimucyate || 57.21 (= 273) ||
 
 [164,10]
 
@@ -3527,7 +3527,7 @@ vāṇīm udīrayat |
 <165>
 	vyomnisthāpi ca durgam akṣitibhṛtāṃ mūrdhānam ārohati |
 	vyāptaṃ yāti viṣākulair ahikulaiḥ pātālam ekākinī
-	kīrtis te madanāvatāra kṛtakaṃ manye bhayaṃ yoṣitām || 57.22 = 274 ||
+	kīrtis te madanāvatāra kṛtakaṃ manye bhayaṃ yoṣitām || 57.22 (= 274) ||
 
 [165,4]
 
@@ -3539,7 +3539,7 @@ paritoṣitaḥ paṇḍito 'pi mahāprasāda ity avocat |
 [165,8]
 
 uktaṃ ca |	guṇadoṣau na śāstrajñaḥ kathaṃ vibhajate janaḥ |
-	kim andhasyādhikāro 'sti rūpadoṣopalabdhiṣu || 57.23 = 275 ||
+	kim andhasyādhikāro 'sti rūpadoṣopalabdhiṣu || 57.23 (= 275) ||
 
 [165,10]
 
@@ -3562,7 +3562,7 @@ anyadā pradoṣe calitā prabhāvatī śukaṃ pṛcchati | śukaḥ |
 [166,2]
 
 	ratyarthini vrajādya tvaṃ rantuṃ cet samayocitam |
-	duḥśīlāpativad vetsi kartuṃ gaṇapateḥ puraḥ || 58.1 = 276 ||
+	duḥśīlāpativad vetsi kartuṃ gaṇapateḥ puraḥ || 58.1 (= 276) ||
 
 [166,4]
 
@@ -3585,9 +3585,9 @@ tataḥ sā muktā satī praṇamya nijaṃ nāthaṃ tarjayantī gṛhaṃ yaya
 [167,6]
 
 	kṛtaṃ tena rataṃ devi samayocitam īdṛśam |
-	svakārye mocitā sāpi duḥśīlā vighnanāyakāt || 58.2 = 277 ||
+	svakārye mocitā sāpi duḥśīlā vighnanāyakāt || 58.2 (= 277) ||
 	samayocitam ārambhaṃ kurute yas tu kṛtyavit |
-	sarvadā tu phalaṃ tasya samayajño hi śiṣyate || 58.3 = 278 ||
+	sarvadā tu phalaṃ tasya samayajño hi śiṣyate || 58.3 (= 278) ||
 
 [167,10]
 
@@ -3606,7 +3606,7 @@ atha dinānte sā śukaṃ gamanāya pṛcchati sma | śukaḥ |
 [167,13]
 
 	gaccha devi svakāryaṃ ca kuru cintitam adbhutam |
-	rukmiṇīvad vijānāsi patiṃ vañcitum uddhatam || 59.1 = 279 ||
+	rukmiṇīvad vijānāsi patiṃ vañcitum uddhatam || 59.1 (= 279) ||
 
 <168>
 
@@ -3621,7 +3621,7 @@ mene |
 [168,6]
 
 uktaṃ ca |	baddhabhaṇiāi kanto tahea addhacchipicchiā dhāī |
-	ūsasiaṃ pi muṇijjaï chaïllajaṇasaṃkule gāme •|| 59.2 = 280 ||•
+	ūsasiaṃ pi muṇijjaï chaïllajaṇasaṃkule gāme •|| 59.2 (= 280) ||•
 
 <169>
 
@@ -3643,7 +3643,7 @@ tam abravīt |
 [170,3]
 
 	dhānuṣko 'si pradhāno 'si loke khyātiṃ gato 'si ca |
-	chindhi me candrikām adya pauruṣaṃ gaṇayāmi te || 59.3 = 291 ||
+	chindhi me candrikām adya pauruṣaṃ gaṇayāmi te || 59.3 (= 291) ||
 
 [170,5]
 
@@ -3655,7 +3655,7 @@ sahastatālaṃ tam idam āha |
 [170,9]
 
 	● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● |
-	● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● •|| 59.4 = 292 ||•
+	● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● •|| 59.4 (= 292) ||•
 
 <171>
 
@@ -3667,7 +3667,7 @@ tatas tayā yadṛcchayā viparītaṃ vihitam | evam uktaś ca patiḥ |
 [171,3]
 
 	yadṛcchayā rataṃ mūrkha te puro 'dya mayā kṛtam |
-	śūro hi kuhito 'si tvaṃ yāsyāmīti jagāda tam || 59.5 = 293 ||
+	śūro hi kuhito 'si tvaṃ yāsyāmīti jagāda tam || 59.5 (= 293) ||
 
 [171,5]
 
@@ -3678,11 +3678,11 @@ viḍambitaḥ |
 [171,8]
 
 yataḥ |	ānanarta purā śaṃbhur govindo rāsakṛt tathā |
-	brahmā paśutvam āpannaḥ strībhiḥ ko na viḍambitaḥ || 59.6 = 294 ||
+	brahmā paśutvam āpannaḥ strībhiḥ ko na viḍambitaḥ || 59.6 (= 294) ||
 	saṃsāravṛkṣamūlaṃ yāḥ pāpakandalabhūmikā |
-	saṃtāpaphalapuṣpāṇi yoṣitaḥ kiṃ sukhāvahāḥ || 59.7 = 295 ||
+	saṃtāpaphalapuṣpāṇi yoṣitaḥ kiṃ sukhāvahāḥ || 59.7 (= 295) ||
 	māyāmūlam idaṃ sarvaṃ tasyā mūlaṃ hi yoṣitaḥ |
-	saṃyogo yoṣitāṃ mūlaṃ taṃ tyaktvā ca sukhāni naḥ || 59.8 = 296 ||
+	saṃyogo yoṣitāṃ mūlaṃ taṃ tyaktvā ca sukhāni naḥ || 59.8 (= 296) ||
 
 <172>
 
@@ -3693,16 +3693,16 @@ tasyedaṃ vacaḥ śrutvā prabhāvatī prāha |
 [172,2]
 
 	utpattikāraṇaṃ tanvī tanvī vṛddheś ca kāraṇam |
-	sukhasya kāraṇaṃ tanvī sā kathaṃ kīra duṣyate || 59.9 = 297 ||
+	sukhasya kāraṇaṃ tanvī sā kathaṃ kīra duṣyate || 59.9 (= 297) ||
 	vinā tābhir na saṃbhogo vinā tābhiḥ sukhaṃ na ca |
-	vinā tābhir na cātmānaṃ kṛtārthaṃ manyate janaḥ || 59.10 = 298 ||
+	vinā tābhir na cātmānaṃ kṛtārthaṃ manyate janaḥ || 59.10 (= 298) ||
 
 [172,6]
 
 uktaṃ ca |	amṛtasyeva kuṇḍāni sukhānām iva khānayaḥ |
-	rater iva nidhānāni yoṣitaḥ kena nirmitāḥ || 59.11 = 299 ||
+	rater iva nidhānāni yoṣitaḥ kena nirmitāḥ || 59.11 (= 299) ||
 	priyādarśanam evāstu kim anyair darśanāntaraiḥ |
-	prāpyate yatra nirvāṇaṃ sarogeṇāpi cetasā || 59.12 = 300 ||
+	prāpyate yatra nirvāṇaṃ sarogeṇāpi cetasā || 59.12 (= 300) ||
 
 [172,10]
 
@@ -3711,7 +3711,7 @@ iti tasyā vacaḥ śrutvā śukaḥ prāha |
 [172,11]
 
 	vājivāraṇalohānāṃ kāṣṭhapāṣāṇavāsasām |
-	nārīpuruṣatoyānām antaraṃ bahu vidyate || 59.13 = 301 ||
+	nārīpuruṣatoyānām antaraṃ bahu vidyate || 59.13 (= 301) ||
 
 [172,13]
 
@@ -3732,7 +3732,7 @@ anyadā sā prabhāvatī gamanāya śukaṃ papraccha | śukaḥ prāha |
 [173,2]
 
 	gaccha devi yadā vetsi saṃśaye kṛtyam āgate |
-	vīrasya nṛpater yadvat sabhāyāṃ nṛpadūtakaḥ || 60.1 = 302 ||
+	vīrasya nṛpater yadvat sabhāyāṃ nṛpadūtakaḥ || 60.1 (= 302) ||
 
 [173,4]
 
@@ -3741,9 +3741,9 @@ prabhāvaty āha | katham etat | śukaḥ |
 [173,5]
 
 	kacchādhipatinā devi tasya rājñaḥ sabhā śrutā |
-	vicitrā devanirmitā sarvaratnavibhūṣitā || 60.2 = 303 ||
+	vicitrā devanirmitā sarvaratnavibhūṣitā || 60.2 (= 303) ||
 	tāṃ draṣṭuṃ prahito dūto haridatta iti śrutaḥ |
-	sahasraprābhṛto bhīru suratnahayahastakaḥ || 60.3 = 304 ||
+	sahasraprābhṛto bhīru suratnahayahastakaḥ || 60.3 (= 304) ||
 
 [173,9]
 
@@ -3768,7 +3768,7 @@ anyadā sā śukaṃ pṛcchati sma | śuka prāha |
 [174,7]
 
 	gaccha devi gatā vetsi rantuṃ cet tvaṃ nijaṃ naram |
-	yathā tejukayā pūrvaṃ kṛtaṃ ciram ākāṅkṣitam || 61.1 = 305 ||
+	yathā tejukayā pūrvaṃ kṛtaṃ ciram ākāṅkṣitam || 61.1 (= 305) ||
 
 <175>
 
@@ -3782,17 +3782,17 @@ gatā surūpasyaikasya puṃsaḥ rūpaṃ prekṣya saṃgamāya manaś cakre |
 [175,5]
 
 yataḥ |	vivāhe devayātrāyāṃ rājaveśmani saṃkaṭe |
-	paragehe vivāde ca devi nārī vinaśyati || 61.2 = 306 ||
+	paragehe vivāde ca devi nārī vinaśyati || 61.2 (= 306) ||
 uktaṃ ca |	gṛhe 'raṇye tathā deve havye tīrthe jalāśaye |
-	vivāhe cotsave nityaṃ mālinīnilaye tathā || 61.3 = 307 ||
+	vivāhe cotsave nityaṃ mālinīnilaye tathā || 61.3 (= 307) ||
 	yātrāyāṃ strīsamūhe ca nirjane janasaṃkule |
-	pattane ca tathā grāme svacchandā dvāravartinī || 61.4 = 308 ||
+	pattane ca tathā grāme svacchandā dvāravartinī || 61.4 (= 308) ||
 <176>
 	khale kṣetre pravāse ca mārge veśmani catvare |
-	praveśe nirgame rājñāṃ sadā yā kautukapriyā || 61.5 = 309 ||
+	praveśe nirgame rājñāṃ sadā yā kautukapriyā || 61.5 (= 309) ||
 	prativeśmagṛhe śūnye rajakīsūcikīgṛhe |
 	divārātrau ca saṃdhyāyāṃ durdine rājacatvare |
-	śoke ca vyasane bhartuḥ svacchandā strī vinaśyati || 61.6 = 310 ||
+	śoke ca vyasane bhartuḥ svacchandā strī vinaśyati || 61.6 (= 310) ||
 
 [176,6]
 
@@ -3810,7 +3810,7 @@ tadā ca sā bhartāraṃ jagāda |
 [177,4]
 
 	dehi kāṣṭhāni me nātha mariṣyāmi na saṃśayaḥ |
-	āhūya māntrikān vaidyān gatārtiṃ vā kuruṣva mām || 61.7 = 311 ||
+	āhūya māntrikān vaidyān gatārtiṃ vā kuruṣva mām || 61.7 (= 311) ||
 
 [177,6]
 
@@ -3834,7 +3834,7 @@ ca yadi jānāsi tato yāhi |
 [179,3]
 
 	evaṃ kartuṃ ca vaktuṃ ca yo jānāti chalapriyaḥ |
-	sa karotu sa yātv evaṃ kartuṃ bhoktuṃ nijaṃ hitam || 61.8 = 312 ||
+	sa karotu sa yātv evaṃ kartuṃ bhoktuṃ nijaṃ hitam || 61.8 (= 312) ||
 
 [179,5]
 
@@ -3853,7 +3853,7 @@ anyadā sā prabhāvatī śukam āpṛcchati | śukaḥ prāha |
 [179,8]
 
 	priyam evānubhoktavyaṃ yāhi devi tadarthinī |
-	kuhanasya yathā kānte saṃkaṭe 'si kṣamottare || 62.1 = 313 ||
+	kuhanasya yathā kānte saṃkaṭe 'si kṣamottare || 62.1 (= 313) ||
 
 <180>
 
@@ -3889,7 +3889,7 @@ sarvā evaṃ vadantyo nanṛtuḥ |
 [182,5]
 
 	● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● |
-	● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● •|| 62.2 = 314 ||•
+	● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● •|| 62.2 (= 314) ||•
 
 [182,7]
 
@@ -3902,7 +3902,7 @@ kalatre bhuṅkte |
 [183,3]
 
 	tasmād yaḥ saṃkaṭe vetti kartuṃ vaktuṃ ca bhāmini |
-	sa yātv atra yathākāmaṃ yathākālaṃ yathāsukham || 62.3 = 315 ||
+	sa yātv atra yathākāmaṃ yathākālaṃ yathāsukham || 62.3 (= 315) ||
 
 [183,5]
 
@@ -3921,7 +3921,7 @@ anyasmin pradoṣe prabhāvatī yāmīti śukaṃ pratyāha | śukaḥ prāha |
 [183,8]
 
 	yāhi devi na doṣo 'tra manoduḥkhe samāgate |
-	tadduḥkhaśamanaṃ kartuṃ vetsi cec chakaṭālavat || 63.1 = 316 ||
+	tadduḥkhaśamanaṃ kartuṃ vetsi cec chakaṭālavat || 63.1 (= 316) ||
 
 [183,10]
 
@@ -3936,7 +3936,7 @@ ucchedya duḥkhaśamanaṃ kṛtaṃ tathā tvam eva ● ● ● ● ● ● �
 uktaṃ ca |	uḍugaṇaparivāro nāyako 'py oṣadhīnām
 	amṛtamayaśarīraḥ kāntiyukto 'pi candraḥ |
 	bhavati vikalamūrtir maṇḍalaṃ prāpya bhānoḥ
-	parasadananiviṣṭaḥ ko na dhatte laghutvam || 63.2 = 317 ||
+	parasadananiviṣṭaḥ ko na dhatte laghutvam || 63.2 (= 317) ||
 
 [184,5]
 
@@ -3955,7 +3955,7 @@ anyadā prabhāvatī śukam āpṛcchati sma | so 'py āha |
 [184,8]
 
 	gaccha ced viṣame vetsi kartuṃ kiṃcit kṛśodari |
-	kṛtaṃ devikayā yadvat sakhījāravimuktaye || 64.1 = 318 ||
+	kṛtaṃ devikayā yadvat sakhījāravimuktaye || 64.1 (= 318) ||
 
 [184,10]
 
@@ -3985,7 +3985,7 @@ anyadā prabhāvatī śukaṃ pṛcchati | śukaḥ |
 [186,2]
 
 	yujyate gamanaṃ devi tava tatra prabhāvati |
-	vetsi ced viṣame vaktuṃ sitavastra ivākulaḥ || 65.1 = 319 ||
+	vetsi ced viṣame vaktuṃ sitavastra ivākulaḥ || 65.1 (= 319) ||
 
 [186,4]
 
@@ -4012,10 +4012,10 @@ anyadā sā prabhāvatī calitā śukaṃ pṛcchati | śukaḥ |
 [187,2]
 
 	gaccha devi na kartavyo vilambaḥ puṇyakarmaṇi |
-	yadi vetsi bhaye kartuṃ subuddhir haṃsarāḍ iva || 66.1 = 320 ||
+	yadi vetsi bhaye kartuṃ subuddhir haṃsarāḍ iva || 66.1 (= 320) ||
 <188>
 	asti devi dharāpṛṣṭhe ramyaṃ kṣīṇanarākulam |
-	daśayojanavistīrṇaṃ vanaṃ vihagavallabham || 66.2 = 321 ||
+	daśayojanavistīrṇaṃ vanaṃ vihagavallabham || 66.2 (= 321) ||
 
 [188,3]
 
@@ -4047,7 +4047,7 @@ anyadā calitā prabhāvatī śukaṃ pṛcchati sma | śukaḥ |
 [190,2]
 
 	atha ced yāsi kāmārtā yāhi bhīru gatā satī |
-	plavaṃgama ivātmīyaṃ vaktuṃ vetsi yathāhitam || 67.1 = 322 ||
+	plavaṃgama ivātmīyaṃ vaktuṃ vetsi yathāhitam || 67.1 (= 322) ||
 
 [190,4]
 
@@ -4059,15 +4059,15 @@ makaro 'py āha |
 [190,8]
 
 	yasya yad vihitaṃ sthānaṃ yasya yad vetanaṃ kṛtam |
-	tatraiva ramate cittaṃ tasya nānyatra vānara || 67.2 = 323 ||
+	tatraiva ramate cittaṃ tasya nānyatra vānara || 67.2 (= 323) ||
 
 [190,10]
 
 uktaṃ ca |	sarvasvarṇamayī laṅkā na me lakṣmaṇa rocate |
-	pitṛkramāgatāyodhyā nirdhanāpi sukhāyate || 67.3 = 324 ||
+	pitṛkramāgatāyodhyā nirdhanāpi sukhāyate || 67.3 (= 324) ||
 <191>
 	jaṇaṇījammaṇabhūmiṃ piasaṅgaṃ jīviaṃ dhaṇāsaṃghaṃ |
-	pacchimaṇiddāvirikāmiṇiṃ ca dukkhehi muñcanti •|| 67.4 = 325 ||•
+	pacchimaṇiddāvirikāmiṇiṃ ca dukkhehi muñcanti •|| 67.4 (= 325) ||•
 
 [191,3]
 
@@ -4076,7 +4076,7 @@ tad ahaṃ saphalajanmā saṃvṛttas tvadīyadarśanena |
 [191,4]
 
 uktaṃ ca |	sādhūnāṃ darśanaṃ puṇyaṃ tīrthabhūtaṃ hi sādhavaḥ |
-	tīrthaṃ phalati kālena sadyaḥ sādhusamāgamaḥ || 67.5 = 326 ||
+	tīrthaṃ phalati kālena sadyaḥ sādhusamāgamaḥ || 67.5 (= 326) ||
 
 [191,6]
 
@@ -4114,7 +4114,7 @@ pārśve nāsti | makaraḥ | kva muktaṃ tvayā | vānaraḥ | mitra kiṃ na
 [193,5]
 
 	sarvadodumbare vṛkṣe hṛdayaṃ vaṭabhūruhe |
-	cittam asti gṛhītvā tad āgacchāmi punar jalam || 67.7 = 327 ||
+	cittam asti gṛhītvā tad āgacchāmi punar jalam || 67.7 (= 327) ||
 
 [193,7]
 
@@ -4125,7 +4125,7 @@ nāhaṃ bhāvadṛśair atrastho gṛhītuṃ śakyaḥ |
 [193,10]
 
 	jalajantucarair nityaṃ jalamārgānusāribhiḥ |
-	sthalajaiḥ saṃgatir na syāt dhruveti munibhāṣitam || 67.8 = 328 ||
+	sthalajaiḥ saṃgatir na syāt dhruveti munibhāṣitam || 67.8 (= 328) ||
 
 <194>
 
@@ -4136,7 +4136,7 @@ iti nirbhartsito vānareṇa makaraḥ svagṛhaṃ yayau |
 [194,2]
 
 uktaṃ ca |	utpannā yuktikāryeṣu buddhir yasya na hīyate |
-	sa eva tarate durgaṃ jalānte vānaro yathā || 67.9 = 329 ||
+	sa eva tarate durgaṃ jalānte vānaro yathā || 67.9 (= 329) ||
 
 [194,4]
 
@@ -4155,7 +4155,7 @@ athānyedyuḥ śukaṃ prāha prabhāvatī | śukaḥ |
 [194,7]
 
 	yāhi devi sukhaṃ bhuṅkṣva yadi te 'sti sahāyinī |
-	vitarkasadṛśī kāle viṣame varavarṇini || 68.1 = 330 ||
+	vitarkasadṛśī kāle viṣame varavarṇini || 68.1 (= 330) ||
 
 [194,9]
 
@@ -4187,7 +4187,7 @@ anyadā prabhāvatī śukaṃ pṛcchati | śukaḥ prāha |
 [196,2]
 
 	kuru jāraṃ viśālākṣi vijāraṃ kuruṣe yadi |
-	yathā vejikayā pūrvam ardhasnāte patau kṛtam || 69.1 = 331 ||
+	yathā vejikayā pūrvam ardhasnāte patau kṛtam || 69.1 (= 331) ||
 
 [196,4]
 
@@ -4218,7 +4218,7 @@ cāgate sā tathaiva tasmin snehalābhūt | śuka eva mandaṃ mandaṃ paṭhat
 
 	anurāgo vṛthā strīṣu strīṣu garvo vṛthā tathā |
 <198>
-	priyo 'haṃ sarvadā hy asyā mamaiṣā sarvadāpriyā || 70.1 = 332 ||
+	priyo 'haṃ sarvadā hy asyā mamaiṣā sarvadāpriyā || 70.1 (= 332) ||
 
 [198,2]
 
@@ -4230,7 +4230,7 @@ kathayati |
 [198,6]
 
 uktaṃ ca |	sarvatra śucayo dhīrāḥ sukarmabalagarvitāḥ |
-	kukarmabhayasaṃtrastāḥ pāpāḥ sarvatra śaṅkitāḥ || 70.2 = 333 ||
+	kukarmabhayasaṃtrastāḥ pāpāḥ sarvatra śaṅkitāḥ || 70.2 (= 333) ||
 
 [198,8]
 
@@ -4243,7 +4243,7 @@ yathā yathā sā śukaṃ stauti tathā tathā śuko lajjati |
 [199,1]
 
 uktaṃ ca |	baü jaï māraï macchalī to uṇṇaü karei |
-	sīhu ju māraï matta gaa ṇahacampiā dharei •|| 70.3 = 334 ||•
+	sīhu ju māraï matta gaa ṇahacampiā dharei •|| 70.3 (= 334) ||•
 
 [199,3]
 
@@ -4254,24 +4254,24 @@ ca na labhyate |
 [199,6]
 
 uktaṃ ca |	sulabhāḥ puruṣā rājan satataṃ priyavādinaḥ |
-	apriyasya tu pathyasya vaktā śrotā ca durlabhaḥ || 70.4 = 335 ||
+	apriyasya tu pathyasya vaktā śrotā ca durlabhaḥ || 70.4 (= 335) ||
 	mahilā capalā svāmin niḥsnehā guṇavarjitā |
-	kuvikalpā tanuprajñā yathoktaṃ satyam eva tat || 70.5 = 336 ||
+	kuvikalpā tanuprajñā yathoktaṃ satyam eva tat || 70.5 (= 336) ||
 	manyate sukṛtaṃ naiva patiputraparāṅmukhī |
-	pūrvasnehamayī mṛdvī kṛtakāryātiniṣṭhurā || 70.6 = 337 ||
+	pūrvasnehamayī mṛdvī kṛtakāryātiniṣṭhurā || 70.6 (= 337) ||
 
 <200>
 
 [200,1]
 
 uktaṃ ca |	kurvanti tāvat prathamaṃ priyāṇi yāvan na jānanti naraṃ prasaktam |
-	jñātvā ca taṃ manmathapāśabaddhaṃ grastāmiṣaṃ mīnam ivoddharanti || 70.7 = 338 ||
+	jñātvā ca taṃ manmathapāśabaddhaṃ grastāmiṣaṃ mīnam ivoddharanti || 70.7 (= 338) ||
 	samudravīcīva calasvabhāvāḥ saṃdhyābhrarekheva muhūrtarāgāḥ |
-	striyaḥ kṛtārthāḥ puruṣaṃ nirarthaṃ niṣpīḍitālaktakavat tyajanti || 70.8 = 339 ||
+	striyaḥ kṛtārthāḥ puruṣaṃ nirarthaṃ niṣpīḍitālaktakavat tyajanti || 70.8 (= 339) ||
 	saṃmohayanti madayanti viḍambayanti
 	nirbhartsayanti ramayanti viṣādayanti |
 	etāḥ praviśya hṛdayaṃ sadayaṃ narāṇāṃ
-	kiṃ nāma vāmanayanā na samācaranti || 70.9 = 340 ||
+	kiṃ nāma vāmanayanā na samācaranti || 70.9 (= 340) ||
 
 [200,9]
 
@@ -4286,17 +4286,17 @@ pṛcchati | sa āha |
 [201,3]
 
 	prayojanam avijñāya jñātvā cātha manīṣiṇā |
-	sahasaiva na vaktavyam acintyo vidhinirṇayaḥ || 70.10 = 341 ||
+	sahasaiva na vaktavyam acintyo vidhinirṇayaḥ || 70.10 (= 341) ||
 	vihivihiaṃ cia laddhaṃ piasaṃgo jīviaṃ dhaṇaṃ dhaṇṇaṃ |
-	juttaṃ savvaṃ jaṇavaaṇaṃ viaṇaviḍambaṇā ṇihilā •|| 70.11 = 342 ||•
+	juttaṃ savvaṃ jaṇavaaṇaṃ viaṇaviḍambaṇā ṇihilā •|| 70.11 (= 342) ||•
 
 [201,7]
 
 svāmin | yady api kathayituṃ na yujyate tarhi śṛṇu |
 	mūrkhāṇāṃ madyapānāṃ ca nārīṇāṃ rogiṇām api |
-	svāmin kāmāturāṇāṃ ca khinnānāṃ kopināṃ tathā || 70.12 = 343 ||
+	svāmin kāmāturāṇāṃ ca khinnānāṃ kopināṃ tathā || 70.12 (= 343) ||
 	mattapramattabhīrūṇāṃ kṣudhārtānāṃ viśeṣataḥ |
-	sukṛtaṃ skhalitaṃ cāryā na gṛhṇanti kṣamānvitāḥ || 70.13 = 344 ||
+	sukṛtaṃ skhalitaṃ cāryā na gṛhṇanti kṣamānvitāḥ || 70.13 (= 344) ||
 
 [201,12]
 
@@ -4307,7 +4307,7 @@ uktaṃ ca bhārate |
 	daśa dharmaṃ na jānanti dhṛtarāṣṭra nibodha tān |
 	mattaḥ pramatta unmattaḥ śrāntaḥ kruddho bubhukṣitaḥ |
 <202>
-	tvaramāṇaś ca lubdhaś ca bhītaḥ kāmī ca te daśa || 70.14 = 345 ||
+	tvaramāṇaś ca lubdhaś ca bhītaḥ kāmī ca te daśa || 70.14 (= 345) ||
 
 [202,2]
 
@@ -4316,9 +4316,9 @@ asyāś ca kukṛtaṃ kṣamyatām | atrārthe nāsyā doṣaḥ | kusakhīsa�
 [202,3]
 
 uktaṃ ca |	asatāṃ saṅgadoṣeṇa sādhavo yānti vikriyām |
-	duryodhanaprasaṅgena bhīṣmo goharaṇe gataḥ || 70.15 = 346 ||
+	duryodhanaprasaṅgena bhīṣmo goharaṇe gataḥ || 70.15 (= 346) ||
 	vidyādhareṇa tanayā bhuktā rājñaḥ purā chalāt |
-	patināpi subhuktāpi nirdoṣeti vicāritā || 70.16 = 347 ||
+	patināpi subhuktāpi nirdoṣeti vicāritā || 70.16 (= 347) ||
 
 [202,7]
 
@@ -4334,7 +4334,7 @@ so 'py asyā rūpam avalokya mūrcchitaḥ sakāmo 'bhūt | paścāl labdhasaṃ
 [203,4]
 
 uktaṃ ca |	taruṇī ramaṇī ratiramyatarā pramadā sukhadā ca sadā samadā |
-	yadi sā subhagā hṛdaye nihitā kva jayaḥ kva ● ● ● ● ● || 70.17 = 348 ||
+	yadi sā subhagā hṛdaye nihitā kva jayaḥ kva ● ● ● ● ● || 70.17 (= 348) ||
 
 [203,6]
 
