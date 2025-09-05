@@ -109,7 +109,7 @@ def validate_content(structured_content, options):
         for ngram in sorted_ngram_counts:
             if ngram not in ref_ngram_counts[str(n)]:
                 valid = False
-                errors.append(f"N-gram {repr(ngram)} (count {new_ngram_counts[ngram]}) is unfamiliar")
+                errors.append(f"N-gram {repr(ngram)} ({','.join([str(hex(ord(c))) for c in ngram])}) (count {new_ngram_counts[ngram]}) is unfamiliar")
                 unfamiliar_ngrams.append(f"{new_ngram_counts[ngram]}\t{repr(ngram)}")
 
         # Optionally: Output unfamiliar n-gram data for inspection
