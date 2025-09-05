@@ -53,10 +53,11 @@ _XML_NS = "http://www.w3.org/XML/1998/namespace"
 # ----------------------------
 SECTION_RE = re.compile(r"^\{([^}]+)\}\s*$")
 LOCATION_VERSE_RE = re.compile(r"^\[([^\]]+?)\]\t*(.*)$")  # [label] then tabbed verse content
-VERSE_NUM_RE = re.compile(r"^\s*([0-9]+(?:\.[0-9]+)*)\s*([a-z]{1,4})?\s*$", re.I)
+VERSE_NUM_RE = re.compile(r"^\s*([0-9]+(?:[.,][0-9]+)*)\s*([a-z]{1,4})?\s*$", re.I)
 LOCATION_RE = re.compile(r"^\[([^\]]+?)\]\$")  # [label] by itself on line
 PAGE_RE = re.compile(r"^<(\d+)>$")  # <page>
 PAGE_LINE_RE = re.compile(r"^<(\d+),(\d+)>$")  # <page,line>
+ADDITIONAL_STRUCTURE_NOTE_RE = re.compile(r"^<[^\n>]+>$")  # other <...>
 VERSE_MARKER_RE = re.compile(r"\|\| ([^|]{1,20}) \|\|(?: |$)")
 VERSE_BACK_BOUNDARY_RE = re.compile(r"\|\|? (?![^|]{1,20} \|\|)")
 CLOSE_L_RE = re.compile(r"\|\|?(?:[ \n]|$)")
@@ -144,7 +145,7 @@ class TEIBuilder:
             s.last_text_sink = None
             return
 
-        # 2) Page marker <page_num> / <page_num,line_num>
+        # 2a) Page marker <page_num> / <page_num,line_num>
         page_line_match = PAGE_LINE_RE.match(line)
         if page_line_match:
             self._emit_pb(page_line_match.group(1), page_line_match.group(2))
@@ -152,6 +153,12 @@ class TEIBuilder:
         page_match = PAGE_RE.match(line)
         if page_match:
             self._emit_pb(page_match.group(1), None)
+            return
+
+        # 2b) Other structural note <...>
+        additional_structure_note_match = ADDITIONAL_STRUCTURE_NOTE_RE.match(line)
+        if additional_structure_note_match:
+            self._emit_milestone(additional_structure_note_match.group(0))
             return
 
         # 3) Location marker [label]
@@ -183,6 +190,7 @@ class TEIBuilder:
             return
 
         # shouldn't reach this
+        breakpoint()
         raise(f"end of _handle_line reached: {line}")
 
     # ---- helpers ----
@@ -284,10 +292,19 @@ class TEIBuilder:
         s.current_loc_xml_id = None
         s.extra_p_suffix = 1
 
+    def _get_container(self):
+        s = self.state
+        if s.current_lg is not None:
+            return s.current_lg
+        elif s.current_p is not None:
+            return s.current_p
+        else:
+            return s.current_div
+
     def _emit_pb(self, page: str, line_no: Optional[str]) -> None:
         s = self.state
         # Ensure we are inside a container
-        container = s.current_lg or s.current_p or s.current_div
+        container = self._get_container()
         etree.SubElement(container, "pb", {"n": page})
         s.explicit_page = page
         # Reset lb_count only on page; set to line_no-1 so that next lb becomes that number
@@ -298,6 +315,12 @@ class TEIBuilder:
                 s.lb_count = 0
         else:
             s.lb_count = 0
+
+    def _emit_milestone(self, label: str) -> None:
+        s = self.state
+        # Ensure we are inside a container
+        container = self._get_container()
+        etree.SubElement(container, "milestone", {"n": label})
 
     def _open_location(self, label: str) -> None:
         s = self.state

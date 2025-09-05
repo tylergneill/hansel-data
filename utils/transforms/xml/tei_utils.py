@@ -15,16 +15,16 @@ def configure_cli(parser: argparse.ArgumentParser):
         help="Destination XML file"
     )
     parser.add_argument(
+        "--verse-only", action="store_true",
+        help="Legacy verse-only mode"
+    )
+    parser.add_argument(
         "-u", "--uglier", action="store_true",
         help="Compact output (no indentation)"
     )
     parser.add_argument(
         "-p", "--prettier", action="store_true",
         help="Extra newlines after pb/lb for readability"
-    )
-    parser.add_argument(
-        "--verse-only", action="store_true",
-        help="Legacy verse-only mode"
     )
 
 

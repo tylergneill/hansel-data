@@ -10,7 +10,7 @@ from tei_utils import (
 
 def cli():
     parser = argparse.ArgumentParser(
-        description="Convert Śukasaptati-style plaintext into TEI-XML"
+        description="Convert plaintext into TEI-XML"
     )
     configure_cli(parser)
     args = parser.parse_args()

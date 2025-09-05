@@ -23,8 +23,8 @@ def validate_structure(structured_content, options):
 
     # Step 1: Remove innermost valid closed sets of notes (...) and <...>
     
-    paren_pattern = r'\([^()\[\]\{\}<>]*\)'
-    angle_pattern = r'<[^<>\[\]\{\}()]*>'
+    paren_pattern = r'\([^()≤≥\[\]\{\}<>]*\)'
+    angle_pattern = r'<[^()≤≥\[\]\{\}<>]*>'
 
     for pattern in [paren_pattern, angle_pattern]:
         structured_content, new_errors = remove_bracket_groups(structured_content, pattern)
