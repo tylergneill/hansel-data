@@ -5,7 +5,7 @@ from skrutable.transliteration import Transliterator
 
 T = Transliterator(from_scheme='HK', to_scheme='IAST')
 
-MD_DIR = Path("metadata")
+MD_DIR = Path("")
 OUT_DIR = MD_DIR / "transforms"
 
 # Make sure output dir exists
