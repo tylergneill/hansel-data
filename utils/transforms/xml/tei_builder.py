@@ -52,15 +52,15 @@ _XML_NS = "http://www.w3.org/XML/1998/namespace"
 # Regexes (compiled once)
 # ----------------------------
 SECTION_RE = re.compile(r"^\{([^}]+)\}\s*$")
-LOCATION_VERSE_RE = re.compile(r"^\[([^\]]+?)\]\t*(.*)$")  # [label] then tabbed verse content
+LOCATION_VERSE_RE = re.compile(r"^\[([^\]]+?)\]\t*(.*)$")  # [label] +/- tabbed verse content
 VERSE_NUM_RE = re.compile(r"^\s*([0-9]+(?:[.,][0-9]+)*)\s*([a-z]{1,4})?\s*$", re.I)
-LOCATION_RE = re.compile(r"^\[([^\]]+?)\]\$")  # [label] by itself on line
 PAGE_RE = re.compile(r"^<(\d+)>$")  # <page>
 PAGE_LINE_RE = re.compile(r"^<(\d+),(\d+)>$")  # <page,line>
 ADDITIONAL_STRUCTURE_NOTE_RE = re.compile(r"^<[^\n>]+>$")  # other <...>
 VERSE_MARKER_RE = re.compile(r"\|\| ([^|]{1,20}) \|\|(?: |$)")
 VERSE_BACK_BOUNDARY_RE = re.compile(r"\|\|? (?![^|]{1,20} \|\|)")
 CLOSE_L_RE = re.compile(r"\|\|?(?:[ \n]|$)")
+HYPHEN_EOL_RE = re.compile(r"-\s*$")  # tweak later if you need fancy hyphens
 
 
 # ----------------------------
@@ -88,7 +88,7 @@ def make_xml_id(label: str) -> str:
 @dataclass
 class BuildState:
     verse_only: bool = False
-    line_by_line: bool = True
+    line_by_line: bool = False
 
     # DOM pointers
     root: etree._Element = field(default_factory=lambda: etree.Element("TEI", nsmap={"xml": _XML_NS}))
@@ -98,6 +98,8 @@ class BuildState:
     current_lg: Optional[etree._Element] = None
     current_l: Optional[etree._Element] = None
     current_caesura: Optional[etree._Element] = None
+    prev_line_hyphen: bool = False
+    first_append_in_line: bool = False
 
     # Counters
     lb_count: int = 0  # counts since last <pb>
@@ -121,8 +123,10 @@ class BuildState:
 # Builder class
 # ----------------------------
 class TEIBuilder:
-    def __init__(self, verse_only: bool = False, line_by_line: bool = True):
-        self.state = BuildState(verse_only=verse_only, line_by_line=line_by_line)
+    def __init__(self, verse_only: bool = False, line_by_line: bool = False):
+        self.state = BuildState(
+            verse_only=verse_only, line_by_line=line_by_line
+        )
 
     def build(self, lines: List[str]) -> etree._Element:
         for raw in lines:
@@ -155,13 +159,14 @@ class TEIBuilder:
             self._emit_pb(page_match.group(1), None)
             return
 
-        # 2b) Other structural note <...>
+        # 2b) Other structural note <...> on physical line
         additional_structure_note_match = ADDITIONAL_STRUCTURE_NOTE_RE.match(line)
         if additional_structure_note_match:
+            self._begin_physical_line()
             self._emit_milestone(additional_structure_note_match.group(0))
             return
 
-        # 3) Location marker [label]
+        # 3) Location marker [label] +/- tabbed verse-only content
         location_match = LOCATION_VERSE_RE.match(line)
         if location_match:
             label, rest = location_match.group(1).strip(), location_match.group(2)
@@ -178,22 +183,74 @@ class TEIBuilder:
 
         # HANDLE LINES WITH CONTENT (AND MAYBE ALSO STRUCTURE)
 
+        self._begin_physical_line()
+
         # <head>[TAB]verse[bar+space]<back>
         if '\t' in line:
             self._handle_verse_line(line)
+            self._finalize_physical_line(line)
             return
 
         # Else, if we are inside a <p>, append text to that <p>
         if s.current_p is not None:
             self._append_text(s.current_p, line)
             s.last_text_sink = s.current_p
+            self._finalize_physical_line(line)
             return
 
         # shouldn't reach this
-        breakpoint()
         raise(f"end of _handle_line reached: {line}")
 
     # ---- helpers ----
+    def _begin_physical_line(self) -> None:
+        s = self.state
+        s.first_append_in_line = True  # reset for this physical line
+
+        if not s.line_by_line:
+            return
+
+        s.lb_count += 1
+        container = self._get_container()
+        attrs = {"n": str(s.lb_count)}
+        if s.prev_line_hyphen:
+            attrs["break"] = "no"  # previous line ended in hyphen → no joining space
+        lb = etree.SubElement(container, "lb", attrs)
+
+        # New text should go into the lb's tail if possible
+        s.last_text_sink = lb
+
+    def _finalize_physical_line(self, raw_line: str) -> None:
+        s = self.state
+        s.prev_line_hyphen = bool(HYPHEN_EOL_RE.search(raw_line))
+
+    def _append(self, default_el: etree._Element, text: str, *, tail_ok: bool = True) -> None:
+        """Append `text` to the right place, honoring last_text_sink and join-space logic."""
+        if not text:
+            return
+        s = self.state
+
+        # Decide sink: prefer tail of last_text_sink if allowed, else default_el.text
+        sink_el = default_el
+        use_tail = False
+        if tail_ok and s.last_text_sink is not None:
+            sink_el = s.last_text_sink
+            use_tail = True
+
+        # If we're appending to a tail for the first time this line and the previous
+        # line did NOT end in hyphen, insert a single joining space.
+        prefix = ""
+        if use_tail and s.first_append_in_line and not s.prev_line_hyphen:
+            prefix = " "
+
+        # Do the append
+        if use_tail:
+            sink_el.tail = (sink_el.tail or "") + prefix + text
+        else:
+            sink_el.text = (sink_el.text or "") + text
+
+        # We’ve now appended once for this line
+        s.first_append_in_line = False
+
     def _handle_verse_only_line(self, label, rest):
         s = self.state
         base, seg = self._parse_verse_label(label)

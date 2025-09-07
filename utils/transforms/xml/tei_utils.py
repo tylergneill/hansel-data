@@ -16,7 +16,11 @@ def configure_cli(parser: argparse.ArgumentParser):
     )
     parser.add_argument(
         "--verse-only", action="store_true",
-        help="Legacy verse-only mode"
+        help="Verse-only mode"
+    )
+    parser.add_argument(
+        "--line-by-line", action="store_true",
+        help="Every newline gets <lb>"
     )
     parser.add_argument(
         "-u", "--uglier", action="store_true",
@@ -29,10 +33,10 @@ def configure_cli(parser: argparse.ArgumentParser):
 
 
 
-def build_tei(src: Path, verse_only: bool = False) -> etree._Element:
+def build_tei(src: Path, verse_only: bool = False, line_by_line: bool = False) -> etree._Element:
     text = src.read_text(encoding="utf-8")
     lines = text.splitlines()
-    builder = TEIBuilder(verse_only=verse_only)
+    builder = TEIBuilder(verse_only=verse_only, line_by_line=line_by_line)
     return builder.build(lines)
 
 
