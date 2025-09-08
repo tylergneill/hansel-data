@@ -40,7 +40,7 @@ _XML_NS = "http://www.w3.org/XML/1998/namespace"
 # ----------------------------
 # Regexes (compiled once)
 # ----------------------------
-SECTION_RE = re.compile(r"^\{([^}]+)\}\s*$")
+SECTION_RE = re.compile(r"^{([^}]+)}\s*$")
 LOCATION_VERSE_RE = re.compile(r"^\[([^\]]+?)\]\t*(.*)$")  # [label] +/- tabbed verse content
 VERSE_NUM_RE = re.compile(r"^\s*([0-9]+(?:[.,][0-9]+)*)\s*([a-z]{1,4})?\s*$", re.I)
 PAGE_RE = re.compile(r"^<(\d+)>$")  # <page>
@@ -65,8 +65,8 @@ def make_xml_id(label: str) -> str:
     if "," in s:
         page, line_no = map(str.strip, s.split(",", 1))
         if page and line_no:
-            page_id = page.replace('.', '_')
-            line_id = line_no.replace('.', '_')
+            page_id = page.replace(".", "_")
+            line_id = line_no.replace(".", "_")
             return f"p{page_id}_l{line_id}"
     cleaned = re.sub(r"\W+", "_", s)
     return f"v{cleaned}" if cleaned else "v"
@@ -88,7 +88,6 @@ class BuildState:
     current_l: Optional[etree._Element] = None
     current_caesura: Optional[etree._Element] = None
     prev_line_hyphen: bool = False
-    first_append_in_line: bool = False
 
     # Counters
     lb_count: int = 0  # counts since last <pb>
@@ -99,6 +98,7 @@ class BuildState:
     current_loc_base: Optional[str] = None  # e.g., "1.1"
     current_loc_xml_id: Optional[str] = None
     extra_p_suffix: int = 1  # for subsequent <p> after a finished <lg>
+    last_emitted_lb: Optional[etree._Element] = None
 
     # text sink: most recent inline element (e.g., <lb/>) whose tail should
     # receive following prose text on the same physical line
@@ -114,7 +114,8 @@ class BuildState:
 class TEIBuilder:
     def __init__(self, verse_only: bool = False, line_by_line: bool = False):
         self.state = BuildState(
-            verse_only=verse_only, line_by_line=line_by_line
+            verse_only=verse_only,
+            line_by_line=line_by_line
         )
 
     def build(self, lines: List[str]) -> etree._Element:
@@ -134,7 +135,6 @@ class TEIBuilder:
         section_match = SECTION_RE.match(line)
         if section_match:
             self._open_div(section_match.group(1))
-            # new physical line ends: clear tail sink
             s.last_text_sink = None
             return
 
@@ -151,7 +151,6 @@ class TEIBuilder:
         # 2b) Other structural note <...> to be counted as physical line
         additional_structure_note_match = ADDITIONAL_STRUCTURE_NOTE_RE.match(line)
         if additional_structure_note_match:
-            self._begin_physical_line()
             self._emit_milestone(additional_structure_note_match.group(0))
             return
 
@@ -162,56 +161,48 @@ class TEIBuilder:
         if location_match:
             label, rest = location_match.group(1).strip(), location_match.group(2)
 
-            # --verse-only mode: use <lg> and expect content on same line like [label]\tCONTENT
             if s.verse_only:
                 self._handle_verse_only_line(label, rest)
                 return
-
-            # default mode: use <p>, content will not be on same line
             else:
                 self._open_location(label)
                 return
 
         # HANDLE LINES WITH CONTENT (AND MAYBE ALSO STRUCTURE)
 
-        self._begin_physical_line()
-
         # <head>[TAB]verse[bar+space]<back>
         if '\t' in line:
             self._handle_verse_line(line)
-            self._finalize_physical_line(line)
+            # Verse lines do not currently emit <lb> milestones
+            s.prev_line_hyphen = bool(HYPHEN_EOL_RE.search(line))
             return
 
         # Else, if we are inside a <p>, append text to that <p>
         if s.current_p is not None:
-            self._append_text(s.current_p, line)
-            s.last_text_sink = s.current_p
+            text_to_append = HYPHEN_EOL_RE.sub("", line)
+            if not HYPHEN_EOL_RE.search(line):
+                text_to_append += " "
+            self._append(s.current_p, text_to_append)
             self._finalize_physical_line(line)
             return
 
         # shouldn't reach this
-        raise(f"end of _handle_line reached: {line}")
+        raise Exception(f"end of _handle_line reached: {line}")
 
     # ---- helpers ----
-    def _begin_physical_line(self) -> None:
-        s = self.state
-        s.first_append_in_line = True  # reset for this physical line
-
-        if not s.line_by_line:
-            return
-
-        s.lb_count += 1
-        container = self._get_container()
-        attrs = {"n": str(s.lb_count)}
-        if s.prev_line_hyphen:
-            attrs["break"] = "no"  # previous line ended in hyphen → no joining space
-        lb = etree.SubElement(container, "lb", attrs)
-
-        # New text should go into the lb's tail if possible
-        s.last_text_sink = lb
-
     def _finalize_physical_line(self, raw_line: str) -> None:
         s = self.state
+        # For prose, emit an <lb/> after the line's text has been appended
+        if s.current_p is not None:
+            s.lb_count += 1
+            container = self._get_container()
+            attrs = {"n": str(s.lb_count)}
+            if HYPHEN_EOL_RE.search(raw_line):
+                attrs["break"] = "no"
+            lb = etree.SubElement(container, "lb", attrs)
+            s.last_emitted_lb = lb
+            s.last_text_sink = lb
+
         s.prev_line_hyphen = bool(HYPHEN_EOL_RE.search(raw_line))
 
     def _append(self, default_el: etree._Element, text: str, *, tail_ok: bool = True) -> None:
@@ -220,45 +211,35 @@ class TEIBuilder:
             return
         s = self.state
 
-        # Decide sink: prefer tail of last_text_sink if allowed, else default_el.text
         sink_el = default_el
         use_tail = False
         if tail_ok and s.last_text_sink is not None:
             sink_el = s.last_text_sink
             use_tail = True
 
-        # If we're appending to a tail for the first time this line and the previous
-        # line did NOT end in hyphen, insert a single joining space.
         prefix = ""
-        if use_tail and s.first_append_in_line and not s.prev_line_hyphen:
+        if use_tail and not s.prev_line_hyphen:
             prefix = " "
 
-        # Do the append
         if use_tail:
             sink_el.tail = (sink_el.tail or "") + prefix + text
         else:
             sink_el.text = (sink_el.text or "") + text
-
-        # We’ve now appended once for this line
-        s.first_append_in_line = False
 
     def _handle_verse_only_line(self, label, rest):
         s = self.state
         base, seg = self._parse_verse_label(label)
         self._open_or_switch_lg_for_label(base, group_by_base=True)
 
-        # If no open <l>, start one; attach segment to @n if present
         if s.current_l is None:
             if seg:
                 s.current_l = etree.SubElement(s.current_lg, "l", {"n": seg})
             else:
                 s.current_l = etree.SubElement(s.current_lg, "l")
-        # Append same-line content (if any)
         if rest:
             stripped = rest.rstrip()
-            self._append_text(s.current_l, rest)
+            self._append_text(s.current_l, stripped)
             s.last_text_sink = s.current_l
-            # If this segment ends with '|' or '||', the <l> is complete.
             if CLOSE_L_RE.search(stripped):
                 s.current_l = None
         return
@@ -271,7 +252,6 @@ class TEIBuilder:
         verse_payload = after_tab
         back_text = ""
 
-        # 1) Prefer numeric verse marker (VERSE_MARKER_RE)
         m_marker = None
         for m in VERSE_MARKER_RE.finditer(after_tab):
             m_marker = m
@@ -279,7 +259,6 @@ class TEIBuilder:
             verse_payload = after_tab[: m_marker.end()].rstrip(" ")
             back_text = after_tab[m_marker.end():]
         else:
-            # 2) Else simple back boundary (VERSE_BACK_BOUNDARY_RE)
             m_back = VERSE_BACK_BOUNDARY_RE.search(after_tab)
             if m_back:
                 start = m_back.start()
@@ -287,41 +266,32 @@ class TEIBuilder:
                 verse_payload = after_tab[:start] + bars
                 back_text = after_tab[m_back.end():]
 
-        # Ensure we have an <lg> for the current location (default mode = full label grouping)
         self._open_or_switch_lg_for_label(s.current_loc_label or "v", group_by_base=False)
         lg = s.current_lg
 
-        # <head> (only if non-empty)
         if pre_tab.strip():
             self._append_singleton_child_text(lg, "head", pre_tab)
 
-        # Start a new <l> only if there isn't one already open
         if s.current_l is None:
             s.current_l = etree.SubElement(lg, "l")
 
-        # Append verse payload with caesura handling
         payload_stripped = verse_payload.rstrip()
-        is_line_close = bool(CLOSE_L_RE.search(payload_stripped))  # ends with '|' or '||'
+        is_line_close = bool(CLOSE_L_RE.search(payload_stripped))
 
         if is_line_close:
-            # If mid-line after caesura, append to caesura tail; else to <l>.text
             if s.current_caesura is not None:
                 self._append_text(s.current_caesura, payload_stripped, tail=True)
                 s.last_text_sink = s.current_caesura
             else:
                 self._append_text(s.current_l, payload_stripped)
                 s.last_text_sink = s.current_l
-
-            # Close the <l> for the next verse line
             s.current_l = None
             s.current_caesura = None
         else:
-            # Continuing same <l>: append payload and insert a <caesura/> for continuation
             self._append_text(s.current_l, payload_stripped)
             s.current_caesura = etree.SubElement(s.current_l, "caesura")
             s.last_text_sink = s.current_caesura
 
-        # <back> (only if there's content after the boundary)
         if back_text and back_text.strip():
             self._append_singleton_child_text(lg, "back", back_text)
 
@@ -329,13 +299,10 @@ class TEIBuilder:
 
     def _open_div(self, label: str) -> None:
         s = self.state
-        # Close any open p/lg implicitly
         self._close_p()
         self._close_lg()
-        # FLAT: append to <body>, not to the previous <div>
         div = etree.SubElement(s.body, "div", {"n": label})
         s.current_div = div
-        # Reset location bookkeeping when a new div starts
         s.current_loc_label = None
         s.current_loc_xml_id = None
         s.extra_p_suffix = 1
@@ -351,11 +318,19 @@ class TEIBuilder:
 
     def _emit_pb(self, page: str, line_no: Optional[str]) -> None:
         s = self.state
-        # Ensure we are inside a container
         container = self._get_container()
-        etree.SubElement(container, "pb", {"n": page})
+
+        attrs = {"n": page}
+        if s.last_emitted_lb is not None and s.last_emitted_lb.getparent() == container:
+            if s.last_emitted_lb.get("break") == "no":
+                attrs["break"] = "no"
+            container.remove(s.last_emitted_lb)
+
+        pb = etree.SubElement(container, "pb", attrs)
+        s.last_emitted_lb = None
+        s.last_text_sink = pb
+
         s.explicit_page = page
-        # Reset lb_count only on page; set to line_no-1 so that next lb becomes that number
         if line_no is not None:
             try:
                 s.lb_count = int(line_no) - 1
@@ -366,22 +341,27 @@ class TEIBuilder:
 
     def _emit_milestone(self, label: str) -> None:
         s = self.state
-        # Ensure we are inside a container
         container = self._get_container()
         etree.SubElement(container, "milestone", {"n": label})
 
     def _open_location(self, label: str) -> None:
         s = self.state
-        # Close any open p/lg for previous location
         self._close_p()
         self._close_lg()
         s.current_loc_label = label
         s.current_loc_xml_id = make_xml_id(label)
+        if "," in label and not s.verse_only:
+            try:
+                _page, line_no = map(str.strip, label.split(",", 1))
+                s.lb_count = int(line_no)
+            except (ValueError, IndexError):
+                pass
         s.extra_p_suffix = 1
-        # Default: open a fresh <p>; may be upgraded to <lg> if TAB appears
         s.current_p = etree.SubElement(
             s.current_div, "p", {f"{{{_XML_NS}}}id": s.current_loc_xml_id, "n": label}
         )
+        s.last_text_sink = None # Set to None so first append goes to .text
+        s.prev_line_hyphen = False # Reset for new paragraph
 
     def _parse_verse_label(self, raw: str) -> tuple[str, Optional[str]]:
         """
@@ -405,7 +385,6 @@ class TEIBuilder:
         else:
             need_base = label.strip()
 
-        # already in correct lg?
         if s.current_lg is not None and s.current_loc_base == need_base:
             s.current_loc_label = label
             return
@@ -437,13 +416,11 @@ class TEIBuilder:
     def _append_singleton_child_text(self, parent, tag: str, text: str) -> None:
         if not text or not text.strip():
             return
-        # find first existing child with this tag
         existing = next((ch for ch in parent if ch.tag == tag), None)
         if existing is None:
             el = etree.SubElement(parent, tag)
             el.text = text.strip()
         else:
-            # append with a separating space
             if existing.text:
                 existing.text += " " + text.strip()
             else:
