@@ -15,7 +15,7 @@ def cli():
     configure_cli(parser)
     args = parser.parse_args()
 
-    root = build_tei(args.src, verse_only=args.verse_only)
+    root = build_tei(args.src, verse_only=args.verse_only, line_by_line=args.line_by_line)
     post_process(root)
 
     xml = serialize(root, pretty_print=not args.uglier)
