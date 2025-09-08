@@ -159,12 +159,14 @@ class TEIBuilder:
             self._emit_pb(page_match.group(1), None)
             return
 
-        # 2b) Other structural note <...> on physical line
+        # 2b) Other structural note <...> to be counted as physical line
         additional_structure_note_match = ADDITIONAL_STRUCTURE_NOTE_RE.match(line)
         if additional_structure_note_match:
             self._begin_physical_line()
             self._emit_milestone(additional_structure_note_match.group(0))
             return
+
+        # 2c) TODO: Other structural note (...) not to be counted as physical line
 
         # 3) Location marker [label] +/- tabbed verse-only content
         location_match = LOCATION_VERSE_RE.match(line)
