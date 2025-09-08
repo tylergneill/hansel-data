@@ -1,42 +1,31 @@
 """
-TEI builder (proposed rewrite)
+TEI builder
 
-Implements the clarified rules discussed on 2025‑08‑09 for transforming a
-lightly marked plaintext into TEI with <div>, <p>, <lg>/<l>, <pb>, and <lb>.
+Renders the HANSEL data model (lightly marked plaintext)
+into a simplified TEI-XML form (<div>, <p>, <lg>/<l>, <pb>, <cb>, <lb>, <head>, <back>, <note>).
 
-Key points implemented here:
+Primary elements:
+1) Section markers {...} (own line only) → <div> (flat, never nested).
+2) Location markers [...] ... → either <p> or <lg> (latter can nest x1).
+3) Tab → <lg>/<l>
+4) Page markers <page[-col][,line]> → <pb>, (<cb>, <lb>) (n attribute)
+5) Line-end newline → <lb> (n attribute as counted on book page)
+6) Notes (...) → <note> (those that disrupt author's natural-language flow)
 
-1) Section markers {…} → <div> (own line only; flat unless you extend it).
-2) Location markers […] usually open a new block (prose <p>), BUT may also
-   open verse (<lg>) if the first substantial content line (ignoring purely
-   blank lines) after the marker contains a TAB anywhere. Text BEFORE the first
-   TAB on that line becomes <head> within that <lg>.
-   (NOTE: […] itself never resets lb counting.)
-3) Page markers <page> and <page,line> are recognized start-of-line or mid-line.
-   They emit <pb n="page"/>, and ONLY <pb> affects line break numbering.
-   <page,line> sets lb_count to the explicit line number BEFORE next <lb>.
-4) In --line-by-line mode, each physical input line emits <lb n="…"/> BEFORE
-   any verse/prose payload for that line (i.e., <lb> precedes <l> or text).
-   If the raw line ends with a hyphen, set break="no" on that lb.
-   Prose text for the same physical line is appended to the *tail* of that lb.
-5) Verse segmentation:
-   • End of <l> is signaled by a trailing '|' or '||' (no trailing space).
-   • If a segment does NOT end with '|' or '||', append <caesura/>
-     inside the <l>.
-   • A trailing "| " (bar + space) ends the verse *for that line* and the
-     remainder of the physical line becomes <back> within the same <lg>, but
-     ONLY if there is non-empty content after the space.
-   • Verse under a […] block ends either at "| " OR at the next section/location
-     marker on a later line. If subsequent lines continue and they are prose,
-     we close the <lg> and open a new <p> (xml:id for that new <p> reuses the
-     same n=label but adds a suffix "_p2", "_p3", ...).
+<pb>, <cb>, <lb> milestones are placed at line-end, anticipating the next line.
 
-This module focuses on a single linear pass with localized helpers and a short
-post-process to fix easy edge cases. You can extend/replace the post-processing
-according to downstream constraints.
+Secondary features:
+6) Line-end hyphen → "break=no" attribute (<pb>, <cb>, <lb>)
+8) Verse-line-end lack of punctuation → "type=caesura" attribute (<pb>, <cb>, <lb>)
+9) Groups of verses → top-level <lg> for "paragraph", second-level <lg> for each verse
+10) Same-line material preceding or following verse → <head>, <back>.
 
-NOTE: This file is designed to minimize dependencies on the outer driver.
-It does not perform serialization. Use lxml.etree.tostring elsewhere.
+Text can appear in:
+- element.text: <p>, <l>, <head>, <back>, <note>
+- element.tail: <pb>, <cb>, <lb>, <note>
+
+This module focuses on a single linear pass with localized helpers.
+Serialization and post-processing are handled one level up, in tei_utils.
 """
 
 from __future__ import annotations
