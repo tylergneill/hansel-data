@@ -58,7 +58,7 @@ HYPHEN_EOL_RE = re.compile(r"-\s*$")  # tweak later if you need fancy hyphens
 
 def make_xml_id(label: str) -> str:
     """Create an XML-safe @xml:id from a label.
-    Special case: "page,line" → p{page}_{line}
+    Special case: \"page,line\" → p{page}_{line}
     Otherwise, prefix with 'v' and replace non-word chars with '_'.
     """
     s = label.strip()
@@ -152,6 +152,7 @@ class TEIBuilder:
         additional_structure_note_match = ADDITIONAL_STRUCTURE_NOTE_RE.match(line)
         if additional_structure_note_match:
             self._emit_milestone(additional_structure_note_match.group(0))
+            self._finalize_physical_line(line)
             return
 
         # 2c) TODO: Other structural note (...) not to be counted as physical line
@@ -163,6 +164,7 @@ class TEIBuilder:
 
             if s.verse_only:
                 self._handle_verse_only_line(label, rest)
+                self._finalize_physical_line(line)
                 return
             else:
                 self._open_location(label)
@@ -172,9 +174,10 @@ class TEIBuilder:
 
         # <head>[TAB]verse[bar+space]<back>
         if '\t' in line:
-            self._handle_verse_line(line)
-            # Verse lines do not currently emit <lb> milestones
-            s.prev_line_hyphen = bool(HYPHEN_EOL_RE.search(line))
+            is_line_close = self._handle_verse_line(line)
+            if is_line_close:
+                s.current_l = None
+            self._finalize_physical_line(line)
             return
 
         # Else, if we are inside a <p>, append text to that <p>
@@ -182,7 +185,8 @@ class TEIBuilder:
             text_to_append = HYPHEN_EOL_RE.sub("", line)
             if not HYPHEN_EOL_RE.search(line):
                 text_to_append += " "
-            self._append(s.current_p, text_to_append)
+            self._append(text_to_append)
+            self._emit_lb(s.current_p, line)
             self._finalize_physical_line(line)
             return
 
@@ -190,32 +194,38 @@ class TEIBuilder:
         raise Exception(f"end of _handle_line reached: {line}")
 
     # ---- helpers ----
+    def _emit_lb(self, container: etree._Element, raw_line: str = "") -> etree._Element:
+        s = self.state
+        s.lb_count += 1
+        attrs = {"n": str(s.lb_count)}
+        if raw_line and HYPHEN_EOL_RE.search(raw_line):
+            attrs["break"] = "no"
+        lb = etree.SubElement(container, "lb", attrs)
+        s.last_emitted_lb = lb
+        return lb
+
     def _finalize_physical_line(self, raw_line: str) -> None:
         s = self.state
-        # For prose, emit an <lb/> after the line's text has been appended
-        if s.current_p is not None:
-            s.lb_count += 1
-            container = self._get_container()
-            attrs = {"n": str(s.lb_count)}
-            if HYPHEN_EOL_RE.search(raw_line):
-                attrs["break"] = "no"
-            lb = etree.SubElement(container, "lb", attrs)
-            s.last_emitted_lb = lb
-            s.last_text_sink = lb
-
         s.prev_line_hyphen = bool(HYPHEN_EOL_RE.search(raw_line))
 
-    def _append(self, default_el: etree._Element, text: str, *, tail_ok: bool = True) -> None:
+    def _append(self, text: str) -> None:
         """Append `text` to the right place, honoring last_text_sink and join-space logic."""
         if not text:
             return
         s = self.state
 
-        sink_el = default_el
-        use_tail = False
-        if tail_ok and s.last_text_sink is not None:
-            sink_el = s.last_text_sink
-            use_tail = True
+        sink_el = s.last_text_sink
+        use_tail = True
+
+        if sink_el is None:
+            if s.current_l is not None:
+                sink_el = s.current_l
+                use_tail = False
+            elif s.current_p is not None:
+                sink_el = s.current_p
+                use_tail = False
+            else:
+                return
 
         prefix = ""
         if use_tail and not s.prev_line_hyphen:
@@ -236,15 +246,17 @@ class TEIBuilder:
                 s.current_l = etree.SubElement(s.current_lg, "l", {"n": seg})
             else:
                 s.current_l = etree.SubElement(s.current_lg, "l")
+            s.last_text_sink = None
+
         if rest:
             stripped = rest.rstrip()
-            self._append_text(s.current_l, stripped)
+            self._append(stripped)
             s.last_text_sink = s.current_l
             if CLOSE_L_RE.search(stripped):
                 s.current_l = None
         return
 
-    def _handle_verse_line(self, line):
+    def _handle_verse_line(self, line: str) -> bool:
         s = self.state
         pre_tab, after_tab = line.split("\t", 1)
         pre_tab = pre_tab.rstrip()
@@ -274,28 +286,25 @@ class TEIBuilder:
 
         if s.current_l is None:
             s.current_l = etree.SubElement(lg, "l")
+            s.last_text_sink = None
 
         payload_stripped = verse_payload.rstrip()
         is_line_close = bool(CLOSE_L_RE.search(payload_stripped))
 
-        if is_line_close:
-            if s.current_caesura is not None:
-                self._append_text(s.current_caesura, payload_stripped, tail=True)
-                s.last_text_sink = s.current_caesura
-            else:
-                self._append_text(s.current_l, payload_stripped)
-                s.last_text_sink = s.current_l
-            s.current_l = None
-            s.current_caesura = None
-        else:
-            self._append_text(s.current_l, payload_stripped)
+        self._append(payload_stripped)
+
+        if not is_line_close:
             s.current_caesura = etree.SubElement(s.current_l, "caesura")
-            s.last_text_sink = s.current_caesura
+        else:
+            s.current_caesura = None
+
+        lb = self._emit_lb(s.current_l)
+        s.last_text_sink = lb
 
         if back_text and back_text.strip():
             self._append_singleton_child_text(lg, "back", back_text)
 
-        return
+        return is_line_close
 
     def _open_div(self, label: str) -> None:
         s = self.state
@@ -309,6 +318,8 @@ class TEIBuilder:
 
     def _get_container(self):
         s = self.state
+        if s.current_l is not None:
+            return s.current_l
         if s.current_lg is not None:
             return s.current_lg
         elif s.current_p is not None:
@@ -398,20 +409,6 @@ class TEIBuilder:
             f"{{{_XML_NS}}}id": lg_id
         })
         s.current_l = None
-
-    def _append_text(self, el, text: str, tail: bool=False) -> None:
-        if not text:
-            return
-        if tail:
-            if el.tail:
-                el.tail += text
-            else:
-                el.tail = text
-        else:
-            if el.text:
-                el.text += text
-            else:
-                el.text = text
 
     def _append_singleton_child_text(self, parent, tag: str, text: str) -> None:
         if not text or not text.strip():
