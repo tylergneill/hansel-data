@@ -290,14 +290,15 @@ class TEIBuilder:
         payload_stripped = verse_payload.rstrip()
         is_line_close = bool(CLOSE_L_RE.search(payload_stripped))
 
-        self._append(payload_stripped)
+        text_to_append = HYPHEN_EOL_RE.sub("", payload_stripped)
+        self._append(text_to_append)
 
         if not is_line_close:
             s.current_caesura = etree.SubElement(s.current_l, "caesura")
         else:
             s.current_caesura = None
 
-        lb = self._emit_lb(s.current_l)
+        lb = self._emit_lb(s.current_l, line)
         s.last_text_sink = lb
 
         if back_text and back_text.strip():
