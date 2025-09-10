@@ -25,7 +25,7 @@ Text can appear in:
 - element.tail: <pb>, <cb>, <lb>, <note>
 
 This module focuses on a single linear pass with localized helpers.
-Serialization and post-processing are handled one level up, in tei_utils.
+Serialization and post-processing are handled one level up.
 """
 
 import re
@@ -348,7 +348,7 @@ class TEIBuilder:
             except ValueError:
                 s.lb_count = 0
         else:
-            s.lb_count = 0
+            s.lb_count = 1
 
     def _emit_milestone(self, label: str) -> None:
         s = self.state
