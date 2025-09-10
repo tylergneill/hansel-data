@@ -172,9 +172,7 @@ class TEIBuilder:
 
         # <head>[TAB]verse[bar+space]<back>
         if '\t' in line:
-            is_line_close = self._handle_verse_line(line)
-            if is_line_close:
-                s.current_l = None
+            self._handle_verse_line(line)
             self._finalize_physical_line(line)
             return
 
@@ -241,21 +239,15 @@ class TEIBuilder:
         self._open_or_switch_lg_for_label(base, group_by_base=True)
 
         if s.current_l is None:
+            attrs = {}
             if seg:
-                s.current_l = etree.SubElement(s.current_lg, "l", {"n": seg})
-            else:
-                s.current_l = etree.SubElement(s.current_lg, "l")
+                attrs["n"] = seg
+            s.current_l = etree.SubElement(s.current_lg, "l", attrs)
             s.last_text_sink = None
 
-        if rest:
-            stripped = rest.rstrip()
-            self._append(stripped)
-            s.last_text_sink = s.current_l
-            if CLOSE_L_RE.search(stripped):
-                s.current_l = None
-        return
+        self._process_verse_payload(rest, rest)
 
-    def _handle_verse_line(self, line: str) -> bool:
+    def _handle_verse_line(self, line: str) -> None:
         s = self.state
         pre_tab, after_tab = line.split("\t", 1)
         pre_tab = pre_tab.rstrip()
@@ -287,24 +279,29 @@ class TEIBuilder:
             s.current_l = etree.SubElement(lg, "l")
             s.last_text_sink = None
 
-        payload_stripped = verse_payload.rstrip()
+        self._process_verse_payload(verse_payload, line)
+
+        if back_text and back_text.strip():
+            self._append_singleton_child_text(lg, "back", back_text)
+
+    def _process_verse_payload(self, payload: str, raw_line_for_hyphen_check: str):
+        s = self.state
+        payload_stripped = payload.rstrip()
         is_line_close = bool(CLOSE_L_RE.search(payload_stripped))
 
         text_to_append = HYPHEN_EOL_RE.sub("", payload_stripped)
         self._append(text_to_append)
 
-        if not is_line_close:
+        if not is_line_close and payload:
             s.current_caesura = etree.SubElement(s.current_l, "caesura")
         else:
             s.current_caesura = None
 
-        lb = self._emit_lb(s.current_l, line)
+        lb = self._emit_lb(s.current_l, raw_line_for_hyphen_check)
         s.last_text_sink = lb
 
-        if back_text and back_text.strip():
-            self._append_singleton_child_text(lg, "back", back_text)
-
-        return is_line_close
+        if is_line_close:
+            s.current_l = None
 
     def _open_div(self, label: str) -> None:
         s = self.state
