@@ -330,12 +330,16 @@ class TEIBuilder:
     def _emit_pb(self, page: str, line_no: Optional[str]) -> None:
         s = self.state
         container = self._get_container()
-
         attrs = {"n": page}
-        if s.last_emitted_lb is not None and s.last_emitted_lb.getparent() == container:
-            if s.last_emitted_lb.get("break") == "no":
-                attrs["break"] = "no"
-            container.remove(s.last_emitted_lb)
+
+        # If last thing emitted was <lb>, replace it with this <pb>
+        if s.last_emitted_lb is not None:
+            lb_parent = s.last_emitted_lb.getparent()
+            if lb_parent is not None:
+                container = lb_parent
+                if s.last_emitted_lb.get("break") == "no":
+                    attrs["break"] = "no"
+                lb_parent.remove(s.last_emitted_lb)
 
         pb = etree.SubElement(container, "pb", attrs)
         s.last_emitted_lb = None
