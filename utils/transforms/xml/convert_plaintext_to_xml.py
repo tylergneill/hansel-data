@@ -17,9 +17,14 @@ def post_process(root: etree._Element) -> None:
     # TODO: implement post-processing cleanups
     pass
 
+
 def serialize(root: etree._Element, pretty_print: bool = True) -> str:
     if pretty_print and hasattr(etree, "indent"):
         etree.indent(root, space="  ")
+        # Clean up extra whitespace that indent() adds after inline elements like <caesura>
+        for caesura in root.xpath("//caesura"):
+            if caesura.tail and caesura.tail.isspace():
+                caesura.tail = None
     return etree.tostring(root, encoding="unicode", pretty_print=pretty_print)
 
 
