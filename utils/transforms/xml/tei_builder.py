@@ -184,7 +184,8 @@ class TEIBuilder:
             if not HYPHEN_EOL_RE.search(line):
                 text_to_append += " "
             self._append(text_to_append)
-            self._emit_lb(s.current_p, line)
+            lb = self._emit_lb(s.current_p, line)
+            s.last_text_sink = lb
             self._finalize_physical_line(line)
             return
 
