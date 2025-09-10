@@ -28,8 +28,6 @@ This module focuses on a single linear pass with localized helpers.
 Serialization and post-processing are handled one level up, in tei_utils.
 """
 
-from __future__ import annotations
-
 import re
 from dataclasses import dataclass, field
 from typing import List, Optional, Tuple
