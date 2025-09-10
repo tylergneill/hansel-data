@@ -22,14 +22,18 @@ def serialize(root: etree._Element, pretty_print: bool = True) -> str:
     if pretty_print and hasattr(etree, "indent"):
         etree.indent(root, space="  ")
         # Clean up extra whitespace that indent() adds after inline elements like <caesura>
-        for caesura in root.xpath("//caesura"):
-            if caesura.tail and caesura.tail.isspace():
-                caesura.tail = None
+        for el in root.xpath("//caesura | //lb | //pb"):
+            if el.tail and el.tail.isspace():
+                el.tail = None
     return etree.tostring(root, encoding="unicode", pretty_print=pretty_print)
 
 
-def add_extra_newlines(xml: str) -> str:
-    return re.sub(r"(</?[lp][bg]?[^>]*?>)(?!\n)", r"\1\n", xml)
+def prettify(xml: str) -> str:
+    # add extra newlines
+    xml = re.sub(r"(</?[lp][bg]?[^>]*?>)(?!\n)", r"\1\n", xml)
+    # rm line-initial space
+    xml = re.sub(r"^ +?([^<])", r"\1", xml, flags=re.MULTILINE)
+    return xml
 
 
 def configure_cli(parser: argparse.ArgumentParser):
@@ -71,7 +75,7 @@ def cli():
 
     xml = serialize(root, pretty_print=not args.uglier)
     if args.prettier:
-        xml = add_extra_newlines(xml)
+        xml = prettify(xml)
 
     args.out.write_text(xml, encoding="utf-8")
     print(f"Wrote {args.out}")
