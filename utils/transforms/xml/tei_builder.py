@@ -169,21 +169,7 @@ class TEIBuilder:
 
         # prose
         if s.current_p is not None:
-            text_to_append = HYPHEN_EOL_RE.sub("", line)
-            if not HYPHEN_EOL_RE.search(line):
-                text_to_append += " "
-            self._append(text_to_append)
-
-            # Conditionally emit <lb> based on the line_by_line flag.
-            if s.line_by_line:
-                lb = self._emit_lb(s.current_p, line)
-                s.last_tail_text_sink = lb
-            else:
-                # If not line-by-line, and the container has no children,
-                # reset sink to append to the <p>'s text on the next line.
-                if not len(s.current_p):
-                    s.last_tail_text_sink = None
-
+            self._process_content_with_midline_pbs(line, "prose", raw_line_for_hyphen_check=line)
             self._finalize_physical_line(line)
             return
 
@@ -285,29 +271,55 @@ class TEIBuilder:
             self._append_singleton_child_text(lg, "back", back_text)
 
     def _process_verse_payload(self, payload: str, raw_line_for_hyphen_check: str):
+        self._process_content_with_midline_pbs(payload, "verse", raw_line_for_hyphen_check)
+
+    def _process_content_with_midline_pbs(self, content: str, mode: str, raw_line_for_hyphen_check: str):
         s = self.state
-        payload_stripped = payload.rstrip()
-        is_line_close = bool(CLOSE_L_RE.search(payload_stripped))
+        
+        matches = list(MID_LINE_PAGE_RE.finditer(content))
+        last_match_end = 0
+        
+        for match in matches:
+            pre_text = content[last_match_end:match.start()]
+            self._append(pre_text)
+            
+            page, line_num = match.groups()
+            self._emit_pb(page, line_num)
+            
+            last_match_end = match.end()
 
-        text_to_append = HYPHEN_EOL_RE.sub("", payload_stripped)
-        self._append(text_to_append)
+        post_text = content[last_match_end:]
+        post_text = HYPHEN_EOL_RE.sub("", post_text)
+        self._append(post_text)
 
-        if not is_line_close and payload:
-            s.current_caesura = etree.SubElement(s.current_l, "caesura")
-            s.last_tail_text_sink = s.current_caesura
-        else:
-            s.current_caesura = None
+        if mode == "prose":
+            if not HYPHEN_EOL_RE.search(content):
+                self._append(" ")
 
-        # Conditionally emit <lb> based on the line_by_line flag.
-        if s.line_by_line:
-            lb = self._emit_lb(s.current_l, raw_line_for_hyphen_check)
-            s.last_tail_text_sink = lb
-        elif s.current_caesura is None:
-            # If not line-by-line, reset sink to append to the <l>'s text on the next line.
-            s.last_tail_text_sink = None
+            if s.line_by_line:
+                lb = self._emit_lb(s.current_p, raw_line_for_hyphen_check)
+                s.last_tail_text_sink = lb
+            else:
+                if not len(s.current_p):
+                    s.last_tail_text_sink = None
+    
+        elif mode == "verse":
+            is_line_close = bool(CLOSE_L_RE.search(content.rstrip()))
+            
+            if not is_line_close and content:
+                s.current_caesura = etree.SubElement(s.current_l, "caesura")
+                s.last_tail_text_sink = s.current_caesura
+            else:
+                s.current_caesura = None
 
-        if is_line_close:
-            s.current_l = None
+            if s.line_by_line:
+                lb = self._emit_lb(s.current_l, raw_line_for_hyphen_check)
+                s.last_tail_text_sink = lb
+            elif s.current_caesura is None:
+                s.last_tail_text_sink = None
+
+            if is_line_close:
+                s.current_l = None
 
     def _open_div(self, label: str) -> None:
         s = self.state
