@@ -161,20 +161,29 @@ class TEIBuilder:
 
         # HANDLE LINES WITH CONTENT (AND MAYBE ALSO STRUCTURE)
 
-        # <head>[TAB]verse[bar+space]<back>
+        # verse (<head>[TAB]verse[bar+space]<back>)
         if '\t' in line:
             self._handle_verse_line(line)
             self._finalize_physical_line(line)
             return
 
-        # Else, if we are inside a <p>, append text to that <p>
+        # prose
         if s.current_p is not None:
             text_to_append = HYPHEN_EOL_RE.sub("", line)
             if not HYPHEN_EOL_RE.search(line):
                 text_to_append += " "
             self._append(text_to_append)
-            lb = self._emit_lb(s.current_p, line)
-            s.last_text_sink = lb
+
+            # Conditionally emit <lb> based on the line_by_line flag.
+            if s.line_by_line:
+                lb = self._emit_lb(s.current_p, line)
+                s.last_tail_text_sink = lb
+            else:
+                # If not line-by-line, and the container has no children,
+                # reset sink to append to the <p>'s text on the next line.
+                if not len(s.current_p):
+                    s.last_tail_text_sink = None
+
             self._finalize_physical_line(line)
             return
 
@@ -285,11 +294,17 @@ class TEIBuilder:
 
         if not is_line_close and payload:
             s.current_caesura = etree.SubElement(s.current_l, "caesura")
+            s.last_tail_text_sink = s.current_caesura
         else:
             s.current_caesura = None
 
-        lb = self._emit_lb(s.current_l, raw_line_for_hyphen_check)
-        s.last_text_sink = lb
+        # Conditionally emit <lb> based on the line_by_line flag.
+        if s.line_by_line:
+            lb = self._emit_lb(s.current_l, raw_line_for_hyphen_check)
+            s.last_tail_text_sink = lb
+        elif s.current_caesura is None:
+            # If not line-by-line, reset sink to append to the <l>'s text on the next line.
+            s.last_tail_text_sink = None
 
         if is_line_close:
             s.current_l = None
@@ -328,6 +343,12 @@ class TEIBuilder:
                 if s.last_emitted_lb.get("break") == "no":
                     attrs["break"] = "no"
                 lb_parent.remove(s.last_emitted_lb)
+        elif not s.line_by_line:
+            # Fallback for when no <lb> are emitted.
+            # Try to find the last <l> or <p> in the current div and append there.
+            last_elem_list = s.current_div.xpath('(.//l | .//p)[last()]')
+            if last_elem_list:
+                container = last_elem_list[0]
 
         pb = etree.SubElement(container, "pb", attrs)
         s.last_emitted_lb = None
@@ -391,6 +412,11 @@ class TEIBuilder:
         if s.current_lg is not None and s.current_loc_base == need_base:
             s.current_loc_label = label
             return
+
+        # If we're about to open a new <lg> and the current <p> is empty, remove it.
+        if s.current_p is not None and not s.current_p.text and not len(s.current_p):
+            s.current_p.getparent().remove(s.current_p)
+            s.current_p = None
 
         self._close_lg()
         s.current_loc_base = need_base
