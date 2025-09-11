@@ -129,9 +129,9 @@ pratipannaṃ tat karomi |
 [7,3]
 
 uktaṃ ca |	chijjaü sīsaṃ aha hou bandhaṇaṃ caaü savvahā lacchī |
-	paḍivaṇṇapālaṇe supurisāṇa jaṃ hou taṃ hou •|| 1.11 (= 11) ||•
+	paḍivaṇṇapālaṇe supurisāṇa jaṃ hou taṃ hou || 1.11 (= 11) || (•)
 tathā ca |	diḍhalohasiṅkhalāṇaṃ assāṇa vi vihapāsabandhāṇaṃ |
-	tāṇaṃ cia ahiaraaro vāābandho supurisassa •|| 1.12 (= 12) ||•
+	tāṇaṃ cia ahiaraaro vāābandho supurisassa || 1.12 (= 12) || (•)
 	adyāpi nojjhati haraḥ kila kālakūṭaṃ
 	kūrmo bibharti dharaṇīṃ khalu cātmapṛṣṭhe |
 	ambhonidhir vahati duḥsahavāḍavāgnim
@@ -312,9 +312,9 @@ laghuvayāś ca | tataś ca sā ātmano rūpalāvaṇyayauvanaṃ śuśoca |
 	guṇināṃ tyāgināṃ stoko vibhavaś ceti duḥkhakṛt || 4.2 (= 23) ||
 <15>
 	pāusasamaapavāso jovvaṇadiahe tahā a dāliddaṃ |
-	paḍhamasiṇehavioo tiṇṇi vi garuāi dukkhāiṃ •|| 4.3 (= 24) ||•
+	paḍhamasiṇehavioo tiṇṇi vi garuāi dukkhāiṃ || 4.3 (= 24) || (•)
 	appatthāve paḍhiaṃ kaṇṭhavihūṇaṃ ca gāiaṃ gīaṃ |
-	mā mā bhaṇantisuraaṃ tiṇṇi vi garuāi dukkhāiṃ •|| 4.4 (= 25) ||•
+	mā mā bhaṇantisuraaṃ tiṇṇi vi garuāi dukkhāiṃ || 4.4 (= 25) || (•)
 
 [15,5]
 
@@ -707,7 +707,7 @@ na bhokṣye |
 uktaṃ ca |	uttamāḥ svaguṇaiḥ khyātā madhyamāś ca pitur guṇaiḥ |
 	adhamā mātulaiḥ khyātā śvaśuraiś cādhamādhamāḥ || 7.2 (= 66) ||
 kiṃ ca |	piara viḍhattaï davvaḍaï caḍḍiri ko ṇa karei |
-	saïṁ viḍhavaï saïṁ bhojaaï viralā jaṇaṇi jaṇei •|| 7.3 (= 67) ||•
+	saïṁ viḍhavaï saïṁ bhojaaï viralā jaṇaṇi jaṇei || 7.3 (= 67) || (•)
 
 [32,5]
 
@@ -734,7 +734,7 @@ tataḥ sa brāhmaṇa ūrdhvabāhur jagāda | tavāham atithir dhanārthī | t�
 uktaṃ ca |	stokārthaprārthanān dīnān dṛṣṭvodārān hi yācakān |
 	khidyante 'tīva manasi api prāṇapradāyinaḥ || 7.5 (= 69) ||
 kiṃ ca |	ahihūo vi a vivaā karei suaṇo parassa uvaāraṃ |
-	oṇei aṇṇadāvaṃ candaṇataruo sakhaṇḍo vi •|| 7.6 (= 70) ||•
+	oṇei aṇṇadāvaṃ candaṇataruo sakhaṇḍo vi || 7.6 (= 70) || (•)
 
 <34>
 
@@ -955,7 +955,7 @@ iti śukasaptatau daśamī kathā ||
 
 pradoṣasamaye 'nyasmin kāminī kāmamohitā | vinayena śukaṃ prāha gacchāmi
 yadi manyase | (|| 11.1 (= 83) ||) śukaḥ prāha |
-	
+
 	avaśyam eva gantavyaṃ tvayetthaṃ mama niścayaḥ |
 <45>
 	mano 'bhīṣṭe payo nimne gacchat kaḥ prativārayet || 11.2 (= 84) ||
@@ -982,9 +982,9 @@ uktaṃ ca |
 [46,1]
 
 kiṃ ca |	ṇaabbhantaragholantīe haaramaṇarāadiṭṭhīe |
-	puṇaruttapecchirīe bālaa kiṃ kiṃ ṇa bhaṇio si •|| 11.5 (= 87) ||•
+	puṇaruttapecchirīe bālaa kiṃ kiṃ ṇa bhaṇio si || 11.5 (= 87) || (•)
 	acchīhiṃ cia bhaṇiaṃ hiaatthaṃ jo jaṇo ṇa lakkhei |
-	teṇa paḍibohieṇa a kiṃ kīraï ṇa kkhu alleṇa •|| 11.6 (= 88) ||•
+	teṇa paḍibohieṇa a kiṃ kīraï ṇa kkhu alleṇa || 11.6 (= 88) || (•)
 
 [46,5]
 
@@ -1009,9 +1009,9 @@ nirvāhyate |
 [48,1]
 
 uktaṃ ca |	chijjaü sīsaṃ aha hou bandhaṇaṃ caaü savvahā lacchī |
-	paḍivaṇṇapālaṇe supurisāṇa jaṃ hou taṃ hou •|| 11.7 (= 89) ||•
+	paḍivaṇṇapālaṇe supurisāṇa jaṃ hou taṃ hou || 11.7 (= 89) || (•)
 	lajjijjaï jeṇa jaṇo maïlijjaï ṇiakulakkamo jeṇa |
-	kaṇṭhaṭṭhie vi jīe mā sundari taṃ kuṇijjāsu •|| 11.8 (= 90) ||•
+	kaṇṭhaṭṭhie vi jīe mā sundari taṃ kuṇijjāsu || 11.8 (= 90) || (•)
 
 [48,5]
 
@@ -1028,9 +1028,9 @@ uktaṃ ca |	kāmārtāṃ svayam āyātāṃ yo na bhuṅkte nitambinīm |
 	so 'vaśyaṃ narakaṃ yāti tanniḥśvāsahato naraḥ || 11.10 (= 92) ||
 <49>
 	so kiṁva māṇaï para mahila jo ṇavi jaṃpi emva |
-	● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● •|| 11.11 (= 93) ||•
+	● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● || 11.11 (= 93) || (•)
 	jo ṇavi māṇaï ● ● ● ● so kiṁva māṇaï thī avarā i |
-	● ● ● ● ● ● mā kari ṇeha amhahaṃ bhaṅgu •|| 11.12 (= 94) ||•
+	● ● ● ● ● ● mā kari ṇeha amhahaṃ bhaṅgu || 11.12 (= 94) || (•)
 	śrūyate rukmiṇī pūrvaṃ kṛṣṇena madanāturā |
 	gṛhītā bhrātṛjāyāpi kaḥ kāmam atilaṅghayet || 11.13 (= 95) ||
 	virañcir api kāmārtaḥ svasutām abhilāṣukaḥ |
@@ -1211,9 +1211,9 @@ sā cāpareṇa subuddhināmnā vaṇijā saha ramate | tato lokāpavāde
 [57,5]
 
 uktaṃ ca |	rattā picchanti guṇā dosā picchanti je viratta tti |
-	majjhatthā uṇa purisā dosā vi guṇā vi picchanti •|| 15.2 (= 108) ||•
+	majjhatthā uṇa purisā dosā vi guṇā vi picchanti || 15.2 (= 108) || (•)
 kiṃ ca |	mahilārattā purisā cheā vi ṇa saṃbharanti appāṇaṃ |
-	iare uṇa taruṇīṇaṃ purisā salilaṃ va hatthagaaṃ •|| 15.3 (= 109) ||•
+	iare uṇa taruṇīṇaṃ purisā salilaṃ va hatthagaaṃ || 15.3 (= 109) || (•)
 
 <58>
 
@@ -1527,7 +1527,7 @@ rājā prāha |
 [71,9]
 
 	mā hohi suhaggāhī mā pattihi jaṃ ṇa diṭṭhapaccakkhaṃ |
-	paccakkhammi vi diṭṭhe juttājuttaṃ viāṇāhi •|| 21.7 (= 124) ||•
+	paccakkhammi vi diṭṭhe juttājuttaṃ viāṇāhi || 21.7 (= 124) || (•)
 
 [71,11]
 
@@ -1556,7 +1556,7 @@ uktaṃ ca |	na nīcajanasaṃsargān naro bhadrāṇi paśyati |
 	pāṭayitum eva śaktir nākhor uddhartum annapiṭam || 21.10 (= 127) ||
 <73>
 	dujjaṇajaṇasaṃsagge kāaccāo vi hoi vibuhāṇaṃ |
-	pecchaha tilehi pattaṃ khalasaṅge pīḍaṇaṃ jatto •|| 21.11 (= 128) ||•
+	pecchaha tilehi pattaṃ khalasaṅge pīḍaṇaṃ jatto || 21.11 (= 128) || (•)
 
 [73,3]
 
@@ -1627,7 +1627,7 @@ anyadā sakhyas tāṃ puruṣāntarābhisaraṇāyaivam ūcuḥ |
 [76,1]
 
 tathā ca |	saṃsaatula ṇa jahiṃ caḍaï tassu ṇa jīviu dhaṇu |
-	āi parā jahi lahijjaï taṃ ji bhaṇijjaï pemmu •|| 23.2 (= 132) ||•
+	āi parā jahi lahijjaï taṃ ji bhaṇijjaï pemmu || 23.2 (= 132) || (•)
 	ārogyaṃ param ānandaḥ sukham utsāha eva ca |
 	aiśvaryaṃ priyasaṃbhogaṃ vinā sarvaṃ nirarthakam || 23.3 (= 133) ||
 uktaṃ ca |	ātmānam ālokya ca śobhamānam ādarśabimbe stimitāyatākṣī |
@@ -1730,7 +1730,7 @@ tad yathā |	vaiśikīṃ kṛtrimāṃ vāṇīṃ vyalīkān śapathāṃs tat
 	samatvaṃ sukhaduḥkheṣu dharmādharmasamakriyā |
 	bhujaṃgapurataś caiva kauṭilyakramadarśanam || 23.22 (= 152) ||
 tathā ca |	aharaṃ karaṃ kavolaṃ thaṇajualaṃ ṇāhimaṇḍalaṃ ramaṇaṃ |
-	itthiajaṇasāmaṇṇaṃ hiaaṃ jaṃ jassa taṃ tassa •|| 23.23 (= 153) ||•
+	itthiajaṇasāmaṇṇaṃ hiaaṃ jaṃ jassa taṃ tassa || 23.23 (= 153) || (•)
 
 [81,6]
 
@@ -1774,7 +1774,7 @@ gṛhītvā mānarahito niṣkāsitaḥ |
 [83,9]
 
 uktaṃ ca |	vesā vi ramanti jaṇaṃ piaṃ pi vañcanti atthaloheṇa |
-	tāṇa ṇamo vesāṇaṃ appā vi ṇa vallaho jāṇa •|| 23.28 (= 158) ||•
+	tāṇa ṇamo vesāṇaṃ appā vi ṇa vallaho jāṇa || 23.28 (= 158) || (•)
 
 <84>
 
@@ -1810,7 +1810,7 @@ uktaṃ ca |	ko 'rthān prāpya na garvito viṣayiṇaḥ kasyāpado 'staṃ ga
 	ko vā durjanavāgurāsu patitaḥ kṣemeṇa yātaḥ pumān || 23.31 (= 161) ||
 <86>
 	ramaṇasihiṇantarāle bahalaare romarāitarugahaṇe |
-	hariharaṇaragovindā viḍambiā maaṇacoreṇa •|| 23.32 (= 162) ||•
+	hariharaṇaragovindā viḍambiā maaṇacoreṇa || 23.32 (= 162) || (•)
 
 [86,3]
 
@@ -1831,10 +1831,10 @@ dūṣaṇam |
 uktaṃ ca |	diggajakūrmakulācalaphaṇipatividhṛtāpi calati vasudheyam |
 	pratipannam amalamanasāṃ na calati puṃsāṃ yugānte 'pi || 23.34 (= 164) ||
 tathā ca |	acalā calanti palae majjāaṃ sāarā vilaṃghanti |
-	garuā vi taha vikāle paḍivaṇṇa ṇa cca siḍhilenti •|| 23.35 (= 165) ||•
+	garuā vi taha vikāle paḍivaṇṇa ṇa cca siḍhilenti || 23.35 (= 165) || (•)
 <87>
 	dhīrā jāṇa pamāṇaṃ jimiavve taha vi jaṃpiavve a |
-	aïjimiajaṃpiāiṃ pacchā vacche apacchāiṃ •|| 23.36 (= 166) ||•
+	aïjimiajaṃpiāiṃ pacchā vacche apacchāiṃ || 23.36 (= 166) || (•)
 
 [87,3]
 
@@ -2433,7 +2433,7 @@ darśayitvā phūtkṛtam | vaṇik prāha | bho dvija kim etat | sa
 vaṇik tadvacanaṃ śrutvā kupito bhāryām āha | anena pramādena asmadgṛhe
 <116>
 ko 'pi pathiko na sameṣyati | ity uktvā niṣṭhuraṃ vacas tatkuṇḍād uttīrya
-aṅgulīyakaṃ pathikāya samarpitam | sa ca yathāgataṃ yayau | iti 
+aṅgulīyakaṃ pathikāya samarpitam | sa ca yathāgataṃ yayau | iti
 kathāṃ śrutvā prabhāvatī suptā |
 
 [116,4]
@@ -2455,7 +2455,7 @@ he śuka | ahaṃ gamiṣyāmi | śukaḥ prāha |
 [116,9]
 
 prabhāvatī prāha | katham etat |
-	
+
 	kas tulāgrāhakaḥ kīra gṛhītā ca tulā kutaḥ |
 	viṣamaṃ ca kim āyātaṃ kathāṃ kathaya śobhanām || 39.2 (= 190) ||
 
@@ -2575,37 +2575,37 @@ ajānan kathaṃ bhavatv iti praśnaḥ | śuka uttaraṃ prāha | sa māntrika
 [122,9]
 
 	haüṃ jīvaṇu jāṇaüṃ kāiṁ caḍḍaï vāvaï sāiṁ |
-	ghalliu bambhaṇi vīsāsu païṁ bhuñjasu sukaasuhāiṁ •|| 41.2 (= 195) ||•
+	ghalliu bambhaṇi vīsāsu païṁ bhuñjasu sukaasuhāiṁ || 41.2 (= 195) || (•)
 	● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ●
 	vaṇaṃ iha ākhuriadantapahasantaaṃ |
-	kahiṃ pi ūurantaambehi siṅgariaṃ •|| 41.3 (= 196) ||•
+	kahiṃ pi ūurantaambehi siṅgariaṃ || 41.3 (= 196) || (•)
 	sarasakhīramāliaphalabhāraṇājhipraṃ |
-	kahiṃ pi ṭimburiṇijambuiṇiaasohiaṃ •|| 41.4 (= 197) ||•
+	kahiṃ pi ṭimburiṇijambuiṇiaasohiaṃ || 41.4 (= 197) || (•)
 <123>
 	kahiṃ pi karavandāijālasaṃrāiaṃ |
-	kahiṃ pi kappūrakaṅkolagandhavahaṃ •|| 41.5 (= 198) ||•
+	kahiṃ pi kappūrakaṅkolagandhavahaṃ || 41.5 (= 198) || (•)
 	devadāruppiaṅgucūamallīlaaṃ |
-	kahiṃ pi sirikhaṇḍaaïgarutarumaṇḍiaṃ •|| 41.6 (= 199) ||•
+	kahiṃ pi sirikhaṇḍaaïgarutarumaṇḍiaṃ || 41.6 (= 199) || (•)
 	ṇāapuṃṇāadāḍimavaraṇāḍambaraṃ |
-	maūraborīhiṃ kavivīhipīlughaṇaṃ •|| 41.7 (= 200) ||•
+	maūraborīhiṃ kavivīhipīlughaṇaṃ || 41.7 (= 200) || (•)
 	dīhaghaṇavāsajālīhiṃ aïkhohiaṃ |
-	kahiṃ pi ratta ● ● ● ● ● ● ● ḍambaraṃ •|| 41.8 (= 201) ||•
-	popphalīviḍavaghaṇakammaruddhambaraṃ •|| 41.9 (= 202) ||•
+	kahiṃ pi ratta ● ● ● ● ● ● ● ḍambaraṃ || 41.8 (= 201) || (•)
+	popphalīviḍavaghaṇakammaruddhambaraṃ || 41.9 (= 202) || (•)
 
 <124>
 
 [124,1]
 
 kiṃ ca |	rattakaṇavīre kaṇavīriaṃ phaliaṃ |
-	aṇṇavacchammi sevattiā phulliā •|| 41.10 (= 203) ||•
+	aṇṇavacchammi sevattiā phulliā || 41.10 (= 203) || (•)
 	aṇṇavacchammi kārandaāvacchaaṃ |
-	aṇṇavacchammi sindūraaṃ phulliaṃ •|| 41.11 (= 204) ||•
+	aṇṇavacchammi sindūraaṃ phulliaṃ || 41.11 (= 204) || (•)
 	aṇṇavacchammi phulantamandāraaṃ |
-	sirisaüttuṅgagandhohavaramāruaṃ •|| 41.12 (= 205) ||•
+	sirisaüttuṅgagandhohavaramāruaṃ || 41.12 (= 205) || (•)
 	aṇṇavacchammi sindūriātoraṇaṃ |
-	phulliaṃ maṇoharaṃ jaṇiaparisohiaṃ •|| 41.13 (= 206) ||•
+	phulliaṃ maṇoharaṃ jaṇiaparisohiaṃ || 41.13 (= 206) || (•)
 	aṇṇavacchammi juttaddaaṃ kundaaṃ |
-	malliṇomāliākusumā ghaṇapupphiā •|| 41.14 (= 207) ||•
+	malliṇomāliākusumā ghaṇapupphiā || 41.14 (= 207) || (•)
 	● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ●
 	● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ●
 
@@ -2649,7 +2649,7 @@ mahākānanam | tac ca kathaṃ bhūtam |
 	candaṇasattacchaāsaṇṇaaṃ saralavaratuṅgatarusāhasaṃchaṇṇaaṃ
 	kahiṃ pi sahaārakhajjūriaṃ phaṇasaamattālivihaṃgabhāriaṃ |
 	kahiṃ pi selupīluphapūriantaaṃ sarasaborabahutintiḍīchaṇṇaaṃ
-	dāḍimīphalabillaphalasugandhivāaaṃ •|| 42.2 (= 209 & 210) ||•
+	dāḍimīphalabillaphalasugandhivāaaṃ || 42.2 (= 209 & 210) || (•)
 
 <127>
 
@@ -2866,7 +2866,7 @@ bhūtagrahe 'nivartite vipreṇoktam |
 [136,1]
 
 	karagaraṇāhaü āiaü bhūa eu vīsasiu ṭhiu dhutta |
-	āpaṇi boliu saṃbhari re kūḍaüṃ kiṃ maïṁ deva jutta •|| 46.2 (= 221) ||•
+	āpaṇi boliu saṃbhari re kūḍaüṃ kiṃ maïṁ deva jutta || 46.2 (= 221) || (•)
 uktaṃ ca |	manuṣyāḥ sukulotpannā api ca brahmacāriṇaḥ |
 	na bhavanti mṛṣāvācaḥ kiṃ punar devayonayaḥ || 46.3 (= 222) ||
 
@@ -3266,7 +3266,7 @@ jñātaḥ samāgacchan tadā iti vākyaṃ vadati tvaritaṃ niḥsṛtā |
 [152,5]
 
 	● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● |
-	● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● •|| 53.2 ||•
+	● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● || 53.2 || (•)
 
 [152,7]
 
@@ -3429,9 +3429,9 @@ tayoḥ paṇḍitarājñyoḥ prāvṛṭkālaḥ samāyayau | yatra ca |
 [160,3]
 
 uktaṃ ca |	jaï sasiṇehī taü maī jaï jīvaï sasiṇeha |
-	duhia payāahiṃ gaadhara kiṃ gacchasi khalageha •|| 57.5 (= 257) ||•
+	duhia payāahiṃ gaadhara kiṃ gacchasi khalageha || 57.5 (= 257) || (•)
 kiṃ ca |	● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● |
-	● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● •|| 57.6 (= 258) ||•
+	● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● || 57.6 (= 258) || (•)
 
 [160,7]
 
@@ -3457,7 +3457,7 @@ cāṭūktibhiś ca mahiṣīṃ toṣayām āsa |
 [161,7]
 
 uktaṃ ca |	ṇa kuṇanti je pahuttaṃ kuviaṃ dāsa vva je pasāanti |
-	te ccia mahilāṇa piā sesā sāmī cia varāā •|| 57.8 (= 260) ||•
+	te ccia mahilāṇa piā sesā sāmī cia varāā || 57.8 (= 260) || (•)
 	nāyakeṣūttamaḥ so 'tha mahiṣī nāyikāsu ca |
 	śayanaṃ cottamaṃ ninye tridhābhedavikalpanāt || 57.9 (= 261) ||
 <162>
@@ -3624,7 +3624,7 @@ mene |
 [168,6]
 
 uktaṃ ca |	baddhabhaṇiāi kanto tahea addhacchipicchiā dhāī |
-	ūsasiaṃ pi muṇijjaï chaïllajaṇasaṃkule gāme •|| 59.2 (= 280) ||•
+	ūsasiaṃ pi muṇijjaï chaïllajaṇasaṃkule gāme || 59.2 (= 280) || (•)
 
 <169>
 
@@ -3658,7 +3658,7 @@ sahastatālaṃ tam idam āha |
 [170,9]
 
 	● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● |
-	● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● •|| 59.4 (= 292) ||•
+	● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● || 59.4 (= 292) || (•)
 
 <171>
 
@@ -3892,7 +3892,7 @@ sarvā evaṃ vadantyo nanṛtuḥ |
 [182,5]
 
 	● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● |
-	● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● •|| 62.2 (= 314) ||•
+	● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● || 62.2 (= 314) || (•)
 
 [182,7]
 
@@ -3967,7 +3967,7 @@ prabhāvatī prāha | katham etat | śukaḥ | asti kūṭapurābhidho grāmaḥ
 tatra rājaputraḥ somarājaḥ | tasya maṇḍukā nāma patnī priyadarśanā
 narāntaralolupā | tāṃ caiko naraḥ kṛtasaṃketaḥ saghaṇṭako rātrau gṛhāṅgaṇe
 bhuṅkte | tatpatir ghaṇṭāśabdaṃ śṛṇvann ekadā laguḍam ādāya pradhāvitaḥ ṣaṇḍaśaṅkayā |
-tataḥ ṣaṇḍaveṣadhārī upapatiḥ kathaṃ bhavitv iti praśnaḥ | śukaḥ | 
+tataḥ ṣaṇḍaveṣadhārī upapatiḥ kathaṃ bhavitv iti praśnaḥ | śukaḥ |
 devikā nāma sakhī maṇḍukāyāḥ patiṃ ghaṇṭāśabdānusāriṇam āgacchantaṃ
 dṛṣṭvā jārasya naśyato ghaṇṭālālāṃ haste dhṛtvā taṃ prati jagāda | bhāvuka
 kāṃdiśīko vṛṣo naṣṭaḥ | tataḥ sa vyāvṛtya nijapauruṣaṃ patnyai kathayām
@@ -4070,7 +4070,7 @@ uktaṃ ca |	sarvasvarṇamayī laṅkā na me lakṣmaṇa rocate |
 	pitṛkramāgatāyodhyā nirdhanāpi sukhāyate || 67.3 (= 324) ||
 <191>
 	jaṇaṇījammaṇabhūmiṃ piasaṅgaṃ jīviaṃ dhaṇāsaṃghaṃ |
-	pacchimaṇiddāvirikāmiṇiṃ ca dukkhehi muñcanti •|| 67.4 (= 325) ||•
+	pacchimaṇiddāvirikāmiṇiṃ ca dukkhehi muñcanti || 67.4 (= 325) || (•)
 
 [191,3]
 
@@ -4246,7 +4246,7 @@ yathā yathā sā śukaṃ stauti tathā tathā śuko lajjati |
 [199,1]
 
 uktaṃ ca |	baü jaï māraï macchalī to uṇṇaü karei |
-	sīhu ju māraï matta gaa ṇahacampiā dharei •|| 70.3 (= 334) ||•
+	sīhu ju māraï matta gaa ṇahacampiā dharei || 70.3 (= 334) || (•)
 
 [199,3]
 
@@ -4291,7 +4291,7 @@ pṛcchati | sa āha |
 	prayojanam avijñāya jñātvā cātha manīṣiṇā |
 	sahasaiva na vaktavyam acintyo vidhinirṇayaḥ || 70.10 (= 341) ||
 	vihivihiaṃ cia laddhaṃ piasaṃgo jīviaṃ dhaṇaṃ dhaṇṇaṃ |
-	juttaṃ savvaṃ jaṇavaaṇaṃ viaṇaviḍambaṇā ṇihilā •|| 70.11 (= 342) ||•
+	juttaṃ savvaṃ jaṇavaaṇaṃ viaṇaviḍambaṇā ṇihilā || 70.11 (= 342) || (•)
 
 [201,7]
 

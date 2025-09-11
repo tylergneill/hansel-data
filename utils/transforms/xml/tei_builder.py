@@ -93,6 +93,9 @@ class BuildState:
     # receive following prose text on the same physical line
     last_tail_text_sink: Optional[etree._Element] = None
 
+    # verse group buffer
+    verse_group_buffer: List[etree._Element] = field(default_factory=list)
+
     def __post_init__(self):
         self.body = etree.SubElement(self.root, "body")
         self.current_div = self.body
@@ -110,6 +113,7 @@ class TEIBuilder:
     def build(self, lines: List[str]) -> etree._Element:
         for raw in lines:
             self._handle_line(raw.rstrip("\n"))
+        self._flush_verse_group_buffer()
         return self.state.root
 
     # ---- per-line handler ----
@@ -235,40 +239,53 @@ class TEIBuilder:
 
     def _handle_verse_line(self, line: str) -> None:
         s = self.state
+        self._close_p()
+
         pre_tab, after_tab = line.split("\t", 1)
         pre_tab = pre_tab.rstrip()
+
+        if s.verse_only:
+            lg = self._open_or_switch_lg_for_label(s.current_loc_label or "v", group_by_base=True)
+            if pre_tab.strip():
+                self._append_singleton_child_text(lg, "head", pre_tab)
+            if s.current_l is None:
+                s.current_l = etree.SubElement(lg, "l")
+                s.last_tail_text_sink = None
+            self._process_content_with_midline_elements(after_tab, "verse", line)
+            return
+
+        if s.current_lg is None:
+            lg = etree.Element("lg")
+            if pre_tab.strip():
+                self._append_singleton_child_text(lg, "head", pre_tab)
+            s.current_lg = lg
+
+        if s.current_l is None:
+            s.current_l = etree.SubElement(s.current_lg, "l")
+            s.last_tail_text_sink = None
 
         verse_payload = after_tab
         back_text = ""
 
-        m_marker = None
-        for m in VERSE_MARKER_RE.finditer(after_tab):
-            m_marker = m
-        if m_marker:
-            verse_payload = after_tab[: m_marker.end()].rstrip(" ")
-            back_text = after_tab[m_marker.end():]
-        else:
-            m_back = VERSE_BACK_BOUNDARY_RE.search(after_tab)
-            if m_back:
-                start = m_back.start()
-                bars = "||" if after_tab[start:start + 2] == "||" else "|"
-                verse_payload = after_tab[:start] + bars
-                back_text = after_tab[m_back.end():]
+        # Use COMBINED_VERSE_END_RE to find the last verse marker on the line
+        last_match = None
+        for m in COMBINED_VERSE_END_RE.finditer(after_tab):
+            last_match = m
 
-        self._open_or_switch_lg_for_label(s.current_loc_label or "v", group_by_base=False)
-        lg = s.current_lg
+        if last_match:
+            verse_payload = after_tab[:last_match.end()]
+            back_text = after_tab[last_match.end():]
 
-        if pre_tab.strip():
-            self._append_singleton_child_text(lg, "head", pre_tab)
-
-        if s.current_l is None:
-            s.current_l = etree.SubElement(lg, "l")
-            s.last_tail_text_sink = None
-
-        self._process_content_with_midline_elements(verse_payload, "verse", line)
+        is_verse_close = self._process_content_with_midline_elements(verse_payload, "verse", line)
 
         if back_text and back_text.strip():
-            self._append_singleton_child_text(lg, "back", back_text)
+            self._append_singleton_child_text(s.current_lg, "back", back_text)
+
+        if is_verse_close:
+            if s.current_lg is not None and not s.verse_only:
+                s.verse_group_buffer.append(s.current_lg)
+            s.current_lg = None
+            s.current_l = None
 
     def _emit_pb_from_match(self, match: re.Match):
         page, line_num = match.groups()
@@ -316,8 +333,9 @@ class TEIBuilder:
                     s.last_tail_text_sink = None
     
         elif mode == "verse":
-            is_line_close = bool(CLOSE_L_RE.search(content.rstrip()))
-            
+            is_line_close = (bool(CLOSE_L_RE.search(post_text.rstrip())))
+            is_verse_close = (bool(COMBINED_VERSE_END_RE.search(post_text.rstrip())))
+
             if not is_line_close and content:
                 s.current_caesura = etree.SubElement(s.current_l, "caesura")
                 s.last_tail_text_sink = s.current_caesura
@@ -333,8 +351,11 @@ class TEIBuilder:
             if is_line_close:
                 s.current_l = None
 
+            return is_verse_close
+
     def _open_div(self, label: str) -> None:
         s = self.state
+        self._flush_verse_group_buffer()
         self._close_p()
         self._close_lg()
         div = etree.SubElement(s.body, "div", {"n": label})
@@ -394,6 +415,7 @@ class TEIBuilder:
 
     def _open_location(self, label: str) -> None:
         s = self.state
+        self._flush_verse_group_buffer()
         self._close_p()
         self._close_lg()
         s.current_loc_label = label
@@ -415,9 +437,9 @@ class TEIBuilder:
         """
         Returns (base, segment). If no match, treat whole label as base.
         Examples:
-          "1.1ab" → ("1.1", "ab")
-          "1.1 cd" → ("1.1", "cd")
-          "2.3" → ("2.3", None)
+          "1.1ab" -> ("1.1", "ab")
+          "1.1 cd" -> ("1.1", "cd")
+          "2.3" -> ("2.3", None)
         """
         verse_label_match = VERSE_NUM_RE.match(raw)
         if not verse_label_match:
@@ -425,7 +447,7 @@ class TEIBuilder:
         base, seg = verse_label_match.group(1), verse_label_match.group(2)
         return base.strip(), (seg.lower() if seg else None)
 
-    def _open_or_switch_lg_for_label(self, label: str, *, group_by_base: bool = True) -> None:
+    def _open_or_switch_lg_for_label(self, label: str, *, group_by_base: bool = True) -> etree._Element:
         s = self.state
         if group_by_base:
             base, _seg = self._parse_verse_label(label)
@@ -435,9 +457,8 @@ class TEIBuilder:
 
         if s.current_lg is not None and s.current_loc_base == need_base:
             s.current_loc_label = label
-            return
+            return s.current_lg
 
-        # If we're about to open a new <lg> and the current <p> is empty, remove it.
         if s.current_p is not None and not s.current_p.text and not len(s.current_p):
             s.current_p.getparent().remove(s.current_p)
             s.current_p = None
@@ -446,11 +467,22 @@ class TEIBuilder:
         s.current_loc_base = need_base
         s.current_loc_label = label
         lg_id = "v" + re.sub(r"\W+", "_", need_base)
-        s.current_lg = etree.SubElement(s.current_div, "lg", {
-            "n": need_base,
-            f"{{{_XML_NS}}}id": lg_id
-        })
+        
+        if s.verse_only:
+            container = s.current_div
+            lg = etree.SubElement(container, "lg", {
+                "n": need_base,
+                f"{{{_XML_NS}}}id": lg_id
+            })
+        else:
+            lg = etree.Element("lg", {
+                "n": need_base,
+                f"{{{_XML_NS}}}id": lg_id
+            })
+
+        s.current_lg = lg
         s.current_l = None
+        return lg
 
     def _append_singleton_child_text(self, parent, tag: str, text: str) -> None:
         if not text or not text.strip():
@@ -468,7 +500,6 @@ class TEIBuilder:
     def _close_p(self) -> None:
         s = self.state
         if s.current_p is not None:
-            # If the paragraph is empty, remove it from the tree
             if not s.current_p.text and not len(s.current_p):
                 parent = s.current_p.getparent()
                 if parent is not None:
@@ -477,5 +508,30 @@ class TEIBuilder:
 
     def _close_lg(self) -> None:
         s = self.state
+        self._flush_verse_group_buffer()
         if s.current_lg is not None:
             s.current_lg = None
+            s.current_l = None
+
+    def _flush_verse_group_buffer(self):
+        s = self.state
+        if not s.verse_group_buffer:
+            return
+
+        if len(s.verse_group_buffer) > 1:
+            # Create a parent lg and move the children
+            parent_lg = etree.SubElement(s.current_div, "lg", {
+                "type": "group",
+                "n": s.current_loc_label,
+                f"{{{_XML_NS}}}id": s.current_loc_xml_id
+            })
+            for child_lg in s.verse_group_buffer:
+                parent_lg.append(child_lg)
+        else:
+            # Just add the single lg
+            single_lg = s.verse_group_buffer[0]
+            single_lg.set(f"{{{_XML_NS}}}id", s.current_loc_xml_id)
+            single_lg.set("n", s.current_loc_label)
+            s.current_div.append(single_lg)
+
+        s.verse_group_buffer.clear()
