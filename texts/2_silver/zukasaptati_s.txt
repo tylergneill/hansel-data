@@ -501,10 +501,10 @@ yataḥ |	itaro 'pi na sāmānyo nṛpatir divyarūpabhṛt |
 	tvaṃ punar vikramādityo yathārtho 'si paraṃtapa || 5.19 (= 48) ||
 uktaṃ ca |	indrāt prabhutvaṃ jvalanāt pratāpaṃ krodhaṃ yamād vaiśravaṇāc ca vittam |
 	sattvasthire rāmajanārdanābhyām ādāya rājñaḥ kriyate śarīram || 5.20 (= 49) ||
+
+[23,11]
+
 tathā ca bhārate |
-
-[23,12]
-
 	mā vṛkodara pādena ekādaśacamūpatim |
 	pañcānām api yo bharttā nāsāprakṛtimāninī (?) || 5.21 (= 50) ||
 
@@ -580,6 +580,9 @@ puṇyakṣayād dhanaṃ kṣīṇam | sa ca janaiḥ parityaktaḥ | yato jano
 uktaṃ ca |	yasyārthās tasya mitrāṇi yasyārthās tasya bāndhavāḥ |
 <26>
 	yasyārthāḥ sa pumāṃl loke yasyārthāḥ sa ca paṇḍitaḥ || 6.3 (= 56) ||
+
+[26,2]
+
 tathā ca bhārate |
 	jīvanto 'pi mṛtāḥ pañca śrūyante kila bhārata |
 	daridro vyādhito mūrkhaḥ pravāsī nityasevakaḥ || 6.4 (= 57) ||
@@ -1193,7 +1196,7 @@ anyadā sā calitā |
 
 [56,12]
 
-	hasann āha śuko | yāhi yadi kartuṃ tvam uttaram |
+hasann āha śuko |	yāhi yadi kartuṃ tvam uttaram |
 	vetsi yathā śriyādevyā nūpure 'pahṛte kṛtam || 15.1 (= 107) ||
 
 <57>
@@ -1506,6 +1509,9 @@ uktaṃ ca |	na viśvased aviśvaste viśvaste 'pi na viśvaset |
 	yuktaṃ na yuktaṃ manasā vicintya vaded vipaścin mahato 'nurodhāt || 21.4 (= 121) ||
 kiṃ ca |	sopacārāṇi vākyāni śatrūṇām iha lakṣayet |
 	avicāritagītārthā mṛgā yānti parābhavam || 21.5 (= 122) ||
+
+[71,4]
+
 kirāte 'py uktam |
 	vrajanti te mūḍhadhiyaḥ parābhavaṃ bhavanti māyāviṣu ye na māyinaḥ |
 	praviśya hi ghnanti śaṭhās tathāvidhān asaṃvṛtāṅgān niśitā iveṣavaḥ || 21.6 (= 123) ||
@@ -1545,9 +1551,6 @@ punar api samagro vṛttāntaḥ pṛṣṭaḥ | kathyamānaś ca peṭāhanana
 [72,8]
 
 uktaṃ ca |	na nīcajanasaṃsargān naro bhadrāṇi paśyati |
-
-[72,9]
-
 	darśayaty eva vikṛtiṃ supriye 'pi khalo yataḥ || 21.9 (= 126) ||
 	nāśayitum eva nīcaḥ parakāryaṃ vetti na prasādhayitum |
 	pāṭayitum eva śaktir nākhor uddhartum annapiṭam || 21.10 (= 127) ||
@@ -3427,7 +3430,7 @@ tayoḥ paṇḍitarājñyoḥ prāvṛṭkālaḥ samāyayau | yatra ca |
 
 uktaṃ ca |	jaï sasiṇehī taü maī jaï jīvaï sasiṇeha |
 	duhia payāahiṃ gaadhara kiṃ gacchasi khalageha •|| 57.5 (= 257) ||•
-	kiṃ ca | ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● |
+kiṃ ca |	● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● |
 	● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● •|| 57.6 (= 258) ||•
 
 [160,7]
