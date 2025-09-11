@@ -231,7 +231,7 @@ class TEIBuilder:
             s.current_l = etree.SubElement(s.current_lg, "l", attrs)
             s.last_tail_text_sink = None
 
-        self._process_verse_payload(rest, rest)
+        self._process_content_with_midline_elements(rest, "verse", rest)
 
     def _handle_verse_line(self, line: str) -> None:
         s = self.state
@@ -265,13 +265,10 @@ class TEIBuilder:
             s.current_l = etree.SubElement(lg, "l")
             s.last_tail_text_sink = None
 
-        self._process_verse_payload(verse_payload, line)
+        self._process_content_with_midline_elements(verse_payload, "verse", line)
 
         if back_text and back_text.strip():
             self._append_singleton_child_text(lg, "back", back_text)
-
-    def _process_verse_payload(self, payload: str, raw_line_for_hyphen_check: str):
-        self._process_content_with_midline_elements(payload, "verse", raw_line_for_hyphen_check)
 
     def _emit_pb_from_match(self, match: re.Match):
         page, line_num = match.groups()
