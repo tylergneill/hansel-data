@@ -169,7 +169,7 @@ class TEIBuilder:
 
         # prose
         if s.current_p is not None:
-            self._process_content_with_midline_pbs(line, "prose", raw_line_for_hyphen_check=line)
+            self._process_content_with_midline_elements(line, "prose", raw_line_for_hyphen_check=line)
             self._finalize_physical_line(line)
             return
 
@@ -271,20 +271,35 @@ class TEIBuilder:
             self._append_singleton_child_text(lg, "back", back_text)
 
     def _process_verse_payload(self, payload: str, raw_line_for_hyphen_check: str):
-        self._process_content_with_midline_pbs(payload, "verse", raw_line_for_hyphen_check)
+        self._process_content_with_midline_elements(payload, "verse", raw_line_for_hyphen_check)
 
-    def _process_content_with_midline_pbs(self, content: str, mode: str, raw_line_for_hyphen_check: str):
+    def _emit_pb_from_match(self, match: re.Match):
+        page, line_num = match.groups()
+        self._emit_pb(page, line_num)
+
+    def _process_content_with_midline_elements(self, content: str, mode: str, raw_line_for_hyphen_check: str):
         s = self.state
         
-        matches = list(MID_LINE_PAGE_RE.finditer(content))
-        last_match_end = 0
+        markers = [
+            (MID_LINE_PAGE_RE, self._emit_pb_from_match)
+        ]
         
-        for match in matches:
+        all_matches = []
+        for marker_re, handler in markers:
+            for match in marker_re.finditer(content):
+                all_matches.append({"match": match, "handler": handler})
+                
+        all_matches.sort(key=lambda x: x["match"].start())
+        
+        last_match_end = 0
+        for item in all_matches:
+            match = item["match"]
+            handler = item["handler"]
+            
             pre_text = content[last_match_end:match.start()]
             self._append(pre_text)
             
-            page, line_num = match.groups()
-            self._emit_pb(page, line_num)
+            handler(match)
             
             last_match_end = match.end()
 
@@ -403,9 +418,9 @@ class TEIBuilder:
         """
         Returns (base, segment). If no match, treat whole label as base.
         Examples:
-          "1.1ab" -> ("1.1", "ab")
-          "1.1 cd" -> ("1.1", "cd")
-          "2.3" -> ("2.3", None)
+          "1.1ab" → ("1.1", "ab")
+          "1.1 cd" → ("1.1", "cd")
+          "2.3" → ("2.3", None)
         """
         verse_label_match = VERSE_NUM_RE.match(raw)
         if not verse_label_match:
