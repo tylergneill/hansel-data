@@ -11,10 +11,13 @@ It focuses primarily on the following:
 The data model doesn't necessarily shun these latter things,
 but insofar as it supports them, they are secondary.
 
-The goal is e-texts that are both useful for humans
+The goal is to have e-texts that are both useful for humans
 (readable and easy to cross-reference with relevant printed edition)
 and consistently structured for machines
 (automatically parsable, with comprehensive identifiers).
+They should also be easy to compare against fresh OCR output,
+in order to enable continuous improvement.
+For that reason, these e-texts move toward line-by-line representation.
 
 
 # Marker Categories and Bracket Sets
@@ -30,9 +33,14 @@ The primary structural elements and what they correspond to in TEI-XML are:
 In addition, there are editorial bracket sets that describe the e-text itself, NOT the printed edition source:
 7) ≤...≥ is ante-correctionem (to be deleted)
 8) «...» is post-correctionem (to be kept)
-9) ¿...¿ is anything confusing (to be kept)
+9) ¿...¿ is anything confusing (also to be kept but potentially still erroneous)
 
-Editorial markup as found in the printed edition itself should be interpreted and re-represented in one of the above ways. E.g., if the editor used [...] for an unwanted interpolation or (...) to suggestion a correction for some number of akṣaras, these would need to be interpreted with ≤...≥ and a combination of ≤...≥«...» (with the correct number of akṣaras), respectively. 
+Editorial markup as found in the printed edition itself 
+should be interpreted and re-represented in one of the above ways. 
+E.g., if the editor used [...] for an unwanted interpolation 
+or (...) to suggestion a correction for some number of akṣaras, 
+these would need to be interpreted with ≤...≥ 
+and a combination of ≤...≥«...» (with the correct number of akṣaras), respectively. 
 
 
 # Verse/Prose and Logical/Physical Orientation
@@ -47,6 +55,8 @@ Edition page numbers are recorded for reference purposes, but they are not used 
 Substantial presence of prose (e.g. commentary on verse base text, śāstric treatise, gadyakāvya, etc.)
 requires changing location marker orientation to the physical features of the edition:
 page and line numbers for the beginning of each paragraph.
+
+A line-by-line mode is available to preserve or discard line-end information (hyphens and spacing).
 
 
 # Character Set
