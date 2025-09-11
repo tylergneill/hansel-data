@@ -471,6 +471,11 @@ class TEIBuilder:
     def _close_p(self) -> None:
         s = self.state
         if s.current_p is not None:
+            # If the paragraph is empty, remove it from the tree
+            if not s.current_p.text and not len(s.current_p):
+                parent = s.current_p.getparent()
+                if parent is not None:
+                    parent.remove(s.current_p)
             s.current_p = None
 
     def _close_lg(self) -> None:
