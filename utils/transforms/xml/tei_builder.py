@@ -91,7 +91,7 @@ class BuildState:
 
     # text sink: most recent inline element (e.g., <lb/>) whose tail should
     # receive following prose text on the same physical line
-    last_text_sink: Optional[etree._Element] = None
+    last_tail_text_sink: Optional[etree._Element] = None
 
     def __post_init__(self):
         self.body = etree.SubElement(self.root, "body")
@@ -124,7 +124,7 @@ class TEIBuilder:
         section_match = SECTION_RE.match(line)
         if section_match:
             self._open_div(section_match.group(1))
-            s.last_text_sink = None
+            s.last_tail_text_sink = None
             return
 
         # 2a) Page marker <page_num> / <page_num,line_num>
@@ -197,12 +197,12 @@ class TEIBuilder:
         s.prev_line_hyphen = bool(HYPHEN_EOL_RE.search(raw_line))
 
     def _append(self, text: str) -> None:
-        """Append `text` to the right place, honoring last_text_sink and join-space logic."""
+        """Append `text` to the right place, honoring last_tail_text_sink and join-space logic."""
         if not text:
             return
         s = self.state
 
-        sink_el = s.last_text_sink
+        sink_el = s.last_tail_text_sink
         use_tail = True
 
         if sink_el is None:
@@ -234,7 +234,7 @@ class TEIBuilder:
             if seg:
                 attrs["n"] = seg
             s.current_l = etree.SubElement(s.current_lg, "l", attrs)
-            s.last_text_sink = None
+            s.last_tail_text_sink = None
 
         self._process_verse_payload(rest, rest)
 
@@ -268,7 +268,7 @@ class TEIBuilder:
 
         if s.current_l is None:
             s.current_l = etree.SubElement(lg, "l")
-            s.last_text_sink = None
+            s.last_tail_text_sink = None
 
         self._process_verse_payload(verse_payload, line)
 
@@ -331,7 +331,7 @@ class TEIBuilder:
 
         pb = etree.SubElement(container, "pb", attrs)
         s.last_emitted_lb = None
-        s.last_text_sink = pb
+        s.last_tail_text_sink = pb
 
         s.explicit_page = page
         if line_no is not None:
@@ -363,7 +363,7 @@ class TEIBuilder:
         s.current_p = etree.SubElement(
             s.current_div, "p", {f"{{{_XML_NS}}}id": s.current_loc_xml_id, "n": label}
         )
-        s.last_text_sink = None # Set to None so first append goes to .text
+        s.last_tail_text_sink = None # Set to None so first append goes to .text
         s.prev_line_hyphen = False # Reset for new paragraph
 
     def _parse_verse_label(self, raw: str) -> tuple[str, Optional[str]]:
