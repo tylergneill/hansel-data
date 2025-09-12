@@ -210,8 +210,8 @@ vidhāyāsthāt |
 
 [322,18]
 
-uditaṃ ca | jīvanto 'pi mṛtāḥ pañca vyāsena parikīrtitāḥ |
-daridro vyādhito mūrkhaḥ pravāsī nityasevakaḥ |
+uditaṃ ca |	jīvanto 'pi mṛtāḥ pañca vyāsena parikīrtitāḥ |
+	daridro vyādhito mūrkhaḥ pravāsī nityasevakaḥ |
 
 [322,20]
 
