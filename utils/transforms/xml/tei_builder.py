@@ -28,7 +28,6 @@ This module focuses on a single linear pass with localized helpers.
 Serialization and post-processing are handled one level up.
 """
 
-import re
 from dataclasses import dataclass, field
 from typing import List, Optional, Tuple
 from lxml import etree
@@ -95,6 +94,9 @@ class BuildState:
 
     # verse group buffer
     verse_group_buffer: List[etree._Element] = field(default_factory=list)
+
+    # verse head buffer
+    pending_head_elem: Optional[etree._Element] = None
 
     def __post_init__(self):
         self.body = etree.SubElement(self.root, "body")
@@ -164,6 +166,19 @@ class TEIBuilder:
                 return
 
         # HANDLE LINES WITH CONTENT (AND MAYBE ALSO STRUCTURE)
+
+        # verse starter on its own line (e.g. "uktaṃ ca |-")
+        pending_head_match = PENDING_HEAD_RE.search(line)
+        if pending_head_match:
+            self._close_p()
+            head_text = pending_head_match.group(1).strip()
+            head_elem = etree.Element("head")
+            head_elem.text = head_text
+            if s.line_by_line:
+                self._emit_lb(head_elem, "")
+
+            s.pending_head_elem = head_elem
+            return
 
         # verse (<head>[TAB]verse[bar+space]<back>)
         if '\t' in line:
@@ -246,6 +261,9 @@ class TEIBuilder:
 
         if s.verse_only:
             lg = self._open_or_switch_lg_for_label(s.current_loc_label or "v", group_by_base=True)
+            if s.pending_head_elem is not None:
+                lg.append(s.pending_head_elem)
+                s.pending_head_elem = None
             if pre_tab.strip():
                 self._append_singleton_child_text(lg, "head", pre_tab)
             if s.current_l is None:
@@ -256,6 +274,9 @@ class TEIBuilder:
 
         if s.current_lg is None:
             lg = etree.Element("lg")
+            if s.pending_head_elem is not None:
+                lg.append(s.pending_head_elem)
+                s.pending_head_elem = None
             if pre_tab.strip():
                 self._append_singleton_child_text(lg, "head", pre_tab)
             s.current_lg = lg
