@@ -15,6 +15,8 @@ class XMLToPlaintext:
         self.verse_only = verse_only
         self.line_by_line = line_by_line
         self.current_lg_base_n = None
+        self.pending_indent = False
+        self.prev_el = None
 
     def convert(self, xml_path: Path) -> str:
         """
@@ -37,8 +39,8 @@ class XMLToPlaintext:
 
         self._process_element(body)
 
-        while self.lines and not self.lines[-1]:
-            self.lines.pop()
+        while self.lines and not self.lines[0]:
+            self.lines.pop(0)
 
         return "\n".join(re.sub(r"\t\s+", "\t", l.rstrip()) for l in self.lines)
 
@@ -69,22 +71,35 @@ class XMLToPlaintext:
 
         self._append(processed_text)
 
+    def _space_out_prev_pb(self):
+        if self.prev_el.tag == 'pb' and not self.verse_only:
+            ultimate_el = self.lines.pop()
+            pentultimate_el = self.lines.pop()
+            self.lines.extend(['', pentultimate_el, ultimate_el])
+
     def _process_element(self, el: etree._Element):
         tag = etree.QName(el.tag).localname
 
+
         # --- PRE-CHILDREN PROCESSING ---
         if tag == 'div':
+            self._space_out_prev_pb()
             self._start_new_line(blank_before=True)
             self._append(f"{{{el.get('n')}}}")
             self._start_new_line()
         elif tag == 'p':
-            self._start_new_line(blank_before=True)
+            self._space_out_prev_pb()
+            self._start_new_line(blank_before=not self.verse_only)
             self._append(f"[{el.get('n')}]")
+            if not self.verse_only:
+                self._start_new_line()
         elif tag == 'lg':
             parent_tag = etree.QName(el.getparent().tag).localname
             if parent_tag in ('div', 'body') or el.get('type') == 'group':
-                self._start_new_line(blank_before=True)
-                self._append(f"[{el.get('n')}]")
+                self._space_out_prev_pb()
+                self._start_new_line(blank_before=not self.verse_only)
+                if not self.verse_only:
+                    self._append(f"[{el.get('n')}]")
                 self._start_new_line()
         elif tag == 'l':
             if self.verse_only:
@@ -93,15 +108,16 @@ class XMLToPlaintext:
             else:
                 self._append("\t")
         elif tag == 'pb':
-            self._start_new_line(blank_before=True)
+            if not self.verse_only or el.tail is None:
+                self._start_new_line(blank_before=not self.verse_only)
             if el.get('break') == 'no' and len(self.lines) > 1:
                 self.lines[-2] = self.lines[-2].rstrip() + '-'
-            self._append(f"<{el.get('n')}>")
-            self._start_new_line()
-        elif tag == 'milestone':
-            self._start_new_line(blank_before=True)
-            self._append(el.get('n'))
-            self._start_new_line()
+            if self.verse_only and el.tail is not None:
+                self._append(f" <{el.get('n')}> ")
+            else:
+                self._append(f"<{el.get('n')}>")
+                self._start_new_line()
+
         elif tag == 'lb':
             if self.line_by_line:
                 if el.get('break') == 'no':
@@ -109,10 +125,14 @@ class XMLToPlaintext:
                 self._start_new_line()
             else:
                 self._append(" ")
+        elif tag == 'milestone':
+            self._start_new_line(blank_before=not self.verse_only)
+            self._append(el.get('n'))
+            self._start_new_line()
         elif tag == 'note':
             self._append("(")
         elif tag == 'caesura':
-            self._append("\t")
+            self.pending_indent = True
 
         # --- RECURSION ---
         old_lg_base = self.current_lg_base_n
@@ -121,9 +141,16 @@ class XMLToPlaintext:
 
         if el.text:
             self._process_text(el.text)
+
+        self.prev_el = el
+
         for child in el:
             self._process_element(child)
+
             if child.tail:
+                if self.pending_indent:
+                    self._append("\t")
+                    self.pending_indent = False
                 self._process_text(child.tail)
 
         if tag == 'lg':
