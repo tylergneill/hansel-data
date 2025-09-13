@@ -536,6 +536,11 @@ class TEIBuilder:
 
     def _flush_verse_group_buffer(self):
         s = self.state
+        if s.current_lg is not None and not s.verse_only:
+            s.verse_group_buffer.append(s.current_lg)
+            s.current_lg = None
+            s.current_l = None
+
         if not s.verse_group_buffer:
             return
 
