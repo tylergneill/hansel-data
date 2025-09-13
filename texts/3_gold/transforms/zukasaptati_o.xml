@@ -13,12 +13,16 @@
         <l>satīṃ vadati loko 'yaṃ yaśaḥ puṇyairavāpyate ||<lb n="11"/></l>
       </lg>
       <p xml:id="p319_l11" n="319,11">manaḥkāṅkṣito manorathastadānīmevāsādyate yadā parameśvare niratiśāyinī bhaktirjāgarti | parameśvarānugrahaṃ <lb n="12"/> vinā na kāpi kāmanā phalāya kalpate |  <lb n="13"/></p>
-      <lg xml:id="p319_l13" n="319,13">
-        <head>abhihitaṃ ca |</head>
-        <l>nirantarasukhāpekṣā hṛdaye vartate yadi |<lb n="14"/></l>
-        <l>tyaktvā bhavabhavānbhāvānbhavānīvallabhaṃ bhaja ||<lb n="15"/></l>
-        <l>pade pade nidhānāni yojane yojane bilam |<lb n="16"/></l>
-        <l>aprasanne virūpākṣe kutaḥ kṣīreṇa bhojanam ||<lb n="17"/></l>
+      <lg type="group" n="319,13" xml:id="p319_l13">
+        <lg>
+          <head>abhihitaṃ ca |</head>
+          <l>nirantarasukhāpekṣā hṛdaye vartate yadi |<lb n="14"/></l>
+          <l>tyaktvā bhavabhavānbhāvānbhavānīvallabhaṃ bhaja ||<lb n="15"/></l>
+        </lg>
+        <lg>
+          <l>pade pade nidhānāni yojane yojane bilam |<lb n="16"/></l>
+          <l>aprasanne virūpākṣe kutaḥ kṣīreṇa bhojanam ||<lb n="17"/></l>
+        </lg>
       </lg>
       <p xml:id="p319_l17" n="319,17">ityabhihite tena haradattena parameśvaraprītiprakarṣodayasiddhaye vividhadānapuṇyarudrajapakoṭihomādi pramukhakarma <lb n="18"/> kartumādadhre | tena sukṛtātiśayena tasya tanayaḥ samajaniṣṭa | tasminputrajanidine haradattaḥ paṭahodghoṣapuraḥsaraṃ  <lb n="19"/> yāvanto yācakāstānadaridrānakārṣīt | arthināmavasarātikramo nātighaṭiṣṭa |  <lb n="20"/></p>
       <lg xml:id="p319_l20" n="319,20">
@@ -33,22 +37,32 @@
         <l>yādṛśī bhāvanā yatra siddhirbhavati tādṛśī ||<pb n="320"/></l>
       </lg>
       <p xml:id="p320_l1" n="320,1">bhāvapuraḥsaraṃ manasi vikṣepaṃ bibhrāṇaḥ sāttvikavāsanayā yatsukṛtasaṃcayamārjayati tasya sukṛtasya <lb n="2"/> phalamadhikatvena bobhavīti | bhāvānusāriṇī siddhiradhigamyate | tadanu tena haradattena daivajñānāhūya  <lb n="3"/> jātakarma niramāyi | madanasena iti nāmadheyaṃ vyadadhat | tataḥ krameṇānnaprāśanacaulakarmavratabandhādikaṃ  <lb n="4"/> vidhāya samastakalākalāpebhyaḥ snātakamakārayat | tato vaṅgadeśanivāsinaḥ kumudakośanāmadheyasya putrī  <lb n="5"/> nāmataḥ prabhāvatī prabhāvitīrṇasamastajananayanāhlādakāriṇī | tāmeṇīdṛśaṃ madanasenaḥ paryaṇaiṣīt |  <lb n="6"/> sarvāṅgasaundaryavibhramavatī sakalakalākovidā saṃgītasāhityarasābhinayavilasadasamaśaraśaranikarahatipa<lb n="7" break="no"/>ravaśā parirambhasaurabhyavijṛmbhamāṇaviṣamaviṣayarasaviṣamañjarī kaṭākṣacchaṭākṣepaparikṣiptajanatā ghanatāpa<lb n="8" break="no"/>saṃpāditānekalokaśokasaṃvardhanaprabhāvatī | tena madanasenena tattadbhāvakalākalāpakuśalena bhṛśamanvarajyata | <lb n="9"/> tayorapyatiśāyī premabhāvo 'vardhiṣṭa | sukhena tṛtīyapuruṣārthamaseviṣātām | yadi muhūrtārdhamapi parasparaṃ  <lb n="10"/> na dadṛśāte tadānīmanekayugāvagāḍhavirahavedanāvaidhuryamāvirbhāvyate | anayā rītyā tena madanasenena  <lb n="11"/> puruṣārthadvayādviratena garīyaḥ sukhamanubhūya bhūyasānehasā kāmapuruṣārtharasopasevāyāṃ prāvartiṣṭa |  <lb n="12"/></p>
-      <lg xml:id="p320_l12" n="320,12">
-        <head>uktaṃ ca |</head>
-        <l>amṛtaṃ śiśire vahniramṛtaṃ svāmigauravam |<lb n="13"/></l>
-        <l>bhāryāmṛtaṃ guṇavatī dhāroṣṇamamṛtaṃ payaḥ ||<lb n="14"/></l>
-        <l>vāṇī sārasvatī yasya bhāryā rūpavatī satī |<lb n="15"/></l>
-        <l>lakṣmīrdānavatī yasya saphalaṃ tasya jīvitam ||<lb n="16"/></l>
-        <l>ramyā rāmā yadi kulavadhūstyāgabhogāya vittaṃ<caesura/><lb n="17"/> vaktre vāṇī sarasamadhurā śaṃkare cittavṛttiḥ |<lb n="18"/></l>
-        <l>sadbhiḥ saṅgo vapuṣi dṛḍhatā satkule janma puṃsāṃ<caesura/><lb n="19"/> dhigdhigduḥkhaṃ niraśanapadaṃ svargamekāntadurgam ||<lb n="20"/></l>
+      <lg type="group" n="320,12" xml:id="p320_l12">
+        <lg>
+          <head>uktaṃ ca |</head>
+          <l>amṛtaṃ śiśire vahniramṛtaṃ svāmigauravam |<lb n="13"/></l>
+          <l>bhāryāmṛtaṃ guṇavatī dhāroṣṇamamṛtaṃ payaḥ ||<lb n="14"/></l>
+        </lg>
+        <lg>
+          <l>vāṇī sārasvatī yasya bhāryā rūpavatī satī |<lb n="15"/></l>
+          <l>lakṣmīrdānavatī yasya saphalaṃ tasya jīvitam ||<lb n="16"/></l>
+        </lg>
+        <lg>
+          <l>ramyā rāmā yadi kulavadhūstyāgabhogāya vittaṃ<caesura/><lb n="17"/> vaktre vāṇī sarasamadhurā śaṃkare cittavṛttiḥ |<lb n="18"/></l>
+          <l>sadbhiḥ saṅgo vapuṣi dṛḍhatā satkule janma puṃsāṃ<caesura/><lb n="19"/> dhigdhigduḥkhaṃ niraśanapadaṃ svargamekāntadurgam ||<lb n="20"/></l>
+        </lg>
       </lg>
       <p xml:id="p320_l20" n="320,20">itthaṃ madanasenaḥ samastamapi nijamudyamamapahāya viṣayopabhoga evāśrāntaviśrāntaḥ | tadānīṃ tasya pitrā <lb n="21"/> śikṣitumādadre | ityabhyadhāyi ca | re madanasena | tvamātmīyaṃ vyāpāraṃ parityajyāharniśaṃ dayitāyatta eva  <lb n="22"/> vartamāno 'si | tarhi tvadīyametadvyavasitamaucityaṃ nānuṣajjate |  <lb n="23"/></p>
-      <lg xml:id="p320_l23" n="320,23">
-        <head>uktaṃ ca |</head>
-        <l>ativyayo na kartavyo nātikāmaṃ parāmṛśet |<lb n="24"/></l>
-        <l>atitṛṣṇānapatyaśca avaśyaṃ nihate dhanam ||<lb n="25"/></l>
-        <l>atirūpādgatā sītā atigarveṇa rāvaṇaḥ |<lb n="26"/></l>
-        <l>atidānādbalirbaddhaḥ sarvatrātiśayaṃ tyajet ||<lb n="27"/></l>
+      <lg type="group" n="320,23" xml:id="p320_l23">
+        <lg>
+          <head>uktaṃ ca |</head>
+          <l>ativyayo na kartavyo nātikāmaṃ parāmṛśet |<lb n="24"/></l>
+          <l>atitṛṣṇānapatyaśca avaśyaṃ nihate dhanam ||<lb n="25"/></l>
+        </lg>
+        <lg>
+          <l>atirūpādgatā sītā atigarveṇa rāvaṇaḥ |<lb n="26"/></l>
+          <l>atidānādbalirbaddhaḥ sarvatrātiśayaṃ tyajet ||<lb n="27"/></l>
+        </lg>
       </lg>
       <p xml:id="p320_l27" n="320,27">asmātkāraṇānnātiśayaḥ kāmasevāyāṃ tvayā kāryaḥ | puruṣeṇa sthāneṣveteṣu saṃtoṣa evādartavyaḥ | <lb n="28"/></p>
       <lg xml:id="p320_l28" n="320,28">
@@ -57,20 +71,29 @@
         <l>triṣu caiva na kartavyaḥ tapasi dhyānadānayoḥ ||<lb n="30"/></l>
       </lg>
       <p xml:id="p320_l30" n="320,30">itthaṃ pitrā bahuśo 'nuśāsito 'pi madanaseno viṣayāsaktamānaso na taduditamabhimanute sma | <lb n="31"/></p>
-      <lg xml:id="p320_l31" n="320,31">
-        <head>āhuśca |</head>
-        <l>na paśyati madāndho 'pi kāmāndho 'pi na paśyati |<lb n="32"/></l>
-        <l>cakṣurhīnā na paśyanti cārthī doṣaṃ na paśyati ||<lb n="33"/></l>
-        <l>arthāturāṇāṃ na sukhaṃ na bandhuḥ kāmāturāṇāṃ na bhayaṃ na lajjā |<lb n="34"/></l>
-        <l>vidyāturāṇāṃ na sukhaṃ na nidrā kṣudhāturāṇāṃ na rucirna pakvam ||<lb n="35"/></l>
+      <lg type="group" n="320,31" xml:id="p320_l31">
+        <lg>
+          <head>āhuśca |</head>
+          <l>na paśyati madāndho 'pi kāmāndho 'pi na paśyati |<lb n="32"/></l>
+          <l>cakṣurhīnā na paśyanti cārthī doṣaṃ na paśyati ||<lb n="33"/></l>
+        </lg>
+        <lg>
+          <l>arthāturāṇāṃ na sukhaṃ na bandhuḥ kāmāturāṇāṃ na bhayaṃ na lajjā |<lb n="34"/></l>
+          <l>vidyāturāṇāṃ na sukhaṃ na nidrā kṣudhāturāṇāṃ na rucirna pakvam ||<lb n="35"/></l>
+        </lg>
       </lg>
       <p xml:id="p320_l35" n="320,35">kāraṇādetasmānmadanaseno na pituḥ śāsanamabhimanutetarām | tato 'yaṃ haradattaḥ putrasyopālambhaṃ tri<lb n="36" break="no"/>vikramanāmānaṃ mitramāśrāvayat | tatastamākarṇya trivikramo haradattamavādīt | śṛṇu sakhe | manmathara<pb n="321" break="no"/>sākrāntasvānto janaḥ kathamekahelayaivānayituṃ śakyaḥ | hṛdayāntaḥsthagitaprathamarasāvasthodgāḍhā na kiṃ sevante | <lb n="2"/> antaḥkaraṇaguṇahārdabaddhasaṃbandhaśaithilyaparipāṭyā parimṛditaraṇaraṇakatāsamāśraye vyāvahārikī buddhiriya<lb n="3" break="no"/>mupavarṇayitumudarkasaṃparkopayoginī bhavati | ..... trivikrama tvaṃ joṣamāssva | ahameva śanaiḥ śanairupapattiviśeṣaistaṃ <lb n="4"/> śikṣiṣye ityabhidhāya haradatto nijamandiraṃ samāsadat | tadanu haradattaḥ putrasya viṣayopabhoge niratyutkarṣa<lb n="5" break="no"/>viśeṣamabhivīkṣya tadasoḍhatayā dehamātmīyaṃ parityaktuṃ paryaicchat | trivikramo vārttāmapi śuśrāva | tatastvaramā<lb n="6" break="no"/>ṇo haradattopāntamājagmivān | tāvatāsau haradattaḥ samagrāmapi prāyopaveśasāmagrīṃ nirmāyāvasthito <lb n="7"/> vartate | tataḥ tamaticukopa | haradatta tvāṃ vihāya nānyaṃ kaṃcana mandamatimupalabhe | tvaṃ dehatyāgāya kimarthaṃ  <lb n="8"/> vṛthaiva pravṛtto 'si | deho 'yaṃ kiyatā mahāyāsenāsādyate | dehenānena padārthacatuṣṭayamapi sādhyaṃ  <lb n="9"/> saṃpādyate | asya dehasya kṛte yoginaḥ siddhāḥ sādhakāśca nānārasarasāyanādiṣu paricinvate |  <lb n="10"/></p>
-      <lg xml:id="p321_l10" n="321,10">
-        <head>abhihitaṃ ca |</head>
-        <l>punardārāḥ punarmitraṃ punaḥ kṣetraṃ punaḥ sutāḥ |<lb n="11"/></l>
-        <l>punaḥ śubhāśubhaṃ karma na śarīraṃ punaḥ punaḥ ||<lb n="12"/></l>
-        <l>āpadarthaṃ dhanaṃ rakṣeddārānrakṣeddhanairapi |<lb n="13"/></l>
-        <l>ātmānaṃ satataṃ rakṣeddārairapi dhanairapi ||<lb n="14"/></l>
+      <lg type="group" n="321,10" xml:id="p321_l10">
+        <lg>
+          <head>abhihitaṃ ca |</head>
+          <l>punardārāḥ punarmitraṃ punaḥ kṣetraṃ punaḥ sutāḥ |<lb n="11"/></l>
+          <l>punaḥ śubhāśubhaṃ karma na śarīraṃ punaḥ punaḥ ||<lb n="12"/></l>
+        </lg>
+        <lg>
+          <head>kiṃ ca |</head>
+          <l>āpadarthaṃ dhanaṃ rakṣeddārānrakṣeddhanairapi |<lb n="13"/></l>
+          <l>ātmānaṃ satataṃ rakṣeddārairapi dhanairapi ||<lb n="14"/></l>
+        </lg>
       </lg>
       <p xml:id="p321_l14" n="321,14">ata eva tvamucitaṃ parijihāno 'si | ākarṇayatu nāma bhavān | putrasya śrama īdṛśastava gṛhītumayuktaḥ | <lb n="15"/></p>
       <lg xml:id="p321_l15" n="321,15">
@@ -79,12 +102,17 @@
         <l>mriyamāṇo haretprāṇānnāsti putrasamo ripuḥ ||<lb n="17"/></l>
       </lg>
       <p xml:id="p321_l17" n="321,17">tato haradatto 'pyabhāṣīt | ahametasmātputravyasanajanitaduḥkhāddavīyānbhaviṣyāmi | tādṛśaḥ prakāraḥ kaści<lb n="18" break="no"/>dasti cettadānīmācakṣva | tadānīṃ trivikramastamācaṣṭa | malayaparvate guṇasāgarasaṃjñaḥ śuko 'sti | tathā <lb n="19"/> himavataḥ śṛṅge malayavatī nāma śārikā vartate | tau dvāvapi muniśāpataḥ pakṣiṇāvajāyetām | tau  <lb n="20"/> dvāvānetavyau | tatastau bhavataḥ putrāya upadeśaṃ dāsyataḥ | tato haradatto 'vādīt | tau kathaṃ pakṣiṇau  <lb n="21"/> jātau | kena doṣeṇa muninā śaptau | tvamapyetatkathaṃ jānīṣe | tadetadvṛttāntamanastamitasāmānyaṃ bhavānavādīt |  <lb n="22"/> tacchrutvā trivikramaḥ śukaśārikayoḥ prathamavṛttāntamabhyuditavān | ākarṇaya mitra rājavaiśyavarya mānasaṃ  <lb n="23"/> sara uttarasyāṃ diśi yojanamātre parvate nivasatyekam | tatra caikastaponidhināmadheyastapodhano bahubhi<lb n="24" break="no"/>rmunibhirupāsitaḥ samāste | sa caikasmindine vidyādhananāmānaṃ śiṣyaṃ devārcanāya puṣpāṇyāhartuṃ prātiṣṭhipat | <lb n="25"/> sa munīśvarasyājñāsamayamanantarameva niragāt |  <lb n="26"/></p>
-      <lg xml:id="p321_l26" n="321,26">
-        <head>uktaṃ ca |</head>
-        <l>baṇḍaḥ śākuniko mantrī kimekaḥ stambhasevakaḥ |<lb n="27"/></l>
-        <l>sadyo 'pavādī rogī ca saptaitānsevakāṃstyajet ||<lb n="28"/></l>
-        <l>alasaṃ niṣṭhuraṃ vyarthaṃ krūraṃ vyasaninaṃ śaṭham |<lb n="29"/></l>
-        <l>asaṃtuṣṭaṃ kṛtaghnaṃ ca tyajedduṣṭaṃ mahīpatiḥ ||<lb n="30"/></l>
+      <lg type="group" n="321,26" xml:id="p321_l26">
+        <lg>
+          <head>uktaṃ ca |</head>
+          <l>baṇḍaḥ śākuniko mantrī kimekaḥ stambhasevakaḥ |<lb n="27"/></l>
+          <l>sadyo 'pavādī rogī ca saptaitānsevakāṃstyajet ||<lb n="28"/></l>
+        </lg>
+        <lg>
+          <head>tathā |</head>
+          <l>alasaṃ niṣṭhuraṃ vyarthaṃ krūraṃ vyasaninaṃ śaṭham |<lb n="29"/></l>
+          <l>asaṃtuṣṭaṃ kṛtaghnaṃ ca tyajedduṣṭaṃ mahīpatiḥ ||<lb n="30"/></l>
+        </lg>
       </lg>
       <p xml:id="p321_l30" n="321,30">tato 'sau puṣpāharaṇāya gacchanpathi puṣpavāṭikāmapaśyat | dṛṣṭvā ca tāṃ puṣpāṇyupacetumantaḥ prāvikṣat | <lb n="31"/> tatra ca ghanasaṃpiṇḍitaparṇapuñjasaṃpūritaṃ phalasamāhārātsamantato namraṃ mākandataruṃ makarandarasonmadiṣṇu<lb n="32" break="no"/>madanamaṅgalamahodayaṃ manaḥsarvasvāpahārakaṃ locanagocaraṃ cakāra | tasya tale gandharvamithunaṃ dadarśa | sureśva<lb n="33" break="no"/>rapurī gāyako viśvāvasusaṃjñako gandharvarājaḥ | tathā tasya dharmacāriṇī mālāvatyāhvayā | taddvayamapi <lb n="34"/> krīḍākautukaparavaśaṃ vipañcīṃ gṛhītvā militvā gānaṃ kurvāṇamabhūt | tayorgāyatoḥ sa ko '≤piḥ≥«pi» layaḥ  <lb n="35"/> prādurabhūdyena sākṣācchrīpārvatīnāthaścandramaulireva svayaṃ parituṣyati | tacchrutvā sa vidyādhanaḥ svaṃ vidheyaṃ  <lb n="36"/> vismṛtya tadevākarṇayaṃstatraivātiṣṭhat |  <pb n="322"/></p>
       <lg xml:id="p322_l1" n="322,1">
@@ -123,18 +151,26 @@
         <l>parārthe tilahotāraṃ dṛṣṭvā cakṣurnimīlayet ||<lb n="11"/></l>
       </lg>
       <p xml:id="p323_l11" n="323,11">tasmādākarṇayatu bhavān | etadarthe mahābhāratīyamitihāsamekaṃ tvāṃ prati vakṣyāmi | ityabhidhāya madanasenaṃ <lb n="12"/> prati śukaḥ paurāṇikīṃ kathāmekāṃ vyāhartuṃ pravavṛte | śṛṇu madanasena | mālavajanapadamadhye nāgapuraṃ nāmā<lb n="13" break="no"/>grahāraḥ | tatra vijayaśarmāhvayo brāhmaṇo hyavātsīt | tasya tanayo devaśarmābhavat | tena samastā api <lb n="14"/> vidyā abhyastāḥ paraṃ śāntirmanasyudayaṃ nāsādayati sma | tataḥ pitarāvabhāṣiṣṭa | ahamanyā api vidyā  <lb n="15"/> adhyetuṃ vrajiṣyāmi | tatastau niṣeddhuṃ pracakramāte | tatastayoruditamavamatya dvitīyameva deśāntaraṃ nira<lb n="16" break="no"/>gāt | itthaṃ deśāntare 'ṭāvyaṃ kurvāṇo 'nekatīrthāni devāyatanāni pavitrakṣetrāṇi darśaṃ darśaṃ darśādiṣu <lb n="17"/> viśeṣaparvasu parvasaparyāparāyaṇo bhūtvā tāpasaveṣānusaraṇarasikaḥ paraṃ vairāgyamavalambya viṣayavāsanā<lb n="18" break="no"/>vitṛṣṇo niḥspṛhatayā pravartamānaḥ citrakūṭaparvatamāsasāda | tatra pavitramekaṃ tapovanamālokya mahāmeruprāsādaṃ <lb n="19"/> śivasya dṛṣṭvā nirmalajalaparipūrṇaṃ saraścābhivīkṣya samāsādya cāplavanaṃ saṃdhyopāsanaṃ surapitṛtarpaṇaṃ ca  <lb n="20"/> vidhāya prāsādamāsādya śivamarcayitvā stotrādinā saṃtoṣya praṇipatya ca svacetasi paramaṃ samādhā<lb n="21" break="no"/>namanubhūya tatraikasya tarostale niṣasāda | padmāsana upaviśya nāsikāgre dṛśau vinyasya śyāmalāṅgaṃ <lb n="22"/> caturbhujaṃ śaṅkhacakragadāpadmodāyudhamāśrayaṃ śriyaḥ purodeśāvasthitasaṃbandhayojitakarayugalagaruḍamityādivi<lb n="23" break="no"/>śeṣaṇaviśiṣṭaṃ śrīmantamādinārāyaṇaṃ dhyātvā sāṃsārikadehāhaṃkāratāpuraskṛtavyāpāro paramacetasoni<lb n="24" break="no"/>vāraṇatayā sakalāvaraṇapariṇatāśayaḥ kṣaṇaṃ sthitavān | <lb n="25"/></p>
-      <lg xml:id="p323_l25" n="323,25">
-        <l>dehabhāvaṃ parityajya nirālambanamāśritaḥ |<lb n="26"/></l>
-        <l>ānandapadasaṃyogī sa yogī modate sukham ||<lb n="27"/></l>
-        <l>nidrādau jāgarasyānte yo bhāva upajāyate |<lb n="28"/></l>
-        <l>taṃ bhāvaṃ bhāvayedyogī dvividhābhāvavarjitam ||<lb n="29"/></l>
+      <lg type="group" n="323,25" xml:id="p323_l25">
+        <lg>
+          <l>dehabhāvaṃ parityajya nirālambanamāśritaḥ |<lb n="26"/></l>
+          <l>ānandapadasaṃyogī sa yogī modate sukham ||<lb n="27"/></l>
+        </lg>
+        <lg>
+          <l>nidrādau jāgarasyānte yo bhāva upajāyate |<lb n="28"/></l>
+          <l>taṃ bhāvaṃ bhāvayedyogī dvividhābhāvavarjitam ||<lb n="29"/></l>
+        </lg>
       </lg>
       <p xml:id="p323_l29" n="323,29">evamākāravikāranirākaraṇenāsau devaśarmā dhyānanimīlitacakṣuratiṣṭhat | tadanvādau tundilāntaḥkaraṇo <lb n="30"/> bahirviṣayasaṃbandhābhibandhibodhavidhuro madhyaṃdinātikramamapi nājñāsīt | tato bhikṣānimittaṃ prati<lb n="31" break="no"/>niragāt | tato 'mbarapadavīmavagāhamānā balākā tasyoparyadūṣayat | yāvatā upari paśyati tāvatā <lb n="32"/> balākāmāluloke | tatastāṃ sāsūyamaśapat | śāpavitaraṇasamayasamanantarameva bhuvastalaṃ sā gatāsuḥ papāta |  <lb n="33"/> tadavekṣya devaśarmā manasi mahāntamanutāpamāsasāda | varākaḥ prāṇī vṛthaiva garīyāṃsaṃ nigrahaṃ grāhitaḥ |  <lb n="34"/> alpīyasyaparādhe daṇḍabāhulyamāsañjitaṃ kopaparādhīnatayā na kiṃcidajñāsiṣaṃ tapaso 'smadvihitasya  <lb n="35"/> pariploṣaḥ samavartiṣṭa |  <lb n="36"/></p>
-      <lg xml:id="p323_l36" n="323,36">
-        <l>krodho vaivasvato rājā tṛṣṇā vaitaraṇī nadī |<lb n="37"/></l>
-        <l>vidyā kāmadughā dhenuḥ saṃtoṣo nandanaṃ vanam ||<pb n="324"/></l>
-        <l>nāsti kāmasamo vyādhirnāsti mohasamo ripuḥ |<lb n="2"/></l>
-        <l>nāsti krodhasamo vahnirnāsti jñānasamaṃ sukham ||<lb n="3"/></l>
+      <lg type="group" n="323,36" xml:id="p323_l36">
+        <lg>
+          <l>krodho vaivasvato rājā tṛṣṇā vaitaraṇī nadī |<lb n="37"/></l>
+          <l>vidyā kāmadughā dhenuḥ saṃtoṣo nandanaṃ vanam ||<pb n="324"/></l>
+        </lg>
+        <lg>
+          <l>nāsti kāmasamo vyādhirnāsti mohasamo ripuḥ |<lb n="2"/></l>
+          <l>nāsti krodhasamo vahnirnāsti jñānasamaṃ sukham ||<lb n="3"/></l>
+        </lg>
       </lg>
       <p xml:id="p324_l3" n="324,3">ityabhidhāya devaśarmā tasya doṣasyāpākaraṇakāmyayā punarapi snānadevārcanādikarmāvaśeṣaṃ nirmāya <lb n="4"/> samādhāvupaviśyaikāntacitto bhūtvā kāmapi mantrānuvṛttiṃ kṛtavāndvaitabhāvaparityāgena |  <lb n="5"/></p>
       <lg xml:id="p324_l5" n="324,5">
@@ -151,7 +187,8 @@
       <lg xml:id="p324_l18" n="324,18">
         <head>tathā hi |</head>
         <l>ayameva paro dharmo hyayameva paraṃ tapaḥ |<lb n="19"/></l>
-        <l>patiśuśrūṣaṇaṃ yatra tatstrīṇāṃ svargahetukam ≤|≥«||»<caesura/><lb n="20"/></l>
+        <l>patiśuśrūṣaṇaṃ yatra tatstrīṇāṃ svargahetukam ≤|≥«||<lb n="20"/></l>
+        <back>»</back>
       </lg>
       <p xml:id="p324_l20" n="324,20">etāvatāsmadīyaṃ samastamapi vyavasitaṃ caritārthaṃ bhavati | <lb n="21"/></p>
       <lg xml:id="p324_l21" n="324,21">
@@ -160,12 +197,16 @@
         <l>vidyā rūpaṃ kurūpāṇāṃ kṣamā rūpaṃ tapasvinām ||<lb n="23"/></l>
       </lg>
       <p xml:id="p324_l23" n="324,23">bhavādṛśānāṃ yogīśvarāṇāṃ kṣamaiva bhāvyā | tadānīmevāvikalaṃ yogasya phalamāsādyate | itarathā vyarthaḥ <lb n="24"/> pariśrama evodeti | tato 'sau saroṣabhrūbhaṅgadurdṛśyatārakaṃ nyaphālayat | tadanu tayā pativratayāvādi |  <lb n="25"/> bhavatāṃ kopena kiṃ nāma śakyate kartum | kathamahaṃ sā balākā yā kopena bhavato 'ntarikṣādapatat |  <lb n="26"/> etadākarṇya devaśarmā vismayavivaśaḥ saṃjātaḥ | anyapradeśajanitaṃ vṛttāntaṃ kathameṣā dṛgviṣayībhāvamāpāda<lb n="27" break="no"/>yituṃ pragalbhate | na hyasau sāmānyasaṃbhāvanāsaṃbhāvyā bhavati | abhidhāyetthaṃ tāṃ daṇḍavatpraṇatavān | <lb n="28"/> vyābhāṣīcca | tvayāhamupadeṣṭavyaḥ | tavedṛśamatīndriyaṃ jñānaṃ kutastyam | tataḥ sāśrāvayat | yasya prāṇino  <lb n="29"/> yo dharmo 'bhihito 'sti taṃ yathāvadanutiṣṭhati | tarhi svabhāvata eva jñānodayastasminnāspadaṃ saṃpādayati |  <lb n="30"/> mama patyurupācaraṇena jñānaṃ jarījṛmbhīti | bhavānvārāṇasīṃ gacchatu | tatra dharmavyādho nāma mṛgayuradhivasa<lb n="31" break="no"/>ti | sa tubhyaṃ jñānopadeśaṃ dāsyati | tataḥ sādhvīvacasāsau devaśarmā vārāṇasīṃ prati prasthitavān | śanaiḥ <lb n="32"/> śanairviśvanāthanagaraṃ muktikṣetramāsāditavān | nagaramadhyamāviśya tīrthe samāplāvya śrīviśveśvaramabhipūjya  <lb n="33"/> pradakṣiṇaṃ kṛtvā daṇḍavatpraṇipatya pavitramātmānaṃ vidhāya dharmavyādhaṃ didṛkṣustadupāntamagacchat | tatastena  <lb n="34"/> darśanasamanantaramevābhāṣi | kiṃ pativratayā prasthāpitā bhavantaḥ | tadākarṇya tamavadat | tayaiva prasthāpito  <lb n="35"/> yuṣmatsaṃnikṛṣṭamāgato 'smi | tato dvāvapi vyādhasya niketanaṃ gatau vyādhena devaśarmāṇamāsanāyāsanaṃ  <pb n="325"/> pracikṣipe | tadanu vyādhasya vṛddhau pitarau tiṣṭhataḥ | tayorupāntaṃ gatvā draviṇamārjitaṃ tatpurastādavasthāpya  <lb n="2"/> daṇḍavatpraṇipatya karau yojayitvā atithireko 'bhyāgato vartata ityavādīt | tacchrutvā pitarau jagadatuḥ |  <lb n="3"/> atithirāgataśceddaivamasmadīyam | tasya saparyā jyāyasī kāryā |  <lb n="4"/></p>
-      <lg xml:id="p325_l4" n="325,4">
-        <head>uktaṃ ca |</head>
-        <l>gururagnirdvijātīnāṃ varṇānāṃ brāhmaṇo guruḥ |<lb n="5"/></l>
-        <l>patireko guruḥ strīṇāṃ sarvasyābhyāgato guruḥ ||<lb n="6"/></l>
-        <l>atithiścāpavādī ca dvāvetau mama bāndhavau |<lb n="7"/></l>
-        <l>apavādī haretpāpamatithiḥ svargasaṃkramaḥ ||<lb n="8"/></l>
+      <lg type="group" n="325,4" xml:id="p325_l4">
+        <lg>
+          <head>uktaṃ ca |</head>
+          <l>gururagnirdvijātīnāṃ varṇānāṃ brāhmaṇo guruḥ |<lb n="5"/></l>
+          <l>patireko guruḥ strīṇāṃ sarvasyābhyāgato guruḥ ||<lb n="6"/></l>
+        </lg>
+        <lg>
+          <l>atithiścāpavādī ca dvāvetau mama bāndhavau |<lb n="7"/></l>
+          <l>apavādī haretpāpamatithiḥ svargasaṃkramaḥ ||<lb n="8"/></l>
+        </lg>
       </lg>
       <p xml:id="p325_l8" n="325,8">tato dharmavyādhastasminnatithau satkāramakārṣīt | tato devaśarmābhyabhāṣata | tvaṃ ca sarvajñastvayā dharmopadeśaḥ <lb n="9"/> kartavyaḥ | taduditamākarṇya mṛgayurjagāda | tvaṃ patitastvamupadeśayogyo na bhavasi | atithiriti matvā  <lb n="10"/> mānanīyo 'smākam |  <lb n="11"/></p>
       <lg xml:id="p325_l11" n="325,11">
@@ -180,16 +221,24 @@
         <l>vibhavo dānabhogāya tasya svarga ihaiva tu ||<lb n="30"/></l>
       </lg>
       <p xml:id="p325_l30" n="325,30">tataḥ saṃtuṣya haradattaḥ putraṃ pratyuvāca | tvayā kuṭumbasya paścādbhāge cintodvahanaṃ kartavyam | ahaṃ dhanārjana<lb n="31" break="no"/>vyavasāyāya pravrajiṣyāmi | dhanahīnaḥ pumāṃstṛṇasyāpi na vinimayatāmarhati | <lb n="32"/></p>
-      <lg xml:id="p325_l32" n="325,32">
-        <head>tathā cābhyadhuḥ |</head>
-        <l>dhanī pūjyo dhanī ślāghyo dhanī sarvaguṇāgraṇīḥ |<lb n="33"/></l>
-        <l>dhanahīnā na śobhante nirgandhā iva kiṃśukāḥ ||<lb n="34"/></l>
-        <l>yasyārthastasya mitrāṇi yasyārthastasya bāndhavāḥ |<lb n="35"/></l>
-        <l>yasyārthaḥ sa pumāṃlloke yasyārthaḥ sa ca paṇḍitaḥ ||<pb n="326"/></l>
-        <l>yasyāsti vittaṃ sa naraḥ kulīnaḥ sa paṇḍitaḥ sa śrutavānguṇajñaḥ |<lb n="2"/></l>
-        <l>sa eva vaktā sa ca darśanīyaḥ sarve guṇāḥ kāñcanamāśrayante ||<lb n="3"/></l>
-        <l>akāraṇaṃ vyākaraṇaṃ tantrīśabdo 'pyakāraṇam |<lb n="4"/></l>
-        <l>akāraṇaṃ trayo vedāstaṇḍulāstatra kāraṇam ||<lb n="5"/></l>
+      <lg type="group" n="325,32" xml:id="p325_l32">
+        <lg>
+          <head>tathā cābhyadhuḥ |</head>
+          <l>dhanī pūjyo dhanī ślāghyo dhanī sarvaguṇāgraṇīḥ |<lb n="33"/></l>
+          <l>dhanahīnā na śobhante nirgandhā iva kiṃśukāḥ ||<lb n="34"/></l>
+        </lg>
+        <lg>
+          <l>yasyārthastasya mitrāṇi yasyārthastasya bāndhavāḥ |<lb n="35"/></l>
+          <l>yasyārthaḥ sa pumāṃlloke yasyārthaḥ sa ca paṇḍitaḥ ||<pb n="326"/></l>
+        </lg>
+        <lg>
+          <l>yasyāsti vittaṃ sa naraḥ kulīnaḥ sa paṇḍitaḥ sa śrutavānguṇajñaḥ |<lb n="2"/></l>
+          <l>sa eva vaktā sa ca darśanīyaḥ sarve guṇāḥ kāñcanamāśrayante ||<lb n="3"/></l>
+        </lg>
+        <lg>
+          <l>akāraṇaṃ vyākaraṇaṃ tantrīśabdo 'pyakāraṇam |<lb n="4"/></l>
+          <l>akāraṇaṃ trayo vedāstaṇḍulāstatra kāraṇam ||<lb n="5"/></l>
+        </lg>
       </lg>
       <p xml:id="p326_l5" n="326,5">iti piturabhihitaṃ niśamya madanaseno janakaṃ jagāda | mayi putre vidyamāne yadi tatrabhavadbhiḥ prayāsaḥ <lb n="6"/> kartavyastadānīṃ putrasya ka upayogaḥ | yastu tanayo janayitroḥ saparyāyāmananuyuktaḥ kiṃ tasya janmanā |  <lb n="7"/></p>
       <lg xml:id="p326_l7" n="326,7">
@@ -198,12 +247,16 @@
         <l>tayā gavā kiṃ kriyate yā na dogdhrī na garbhiṇī ||<lb n="9"/></l>
       </lg>
       <p xml:id="p326_l9" n="326,9">yastu pitroḥ saparyayā sukhaṃ janayati tasyaiva saphalaṃ janma netarasya | <lb n="10"/></p>
-      <lg xml:id="p326_l10" n="326,10">
-        <head>tathoditam |</head>
-        <l>vittānusāriṇo dharmaḥ śraddhānvitaśivārcanam |<lb n="11"/></l>
-        <l>piturmātuḥ sadā bhaktiḥ saphalaṃ tasya jīvitam ||<lb n="12"/></l>
-        <l>ekenāpi suputreṇa siṃhī svapiti nirbhayam |<lb n="13"/></l>
-        <l>sahaiva daśabhiḥ putrairbhāraṃ vahati gardabhī ||<lb n="14"/></l>
+      <lg type="group" n="326,10" xml:id="p326_l10">
+        <lg>
+          <head>tathoditam |</head>
+          <l>vittānusāriṇo dharmaḥ śraddhānvitaśivārcanam |<lb n="11"/></l>
+          <l>piturmātuḥ sadā bhaktiḥ saphalaṃ tasya jīvitam ||<lb n="12"/></l>
+        </lg>
+        <lg>
+          <l>ekenāpi suputreṇa siṃhī svapiti nirbhayam |<lb n="13"/></l>
+          <l>sahaiva daśabhiḥ putrairbhāraṃ vahati gardabhī ||<lb n="14"/></l>
+        </lg>
       </lg>
       <p xml:id="p326_l14" n="326,14">ata eva bhavanto 'traiva tāvattiṣṭhantu | ahameva vāṇijyavidhānāya vrajiṣyāmi | ityanujñāmādāya nirga<lb n="15" break="no"/>tavān | nijamandiramāsādya prāṇapriyāṃ prabhāvatīṃ prati prāvocat | priye prabhāvati | dhanamārjayituṃ <lb n="16"/> vyavasāyoddeśena iyāsurasmi | tvayā na kaścinmadvirahajanyaśramaḥ samavalambanīyaḥ | mayāpi bhavatyāḥ kṣaṇa<lb n="17" break="no"/>syāpi viyogaḥ soḍhumaśakyaḥ | paraṃ janakavacanamanatilaṅghanīyamiti matvā gamanasaṃjāyamānamanā asmi | <lb n="18"/> tadviṣamaviśikhaviṣayavimukhaṃ viṣādaviṣaviśeṣapoṣakaṃ guruvacoviṣavedanāyanātiploṣaparaṃ patyuḥ krakacakarkaśaṃ  <lb n="19"/> vacanamatiduḥsahaṃ śrutvā nirastajīviteva vidhvastāpaghanā vigalitāṅgasaṃdhibandhā galitakalā pairāha<lb n="20" break="no"/>taprabhā prabhāvatī mohānandasaṃdohabhūyasyā tāpoṣṇavyathayā galagṛhīteva prāṇeśvaraṃ prati provāca | śṛṇuṣva <lb n="21"/> prāṇanātha | piturvacanamanatikramaṇīyaṃ paramo dharmaḥ | paramanyadapyasti | yaduktaṃ |  <lb n="22"/></p>
       <lg xml:id="p326_l22" n="326,22">
@@ -223,12 +276,16 @@
         <l>kāminīṃ prathamāvasthāṃ sadyo gṛhṇāti buddhimān ||<lb n="30"/></l>
       </lg>
       <p xml:id="p326_l30" n="326,30">itthaṃ prabhāvatī prābravīt | paraṃ na tattasya cetasi paryeti | tadanu hiraṇyagarbhagṛhiṇīhṛdayaṃgamaiḥ priyavacobhiḥ <lb n="31"/> samāśvāsya tāṃ niragāt | tatastayābhyadhāyi | madanasena tava mama cettādṛśaṃ paramaṃ premasāmagryaṃ tarhi  <lb n="32"/> māmīdṛśīṃ parityajya tvayā gamanaṃ kathaṃ kriyamāṇamasti | tato 'sāvajalpat | ahaṃ yatra kvāpi gatavāntarhi  <lb n="33"/> tatrāpi tvaṃ mama hṛdaye vasantyevāsi | evaṃ nayamikadṛśā jānīhi |  <pb n="327"/></p>
-      <lg xml:id="p327_l1" n="327,1">
-        <head>yathoktam |</head>
-        <l>girau kalāpī gagane ca meghā lakṣāntare bhānurathāpsu padmam |<lb n="2"/></l>
-        <l>dvilakṣasomaḥ kumudasya bandhuryo yasya maitrī na ca tasya dūram ||<lb n="3"/></l>
-        <l>dūrastho 'pi samīpastho yo vai manasi vartate |<lb n="4"/></l>
-        <l>yo hi citte na varteta samīpastho 'pi dūrataḥ ||<lb n="5"/></l>
+      <lg type="group" n="327,1" xml:id="p327_l1">
+        <lg>
+          <head>yathoktam |</head>
+          <l>girau kalāpī gagane ca meghā lakṣāntare bhānurathāpsu padmam |<lb n="2"/></l>
+          <l>dvilakṣasomaḥ kumudasya bandhuryo yasya maitrī na ca tasya dūram ||<lb n="3"/></l>
+        </lg>
+        <lg>
+          <l>dūrastho 'pi samīpastho yo vai manasi vartate |<lb n="4"/></l>
+          <l>yo hi citte na varteta samīpastho 'pi dūrataḥ ||<lb n="5"/></l>
+        </lg>
       </lg>
       <p xml:id="p327_l5" n="327,5">vyāhṛtyetthaṃ madanaseno niragacchat | tatastayā bahujalapariplute vilocane akāriṣātām | tadālokya mada<lb n="6" break="no"/>nasenastasyāḥ samīpe samāgatya nibiḍaparirambhasamārambhasaurabhyamabhyasyātmīyapāṇināśruparimārjanaṃ vidhāya <lb n="7"/> śukaśārike avocat | ākarṇayatāṃ guṇasāgaro mālāvatī ca | iyaṃ prabhāvatī sarvasminnapi viṣaye  <lb n="8"/> bhavatorupahāre tiṣṭhantī | bhavadbhyāmetasyāścetaso virahajanyapralayakālasaṃkāśaṃ kaṣṭaṃ śanaiḥ śanairuktiviśeṣaira<lb n="9" break="no"/>pohitavyam | iyaṃ bhavaddhaste dattāsti | etasyā viraho vardhituṃ na dātavyaḥ | ityabhidhāya madanaseno <lb n="10"/> vaṇikkaraṇanimittaṃ manīṣitaṃ kṛtvā deśapradeśamuddiśya nirayāsīt | tadupari prabhāvatī vivoḍhurvirahave<lb n="11" break="no"/>danāvasthayā vihvalāvayavā rātriṃdivaṃ tadavasthāmavalambamānā sānnodakakriyāyāmapi na spṛhāṃ badhnāti | <lb n="12"/> tatastasyā virahavyathābāhulyamabhivīkṣya śārikā śukamuvāca | rāmacandra | madanasenena prabhāvatī dattā<lb n="13" break="no"/>sīdāvayoḥ | yadiyaṃ bhavadbhirvirahavyathākadarthanato nivāraṇīyā | tarhyetāṃ viyogavanajvalanajvālāja<lb n="14" break="no"/>ṭālajājvalyamānāpaghanāṃ mārakārāgāravihāraviklavakleśaviśeṣavigalitāṅgasarvasvāṃ vikṣatekṣaṇe 'kṣaṇaśo<lb n="15" break="no"/>kaśaṅkunikāraparikaramanākulamābadhnānāṃ tvameva kimiti kathācaritretihāsādibhiḥ kautukādhikaṃ jana<lb n="16" break="no"/>yanduḥkhaviśeṣāpākaraṇena na śikṣayasi | tava maunālambanamanupadaṃ tavaiva vacanīyatāmāpādayiṣyati | <lb n="17"/> tato niśamitakāntāvacanaḥ śakuntastadvacanānukūlakalitakalevarakāntasaṃkocakliṣṭāntaḥkaraṇagaṇastāmabhāṣīt |  <lb n="18"/> prāṇādhipe | strīṇāṃ cetāṃsi kṣaṇikāni durvārāṇi nirvāhaśūnyāni ca | paśyāmi tāvadetasyāścetaso  <lb n="19"/> 'vasthitāyatiḥ kimudarketi | tatastadavabodhāttadanurūpaṃ kamapyupāyaṃ racayāmi |  <lb n="20"/></p>
       <lg xml:id="p327_l20" n="327,20">
@@ -243,23 +300,31 @@
         <l>bhasmībhūtasya dehasya punarāgamanaṃ kutaḥ ||<lb n="3"/></l>
       </lg>
       <p xml:id="p328_l3" n="328,3">tattvamupabhogavirahitamātmīyaṃ janma kimiti vṛthaivātivāhayasi | svecchayā sukhopabhogamācarantyā bhavatyā <lb n="4"/> vayamapi sāhāyyabhāvaṃ yāsyāmaḥ | anena rājakumāreṇa vinayakandarpeṇa samaṃ bhavatyāḥ saṃgamaṃ kārayāmaḥ |  <lb n="5"/> etāvatāpi januḥ saphalaṃ bhaviṣyati | etādṛśairvacobhistasyā mānasaṃ bhramitam |  <lb n="6"/></p>
-      <lg xml:id="p328_l6" n="328,6">
-        <head>uktaṃ ca |</head>
-        <l>saṃtaptāyasi saṃsthitasya payaso nāmāpi na śrūyate<caesura/><lb n="7"/> muktākāratayā tadeva nalinīpattrasthitaṃ dṛśyate |<lb n="8"/></l>
-        <l>antaḥsāgaraśuktimadhyapatitaṃ tanmauktikaṃ jāyate<caesura/><lb n="9"/> prāyeṇādhamamadhyamottamajuṣāmevaṃvidhā vṛttayaḥ ||<lb n="10"/></l>
-        <l>svātantryaṃ pitṛmandireṣu vasatiryātrotsave saṃgatiḥ<caesura/><lb n="11"/> goṣṭhīpūruṣasaṃnidhāvaniyamo vāso videśe tathā |<lb n="12"/></l>
-        <l>saṃsargaḥ saha puṃścalībhirasakṛdvṛtternijāyāḥ kṣatiḥ<caesura/><lb n="13"/> patyurvārddhakamīrṣyitapravasanaṃ nāśasya hetuḥ striyāḥ ||<lb n="14"/></l>
+      <lg type="group" n="328,6" xml:id="p328_l6">
+        <lg>
+          <head>uktaṃ ca |</head>
+          <l>saṃtaptāyasi saṃsthitasya payaso nāmāpi na śrūyate<caesura/><lb n="7"/> muktākāratayā tadeva nalinīpattrasthitaṃ dṛśyate |<lb n="8"/></l>
+          <l>antaḥsāgaraśuktimadhyapatitaṃ tanmauktikaṃ jāyate<caesura/><lb n="9"/> prāyeṇādhamamadhyamottamajuṣāmevaṃvidhā vṛttayaḥ ||<lb n="10"/></l>
+        </lg>
+        <lg>
+          <l>svātantryaṃ pitṛmandireṣu vasatiryātrotsave saṃgatiḥ<caesura/><lb n="11"/> goṣṭhīpūruṣasaṃnidhāvaniyamo vāso videśe tathā |<lb n="12"/></l>
+          <l>saṃsargaḥ saha puṃścalībhirasakṛdvṛtternijāyāḥ kṣatiḥ<caesura/><lb n="13"/> patyurvārddhakamīrṣyitapravasanaṃ nāśasya hetuḥ striyāḥ ||<lb n="14"/></l>
+        </lg>
       </lg>
       <p xml:id="p328_l14" n="328,14">tataḥ sā prabhāvatī bhūyobhirbhūṣaṇairātmānaṃ bhūṣayitvā vyabhicaraṇāya nirgantuṃ prāvartata | tadānīṃ śārikā <lb n="15"/> pakṣiṇaṃ vyābhāṣīt | madanasenena iyaṃ prabhāvatyāvayorupahāre niveśitāsīt | tasyaiṣā vyabhicāre pravarta<lb n="16" break="no"/>mānā | tattvaṃ kasmādenāṃ na nivārayasi | tadanu kīra udīrayāmāsa | tvaṃ tūṣṇīmāsva | yadabhidhātavyaṃ <lb n="17"/> tatsvayamevaināmahaṃ vyāhariṣye | yāvatā vihaga upāyaṃ viracayati tāvatā śārikā prālapat | prabhāvati  <lb n="18"/> yattvaṃ vidhātumabhilaṣasi tena tvaṃ vināśamavāpsyasi | ityākarṇya tayā dūtīmukhamudaikṣi | tato dūtī  <lb n="19"/> rarāṇa | iyaṃ pakṣiṇī pāpinī nihantavyā yā pareṣāmasukhāya pratyūhavyūhamācarati | tadā prabhāvatī  <lb n="20"/> samīpamāgamya pañjarārgalamapācakāra | pāṇinā dhṛtvā śārikā vipādanīyeti manasi pravartamānāsīt |  <lb n="21"/> tāvatā śārikā samuḍḍīyāpalāyiṣṭa | tataḥ sarvā api babhāṣire | niragamadiyaṃ tadaiva | sādhvajaniṣṭa |  <lb n="22"/> tataḥ prabhāvatyā sakalavṛttānta āveditaḥ | tacchrutvā śuko 'pyakathayat | tadetadruciraṃ vyaraci | sarvadaivāhaṃ  <lb n="23"/> bhavatīṃ manmathāvasthābhṛśārditāṅgīmāloke | kimapi bhavatīmetadviṣayaṃ vyāhartumanvicchāmi | paraṃ pareṣāṃ  <lb n="24"/> manobhāvaṃ ko nāma jñātumīṣṭe | saṃsāre sādhvabhisaraṇaṃ vihāya netaratsukhaṃ bhūyasā jarījṛmbhīti |  <lb n="25"/> tarhīdaṃ tvayā sādhvācaritam | paramatrānyadapi vidyate | guṇaśālinīva saṃkīrṇāvaprasaṅgaprāptā uttaraṃ  <lb n="26"/> kartuṃ prabhavasi cettadetadbahvāyāsavibhāvyaṃ vidheyamaṅgīkuru | ityuditā prabhāvatī babhāṣe | kā nāma  <lb n="27"/> guṇaśālinī | kīdṛśaṃ saṃkīrṇaṃ nistīrṇam | tadupavarṇayatāṃ nāma bhavān | tataḥ śuko vyāvarṇayati |  <lb n="28"/> prabhāvatī vayasyā pativratā paripṛcchati | itīyaṃ prathamā kathā itarāsāṃ kathānāṃ mūlapīṭhikārūpā  <lb n="29"/> vyāvarṇitā | iti kathākośe kathāvatāraḥ ||  <lb n="30"/></p>
     </div>
     <div n="1">
       <p xml:id="p328_l30" n="328,30">atha candravatī nāma nagarī | tatra bhīmaseno nāma rājā | tatra mohananāmā vaṇik | tasya bhāryā <lb n="31"/> nāmato guṇaśālinī | sā rūpeṇātiśayaṃ prakarṣaṃ prāptā | tato vasudattatanayastāmīkṣitavān | tadvīkṣaṇakṣaṇa  <lb n="32"/> evāyaṃ manmathamathitasarvārthasārthaḥ prāvartata | tato 'pārthīkṛtetaravyāpāro dūtībhistatprārthanāṃ niravartayat |  <lb n="33"/> paraṃ sā norīkṛtavatī | tataḥ kuṭṭinīkarmanirmāṇopāyaparipūrṇāṃ pūrṇābhidhāṃ māsopavāsinīṃ prārthayata  <lb n="34"/> dūtakṛtye | yadi guṇaśālinī māmanusaratīti tvaṃ cetkariṣyasi tarhi yathā tvaṃ saṃtuṣyasi tathāhaṃ nirmime |  <lb n="35"/> yadyāciṣyase tadvitariṣyāmi | tadānīṃ tayā tathā karavāṇītyaṅgīcakre | tataḥ samyaṅmuhūrtamālokya guṇa<lb n="36" break="no"/>śālinīgṛhamagacchat | tayā samaṃ pratyahaṃ gariṣṭhāṃ goṣṭhīmanutiṣṭhati pratidinaṃ śrīkṛṣṇavilāsamallāyodha<lb n="37" break="no"/>kandukakelipramukhāni caritāni gāyati purātanabālatvasya goṣṭhīṃ nirmimīte | itthaṃ tayormaitrī samajāyata | <pb n="329"/> tata ekasmindine pūrṇāyai kimapi dātumudadhunat | tataḥ sā tanna gṛhṇīte | mamaitasya bhavatyā vitīrṇasya  <lb n="2"/> kasyāpi vastuno na spṛhāmābadhnāti mānasam | yadahaṃ tvāṃ vadāmi tattvayānuṣṭhātavyamiti sā guṇaśā<lb n="3" break="no"/>linī tayoditamurarīcakāra | tataḥ pūrṇābravīt | yadi madīyamabhihitaṃ kariṣyasi tadānīmidamarthe <lb n="4"/> tvayā mahyaṃ tathyavāk dātavyā | tato guṇaśālinī satyaṃ pratiśrutavatī | tataḥ pūrṇā nijodīrṇaṃ tayā  <lb n="5"/> samaṃ nirṇīya vyāharat | tvayā tasmai surataṃ dātavyam | ātmīyamabhihitaṃ satyaṃ kartumanā hyasi cettadā<lb n="6" break="no"/>nīmidaṃ nijoditaṃ paripālaya | tato guṇaśālinī pūrvaṃ tadākṛtamajānatī taduditaṃ pratiśrutya paścā<lb n="7" break="no"/>dbahuvicāracittā saṃvṛttā | etasyā duṣṭāyāḥ pūrvamahamāśayānnājñāsiṣam | ajānatyā mayā pratiśuśruve | <lb n="8"/> kimataḥ paraṃ vidhānamavadhātavyam | yadi nijavācaṃ satyāṃ karavai tadānīṃ vyabhicārato duritamūrīkṛtaṃ  <lb n="9"/> kariṣyate | yadyabhisaraṇaṃ nāṅgīkriyate tadā svasatyasya dūrataḥ pravāsaḥ | itthamekaṃ saṃdhitsato 'nyatpracyavate  <lb n="10"/> tundilādharapānamaithunavat | tadanayormadhye kiṃ vicārakoṭimāṭīkariṣyate | śarīramapyādhīkṛtya satyatyāgo na  <lb n="11"/> bhavituṃ dātavyaḥ | itthaṃ prācyavipaścidvacano≤ṭgho≥«dgho»ṣaṇā prakāśate | yathābhisaraṇe kṛte tatsatyahānirna kariṣyatetarām |  <lb n="12"/></p>
-      <lg xml:id="p329_l12" n="329,12">
-        <head>tathā cocire |</head>
-        <l>asāraḥ sarvataḥ sāro vācā sārasamuccayaḥ |<lb n="13"/></l>
-        <l>vācā sā calitā yena sukṛtaṃ tena hāritam ||<lb n="14"/></l>
-        <l>vācā yadyatpratijñātaṃ śubhaṃ vā yadi vāśubham |<lb n="15"/></l>
-        <l>tatsaṃdeho na kartavya idameva hi sāṃpratam ||<lb n="16"/></l>
+      <lg type="group" n="329,12" xml:id="p329_l12">
+        <lg>
+          <head>tathā cocire |</head>
+          <l>asāraḥ sarvataḥ sāro vācā sārasamuccayaḥ |<lb n="13"/></l>
+          <l>vācā sā calitā yena sukṛtaṃ tena hāritam ||<lb n="14"/></l>
+        </lg>
+        <lg>
+          <l>vācā yadyatpratijñātaṃ śubhaṃ vā yadi vāśubham |<lb n="15"/></l>
+          <l>tatsaṃdeho na kartavya idameva hi sāṃpratam ||<lb n="16"/></l>
+        </lg>
       </lg>
       <p xml:id="p329_l16" n="329,16">iti vimṛśya guṇaśālinī pūrṇāṃ babhāṇa | tvayābhihitaṃ tavābhipretaṃ pumāṃsamānaya | tāvatāhaṃ parasminde<lb n="17" break="no"/>vatālaye nivasāmi | tataḥ pradoṣasamaye pūrṇā tamānetuṃ gatavatī janasaṃmarde taṃ nopalakṣayantī tatsā<lb n="18" break="no"/>dṛśyasthagitamānasā guṇaśālinyāḥ patiṃ kare gṛhītvā tasminsaṃketaniketane samāninye | tadā tena <lb n="19"/> nijadayitā tayā ca nijapatiścopalakṣitaḥ | tarhyabhidhehi prabhāvati | tathāvidhe 'sminsaṃkocasamaye ki<lb n="20" break="no"/>muttaramakāri tayā | etatpurastādastāśaṅkamācakṣva paścādyāhi | prabhāvatī vimarśavatī samajani paraṃ <lb n="21"/> taduttaraṃ nājñāsīt | tāvatā rātrirapyatyavartata | tataḥ śukamaprākṣīt | śuko 'pi vyāhārṣīt | sā taṃ  <lb n="22"/> bhartāraṃ parijñāya kacairnigṛhya capeṭābhistāḍayāmāsa | tvaṃ matpurastādastāśaṅkaṃ sadaivaṃ vyāharasi yadahaṃ  <lb n="23"/> bhavatīṃ vihāya nānyāṃ kāṃcana kāminīṃ jānāmīti | tavaitādṛśaṃ visadṛśaṃ caritaṃ mayā dṛśāpi  <lb n="24"/> spraṣṭuṃ na śakyate | tato māṃ janakamandiraṃ prāpaya | no vā rājñe āvedayiṣye tvāṃ daṇḍayiṣye | tadānīmasau  <lb n="25"/> mohano guṇaśālinyāścaraṇayorapatat | mamāyaṃ mahānaparādha āyāditi bhavatyā kṣantavya ityabhidhāya  <lb n="26"/> tāṃ samatoṣayat | tarhi prabhāvatyevaṃvidhaṃ karma kartuṃ prabhavasi cettadānīṃ bāhulyavibhāvyamidamādartavyam «||»  <lb n="27"/> iti prathamā kathā || 1 ||  <lb n="28"/></p>
     </div>
@@ -289,12 +354,16 @@
     </div>
     <div n="4">
       <p xml:id="p332_l10" n="332,10">punaḥ prabhāvatī upapatyupāntamīyuṣī pataṃgapuṃgavaṃ jagāda | so 'pi bahusutamantrīvatsamāsannamāyāsaghanaṃ <lb n="11"/> kāryaṃ nistarītumīśiṣe yadi tadānīmanutiṣṭheti prabhāvatīmavādīt | sāpi kathaṃ bahusutamantrī sāyāsaṃ  <lb n="12"/> kāryaṃ nistīrṇastadabhidhatsveti | tataḥ so 'pi tatpraśnaṃ vaktuṃ pracakrame | somapurākhye nagare somaśarmābhidho  <lb n="13"/> brāhmaṇo nyavātsīt | tasyaikā kanyā | na kaścidapi tāmudvahate alakṣaṇaparicitasarvāṅgatvāt | itthaṃ sāpi  <lb n="14"/> vivāhasamayamatinītavatī | tatastasyāḥ pitā tāṃ saha nītvā tadvaradarśanāya pradeśaviśeṣānākrāmadbhūyasaḥ |  <lb n="15"/> na kaścidapi tāṃ vṛṇīte | tadanu janakasthānaṃ nāma puṭabhedamāsasāda | tatra govindo nāma vidyārthī  <lb n="16"/> maṭhe vidyābhyāsaṃ praguṇayati | sa somaśarmā tasmai svāṃ duhitaraṃ dadau | sa govindo bahubhirnivāryamāṇo  <lb n="17"/> 'pi paraṃ tāṃ paryanaiṣīt | tataḥ pitā tāmudvāhya nijaṃ nagaramājagāma | sa govindo bhāryayā saha  <lb n="18"/> tatrāvasthātuṃ pravavṛte | tadanu divaseṣvatikrānteṣu tayā jāyayā sa govindo 'bhyadhāyi | yadāprabhṛtyahaṃ  <lb n="19"/> bhavatodvāhitā tadānīmārabhya bhaktabhojyaviśeṣo na kvacidāsādyate | ātmāndhasā hīnā bubhukṣayā mriyamā<lb n="20" break="no"/>ṇāsmi | tarhyuttiṣṭhata | yāmo matpiturgṛhān | tatra gatānāmasmākaṃ pitṛdarśanaṃ bhaviṣyati | śvaśuro mā<lb n="21" break="no"/>nayiṣyati bhavato vasanādinā | atra tu ko 'pyupāyaviśeṣastiṣṭhati | sa gṛhamasmākamāpādayati | <lb n="22"/></p>
-      <lg xml:id="p332_l22" n="332,22">
-        <head>tathā cocire |</head>
-        <l>yasmindeśe na saṃmāno na vṛttirna ca bāndhavāḥ |<lb n="23"/></l>
-        <l>na ca vidyāgamo nāpi dhanaṃ tatra sthitiḥ katham ||<lb n="24"/></l>
-        <l>sthānatyāgaṃ prakurvanti siṃhāḥ satpuruṣā gajāḥ |<lb n="25"/></l>
-        <l>tatraiva nidhanaṃ yānti kākāḥ kāpuruṣā ajāḥ ||<lb n="26"/></l>
+      <lg type="group" n="332,22" xml:id="p332_l22">
+        <lg>
+          <head>tathā cocire |</head>
+          <l>yasmindeśe na saṃmāno na vṛttirna ca bāndhavāḥ |<lb n="23"/></l>
+          <l>na ca vidyāgamo nāpi dhanaṃ tatra sthitiḥ katham ||<lb n="24"/></l>
+        </lg>
+        <lg>
+          <l>sthānatyāgaṃ prakurvanti siṃhāḥ satpuruṣā gajāḥ |<lb n="25"/></l>
+          <l>tatraiva nidhanaṃ yānti kākāḥ kāpuruṣā ajāḥ ||<lb n="26"/></l>
+        </lg>
       </lg>
       <p xml:id="p332_l26" n="332,26">itthaṃ tayā jāyayāpyaśabdi | govindastu na tanmanasi kurvanpunarabravīt | vacanametattathyamupapannaṃ na nīti<lb n="27" break="no"/>padavīṃ davīyasīṃ prakalpayati | yatra pradeśe puṃso nodyamaviśeṣaḥ kaścinna tena tatrāvasthātavyam | paraṃ <lb n="28"/> śvaśurāśrayaṃ śritavatāṃ śāstre loke 'pi nitarāmavamatyatā vidyotatetarām |  <lb n="29"/></p>
       <lg xml:id="p332_l29" n="332,29">
@@ -422,11 +491,15 @@
     </div>
     <div n="19">
       <p xml:id="p348_l16" n="348,16">anyasmindine kumudakośanandinī vinayakandarpasya saṃketaniketanagamanāya śukaṃ vakti sma | so 'pyavādīt | <lb n="17"/> madanavatīvottaravitaraṇe prabhutāmālambase cettadānīṃ vraja | tatastaccaritāvagamāya prabhāvatībhāvitapraśnaḥ  <lb n="18"/> pakṣīndro 'pyādade vācam | ākarṇaya | kaumudīdaṃhinī nāma grāmaḥ | tatra trilocanasaṃjño rāvuttaḥ | tasya  <lb n="19"/> sahacarī madanavatī | sā cātīva saundaryabhāvavatī vyabhicāracāturyaviracanāprapañcānvitaparicayāpi paraṃ  <lb n="20"/> prasaṅgaṃ na prāpnoti sma parito rakṣakamanuṣyaniṣiddhabahirgamanā | itthamatikrāmati kāle parvaviśeṣeka<lb n="21" break="no"/>smingaṅgāvagāhāya bhartrānujñātagamanā gṛhītopacāraparikarā ceṭīdvitīyā prakaṭitabhavabhaktidhūrjaṭidṛ<lb n="22" break="no"/>ṣṭinikaṭīkaraṇāya samāṭīkate sma śivālayam | sā ca vilāsābhivyaktipaṭīyasī taraṃgitāpāṅgataṭīkā<lb n="23" break="no"/>bhinayapravartitruṭī sthagitadvipaṭī prapañcitārabhaṭī sphuṭībhavati samakuṭīcaroccāṭīkaraṇamūrtistadanu mada<lb n="24" break="no"/>nādhidevateva mūrtimatī tasmātkaraṭicarmakuṭanikaṭādvyāghuṭya paryaṭantī khaṇḍaparaśubhayaparityaktakārmukaṃ <lb n="25"/> kāmamivāparaṃ vāḍavaṃ madhyepathamadrākṣīt | sā taṃ dṛṣṭidūtībodhitasaṃketaṃ kalākalāpakovidānāmagragaṇyaṃ  <lb n="26"/> taddṛkpallavitamadanadāvapāvakaṃ tadabhiprāyāvabodhadattāvadhānaṃ nijaparisaramānināya māninī |  <lb n="27"/></p>
-      <lg xml:id="p348_l27" n="348,27">
-        <l>udīrito 'rthaḥ paśunāpi gṛhyate vahanti nāgāśca hayāśca coditāḥ |<lb n="28"/></l>
-        <l>anuktamapyūhati paṇḍito janaḥ pareṅgitajñānaphalā hi buddhayaḥ ||<lb n="29"/></l>
-        <l>āhāranidrābhayamaithunaṃ ca sāmānyametatpaśubhirnarāṇām |<lb n="30"/></l>
-        <l>jñānaṃ narāṇāmadhiko viśeṣo jñānena hīnaḥ paśubhiḥ samānaḥ ||<lb n="31"/></l>
+      <lg type="group" n="348,27" xml:id="p348_l27">
+        <lg>
+          <l>udīrito 'rthaḥ paśunāpi gṛhyate vahanti nāgāśca hayāśca coditāḥ |<lb n="28"/></l>
+          <l>anuktamapyūhati paṇḍito janaḥ pareṅgitajñānaphalā hi buddhayaḥ ||<lb n="29"/></l>
+        </lg>
+        <lg>
+          <l>āhāranidrābhayamaithunaṃ ca sāmānyametatpaśubhirnarāṇām |<lb n="30"/></l>
+          <l>jñānaṃ narāṇāmadhiko viśeṣo jñānena hīnaḥ paśubhiḥ samānaḥ ||<lb n="31"/></l>
+        </lg>
       </lg>
       <p xml:id="p348_l31" n="348,31">tatastadupakaṇṭhamāgatya prayuṅkte svavācam | tvaṃ kasmānmāṃ samānaiṣīḥ | tadabhidhehi prayojanam | tatastayā <lb n="32"/> vyāhāri | mama tvadīyābhilāṣaḥ samupanīpannaḥ | tarhi tvayā madīyamagāramāgantavyam | madīyo bhartā  <lb n="33"/> tvayā saṃgantavyaḥ | ahaṃ matpatimabhidhāsyāmi | madīyo mātṛṣvasrīyo bhrātāsāviti | bhavatāpi tu  <lb n="34"/> madvacanānusaraṇamanukartavyam | itthamanayā rītyā kāniciddināni sāṭopabhogāvagāhanapariniṣṭhitakara<lb n="35" break="no"/>ṇagaṇānirastasāraṃ saṃsāraṃ kalitasāraṃ kurvīmahi | tato 'sau tadvacanādbrāhmaṇastadgṛhānājagāma | tasya <lb n="36"/> bhartāraṃ trilocanaṃ cakṣurviṣayīkṛtavān | namaścakāra trilocanam | sa tasminsamaya utsmayate sma | kutra<pb n="349" break="no"/>tyo 'yaṃ paricitaḥ puruṣa iti trilocano vicāracaturasamīho jāto 'sti | tadanu madanavatī tatsaṃ<lb n="2" break="no"/>nidhānamāgatya vacanaṃ prapañcayāṃcakāra | bhavanta etamupalakṣayanti na vā | madīyo mātṛṣvasrīyo bhrātāyaṃ <lb n="3"/> dhavalanāmadheyaḥ | matpitā bhavadbhyo māṃ prādāt | tadānīmārabhya dvādaśābdāvadhi nāgatavānasau | etajja<lb n="4" break="no"/>nanī nimimīla | tatastajjanitaduḥkhaharātkāndiśīyahṛdayasaṃnidhāna janmā jagāma | ityabhidhāya tamavekṣya <lb n="5"/> vepamānāṃ rudantīṃ tāṃ saṃsāraniḥsārāviṣkaraṇagirā samāśvāsayat | tadanantaramāgatāya tasmai śyālāya  <lb n="6"/> dhavalāya madanavatyā eva mandire nivāso dattaḥ | tato rātrau samāgatya madanavatī dhavalaparyaṅkamadhyarukṣat |  <lb n="7"/> tadā tena samāgatā sābhyavadat | yadīcchasi āvayoratyantamabhiyogaṃ tarhi tadānīmidaṃ sukaramaucityacāturyaṃ  <lb n="8"/> paśyeti tanniśamya vyāhārṣīt | tatheti | punarāha madanavatī | pativañcananidānaṃ cāturyamahaṃ racayāmi | tvaṃ  <lb n="9"/> māṃ yathāsukhaṃ bhajasvetyuktvopaviveśa | tadā dhavalo 'sau na prasaraṃ karoti | tatastadāśrutya praguṇīcakāra  <lb n="10"/> vāṇīṃ sā vāṇinī | tvaṃ guṇāgragaṇyo 'si | tvaṃ tannirākaraṇadvārāvajigṛṇīṣurasi dhavala | paśupateḥ  <lb n="11"/> paramopāsako 'si | tadā dhavalo 'sau tāmavadat | kuto māmatrānītavatī | kaṃ vopāyaṃ karavāṇyaham |  <lb n="12"/> tadanu sā yadi madīyāṃ giraṃ nāṅgīkaroṣi tadā tvāmeva daṇḍayiṣye | ityuktvā muṣitāsmītyāmreḍite  <lb n="13"/> giraṃ prāgalbhayat | tadanu tasyā āmreḍitena muṣitāsmītyanena śabdena amuṣyāḥ prābodhiṣata janāḥ  <lb n="14"/> patiprabhṛtayaḥ | tato 'sau tasyāścaraṇayornipapāta | ekadā mā māṃ bhīṣaya | hṛdayavallabhe māṃ rakṣa | tadanu  <lb n="15"/> te mataṃ nirvartayiṣyāmi | ityavocat | tarhi prabhāvati sā tannijavyāhṛtaṃ kathamanyathayat | tatastadavagamāya  <lb n="16"/> prabhāvatī vicāramanubhūya bhūyaḥ svabuddhidarpaṇe tadapratibimbitaṃ buddhvā tataḥ śarvaryāmatītāyāmaṇḍajaṃ  <lb n="17"/> vyājahāra | tvameva tamupāyaṃ vyāharatāditi | so 'pi babhāṣe prabhāvatīm | tadā sā madanavatī taṃ  <lb n="18"/> brāhmaṇaṃ babhāṇa | tvaṃ keśānunmuktagranthīnvihāya śithilitasakalāpaghano bhūtvā nidrāmāsādayetyabhidhāya  <lb n="19"/> tasya viṣamaśarāśuśukṣaṇīsaṃdhukṣaṇaṃ pūrvaparikalpitadugdhaṃ samantataḥ prākirat | tadanu madanavatīpatirdī<lb n="20" break="no"/>pikāsanātho dhāvamāna ājagāma | kimetadajaniṣṭeti tāṃ prati prāsoṣṭa vācam | tataḥ sā ruditaṃ <lb n="21"/> pariśīlayantī provācāmum | muṣitāsmītyāmreḍitodīritasyemamarthaṃ śṛṇu prāṇanātha | akaruṇaḥ kṛtānto  <lb n="22"/> madīyaṃ māṇikyaṃ kavalīkurvāṇo 'stīti | tatastrilocanastaṃ locanagocarīkurvanmadanavatīṃ jagāda | tvamatra  <lb n="23"/> sayatnādhitiṣṭhetyukte sābravīt | kiṃ mama yatnena yadi bhavatā etadrakṣaṇe sāmarthyamujjṛmbhate | tadā rakṣata |  <lb n="24"/> etasya viṣūcikā saṃjātāsti | etāvatsamayaparyantaṃ vamati sma | idānīmacetano niśceṣṭo bhūtvāvasthito  <lb n="25"/> 'sti | tatastrilocanaḥ provāca | mā duḥkhaṃ bibhṛhi | upadravastu garīyānudito 'bhūt | paraṃ daivagatyā  <lb n="26"/> vyapohitaṃ duṣṭamannaṃ bahirapatat | nātaḥ paraṃ viṣūcikā | tvameva tatsaṃnihitā bhava | yadi rātrāvupadravo  <lb n="27"/> garīyān jāyeta tadā hyevaṃvidhaṃ vaktavyaṃ mametyabhidhāya niragāttrilocanaḥ | tatastau dvāvapi sukhena  <lb n="28"/> viṣayarasopasevanamābibhrātām | tarhi prabhāvatyetāvadbuddhibāhulyavaibhavaprodbhavaḥ sphurati cedvidhernirvahaṇaṃ  <lb n="29"/> jānīṣe tadānīṃ yātu bhavatī ||  <lb n="30"/> iti ekonaviṃśatī kathā || 19 ||  <lb n="31"/></p>
     </div>

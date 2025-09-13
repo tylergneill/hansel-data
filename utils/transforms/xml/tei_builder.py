@@ -259,13 +259,19 @@ class TEIBuilder:
         pre_tab, after_tab = line.split("\t", 1)
         pre_tab = pre_tab.rstrip()
 
+        if pre_tab.strip() and s.current_lg is not None:
+            if not s.verse_only:
+                s.verse_group_buffer.append(s.current_lg)
+            s.current_lg = None
+            s.current_l = None
+
         if s.verse_only:
             lg = self._open_or_switch_lg_for_label(s.current_loc_label or "v", group_by_base=True)
             if s.pending_head_elem is not None:
                 lg.append(s.pending_head_elem)
                 s.pending_head_elem = None
             if pre_tab.strip():
-                self._append_singleton_child_text(lg, "head", pre_tab)
+                self._append_child_text(lg, "head", pre_tab)
             if s.current_l is None:
                 s.current_l = etree.SubElement(lg, "l")
                 s.last_tail_text_sink = None
@@ -278,10 +284,13 @@ class TEIBuilder:
                 lg.append(s.pending_head_elem)
                 s.pending_head_elem = None
             if pre_tab.strip():
-                self._append_singleton_child_text(lg, "head", pre_tab)
+                self._append_child_text(lg, "head", pre_tab)
+                pre_tab = ""
             s.current_lg = lg
 
         if s.current_l is None:
+            if pre_tab.strip():
+                self._append_child_text(s.current_lg, "head", pre_tab)
             s.current_l = etree.SubElement(s.current_lg, "l")
             s.last_tail_text_sink = None
 
@@ -300,7 +309,7 @@ class TEIBuilder:
         is_verse_close = self._process_content_with_midline_elements(verse_payload, "verse", line)
 
         if back_text and back_text.strip():
-            self._append_singleton_child_text(s.current_lg, "back", back_text)
+            self._append_child_text(s.current_lg, "back", back_text)
 
         if is_verse_close:
             if s.current_lg is not None and not s.verse_only:
@@ -505,18 +514,11 @@ class TEIBuilder:
         s.current_l = None
         return lg
 
-    def _append_singleton_child_text(self, parent, tag: str, text: str) -> None:
+    def _append_child_text(self, parent, tag: str, text: str) -> None:
         if not text or not text.strip():
             return
-        existing = next((ch for ch in parent if ch.tag == tag), None)
-        if existing is None:
-            el = etree.SubElement(parent, tag)
-            el.text = text.strip()
-        else:
-            if existing.text:
-                existing.text += " " + text.strip()
-            else:
-                existing.text = text.strip()
+        el = etree.SubElement(parent, tag)
+        el.text = text.strip()
 
     def _close_p(self) -> None:
         s = self.state
