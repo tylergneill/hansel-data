@@ -6,8 +6,8 @@ import subprocess
 flag_map = {
     "bANa_kAdambarI": '--line-by-line',
     "kumArilabhaTTa_zlokavArtika": '--verse-only',
-    "zukasaptati_s": '--line-by-line',
-    "zukasaptati_o": '--line-by-line',
+    "zukasaptati_s": '--line-by-line --extra-space-after-location',
+    "zukasaptati_o": '--line-by-line --extra-space-after-location',
 }
 
 def main():
@@ -70,9 +70,8 @@ def main():
                 str(out_path)
             ]
             if flag:
-                command.append(flag)
+                command.extend(flag.split())
 
-            print(f"Running: {' '.join(command)}")
             subprocess.run(command)
 
 if __name__ == "__main__":

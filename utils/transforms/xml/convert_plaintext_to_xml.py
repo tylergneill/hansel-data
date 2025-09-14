@@ -61,6 +61,11 @@ def configure_cli(parser: argparse.ArgumentParser):
         "-p", "--prettier", action="store_true",
         help="Extra newlines after pb/lb for readability"
     )
+    parser.add_argument(
+        "--extra-space-after-location", action="store_true",
+        help="Add extra blank line after location markers (only used in xml-plaintext script)."
+    )
+
 
 
 def cli():

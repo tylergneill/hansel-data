@@ -186,6 +186,7 @@ def configure_cli(parser: argparse.ArgumentParser):
     parser.add_argument("out", type=Path, help="Destination plaintext file")
     parser.add_argument("--verse-only", action="store_true", help="Enable verse-only parsing logic.")
     parser.add_argument("--line-by-line", action="store_true", help="Enable line-by-line newline logic.")
+    parser.add_argument("--extra-space-after-location", action="store_true", help="Add extra blank line after location markers.")
 
 def cli():
     parser = argparse.ArgumentParser()
@@ -195,8 +196,10 @@ def cli():
     try:
         converter = XMLToPlaintext(verse_only=args.verse_only, line_by_line=args.line_by_line)
         plaintext = converter.convert(args.src)
+        if args.extra_space_after_location:
+            plaintext = plaintext.replace(']\n', ']\n\n')
         args.out.write_text(plaintext, encoding='utf-8')
-        print(f"Successfully converted {args.src} to {args.out}")
+        print(f"Wrote {args.out}")
     except (FileNotFoundError, ValueError) as e:
         print(f"Error: {e}")
 
