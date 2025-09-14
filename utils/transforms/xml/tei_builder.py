@@ -309,7 +309,14 @@ class TEIBuilder:
         is_verse_close = self._process_content_with_midline_elements(verse_payload, "verse", line)
 
         if back_text and back_text.strip():
-            self._append_child_text(s.current_lg, "back", back_text)
+            milestone_to_move = s.last_tail_text_sink
+            back_el = self._append_child_text(s.current_lg, "back", back_text)
+            if (milestone_to_move is not None and
+                    etree.QName(milestone_to_move.tag).localname in ('lb', 'pb') and
+                    back_el is not None):
+                parent = milestone_to_move.getparent()
+                if parent is not None and etree.QName(parent.tag).localname == 'l':
+                    back_el.append(milestone_to_move)
 
         if is_verse_close:
             if s.current_lg is not None and not s.verse_only:
@@ -514,11 +521,12 @@ class TEIBuilder:
         s.current_l = None
         return lg
 
-    def _append_child_text(self, parent, tag: str, text: str) -> None:
+    def _append_child_text(self, parent, tag: str, text: str) -> Optional[etree._Element]:
         if not text or not text.strip():
-            return
+            return None
         el = etree.SubElement(parent, tag)
         el.text = text.strip()
+        return el
 
     def _close_p(self) -> None:
         s = self.state

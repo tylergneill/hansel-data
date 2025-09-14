@@ -140,6 +140,9 @@ class XMLToPlaintext:
             self.current_lg_base_n = el.get('n')
 
         if el.text:
+            if el.tag  == 'back':
+                self.lines.pop()
+                self.lines[-1] += " "
             self._process_text(el.text)
 
         self.prev_el = el
@@ -157,8 +160,23 @@ class XMLToPlaintext:
             self.current_lg_base_n = old_lg_base
 
         # --- POST-CHILDREN PROCESSING ---
-        if tag == 'p' or tag == 'l':
+        if tag == 'p':
             self._start_new_line()
+        elif tag == 'l':
+            next_el = el.getnext()
+            if next_el is not None and etree.QName(next_el.tag).localname == 'back':
+                pass
+            else:
+                self._start_new_line()
+        elif tag == 'back':
+            self._start_new_line()
+        elif tag == 'head':
+            has_lb_child = any(child.tag.endswith('lb') for child in el)
+            if has_lb_child:
+                self.lines.pop()
+                self.lines[-1] += "-"
+                self._start_new_line()
+            self._append('\t')
         elif tag == 'note':
             self._append(")")
 
