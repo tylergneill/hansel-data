@@ -421,7 +421,13 @@ class TEIBuilder:
         if s.last_emitted_lb is not None:
             lb_parent = s.last_emitted_lb.getparent()
             if lb_parent is not None:
-                container = lb_parent
+                # Check if the parent of the lb's container is the current div
+                if lb_parent.getparent().tag == 'div' and lb_parent.getparent() is not s.current_div:
+                    # if not, pb becomes sibling of the p/lg, not a child
+                    pass
+                else:
+                    container = lb_parent
+
                 if s.last_emitted_lb.get("break") == "no":
                     attrs["break"] = "no"
                 lb_parent.remove(s.last_emitted_lb)
