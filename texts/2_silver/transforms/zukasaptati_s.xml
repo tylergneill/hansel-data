@@ -486,7 +486,7 @@
     </div>
     <div n="11">
       <p xml:id="p44_l8" n="44,8">pradoṣasamaye 'nyasmin kāminī kāmamohitā | vinayena śukaṃ prāha gacchāmi <lb n="9"/> yadi manyase | (|| 11.1 (= 83) ||) śukaḥ prāha |  <lb n="10"/></p>
-      <lg type="group" n="44,8" xml:id="p44_l8">
+      <lg type="group" n="44,10" xml:id="p44_l10">
         <lg>
           <l>avaśyam eva gantavyaṃ tvayetthaṃ mama niścayaḥ |<pb n="45"/></l>
           <l>mano 'bhīṣṭe payo nimne gacchat kaḥ prativārayet || 11.2 (= 84) ||<lb n="2"/></l>
@@ -720,9 +720,9 @@
         <l>buddhir asti yadā yeṣāṃ mandodaryāḥ sahāyinī || 21.1 (= 118bis) ||<lb n="4"/></l>
       </lg>
       <p xml:id="p69_l4" n="69,4">prabhāvaty āha | katham etat | śukaḥ | asti pratiṣṭhānaṃ nāma nagaram | <lb n="5"/> tatra hemaprabho nāma rājā | śrutaśīlo mantrī | śreṣṭhī yaśodharaḥ |  <lb n="6"/> mohinī bhāryā | tayos tanayā mandodarī | sa śrīvatsāya vaṇije  <lb n="7"/> kāntipurīsamāgatāya dattā | tanmithunam atīva snehalampaṭam | sā ca  <lb n="8"/> prātiveśmikayā pitṛbhāryayā kuṭṭinyā daṃṣṭrākarālayā yojitam anyaṃ rājaputram  <lb n="9"/> upabhuṅkte | sā cāpannasattvā bhūtā garbhasaṃbhavāt saṃjāte dohade rājavallabhaṃ  <lb n="10"/> mayūraṃ mārayitvā bhakṣitavatī | rājā tu tasmin mayūre samāgate  <pb n="70"/> bhuṅkte iti sthitiḥ | tasmin divase tu bhojanavelāyāṃ na labdhaḥ | ḍiṇḍimaghoṣaṇe  <lb n="2"/> kṛte kuṭṭinyā paṭahaḥ spṛṣṭaḥ | tayā ca jñātaṃ yat kayācid  <lb n="3"/> āpannasattvayā mayūro dohadādbhakṣitaḥ | tataḥ sā garbhavatī pṛṣṭā |  <lb n="4"/> tayā kuṭṭinī gṛham āgatā saṃmānitā |  <lb n="5"/></p>
-      <p xml:id="p70_l5" n="70,5">uktaṃ ca |  mādhuryaṃ pramadājane sulalitaṃ dākṣiṇyam ārye jane <lb n="6"/></p>
       <lg xml:id="p70_l5" n="70,5">
-        <l>śauryaṃ śatruṣu mārdavaṃ gurujane dharmiṣṭhatā sādhuṣu |<lb n="7"/></l>
+        <head>uktaṃ ca |</head>
+        <l>mādhuryaṃ pramadājane sulalitaṃ dākṣiṇyam ārye jane<caesura/><lb n="6"/> śauryaṃ śatruṣu mārdavaṃ gurujane dharmiṣṭhatā sādhuṣu |<lb n="7"/></l>
         <l>marmajñeṣv anuvartanaṃ bahuvidhā mānaṃ jane garvite<caesura/><lb n="8"/> śāṭhyaṃ pāpajane narasya kathitāḥ paryantam aṣṭau guṇāḥ || 21.2 (= 119bis) ||<lb n="9"/></l>
       </lg>
       <p xml:id="p70_l9" n="70,9">tayā ca sarvo 'pi mayūravṛttānto niveditaḥ | sā ca kuṭṭinī viśvāsaghātikā | <lb n="10"/></p>
@@ -1172,7 +1172,7 @@
         <l>vaktuṃ ced viṣame vetsi tulāgrāhīva bhāmini || 39.1 (= 189) ||<lb n="9"/></l>
       </lg>
       <p xml:id="p116_l9" n="116,9">prabhāvatī prāha | katham etat | <lb n="10"/></p>
-      <lg xml:id="p116_l9" n="116,9">
+      <lg xml:id="p116_l10" n="116,10">
         <l>kas tulāgrāhakaḥ kīra gṛhītā ca tulā kutaḥ |<lb n="11"/></l>
         <l>viṣamaṃ ca kim āyātaṃ kathāṃ kathaya śobhanām || 39.2 (= 190) ||<pb n="117"/></l>
       </lg>
@@ -2046,7 +2046,7 @@
         </lg>
       </lg>
       <p xml:id="p201_l7" n="201,7">svāmin | yady api kathayituṃ na yujyate tarhi śṛṇu | <lb n="8"/></p>
-      <lg type="group" n="201,7" xml:id="p201_l7">
+      <lg type="group" n="201,8" xml:id="p201_l8">
         <lg>
           <l>mūrkhāṇāṃ madyapānāṃ ca nārīṇāṃ rogiṇām api |<lb n="9"/></l>
           <l>svāmin kāmāturāṇāṃ ca khinnānāṃ kopināṃ tathā || 70.12 (= 343) ||<lb n="10"/></l>

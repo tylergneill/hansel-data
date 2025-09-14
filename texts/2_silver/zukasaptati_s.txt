@@ -943,6 +943,8 @@ iti śukasaptatau daśamī kathā ||
 pradoṣasamaye 'nyasmin kāminī kāmamohitā | vinayena śukaṃ prāha gacchāmi
 yadi manyase | (|| 11.1 (= 83) ||) śukaḥ prāha |
 
+[44,10]
+
 	avaśyam eva gantavyaṃ tvayetthaṃ mama niścayaḥ |
 <45>
 	mano 'bhīṣṭe payo nimne gacchat kaḥ prativārayet || 11.2 (= 84) ||
@@ -1457,7 +1459,7 @@ tayā kuṭṭinī gṛham āgatā saṃmānitā |
 
 [70,5]
 
-uktaṃ ca |  mādhuryaṃ pramadājane sulalitaṃ dākṣiṇyam ārye jane
+uktaṃ ca |	mādhuryaṃ pramadājane sulalitaṃ dākṣiṇyam ārye jane
 	śauryaṃ śatruṣu mārdavaṃ gurujane dharmiṣṭhatā sādhuṣu |
 	marmajñeṣv anuvartanaṃ bahuvidhā mānaṃ jane garvite
 	śāṭhyaṃ pāpajane narasya kathitāḥ paryantam aṣṭau guṇāḥ || 21.2 (= 119bis) ||
@@ -2380,6 +2382,8 @@ he śuka | ahaṃ gamiṣyāmi | śukaḥ prāha |
 [116,9]
 
 prabhāvatī prāha | katham etat |
+
+[116,10]
 
 	kas tulāgrāhakaḥ kīra gṛhītā ca tulā kutaḥ |
 	viṣamaṃ ca kim āyātaṃ kathāṃ kathaya śobhanām || 39.2 (= 190) ||
@@ -4146,6 +4150,9 @@ pṛcchati | sa āha |
 [201,7]
 
 svāmin | yady api kathayituṃ na yujyate tarhi śṛṇu |
+
+[201,8]
+
 	mūrkhāṇāṃ madyapānāṃ ca nārīṇāṃ rogiṇām api |
 	svāmin kāmāturāṇāṃ ca khinnānāṃ kopināṃ tathā || 70.12 (= 343) ||
 	mattapramattabhīrūṇāṃ kṣudhārtānāṃ viśeṣataḥ |
