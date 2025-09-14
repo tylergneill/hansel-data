@@ -1,6 +1,6 @@
-<1>
-
 {1}
+
+<1>
 
 [1,1]
 
@@ -161,9 +161,9 @@ sa ca tāṃ kaṣṭena sukomalavacanair anunīya svagṛhaṃ ninye |
 
 iti śukasaptatau prathamā kathā ||
 
-<9>
-
 {2}
+
+<9>
 
 [9,1]
 
@@ -274,9 +274,9 @@ nirvāsitaḥ | satyas tu rājñā sabhāryaḥ satkṛtaḥ svagṛhaṃ gata�
 iti kathāṃ śrutvā prabhāvatī suptā ||
 iti śukasaptatau tṛtīyā kathā ||
 
-<14>
-
 {4}
+
+<14>
 
 [14,1]
 
@@ -668,9 +668,9 @@ bhaviṣyati | idaṃ ślokaṃ svayam eva vicintaya | iti kathayitvā bālapa�
 utthāya svagṛhaṃ gatā | iti kathāṃ śrutvā prabhāvatī suptā |
 iti śukasaptatau ṣaṣṭhī kathā ||
 
-<31>
-
 {7}
+
+<31>
 
 [31,1]
 
@@ -1035,9 +1035,9 @@ so 'pi ca māndyavyājān māsam ekaṃ sthitaḥ paścāj jagāma | iti śrutv�
 prabhāvatī suptā |
 iti śukasaptatau ekādaśī kathā ||
 
-<51>
-
 {12}
+
+<51>
 
 [51,1]
 
@@ -1216,9 +1216,9 @@ sāpi satīti samastalokaiḥ pūjitā svabhavanaṃ jagāma | evaṃ cet śriy�
 kartuṃ jānāsi tadā vraja | iti śrutvā prabhāvatī suptā |
 iti śukasaptatau pañcadaśī kathā ||
 
-<60>
-
 {16}
+
+<60>
 
 [60,1]
 
@@ -1410,9 +1410,9 @@ sa patis tuṣṭo bhūtvālakṣita eva jagāma | iti kathāṃ śrutvā prabh�
 suptā |
 iti śukasaptatau viṃśatitamī kathā ||
 
-<69>
-
 {21}
+
+<69>
 
 [69,1]
 
@@ -1521,9 +1521,9 @@ vaṇigvadhūḥ | sā tu kuṭṭinīti nirvāsitā | iti kathāṃ śrutvā
 prabhāvatī suptā ||
 iti śukasaptatau ekaviṃśatitamī kathā ||
 
-<74>
-
 {22}
+
+<74>
 
 [74,1]
 
@@ -1936,9 +1936,9 @@ uktaś ca | hataka anena pauruṣeṇa kṣayaṃ vrajasi | iti nirbhartsito laj
 ca suptaḥ | iti kathāṃ śrutvā prabhāvatī suptā |
 iti śukasaptatau saptaviṃśatitamī kathā ||
 
-<96>
-
 {28}
+
+<96>
 
 [96,1]
 
@@ -2027,9 +2027,9 @@ tenoktam |-
 iti kathāṃ śrutvā prabhāvatī suptā |
 iti śukasaptatau triṃśattamī kathā ||
 
-<100>
-
 {31}
+
+<100>
 
 [100,1]
 
@@ -2067,9 +2067,9 @@ uktaṃ ca |	ekaṃ hanyān na vā hanyād iṣur mukto dhanuṣmatā |
 iti kathāṃ śrutvā prabhāvatī suptā |
 iti śukasaptatau ekatriṃśattamī kathā ||
 
-<102>
-
 {32}
+
+<102>
 
 [102,1]
 
@@ -2148,9 +2148,9 @@ tataḥ sa punaḥ śrāddhaṃ cakāra rambhikāvacanāt te na nirgatāḥ | it
 śrutvā prabhāvatī suptā |
 iti śukasaptatau trayastriṃśattamī kathā ||
 
-<107>
-
 {34}
+
+<107>
 
 [107,1]
 
@@ -2745,9 +2745,9 @@ rājyārdhaṃ ca pradattam | vipro 'pi pūrṇamanoratho jagāma | iti kathā�
 śrutvā prabhāvatī suptā |
 iti śukasaptatau ṣaṭcatvāriṃśattamī kathā ||
 
-<137>
-
 {47}
+
+<137>
 
 [137,1]
 
@@ -2902,9 +2902,9 @@ tataś ca te rājāno nandādhirājasya pūrvajalpitaṃ karaṃ daduḥ | iti k
 śrutvā prabhāvatī suptā |
 iti śukasaptatau ekonapañcāśattamī kathā ||
 
-<143>
-
 {50}
+
+<143>
 
 [143,1]
 
@@ -3123,9 +3123,9 @@ apy uttaraṃ viṣame yadi vetsi tadā gaccha | anyathā śayanaṃ kuru | iti
 kathāṃ śrutvā prabhāvatī suptā |
 iti śukasaptatau tripañcāśattamī kathā ||
 
-<153>
-
 {54}
+
+<153>
 
 [153,1]
 
@@ -3377,9 +3377,9 @@ tvam api samaye vaktuṃ jānāsi tadā gamyatām | anyathā sthīyatām |
 iti kathāṃ śrutvā prabhāvatī suptā |
 iti śukasaptatau saptapañcāśattamī kathā ||
 
-<166>
-
 {58}
+
+<166>
 
 [166,1]
 
@@ -3541,9 +3541,9 @@ iti tasyā vacaḥ śrutvā śukaḥ prāha |
 etat tvayoktaṃ pativratāviṣayaṃ nānyāsu | iti kathāṃ śrutvā prabhāvatī suptā |
 iti śukasaptatau ekonaṣaṣṭitamī kathā ||
 
-<173>
-
 {60}
+
+<173>
 
 [173,1]
 
@@ -3779,9 +3779,9 @@ kāṃdiśīko vṛṣo naṣṭaḥ | tataḥ sa vyāvṛtya nijapauruṣaṃ p
 āsa | iti kathāṃ śrutvā prabhāvatī suptā |
 iti śukasaptatau catuḥṣaṣṭitamī kathā ||
 
-<186>
-
 {65}
+
+<186>
 
 [186,1]
 
@@ -3803,9 +3803,9 @@ jahasuḥ | pṛṣṭaḥ sarvair jagāda | īdṛśo 'yaṃ śiṣyaḥ | mayo
 abuddhyā anena māṃsasya ● ● ● ● | iti kathāṃ śrutvā prabhāvatī suptā |
 iti śukasaptatau pañcaṣaṣṭitamī kathā ||
 
-<187>
-
 {66}
+
+<187>
 
 [187,1]
 
@@ -3835,9 +3835,9 @@ jñātvā bhūmau kṣiptāḥ tadā te uḍḍīya kāṅkṣitaṃ deśaṃ ya
 kathāṃ śrutvā prabhāvatī suptā |
 iti śukasaptatau ṣaṭṣaṣṭitamī kathā ||
 
-<190>
-
 {67}
+
+<190>
 
 [190,1]
 
@@ -3969,9 +3969,9 @@ gato vitarkasāhāyikabuddhyā | yadi tvam api tathā jānāsi tadā
 gaccha | iti kathāṃ śrutvā prabhāvatī supta |
 iti śukasaptatau aṣṭaṣaṣṭitamī kathā ||
 
-<196>
-
 {69}
+
+<196>
 
 [196,1]
 
