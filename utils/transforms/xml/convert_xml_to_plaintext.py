@@ -49,11 +49,7 @@ class XMLToPlaintext:
         if text.strip():
             self.at_line_start = False
 
-    def _start_new_line(self, blank_before=False):
-        if blank_before:
-            self.lines.append("")
-            self.at_line_start = True
-
+    def _start_new_line(self):
         if self.lines[-1] or not self.at_line_start:
             self.lines.append("")
             self.at_line_start = True
@@ -71,33 +67,23 @@ class XMLToPlaintext:
 
         self._append(processed_text)
 
-    def _space_out_prev_pb(self):
-        if self.prev_el.tag == 'pb' and not self.verse_only:
-            ultimate_el = self.lines.pop()
-            pentultimate_el = self.lines.pop()
-            self.lines.extend(['', pentultimate_el, ultimate_el])
-
     def _process_element(self, el: etree._Element):
         tag = etree.QName(el.tag).localname
 
-
         # --- PRE-CHILDREN PROCESSING ---
         if tag == 'div':
-            self._space_out_prev_pb()
-            self._start_new_line(blank_before=True)
+            self._start_new_line()
             self._append(f"{{{el.get('n')}}}")
             self._start_new_line()
         elif tag == 'p':
-            self._space_out_prev_pb()
-            self._start_new_line(blank_before=not self.verse_only)
+            self._start_new_line()
             self._append(f"[{el.get('n')}]")
             if not self.verse_only:
                 self._start_new_line()
         elif tag == 'lg':
             parent_tag = etree.QName(el.getparent().tag).localname
             if parent_tag in ('div', 'body') or el.get('type') == 'group':
-                self._space_out_prev_pb()
-                self._start_new_line(blank_before=not self.verse_only)
+                self._start_new_line()
                 if not self.verse_only:
                     self._append(f"[{el.get('n')}]")
                 self._start_new_line()
@@ -109,7 +95,7 @@ class XMLToPlaintext:
                 self._append("\t")
         elif tag == 'pb':
             if not self.verse_only or el.tail is None:
-                self._start_new_line(blank_before=not self.verse_only)
+                self._start_new_line()
             if el.get('break') == 'no' and len(self.lines) > 1:
                 self.lines[-2] = self.lines[-2].rstrip() + '-'
             if self.verse_only and el.tail is not None:
@@ -126,7 +112,7 @@ class XMLToPlaintext:
             else:
                 self._append(" ")
         elif tag == 'milestone':
-            self._start_new_line(blank_before=not self.verse_only)
+            self._start_new_line()
             self._append(el.get('n'))
             self._start_new_line()
         elif tag == 'note':
@@ -140,9 +126,6 @@ class XMLToPlaintext:
             self.current_lg_base_n = el.get('n')
 
         if el.text:
-            if el.tag  == 'back':
-                self.lines.pop()
-                self.lines[-1] += " "
             self._process_text(el.text)
 
         self.prev_el = el
@@ -180,6 +163,26 @@ class XMLToPlaintext:
         elif tag == 'note':
             self._append(")")
 
+    def postprocess(self, plaintext, verse_only, extra_space_after_location):
+        """
+        Adds more vertical spacing between elements.
+        """
+        plaintext = plaintext.replace('{', '\n{')
+
+        if not verse_only:
+            plaintext = plaintext.replace('}', '}\n')
+            plaintext = re.sub(r'(<[^>]+>)\n+([<\[])', '\n\\1\n\n\\2', plaintext)
+            plaintext = plaintext.replace(r'[', '\n[')
+
+        if extra_space_after_location:
+            plaintext = plaintext.replace(']', ']\n')
+
+        plaintext = re.sub(r'\n{3,}', '\n\n', plaintext)
+        plaintext = re.sub(r'\A\n{1,}', '', plaintext)
+        plaintext = re.sub(r'\n{1,}\Z', '\n', plaintext)
+
+        return plaintext
+
 def configure_cli(parser: argparse.ArgumentParser):
     parser.description = "Convert TEI-XML back into lightly-marked plaintext."
     parser.add_argument("src", type=Path, help="Source TEI-XML file")
@@ -196,8 +199,7 @@ def cli():
     try:
         converter = XMLToPlaintext(verse_only=args.verse_only, line_by_line=args.line_by_line)
         plaintext = converter.convert(args.src)
-        if args.extra_space_after_location:
-            plaintext = plaintext.replace(']\n', ']\n\n')
+        plaintext = converter.postprocess(plaintext, args.verse_only, args.extra_space_after_location)
         args.out.write_text(plaintext, encoding='utf-8')
         print(f"Wrote {args.out}")
     except (FileNotFoundError, ValueError) as e:

@@ -312,10 +312,10 @@ class TEIBuilder:
             milestone_to_move = s.last_tail_text_sink
             back_el = self._append_child_text(s.current_lg, "back", back_text)
             if (milestone_to_move is not None and
-                    etree.QName(milestone_to_move.tag).localname in ('lb', 'pb') and
+                    milestone_to_move.tag in ('lb', 'pb') and
                     back_el is not None):
                 parent = milestone_to_move.getparent()
-                if parent is not None and etree.QName(parent.tag).localname == 'l':
+                if parent is not None and parent.tag == 'l':
                     back_el.append(milestone_to_move)
 
         if is_verse_close:
