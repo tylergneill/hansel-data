@@ -9,7 +9,7 @@ See DATA_MODEL.md for more details.
 import re
 
 from dataclasses import dataclass, field
-from typing import List, Optional, Tuple
+from typing import Optional
 from lxml import etree
 
 _XML_NS = "http://www.w3.org/XML/1998/namespace"
@@ -85,7 +85,7 @@ class BuildState:
     last_tail_text_sink: Optional[etree._Element] = None
 
     # verse group buffer
-    verse_group_buffer: List[etree._Element] = field(default_factory=list)
+    verse_group_buffer: list[etree._Element] = field(default_factory=list)
 
     # verse head buffer
     pending_head_elem: Optional[etree._Element] = None
@@ -104,7 +104,7 @@ class TEIBuilder:
             line_by_line=line_by_line
         )
 
-    def build(self, lines: List[str]) -> etree._Element:
+    def build(self, lines: list[str]) -> etree._Element:
         for raw in lines:
             self._handle_line(raw.rstrip("\n"))
         self._flush_verse_group_buffer()
