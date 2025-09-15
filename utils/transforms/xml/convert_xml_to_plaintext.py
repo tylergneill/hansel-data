@@ -3,6 +3,7 @@ from lxml import etree
 from pathlib import Path
 import re
 
+CHAR_FOR_PENDING_HEAD = "_"
 
 class XMLToPlaintext:
     """
@@ -157,7 +158,7 @@ class XMLToPlaintext:
             has_lb_child = any(child.tag.endswith('lb') for child in el)
             if has_lb_child:
                 self.lines.pop()
-                self.lines[-1] += "-"
+                self.lines[-1] += CHAR_FOR_PENDING_HEAD
                 self._start_new_line()
             self._append('\t')
         elif tag == 'note':

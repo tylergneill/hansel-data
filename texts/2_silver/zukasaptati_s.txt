@@ -441,7 +441,7 @@ paraṃ svāmirahitānāṃ na kvāpi pūjā |
 
 [21,8]
 
-yata uktam |-
+yata uktam |_
 	apradhānaḥ pradhānaḥ syād yadi seveta pārthivam |
 	pradhāno 'py apradhānaḥ syād yadi sevāvivarjitaḥ || 5.9 (= 38) ||
 	āsannam eva nṛpatir bhajate manuṣyaṃ
@@ -496,7 +496,7 @@ uktaṃ ca |	indrāt prabhutvaṃ jvalanāt pratāpaṃ krodhaṃ yamād vaiśra
 
 [23,11]
 
-tathā ca bhārate |-
+tathā ca bhārate |_
 	mā vṛkodara pādena ekādaśacamūpatim |
 	pañcānām api yo bharttā nāsāprakṛtimāninī (?) || 5.21 (= 50) ||
 
@@ -572,7 +572,7 @@ uktaṃ ca |	yasyārthās tasya mitrāṇi yasyārthās tasya bāndhavāḥ |
 
 [26,2]
 
-tathā ca bhārate |-
+tathā ca bhārate |_
 	jīvanto 'pi mṛtāḥ pañca śrūyante kila bhārata |
 	daridro vyādhito mūrkhaḥ pravāsī nityasevakaḥ || 6.4 (= 57) ||
 tathā ca |	iha loke hi dhanināṃ paro 'pi svajanāyate |
@@ -953,7 +953,7 @@ tadākūtam |
 
 [45,10]
 
-uktaṃ ca |-
+uktaṃ ca |_
 	udīrito 'rthaḥ paśunāpi gṛhyate hayāś ca nāgāś ca vahanti noditāḥ |
 	anuktam apy ūhati paṇḍito janaḥ pareṅgitajñānaphalā hi buddhayaḥ || 11.4 (= 86) ||
 
@@ -1461,7 +1461,7 @@ kiṃ ca |	sopacārāṇi vākyāni śatrūṇām iha lakṣayet |
 
 [71,4]
 
-kirāte 'py uktam |-
+kirāte 'py uktam |_
 	vrajanti te mūḍhadhiyaḥ parābhavaṃ bhavanti māyāviṣu ye na māyinaḥ |
 	praviśya hi ghnanti śaṭhās tathāvidhān asaṃvṛtāṅgān niśitā iveṣavaḥ || 21.6 (= 123) ||
 
@@ -1471,7 +1471,7 @@ kuṭṭinyā tat sarvaṃ jñātvā mantriṇe niveditam | mantriṇāpi rājñ
 
 [71,8]
 
-rājā prāha |-
+rājā prāha |_
 	mā hohi suhaggāhī mā pattihi jaṃ ṇa diṭṭhapaccakkhaṃ |
 	paccakkhammi vi diṭṭhe juttājuttaṃ viāṇāhi || 21.7 (= 124) || (•)
 
@@ -2018,7 +2018,7 @@ sa ca yathārthavādī bhakṣitaḥ kim uttaraṃ kuryād iti | uttaram |
 
 [99,7]
 
-tenoktam |-
+tenoktam |_
 	yā yasya vallabhā loke ramyā sā tasya nāparā |
 	gadite dhūrtarājena tābhyāṃ muktaś ca tatkṣaṇāt || 30.2 (= 176) ||
 
@@ -2578,7 +2578,7 @@ prabhāvatī pṛcchati | katham etat |
 
 [128,10]
 
-śukaḥ |-
+śukaḥ |_
 	taṃ dṛṣṭvā kānane vyāghraṃ naṣṭaṃ jātaṃ bhayākulam |
 	mṛgadhūrto hasann āha vyāghro naṣṭaḥ kuto bhayāt || 43.3 (= 214) ||
 
@@ -3301,7 +3301,7 @@ uktaṃ ca |	ṇa kuṇanti je pahuttaṃ kuviaṃ dāsa vva je pasāanti |
 
 [162,3]
 
-tatra nāyakaguṇāḥ |-
+tatra nāyakaguṇāḥ |_
 	hato manyusahasrair yaḥ saṃtapto madanāgninā |
 	raktaś ca yo viraktāyāṃ so 'dhamaḥ parikīrtitaḥ || 57.11 (= 263) ||
 	kāminībhiḥ smarārtābhiḥ satataṃ kāmyate hi yaḥ |
@@ -3311,7 +3311,7 @@ tatra nāyakaguṇāḥ |-
 
 [162,10]
 
-nāyikās tridhā |-
+nāyikās tridhā |_
 	kārye gṛhṇāti roṣaṃ yā gataroṣā priyānugā |
 	rasajñā kṛtyakuśalā sottamā nāyikā smṛtā || 57.14 (= 266) ||
 <163>
@@ -3322,7 +3322,7 @@ nāyikās tridhā |-
 
 [163,5]
 
-tayoś ca śayanaṃ tridhā |-
+tayoś ca śayanaṃ tridhā |_
 	pārśvayor unnatiṃ nītaṃ nimnamadhye priyasya tat |
 	vimardaṃ sahate 'tyarthaṃ suratāsaktayos tayoḥ || 57.17 (= 269) ||
 	madhyamasya punaḥ kāryaṃ śayanaṃ samabhūmikam |
@@ -4093,7 +4093,7 @@ svāmin | yady api kathayituṃ na yujyate tarhi śṛṇu |
 
 [201,12]
 
-uktaṃ ca bhārate |-
+uktaṃ ca bhārate |_
 	daśa dharmaṃ na jānanti dhṛtarāṣṭra nibodha tān |
 	mattaḥ pramatta unmattaḥ śrāntaḥ kruddho bubhukṣitaḥ |
 <202>
