@@ -1,32 +1,12 @@
 """
 TEI builder
 
-Renders the HANSEL data model (lightly marked plaintext)
-into a simplified TEI-XML form (<div>, <p>, <lg>/<l>, <pb>, <cb>, <lb>, <head>, <back>, <note>).
+Renders the HANSEL data model (lightly marked plaintext) into a simplified TEI-XML form:
+<div>, <p>, <lg>/<l>, <pb>, <cb>, <lb>, <head>, <back>, <note>, <milestone>.
 
-Primary elements:
-1) Section markers {...} (own line only) → <div> (flat, never nested).
-2) Location markers [...] ... → either <p> or <lg> (latter can nest x1).
-3) Tab → <lg>/<l>
-4) Page markers <page[-col][,line]> → <pb>, (<cb>, <lb>) (n attribute)
-5) Line-end newline → <lb> (n attribute as counted on book page)
-6) Notes (...) → <note> (those that disrupt author's natural-language flow)
-
-<pb>, <cb>, <lb> milestones are placed at line-end, anticipating the next line.
-
-Secondary features:
-6) Line-end hyphen → "break=no" attribute (<pb>, <cb>, <lb>)
-8) Verse-line-end lack of punctuation → "type=caesura" attribute (<pb>, <cb>, <lb>)
-9) Groups of verses → top-level <lg> for "paragraph", second-level <lg> for each verse
-10) Same-line material preceding or following verse → <head>, <back>.
-
-Text can appear in:
-- element.text: <p>, <l>, <head>, <back>, <note>
-- element.tail: <pb>, <cb>, <lb>, <note>
-
-This module focuses on a single linear pass with localized helpers.
-Serialization and post-processing are handled one level up.
+See DATA_MODEL.md for more details.
 """
+import re
 
 from dataclasses import dataclass, field
 from typing import List, Optional, Tuple
@@ -35,10 +15,22 @@ from lxml import etree
 _XML_NS = "http://www.w3.org/XML/1998/namespace"
 
 # ----------------------------
-# Regexes (compiled once)
+# Regexes
 # ----------------------------
 
-from tei_builder_regexes import *
+SECTION_RE = re.compile(r"^{([^}]+)}\s*$")
+LOCATION_VERSE_RE = re.compile(r"^\[([^\]]+?)\]\t*(.*)$")  # [label] +/- tabbed verse content
+VERSE_NUM_RE = re.compile(r"^\s*([0-9]+(?:[.,][0-9]+)*)\s*([a-z]{1,4})?\s*$", re.I)
+PAGE_RE = re.compile(r"^<(\d+)>$")  # <page>
+PAGE_LINE_RE = re.compile(r"^<(\d+),(\d+)>$")  # <page,line>
+ADDITIONAL_STRUCTURE_NOTE_RE = re.compile(r"^<[^\n>]+>$")  # other <...>
+VERSE_MARKER_RE = re.compile(r"\|\| ([^|]{1,20}) \|\|(?: |$)")
+VERSE_BACK_BOUNDARY_RE = re.compile(r"\|\|(?![^|]{1,20} \|\|)")
+CLOSE_L_RE = re.compile(r"\|\|?(?:[ \n]|$)")
+HYPHEN_EOL_RE = re.compile(r"-\s*$")  # tweak later if you need fancy hyphens
+MID_LINE_PAGE_RE = re.compile(r"<(\d+)(?:,(\d+))?>")
+COMBINED_VERSE_END_RE = re.compile(f"{VERSE_MARKER_RE.pattern}|{VERSE_BACK_BOUNDARY_RE.pattern}")
+PENDING_HEAD_RE = re.compile(r"^(.*\|)\s*-$")
 
 # ----------------------------
 # Utility helpers
@@ -297,7 +289,7 @@ class TEIBuilder:
         verse_payload = after_tab
         back_text = ""
 
-        # Use COMBINED_VERSE_END_RE to find the last verse marker on the line
+        # find the last verse marker on the line
         last_match = None
         for m in COMBINED_VERSE_END_RE.finditer(after_tab):
             last_match = m
