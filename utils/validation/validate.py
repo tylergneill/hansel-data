@@ -5,8 +5,8 @@ import re
 from utils import (
     remove_bracket_groups,
     remove_removables,
-    keep_keepables, 
-    clean_up_whitespace, 
+    keep_keepables,
+    clean_up_whitespace,
     load_ngram_counts,
     save_ngram_counts,
     calculate_new_ngram_counts,
@@ -16,58 +16,104 @@ from utils import (
 )
 
 
-def validate_structure(structured_content, options):
-    
+def validate_structure(structured_content):
+    """
+    Validates the bracket structure of the input content against a set of rules.
+
+    This function performs two main types of checks:
+    1. Non-Destructive Structural Checks: It first validates the nesting of different
+       bracket types on the original, unmodified content. This ensures that the
+       hierarchical structure is correct.
+    2. Content and Existence Checks: It then checks for the existence of mandatory
+       identifiers and ensures they are not empty.
+
+    Rules enforced:
+    - ERRORS (will cause validation to fail):
+      - At least one document identifier `[...]` must exist.
+      - At least one group identifier `{...}` must exist.
+      - `[...]` and `{...}` must not be empty or contain only whitespace.
+      - `[...]` must not contain `{...}` or `<...>`. 
+      - `{...}` must not contain `[...]` or `<...>`. 
+      - `<...>` must not contain `[...]` or `{...}`.
+    - WARNINGS (will be flagged but will not cause failure):
+      - `(...)` should not contain any other bracket characters.
+
+    The function is designed to be non-destructive for structural checks, avoiding
+    the issues of prematurely removing parts of the string before validation is complete.
+
+    Args:
+        structured_content (str): The string content to validate.
+
+    Returns:
+        tuple[bool, list[str], list[str]]: A tuple containing:
+            - valid (bool): False if any errors were found, True otherwise.
+            - errors (list[str]): A list of error messages.
+            - warnings (list[str]): A list of warning messages.
+    """
     valid = True
     errors = []
-
-    # Step 1: Remove innermost valid closed sets of notes (...) and <...>
+    warnings = []
     
-    paren_pattern = r'\([^()\[\]\{\}<>]*\)'
-    angle_pattern = r'<[^<>\[\]\{\}()]*>'
-
-    for pattern in [paren_pattern, angle_pattern]:
-        structured_content, new_errors = remove_bracket_groups(structured_content, pattern)
-        if new_errors:
+    # Part A: Non-Destructive Structural Checks
+    
+    # 1. Find all instances of each bracket type
+    all_squares = re.findall(r'\[.*?\]', structured_content, re.DOTALL)
+    all_curlies = re.findall(r'\{.*?\}', structured_content, re.DOTALL)
+    all_angles = re.findall(r'<.*?>', structured_content, re.DOTALL)
+    all_rounds = re.findall(r'\(.*?\)', structured_content, re.DOTALL)
+    
+    # 2. Perform Nesting Validation
+    
+    # Check [...]
+    for s in all_squares:
+        inner = s[1:-1]
+        if any(c in inner for c in '{}<>'):
             valid = False
-            errors.extend(new_errors)    
+            errors.append(f"Invalid brackets {{}}, <> found within document identifier: {s}")
 
-    # Step 2: Find all valid closed sets of identifiers [...] and {...}
+    # Check {...}
+    for c in all_curlies:
+        inner = c[1:-1]
+        if any(c in inner for c in '[]<>'):
+            valid = False
+            errors.append(f"Invalid brackets [], <> found within group identifier: {c}")
 
-    document_identifiers = re.findall(r'\[.*?\]', structured_content)
-    group_identifiers = re.findall(r'\{.*?\}', structured_content)
+    # Check <...>
+    for a in all_angles:
+        inner = a[1:-1]
+        if any(c in inner for c in '[]{}'):
+            valid = False
+            errors.append(f"Invalid brackets [], {{}} found within note: {a}")
+
+    # Check (...)
+    for r in all_rounds:
+        inner = r[1:-1]
+        if any(c in inner for c in '()[]{}<>'):
+            warnings.append(f"Round brackets contain brackets: {r}")
+
+    # Part B: Content and Existence Checks
     
-    # Step 3: Ensure there is at least one of each type
-    
-    if not document_identifiers:
+    # 1. Existence Check
+    if not all_squares:
         valid = False
         errors.append("No document identifier ([...]) found.")
     
-    if not group_identifiers:
+    if not all_curlies:
         valid = False
         errors.append("No group identifier ({...}) found.")
-    
-    # Step 4a: Ensure each [...] contains some text and no {}
-    
-    for doc_id in document_identifiers:
-        if not re.search(r'\[.+\]', doc_id):
+        
+    # 2. Emptiness Check
+    for s in all_squares:
+        if not s[1:-1].strip():
             valid = False
-            errors.append(f"Empty document identifier found: {doc_id}")
-        if re.search(r'\{.*\}', doc_id):
+            errors.append(f"Empty document identifier found: {s}")
+            
+    for c in all_curlies:
+        if not c[1:-1].strip():
             valid = False
-            errors.append("Invalid brackets {}"f"found within document identifier: {doc_id}")
+            errors.append(f"Empty document group identifier found: {c}")
 
-    # Step 4b: Ensure each {...} contains some text and no []
-    
-    for group_id in group_identifiers:
-        if not re.search(r'\{.+\}', group_id):
-            valid = False
-            errors.append(f"Empty document group identifier found: {group_id}")
-        if re.search(r'\[.*\]', group_id):
-            valid = False
-            errors.append(f"Invalid brackets [] found within document group identifier: {group_id}")
-
-    return valid, errors
+    return valid, errors, warnings
 
 
 def validate_content(structured_content, options):
@@ -109,7 +155,7 @@ def validate_content(structured_content, options):
         for ngram in sorted_ngram_counts:
             if ngram not in ref_ngram_counts[str(n)]:
                 valid = False
-                errors.append(f"N-gram {repr(ngram)} (count {new_ngram_counts[ngram]}) is unfamiliar")
+                errors.append(f"N-gram {repr(ngram)} ({','.join([str(hex(ord(c))) for c in ngram])}) (count {new_ngram_counts[ngram]}) is unfamiliar")
                 unfamiliar_ngrams.append(f"{new_ngram_counts[ngram]}\t{repr(ngram)}")
 
         # Optionally: Output unfamiliar n-gram data for inspection
@@ -141,7 +187,7 @@ def validate_content(structured_content, options):
             save_ngram_counts(
                 updated_ref_ngram_counts,
                 CONFIG['reference_ngrams_filepath'],
-                CONFIG['max_ngram_size'],
+                # CONFIG['max_ngram_size'], # TODO: use later
             )
 
     return valid, errors
@@ -207,9 +253,14 @@ if __name__ == '__main__':
     # Perform validation
 
     if args.structure_validation:
-        structure_valid, structure_errors = validate_structure(raw_input_text, options)
-        structure_errors_str = '\n'.join([f"\t{e}" for e in structure_errors])
+        structure_valid, structure_errors, structure_warnings = validate_structure(raw_input_text)
+        
+        if structure_warnings:
+            structure_warnings_str = '\n'.join([f"\tWarning: {w}" for w in structure_warnings])
+            print(f"Structure of file {filename} has warnings:\n{structure_warnings_str}")
+
         if not structure_valid:
+            structure_errors_str = '\n'.join([f"\t{e}" for e in structure_errors])
             print(f"Structure of file {filename} not valid:\n{structure_errors_str}")
             exit(1)
     
@@ -217,8 +268,9 @@ if __name__ == '__main__':
         content_valid, content_errors = validate_content(raw_input_text, options)
         content_errors_str = '\n'.join([f"\t{e}" for e in content_errors])
         if not content_valid:
-            print(f"Content of file {filename} not valid:\n{content_errors_str}")
+            print(f"Content of file {filename} has the following issues:\n{content_errors_str}")
             if not options["allow_content_fail"]:
+                print(f"File {filename} failed content validation.")
                 exit(1)
 
     print(f"File {filename} validated successfully.")

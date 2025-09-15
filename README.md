@@ -1,8 +1,8 @@
 # HANSEL
 
-“Human-Accessible and NLP-ready Sanskrit E-Text Library.” An updated successor project to GRETIL.
+“Human-Accessible and NLP-ready Sanskrit E-Text Library.” A companion project to GRETIL.
 
-Deployment About page: https://hansel-stg.duckdns.org/about.
+See project website: https://hansel-library.info/about.
 
 # repo concept and structure
 

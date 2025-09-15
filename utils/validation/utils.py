@@ -29,19 +29,21 @@ def remove_bracket_groups(content, bracket_group_pattern):
             break
         for hit in hits:
             # Report illegally nested brackets within hit bracket group
-            if re.search(r'[\[\]\{\}]', hit):
+            if re.search(r'[\[\]{}]', hit):
                 errors.append(f"Invalid nesting within group {hit}")
             content = content.replace(hit, '')
     return content, errors
     
 
 def remove_removables(file_content):
-    # Patterns for (valid sets of) removable brackets
+    # Patterns for (valid sets of) brackets with removable content
+    bracket_pairs = r'\(\)<>≤≥\[\]\{\}'
     patterns = [
-        r'\([^()\[\]\{\}<>]*\)',
-        r'<[^<>\[\]\{\}()]*>',
-        r'\[[^\[\]\{\}<>]*\]',
-        r'\{[^\[\]\{\}<>]*\}'
+        rf'\([^{bracket_pairs}]*\)',
+        rf'<[^{bracket_pairs}]*>',
+        rf'≤[^{bracket_pairs}]*≥',
+        rf'\[[^{bracket_pairs}]*\]',
+        rf'{{[^{bracket_pairs}]*}}' # double curly braces inside f-strings to escape
     ]
     
     # Remove all removable brackets
@@ -54,10 +56,16 @@ def remove_removables(file_content):
 
 def keep_keepables(file_content):
     # Pattern for (valid sets of) brackets with keepable content
-    pattern = r'〈(.*?)〉'
+    patterns = [
+        r'«([^»]+)»',
+        r'¿([^¿]+)¿',
+    ]
 
-    # Keep that content
-    return re.sub(pattern, r'\1', file_content)
+    for pattern in patterns:
+        while re.search(pattern, file_content):
+            file_content = re.sub(pattern, r'\1', file_content)
+
+    return file_content
     
 
 def clean_up_whitespace(content):
@@ -113,7 +121,8 @@ def upsert_ngram_counts(ngram_counts, new_counts, n):
     return ngram_counts
 
 
-def save_ngram_counts(ngram_counts, json_file, max_n):
+def save_ngram_counts(ngram_counts, json_file):
+    # TODO: use max_n
     with open(json_file, 'w') as file:
         json.dump(ngram_counts, file, indent=4, ensure_ascii=False)
 
