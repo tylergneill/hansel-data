@@ -1,0 +1,45 @@
+name: Validate Zip File Versions
+
+on:
+  push:
+    paths:
+      - 'VERSION'
+  workflow_dispatch:
+
+jobs:
+  validate-zips:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Get version
+        id: get_version
+        run: echo "version=$(cat VERSION | cut -d '"' -f 2)" >> $GITHUB_OUTPUT
+
+      - name: Check for zip files
+        run: |
+          version=${{ steps.get_version.outputs.version }}
+          errors=()
+
+          for tier_dir in texts/tier_*; do
+            if [ -d "${tier_dir}" ]; then
+              tier_name=$(basename "${tier_dir}")
+              # Check if there are any files in the tier directory (excluding subdirectories).
+              if find "${tier_dir}" -maxdepth 1 -type f -print -quit | grep -q .; then
+                zip_file="${tier_dir}/transforms/cumulative/${tier_name}_${version}.zip"
+                if [ ! -f "${zip_file}" ]; then
+                  errors+=("${tier_name} zip file for version ${version} not found.")
+                fi
+              fi
+            fi
+          done
+
+          if [ ${#errors[@]} -ne 0 ]; then
+            for error in "${errors[@]}"; do
+              echo "Error: $error"
+            done
+            echo "Please run 'python utils/transforms/zip_texts.py' and commit the new zip files."
+            exit 1
+          fi
+          echo "All zip files are up to date with version ${version}."
