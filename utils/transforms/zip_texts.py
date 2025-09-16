@@ -15,11 +15,16 @@ def main(folder: str):
     root = Path(folder)
     texts_folder = root / 'texts'
 
+    # Get version
+    version_file = root / 'VERSION'
+    version_content = version_file.read_text(encoding="utf-8")
+    version = version_content.strip().split('"')[1]
+
     # Define the directories and their corresponding zip file names
     tier_map = {
-        "tier_i": "tier_i.zip",
-        "tier_ii": "tier_ii.zip",
-        "tier_iii": "tier_iii.zip"
+        "tier_i": f"tier_i_{version}.zip",
+        "tier_ii": f"tier_ii_{version}.zip",
+        "tier_iii": f"tier_iii_{version}.zip"
     }
 
     for tier_dir_name, zip_file_name in tier_map.items():
