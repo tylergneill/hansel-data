@@ -22,7 +22,7 @@ Bombay: Government Central Book Depót, 1883.
 - [on Google Books](https://play.google.com/store/books/details?id=tbMIAAAAQAAJ)
 - [on Archive](https://archive.org/details/kdambarbybaedby00unkngoog)
 
-# Highest Tier
+# Tier
 
 II
 

@@ -23,7 +23,7 @@ München: Verl. d. K. Akademie, 1899.
 - [on GRETIL E-Library](http://gretil.sub.uni-goettingen.de/gretil_elib/Suk901__Sukasaptati_TextOrnat_ed_Schmidt.pdf)
 - [on Archive (x2)](https://archive.org/details/sukasaptatitextornatedschmidt/Suk901__Sukasaptati_TextOrnat_ed_Schmidt)
 
-# Highest Tier
+# Tier
 
 III
 
