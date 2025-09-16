@@ -8,7 +8,7 @@
       "[on GRETIL E-Library](http://gretil.sub.uni-goettingen.de/gretil_elib/Suk901__Sukasaptati_TextOrnat_ed_Schmidt.pdf)",
       "[on Archive (x2)](https://archive.org/details/sukasaptatitextornatedschmidt/Suk901__Sukasaptati_TextOrnat_ed_Schmidt)"
     ],
-    "Digitization Level": "Gold",
+    "Digitization Level": "III",
     "Digitization Notes": [
       "(Aug 2022) Ambuda user `suhasm`: item created, Google Cloud Vision OCR performed.",
       "(Mar–May 2023) Ambuda user `shivjun1685`: proofread once.",
@@ -31,7 +31,7 @@
       "The Simplicior text, q.v., is believed to be older than the Ornatior."
     ],
     "Filename": "zukasaptati_o",
-    "Bronze Filetype": ".txt"
+    "Tier I Filetype": ".txt"
   },
   "śukasaptati_s": {
     "Title": "Śukasaptati, “Textus Simplicior”",
@@ -42,7 +42,7 @@
       "Band X, No. 1, better quality, [Archive (V. Gostishchev)(...)",
       "Entire Band X, [on Archive (DLI & public.resource.org)](https://archive.org/details/dli.ministry.08828/page/n9/mode/2up)"
     ],
-    "Digitization Level": "Silver",
+    "Digitization Level": "II",
     "Digitization Notes": [
       "(202_–2025): V. Gostishchev: Typed up from edition, intensively proofread and structured.",
       "(July 2025): Tyler Neill: Restructured for HANSEL."
@@ -64,11 +64,11 @@
     "Additional Notes": [
       "The Simplicior is believed to be older than the Ornatior.",
       "Indian editions (e.g. Ramakant Tripathi, Vārāṇasī, 1966, basis of the GRETIL text) are based on this Simplicior text by Schmidt.",
-      "V. Gostishchev's original version of the file (= bronze) contains added chāyās from the Indian editions and other useful notes.",
+      "V. Gostishchev's original (= Tier I) version of the file contains added chāyās from the Indian editions and other useful notes.",
       "See also the editor's: “Anmerkungen zu dem Textus simplicior der Śukasaptati”, ZDMG 48, 1894, 580-628."
     ],
     "Filename": "zukasaptati_s",
-    "Bronze Filetype": ".doc"
+    "Tier I Filetype": ".doc"
   },
   "kumārilabhaṭṭa_ślokavārtika": {
     "Title": "Ślokavārtika",
@@ -78,7 +78,7 @@
     "PDFs": [
       "[on Archive](https://archive.org/details/SlokavarttikaNyayaratnakara/mode/2up)"
     ],
-    "Digitization Level": "Silver",
+    "Digitization Level": "II",
     "Digitization Notes": [
       "(Date unknown) H. Krasser: Created.",
       "(2017–2021) Tyler Neill: supplied missing Arthāpattipariccheda (5.8), restructured for Pramāṇa NLP."
@@ -102,7 +102,7 @@
       "(none)"
     ],
     "Filename": "kumArilabhaTTa_zlokavArtika",
-    "Bronze Filetype": ".doc"
+    "Tier I Filetype": ".doc"
   },
   "bāṇa_kādambarī": {
     "Title": "Kādambarī",
@@ -116,7 +116,7 @@
       "[on Google Books](https://play.google.com/store/books/details?id=tbMIAAAAQAAJ)",
       "[on Archive](https://archive.org/details/kdambarbybaedby00unkngoog)"
     ],
-    "Digitization Level": "Silver",
+    "Digitization Level": "II",
     "Digitization Notes": [
       "(2022) Andrew Ollett: OCR, initial XML markup for SARIT.",
       "(2024–2025) Tyler Neill: Proofread (using fresh OCR and AI), restructure for HANSEL."
@@ -137,6 +137,6 @@
     ],
     "Additional Notes": "(none)",
     "Filename": "bANa_kAdambarI",
-    "Bronze Filetype": ".xml"
+    "Tier I Filetype": ".xml"
   }
 }

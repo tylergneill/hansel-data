@@ -25,7 +25,7 @@ München: Verl. d. K. Akademie, 1899.
 
 # Digitization Level
 
-Gold
+III
 
 # Digitization Notes
 

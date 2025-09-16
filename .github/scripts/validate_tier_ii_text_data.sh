@@ -4,7 +4,7 @@
 REPO_ROOT=$(git rev-parse --show-toplevel)
 
 # Define paths relative to the root directory
-TEXT_DATA_DIR="$REPO_ROOT/texts/2_silver"
+TEXT_DATA_DIR="$REPO_ROOT/texts/tier_ii"
 VALIDATION_SCRIPT="$REPO_ROOT/utils/validation/validate.py"
 
 echo "validation script paths:"
@@ -18,7 +18,7 @@ for file in "$TEXT_DATA_DIR"/*.txt; do
     python "$VALIDATION_SCRIPT" -i "$file" -s
 done
 
-echo "running validation script with -c content option (allow fail for silver)"
+echo "running validation script with -c content option (allow fail for Tier II)"
 
 for file in "$TEXT_DATA_DIR"/*.txt; do
     python "$VALIDATION_SCRIPT" -i "$file" -c --allow-content-fail

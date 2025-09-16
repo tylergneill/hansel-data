@@ -50,7 +50,7 @@ def parse_markdown(path: Path) -> dict:
     return meta
 
 def get_file_extension(filename_without_extension):
-    search_folder = './texts/1_bronze'
+    search_folder = './texts/tier_i'
     for item in os.listdir(search_folder):
         base_name, extension = os.path.splitext(item)
         if base_name.lower() == filename_without_extension.lower():
@@ -70,8 +70,8 @@ def main(folder: str):
         # convert file size (kb) to float
         consolidated[k]['File Size (KB)'] = float(consolidated[k]['File Size (KB)'])
 
-        # detect and store bronze file type
-        consolidated[k]['Bronze Filetype'] = get_file_extension(consolidated[k]['Filename'])
+        # detect and store Tier I file type
+        consolidated[k]['Tier I Filetype'] = get_file_extension(consolidated[k]['Filename'])
 
     metadata_file = metadata_folder / 'transforms' / 'cumulative' / 'metadata.json'
     metadata_file.write_text(json.dumps(consolidated, ensure_ascii=False, indent=2),

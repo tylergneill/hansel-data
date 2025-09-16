@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Zips text files from bronze, silver, and gold directories into cumulative archives.
+Zips text files from tier_i, tier_ii, and tier_iii directories into cumulative archives.
 """
 
 import sys
@@ -9,7 +9,7 @@ from pathlib import Path
 
 def main(folder: str):
     """
-    Zips files from each of the bronze, silver, and gold directories into
+    Zips files from each of the tier_i, tier_ii, and tier_iii directories into
     separate zip files in their respective transforms/cumulative/ subdirectories.
     """
     root = Path(folder)
@@ -17,9 +17,9 @@ def main(folder: str):
 
     # Define the directories and their corresponding zip file names
     tier_map = {
-        "1_bronze": "bronze.zip",
-        "2_silver": "silver.zip",
-        "3_gold": "gold.zip"
+        "tier_i": "tier_i.zip",
+        "tier_ii": "tier_ii.zip",
+        "tier_iii": "tier_iii.zip"
     }
 
     for tier_dir_name, zip_file_name in tier_map.items():

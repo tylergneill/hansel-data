@@ -38,7 +38,7 @@ def main():
         use_transforms_subdir_for_output = False
 
 
-    for tier in ['2_silver', '3_gold']:
+    for tier in ['tier_ii', 'tier_iii']:
         in_dir = BASE_IN_DIR / tier
         if use_transforms_subdir_for_input:
             in_dir = in_dir / 'transforms'

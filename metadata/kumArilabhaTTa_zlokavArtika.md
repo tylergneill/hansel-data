@@ -23,7 +23,7 @@ Vārāṇasī: Tara Publications, 1978.
 
 # Digitization Level
 
-Silver
+II
 
 # Digitization Notes
 

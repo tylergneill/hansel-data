@@ -24,7 +24,7 @@ Bombay: Government Central Book Depót, 1883.
 
 # Digitization Level
 
-Silver
+II
 
 # Digitization Notes
 

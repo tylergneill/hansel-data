@@ -24,7 +24,7 @@ Abhandlungen für die Kunde des Morgenlandes, Band X, No. 1. Leipzig, 1893.
 
 # Digitization Level
 
-Silver
+II
 
 # Digitization Notes
 
@@ -59,5 +59,5 @@ The frame story's introduction and conclusion are not explicitly distinguished.
 
 - The Simplicior is believed to be older than the Ornatior.
 - Indian editions (e.g. Ramakant Tripathi, Vārāṇasī, 1966, basis of the GRETIL text) are based on this Simplicior text by Schmidt.
-- V. Gostishchev's original version of the file (= bronze) contains added chāyās from the Indian editions and other useful notes.
+- V. Gostishchev's original (= Tier I) version of the file contains added chāyās from the Indian editions and other useful notes.
 - See also the editor's: “Anmerkungen zu dem Textus simplicior der Śukasaptati”, ZDMG 48, 1894, 580-628.
