@@ -22,7 +22,7 @@ Abhandlungen für die Kunde des Morgenlandes, Band X, No. 1. Leipzig, 1893.
 - Band X, No. 1, better quality, [Archive (V. Gostishchev)(...)
 - Entire Band X, [on Archive (DLI & public.resource.org)](https://archive.org/details/dli.ministry.08828/page/n9/mode/2up)
 
-# Digitization Level
+# Highest Tier
 
 II
 

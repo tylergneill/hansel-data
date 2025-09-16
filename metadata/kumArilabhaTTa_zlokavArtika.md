@@ -21,7 +21,7 @@ Vārāṇasī: Tara Publications, 1978.
 
 - [on Archive](https://archive.org/details/SlokavarttikaNyayaratnakara/mode/2up)
 
-# Digitization Level
+# Highest Tier
 
 II
 

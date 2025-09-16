@@ -8,7 +8,7 @@
       "[on GRETIL E-Library](http://gretil.sub.uni-goettingen.de/gretil_elib/Suk901__Sukasaptati_TextOrnat_ed_Schmidt.pdf)",
       "[on Archive (x2)](https://archive.org/details/sukasaptatitextornatedschmidt/Suk901__Sukasaptati_TextOrnat_ed_Schmidt)"
     ],
-    "Digitization Level": "III",
+    "Highest Tier": "III",
     "Digitization Notes": [
       "(Aug 2022) Ambuda user `suhasm`: item created, Google Cloud Vision OCR performed.",
       "(Mar–May 2023) Ambuda user `shivjun1685`: proofread once.",
@@ -42,7 +42,7 @@
       "Band X, No. 1, better quality, [Archive (V. Gostishchev)(...)",
       "Entire Band X, [on Archive (DLI & public.resource.org)](https://archive.org/details/dli.ministry.08828/page/n9/mode/2up)"
     ],
-    "Digitization Level": "II",
+    "Highest Tier": "II",
     "Digitization Notes": [
       "(202_–2025): V. Gostishchev: Typed up from edition, intensively proofread and structured.",
       "(July 2025): Tyler Neill: Restructured for HANSEL."
@@ -78,7 +78,7 @@
     "PDFs": [
       "[on Archive](https://archive.org/details/SlokavarttikaNyayaratnakara/mode/2up)"
     ],
-    "Digitization Level": "II",
+    "Highest Tier": "II",
     "Digitization Notes": [
       "(Date unknown) H. Krasser: Created.",
       "(2017–2021) Tyler Neill: supplied missing Arthāpattipariccheda (5.8), restructured for Pramāṇa NLP."
@@ -116,7 +116,7 @@
       "[on Google Books](https://play.google.com/store/books/details?id=tbMIAAAAQAAJ)",
       "[on Archive](https://archive.org/details/kdambarbybaedby00unkngoog)"
     ],
-    "Digitization Level": "II",
+    "Highest Tier": "II",
     "Digitization Notes": [
       "(2022) Andrew Ollett: OCR, initial XML markup for SARIT.",
       "(2024–2025) Tyler Neill: Proofread (using fresh OCR and AI), restructure for HANSEL."
