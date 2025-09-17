@@ -193,8 +193,6 @@ def validate_content(structured_content, options):
     return valid, errors
 
 
-
-
 if __name__ == '__main__':
 
     # Load CL arguments

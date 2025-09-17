@@ -138,7 +138,6 @@ enables later automatic derivation of line number information for the purpose of
 freeing the transcriber from the burden of manually counting lines during digitization.
 
 
-
 # Character Set
 
 The transliteration scheme used is IAST, with the following preferences:
