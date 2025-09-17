@@ -18,11 +18,16 @@ def main(folder: str):
     transforms_folder = metadata_folder / 'transforms'
     cumulative_folder = transforms_folder / 'cumulative'
 
+    # Get version
+    version_file = root / 'VERSION'
+    version_content = version_file.read_text(encoding="utf-8")
+    version = version_content.strip().split('"')[1]
+
     # Create cumulative directory if it doesn't exist
     cumulative_folder.mkdir(exist_ok=True)
 
     # 1. Zip markdown files from metadata/
-    md_zip_path = cumulative_folder / 'metadata_md.zip'
+    md_zip_path = cumulative_folder / f'metadata_md_{version}.zip'
     md_files = list(metadata_folder.glob('*.md'))
 
     if md_files:
@@ -35,7 +40,7 @@ def main(folder: str):
 
     # 2. Zip HTML files from metadata/transforms/html/
     html_source_folder = transforms_folder / 'html'
-    html_zip_path = cumulative_folder / 'metadata_html.zip'
+    html_zip_path = cumulative_folder / f'metadata_html_{version}.zip'
 
     if html_source_folder.is_dir():
         # Using '**/*.html' to match user request "html/**"

@@ -1,15 +1,10 @@
 import markdown
 from pathlib import Path
+import sys
 
 from skrutable.transliteration import Transliterator
 
 T = Transliterator(from_scheme='HK', to_scheme='IAST')
-
-MD_DIR = Path("")
-OUT_DIR = MD_DIR / "transforms"
-
-# Make sure output dir exists
-OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 HTML_WRAPPER = """<!DOCTYPE html>
 <html lang="en">
@@ -27,13 +22,31 @@ HTML_WRAPPER = """<!DOCTYPE html>
 </body>
 </html>"""
 
-for md_file in MD_DIR.glob("*.md"):
-    with md_file.open(encoding="utf-8") as f:
-        content = f.read()
-        html_body = markdown.markdown(content, extensions=["mdx_gfm"], output_format='html5')
+def main(root_folder='.'):
+    project_root = Path(root_folder).resolve()
+    md_dir = project_root / 'metadata'
+    out_dir = md_dir / 'transforms' / 'html'
 
-    wrapped_html = HTML_WRAPPER.format(title=T.transliterate(md_file.stem), body=html_body)
+    # Make sure output dir exists
+    out_dir.mkdir(parents=True, exist_ok=True)
 
-    out_file = OUT_DIR / (md_file.stem + ".html")
-    out_file.write_text(wrapped_html, encoding="utf-8")
-    print(f"Rendered {md_file.name} -> {out_file.name}")
+    md_files = list(md_dir.glob("*.md"))
+    if not md_files:
+        print(f"No .md files found in {md_dir}")
+        return
+
+    for md_file in md_files:
+        with md_file.open(encoding="utf-8") as f:
+            content = f.read()
+            html_body = markdown.markdown(content, extensions=["mdx_gfm"], output_format='html5')
+
+        wrapped_html = HTML_WRAPPER.format(title=T.transliterate(md_file.stem), body=html_body)
+
+        out_file = out_dir / (md_file.stem + ".html")
+        out_file.write_text(wrapped_html, encoding="utf-8")
+        print(f"Rendered {md_file.relative_to(project_root)} -> {out_file.relative_to(project_root)}")
+
+    print(f"\nProcessed {len(md_files)} files.")
+
+if __name__ == '__main__':
+    main(sys.argv[1] if len(sys.argv) > 1 else '.')

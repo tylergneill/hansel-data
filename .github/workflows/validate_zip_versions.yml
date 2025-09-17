@@ -17,7 +17,7 @@ jobs:
         id: get_version
         run: echo "version=$(cat VERSION | cut -d '"' -f 2)" >> $GITHUB_OUTPUT
 
-      - name: Check for zip files
+      - name: Check for cumulative files
         run: |
           version=${{ steps.get_version.outputs.version }}
           errors=()
@@ -35,11 +35,27 @@ jobs:
             fi
           done
 
+          # Check for metadata cumulative files
+          metadata_md_zip="metadata/transforms/cumulative/metadata_md_${version}.zip"
+          if [ ! -f "${metadata_md_zip}" ]; then
+            errors+=("metadata_md cumulative file for version ${version} not found.")
+          fi
+
+          metadata_html_zip="metadata/transforms/cumulative/metadata_html_${version}.zip"
+          if [ ! -f "${metadata_html_zip}" ]; then
+            errors+=("metadata_html cumulative file for version ${version} not found.")
+          fi
+
+          metadata_json="metadata/transforms/cumulative/metadata_${version}.json"
+          if [ ! -f "${metadata_json}" ]; then
+            errors+=("metadata cumulative json file for version ${version} not found.")
+          fi
+
           if [ ${#errors[@]} -ne 0 ]; then
             for error in "${errors[@]}"; do
               echo "Error: $error"
             done
-            echo "Please run 'python utils/transforms/zip_texts.py' and commit the new zip files."
+            echo "Please run 'python utils/transforms/zip_texts.py' and 'python utils/transforms/metadata/generate_all_cumulative.py' and commit the new files."
             exit 1
           fi
-          echo "All zip files are up to date with version ${version}."
+          echo "All cumulative files are up to date with version ${version}."

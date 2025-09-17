@@ -59,6 +59,12 @@ def get_file_extension(filename_without_extension):
 def main(folder: str):
     root = Path(folder)
     metadata_folder = root / 'metadata'
+
+    # Get version
+    version_file = root / 'VERSION'
+    version_content = version_file.read_text(encoding="utf-8")
+    version = version_content.strip().split('"')[1]
+
     consolidated = {}
     for md in metadata_folder.glob('*.md'):
         record = parse_markdown(md)
@@ -73,7 +79,7 @@ def main(folder: str):
         # detect and store Tier I file type
         consolidated[k]['Tier I Filetype'] = get_file_extension(consolidated[k]['Filename'])
 
-    metadata_file = metadata_folder / 'transforms' / 'cumulative' / 'metadata.json'
+    metadata_file = metadata_folder / 'transforms' / 'cumulative' / f'metadata_{version}.json'
     metadata_file.write_text(json.dumps(consolidated, ensure_ascii=False, indent=2),
                    encoding='utf-8')
     print(f'Wrote {metadata_file} ({len(consolidated)} files).')
