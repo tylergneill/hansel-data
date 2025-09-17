@@ -9,18 +9,19 @@
 # Source File
 
 Word document by Viliam Gostishchev, 
-obtained directly through private email exchange.
+obtained directly from creator through private email exchange.
 
 # Edition
 
 Schmidt, Richard. “Die Çukasaptati. Textus Simplicior.” 
 Abhandlungen für die Kunde des Morgenlandes, Band X, No. 1. Leipzig, 1893.
-(Band X as a whole, Nos. 1–4, was published in 1897.)
+
+NB: Band X as a whole (Nos. 1–4) was published in 1897.
 
 # PDFs
 
-- Band X, No. 1, better quality, [Archive (V. Gostishchev)(...)
-- Entire Band X, [on Archive (DLI & public.resource.org)](https://archive.org/details/dli.ministry.08828/page/n9/mode/2up)
+- [1897 Band X on Archive (DLI & public.resource.org)](https://archive.org/details/dli.ministry.08828/page/n9/mode/2up)
+- 1893 Band X, No. 1 (improved by V. Gostishchev) on Archive, to be uploaded soon...
 
 # Tier
 
@@ -38,7 +39,7 @@ II
 
 # File Size (KB)
 
-178
+174
 
 # Genres
 
@@ -48,7 +49,7 @@ II
 # Structure
 
 The work consists of 70 stories in a frame story.
-The frame story's introduction and conclusion are not explicitly distinguished.
+The frame story's introduction and conclusion are not explicitly distinguished with distinct sections.
 
 # Translations
 
@@ -57,7 +58,8 @@ The frame story's introduction and conclusion are not explicitly distinguished.
 
 # Additional Notes
 
-- The Simplicior is believed to be older than the Ornatior.
-- Indian editions (e.g. Ramakant Tripathi, Vārāṇasī, 1966, basis of the GRETIL text) are based on this Simplicior text by Schmidt.
-- V. Gostishchev's original (= Tier I) version of the file contains added chāyās from the Indian editions and other useful notes.
+- The _Simplicior_ is believed to be older than the _Ornatior_.
+- Indian editions (e.g. Ramakant Tripathi, Vārāṇasī, 1966, basis of the GRETIL text) are based on this _Simplicior_ text by Schmidt.
+- V. Gostishchev's original (= Tier I) version of the file contains added _chāyās_ from the Indian editions and other useful notes.
 - See also the editor's: “Anmerkungen zu dem Textus simplicior der Śukasaptati”, ZDMG 48, 1894, 580-628.
+- This text still needs a final proofread to be ready for Tier III.

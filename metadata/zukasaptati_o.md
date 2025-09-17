@@ -8,8 +8,7 @@
 
 # Source File
 
-Ambuda website “Proofing” section, extracted page-by-page.
-Content under CC0 (public domain) license.
+Ambuda website “Proofing” section, extracted page-by-page (CC0 license).
 
 # Edition
 
@@ -29,18 +28,18 @@ III
 
 # Digitization Notes
 
-- (Aug 2022) Ambuda user `suhasm`: item created, Google Cloud Vision OCR performed.
-- (Mar–May 2023) Ambuda user `shivjun1685`: proofread once.
-- (May–Jul 2025) Tyler Neill, proofread again (using fresh OCR and AI), restructured for HANSEL.
+- (Aug 2022) Ambuda user `suhasm`: Item created, Google Cloud Vision OCR performed.
+- (Mar–May 2023) Ambuda user `shivjun1685`: Proofread once.
+- (May–Jul 2025) Tyler Neill: Second OCR and merge with previous corrections, proofread final time, restructured for HANSEL.
 
 # Extent
 
 - Complete (with very small lacunae).
-- 384pp in edition. 
+- 66pp in edition (pp. 319–384). 
 
 # File Size (KB)
 
-290
+275
 
 # Genres
 
@@ -51,7 +50,7 @@ III
 
 The work consists of 70 stories in a frame story.
 The frame story's introduction and conclusion are explicitly distinguished 
-as *kathāvatāra* (9pp in edition) and *kathāvadhi* (1p).
+as _kathāvatāra_ (9pp in edition) and _kathāvadhi_ (1p).
 
 # Translations
 
@@ -59,4 +58,5 @@ as *kathāvatāra* (9pp in edition) and *kathāvadhi* (1p).
 
 # Additional Notes
 
-- The Simplicior text, q.v., is believed to be older than the Ornatior.
+- The _Simplicior_ text is believed to be older than the _Ornatior_.
+- Tier III content improvements also contributed back to Ambuda.
