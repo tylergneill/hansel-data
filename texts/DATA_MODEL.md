@@ -144,7 +144,7 @@ freeing the transcriber from the burden of manually counting lines during digiti
 The transliteration scheme used is IAST, with the following preferences:
 - pre-composed characters (e.g., single-character `ṝ` rather than triple-character `ṝ`)
 - standard IAST `ṃ ṛ ḷ e o` (rather than ISO 15919 `ṁ r̥ l̥ ē ō`)
-- special chars `ḻ ẖ ḫ lṁ` for `ळ ᳵ ᳶ लँ`
+- special chars `ḻ ẖ ḫ ṁl` for `ळ ᳵ ᳶ लँ`
 - lowercase except for e.g. emphasis of proper names or indication of grammatical _anubandhas_
 - Prakrit: diaresis `¨`for otherwise ambiguous intra-word vowel hiatus (e.g., jaïo), breve `˘` for short vowels (ĕ ŏ)
 
