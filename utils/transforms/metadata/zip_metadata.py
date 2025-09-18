@@ -27,11 +27,12 @@ def main(folder: str):
     cumulative_folder.mkdir(exist_ok=True)
 
     # 1. Zip markdown files from metadata/
-    md_zip_path = cumulative_folder / f'metadata_md_{version}.zip'
+    md_zip_path = cumulative_folder / 'metadata_md.zip'
     md_files = list(metadata_folder.glob('*.md'))
 
     if md_files:
         with zipfile.ZipFile(md_zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
+            zipf.write(version_file, version_file.name)
             for md_file in md_files:
                 zipf.write(md_file, md_file.name)
         print(f'Wrote {len(md_files)} files to {md_zip_path}.')
@@ -40,13 +41,14 @@ def main(folder: str):
 
     # 2. Zip HTML files from metadata/transforms/html/
     html_source_folder = transforms_folder / 'html'
-    html_zip_path = cumulative_folder / f'metadata_html_{version}.zip'
+    html_zip_path = cumulative_folder / 'metadata_html.zip'
 
     if html_source_folder.is_dir():
         # Using '**/*.html' to match user request "html/**"
         html_files = list(html_source_folder.glob('**/*.html'))
         if html_files:
             with zipfile.ZipFile(html_zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
+                zipf.write(version_file, version_file.name)
                 for html_file in html_files:
                     # arcname should be relative to the source folder to maintain structure
                     arcname = html_file.relative_to(html_source_folder)

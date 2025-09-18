@@ -79,7 +79,10 @@ def main(folder: str):
         # detect and store Tier I file type
         consolidated[k]['Tier I Filetype'] = get_file_extension(consolidated[k]['Filename'])
 
-    metadata_file = metadata_folder / 'transforms' / 'cumulative' / f'metadata_{version}.json'
+    # Add version to the consolidated data
+    consolidated['version'] = version
+
+    metadata_file = metadata_folder / 'transforms' / 'cumulative' / 'metadata.json'
     metadata_file.write_text(json.dumps(consolidated, ensure_ascii=False, indent=2),
                    encoding='utf-8')
     print(f'Wrote {metadata_file} ({len(consolidated)} files).')

@@ -22,9 +22,9 @@ def main(folder: str):
 
     # Define the directories and their corresponding zip file names
     tier_map = {
-        "tier_i": f"tier_i_{version}.zip",
-        "tier_ii": f"tier_ii_{version}.zip",
-        "tier_iii": f"tier_iii_{version}.zip"
+        "tier_i": "tier_i.zip",
+        "tier_ii": "tier_ii.zip",
+        "tier_iii": "tier_iii.zip"
     }
 
     for tier_dir_name, zip_file_name in tier_map.items():
@@ -45,6 +45,7 @@ def main(folder: str):
 
         if files_to_zip:
             with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
+                zipf.write(version_file, version_file.name)
                 for file in files_to_zip:
                     zipf.write(file, file.name)
             print(f"Wrote {len(files_to_zip)} files to {zip_path}.")

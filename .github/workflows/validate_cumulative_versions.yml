@@ -1,0 +1,101 @@
+name: Validate Cumulative File Versions
+
+on:
+  push:
+    paths:
+      - 'VERSION'
+      - 'texts/tier_i/**'
+      - 'texts/tier_ii/**'
+      - 'texts/tier_iii/**'
+      - 'metadata/**'
+  workflow_dispatch:
+
+jobs:
+  validate-cumulative-file-versions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Get version
+        id: get_version
+        run: echo "version=$(cat VERSION | cut -d '"' -f 2)" >> $GITHUB_OUTPUT
+
+      - name: Check for cumulative files
+        run: |
+          version=${{ steps.get_version.outputs.version }}
+          errors=()
+
+          # Check for tier zips
+          for tier_dir in texts/tier_*; do
+            if [ -d "${tier_dir}" ]; then
+              tier_name=$(basename "${tier_dir}")
+              # Check if there are any files in the tier directory (excluding subdirectories).
+              if find "${tier_dir}" -maxdepth 1 -type f -print -quit | grep -q .; then
+                zip_file="${tier_dir}/transforms/cumulative/${tier_name}.zip"
+                if [ ! -f "${zip_file}" ]; then
+                  errors+=("${tier_name} zip file not found.")
+                else
+                  unzip -l "${zip_file}" | grep -q "VERSION"
+                  if [ $? -ne 0 ]; then
+                    errors+=("VERSION file not found in ${zip_file}.")
+                  else
+                    unzipped_version=$(unzip -p "${zip_file}" VERSION | cut -d '"' -f 2)
+                    if [ "$unzipped_version" != "$version" ]; then
+                      errors+=("Version mismatch in ${zip_file}. Expected ${version}, found ${unzipped_version}.")
+                    fi
+                  fi
+                fi
+              fi
+            fi
+          done
+
+          # Check for metadata cumulative files
+          metadata_md_zip="metadata/transforms/cumulative/metadata_md.zip"
+          if [ ! -f "${metadata_md_zip}" ]; then
+            errors+=("metadata_md cumulative file not found.")
+          else
+            unzip -l "${metadata_md_zip}" | grep -q "VERSION"
+            if [ $? -ne 0 ]; then
+              errors+=("VERSION file not found in ${metadata_md_zip}.")
+            else
+              unzipped_version=$(unzip -p "${metadata_md_zip}" VERSION | cut -d '"' -f 2)
+              if [ "$unzipped_version" != "$version" ]; then
+                errors+=("Version mismatch in ${metadata_md_zip}. Expected ${version}, found ${unzipped_version}.")
+              fi
+            fi
+          fi
+
+          metadata_html_zip="metadata/transforms/cumulative/metadata_html.zip"
+          if [ ! -f "${metadata_html_zip}" ]; then
+            errors+=("metadata_html cumulative file not found.")
+          else
+            unzip -l "${metadata_html_zip}" | grep -q "VERSION"
+            if [ $? -ne 0 ]; then
+              errors+=("VERSION file not found in ${metadata_html_zip}.")
+            else
+              unzipped_version=$(unzip -p "${metadata_html_zip}" VERSION | cut -d '"' -f 2)
+              if [ "$unzipped_version" != "$version" ]; then
+                errors+=("Version mismatch in ${metadata_html_zip}. Expected ${version}, found ${unzipped_version}.")
+              fi
+            fi
+          fi
+
+          metadata_json="metadata/transforms/cumulative/metadata.json"
+          if [ ! -f "${metadata_json}" ]; then
+            errors+=("metadata cumulative json file not found.")
+          else
+            json_version=$(jq -r '.version' "${metadata_json}")
+            if [ "$json_version" != "$version" ]; then
+              errors+=("Version mismatch in ${metadata_json}. Expected ${version}, found ${json_version}.")
+            fi
+          fi
+
+          if [ ${#errors[@]} -ne 0 ]; then
+            for error in "${errors[@]}"; do
+              echo "Error: $error"
+            done
+            echo "Please run 'python utils/transforms/zip_texts.py' and 'python utils/transforms/metadata/regenerate.py' and commit the new files."
+            exit 1
+          fi
+          echo "All cumulative files are up to date with version ${version}."
