@@ -18,6 +18,11 @@ def main(folder: str):
     transforms_folder = metadata_folder / 'transforms'
     cumulative_folder = transforms_folder / 'cumulative'
 
+    # Get version
+    version_file = root / 'VERSION'
+    version_content = version_file.read_text(encoding="utf-8")
+    version = version_content.strip().split('"')[1]
+
     # Create cumulative directory if it doesn't exist
     cumulative_folder.mkdir(exist_ok=True)
 
@@ -27,6 +32,7 @@ def main(folder: str):
 
     if md_files:
         with zipfile.ZipFile(md_zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
+            zipf.write(version_file, version_file.name)
             for md_file in md_files:
                 zipf.write(md_file, md_file.name)
         print(f'Wrote {len(md_files)} files to {md_zip_path}.')
@@ -42,6 +48,7 @@ def main(folder: str):
         html_files = list(html_source_folder.glob('**/*.html'))
         if html_files:
             with zipfile.ZipFile(html_zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
+                zipf.write(version_file, version_file.name)
                 for html_file in html_files:
                     # arcname should be relative to the source folder to maintain structure
                     arcname = html_file.relative_to(html_source_folder)

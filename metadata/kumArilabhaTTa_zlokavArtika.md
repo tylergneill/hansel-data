@@ -19,22 +19,23 @@ Vārāṇasī: Tara Publications, 1978.
 
 # PDFs
 
-- [on Archive](https://archive.org/details/SlokavarttikaNyayaratnakara/mode/2up)
+- [on Archive (missing a few pages)](https://archive.org/details/SlokavarttikaNyayaratnakara/mode/2up)
 
-# Digitization Level
+# Tier
 
-Silver
+II
 
 # Digitization Notes
 
 - (Date unknown) H. Krasser: Created.
-- (2017–2021) Tyler Neill: supplied missing Arthāpattipariccheda (5.8), restructured for Pramāṇa NLP.
+- (2017–2021) Tyler Neill: Supplied missing _Arthāpattipariccheda_ (5.8), restructured for Pramāṇa NLP.
+- (2025) Tyler Neill: Page numbers added for HANSEL structure.
 
 # Extent
 
 - Complete.
 - 3,350 verses (mostly anuṣṭubh).
-- 664pp in edition (with commentary)
+- 664pp in edition (with commentary on same pages).
 
 # File Size (KB)
 
@@ -83,4 +84,4 @@ Silver
 
 # Additional Notes
 
-- (none)
+- This text still needs a final proofread to be ready for Tier III.

@@ -1,43 +1,43 @@
-# Origin and Purpose
+# Data Model Origin and Purpose
 
 HANSEL's Sanskrit e-text data model, based on plaintext, originates in the Pramāṇa NLP project.
 
-This data model focuses primarily on the following:
+It focuses primarily on representing the following:
 - printed editions — NOT manuscripts or born-digital editions
 - single-work texts — NOT books with multiple works typeset in parallel
-- natural langauge — NOT philological detail like notes, apparatus, etc.
+- natural language — NOT philological detail like notes, apparatus, etc.
 - diplomatic transcription that e.g. OCR would see — NOT born-digital improvements
  
 These latter things aren't necessarily precluded by the data model,
 but insofar as it supports them, they are secondary.
 
 The goal is to have e-texts that are both useful for humans
-(readable and easy to cross-reference against accessible source material)
+(readable and easy to cross-reference against source material)
 and consistently structured for machines
-(automatically parsable, with comprehensive identifiers).
+(automatically parsable, with unique identifiers).
 They should also be easy to compare against fresh OCR output,
 in order to enable continuous improvement.
-For that reason, these e-texts tend toward line-by-line representation.
+For this latter reason, these e-texts tend toward line-by-line representation.
 
 
 # Embodiment through Validation and Conversion Processes
 
 In addition to this document, which describes the data model in words,
 and a small number of initial documents to exemplify it (see below),
-the data model is best expressed though the data repository's included
-plaintext-XML-plaintext roundtrip conversion process,
-plus automatic validation.
+the data model is best expressed though 1) the data repository's included
+plaintext-XML roundtrip conversion process and 2) automatic validation,
+as explained below.
 
-That is, the texts that most validly express the data model
-are those that most successfully survive automatic transformations from plaintext to XML —
+1. Texts most validly express the data model
+insofar as they successfully survive automatic transformations from plaintext to XML —
 this XML can then be used to render HTML for web presentation, etc. —
-and again from the produced XML back to plaintext, which should match the original.
+and back again from the produced XML to plaintext, which should match the original.
 
-A structural validation script can also detect basic violations of the suggested patterns.
-With regular structure able to be isolated from content (in IAST),
-the validation can then also check the content of the files
-and compare this against known sets of allowed characters 
-and empirically-calibrated frequency expectations for all possible character combinations (n-grams).
+2. A structural validation script can also detect basic model violations.
+Also, insofar as structure can be automatically isolated from content for this purpose,
+validation can then also check the (IAST) Sanskrit content of the files.
+It does this by comparing file content both against a set of allowed characters
+and against empirically-calibrated frequency expectations for all possible character combinations (n-grams).
 
 To see these transforms and validations in action,
 anyone can clone the repo and execute the Python scripts
@@ -58,12 +58,11 @@ The first files included in the repository serve as examples:
 ## Structural Markup
 
 HANSEL data is typified by plaintext structural markers preceding textual content.
-These primary markers and what they correspond to in TEI-XML are:
+The primary markers and what they correspond to in TEI-XML are:
 - Section markers `{...}` (on own line only) → `<div>` (flat, never nested)
 - Location markers `[...]` (either on own line or in-line with tab-separation) → either `<p>` or `<lg>` (latter can nest x1 for groups).
 - Tab `\t` indent → `<lg>`/`<l>`
-  - Prose material preceding/following on same lines as verse material represented by `<head>/<back>`
-  - Head-material on preceding line can be associated with below verse material with trailing underscore `_`.
+- Page markers `<page[col][,line]>` → `<pb>`, (possibly also `<cb>`, `<lb>`) (with `n` attribute)
 
 The location marker `[...]` is the heart of the structural markup,
 constituting a unique identifier for each part of the text.
@@ -72,14 +71,15 @@ Typical scopes are a prose paragraph
 or a verse or group of verses
 (in which case the label is either `page,starting_line_number` or the verse number).
 
-There are also milestone-type elements that further influence the generation of the XML tree:
-- Page markers `<page[col][,line]>` → `<pb>`, (possibly also `<cb>`, `<lb>`) (with `n` attribute)
-- Other structure markers `<...>` → `<milestone>` (with `n` attribute)
+Further structural notes use `<...>` → `<milestone>` (with `n` attribute).
 
-And line-end markup is interpreted strictly:
+For handling short bits of prose or annotations closely associated with verse material (e.g., closing iti):
+  - Material preceding/following on same lines as verse material represented by `<head>/<back>`, respectively
+  - Head-material on a preceding line can be manually associated with verse material below by using trailing underscore `_`, e.g., "uktaṃ ca |_".
+
+Line-end markup is interpreted strictly:
 - Newline `\n` → `<lb>` (with `n` attribute)
 - Hyphen `-` → `break="no"` attribute for `<pb>` and `<lb>` (and `<cb>`)
-- Underscore `_` used to indicate 
 
 A `--line-by-line` option in the XML conversion gives control 
 over handling of this line-end information.
@@ -97,17 +97,17 @@ The data model also includes editorial bracket sets that describe the evolving e
 
 Editorial markup as found in the printed edition itself 
 should be *interpreted* and *re-represented* in one of the above ways. 
-E.g., if the editor used `[...]` for an unwanted interpolation 
-or `(...)` to suggest a correction for some number of _akṣaras_, 
+E.g., if the editor used "[...]" for an unwanted interpolation 
+or "(...)" to suggest a correction for some number of _akṣaras_, 
 these would need to be interpreted with `≤...≥` 
 and a combination of `≤...≥«...»` (around the correct number of _akṣaras_), respectively.
-This represents an exception to the diplomatic transcription policy. 
+This constitutes an exception to the diplomatic transcription policy. 
 
-To a limited extent, these editorial markup elements allows for ongoing improvement of the material
-alongside retaining fidelity to a less-refined version of the text as presented in the source.
+In this way, to a limited extent, these editorial markup elements allows for ongoing improvement of the material
+alongside the goal of retaining fidelity to a less-refined version of the text as presented in the source.
 
-NB: The special characters above can be easily typed on Mac using the option `⌥` key:
-comma and period; backslash and vertical bar; and question mark, respectively.
+NB: The special characters above can be easily typed on Mac using the option `⌥` key +
+comma `,`, period `.`, backslash `\`, vertical bar `|`, and question mark `?`, respectively.
 
 
 ## Verse vs. Prose, Logical vs. Physical Orientation
@@ -127,14 +127,14 @@ structure must instead orient to the physical features of the edition:
 page and line numbers for the beginning of each paragraph.
 This reflects academic practice.
 
+NB: Section markers `{...}` can be used liberally to e.g.,
+divide a prose commentary according to the numbered verses of the base text
+on which it relies.
+
 Especially in conjunction with the latter type,
 line-by-line diplomatic representation, complete with line-final hyphenation,
 enables later automatic derivation of line number information for the purpose of creating location markers,
 freeing the transcriber from the burden of manually counting lines during digitization.
-
-Note also that section markers `{...}` can be used liberally to e.g.,
-divide a prose commentary according to the numbered verses of the base text
-on which it relies.
 
 
 # Character Set
@@ -142,7 +142,7 @@ on which it relies.
 The transliteration scheme used is IAST, with the following preferences:
 - pre-composed characters (e.g., single-character `ṝ` rather than triple-character `ṝ`)
 - standard IAST `ṃ ṛ ḷ e o` (rather than ISO 15919 `ṁ r̥ l̥ ē ō`)
-- special chars `ḻ ẖ ḫ lṁ` for `ळ ᳵ ᳶ लँ`
+- special chars `ḻ ẖ ḫ ṁl` for `ळ ᳵ ᳶ लँ`
 - lowercase except for e.g. emphasis of proper names or indication of grammatical _anubandhas_
 - Prakrit: diaresis `¨`for otherwise ambiguous intra-word vowel hiatus (e.g., jaïo), breve `˘` for short vowels (ĕ ŏ)
 

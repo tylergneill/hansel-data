@@ -67,7 +67,6 @@ def configure_cli(parser: argparse.ArgumentParser):
     )
 
 
-
 def cli():
     parser = argparse.ArgumentParser(
         description="Convert plaintext into TEI-XML"
