@@ -2,10 +2,10 @@
 
 HANSEL's Sanskrit e-text data model, based on plaintext, originates in the Pramāṇa NLP project.
 
-It focuses primarily on the following:
+It focuses primarily on representing the following:
 - printed editions — NOT manuscripts or born-digital editions
 - single-work texts — NOT books with multiple works typeset in parallel
-- natural langauge — NOT philological detail like notes, apparatus, etc.
+- natural language — NOT philological detail like notes, apparatus, etc.
 - diplomatic transcription that e.g. OCR would see — NOT born-digital improvements
  
 These latter things aren't necessarily precluded by the data model,
@@ -14,10 +14,10 @@ but insofar as it supports them, they are secondary.
 The goal is to have e-texts that are both useful for humans
 (readable and easy to cross-reference against source material)
 and consistently structured for machines
-(automatically parsable, with comprehensive identifiers).
+(automatically parsable, with unique identifiers).
 They should also be easy to compare against fresh OCR output,
 in order to enable continuous improvement.
-For that reason, these e-texts tend toward line-by-line representation.
+For this latter reason, these e-texts tend toward line-by-line representation.
 
 
 # Embodiment through Validation and Conversion Processes
@@ -33,11 +33,11 @@ insofar as they successfully survive automatic transformations from plaintext to
 this XML can then be used to render HTML for web presentation, etc. —
 and back again from the produced XML to plaintext, which should match the original.
 
-2. A structural validation script can also detect basic violations of the suggested patterns.
-With regular structure able to be isolated from content in this way,
-the validation can then also check the (IAST) content of the files
-and compare this against known sets of allowed characters 
-and empirically-calibrated frequency expectations for all possible character combinations (n-grams).
+2. A structural validation script can also detect basic model violations.
+Also, insofar as structure can be automatically isolated from content for this purpose,
+validation can then also check the (IAST) Sanskrit content of the files.
+It does this by comparing file content both against a set of allowed characters
+and against empirically-calibrated frequency expectations for all possible character combinations (n-grams).
 
 To see these transforms and validations in action,
 anyone can clone the repo and execute the Python scripts
@@ -62,6 +62,7 @@ The primary markers and what they correspond to in TEI-XML are:
 - Section markers `{...}` (on own line only) → `<div>` (flat, never nested)
 - Location markers `[...]` (either on own line or in-line with tab-separation) → either `<p>` or `<lg>` (latter can nest x1 for groups).
 - Tab `\t` indent → `<lg>`/`<l>`
+- Page markers `<page[col][,line]>` → `<pb>`, (possibly also `<cb>`, `<lb>`) (with `n` attribute)
 
 The location marker `[...]` is the heart of the structural markup,
 constituting a unique identifier for each part of the text.
@@ -70,11 +71,9 @@ Typical scopes are a prose paragraph
 or a verse or group of verses
 (in which case the label is either `page,starting_line_number` or the verse number).
 
-There are also milestone-type elements that further influence the generation of the XML tree:
-- Page markers `<page[col][,line]>` → `<pb>`, (possibly also `<cb>`, `<lb>`) (with `n` attribute)
-- Other structure markers `<...>` → `<milestone>` (with `n` attribute)
+Further structural notes use `<...>` → `<milestone>` (with `n` attribute).
 
-For handling short bits of prose or annotations closely associated with verse material (e.g., iti):
+For handling short bits of prose or annotations closely associated with verse material (e.g., closing iti):
   - Material preceding/following on same lines as verse material represented by `<head>/<back>`, respectively
   - Head-material on a preceding line can be manually associated with verse material below by using trailing underscore `_`, e.g., "uktaṃ ca |_".
 
