@@ -34,6 +34,8 @@ def regenerate_html(xml_dir, html_dir):
             flags = flag_map.get(stem, "")
             if "--line-by-line" not in flags:
                 command.append("--no-line-numbers")
+            if "--verse-only" in flags:
+                command.append("--verse-only")
 
             subprocess.run(command)
 
