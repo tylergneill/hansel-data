@@ -4,9 +4,13 @@
     <title>kumArilabhaTTa_zlokavArtika.xml</title>
     <style>
         body { font-family: sans-serif; margin: 2em; }
-        #toc { border: 1px solid #ccc; padding: 10px; margin-bottom: 20px; }
-        #toc h2 { margin-top: 0; }
+        #toc { border: 1px solid #ccc; padding: 10px; margin-bottom: 20px; width: 30%; }
+        #toc h2 { margin-top: 0; cursor: pointer; user-select: none; }
+        #toc-caret { display: inline-block; transition: transform 0.2s; margin-left: 8px; }
+        #toc.expanded #toc-caret { transform: rotate(90deg); }
         #toc ul { list-style: none; padding-left: 0; }
+        #toc-list { margin-bottom: 0; max-height: 4.5em; /* Approx 3 lines */ overflow: hidden; transition: max-height 0.3s ease-out; }
+        #toc.expanded #toc-list { max-height: 500px; /* Large enough for content */ overflow-x: auto; overflow-y: auto; transition: max-height 0.5s ease-in; }
         #toc li { margin-bottom: 5px; }
         .button-container { position: fixed; top: 10px; right: 10px; z-index: 1000; }
         .button-container button { display: block; margin-bottom: 5px; }
@@ -51,16 +55,23 @@
         function toggleBreaks() {
             document.getElementById("content").classList.toggle("show-breaks");
         }
+        function toggleToc() {
+            document.getElementById('toc').classList.toggle('expanded');
+        }
     
         document.addEventListener('DOMContentLoaded', (event) => {
+            const tocHeader = document.querySelector('#toc h2');
+            if (tocHeader) {
+                tocHeader.addEventListener('click', toggleToc);
+            }
+    
             const slider = document.getElementById('width-slider');
             if (slider) {
                 slider.addEventListener('input', (e) => {
                     document.documentElement.style.setProperty('--left-col-width', e.target.value + '%');
                 });
             }
-        });
-        </script>
+        });</script>
   </head>
   <body>
     <div class="button-container">
@@ -71,87 +82,87 @@
       <button onclick="toggleBreaks()">Show page break info</button>
     </div>
     <div id="toc">
-      <h2>Table of Contents</h2>
-      <ul>
+      <h2>Table of Contents <span id="toc-caret">▶</span></h2>
+      <ul id="toc-list">
         <li>
-          <a href="#section_1_pratijñāsūtra_PJS">1 pratijñāsūtra PJS (starts on page 3)</a>
+          <a href="#1_pratijñāsūtra_PJS">1 pratijñāsūtra PJS (starts on page 3)</a>
         </li>
         <li>
-          <a href="#section_2_codanāsūtra_CDS">2 codanāsūtra CDS (starts on page 35)</a>
+          <a href="#2_codanāsūtra_CDS">2 codanāsūtra CDS (starts on page 35)</a>
         </li>
         <li>
-          <a href="#section_3_nimittasūtra_NMS">3 nimittasūtra NMS (starts on page N/A)</a>
+          <a href="#3_nimittasūtra_NMS">3 nimittasūtra NMS (starts on page N/A)</a>
         </li>
         <li>
-          <a href="#section_4_pratyakṣasūtra_PAS">4 pratyakṣasūtra PAS (starts on page 97)</a>
+          <a href="#4_pratyakṣasūtra_PAS">4 pratyakṣasūtra PAS (starts on page 97)</a>
         </li>
         <li>
-          <a href="#section_5,1_vṛttikāragrantha_VKG">5,1 vṛttikāragrantha VKG (starts on page 149)</a>
+          <a href="#5,1_vṛttikāragrantha_VKG">5,1 vṛttikāragrantha VKG (starts on page 149)</a>
         </li>
         <li>
-          <a href="#section_5.2">5.2 (starts on page 153)</a>
+          <a href="#5.2">5.2 (starts on page 153)</a>
         </li>
         <li>
-          <a href="#section_5,3_nirālambanavāda_NAV">5,3 nirālambanavāda NAV (starts on page 156)</a>
+          <a href="#5,3_nirālambanavāda_NAV">5,3 nirālambanavāda NAV (starts on page 156)</a>
         </li>
         <li>
-          <a href="#section_5,4_śunyavāda_SNV">5,4 śunyavāda SNV (starts on page 192)</a>
+          <a href="#5,4_śunyavāda_SNV">5,4 śunyavāda SNV (starts on page 192)</a>
         </li>
         <li>
-          <a href="#section_5,5_anumānapariccheda_AMP">5,5 anumānapariccheda AMP (starts on page 246)</a>
+          <a href="#5,5_anumānapariccheda_AMP">5,5 anumānapariccheda AMP (starts on page 246)</a>
         </li>
         <li>
-          <a href="#section_5,6_śabdapariccheda_SBP">5,6 śabdapariccheda SBP (starts on page 288)</a>
+          <a href="#5,6_śabdapariccheda_SBP">5,6 śabdapariccheda SBP (starts on page 288)</a>
         </li>
         <li>
-          <a href="#section_5,7_upamānapariccheda_UMP">5,7 upamānapariccheda UMP (starts on page 308)</a>
+          <a href="#5,7_upamānapariccheda_UMP">5,7 upamānapariccheda UMP (starts on page 308)</a>
         </li>
         <li>
-          <a href="#section_5,8_arthāpattipariccheda_AAP">5,8 arthāpattipariccheda AAP (starts on page 320)</a>
+          <a href="#5,8_arthāpattipariccheda_AAP">5,8 arthāpattipariccheda AAP (starts on page 320)</a>
         </li>
         <li>
-          <a href="#section_5,9_abhāvapariccheda_ABH">5,9 abhāvapariccheda ABH (starts on page 336)</a>
+          <a href="#5,9_abhāvapariccheda_ABH">5,9 abhāvapariccheda ABH (starts on page 336)</a>
         </li>
         <li>
-          <a href="#section_5,10_citrākṣepavāda_CAV">5,10 citrākṣepavāda CAV (starts on page 350)</a>
+          <a href="#5,10_citrākṣepavāda_CAV">5,10 citrākṣepavāda CAV (starts on page 350)</a>
         </li>
         <li>
-          <a href="#section_5,11_sambandhākṣepavāda_SAV">5,11 sambandhākṣepavāda SAV (starts on page 353)</a>
+          <a href="#5,11_sambandhākṣepavāda_SAV">5,11 sambandhākṣepavāda SAV (starts on page 353)</a>
         </li>
         <li>
-          <a href="#section_5,12_sphoṭavāda_SPH">5,12 sphoṭavāda SPH (starts on page 362)</a>
+          <a href="#5,12_sphoṭavāda_SPH">5,12 sphoṭavāda SPH (starts on page 362)</a>
         </li>
         <li>
-          <a href="#section_5,13_ākṛtivāda_AKV">5,13 ākṛtivāda AKV (starts on page 385)</a>
+          <a href="#5,13_ākṛtivāda_AKV">5,13 ākṛtivāda AKV (starts on page 385)</a>
         </li>
         <li>
-          <a href="#section_5,14_apohavāda_APV">5,14 apohavāda APV (starts on page 400)</a>
+          <a href="#5,14_apohavāda_APV">5,14 apohavāda APV (starts on page 400)</a>
         </li>
         <li>
-          <a href="#section_5,15_vanavāda_VAV">5,15 vanavāda VAV (starts on page 436)</a>
+          <a href="#5,15_vanavāda_VAV">5,15 vanavāda VAV (starts on page 436)</a>
         </li>
         <li>
-          <a href="#section_5,16_sambandhākṣepaparihāra_SAP">5,16 sambandhākṣepaparihāra SAP (starts on page 453)</a>
+          <a href="#5,16_sambandhākṣepaparihāra_SAP">5,16 sambandhākṣepaparihāra SAP (starts on page 453)</a>
         </li>
         <li>
-          <a href="#section_5,17_citrākṣepaparihāra_CAP">5,17 citrākṣepaparihāra CAP (starts on page 483)</a>
+          <a href="#5,17_citrākṣepaparihāra_CAP">5,17 citrākṣepaparihāra CAP (starts on page 483)</a>
         </li>
         <li>
-          <a href="#section_5,18_ātmavāda_ATV">5,18 ātmavāda ATV (starts on page 488)</a>
+          <a href="#5,18_ātmavāda_ATV">5,18 ātmavāda ATV (starts on page 488)</a>
         </li>
         <li>
-          <a href="#section_6_śabdanityatādhikaraṇa_SNA">6 śabdanityatādhikaraṇa SNA (starts on page 516)</a>
+          <a href="#6_śabdanityatādhikaraṇa_SNA">6 śabdanityatādhikaraṇa SNA (starts on page 516)</a>
         </li>
         <li>
-          <a href="#section_7_vākyādhikaraṇa_VAA">7 vākyādhikaraṇa VAA (starts on page 598)</a>
+          <a href="#7_vākyādhikaraṇa_VAA">7 vākyādhikaraṇa VAA (starts on page 598)</a>
         </li>
         <li>
-          <a href="#section_8_vedapauruṣeyatādhikaraṇa_VPA">8 vedapauruṣeyatādhikaraṇa VPA (starts on page 670)</a>
+          <a href="#8_vedapauruṣeyatādhikaraṇa_VPA">8 vedapauruṣeyatādhikaraṇa VPA (starts on page 670)</a>
         </li>
       </ul>
     </div>
     <div id="content">
-      <h1 id="section_1_pratijñāsūtra_PJS">{1 pratijñāsūtra PJS}</h1>
+      <h1 id="1_pratijñāsūtra_PJS">{1 pratijñāsūtra PJS}</h1>
       <ol class="verses">
         <li class="verse" id="v1-1">
           <ol class="padas">
@@ -922,7 +933,7 @@
           </ol>
         </li>
       </ol>
-      <h1 id="section_2_codanāsūtra_CDS">{2 codanāsūtra CDS}</h1>
+      <h1 id="2_codanāsūtra_CDS">{2 codanāsūtra CDS}</h1>
       <ol class="verses">
         <li class="verse" id="v2-1">
           <ol class="padas">
@@ -2646,7 +2657,7 @@
           </ol>
         </li>
       </ol>
-      <h1 id="section_3_nimittasūtra_NMS">{3 nimittasūtra NMS}</h1>
+      <h1 id="3_nimittasūtra_NMS">{3 nimittasūtra NMS}</h1>
       <ol class="verses">
         <li class="verse" id="v3-1">
           <ol class="padas">
@@ -2661,7 +2672,7 @@
           </ol>
         </li>
       </ol>
-      <h1 id="section_4_pratyakṣasūtra_PAS">{4 pratyakṣasūtra PAS}</h1>
+      <h1 id="4_pratyakṣasūtra_PAS">{4 pratyakṣasūtra PAS}</h1>
       <ol class="verses">
         <li class="verse" id="v4-1">
           <ol class="padas">
@@ -4188,7 +4199,7 @@
           </ol>
         </li>
       </ol>
-      <h1 id="section_5,1_vṛttikāragrantha_VKG">{5,1 vṛttikāragrantha VKG}</h1>
+      <h1 id="5,1_vṛttikāragrantha_VKG">{5,1 vṛttikāragrantha VKG}</h1>
       <ol class="verses">
         <li class="verse" id="v5,1-1">
           <ol class="padas">
@@ -4287,7 +4298,7 @@
           </ol>
         </li>
       </ol>
-      <h1 id="section_5.2">{5.2}</h1>
+      <h1 id="5.2">{5.2}</h1>
       <ol class="verses">
         <li class="verse" id="v5,2-17">
           <ol class="padas">
@@ -4350,7 +4361,7 @@
           </ol>
         </li>
       </ol>
-      <h1 id="section_5,3_nirālambanavāda_NAV">{5,3 nirālambanavāda NAV}</h1>
+      <h1 id="5,3_nirālambanavāda_NAV">{5,3 nirālambanavāda NAV}</h1>
       <ol class="verses">
         <li class="verse" id="v5,3-1">
           <ol class="padas">
@@ -5560,7 +5571,7 @@
           </ol>
         </li>
       </ol>
-      <h1 id="section_5,4_śunyavāda_SNV">{5,4 śunyavāda SNV}</h1>
+      <h1 id="5,4_śunyavāda_SNV">{5,4 śunyavāda SNV}</h1>
       <ol class="verses">
         <li class="verse" id="v5,4-1">
           <ol class="padas">
@@ -7146,7 +7157,7 @@
           </ol>
         </li>
       </ol>
-      <h1 id="section_5,5_anumānapariccheda_AMP">{5,5 anumānapariccheda AMP}</h1>
+      <h1 id="5,5_anumānapariccheda_AMP">{5,5 anumānapariccheda AMP}</h1>
       <ol class="verses">
         <li class="verse" id="v5,5-1">
           <ol class="padas">
@@ -8277,7 +8288,7 @@
           </ol>
         </li>
       </ol>
-      <h1 id="section_5,6_śabdapariccheda_SBP">{5,6 śabdapariccheda SBP}</h1>
+      <h1 id="5,6_śabdapariccheda_SBP">{5,6 śabdapariccheda SBP}</h1>
       <ol class="verses">
         <li class="verse" id="v5,6-1">
           <ol class="padas">
@@ -8946,7 +8957,7 @@
           </ol>
         </li>
       </ol>
-      <h1 id="section_5,7_upamānapariccheda_UMP">{5,7 upamānapariccheda UMP}</h1>
+      <h1 id="5,7_upamānapariccheda_UMP">{5,7 upamānapariccheda UMP}</h1>
       <ol class="verses">
         <li class="verse" id="v5,7-1">
           <ol class="padas">
@@ -9273,7 +9284,7 @@
           </ol>
         </li>
       </ol>
-      <h1 id="section_5,8_arthāpattipariccheda_AAP">{5,8 arthāpattipariccheda AAP}</h1>
+      <h1 id="5,8_arthāpattipariccheda_AAP">{5,8 arthāpattipariccheda AAP}</h1>
       <ol class="verses">
         <li class="verse" id="v5,8-1">
           <ol class="padas">
@@ -9804,7 +9815,7 @@
           </ol>
         </li>
       </ol>
-      <h1 id="section_5,9_abhāvapariccheda_ABH">{5,9 abhāvapariccheda ABH}</h1>
+      <h1 id="5,9_abhāvapariccheda_ABH">{5,9 abhāvapariccheda ABH}</h1>
       <ol class="verses">
         <li class="verse" id="v5,9-1">
           <ol class="padas">
@@ -10155,7 +10166,7 @@
           </ol>
         </li>
       </ol>
-      <h1 id="section_5,10_citrākṣepavāda_CAV">{5,10 citrākṣepavāda CAV}</h1>
+      <h1 id="5,10_citrākṣepavāda_CAV">{5,10 citrākṣepavāda CAV}</h1>
       <ol class="verses">
         <li class="verse" id="v5,10-1">
           <ol class="padas">
@@ -10248,7 +10259,7 @@
           </ol>
         </li>
       </ol>
-      <h1 id="section_5,11_sambandhākṣepavāda_SAV">{5,11 sambandhākṣepavāda SAV}</h1>
+      <h1 id="5,11_sambandhākṣepavāda_SAV">{5,11 sambandhākṣepavāda SAV}</h1>
       <ol class="verses">
         <li class="verse" id="v5,11-1">
           <ol class="padas">
@@ -10527,7 +10538,7 @@
           </ol>
         </li>
       </ol>
-      <h1 id="section_5,12_sphoṭavāda_SPH">{5,12 sphoṭavāda SPH}</h1>
+      <h1 id="5,12_sphoṭavāda_SPH">{5,12 sphoṭavāda SPH}</h1>
       <ol class="verses">
         <li class="verse" id="v5,12-1">
           <ol class="padas">
@@ -11352,7 +11363,7 @@
           </ol>
         </li>
       </ol>
-      <h1 id="section_5,13_ākṛtivāda_AKV">{5,13 ākṛtivāda AKV}</h1>
+      <h1 id="5,13_ākṛtivāda_AKV">{5,13 ākṛtivāda AKV}</h1>
       <ol class="verses">
         <li class="verse" id="v5,13-1">
           <ol class="padas">
@@ -11812,7 +11823,7 @@
           </ol>
         </li>
       </ol>
-      <h1 id="section_5,14_apohavāda_APV">{5,14 apohavāda APV}</h1>
+      <h1 id="5,14_apohavāda_APV">{5,14 apohavāda APV}</h1>
       <ol class="verses">
         <li class="verse" id="v5,14-1">
           <ol class="padas">
@@ -12871,7 +12882,7 @@
           </ol>
         </li>
       </ol>
-      <h1 id="section_5,15_vanavāda_VAV">{5,15 vanavāda VAV}</h1>
+      <h1 id="5,15_vanavāda_VAV">{5,15 vanavāda VAV}</h1>
       <ol class="verses">
         <li class="verse" id="v5,15-1">
           <ol class="padas">
@@ -13457,7 +13468,7 @@
           </ol>
         </li>
       </ol>
-      <h1 id="section_5,16_sambandhākṣepaparihāra_SAP">{5,16 sambandhākṣepaparihāra SAP}</h1>
+      <h1 id="5,16_sambandhākṣepaparihāra_SAP">{5,16 sambandhākṣepaparihāra SAP}</h1>
       <ol class="verses">
         <li class="verse" id="v5,16-1">
           <ol class="padas">
@@ -14307,7 +14318,7 @@
           </ol>
         </li>
       </ol>
-      <h1 id="section_5,17_citrākṣepaparihāra_CAP">{5,17 citrākṣepaparihāra CAP}</h1>
+      <h1 id="5,17_citrākṣepaparihāra_CAP">{5,17 citrākṣepaparihāra CAP}</h1>
       <ol class="verses">
         <li class="verse" id="v5,17-1">
           <ol class="padas">
@@ -14466,7 +14477,7 @@
           </ol>
         </li>
       </ol>
-      <h1 id="section_5,18_ātmavāda_ATV">{5,18 ātmavāda ATV}</h1>
+      <h1 id="5,18_ātmavāda_ATV">{5,18 ātmavāda ATV}</h1>
       <ol class="verses">
         <li class="verse" id="v5,18-1">
           <ol class="padas">
@@ -15356,7 +15367,7 @@
           </ol>
         </li>
       </ol>
-      <h1 id="section_6_śabdanityatādhikaraṇa_SNA">{6 śabdanityatādhikaraṇa SNA}</h1>
+      <h1 id="6_śabdanityatādhikaraṇa_SNA">{6 śabdanityatādhikaraṇa SNA}</h1>
       <ol class="verses">
         <li class="verse" id="v6-1">
           <ol class="padas">
@@ -18023,7 +18034,7 @@
           </ol>
         </li>
       </ol>
-      <h1 id="section_7_vākyādhikaraṇa_VAA">{7 vākyādhikaraṇa VAA}</h1>
+      <h1 id="7_vākyādhikaraṇa_VAA">{7 vākyādhikaraṇa VAA}</h1>
       <ol class="verses">
         <li class="verse" id="v7-1">
           <ol class="padas">
@@ -20240,7 +20251,7 @@
           </ol>
         </li>
       </ol>
-      <h1 id="section_8_vedapauruṣeyatādhikaraṇa_VPA">{8 vedapauruṣeyatādhikaraṇa VPA}</h1>
+      <h1 id="8_vedapauruṣeyatādhikaraṇa_VPA">{8 vedapauruṣeyatādhikaraṇa VPA}</h1>
       <ol class="verses">
         <li class="verse" id="v8-1">
           <ol class="padas">

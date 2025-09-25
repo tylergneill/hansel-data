@@ -4,9 +4,13 @@
     <title>bANa_kAdambarI.xml</title>
     <style>
         body { font-family: sans-serif; margin: 2em; }
-        #toc { border: 1px solid #ccc; padding: 10px; margin-bottom: 20px; }
-        #toc h2 { margin-top: 0; }
+        #toc { border: 1px solid #ccc; padding: 10px; margin-bottom: 20px; width: 30%; }
+        #toc h2 { margin-top: 0; cursor: pointer; user-select: none; }
+        #toc-caret { display: inline-block; transition: transform 0.2s; margin-left: 8px; }
+        #toc.expanded #toc-caret { transform: rotate(90deg); }
         #toc ul { list-style: none; padding-left: 0; }
+        #toc-list { margin-bottom: 0; max-height: 4.5em; /* Approx 3 lines */ overflow: hidden; transition: max-height 0.3s ease-out; }
+        #toc.expanded #toc-list { max-height: 500px; /* Large enough for content */ overflow-x: auto; overflow-y: auto; transition: max-height 0.5s ease-in; }
         #toc li { margin-bottom: 5px; }
         .button-container { position: fixed; top: 10px; right: 10px; z-index: 1000; }
         .button-container button { display: block; margin-bottom: 5px; }
@@ -23,11 +27,20 @@
         function toggleBreaks() {
             document.getElementById("content").classList.toggle("show-breaks");
         }
+        function toggleToc() {
+            document.getElementById('toc').classList.toggle('expanded');
+        }
     
         function toggleLineBreaks() {
             document.getElementById("content").classList.toggle("show-line-breaks");
         }
-        </script>
+        
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const tocHeader = document.querySelector('#toc h2');
+            if (tocHeader) {
+                tocHeader.addEventListener('click', toggleToc);
+            }
+    });</script>
   </head>
   <body>
     <div class="button-container">
@@ -35,18 +48,18 @@
       <button onclick="toggleLineBreaks()">Toggle line breaks</button>
     </div>
     <div id="toc">
-      <h2>Table of Contents</h2>
-      <ul>
+      <h2>Table of Contents <span id="toc-caret">▶</span></h2>
+      <ul id="toc-list">
         <li>
-          <a href="#section_pūrvabhāga">pūrvabhāga (starts on page 1)</a>
+          <a href="#pūrvabhāga">pūrvabhāga (starts on page 1)</a>
         </li>
         <li>
-          <a href="#section_uttarabhāga">uttarabhāga (starts on page 239)</a>
+          <a href="#uttarabhāga">uttarabhāga (starts on page 239)</a>
         </li>
       </ul>
     </div>
     <div id="content">
-      <h1 id="section_pūrvabhāga">{pūrvabhāga}</h1>
+      <h1 id="pūrvabhāga">{pūrvabhāga}</h1>
       <span class="pb" data-page="1">&lt;1,1&gt;</span>
       <br class="pb-br"/>
       <span class="milestone">[&lt;kādambarī |&gt;]</span>
@@ -612,7 +625,7 @@
       <p>etadākarṇya ca kṣaṇaṃ vicintya pratyavādīt | pattralekhe yathā katha<span class="hyphen">-</span><span class="lb" data-line="10">&lt;236,10&gt;</span><br class="lb-br"/>yasi tathā janoyaṃ kāritaḥ kumāre pakṣapātaṃ pañceṣuṇā | yānyasyaitāni <span class="lb" data-line="11">&lt;236,11&gt;</span><br class="lb-br"/> rūpāṇi samadhikāni vā tāni mayi vartante | hṛdayādavyatiriktāsī<span class="hyphen">-</span><span class="lb" data-line="12">&lt;236,12&gt;</span><br class="lb-br"/>dānīṃ bhavatīmeva pṛcchāmi | upadiśa tvaṃ yadatra me sāṃpratam | evaṃvidhānāṃ <span class="lb" data-line="13">&lt;236,13&gt;</span><br class="lb-br"/> vṛttāntānāmanabhijñāsmi | api ca me gurujanavaktavyatāṃ nītāyā nitarāṃ  <span class="lb" data-line="14">&lt;236,14&gt;</span><br class="lb-br"/> lajjitāyā jīvitānmaraṇameva śreyaḥ paśyati hṛdayam | ityevaṃvā<span class="hyphen">-</span><span class="lb" data-line="15">&lt;236,15&gt;</span><br class="lb-br"/>dinīṃ bhūyastāmahamevamavocam | alamalamidānīṃ devi kimanenākāraṇa<span class="hyphen">-</span><span class="lb" data-line="16">&lt;236,16&gt;</span><br class="lb-br"/>maraṇānubandhena | anārādhitaprasannena kusumaśareṇa bhagavatā te varo <span class="lb" data-line="17">&lt;236,17&gt;</span><br class="lb-br"/> dattaḥ | kā cātra gurujanavaktavyatā yadā khalu kanyakāṃ gururiva  <span class="lb" data-line="18">&lt;236,18&gt;</span><br class="lb-br"/> pañcaśaraḥ saṃkalpayati mātevānumodate piteva dadāti sakhīvotkaṇṭhāṃ  <span class="lb" data-line="19">&lt;236,19&gt;</span><br class="lb-br"/> janayati dhātrīva taruṇatāyāṃ ratyupacāraṃ śikṣayati | kimiva katha<span class="hyphen">-</span><span class="lb" data-line="20">&lt;236,20&gt;</span><br class="lb-br"/>yāmi te yāḥ svayaṃ vṛtavatyaḥ patīn | yadi ca naivamanarthaka eva tarhi <span class="lb" data-line="21">&lt;236,21&gt;</span><br class="lb-br"/> dharmaśāstropadiṣṭaḥ svayaṃvaravidhiḥ | tatprasīda devi | alamamunā mara<span class="hyphen">-</span><span class="lb" data-line="22">&lt;236,22&gt;</span><br class="lb-br"/>ṇānubandhena śape te pādapaṅkajasparśena | saṃdiśa preṣaya mām | yāmyāna<span class="hyphen">-</span><span class="lb" data-line="23">&lt;236,23&gt;</span><br class="lb-br"/>yāmi devi te hṛdayadayitam | ityevamukte mayā prītidravārdrayā dṛṣṭyā <span class="pb" data-page="237">&lt;237,1&gt;</span><br class="pb-br"/> pibantīva māṃ nirudhyamānairapi makaraketuśarajarjaritāṃ bhittveva lajjāṃ  <span class="lb" data-line="2">&lt;237,2&gt;</span><br class="lb-br"/> labdhāntarairnipatadbhiranurāgavibhramairākulīkriyamāṇā priyavacanaśravaṇa<span class="hyphen">-</span><span class="lb" data-line="3">&lt;237,3&gt;</span><br class="lb-br"/>prītyā ca svedāśliṣṭamutkṣipya romāñcajālakena dadhatīvottarīyāṃśukaṃ <span class="lb" data-line="4">&lt;237,4&gt;</span><br class="lb-br"/> preṅkhatkuṇḍalamāṇikyapattramakarakoṭilagnaṃ ca śaśikiraṇamayaṃ maraṇapā<span class="hyphen">-</span><span class="lb" data-line="5">&lt;237,5&gt;</span><br class="lb-br"/>śamiva makaraketunā nihitaṃ kaṇṭhe hāramunmocayantī praharṣavihvalāntaḥ<span class="hyphen">-</span><span class="lb" data-line="6">&lt;237,6&gt;</span><br class="lb-br"/>karaṇāpi kanyakājanasahajāṃ lajjāmivāvalambya śanairavadat | <span class="lb" data-line="7">&lt;237,7&gt;</span><br class="lb-br"/></p>
       <h2>237,7</h2>
       <p>jānāmi te garīyasīṃ prītim | kevalamakaṭhoraśirīṣapuṣpamṛduprakṛteḥ <span class="lb" data-line="8">&lt;237,8&gt;</span><br class="lb-br"/> kutaḥ prāgalbhyametāvannārījanasya viśeṣato bālabhāvabhājaḥ kumārīlo<span class="hyphen">-</span><span class="lb" data-line="9">&lt;237,9&gt;</span><br class="lb-br"/>kasya | sāhasakāriṇyastā yāḥ svayaṃ saṃdiśanti samupasarpanti vā | <span class="lb" data-line="10">&lt;237,10&gt;</span><br class="lb-br"/> svayaṃ sāhasaṃ saṃdiśantī bālā jihremi | kiṃ vā saṃdiśāmi | atipri<span class="hyphen">-</span><span class="lb" data-line="11">&lt;237,11&gt;</span><br class="lb-br"/>yosīti paunaruktyaṃ tavāhaṃ priyātmeti jaḍapraśnastvayi garīyānanurāga <span class="lb" data-line="12">&lt;237,12&gt;</span><br class="lb-br"/> iti veśyālāpastvayā vinā na jīvāmītyanubhavavirodhaḥ paribhavati  <span class="lb" data-line="13">&lt;237,13&gt;</span><br class="lb-br"/> māmanaṅga ityātmadoṣopālambho manobhavenāhaṃ bhavate dattetyupasarpaṇo<span class="hyphen">-</span><span class="lb" data-line="14">&lt;237,14&gt;</span><br class="lb-br"/>pāyo balāddhṛtosi mayeti bandhakīdhārṣṭyamavaśyamāgantavyamiti saubhā<span class="hyphen">-</span><span class="lb" data-line="15">&lt;237,15&gt;</span><br class="lb-br"/>gyagarvaḥ svayamāgacchāmīti strīcāpalamananyaraktoyaṃ parijana iti <span class="lb" data-line="16">&lt;237,16&gt;</span><br class="lb-br"/> svabhaktinivedanalāghavaṃ pratyākhyānaśaṅkayā na saṃdiśāmītyaprabuddhabodha<span class="hyphen">-</span><span class="lb" data-line="17">&lt;237,17&gt;</span><br class="lb-br"/>namanapekṣitānujīvitaduḥkhadāruṇā syāmityatipraṇayitā jñāsyasi mara<span class="hyphen">-</span><span class="lb" data-line="18">&lt;237,18&gt;</span><br class="lb-br"/>ṇena prītimityasaṃbhāvyameveti | </p>
-      <h1 id="section_uttarabhāga">{uttarabhāga}</h1>
+      <h1 id="uttarabhāga">{uttarabhāga}</h1>
       <span class="pb" data-page="239">&lt;239,1&gt;</span>
       <br class="pb-br"/>
       <span class="milestone">[&lt;kādambarī |&gt;]</span>

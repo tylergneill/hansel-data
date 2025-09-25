@@ -17,7 +17,7 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
         section_name = div_section.get('n')
         first_pb = div_section.find('.//pb')
         start_page = first_pb.get('n') if first_pb is not None else 'N/A'
-        toc_data.append({'name': section_name, 'page': start_page, 'id': f'section_{section_name.replace(" ", "_")}'})
+        toc_data.append({'name': section_name, 'page': start_page, 'id': f'{section_name.replace(" ", "_")}'})
 
     # --- 2. HTML Head ---
     html = etree.Element("html")
@@ -30,9 +30,13 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
     style = etree.SubElement(head, "style")
     style_text = """
         body { font-family: sans-serif; margin: 2em; }
-        #toc { border: 1px solid #ccc; padding: 10px; margin-bottom: 20px; }
-        #toc h2 { margin-top: 0; }
+        #toc { border: 1px solid #ccc; padding: 10px; margin-bottom: 20px; width: 30%; }
+        #toc h2 { margin-top: 0; cursor: pointer; user-select: none; }
+        #toc-caret { display: inline-block; transition: transform 0.2s; margin-left: 8px; }
+        #toc.expanded #toc-caret { transform: rotate(90deg); }
         #toc ul { list-style: none; padding-left: 0; }
+        #toc-list { margin-bottom: 0; max-height: 4.5em; /* Approx 3 lines */ overflow: hidden; transition: max-height 0.3s ease-out; }
+        #toc.expanded #toc-list { max-height: 500px; /* Large enough for content */ overflow-x: auto; overflow-y: auto; transition: max-height 0.5s ease-in; }
         #toc li { margin-bottom: 5px; }
         .button-container { position: fixed; top: 10px; right: 10px; z-index: 1000; }
         .button-container button { display: block; margin-bottom: 5px; }
@@ -87,6 +91,9 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
         function toggleBreaks() {
             document.getElementById("content").classList.toggle("show-breaks");
         }
+        function toggleToc() {
+            document.getElementById('toc').classList.toggle('expanded');
+        }
     """
     if not verse_only:
         script_text += """
@@ -94,17 +101,24 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
             document.getElementById("content").classList.toggle("show-line-breaks");
         }
         """
-    else:  # verse_only
-        script_text += """
+
+    script_text += """
         document.addEventListener('DOMContentLoaded', (event) => {
+            const tocHeader = document.querySelector('#toc h2');
+            if (tocHeader) {
+                tocHeader.addEventListener('click', toggleToc);
+            }
+    """
+    if verse_only:
+        script_text += """
             const slider = document.getElementById('width-slider');
             if (slider) {
                 slider.addEventListener('input', (e) => {
                     document.documentElement.style.setProperty('--left-col-width', e.target.value + '%');
                 });
             }
-        });
         """
+    script_text += "});"
 
     script = etree.SubElement(head, "script")
     script.text = "SCRIPT_PLACEHOLDER"
@@ -143,8 +157,12 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
     toc_div = etree.SubElement(body, "div")
     toc_div.set("id", "toc")
     toc_h2 = etree.SubElement(toc_div, "h2")
-    toc_h2.text = "Table of Contents"
+    toc_h2.text = "Table of Contents "
+    caret = etree.SubElement(toc_h2, "span")
+    caret.set("id", "toc-caret")
+    caret.text = "▶"
     toc_ul = etree.SubElement(toc_div, "ul")
+    toc_ul.set("id", "toc-list")
     for item in toc_data:
         li = etree.SubElement(toc_ul, "li")
         a = etree.SubElement(li, "a")
@@ -158,7 +176,7 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
     if verse_only:
         for section in root.xpath('//body/div[@n]'):
             chapter_n_full = section.get('n')
-            section_id = f'section_{chapter_n_full.replace(" ", "_")}'
+            section_id = f'{chapter_n_full.replace(" ", "_")}'
 
             h1 = etree.SubElement(content_div, "h1")
             h1.set("id", section_id)
@@ -274,7 +292,7 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
 
         for section in root.xpath('//body/div[@n]'):
             section_name = section.get('n')
-            section_id = f'section_{section_name.replace(" ", "_")}'
+            section_id = f'{section_name.replace(" ", "_")}'
             h1 = etree.SubElement(content_div, "h1")
             h1.set("id", section_id)
             h1.text = f"{{{section_name}}}"

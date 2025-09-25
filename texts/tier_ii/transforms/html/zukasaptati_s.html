@@ -4,9 +4,13 @@
     <title>zukasaptati_s.xml</title>
     <style>
         body { font-family: sans-serif; margin: 2em; }
-        #toc { border: 1px solid #ccc; padding: 10px; margin-bottom: 20px; }
-        #toc h2 { margin-top: 0; }
+        #toc { border: 1px solid #ccc; padding: 10px; margin-bottom: 20px; width: 30%; }
+        #toc h2 { margin-top: 0; cursor: pointer; user-select: none; }
+        #toc-caret { display: inline-block; transition: transform 0.2s; margin-left: 8px; }
+        #toc.expanded #toc-caret { transform: rotate(90deg); }
         #toc ul { list-style: none; padding-left: 0; }
+        #toc-list { margin-bottom: 0; max-height: 4.5em; /* Approx 3 lines */ overflow: hidden; transition: max-height 0.3s ease-out; }
+        #toc.expanded #toc-list { max-height: 500px; /* Large enough for content */ overflow-x: auto; overflow-y: auto; transition: max-height 0.5s ease-in; }
         #toc li { margin-bottom: 5px; }
         .button-container { position: fixed; top: 10px; right: 10px; z-index: 1000; }
         .button-container button { display: block; margin-bottom: 5px; }
@@ -23,11 +27,20 @@
         function toggleBreaks() {
             document.getElementById("content").classList.toggle("show-breaks");
         }
+        function toggleToc() {
+            document.getElementById('toc').classList.toggle('expanded');
+        }
     
         function toggleLineBreaks() {
             document.getElementById("content").classList.toggle("show-line-breaks");
         }
-        </script>
+        
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const tocHeader = document.querySelector('#toc h2');
+            if (tocHeader) {
+                tocHeader.addEventListener('click', toggleToc);
+            }
+    });</script>
   </head>
   <body>
     <div class="button-container">
@@ -35,222 +48,222 @@
       <button onclick="toggleLineBreaks()">Toggle line breaks</button>
     </div>
     <div id="toc">
-      <h2>Table of Contents</h2>
-      <ul>
+      <h2>Table of Contents <span id="toc-caret">▶</span></h2>
+      <ul id="toc-list">
         <li>
-          <a href="#section_1">1 (starts on page 1)</a>
+          <a href="#1">1 (starts on page 1)</a>
         </li>
         <li>
-          <a href="#section_2">2 (starts on page 9)</a>
+          <a href="#2">2 (starts on page 9)</a>
         </li>
         <li>
-          <a href="#section_3">3 (starts on page 12)</a>
+          <a href="#3">3 (starts on page 12)</a>
         </li>
         <li>
-          <a href="#section_4">4 (starts on page 14)</a>
+          <a href="#4">4 (starts on page 14)</a>
         </li>
         <li>
-          <a href="#section_5">5 (starts on page 19)</a>
+          <a href="#5">5 (starts on page 19)</a>
         </li>
         <li>
-          <a href="#section_6">6 (starts on page 25)</a>
+          <a href="#6">6 (starts on page 25)</a>
         </li>
         <li>
-          <a href="#section_7">7 (starts on page 31)</a>
+          <a href="#7">7 (starts on page 31)</a>
         </li>
         <li>
-          <a href="#section_8">8 (starts on page 37)</a>
+          <a href="#8">8 (starts on page 37)</a>
         </li>
         <li>
-          <a href="#section_9">9 (starts on page 39)</a>
+          <a href="#9">9 (starts on page 39)</a>
         </li>
         <li>
-          <a href="#section_10">10 (starts on page 44)</a>
+          <a href="#10">10 (starts on page 44)</a>
         </li>
         <li>
-          <a href="#section_11">11 (starts on page 45)</a>
+          <a href="#11">11 (starts on page 45)</a>
         </li>
         <li>
-          <a href="#section_12">12 (starts on page 51)</a>
+          <a href="#12">12 (starts on page 51)</a>
         </li>
         <li>
-          <a href="#section_13">13 (starts on page 53)</a>
+          <a href="#13">13 (starts on page 53)</a>
         </li>
         <li>
-          <a href="#section_14">14 (starts on page 54)</a>
+          <a href="#14">14 (starts on page 54)</a>
         </li>
         <li>
-          <a href="#section_15">15 (starts on page 57)</a>
+          <a href="#15">15 (starts on page 57)</a>
         </li>
         <li>
-          <a href="#section_16">16 (starts on page 60)</a>
+          <a href="#16">16 (starts on page 60)</a>
         </li>
         <li>
-          <a href="#section_17">17 (starts on page 62)</a>
+          <a href="#17">17 (starts on page 62)</a>
         </li>
         <li>
-          <a href="#section_18">18 (starts on page 65)</a>
+          <a href="#18">18 (starts on page 65)</a>
         </li>
         <li>
-          <a href="#section_19">19 (starts on page 66)</a>
+          <a href="#19">19 (starts on page 66)</a>
         </li>
         <li>
-          <a href="#section_20">20 (starts on page 68)</a>
+          <a href="#20">20 (starts on page 68)</a>
         </li>
         <li>
-          <a href="#section_21">21 (starts on page 69)</a>
+          <a href="#21">21 (starts on page 69)</a>
         </li>
         <li>
-          <a href="#section_22">22 (starts on page 74)</a>
+          <a href="#22">22 (starts on page 74)</a>
         </li>
         <li>
-          <a href="#section_23">23 (starts on page 76)</a>
+          <a href="#23">23 (starts on page 76)</a>
         </li>
         <li>
-          <a href="#section_24">24 (starts on page 90)</a>
+          <a href="#24">24 (starts on page 90)</a>
         </li>
         <li>
-          <a href="#section_25">25 (starts on page 92)</a>
+          <a href="#25">25 (starts on page 92)</a>
         </li>
         <li>
-          <a href="#section_26">26 (starts on page 93)</a>
+          <a href="#26">26 (starts on page 93)</a>
         </li>
         <li>
-          <a href="#section_27">27 (starts on page 95)</a>
+          <a href="#27">27 (starts on page 95)</a>
         </li>
         <li>
-          <a href="#section_28">28 (starts on page 96)</a>
+          <a href="#28">28 (starts on page 96)</a>
         </li>
         <li>
-          <a href="#section_29">29 (starts on page 98)</a>
+          <a href="#29">29 (starts on page 98)</a>
         </li>
         <li>
-          <a href="#section_30">30 (starts on page 99)</a>
+          <a href="#30">30 (starts on page 99)</a>
         </li>
         <li>
-          <a href="#section_31">31 (starts on page 100)</a>
+          <a href="#31">31 (starts on page 100)</a>
         </li>
         <li>
-          <a href="#section_32">32 (starts on page 102)</a>
+          <a href="#32">32 (starts on page 102)</a>
         </li>
         <li>
-          <a href="#section_33">33 (starts on page 104)</a>
+          <a href="#33">33 (starts on page 104)</a>
         </li>
         <li>
-          <a href="#section_34">34 (starts on page 107)</a>
+          <a href="#34">34 (starts on page 107)</a>
         </li>
         <li>
-          <a href="#section_35">35 (starts on page 109)</a>
+          <a href="#35">35 (starts on page 109)</a>
         </li>
         <li>
-          <a href="#section_36">36 (starts on page 111)</a>
+          <a href="#36">36 (starts on page 111)</a>
         </li>
         <li>
-          <a href="#section_37">37 (starts on page 113)</a>
+          <a href="#37">37 (starts on page 113)</a>
         </li>
         <li>
-          <a href="#section_38">38 (starts on page 115)</a>
+          <a href="#38">38 (starts on page 115)</a>
         </li>
         <li>
-          <a href="#section_39">39 (starts on page 117)</a>
+          <a href="#39">39 (starts on page 117)</a>
         </li>
         <li>
-          <a href="#section_40">40 (starts on page 120)</a>
+          <a href="#40">40 (starts on page 120)</a>
         </li>
         <li>
-          <a href="#section_41">41 (starts on page 122)</a>
+          <a href="#41">41 (starts on page 122)</a>
         </li>
         <li>
-          <a href="#section_42">42 (starts on page 126)</a>
+          <a href="#42">42 (starts on page 126)</a>
         </li>
         <li>
-          <a href="#section_43">43 (starts on page 129)</a>
+          <a href="#43">43 (starts on page 129)</a>
         </li>
         <li>
-          <a href="#section_44">44 (starts on page 131)</a>
+          <a href="#44">44 (starts on page 131)</a>
         </li>
         <li>
-          <a href="#section_45">45 (starts on page 132)</a>
+          <a href="#45">45 (starts on page 132)</a>
         </li>
         <li>
-          <a href="#section_46">46 (starts on page 135)</a>
+          <a href="#46">46 (starts on page 135)</a>
         </li>
         <li>
-          <a href="#section_47">47 (starts on page 137)</a>
+          <a href="#47">47 (starts on page 137)</a>
         </li>
         <li>
-          <a href="#section_48">48 (starts on page 139)</a>
+          <a href="#48">48 (starts on page 139)</a>
         </li>
         <li>
-          <a href="#section_49">49 (starts on page 142)</a>
+          <a href="#49">49 (starts on page 142)</a>
         </li>
         <li>
-          <a href="#section_50">50 (starts on page 143)</a>
+          <a href="#50">50 (starts on page 143)</a>
         </li>
         <li>
-          <a href="#section_51">51 (starts on page 146)</a>
+          <a href="#51">51 (starts on page 146)</a>
         </li>
         <li>
-          <a href="#section_52">52 (starts on page 147)</a>
+          <a href="#52">52 (starts on page 147)</a>
         </li>
         <li>
-          <a href="#section_53">53 (starts on page 152)</a>
+          <a href="#53">53 (starts on page 152)</a>
         </li>
         <li>
-          <a href="#section_54">54 (starts on page 153)</a>
+          <a href="#54">54 (starts on page 153)</a>
         </li>
         <li>
-          <a href="#section_55">55 (starts on page 156)</a>
+          <a href="#55">55 (starts on page 156)</a>
         </li>
         <li>
-          <a href="#section_56">56 (starts on page 158)</a>
+          <a href="#56">56 (starts on page 158)</a>
         </li>
         <li>
-          <a href="#section_57">57 (starts on page 159)</a>
+          <a href="#57">57 (starts on page 159)</a>
         </li>
         <li>
-          <a href="#section_58">58 (starts on page 166)</a>
+          <a href="#58">58 (starts on page 166)</a>
         </li>
         <li>
-          <a href="#section_59">59 (starts on page 168)</a>
+          <a href="#59">59 (starts on page 168)</a>
         </li>
         <li>
-          <a href="#section_60">60 (starts on page 173)</a>
+          <a href="#60">60 (starts on page 173)</a>
         </li>
         <li>
-          <a href="#section_61">61 (starts on page 175)</a>
+          <a href="#61">61 (starts on page 175)</a>
         </li>
         <li>
-          <a href="#section_62">62 (starts on page 180)</a>
+          <a href="#62">62 (starts on page 180)</a>
         </li>
         <li>
-          <a href="#section_63">63 (starts on page 184)</a>
+          <a href="#63">63 (starts on page 184)</a>
         </li>
         <li>
-          <a href="#section_64">64 (starts on page 185)</a>
+          <a href="#64">64 (starts on page 185)</a>
         </li>
         <li>
-          <a href="#section_65">65 (starts on page 186)</a>
+          <a href="#65">65 (starts on page 186)</a>
         </li>
         <li>
-          <a href="#section_66">66 (starts on page 187)</a>
+          <a href="#66">66 (starts on page 187)</a>
         </li>
         <li>
-          <a href="#section_67">67 (starts on page 190)</a>
+          <a href="#67">67 (starts on page 190)</a>
         </li>
         <li>
-          <a href="#section_68">68 (starts on page 195)</a>
+          <a href="#68">68 (starts on page 195)</a>
         </li>
         <li>
-          <a href="#section_69">69 (starts on page 196)</a>
+          <a href="#69">69 (starts on page 196)</a>
         </li>
         <li>
-          <a href="#section_70">70 (starts on page 198)</a>
+          <a href="#70">70 (starts on page 198)</a>
         </li>
       </ul>
     </div>
     <div id="content">
-      <h1 id="section_1">{1}</h1>
+      <h1 id="1">{1}</h1>
       <span class="pb" data-page="1">&lt;1,1&gt;</span>
       <br class="pb-br"/>
       <h2>1,1</h2>
@@ -299,7 +312,7 @@
       </div>
       <h2>8,11</h2>
       <p>iti śukasaptatau prathamā kathā || </p>
-      <h1 id="section_2">{2}</h1>
+      <h1 id="2">{2}</h1>
       <span class="pb" data-page="9">&lt;9,1&gt;</span>
       <br class="pb-br"/>
       <h2>9,1</h2>
@@ -317,7 +330,7 @@
       <div class="lg"/>
       <h2>11,5</h2>
       <p>iti śukakathāṃ śrutvā prabhāvatī suptā || <span class="lb" data-line="6">&lt;11,6&gt;</span><br class="lb-br"/> iti śukasaptatau dvitīyā kathā ||  <span class="lb" data-line="7">&lt;11,7&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_3">{3}</h1>
+      <h1 id="3">{3}</h1>
       <h2>11,7</h2>
       <p>athānyadine prabhāvatī śukaṃ pṛcchati | śukaḥ | <span class="lb" data-line="8">&lt;11,8&gt;</span><br class="lb-br"/></p>
       <h2>11,8</h2>
@@ -334,7 +347,7 @@
       </div>
       <h2>13,2</h2>
       <p>tato rājā ekānte tayor nirṇayam acintayat | tat kathaya kathaṃ niścayaḥ <span class="lb" data-line="3">&lt;13,3&gt;</span><br class="lb-br"/> syād iti praśnaḥ | śukaḥ | sa rājā labdhopāyas tadvimalabhāryādvayaṃ pṛthak  <span class="lb" data-line="4">&lt;13,4&gt;</span><br class="lb-br"/> pṛthak saṃsthāpya pṛṣṭavān | kiṃ yuvayoḥ pāṇigrahaṇe bhartrā vibhūṣaṇaṃ pradattaṃ  <span class="lb" data-line="5">&lt;13,5&gt;</span><br class="lb-br"/> dhanaṃ ca | paścāt kiṃ jalpitaṃ prathamasaṅge ca kā vārttā bhartrā sahābhūt |  <span class="lb" data-line="6">&lt;13,6&gt;</span><br class="lb-br"/> kā mātā kaś ca pitā | kiṃ kulam | kā jātiḥ | ity evaṃ pṛṣṭābhyāṃ  <span class="lb" data-line="7">&lt;13,7&gt;</span><br class="lb-br"/> yathālabdhaṃ yathāvṛttaṃ yathāproktaṃ yathāsuptaṃ sarvaṃ tābhyāṃ kathitam | paścāt tu  <span class="lb" data-line="8">&lt;13,8&gt;</span><br class="lb-br"/> tau puruṣau pṛṣṭau parasparaṃ visaṃvadantau | tato bhāryādvayasya rukmiṇīsundarīnāmadheyasya  <span class="lb" data-line="9">&lt;13,9&gt;</span><br class="lb-br"/> yaḥ saṃvādaṃ vadati sa satyaḥ | itaras tu dhūrto rājñā  <span class="lb" data-line="10">&lt;13,10&gt;</span><br class="lb-br"/> nirvāsitaḥ | satyas tu rājñā sabhāryaḥ satkṛtaḥ svagṛhaṃ gataḥ | iti mahārājabuddhiḥ |  <span class="lb" data-line="11">&lt;13,11&gt;</span><br class="lb-br"/> iti kathāṃ śrutvā prabhāvatī suptā ||  <span class="lb" data-line="12">&lt;13,12&gt;</span><br class="lb-br"/> iti śukasaptatau tṛtīyā kathā ||  </p>
-      <h1 id="section_4">{4}</h1>
+      <h1 id="4">{4}</h1>
       <span class="pb" data-page="14">&lt;14,1&gt;</span>
       <br class="pb-br"/>
       <h2>14,1</h2>
@@ -361,7 +374,7 @@
       <div class="lg"/>
       <h2>18,9</h2>
       <p>iti kathāṃ śrutvā prabhāvatī suptā || <span class="lb" data-line="10">&lt;18,10&gt;</span><br class="lb-br"/> iti śukasaptatau caturthī kathā ||  <span class="lb" data-line="11">&lt;18,11&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_5">{5}</h1>
+      <h1 id="5">{5}</h1>
       <h2>18,11</h2>
       <p>punar anyadine sā gamanāya śukaṃ pṛcchati | śukaḥ | <span class="lb" data-line="12">&lt;18,12&gt;</span><br class="lb-br"/></p>
       <h2>18,12</h2>
@@ -422,7 +435,7 @@
       </div>
       <h2>24,8</h2>
       <p>tataḥ sado mūḍhaṃ dṛṣṭvā bālapaṇḍitā utthāya yayau | śuko 'py āha | <span class="lb" data-line="9">&lt;24,9&gt;</span><br class="lb-br"/> ahaṃ prātaḥ kathayiṣye | iti kīroktiṃ śrutvā prabhāvatī suptā ||  <span class="lb" data-line="10">&lt;24,10&gt;</span><br class="lb-br"/> iti śukasaptatau pañcamī kathā ||  <span class="lb" data-line="11">&lt;24,11&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_6">{6}</h1>
+      <h1 id="6">{6}</h1>
       <h2>24,11</h2>
       <p>athāparasmin divase prabhāvatī śukaṃ prāha | śuka sa matsyahāsyavyatikaro <span class="lb" data-line="12">&lt;24,12&gt;</span><br class="lb-br"/> rājñā jñāto na veti | śuka āha | sa nṛpaḥ ślokārtham ajānan na  <span class="lb" data-line="13">&lt;24,13&gt;</span><br class="lb-br"/> nidrāṃ lebhe |  <span class="pb" data-page="25">&lt;25,1&gt;</span><br class="pb-br"/></p>
       <h2>25,1</h2>
@@ -490,7 +503,7 @@
       </div>
       <h2>29,13</h2>
       <p>sā ca patimukhāt śrutvā sakhīpuro jagāda | tayā cātmapatiḥ kuṭhārahastaḥ <span class="pb" data-page="30">&lt;30,1&gt;</span><br class="pb-br"/> preṣito vināyakapārśve | so 'pi padminīpatiś ca prātas tatra  <span class="lb" data-line="2">&lt;30,2&gt;</span><br class="lb-br"/> jagāma | vināyako 'pi tau dvāv api mayūrabandhair bandhayām āsa | so 'pi  <span class="lb" data-line="3">&lt;30,3&gt;</span><br class="lb-br"/> ca padminīpatir uktaḥ | re tvadīya evāyam anarthaḥ | tatas tvayy eva daṇḍo  <span class="lb" data-line="4">&lt;30,4&gt;</span><br class="lb-br"/> yujyate | tataḥ sakhīpatir yayāce | tān pañca maṇḍakān tasmai sa pradadau |  <span class="lb" data-line="5">&lt;30,5&gt;</span><br class="lb-br"/> tau dvāv api svaṃ svaṃ gṛhaṃ jagmatuḥ | tataḥ patyā padminī jalpitā |  <span class="lb" data-line="6">&lt;30,6&gt;</span><br class="lb-br"/> tvayā te pañcāpi maṇḍakā asmākaṃ spheṭitāḥ etasya dāpitāḥ | paścāttāpaṃ  <span class="lb" data-line="7">&lt;30,7&gt;</span><br class="lb-br"/> ca kurute | tatas tvam api rājendra māṃ mā pṛccha | tava paścāttāpo  <span class="lb" data-line="8">&lt;30,8&gt;</span><br class="lb-br"/> bhaviṣyati | idaṃ ślokaṃ svayam eva vicintaya | iti kathayitvā bālapaṇḍitā  <span class="lb" data-line="9">&lt;30,9&gt;</span><br class="lb-br"/> utthāya svagṛhaṃ gatā | iti kathāṃ śrutvā prabhāvatī suptā |  <span class="lb" data-line="10">&lt;30,10&gt;</span><br class="lb-br"/> iti śukasaptatau ṣaṣṭhī kathā ||  </p>
-      <h1 id="section_7">{7}</h1>
+      <h1 id="7">{7}</h1>
       <span class="pb" data-page="31">&lt;31,1&gt;</span>
       <br class="pb-br"/>
       <h2>31,1</h2>
@@ -528,7 +541,7 @@
       <div class="lg"/>
       <h2>35,11</h2>
       <p>sa ca janair vaideśiko 'yam iti jñātvā nirvāsitaḥ | tac ca sindūraṃ <span class="pb" data-page="36">&lt;36,1&gt;</span><br class="pb-br"/> yogīndram eva yayau | tato rājan vikramāditya sthagikāprītinibandhanāt  <span class="lb" data-line="2">&lt;36,2&gt;</span><br class="lb-br"/> tenākhyāte ca sindūre sthagikā naiva viprasya babhūva na ca sindūram |  <span class="lb" data-line="3">&lt;36,3&gt;</span><br class="lb-br"/> evaṃ tavāpi rājan ratiḥ prītiś ca na bhaviṣyati | evam uktvā bālapaṇḍitā  <span class="lb" data-line="4">&lt;36,4&gt;</span><br class="lb-br"/> gṛhaṃ jagāma | iti kathāṃ śrutvā prabhāvatī suptā |  <span class="lb" data-line="5">&lt;36,5&gt;</span><br class="lb-br"/> iti śukasaptatau saptamī kathā ||  <span class="lb" data-line="6">&lt;36,6&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_8">{8}</h1>
+      <h1 id="8">{8}</h1>
       <h2>36,6</h2>
       <p>athāparedyuḥ prabhāvatī śukaṃ pṛcchati | śuka uttaraṃ dadau | devi bālapaṇḍitā <span class="lb" data-line="7">&lt;36,7&gt;</span><br class="lb-br"/> dvitīye 'hni saṃyāte rājānaṃ prāha | deva nāgrahaḥ kartuṃ yujyate |  <span class="lb" data-line="8">&lt;36,8&gt;</span><br class="lb-br"/></p>
       <h2>36,8</h2>
@@ -542,7 +555,7 @@
       </div>
       <h2>38,6</h2>
       <p>atha cet jñātena ślokārthena prayojanaṃ tadā kalye svayam eva jñāpayiṣyāmi | <span class="lb" data-line="7">&lt;38,7&gt;</span><br class="lb-br"/> ity uktvā sā gṛhaṃ yayau | iti kathāṃ śrutvā prabhāvatī suptā ||  <span class="lb" data-line="8">&lt;38,8&gt;</span><br class="lb-br"/> iti śukasaptatau aṣṭamī kathā ||  <span class="lb" data-line="9">&lt;38,9&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_9">{9}</h1>
+      <h1 id="9">{9}</h1>
       <h2>38,9</h2>
       <p>athāparedyuḥ savismayā prabhāvatī śukaṃ pṛcchati sma | śuka kiṃ vijñātaṃ <span class="pb" data-page="39">&lt;39,1&gt;</span><br class="pb-br"/> vikramārkeṇa matsyahasanakāraṇam | śukaḥ prāha | devi na kim api rājñā  <span class="lb" data-line="2">&lt;39,2&gt;</span><br class="lb-br"/> svayaṃ jñātam | tato rājā prātar dvijasutām āhūya bālapaṇḍitāṃ prāha |  <span class="lb" data-line="3">&lt;39,3&gt;</span><br class="lb-br"/> tvayā ity uktaṃ yat tvaṃ svayam eva jñāsyasi | mayā tu kim api na jñātam |  <span class="lb" data-line="4">&lt;39,4&gt;</span><br class="lb-br"/> bālapaṇḍitā prāha | yadi rājann evam api mayā kathyamānaṃ na vetsi  <span class="lb" data-line="5">&lt;39,5&gt;</span><br class="lb-br"/> tataḥ śṛṇu | puṣpahāso nāma mantrī sarvamantriṇām agraṇīr nirdoṣo guptaḥ |  <span class="lb" data-line="6">&lt;39,6&gt;</span><br class="lb-br"/> kim iti niyantrito 'sti | rājā prāha | anvartho 'yaṃ puṣpahāsaḥ |  <span class="lb" data-line="7">&lt;39,7&gt;</span><br class="lb-br"/> yataḥ | yadāsau madīyāyāṃ saṃsadi hasati tadāsyāsyāt puṣpaprakaro  <span class="lb" data-line="8">&lt;39,8&gt;</span><br class="lb-br"/> nipatati | iyaṃ ca kathāpararājyamaṇḍaleṣu khyātābhūt | tatas taiḥ preṣitāḥ  <span class="lb" data-line="9">&lt;39,9&gt;</span><br class="lb-br"/> svīyapumāṃsaḥ kutūhalānveṣaṇāya | teṣu samāyāteṣu tena na hasitaṃ puṣpaprakaro  <span class="lb" data-line="10">&lt;39,10&gt;</span><br class="lb-br"/> 'pi nābhūt | iti kāraṇāt guptibandhaḥ | bālapaṇḍitā prāha |  <span class="pb" data-page="40">&lt;40,1&gt;</span><br class="pb-br"/> kenāpi kāraṇena mantriṇā na hasitam | rājan tatkāraṇaṃ tvayā jñātaṃ  <span class="lb" data-line="2">&lt;40,2&gt;</span><br class="lb-br"/> na vā | rājā prāha | mayā kim api na jñātam | bālapaṇḍitā  <span class="lb" data-line="3">&lt;40,3&gt;</span><br class="lb-br"/> prāha | tarhi katham idaṃ daṇḍaṃ kurvan pāpabhāk na bhavasi |  <span class="lb" data-line="4">&lt;40,4&gt;</span><br class="lb-br"/></p>
       <h2>40,4</h2>
@@ -573,7 +586,7 @@
       </div>
       <h2>43,2</h2>
       <p>iti kathāṃ śrutvā prabhāvatī suptā | <span class="lb" data-line="3">&lt;43,3&gt;</span><br class="lb-br"/> iti śukasaptatau navamī kathā ||  <span class="lb" data-line="4">&lt;43,4&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_10">{10}</h1>
+      <h1 id="10">{10}</h1>
       <h2>43,4</h2>
       <p>anyadā saśṛṅgārā prabhāvatī śukam āha | <span class="lb" data-line="5">&lt;43,5&gt;</span><br class="lb-br"/></p>
       <h2>43,5</h2>
@@ -585,7 +598,7 @@
       <p>prabhāvaty āha | katham etat | śuka āha | asti rājapuraṃ nāma sthānam | <span class="lb" data-line="8">&lt;43,8&gt;</span><br class="lb-br"/> tatra devasākhyaḥ kauṭumbikaḥ | tatkalatre śṛṅgāravatī subhagā ca | parasparaparitrāṇakṛtabandhaparāyaṇe |  <span class="lb" data-line="9">&lt;43,9&gt;</span><br class="lb-br"/> parapuruṣalampaṭe prasiddhe ratakarmaṇi | (|| 10.2 (= 82) ||) anyadā  <span class="lb" data-line="10">&lt;43,10&gt;</span><br class="lb-br"/> yāvat subhagā upapatinā saha gṛhāntar vidyate tāvad bahiḥsthānāt patir  <span class="lb" data-line="11">&lt;43,11&gt;</span><br class="lb-br"/> jhiṇṭahasto gṛhadvāri samāyayau | tadā sā kathaṃ bhavatv iti praśnaḥ |  <span class="pb" data-page="44">&lt;44,1&gt;</span><br class="pb-br"/></p>
       <h2>44,1</h2>
       <p>uttaram āha śukaḥ | tataḥ śṛṅgāradevyā sā nagnīkṛtya gṛhād bahir niṣkāśitā | <span class="lb" data-line="2">&lt;44,2&gt;</span><br class="lb-br"/> patir api kim idam iti bruvāṇo 'tyādarāt śṛṅgāradevyā uktaḥ |  <span class="lb" data-line="3">&lt;44,3&gt;</span><br class="lb-br"/> yat tvayā etāni jhiṇṭāni devyā upavanād ānītāni tata iyaṃ grahilā  <span class="lb" data-line="4">&lt;44,4&gt;</span><br class="lb-br"/> saṃjātā | tato yathāsthānaṃ gatvā muñca yathā praguṇā syāt | tataḥ sa  <span class="lb" data-line="5">&lt;44,5&gt;</span><br class="lb-br"/> mūḍho yāvad evaṃ kartuṃ bahir jagāma tāvat tayā gṛhād upapatir niṣkāśitaḥ |  <span class="lb" data-line="6">&lt;44,6&gt;</span><br class="lb-br"/> iti kathāṃ śrutvā prabhāvatī suptā |  <span class="lb" data-line="7">&lt;44,7&gt;</span><br class="lb-br"/> iti śukasaptatau daśamī kathā ||  <span class="lb" data-line="8">&lt;44,8&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_11">{11}</h1>
+      <h1 id="11">{11}</h1>
       <h2>44,8</h2>
       <p>pradoṣasamaye 'nyasmin kāminī kāmamohitā | vinayena śukaṃ prāha gacchāmi <span class="lb" data-line="9">&lt;44,9&gt;</span><br class="lb-br"/> yadi manyase | (|| 11.1 (= 83) ||) śukaḥ prāha |  <span class="lb" data-line="10">&lt;44,10&gt;</span><br class="lb-br"/></p>
       <h2>44,10</h2>
@@ -614,7 +627,7 @@
       <div class="lg"/>
       <h2>50,1</h2>
       <p>tayā ca phūtkṛte kim idam iti kurvāṇo bāndhavaiḥ saha dhāvito bhartā | <span class="lb" data-line="2">&lt;50,2&gt;</span><br class="lb-br"/> sa ca kathaṃ mucyate | iti praśnaḥ | uttaram | evaṃ ca sa brāhmaṇaḥ  <span class="lb" data-line="3">&lt;50,3&gt;</span><br class="lb-br"/> sabhayaḥ san tatpādayoḥ patito jagāda | svāmini prāṇān rakṣa | tavehitaṃ  <span class="lb" data-line="4">&lt;50,4&gt;</span><br class="lb-br"/> kariṣyāmi | evaṃ sthite sā dugdhasahitaṃ bhaktam aḍhaṃḍholayat antike  <span class="lb" data-line="5">&lt;50,5&gt;</span><br class="lb-br"/> jvalinam ajvālayat āgataṃ ca patiṃ jagāda | asya viṣūcikā utpannā |  <span class="lb" data-line="6">&lt;50,6&gt;</span><br class="lb-br"/> tato mayā phūtkṛtam | evam uktvā dugdhabhaktaṃ pradarśitam | patir api  <span class="lb" data-line="7">&lt;50,7&gt;</span><br class="lb-br"/> mūrkho dṛṣṭvā yayau | tataḥ sā patyau supte yadṛcchayā surataṃ cakāra |  <span class="lb" data-line="8">&lt;50,8&gt;</span><br class="lb-br"/> so 'pi ca māndyavyājān māsam ekaṃ sthitaḥ paścāj jagāma | iti śrutvā  <span class="lb" data-line="9">&lt;50,9&gt;</span><br class="lb-br"/> prabhāvatī suptā |  <span class="lb" data-line="10">&lt;50,10&gt;</span><br class="lb-br"/> iti śukasaptatau ekādaśī kathā ||  </p>
-      <h1 id="section_12">{12}</h1>
+      <h1 id="12">{12}</h1>
       <span class="pb" data-page="51">&lt;51,1&gt;</span>
       <br class="pb-br"/>
       <h2>51,1</h2>
@@ -626,7 +639,7 @@
       </div>
       <h2>51,4</h2>
       <p>asty atra nalaüḍāgrāme kulālo mahādhanaḥ | tasya bhāryā śobhikā <span class="lb" data-line="5">&lt;51,5&gt;</span><br class="lb-br"/> nāma paraṃ kulaṭā naralampaṭā ca | sā patyau bahir gate upapatisahitā  <span class="lb" data-line="6">&lt;51,6&gt;</span><br class="lb-br"/> gṛhāntaḥ krīḍati | tasyāś caivaṃ sthitāyā bhartā gṛhaṃ samāgamat |  <span class="lb" data-line="7">&lt;51,7&gt;</span><br class="lb-br"/> tadanantaraṃ sā kathaṃ bhavatv iti praśnaḥ |  <span class="lb" data-line="8">&lt;51,8&gt;</span><br class="lb-br"/> śukaḥ prāha | yadā ca tayā sa  <span class="lb" data-line="9">&lt;51,9&gt;</span><br class="lb-br"/> āgacchan jñātas tadā upapatir uktaḥ | caṭa tvaṃ vavvūlavṛkṣam | evaṃ ca sa  <span class="lb" data-line="10">&lt;51,10&gt;</span><br class="lb-br"/> tayā proktas tathā cakāra | tasya ca vṛkṣe caṭataḥ paridhānavastraṃ vilagnaṃ  <span class="lb" data-line="11">&lt;51,11&gt;</span><br class="lb-br"/> nagno 'pi vṛkṣam ārūḍhaḥ | tasmiṃś ca vṛkṣam ārūḍhe patiḥ prāha | kim idam iti |  <span class="pb" data-page="52">&lt;52,1&gt;</span><br class="pb-br"/> sā āha | ayaṃ śatrubhir abhibhūto 'dho vastram api tyaktvā vavvūlam adhirūḍhaḥ |  <span class="lb" data-line="2">&lt;52,2&gt;</span><br class="lb-br"/> tataḥ samāgatya tasyāḥ patinā vṛkṣān mandaṃ mandam uttārya sa svagṛhaṃ  <span class="lb" data-line="3">&lt;52,3&gt;</span><br class="lb-br"/> preṣitaḥ | tayā dhūrtayā ca saha hastatālaṃ hasitam | iti kathāṃ śrutvā  <span class="lb" data-line="4">&lt;52,4&gt;</span><br class="lb-br"/> prabhāvatī suptā |  <span class="lb" data-line="5">&lt;52,5&gt;</span><br class="lb-br"/> iti śukasaptatau dvādaśī kathā ||  <span class="lb" data-line="6">&lt;52,6&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_13">{13}</h1>
+      <h1 id="13">{13}</h1>
       <h2>52,6</h2>
       <p>athānyedyuḥ prabhāvatī śukaṃ pṛcchati | śuka āha | <span class="lb" data-line="7">&lt;52,7&gt;</span><br class="lb-br"/></p>
       <h2>52,7</h2>
@@ -636,7 +649,7 @@
       </div>
       <h2>52,9</h2>
       <p>asti nāgapuraṃ nāma sthānam | yatraiko vaṇik | tatpatnī rājikānāmnī <span class="lb" data-line="10">&lt;52,10&gt;</span><br class="lb-br"/> surūpā paraṃ duścāriṇī | vaṇiksutaś ca tāṃ narāntarāsaktāṃ na  <span class="lb" data-line="11">&lt;52,11&gt;</span><br class="lb-br"/> jānāti | tataś ca ekadā sa bhojanāya yadopaviṣṭas tadā upapatiḥ kṛtasaṃketo  <span class="lb" data-line="12">&lt;52,12&gt;</span><br class="lb-br"/> mārge gacchan tayā dṛṣṭaḥ | taṃ ca dṛṣṭvā gṛhe 'dya ghṛtaṃ nāsti ity uktvā  <span class="pb" data-page="53">&lt;53,1&gt;</span><br class="pb-br"/> dravyaṃ tatsakāśād ādāya ghṛtānayanadambhena veśmato nirgatya ca sā bahir  <span class="lb" data-line="2">&lt;53,2&gt;</span><br class="lb-br"/> jāreṇa saha ciraṃ sthitā | patis tu gṛhe kṣudhārtaḥ kruddhaś ca | tataḥ sā  <span class="lb" data-line="3">&lt;53,3&gt;</span><br class="lb-br"/> kathaṃ gṛhaṃ gantum arhati | iti praśnaḥ | uttaram | tataḥ sā hastau pādau  <span class="lb" data-line="4">&lt;53,4&gt;</span><br class="lb-br"/> mukhaṃ ca dhūlidhūsaraṃ vidhāya sadrammā dhūliṃ gṛhītvā gṛham āgatā |  <span class="lb" data-line="5">&lt;53,5&gt;</span><br class="lb-br"/> patiḥ kruddho raktekṣaṇaḥ kim idam ity āha | sā ca saniḥśvāsaṃ rudatī  <span class="lb" data-line="6">&lt;53,6&gt;</span><br class="lb-br"/> dhūlipuñjaṃ darśayitvā idam uvāca | yatkṛte tvaṃ kruddhaḥ sa te dravyo 'tra  <span class="lb" data-line="7">&lt;53,7&gt;</span><br class="lb-br"/> dhūlyāṃ patitaḥ | enām utkṣipya gṛhāṇa tvam | evam uktaḥ sa vilakṣaḥ  <span class="lb" data-line="8">&lt;53,8&gt;</span><br class="lb-br"/> tadaṅgāni vastrāñcalena saṃmārjya sāntvayām āsa vividhalālanaiḥ | iti  <span class="lb" data-line="9">&lt;53,9&gt;</span><br class="lb-br"/> kathāṃ śrutvā prabhāvatī suptā |  <span class="lb" data-line="10">&lt;53,10&gt;</span><br class="lb-br"/> iti śukasaptatau trayodaśī kathā ||  <span class="lb" data-line="11">&lt;53,11&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_14">{14}</h1>
+      <h1 id="14">{14}</h1>
       <h2>53,11</h2>
       <p>sā nitambinī anyedyuś calitā | śukenoktam | <span class="lb" data-line="12">&lt;53,12&gt;</span><br class="lb-br"/></p>
       <h2>53,12</h2>
@@ -654,7 +667,7 @@
       <div class="lg"/>
       <h2>55,7</h2>
       <p>tatas tvam api kuru vayaḥsāphalyam ity ukte dhanaśrīr jagāda | nāhaṃ vilambituṃ <span class="lb" data-line="8">&lt;55,8&gt;</span><br class="lb-br"/> sahāmi | yat tvayā bhavati tat śīghraṃ vidhehi | tatas tayā sā narāntareṇa  <span class="lb" data-line="9">&lt;55,9&gt;</span><br class="lb-br"/> yojitā | yadā ca sā tenātmāsaktā jñātā tadā tadīyaśiroveṇī  <span class="lb" data-line="10">&lt;55,10&gt;</span><br class="lb-br"/> chinnā | tatkāle ca patir deśāntarād ājagāma | tadā sā kathaṃ  <span class="lb" data-line="11">&lt;55,11&gt;</span><br class="lb-br"/> bhavatv iti praśnaḥ | śukaḥ prāha | yadā ca patir gṛhadvāram āyayau tadā  <span class="pb" data-page="56">&lt;56,1&gt;</span><br class="pb-br"/> tayottaraṃ vicintyoktam | nātha tvayā tāvad gṛhadvāri sthīyatāṃ yāvat sarvaṃ  <span class="lb" data-line="2">&lt;56,2&gt;</span><br class="lb-br"/> sajjaṃ vidhīyate | tena caivaṃ pratipanne sā madhye gatvā bhaṭṭārikāṃ pūjayitvā  <span class="lb" data-line="3">&lt;56,3&gt;</span><br class="lb-br"/> purato veṇīṃ sthāpayām āsa | evaṃ kṛtvā bahir nirgatya caraṇamaṇḍakaiḥ  <span class="lb" data-line="4">&lt;56,4&gt;</span><br class="lb-br"/> patiṃ gṛhāntar devīpurato nītvā jagāda | nātha pūjaya gṛhādhidevatām |  <span class="lb" data-line="5">&lt;56,5&gt;</span><br class="lb-br"/> tena pūjayatā veṇīṃ dṛṣṭvā uktam | kim idam iti |  <span class="lb" data-line="6">&lt;56,6&gt;</span><br class="lb-br"/> tayoktam | mayopayācitam āsīt | yadā me patiḥ sameṣyati tadā  <span class="lb" data-line="7">&lt;56,7&gt;</span><br class="lb-br"/> svāminy ahaṃ tavāgre veṇīṃ chetsyāmi | tad adhunā mayā kṛtam | sa ca  <span class="lb" data-line="8">&lt;56,8&gt;</span><br class="lb-br"/> mugdho devīṃ namaskṛtya tāṃ bahumānayām āsa | iti śrutvā prabhāvatī  <span class="lb" data-line="9">&lt;56,9&gt;</span><br class="lb-br"/> suptā |  <span class="lb" data-line="10">&lt;56,10&gt;</span><br class="lb-br"/> iti śukasaptatau caturdaśī kathā ||  <span class="lb" data-line="11">&lt;56,11&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_15">{15}</h1>
+      <h1 id="15">{15}</h1>
       <h2>56,11</h2>
       <p>anyadā sā calitā | <span class="lb" data-line="12">&lt;56,12&gt;</span><br class="lb-br"/></p>
       <h2>56,12</h2>
@@ -668,7 +681,7 @@
       <div class="lg"/>
       <h2>58,1</h2>
       <p>anyadā sā śvaśureṇa narāntarasahitā suptā dṛṣṭā | tataś caraṇān nūpuraṃ <span class="lb" data-line="2">&lt;58,2&gt;</span><br class="lb-br"/> śvaśureṇa cottāritaṃ tayā ca jñātam | tataḥ sā taṃ jāraṃ prasthāpya  <span class="lb" data-line="3">&lt;58,3&gt;</span><br class="lb-br"/> bhartāraṃ tatrānīya tena saha suptā | nidrāntare ca patir utthāpitaḥ kathitaṃ  <span class="lb" data-line="4">&lt;58,4&gt;</span><br class="lb-br"/> ca | tvadīyena pitrā nūpuram asmatpadādavatārya gṛhītam | evaṃvidhaṃ  <span class="lb" data-line="5">&lt;58,5&gt;</span><br class="lb-br"/> ca pātakaṃ kvāpi na dṛṣṭaṃ yad vadhūpādāt śvaśuro nūpuraṃ gṛhṇāti | tenoktam |  <span class="lb" data-line="6">&lt;58,6&gt;</span><br class="lb-br"/> prātaḥ pituḥ sakāśāt svayam arpayiṣyāmi | tena ca guṇākareṇa  <span class="lb" data-line="7">&lt;58,7&gt;</span><br class="lb-br"/> pitaraṃ nirbhartsya tatsakāśān nūpuraṃ yācitam | pitrā coktam | yad iyaṃ  <span class="lb" data-line="8">&lt;58,8&gt;</span><br class="lb-br"/> parapuruṣeṇa saha suptā dṛṣṭā ato mayā nūpuraṃ gṛhītam | tayoktam |  <span class="lb" data-line="9">&lt;58,9&gt;</span><br class="lb-br"/> tvatputreṇa saha suptāham āsam | ityarthe divyaṃ karomi | atraiva grāme  <span class="lb" data-line="10">&lt;58,10&gt;</span><br class="lb-br"/> uttarasyāṃ diśi yakṣo 'sti | tasya jaṅghāntarān nirgamiṣyāmi | yaḥ  <span class="lb" data-line="11">&lt;58,11&gt;</span><br class="lb-br"/> kaścit satyo bhavati sa jaṅghayor antarān niṣkrāmyatīti prasiddham | evaṃ  <span class="pb" data-page="59">&lt;59,1&gt;</span><br class="pb-br"/> śvaśureṇa cāṅgīkṛte sā kulaṭāsati dine jārasya gṛhe gatvā tam uvāca |  <span class="lb" data-line="2">&lt;59,2&gt;</span><br class="lb-br"/> bhoḥ kānta prātar ahaṃ divyārthaṃ yakṣasya jaṅghāntarān nirgamiṣyāmi | tvayā  <span class="lb" data-line="3">&lt;59,3&gt;</span><br class="lb-br"/> tatra samāgatya vātūlatvam āśritya mama kaṇṭhagraho vidheyaḥ | tena ca  <span class="lb" data-line="4">&lt;59,4&gt;</span><br class="lb-br"/> tathokte sā svagṛham ājagāma | atha prātaḥ samastamahājanaṃ melayitvā  <span class="lb" data-line="5">&lt;59,5&gt;</span><br class="lb-br"/> puṣpākṣatādikam ādāya yakṣāyatane gatvā samīpasarasi snānaṃ kṛtvā yakṣapūjārthaṃ  <span class="lb" data-line="6">&lt;59,6&gt;</span><br class="lb-br"/> samāgacchantyās tasyāḥ pūrvasaṃketito jāro grahilībhūtas tatkaṇṭhe  <span class="lb" data-line="7">&lt;59,7&gt;</span><br class="lb-br"/> nijabāhudvayaṃ yojayām āsa | tata āḥ kim etad ity abhidhāya sā punaḥ  <span class="lb" data-line="8">&lt;59,8&gt;</span><br class="lb-br"/> snānārthaṃ yayau | so 'pi grahilo lokaiḥ kaṇṭhe gṛhītvā tasmāt pradeśād  <span class="lb" data-line="9">&lt;59,9&gt;</span><br class="lb-br"/> dūrīkṛtaḥ | sāpi snānaṃ kṛtvā yakṣasamīpam āgatya puṣpagandhādyair abhyarcya  <span class="lb" data-line="10">&lt;59,10&gt;</span><br class="lb-br"/> sarvalokānāṃ śṛṇvatām uvāca | bho bhagavan yakṣa nijabhartāram enaṃ ca grahilaṃ  <span class="lb" data-line="11">&lt;59,11&gt;</span><br class="lb-br"/> vinā yady anyapuruṣaḥ spṛśati kadācana māṃ tadā tava jaṅghābhyāṃ sakāśān  <span class="lb" data-line="12">&lt;59,12&gt;</span><br class="lb-br"/> mama niṣkramaṇaṃ mā bhavatv ity abhidhāya sarvalokasamakṣam eva jaṅghayor madhye  <span class="lb" data-line="13">&lt;59,13&gt;</span><br class="lb-br"/> praviśya niṣkrāntā | yakṣo 'pi tadbuddhiṃ manasi ślāghamāna eva sthitaḥ |  <span class="lb" data-line="14">&lt;59,14&gt;</span><br class="lb-br"/> sāpi satīti samastalokaiḥ pūjitā svabhavanaṃ jagāma | evaṃ cet śriyādevīvat  <span class="lb" data-line="15">&lt;59,15&gt;</span><br class="lb-br"/> kartuṃ jānāsi tadā vraja | iti śrutvā prabhāvatī suptā |  <span class="lb" data-line="16">&lt;59,16&gt;</span><br class="lb-br"/> iti śukasaptatau pañcadaśī kathā ||  </p>
-      <h1 id="section_16">{16}</h1>
+      <h1 id="16">{16}</h1>
       <span class="pb" data-page="60">&lt;60,1&gt;</span>
       <br class="pb-br"/>
       <h2>60,1</h2>
@@ -680,7 +693,7 @@
       </div>
       <h2>60,5</h2>
       <p>tac chrutvā prabhāvaty āha | katham etat | so 'bravīt | asti vidiśā nāma <span class="lb" data-line="6">&lt;60,6&gt;</span><br class="lb-br"/> purī | tasyāṃ janavallabho nāma vaṇik | tasya bhāryā mugdhikā nāma  <span class="lb" data-line="7">&lt;60,7&gt;</span><br class="lb-br"/> capalā svairiṇī | yadā ca tayātiśayena vidūṣito 'yaṃ tadā bandhūnāṃ  <span class="lb" data-line="8">&lt;60,8&gt;</span><br class="lb-br"/> kathayām āsa yad iyaṃ bahiḥ śāyinī | yadā ca tair evam uktā tadā tayāpy  <span class="lb" data-line="9">&lt;60,9&gt;</span><br class="lb-br"/> uktam | ayam eva bahiḥśāyī sadaiva | māṃ mudhāpavādayati | tatas  <span class="lb" data-line="10">&lt;60,10&gt;</span><br class="lb-br"/> tair militvā nirbandhaḥ kṛtaḥ | yaḥ ko 'pi adyaprabhṛti bahiḥ śāyī so  <span class="lb" data-line="11">&lt;60,11&gt;</span><br class="lb-br"/> 'parādhī | evaṃ nirbandhe kṛte 'pi sā suptaṃ patiṃ vihāya bahir gatā |  <span class="pb" data-page="61">&lt;61,1&gt;</span><br class="pb-br"/> tasyāṃ ca bahir gatāyāṃ sa patir dvāraṃ dattvā suptaḥ | yadā ca bahiḥ krīḍāṃ  <span class="lb" data-line="2">&lt;61,2&gt;</span><br class="lb-br"/> kṛtvā samāgatāyāḥ sa patir dvāraṃ nodghāṭayati tadā sā kūpe dṛṣadaṃ kṣiptvā  <span class="lb" data-line="3">&lt;61,3&gt;</span><br class="lb-br"/> dvāradeśa eva sthitā | patir api kūpe patitā bhaviṣyatīti jñātvā  <span class="lb" data-line="4">&lt;61,4&gt;</span><br class="lb-br"/> dvāram udghāṭya bahir nirgataḥ | tadā sā dvāraṃ pidhāya madhye sthitā | so  <span class="lb" data-line="5">&lt;61,5&gt;</span><br class="lb-br"/> 'pi ca bahiḥ sthito hā priye evaṃ vadan mahatā śabdena roditum ārabdhaḥ |  <span class="lb" data-line="6">&lt;61,6&gt;</span><br class="lb-br"/> sāpi vigopakabhayād bahir nirgatya patiṃ madhye nināya | tatas tan mithunaṃ  <span class="lb" data-line="7">&lt;61,7&gt;</span><br class="lb-br"/> parasparaṃ nirbandhaṃ cakāra | yad adyaprabhṛti mayā tvayā ca visaṃvādo na  <span class="lb" data-line="8">&lt;61,8&gt;</span><br class="lb-br"/> vidheyaḥ | iti kathāṃ śrutvā prabhāvatī suptā |  <span class="lb" data-line="9">&lt;61,9&gt;</span><br class="lb-br"/> iti śukasaptatau ṣoḍaśī kathā ||  <span class="lb" data-line="10">&lt;61,10&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_17">{17}</h1>
+      <h1 id="17">{17}</h1>
       <h2>61,10</h2>
       <p>anyadā sā hasantī narāntaragamanāya śukaṃ pṛcchati | śuka āha | <span class="lb" data-line="11">&lt;61,11&gt;</span><br class="lb-br"/> yad eva manaso 'bhīṣṭaṃ tad eva kāryam |  <span class="lb" data-line="12">&lt;61,12&gt;</span><br class="lb-br"/></p>
       <h2>61,12</h2>
@@ -701,7 +714,7 @@
       </div>
       <h2>64,3</h2>
       <p>iti kathāṃ śrutvā prabhāvatī suptā | <span class="lb" data-line="4">&lt;64,4&gt;</span><br class="lb-br"/> iti śukasaptatau saptadaśī kathā ||  <span class="lb" data-line="5">&lt;64,5&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_18">{18}</h1>
+      <h1 id="18">{18}</h1>
       <h2>64,5</h2>
       <p>anyadā sā calitā śukenoktā | <span class="lb" data-line="6">&lt;64,6&gt;</span><br class="lb-br"/></p>
       <h2>64,6</h2>
@@ -718,7 +731,7 @@
       </div>
       <h2>65,3</h2>
       <p>yato 'ham etāvadbhir api gale baddhair baddhaḥ | rājāpi tad ākarṇya hasaṃs taṃ mumoca | <span class="lb" data-line="4">&lt;65,4&gt;</span><br class="lb-br"/> iti śrutvā prabhāvatī suptā |  <span class="lb" data-line="5">&lt;65,5&gt;</span><br class="lb-br"/> iti śukasaptatau aṣṭādaśī kathā ||  <span class="lb" data-line="6">&lt;65,6&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_19">{19}</h1>
+      <h1 id="19">{19}</h1>
       <h2>65,6</h2>
       <p>anyadā prabhāvatī calitā | śukaḥ prāha | <span class="lb" data-line="7">&lt;65,7&gt;</span><br class="lb-br"/></p>
       <h2>65,7</h2>
@@ -735,7 +748,7 @@
       </div>
       <h2>66,8</h2>
       <p>tac ca mithunaṃ tathā dṛṣṭvā rājapuruṣaiḥ tadbandhanāya yakṣagṛhaṃ veṣṭitam | <span class="lb" data-line="9">&lt;66,9&gt;</span><br class="lb-br"/> santikā ca śuddhiṃ jñātvā rātrau mahatā tūryaśabdena yakṣagṛhaṃ gatā |  <span class="lb" data-line="10">&lt;66,10&gt;</span><br class="lb-br"/> teṣām ārakṣakāṇāṃ purata uktam | aham adyadinavratā yakṣaṃ dṛṣṭvā bhojanaṃ  <span class="lb" data-line="11">&lt;66,11&gt;</span><br class="lb-br"/> vijane vidhāsye | māṃ ca kiṃcid dhanaṃ gṛhītvā madhye praveśayata | tair api  <span class="lb" data-line="12">&lt;66,12&gt;</span><br class="lb-br"/> tathaiva kṛtam | tatas tayā svacchandā svaveṣāṃ kārayitvā bahir niṣkāsitā |  <span class="pb" data-page="67">&lt;67,1&gt;</span><br class="pb-br"/> svayaṃ te madhye sthitā | taṃ ca prātar nijakāntāsahitaṃ dṛṣṭvā ārakṣakā  <span class="lb" data-line="2">&lt;67,2&gt;</span><br class="lb-br"/> vilakṣībabhūvuḥ | iti kathāṃ śrutvā prabhāvatī suptā |  <span class="lb" data-line="3">&lt;67,3&gt;</span><br class="lb-br"/> iti śukasaptatau ekonaviṃśatitamī kathā ||  <span class="lb" data-line="4">&lt;67,4&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_20">{20}</h1>
+      <h1 id="20">{20}</h1>
       <h2>67,4</h2>
       <p>anyadā prabhāvatī śukaṃ papraccha | śukaḥ prāha | <span class="lb" data-line="5">&lt;67,5&gt;</span><br class="lb-br"/></p>
       <h2>67,5</h2>
@@ -745,7 +758,7 @@
       </div>
       <h2>67,7</h2>
       <p>asti sābhramatyā nadyās taṭe śaṅkhapuraṃ nāma sthānam | tatra ca karṣukaḥ <span class="lb" data-line="8">&lt;67,8&gt;</span><br class="lb-br"/> sūrākhyo dhanī | tasya kelikā bhāryā paraṃ kuṭilā kulaṭā ca |  <span class="lb" data-line="9">&lt;67,9&gt;</span><br class="lb-br"/> sānyasmin nadītīre siddheśvarapurasthaṃ brāhmaṇaṃ kāmayate | tadāsaktā ca  <span class="pb" data-page="68">&lt;68,1&gt;</span><br class="pb-br"/> rātrau prātiveśikādūtikāsāhāyyān nadīṃ tīrtvā tadantikaṃ prāpnoti |  <span class="lb" data-line="2">&lt;68,2&gt;</span><br class="lb-br"/> anyadā bhartrā jñātam | sa ca tatra gatas taccaritragaveṣaṇāya | yāvat sā  <span class="lb" data-line="3">&lt;68,3&gt;</span><br class="lb-br"/> nadītīre tatra samāgatā tayā sa tāvad dṛṣṭaḥ | tatas taraṇaghaṭaṃ pānīyabhṛtaṃ  <span class="lb" data-line="4">&lt;68,4&gt;</span><br class="lb-br"/> vidhāya prātiveśmikāgṛhamadhye bhaṭṭārikāṃ maṇḍayitvā tena payasā  <span class="lb" data-line="5">&lt;68,5&gt;</span><br class="lb-br"/> snāpayitvā pratyuvāca prathamasaṃketitāṃ dūtikām uddiśya | svāmini purā  <span class="lb" data-line="6">&lt;68,6&gt;</span><br class="lb-br"/> tvayā uktam | yadi tvaṃ siddheśvarīṃ na snāpayasi tataḥ pañcānāṃ dinānāṃ  <span class="lb" data-line="7">&lt;68,7&gt;</span><br class="lb-br"/> madhye tvadbhartṛmaraṇaṃ bhaviṣyati | tato yadi tvadvacanapramāṇaṃ tadā  <span class="lb" data-line="8">&lt;68,8&gt;</span><br class="lb-br"/> mama patiś ciraṃ jīvatu | prātiveśmikayoktam | evam astv iti śrutvā  <span class="lb" data-line="9">&lt;68,9&gt;</span><br class="lb-br"/> sa patis tuṣṭo bhūtvālakṣita eva jagāma | iti kathāṃ śrutvā prabhāvatī  <span class="lb" data-line="10">&lt;68,10&gt;</span><br class="lb-br"/> suptā |  <span class="lb" data-line="11">&lt;68,11&gt;</span><br class="lb-br"/> iti śukasaptatau viṃśatitamī kathā ||  </p>
-      <h1 id="section_21">{21}</h1>
+      <h1 id="21">{21}</h1>
       <span class="pb" data-page="69">&lt;69,1&gt;</span>
       <br class="pb-br"/>
       <h2>69,1</h2>
@@ -798,7 +811,7 @@
       </div>
       <h2>73,6</h2>
       <p>mātar mayā evaṃvidhaḥ svapno dṛṣṭaḥ | yaḥ kaścid arthapramāṇo me bhavati sa <span class="lb" data-line="7">&lt;73,7&gt;</span><br class="lb-br"/> kathyatām | evaṃ śrutvā mantrī dvāram āhatya bahir nirgataḥ | tataḥ sanmānitā  <span class="lb" data-line="8">&lt;73,8&gt;</span><br class="lb-br"/> vaṇigvadhūḥ | sā tu kuṭṭinīti nirvāsitā | iti kathāṃ śrutvā  <span class="lb" data-line="9">&lt;73,9&gt;</span><br class="lb-br"/> prabhāvatī suptā ||  <span class="lb" data-line="10">&lt;73,10&gt;</span><br class="lb-br"/> iti śukasaptatau ekaviṃśatitamī kathā ||  </p>
-      <h1 id="section_22">{22}</h1>
+      <h1 id="22">{22}</h1>
       <span class="pb" data-page="74">&lt;74,1&gt;</span>
       <br class="pb-br"/>
       <h2>74,1</h2>
@@ -810,7 +823,7 @@
       </div>
       <h2>74,4</h2>
       <p>tac chrutvā prabhāvaty āha | katham etat | śukaḥ prāha | dāmbhilāgrāme soḍhāko <span class="lb" data-line="5">&lt;74,5&gt;</span><br class="lb-br"/> karṣukaḥ | tadbhāryā māḍhukā nāma | tāṃ ca bhaktahāriṇīṃ pathi  <span class="lb" data-line="6">&lt;74,6&gt;</span><br class="lb-br"/> gacchantīm eko bahiḥ sūrapālākhyo naro bhuṅkte | sā kadācin mārge bhaktaṃ  <span class="lb" data-line="7">&lt;74,7&gt;</span><br class="lb-br"/> muktvā tena saha sthitā | tato mūladevena dhūrtena tasmin bhakte uṣṭrikā  <span class="lb" data-line="8">&lt;74,8&gt;</span><br class="lb-br"/> kṛtā | tayā ca evaṃjātaṃ bhaktam anutpāṭayitvā nītam | yāvac ca bhartrā  <span class="lb" data-line="9">&lt;74,9&gt;</span><br class="lb-br"/> uṣṭrikā dṛṣṭā tāvat kim idam iti sā pṛṣṭā | tatas tayā tatkālottaraṃ  <span class="pb" data-page="75">&lt;75,1&gt;</span><br class="pb-br"/> kṛtvoktam | nāthādya rātrau svapne uṣṭrikayā bhakṣito dṛṣṭas tvam | tato  <span class="lb" data-line="2">&lt;75,2&gt;</span><br class="lb-br"/> mayā vighnāpahārāya viparītam idaṃ kṛtam | viśrabdhaṃ bhakṣaya yathā vighno  <span class="lb" data-line="3">&lt;75,3&gt;</span><br class="lb-br"/> naśyati | iti śrutvā ratātmanā tenoṣṭrikāpi bhakṣitā | iti kathāṃ  <span class="lb" data-line="4">&lt;75,4&gt;</span><br class="lb-br"/> śrutvā prabhāvatī suptā |  <span class="lb" data-line="5">&lt;75,5&gt;</span><br class="lb-br"/> iti śukasaptatau dvāviṃśatitamī kathā ||  <span class="lb" data-line="6">&lt;75,6&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_23">{23}</h1>
+      <h1 id="23">{23}</h1>
       <h2>75,6</h2>
       <p>anyadā sakhyas tāṃ puruṣāntarābhisaraṇāyaivam ūcuḥ | <span class="lb" data-line="7">&lt;75,7&gt;</span><br class="lb-br"/></p>
       <h2>75,7</h2>
@@ -895,7 +908,7 @@
       </div>
       <h2>88,6</h2>
       <p>yāvad evaṃ gṛhāṅgaṇagatā śapati tāvat sa vaṇik cāṇḍālarūpīṃ samāgatya <span class="lb" data-line="7">&lt;88,7&gt;</span><br class="lb-br"/> tatpādayoḥ patitaḥ | etac ca dṛṣṭvā kalāvatī kuṭṭinīsahitā tām gṛhamadhye  <span class="lb" data-line="8">&lt;88,8&gt;</span><br class="lb-br"/> nītvā pṛcchati sma | amba ko 'yam | kiṃjātīyaḥ | tvaṃ kā | tayoktam |  <span class="lb" data-line="9">&lt;88,9&gt;</span><br class="lb-br"/> padmāvatīpurīnāthasya rājñaḥ sudarśanasya mātaṅgī gāyinī aham |  <span class="lb" data-line="10">&lt;88,10&gt;</span><br class="lb-br"/> ayaṃ ca madīyaṃ dravyaṃ hṛtvā ihāgataḥ | tac ca tvayāptam | tan mayā jñātam |  <span class="lb" data-line="11">&lt;88,11&gt;</span><br class="lb-br"/> param adhunā sa samāgacchatu | tataḥ kuṭṭinī kalāvatīsahitā  <span class="lb" data-line="12">&lt;88,12&gt;</span><br class="lb-br"/> tatpādayor lagnā uvāca | gṛhāṇedaṃ dravyam | dhūrtamāyā prāha | nāhaṃ  <span class="pb" data-page="89">&lt;89,1&gt;</span><br class="pb-br"/> gṛhakoṇe grahīṣye | rājaviditaṃ grahīṣyāmi | tato veśyāmātāpi atiśayena  <span class="lb" data-line="2">&lt;89,2&gt;</span><br class="lb-br"/> bhītā mātaṅgīṃ pratijagāda | imāṃ matsutāṃ rakṣa rakṣa |  <span class="lb" data-line="3">&lt;89,3&gt;</span><br class="lb-br"/> pāramparyāgataṃ dravyaṃ gṛhāṇa sarvasvam | paraṃ māṃ maivaṃ viḍambaya | dhūrtamāyā  <span class="lb" data-line="4">&lt;89,4&gt;</span><br class="lb-br"/> āha | grahīṣye | tataḥ sā veśyayā kuṭṭinyā saha hastapādau  <span class="lb" data-line="5">&lt;89,5&gt;</span><br class="lb-br"/> gṛhītvā sammānitā | dhūrtamāyāpi nijaṃ tadīyaṃ ca dravyaṃ sarvasvaṃ gṛhītvā  <span class="lb" data-line="6">&lt;89,6&gt;</span><br class="lb-br"/> rāmeṇa saha potam āruhya svagṛham āgatya mahotsavam akārayat |  <span class="lb" data-line="7">&lt;89,7&gt;</span><br class="lb-br"/> iti kathāṃ śrutvā prabhāvatī suptā |  <span class="lb" data-line="8">&lt;89,8&gt;</span><br class="lb-br"/> iti śukasaptatau trayoviṃśatitamī kathā ||  <span class="lb" data-line="9">&lt;89,9&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_24">{24}</h1>
+      <h1 id="24">{24}</h1>
       <h2>89,9</h2>
       <p>athānyasmin dine prabhāvatī śukaṃ papraccha | śuko 'py āha | <span class="lb" data-line="10">&lt;89,10&gt;</span><br class="lb-br"/></p>
       <h2>89,10</h2>
@@ -905,7 +918,7 @@
       </div>
       <h2>90,2</h2>
       <p>prabhāvaty āha | kim etat | kīro 'bravīt | asti candrapuraṃ nāma nagaram | <span class="lb" data-line="3">&lt;90,3&gt;</span><br class="lb-br"/> tatrābhūd vardhakiḥ sūrapālākhyaḥ śrīmān | tasya sajjanī nāma  <span class="lb" data-line="4">&lt;90,4&gt;</span><br class="lb-br"/> bhāryā atyantaṃ parapuruṣalampaṭā | tāṃ ca tadgṛhasthāṃ devako nāma ramate |  <span class="lb" data-line="5">&lt;90,5&gt;</span><br class="lb-br"/> iti lokād etad ākarṇya vardhakiḥ kapaṭena gṛhān nirgatya prātaḥ saṃdhyāyām ācchannaḥ  <span class="lb" data-line="6">&lt;90,6&gt;</span><br class="lb-br"/> samāgatya talpasyādhobhāge sthitaḥ | sā ca jāreṇa saha tatrārūḍhā  <span class="lb" data-line="7">&lt;90,7&gt;</span><br class="lb-br"/> patyā keśeṣu gṛhītā kathaṃ mucyate | uttaram | sā patyā dhṛtā  <span class="lb" data-line="8">&lt;90,8&gt;</span><br class="lb-br"/> satī dvitīyapatimukham ālokya prāha | mayā tava kathitaṃ yad rathakāro  <span class="lb" data-line="9">&lt;90,9&gt;</span><br class="lb-br"/> mama patir gṛhe na vidyate | sa cāgatas tava tad eva aucityaṃ vidhāsyati |  <span class="pb" data-page="91">&lt;91,1&gt;</span><br class="pb-br"/> yady api pūrvaṃ patyā tvadīyaṃ dravyam apahṛtaṃ tathāpi kṣantavyam | rathakṛti  <span class="lb" data-line="2">&lt;91,2&gt;</span><br class="lb-br"/> samāgate tava gṛhaṃ gamiṣyāmi yuvayoḥ saṃgatiṃ vā kariṣye | nātra  <span class="lb" data-line="3">&lt;91,3&gt;</span><br class="lb-br"/> saṃśayaḥ | iti kathāṃ śrutvā prabhāvatī suptā |  <span class="lb" data-line="4">&lt;91,4&gt;</span><br class="lb-br"/> iti śukasaptatau caturviṃśatitamī kathā ||  <span class="lb" data-line="5">&lt;91,5&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_25">{25}</h1>
+      <h1 id="25">{25}</h1>
       <h2>91,5</h2>
       <p>anyadā prabhāvatī śukaṃ gamanāya pṛcchati | śukaḥ prāha | <span class="lb" data-line="6">&lt;91,6&gt;</span><br class="lb-br"/></p>
       <h2>91,6</h2>
@@ -915,7 +928,7 @@
       </div>
       <h2>91,8</h2>
       <p>asti candrapurī nāma nagarī | tatra siddhaseno nāma kṣapaṇako janapūjitaḥ | <span class="lb" data-line="9">&lt;91,9&gt;</span><br class="lb-br"/> tasminn eva nagare 'nyaḥ sitapaṭo guṇināṃ mukhyaḥ samāgataḥ |  <span class="lb" data-line="10">&lt;91,10&gt;</span><br class="lb-br"/> tena ca guṇinā sarvo 'pi jana āvarjitaḥ śrāvakā apy ātmāyattāḥ  <span class="pb" data-page="92">&lt;92,1&gt;</span><br class="pb-br"/> kṛtāḥ | sa kṣapaṇako 'pi tasya pūjāṃ kriyamāṇām asahamānaḥ svayaṃ tadīyopāśraye  <span class="lb" data-line="2">&lt;92,2&gt;</span><br class="lb-br"/> veśyāṃ preṣayitvā asau veśyālubdho na suśīla iti śvetāmbarasya  <span class="lb" data-line="3">&lt;92,3&gt;</span><br class="lb-br"/> lokapravādam akarot | taddarśanāya janam ākārayām āsa | brūte ca |  <span class="lb" data-line="4">&lt;92,4&gt;</span><br class="lb-br"/> kṣapaṇakā eva brahmacāriṇaḥ śvetāmbarās tu viplutāḥ | so 'pi śvetāmbaro  <span class="lb" data-line="5">&lt;92,5&gt;</span><br class="lb-br"/> dīpāgninā upādhiṃ prajvālya prabhātaprāptāyāṃ rajanyāṃ nagnībhūya veśyāyā  <span class="lb" data-line="6">&lt;92,6&gt;</span><br class="lb-br"/> dattahasto nirgataḥ | tato lokāpavādaḥ saṃvṛttaḥ | yad asau kṣapaṇako na  <span class="lb" data-line="7">&lt;92,7&gt;</span><br class="lb-br"/> sitavastraḥ | iti śrutvā prabhāvatī suptā |  <span class="lb" data-line="8">&lt;92,8&gt;</span><br class="lb-br"/> iti śukasaptatau pañcaviṃśatitamī kathā ||  <span class="lb" data-line="9">&lt;92,9&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_26">{26}</h1>
+      <h1 id="26">{26}</h1>
       <h2>92,9</h2>
       <p>anyadā sā calitā | śukaḥ prāha | <span class="lb" data-line="10">&lt;92,10&gt;</span><br class="lb-br"/></p>
       <h2>92,10</h2>
@@ -932,7 +945,7 @@
       </div>
       <h2>94,2</h2>
       <p>ato ruṣṭo vrajati | gaccha tvaṃ samarpaya sutam | tena ca tathā kṛtam | <span class="lb" data-line="3">&lt;94,3&gt;</span><br class="lb-br"/> iti kathāṃ śrutvā prabhāvatī suptā |  <span class="lb" data-line="4">&lt;94,4&gt;</span><br class="lb-br"/> iti śukasaptatau ṣaḍviṃśatitamī kathā ||  <span class="lb" data-line="5">&lt;94,5&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_27">{27}</h1>
+      <h1 id="27">{27}</h1>
       <h2>94,5</h2>
       <p>anyadā prabhāvatī gamanāya śukaṃ pṛcchati sma | śukaḥ prāha | <span class="lb" data-line="6">&lt;94,6&gt;</span><br class="lb-br"/></p>
       <h2>94,6</h2>
@@ -942,7 +955,7 @@
       </div>
       <h2>94,8</h2>
       <p>asti śaṅkhapuraṃ nāma nagaram | tatra āryo vaṇig abhūt | tasya mohinī <span class="lb" data-line="9">&lt;94,9&gt;</span><br class="lb-br"/> nāma bhāryā | tāṃ ca bahir gatāṃ kumukho nāma dhūrto ramate | tatpatinā  <span class="lb" data-line="10">&lt;94,10&gt;</span><br class="lb-br"/> cābhijñāyi | tatpatiś cātiśayena bhīruḥ | tato 'sau tāṃ bahir yāntīṃ  <span class="pb" data-page="95">&lt;95,1&gt;</span><br class="pb-br"/> nivārya pārśvasthita eva tiṣṭhati | tathāpi tayā dhūrtasya kathāpitam |  <span class="lb" data-line="2">&lt;95,2&gt;</span><br class="lb-br"/> māṃ rātrau bhartṛkhaṭvāsthitām arvāk suptāṃ bhaja tvam | tena tathā kṛtam |  <span class="lb" data-line="3">&lt;95,3&gt;</span><br class="lb-br"/> tac ca kurvan bhartrāsau puṃścihne dhṛtaḥ kathaṃ gacchatu | uttaram | dhṛtvā ca  <span class="lb" data-line="4">&lt;95,4&gt;</span><br class="lb-br"/> patiḥ prāha | pradīpam ānaya mayā cauro dhṛto 'sti | tayoktam |  <span class="lb" data-line="5">&lt;95,5&gt;</span><br class="lb-br"/> bahir yāntī bibhemy aham | enaṃ grahīṣye tvaṃ dīpam ānaya | tena ca tathā  <span class="lb" data-line="6">&lt;95,6&gt;</span><br class="lb-br"/> kṛtam | sā ca jāraṃ muktvā gṛhāntar baddhasya paṭṭakasya (?) jihvāṃ gṛhītvā  <span class="lb" data-line="7">&lt;95,7&gt;</span><br class="lb-br"/> tathaiva suptā yāvat patir lakuṭahasto dīpaṃ gṛhītvā samāyātaḥ pṛcchati |  <span class="lb" data-line="8">&lt;95,8&gt;</span><br class="lb-br"/> kim iyaṃ paṭṭakasya (?) jihvā | katham atra | tayoktam | kṣudhārto 'yam |  <span class="lb" data-line="9">&lt;95,9&gt;</span><br class="lb-br"/> anena muktā lālā kṛśā sthitā | uktipratyuktivādena nirjitaḥ |  <span class="lb" data-line="10">&lt;95,10&gt;</span><br class="lb-br"/> uktaś ca | hataka anena pauruṣeṇa kṣayaṃ vrajasi | iti nirbhartsito lajjitaś  <span class="lb" data-line="11">&lt;95,11&gt;</span><br class="lb-br"/> ca suptaḥ | iti kathāṃ śrutvā prabhāvatī suptā |  <span class="lb" data-line="12">&lt;95,12&gt;</span><br class="lb-br"/> iti śukasaptatau saptaviṃśatitamī kathā ||  </p>
-      <h1 id="section_28">{28}</h1>
+      <h1 id="28">{28}</h1>
       <span class="pb" data-page="96">&lt;96,1&gt;</span>
       <br class="pb-br"/>
       <h2>96,1</h2>
@@ -954,7 +967,7 @@
       </div>
       <h2>96,4</h2>
       <p>asti kuhāḍākhyo mahāgrāmaḥ | tatra jarasākhyo kuṭumbiko mahāmūrkhaḥ | <span class="lb" data-line="5">&lt;96,5&gt;</span><br class="lb-br"/> tadbhāryā devikā puṃścalī | tāṃ ca prabhākaro brāhmaṇaḥ kṣetramadhye vibhītakavṛkṣasamīpe  <span class="lb" data-line="6">&lt;96,6&gt;</span><br class="lb-br"/> guptasthāne mudā ramate | īdṛśaṃ vyatikaraṃ janāc chrutvā  <span class="lb" data-line="7">&lt;96,7&gt;</span><br class="lb-br"/> tatpatis tatrāvalokanāya svayaṃ gataḥ | tena ca vṛkṣārūḍhena tat tathaiva dṛṣṭam |  <span class="lb" data-line="8">&lt;96,8&gt;</span><br class="lb-br"/> dṛṣṭvā tatrasthenāpi jalpitam | dhūrtike bahudinebhyo 'dya saṃprāptā |  <span class="lb" data-line="9">&lt;96,9&gt;</span><br class="lb-br"/> ity uktā katham iyaṃ bhartāraṃ pratyāyayatu |  <span class="lb" data-line="10">&lt;96,10&gt;</span><br class="lb-br"/> tayoktam | nāhaṃ jāne tvam eva  <span class="lb" data-line="11">&lt;96,11&gt;</span><br class="lb-br"/> kathaya | yadi na yāsi tadā kathayāmi | tayā tatheti pratipanne  <span class="lb" data-line="12">&lt;96,12&gt;</span><br class="lb-br"/> śukaḥ prāha | sā ca tad vacaḥ śrutvā taṃ jāraṃ preṣayām āsa patyā cāvatīrya  <span class="lb" data-line="13">&lt;96,13&gt;</span><br class="lb-br"/> samāgatena upālabdhā | sāha | he prabho | īdṛśa eva vṛkṣaḥ  <span class="pb" data-page="97">&lt;97,1&gt;</span><br class="pb-br"/> atrārūḍhair mithunaṃ dṛśyate | tena patinā uktam | tvam āruhya avalokaya |  <span class="lb" data-line="2">&lt;97,2&gt;</span><br class="lb-br"/> tayā tathā kṛtam | vṛkṣārūḍhayā ca tayā proktaṃ kapaṭena | bahudivasebhyo  <span class="lb" data-line="3">&lt;97,3&gt;</span><br class="lb-br"/> 'nyāṃ narīm abhigaman dṛṣṭo 'si | tena mūrkheṇa jñātam | satyam  <span class="lb" data-line="4">&lt;97,4&gt;</span><br class="lb-br"/> idam | sa ca tāṃ śāntayitvā gṛhaṃ nināya | iti kathāṃ śrutvā  <span class="lb" data-line="5">&lt;97,5&gt;</span><br class="lb-br"/> prabhāvatī suptā |  <span class="lb" data-line="6">&lt;97,6&gt;</span><br class="lb-br"/> iti śukasaptatau aṣṭāviṃśatitamī kathā ||  <span class="lb" data-line="7">&lt;97,7&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_29">{29}</h1>
+      <h1 id="29">{29}</h1>
       <h2>97,7</h2>
       <p>anyedyuḥ prabhāvatī gamanāya śukaṃ pṛcchati sma | so 'py āha | <span class="lb" data-line="8">&lt;97,8&gt;</span><br class="lb-br"/></p>
       <h2>97,8</h2>
@@ -964,7 +977,7 @@
       </div>
       <h2>97,10</h2>
       <p>katham etat | so 'bravīt | asti sīhulī nāma grāmaḥ | tatra mahādhano <span class="lb" data-line="11">&lt;97,11&gt;</span><br class="lb-br"/> vaṇik | tadbhāryā sundarī | tāṃ ca mohano nāma upapatir nityaṃ  <span class="pb" data-page="98">&lt;98,1&gt;</span><br class="pb-br"/> gṛham āgatya bhuṅkte | anyadā yāvat sā tathā tiṣṭhati tāvat tatpatiḥ samāgataḥ |  <span class="lb" data-line="2">&lt;98,2&gt;</span><br class="lb-br"/> sā kathaṃ bhavatu | uttaram | sā patim āgacchantaṃ dṛṣṭvā jāraṃ  <span class="lb" data-line="3">&lt;98,3&gt;</span><br class="lb-br"/> vivastraṃ śikye kṛtvā muktakeśā gṛhān nirgatya dūrasthā patim āha | asmadgṛhamadhye  <span class="lb" data-line="4">&lt;98,4&gt;</span><br class="lb-br"/> nagnaṃ bhūtaṃ śikyārūḍhaṃ vidyate | māntrikān ākārayituṃ gacchety ukte  <span class="lb" data-line="5">&lt;98,5&gt;</span><br class="lb-br"/> sa mūrkhas tadarthaṃ jagāma | tadā ca tadantare tayā ulmukaṃ haste kṛtvā  <span class="lb" data-line="6">&lt;98,6&gt;</span><br class="lb-br"/> upapatir niṣkāsitaḥ | patyau ca āgate sā jagāda | yad ulmukenāpi  <span class="lb" data-line="7">&lt;98,7&gt;</span><br class="lb-br"/> bhūtaṃ naṣṭam | iti kathāṃ śrutvā prabhāvatī suptā |  <span class="lb" data-line="8">&lt;98,8&gt;</span><br class="lb-br"/> iti śukasaptatau ekonatriṃśattamī kathā ||  <span class="lb" data-line="9">&lt;98,9&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_30">{30}</h1>
+      <h1 id="30">{30}</h1>
       <h2>98,9</h2>
       <p>anyedyuḥ prabhāvatyā pṛṣṭaḥ śukaḥ prāha | <span class="lb" data-line="10">&lt;98,10&gt;</span><br class="lb-br"/></p>
       <h2>98,10</h2>
@@ -981,7 +994,7 @@
       </div>
       <h2>99,10</h2>
       <p>iti kathāṃ śrutvā prabhāvatī suptā | <span class="lb" data-line="11">&lt;99,11&gt;</span><br class="lb-br"/> iti śukasaptatau triṃśattamī kathā ||  </p>
-      <h1 id="section_31">{31}</h1>
+      <h1 id="31">{31}</h1>
       <span class="pb" data-page="100">&lt;100,1&gt;</span>
       <br class="pb-br"/>
       <h2>100,1</h2>
@@ -997,7 +1010,7 @@
       <div class="lg"/>
       <h2>101,10</h2>
       <p>iti kathāṃ śrutvā prabhāvatī suptā | <span class="lb" data-line="11">&lt;101,11&gt;</span><br class="lb-br"/> iti śukasaptatau ekatriṃśattamī kathā ||  </p>
-      <h1 id="section_32">{32}</h1>
+      <h1 id="32">{32}</h1>
       <span class="pb" data-page="102">&lt;102,1&gt;</span>
       <br class="pb-br"/>
       <h2>102,1</h2>
@@ -1009,7 +1022,7 @@
       </div>
       <h2>102,4</h2>
       <p>asti śāntipuraṃ nāma nagaram | tatra mādhavaḥ śreṣṭhī | tasya mohinī <span class="lb" data-line="5">&lt;102,5&gt;</span><br class="lb-br"/> bhāryā | tayos tanayaḥ sohaḍābhidhaḥ | tasya bhāryā rājinīnāmnī  <span class="lb" data-line="6">&lt;102,6&gt;</span><br class="lb-br"/> rūpasaṃpannā caturā puṃścalī | sānyadā drammam arpayitvā śvaśrvājñaptā godhūmān  <span class="lb" data-line="7">&lt;102,7&gt;</span><br class="lb-br"/> haṭṭe gṛhītvāgaccha | sā ca haṭṭe gatā | krīṇatyā copapatir dṛṣṭaḥ  <span class="lb" data-line="8">&lt;102,8&gt;</span><br class="lb-br"/> saṃjñitaś ca samīpam āyayau | godhūmān moṭāyāṃ baddhvā haṭṭe muktvā tena  <span class="pb" data-page="103">&lt;103,1&gt;</span><br class="pb-br"/> sārdhaṃ sā yayau | vaṇijāpi godhūmān utsārya moṭāyāṃ dhūlir baddhā |  <span class="lb" data-line="2">&lt;103,2&gt;</span><br class="lb-br"/> sāpi tena saha ciraṃ sthitvā āgatyākulā moṭām anutpāṭayitvā gṛhaṃ  <span class="lb" data-line="3">&lt;103,3&gt;</span><br class="lb-br"/> yayau | tāṃ choṭayitvā yāvat śvaśrūḥ paśyati kīdṛśā godhūmā iti  <span class="lb" data-line="4">&lt;103,4&gt;</span><br class="lb-br"/> tāvad dhūliṃ paśyati | atra kim uttaram | śukaḥ | kim idam iti yadā  <span class="lb" data-line="5">&lt;103,5&gt;</span><br class="lb-br"/> śvaśrvā pṛṣṭā tadā tayoktam | mātar mama hastād drammo haṭṭāgre bhūmau patitaḥ |  <span class="lb" data-line="6">&lt;103,6&gt;</span><br class="lb-br"/> tato mayā dhūlir āhṛtā | tataḥ sā śvaśrūr drammam anavalokamānā  <span class="lb" data-line="7">&lt;103,7&gt;</span><br class="lb-br"/> vikalībhūtā | iti kathāṃ śrutvā prabhāvatī suptā |  <span class="lb" data-line="8">&lt;103,8&gt;</span><br class="lb-br"/> iti śukasaptatau dvātriṃśattamī kathā ||  <span class="lb" data-line="9">&lt;103,9&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_33">{33}</h1>
+      <h1 id="33">{33}</h1>
       <h2>103,9</h2>
       <p>athānyedyuḥ prabhāvatī gamanāyotsukā śukaṃ papraccha | śukaḥ prāha | <span class="lb" data-line="10">&lt;103,10&gt;</span><br class="lb-br"/></p>
       <h2>103,10</h2>
@@ -1026,7 +1039,7 @@
       </div>
       <h2>106,9</h2>
       <p>tataḥ sa punaḥ śrāddhaṃ cakāra rambhikāvacanāt te na nirgatāḥ | iti kathāṃ <span class="lb" data-line="10">&lt;106,10&gt;</span><br class="lb-br"/> śrutvā prabhāvatī suptā |  <span class="lb" data-line="11">&lt;106,11&gt;</span><br class="lb-br"/> iti śukasaptatau trayastriṃśattamī kathā ||  </p>
-      <h1 id="section_34">{34}</h1>
+      <h1 id="34">{34}</h1>
       <span class="pb" data-page="107">&lt;107,1&gt;</span>
       <br class="pb-br"/>
       <h2>107,1</h2>
@@ -1038,7 +1051,7 @@
       </div>
       <h2>107,4</h2>
       <p>prabhāvaty āha | katham etat | śukaḥ prāha | purā kasmiṃścin nagare śambhunāmā <span class="lb" data-line="5">&lt;107,5&gt;</span><br class="lb-br"/> vipro 'bhūt | dyūtakṛn nānādeśaparibhramaṇaśīlo mārge gacchan kṣetrarakṣikāṃ  <span class="lb" data-line="6">&lt;107,6&gt;</span><br class="lb-br"/> surūpāṃ bālikāṃ dṛṣṭvā tāmbūlaṃ dattvā sāntvayann idam uvāca |  <span class="lb" data-line="7">&lt;107,7&gt;</span><br class="lb-br"/> yan matsambhogakaraṇe imāṃ madīyāṃ pāraḍīṃ (?) gṛhāṇa mayā saha rataṃ kuru |  <span class="lb" data-line="8">&lt;107,8&gt;</span><br class="lb-br"/> sukhāśrayaṃ tayā tathā vihitam | sa ca siddhe kārye tāṃ yācate |  <span class="lb" data-line="9">&lt;107,9&gt;</span><br class="lb-br"/> kathaṃ labhate | uttaram | yāvat tena yācitā tāvat sā calitā gṛhaṃ  <span class="lb" data-line="10">&lt;107,10&gt;</span><br class="lb-br"/> prati | so 'pi ca pañca kaṇiśāni gṛhītvā pṛṣṭhe lagnaḥ | tena ca  <span class="pb" data-page="108">&lt;108,1&gt;</span><br class="pb-br"/> grāmagatena phūtkṛtam | aho grāmamukhyāḥ paśyata | grāme 'smin mahad adbhutam |  <span class="lb" data-line="2">&lt;108,2&gt;</span><br class="lb-br"/> pañcakaṇiśakāraṇenānayā madīyaṃ vastram apahṛtam | grāmyais tatsamarpitam |  <span class="lb" data-line="3">&lt;108,3&gt;</span><br class="lb-br"/> tayā ca na kiṃcid uktaṃ lajjayā | iti kathāṃ śrutvā prabhāvatī suptā |  <span class="lb" data-line="4">&lt;108,4&gt;</span><br class="lb-br"/> iti śukasaptatau catustriṃśattamī kathā ||  <span class="lb" data-line="5">&lt;108,5&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_35">{35}</h1>
+      <h1 id="35">{35}</h1>
       <h2>108,5</h2>
       <p>apare 'hni sā śṛṅgārānvitā śukaṃ papraccha | śukaḥ prāha | <span class="lb" data-line="6">&lt;108,6&gt;</span><br class="lb-br"/></p>
       <h2>108,6</h2>
@@ -1060,7 +1073,7 @@
       </div>
       <h2>110,1</h2>
       <p>tenoktam | prasthaṃ prati dvikapravṛddhyā tvadbhāryayā satyaṃkāre 'ṅgulīyakaṃ <span class="lb" data-line="2">&lt;110,2&gt;</span><br class="lb-br"/> gṛhītam | tato ruṣṭena vaṇijā bhāryāpārśve nijaṃ sutaṃ preṣayitvā iti  <span class="lb" data-line="3">&lt;110,3&gt;</span><br class="lb-br"/> kathayām āsa | tvadīyenedṛśena vyavahāreṇāsmadgṛhaṃ vṛddhim āpsyati | putro  <span class="lb" data-line="4">&lt;110,4&gt;</span><br class="lb-br"/> 'py aṅgulīyakam ādāya tilagrāhakasyārpayām āsa | so 'pi yathāgataṃ tathā  <span class="lb" data-line="5">&lt;110,5&gt;</span><br class="lb-br"/> yayau | tato yadi prabhāvati tavāpy evaṃ buddhir asti tadā gamyatāṃ nānyatheti  <span class="lb" data-line="6">&lt;110,6&gt;</span><br class="lb-br"/> kathāṃ śrutvā prabhāvatī suptā |  <span class="lb" data-line="7">&lt;110,7&gt;</span><br class="lb-br"/> iti śukasaptatau pañcatriṃśattamī kathā ||  <span class="lb" data-line="8">&lt;110,8&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_36">{36}</h1>
+      <h1 id="36">{36}</h1>
       <h2>110,8</h2>
       <p>niśāmukhe 'nyedyuḥ prabhāvatī śukaṃ punar āha | he kīra gamiṣyāmi cirakāṅkṣitaṃ <span class="lb" data-line="9">&lt;110,9&gt;</span><br class="lb-br"/> sukhaṃ bhoktum | śuka āha |  <span class="lb" data-line="10">&lt;110,10&gt;</span><br class="lb-br"/></p>
       <h2>110,10</h2>
@@ -1077,7 +1090,7 @@
       </div>
       <h2>111,3</h2>
       <p>śuka āha | asti saraḍākhye grāme grāmaṇīḥ śūrapālaḥ | tasya bhāryā <span class="lb" data-line="4">&lt;111,4&gt;</span><br class="lb-br"/> nāyinī | sā ātmapatiṃ nityaṃ paṭṭasūtrakañcukaṃ yācate | sa āha |  <span class="lb" data-line="5">&lt;111,5&gt;</span><br class="lb-br"/> vayaṃ karṣukāḥ kārpāsacīvarāḥ | asmadgṛhe paṭṭasūtravārttām api ko 'pi  <span class="lb" data-line="6">&lt;111,6&gt;</span><br class="lb-br"/> na jānāti | anyadā sā taṃ grāmasaṃsadisthaṃ jagāda | gṛham ehi gṛhādhipa |  <span class="lb" data-line="7">&lt;111,7&gt;</span><br class="lb-br"/> rāvaḍīṃ bhuṅkṣva | sa ca tadvacanaṃ śrutvā bhāryām āha gṛhāgataḥ |  <span class="lb" data-line="8">&lt;111,8&gt;</span><br class="lb-br"/> bhadre tvayā ninditaṃ vaco lajjākārakaṃ mamāpriyaṃ saṃsadi kim ittham  <span class="lb" data-line="9">&lt;111,9&gt;</span><br class="lb-br"/> uktam | tayoktam | tvayā mama priyaṃ kathaṃ na kṛtam | grāmaṇīr āha |  <span class="lb" data-line="10">&lt;111,10&gt;</span><br class="lb-br"/> dāsyāmi kañcukaṃ te 'dya | nijaṃ vākyaṃ vṛthā kuru | tayoktam |  <span class="pb" data-page="112">&lt;112,1&gt;</span><br class="pb-br"/> kañcuke datte uttārayiṣye | dattaḥ kañcukas tena | tad vacaḥ kathaṃ vṛthā bhavatv  <span class="lb" data-line="2">&lt;112,2&gt;</span><br class="lb-br"/> iti praśnaḥ | śukaḥ prāha | anyadā nāyinī jagāda | yadādya tvāṃ  <span class="lb" data-line="3">&lt;112,3&gt;</span><br class="lb-br"/> saṃsadisthaṃ pūrvavad ākārayāmi tadā tvayā saṃsadā saha gṛham āgantavyam |  <span class="lb" data-line="4">&lt;112,4&gt;</span><br class="lb-br"/> tena ca evam eva kṛtam | tayā ca gṛhāgatāyāḥ saṃsado bhavyarītyā  <span class="lb" data-line="5">&lt;112,5&gt;</span><br class="lb-br"/> bhojanaṃ dattam | tato grāmajano vadati | śūrapālaḥ samṛddhaḥ | paraṃ  <span class="lb" data-line="6">&lt;112,6&gt;</span><br class="lb-br"/> tadbhāryā auddhatyaparihāreṇa evaṃ vadati | iti vacanam uttāritam |  <span class="lb" data-line="7">&lt;112,7&gt;</span><br class="lb-br"/> iti kathāṃ śrutvā prabhāvatī suptā |  <span class="lb" data-line="8">&lt;112,8&gt;</span><br class="lb-br"/> iti śukasaptatau ṣaṭtriṃśattamī kathā || 36 ||  <span class="lb" data-line="9">&lt;112,9&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_37">{37}</h1>
+      <h1 id="37">{37}</h1>
       <h2>112,9</h2>
       <p>athāpare 'hni prabhāvatī gamanāya śukaṃ pṛcchati sma | śuko 'py āha | <span class="lb" data-line="10">&lt;112,10&gt;</span><br class="lb-br"/></p>
       <h2>112,10</h2>
@@ -1087,7 +1100,7 @@
       </div>
       <h2>113,1</h2>
       <p>prabhāvaty āha | katham etat | śuko 'py āha | saṃgamākhye grāme śūraḥ kauṭumbikaḥ | <span class="lb" data-line="2">&lt;113,2&gt;</span><br class="lb-br"/> tasyāsti pūrṇapālas tu hālikaḥ | sarvatra ca tasya śūrapater  <span class="lb" data-line="3">&lt;113,3&gt;</span><br class="lb-br"/> veśmani kṣetre khale pramāṇam | tasya ca hālikasya kṣetrasthasya śūrapatisutā  <span class="lb" data-line="4">&lt;113,4&gt;</span><br class="lb-br"/> subhagā nāma nityaṃ bhuktiṃ nayati | sa tāṃ kāmayate kṣetragahvare  <span class="lb" data-line="5">&lt;113,5&gt;</span><br class="lb-br"/> śūrapālān niḥśaṅkitaḥ | taṃ ca vṛttāntam asamañjasam iti kṛtvā prativeśmahālikās  <span class="lb" data-line="6">&lt;113,6&gt;</span><br class="lb-br"/> tasya kathayām āsuḥ | anyadāsau śūras tayor hālikasutayoḥ saṃbandhaṃ  <span class="lb" data-line="7">&lt;113,7&gt;</span><br class="lb-br"/> pratyakṣīkartuṃ kṣetraṃ gatvā gahvarasyādūrasamante 'lakṣitas tasthau | tan mithunaṃ  <span class="lb" data-line="8">&lt;113,8&gt;</span><br class="lb-br"/> ratasthaṃ dṛṣṭaṃ kathaṃ bhavatu | uttaraṃ ca kim iti praśnaḥ | śukaḥ prāha | yāvat sa  <span class="lb" data-line="9">&lt;113,9&gt;</span><br class="lb-br"/> hālikas tāṃ bhuktvotthitaḥ tāvat śūrapatiṃ dadarśa | tadā sa niḥśvasann āha |  <span class="pb" data-page="114">&lt;114,1&gt;</span><br class="pb-br"/> dhiṅ me karmārjanāṃ ca yan mayā halakheṭanaṃ vidheyaṃ iyaṃ ca granthirogiṇī |  <span class="lb" data-line="2">&lt;114,2&gt;</span><br class="lb-br"/> ato dvayor api jīvitaṃ rasātalaṃ yātu | mayā tu nityaṃ halakheṭanaṃ  <span class="lb" data-line="3">&lt;114,3&gt;</span><br class="lb-br"/> granther ākarṣaṇaṃ ca dvayam api vidheyam | tad ahaṃ kimartham asya śūrapālasya  <span class="lb" data-line="4">&lt;114,4&gt;</span><br class="lb-br"/> hāliko bhavāmi | ittham evāhaṃ kṣayaṃ yāsyāmi | iti hālikavacanaṃ  <span class="lb" data-line="5">&lt;114,5&gt;</span><br class="lb-br"/> śrutvā nirdoṣo 'yam iti lokasya vacanaṃ vitathīkṛtya śūrapatir lajjito  <span class="lb" data-line="6">&lt;114,6&gt;</span><br class="lb-br"/> gṛhaṃ yayau | sā ca prabhāvatī śukoktāṃ kathāṃ śrutvā suptā |  <span class="lb" data-line="7">&lt;114,7&gt;</span><br class="lb-br"/> iti śukasaptatau saptatriṃśattamī kathā ||  <span class="lb" data-line="8">&lt;114,8&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_38">{38}</h1>
+      <h1 id="38">{38}</h1>
       <h2>114,8</h2>
       <p>aparedyur yāminīsamaye prabhāvatī gamanāya śukaṃ papraccha | śukaḥ | <span class="lb" data-line="9">&lt;114,9&gt;</span><br class="lb-br"/></p>
       <h2>114,9</h2>
@@ -1097,7 +1110,7 @@
       </div>
       <h2>115,1</h2>
       <p>prabhāvatī papraccha | katham etat | śukaḥ | purābhūd devi priyaṃvado nāma <span class="lb" data-line="2">&lt;115,2&gt;</span><br class="lb-br"/> vipraḥ pathikaḥ | ekadā mārge gacchan sudarśanagrāme kasyacid vaṇijo gṛhaṃ  <span class="lb" data-line="3">&lt;115,3&gt;</span><br class="lb-br"/> yayau | tatpatnī ca puṃścalī | sa ca brāhmaṇas tāṃ dṛṣṭvā ātmānaṃ susthānakṛtavāsakaṃ  <span class="lb" data-line="4">&lt;115,4&gt;</span><br class="lb-br"/> mene | sa ca rātrau sakāmas tāṃ prārthayām āsa | aṅgulīyakadānena  <span class="lb" data-line="5">&lt;115,5&gt;</span><br class="lb-br"/> ca haṭṭamārgaṃ vaṇiksute gate reme tayā samam | prātaḥ so  <span class="lb" data-line="6">&lt;115,6&gt;</span><br class="lb-br"/> 'ṅgulīyakaṃ yācate | sā nārpayati | anena vidhinā dattam aṅgulīyakaṃ  <span class="lb" data-line="7">&lt;115,7&gt;</span><br class="lb-br"/> sa kathaṃ gṛhṇātu | iti praśnaḥ | uttaram | yadā tu yācitā na dadāti  <span class="lb" data-line="8">&lt;115,8&gt;</span><br class="lb-br"/> tadā sa brāhmaṇaḥ khaṭvācaraṇaṃ gṛhītvā vaṇijaḥ saṃnidhiṃ yayau | khaṭvācaraṇaṃ  <span class="lb" data-line="9">&lt;115,9&gt;</span><br class="lb-br"/> darśayitvā phūtkṛtam | vaṇik prāha | bho dvija kim etat | sa  <span class="lb" data-line="10">&lt;115,10&gt;</span><br class="lb-br"/> āha | bhagne 'smin tvadīyabhāryayā madīyam aṅgulīyakaṃ jagṛhe | sa ca  <span class="lb" data-line="11">&lt;115,11&gt;</span><br class="lb-br"/> vaṇik tadvacanaṃ śrutvā kupito bhāryām āha | anena pramādena asmadgṛhe  <span class="pb" data-page="116">&lt;116,1&gt;</span><br class="pb-br"/> ko 'pi pathiko na sameṣyati | ity uktvā niṣṭhuraṃ vacas tatkuṇḍād uttīrya  <span class="lb" data-line="2">&lt;116,2&gt;</span><br class="lb-br"/> aṅgulīyakaṃ pathikāya samarpitam | sa ca yathāgataṃ yayau | iti  <span class="lb" data-line="3">&lt;116,3&gt;</span><br class="lb-br"/> kathāṃ śrutvā prabhāvatī suptā |  <span class="lb" data-line="4">&lt;116,4&gt;</span><br class="lb-br"/> iti śukasaptatau aṣṭātriṃśattamī kathā ||  <span class="lb" data-line="5">&lt;116,5&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_39">{39}</h1>
+      <h1 id="39">{39}</h1>
       <h2>116,5</h2>
       <p>apare 'hni saṃdhyāsamaye puruṣāntaragamanāya prabhāvatī śukaṃ pṛcchati sma | <span class="lb" data-line="6">&lt;116,6&gt;</span><br class="lb-br"/> he śuka | ahaṃ gamiṣyāmi | śukaḥ prāha |  <span class="lb" data-line="7">&lt;116,7&gt;</span><br class="lb-br"/></p>
       <h2>116,7</h2>
@@ -1128,7 +1141,7 @@
       </div>
       <h2>119,3</h2>
       <p>śrutvaitad vacanaṃ mantriṇoktam | yadāyaṃ dhūrtas tava tulāṃ samarpayati tadā <span class="lb" data-line="4">&lt;119,4&gt;</span><br class="lb-br"/> dārako 'pi dātavyo nānyathā | tena dārakaḥ samarpitaḥ | tulāgrāhī  <span class="lb" data-line="5">&lt;119,5&gt;</span><br class="lb-br"/> daṇḍitaḥ san tulāṃ samarpayām āsa | iti kathāṃ śrutvā prabhāvatī suptā |  <span class="lb" data-line="6">&lt;119,6&gt;</span><br class="lb-br"/> iti śukasaptatau ekonacatvāriṃśattamī kathā ||  <span class="lb" data-line="7">&lt;119,7&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_40">{40}</h1>
+      <h1 id="40">{40}</h1>
       <h2>119,7</h2>
       <p>anyedyuḥ sā prabhāvatī gamanāya śukaṃ pṛcchati sma | śukaḥ | <span class="lb" data-line="8">&lt;119,8&gt;</span><br class="lb-br"/></p>
       <h2>119,8</h2>
@@ -1138,7 +1151,7 @@
       </div>
       <h2>119,10</h2>
       <p>prabhāvaty āha | katham etat | śukaḥ | nagarābhidhe pattane subuddhiḥ kubuddhiś ceti <span class="pb" data-page="120">&lt;120,1&gt;</span><br class="pb-br"/> mitradvayaṃ jane prasiddham | anyadā subuddhir deśāntaraṃ yayau | kubuddhis tu  <span class="lb" data-line="2">&lt;120,2&gt;</span><br class="lb-br"/> mitrastriyaṃ ramate | subuddhiś ca dhanam arjayitvā deśāntarāt samāgataḥ | tataḥ  <span class="lb" data-line="3">&lt;120,3&gt;</span><br class="lb-br"/> kubuddhiḥ subuddheḥ kapaṭasnehaṃ darśayati | subuddhināpi saṃmānitaḥ kubuddhis taṃ  <span class="lb" data-line="4">&lt;120,4&gt;</span><br class="lb-br"/> pratyāha | bhavatā kvāpi kiṃcit kautukaṃ dṛṣṭam | tenoktam | sarasvatīnadītīre  <span class="lb" data-line="5">&lt;120,5&gt;</span><br class="lb-br"/> kūpamadhye taramāṇam akālajam āmraphalaṃ dṛṣṭaṃ manoramanāmni grāme |  <span class="lb" data-line="6">&lt;120,6&gt;</span><br class="lb-br"/> kubuddhir āha | mithyedam | subuddhir āha | satyam etat | tenoktam | yadi  <span class="lb" data-line="7">&lt;120,7&gt;</span><br class="lb-br"/> satyaṃ bhavati tadā yad asmadgṛhe dvābhyāṃ hastābhyāṃ grahītuṃ śakyate tat tvayā  <span class="lb" data-line="8">&lt;120,8&gt;</span><br class="lb-br"/> grāhyam | alīke tvadīyagṛhād ahaṃ gṛhṇāmi | iti paṇabandhaṃ kṛtvā  <span class="lb" data-line="9">&lt;120,9&gt;</span><br class="lb-br"/> kubuddhī rātrau kūpāt tatphalaṃ jagrāha | phalābhāve tu subuddhinā hāritam |  <span class="lb" data-line="10">&lt;120,10&gt;</span><br class="lb-br"/> atha sa tadbhāryāṃ grahītukāmaḥ paṇabandhaṃ yācate | tad atra subuddhir  <span class="lb" data-line="11">&lt;120,11&gt;</span><br class="lb-br"/> nijabhāryārakṣaṇe kam upāyaṃ karotv iti praśnaḥ | uttaraṃ śuka āha |  <span class="lb" data-line="12">&lt;120,12&gt;</span><br class="lb-br"/> subuddhis taṃ duṣṭāśayaṃ jñātvā nijagṛhavastujātaṃ nijakalatraṃ ca prāsādopari  <span class="lb" data-line="13">&lt;120,13&gt;</span><br class="lb-br"/> kṣiptvā ārohaṇikāṃ pātayām āsa | kubuddhiḥ samāyātaḥ | subuddhir  <span class="lb" data-line="14">&lt;120,14&gt;</span><br class="lb-br"/> āha | evaṃ yad rocate tad asmadgṛhād gṛhyatām | sa ca kalatrāharaṇāya  <span class="pb" data-page="121">&lt;121,1&gt;</span><br class="pb-br"/> niḥśreṇikāṃ dvābhyāṃ hastābhyāṃ jagrāha | tadā subuddhinoktam | mayaivaṃ  <span class="lb" data-line="2">&lt;121,2&gt;</span><br class="lb-br"/> pūrvaṃ gaditaṃ ca | yad dvābhyāṃ hastābhyāṃ grahīṣyase tava tad eva nānyat |  <span class="lb" data-line="3">&lt;121,3&gt;</span><br class="lb-br"/> tataḥ kubuddhir vilakṣo bhūtvā bahir yayau janaiś ca ninditaḥ | iti kathāṃ  <span class="lb" data-line="4">&lt;121,4&gt;</span><br class="lb-br"/> śrutvā prabhāvatī suptā |  <span class="lb" data-line="5">&lt;121,5&gt;</span><br class="lb-br"/> iti śukasaptatau catvāriṃśattamī kathā ||  <span class="lb" data-line="6">&lt;121,6&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_41">{41}</h1>
+      <h1 id="41">{41}</h1>
       <h2>121,6</h2>
       <p>anyadā vaṇigvadhūḥ prāha | kīra yadi tvaṃ manyase tadā gacchāmi | <span class="lb" data-line="7">&lt;121,7&gt;</span><br class="lb-br"/> śukaḥ prāha |  <span class="lb" data-line="8">&lt;121,8&gt;</span><br class="lb-br"/></p>
       <h2>121,8</h2>
@@ -1154,7 +1167,7 @@
       <div class="lg"/>
       <h2>125,1</h2>
       <p>ity evaṃ brāhmaṇasya vadato rājaputryā hasitam | hāsyātirekeṇa galagranthir <span class="lb" data-line="2">&lt;125,2&gt;</span><br class="lb-br"/> dvidhābabhūva | dvidhājāte ca tasmin rājasutāyāḥ sukham utpannam | nṛpeṇa  <span class="lb" data-line="3">&lt;125,3&gt;</span><br class="lb-br"/> ca kṛtārthīkṛto vipraḥ svasadanaṃ gataḥ | iti kathāṃ śrutvā prabhāvatī  <span class="lb" data-line="4">&lt;125,4&gt;</span><br class="lb-br"/> suptā |  <span class="lb" data-line="5">&lt;125,5&gt;</span><br class="lb-br"/> iti śukasaptatau ekacatvāriṃśattamī kathā ||  <span class="lb" data-line="6">&lt;125,6&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_42">{42}</h1>
+      <h1 id="42">{42}</h1>
       <h2>125,6</h2>
       <p>aparedyuḥ prabhāvatī gacchāmīti śukaṃ pratyāha | śukaḥ | <span class="lb" data-line="7">&lt;125,7&gt;</span><br class="lb-br"/></p>
       <h2>125,7</h2>
@@ -1178,7 +1191,7 @@
       </div>
       <h2>128,2</h2>
       <p>iti kathāṃ śrutvā prabhāvatī suptā | <span class="lb" data-line="3">&lt;128,3&gt;</span><br class="lb-br"/> iti śukasaptatau dvicatvāriṃśattamī kathā ||  <span class="lb" data-line="4">&lt;128,4&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_43">{43}</h1>
+      <h1 id="43">{43}</h1>
       <h2>128,4</h2>
       <p>anyedyuḥ śukam āpṛcchati sma kāminī | śukaḥ prāha | <span class="lb" data-line="5">&lt;128,5&gt;</span><br class="lb-br"/></p>
       <h2>128,5</h2>
@@ -1204,7 +1217,7 @@
       <div class="lg"/>
       <h2>130,5</h2>
       <p>iti kathāṃ śrutvā prabhāvatī suptā | <span class="lb" data-line="6">&lt;130,6&gt;</span><br class="lb-br"/> iti śukasaptatau tricatvāriṃśattamī kathā ||  <span class="lb" data-line="7">&lt;130,7&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_44">{44}</h1>
+      <h1 id="44">{44}</h1>
       <h2>130,7</h2>
       <p>athānyedyur dināvasāne prabhāvatī śukaṃ pṛcchati | śukaḥ | <span class="lb" data-line="8">&lt;130,8&gt;</span><br class="lb-br"/></p>
       <h2>130,8</h2>
@@ -1218,7 +1231,7 @@
       <div class="lg"/>
       <h2>131,12</h2>
       <p>iti kathāṃ śrutvā prabhāvatī śukavākyavismitā suptā | <span class="lb" data-line="13">&lt;131,13&gt;</span><br class="lb-br"/> iti śukasaptatau catuścatvāriṃśattamī kathā ||  <span class="lb" data-line="14">&lt;131,14&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_45">{45}</h1>
+      <h1 id="45">{45}</h1>
       <h2>131,14</h2>
       <p>anyedyuḥ sā kāminī saṃdhyāyāṃ śukaṃ papraccha | gamiṣyāmīti | śukaḥ <span class="lb" data-line="15">&lt;131,15&gt;</span><br class="lb-br"/> prāha |  <span class="pb" data-page="132">&lt;132,1&gt;</span><br class="pb-br"/></p>
       <h2>132,1</h2>
@@ -1228,7 +1241,7 @@
       </div>
       <h2>132,3</h2>
       <p>prabhāvaty āha | katham etat | śuka āha | asti vilāsapuraṃ nāma nagaram | <span class="lb" data-line="4">&lt;132,4&gt;</span><br class="lb-br"/> tatra ariṃdamo nāma rājā | tatra ca viṣṇunāmā brāhmaṇo  <span class="lb" data-line="5">&lt;132,5&gt;</span><br class="lb-br"/> ratilolupaḥ kuṭumbavarjito ratikarmaṇi sarvanārīduḥsaha iti nagare  <span class="lb" data-line="6">&lt;132,6&gt;</span><br class="lb-br"/> prasiddho babhūva | veśyābhir api na śakyate jetuṃ kiṃ punaḥ kulāṅganābhiḥ |  <span class="lb" data-line="7">&lt;132,7&gt;</span><br class="lb-br"/> tatra ratipriyā nāma gaṇikā | (yato gaṇikādīnāṃ bahavo bhedāḥ  <span class="lb" data-line="8">&lt;132,8&gt;</span><br class="lb-br"/> paraṃ pañca prasiddhāḥ | teṣu saṃlīnāḥ sarve 'pi bhavanti | te ceme pañca  <span class="lb" data-line="9">&lt;132,9&gt;</span><br class="lb-br"/> gaṇikā vilāsinī rūpājīvā arthavṛttikā dārikā ceti | eteṣāṃ  <span class="lb" data-line="10">&lt;132,10&gt;</span><br class="lb-br"/> bhedānāṃ sā sarvottamā gaṇikā |) atha sā ṣoḍaśa drammān gṛhītvā  <span class="lb" data-line="11">&lt;132,11&gt;</span><br class="lb-br"/> tam ājuhāva | tam āyāntaṃ dṛṣṭvā sā cāṭūktibhiḥ paricaryāṃ cakāra | so  <span class="lb" data-line="12">&lt;132,12&gt;</span><br class="lb-br"/> 'pi cānyakāryanivṛttas tasminn eva ratikarmaṇi dattamanās tāṃ rantuṃ jetum ārebhe |  <span class="pb" data-page="133">&lt;133,1&gt;</span><br class="pb-br"/> tayā ca sa ratilolupaḥ dravyārthaṃ vā parājayārthaṃ vā praharadvayaṃ yāvat  <span class="lb" data-line="2">&lt;133,2&gt;</span><br class="lb-br"/> soḍhaḥ | niśīthe cādhobhūmikām āgatya kuṭṭinyagrato niveditaṃ yad duḥsaho  <span class="lb" data-line="3">&lt;133,3&gt;</span><br class="lb-br"/> 'yaṃ dvijaḥ | paṇabandhaṃ samarpayitvā tam utkālaya | mayi jīvantyāṃ  <span class="lb" data-line="4">&lt;133,4&gt;</span><br class="lb-br"/> prāg eva bāhulyaṃ bhaviṣyati | kuṭṭiny āha | asmadgṛhe na ko 'pi kāmuko  <span class="lb" data-line="5">&lt;133,5&gt;</span><br class="lb-br"/> gaṇikāṃ jitvā paṇabandhaṃ jagrāha | tato 'ham enaṃ yāvat prapañcena niḥsārayāmi  <span class="lb" data-line="6">&lt;133,6&gt;</span><br class="lb-br"/> tāvat soḍhavya iti | yadā cāhaṃ pippalam āruhya sūrpadvayena pakṣaśabdaṃ  <span class="lb" data-line="7">&lt;133,7&gt;</span><br class="lb-br"/> kurvāṇā kukkuṭadhvaniṃ vidadhāmi tadā vibhātam iti kṛtvā niḥsāraṇīyaḥ |  <span class="lb" data-line="8">&lt;133,8&gt;</span><br class="lb-br"/> ity uktvā preṣitoparibhūmau gaṇikā | yathoktaṃ ca kuṭṭinyā  <span class="lb" data-line="9">&lt;133,9&gt;</span><br class="lb-br"/> tāvat kṛtam | tasmin kṛte vibhātam iti kṛtvā niḥsārito dvijaḥ | yāvad  <span class="lb" data-line="10">&lt;133,10&gt;</span><br class="lb-br"/> gṛhadvārastho vyomam ālokayate tadopari niśītho vartate | tadā sa  <span class="lb" data-line="11">&lt;133,11&gt;</span><br class="lb-br"/> vipraḥ kuṭṭinīparājito janamadhye parājayaṃ kathaṃ vahatu | iti praśnaḥ |  <span class="lb" data-line="12">&lt;133,12&gt;</span><br class="lb-br"/> śukaḥ | yadi vipraḥ kukkuṭadhvanisthānam avalokayati tāvat sūrpadvayayutāṃ  <span class="lb" data-line="13">&lt;133,13&gt;</span><br class="lb-br"/> kuṭṭinīṃ dadarśa | tena ca sā loṣṭenāhatya bhūmau pātitā pramadājanaiś ca  <span class="pb" data-page="134">&lt;134,1&gt;</span><br class="pb-br"/> dhikkṛtā | sa ca brāhmaṇo grahaṇakaṃ dviguṇaṃ gṛhītvā puramadhye gaṇikāṃ  <span class="lb" data-line="2">&lt;134,2&gt;</span><br class="lb-br"/> viḍambya svagṛhaṃ yayau | iti śrutvā prabhāvatī suptā |  <span class="lb" data-line="3">&lt;134,3&gt;</span><br class="lb-br"/> iti śukasaptatau pañcacatvāriṃśattamī kathā ||  <span class="lb" data-line="4">&lt;134,4&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_46">{46}</h1>
+      <h1 id="46">{46}</h1>
       <h2>134,4</h2>
       <p>athānyedyuḥ prabhāvatī śukaṃ pṛcchati | śukaḥ | <span class="lb" data-line="5">&lt;134,5&gt;</span><br class="lb-br"/></p>
       <h2>134,5</h2>
@@ -1242,7 +1255,7 @@
       <div class="lg"/>
       <h2>136,5</h2>
       <p>tato bhūtaḥ tyaktvā jagāma | iyaṃ muktety uktvā brāhmaṇāya rājñā sutā <span class="lb" data-line="6">&lt;136,6&gt;</span><br class="lb-br"/> rājyārdhaṃ ca pradattam | vipro 'pi pūrṇamanoratho jagāma | iti kathāṃ  <span class="lb" data-line="7">&lt;136,7&gt;</span><br class="lb-br"/> śrutvā prabhāvatī suptā |  <span class="lb" data-line="8">&lt;136,8&gt;</span><br class="lb-br"/> iti śukasaptatau ṣaṭcatvāriṃśattamī kathā ||  </p>
-      <h1 id="section_47">{47}</h1>
+      <h1 id="47">{47}</h1>
       <span class="pb" data-page="137">&lt;137,1&gt;</span>
       <br class="pb-br"/>
       <h2>137,1</h2>
@@ -1258,7 +1271,7 @@
       <div class="lg"/>
       <h2>138,1</h2>
       <p>tadā pātre svasthībhūte śatrughnarājñā satkṛto brāhmaṇo mṛgāvatīnagaraṃ <span class="lb" data-line="2">&lt;138,2&gt;</span><br class="lb-br"/> yayau | iti kathāṃ śrutvā prabhāvatī suptā |  <span class="lb" data-line="3">&lt;138,3&gt;</span><br class="lb-br"/> iti śukasaptatau saptacatvāriṃśattamī kathā ||  <span class="lb" data-line="4">&lt;138,4&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_48">{48}</h1>
+      <h1 id="48">{48}</h1>
       <h2>138,4</h2>
       <p>athānyedyuḥ prabhāvatī śukaṃ pṛcchati | gacchāmi narāntaram iti | śukaḥ | <span class="lb" data-line="5">&lt;138,5&gt;</span><br class="lb-br"/></p>
       <h2>138,5</h2>
@@ -1283,7 +1296,7 @@
       <div class="lg"/>
       <h2>140,9</h2>
       <p>mantriṇoktam | svāmin kiṃ vidheyaṃ tadādiśa | rājñoktam | asya <span class="lb" data-line="10">&lt;140,10&gt;</span><br class="lb-br"/> vaḍabāyugalasya madhye kā mātā kā ca putrī | iti saṃdeham amīṣāṃ  <span class="lb" data-line="11">&lt;140,11&gt;</span><br class="lb-br"/> chalātmanāṃ dūtānāṃ śīghraṃ chindhi | sa kathaṃ chinat tu tatsaṃdeham iti praśnaḥ |  <span class="lb" data-line="12">&lt;140,12&gt;</span><br class="lb-br"/> śukaḥ | tato mantriṇā tad vaḍabāyugaṃ saparyāṇaṃ kārayitvā vāhyālyām ativāhya  <span class="lb" data-line="13">&lt;140,13&gt;</span><br class="lb-br"/> paryāṇarahitaṃ vidhāya śrāntaṃ saṃmocitam | tad anu tad yugalaṃ ca  <span class="lb" data-line="14">&lt;140,14&gt;</span><br class="lb-br"/> mātṛsutāviceṣṭitaṃ cakāra | mātā jihvayā sutāṃ lileha sutā ca tāṃ  <span class="pb" data-page="141">&lt;141,1&gt;</span><br class="pb-br"/> prati ativatsalābhūt | tataḥ sumantriṇā mātṛsutāviśeṣo rājño 'gre  <span class="lb" data-line="2">&lt;141,2&gt;</span><br class="lb-br"/> niveditaḥ | tataś ca śakaṭālaḥ parāṃ lakṣmīṃ prasiddhiṃ ca lebhe | iti  <span class="lb" data-line="3">&lt;141,3&gt;</span><br class="lb-br"/> kathāṃ śrutvā prabhāvatī suptā |  <span class="lb" data-line="4">&lt;141,4&gt;</span><br class="lb-br"/> iti śukasaptatau aṣṭacatvāriṃśattamī kathā ||  <span class="lb" data-line="5">&lt;141,5&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_49">{49}</h1>
+      <h1 id="49">{49}</h1>
       <h2>141,5</h2>
       <p>athāparedyuḥ dinakṛtyaṃ sā vidhāya śukam āpṛcchate | śukaḥ | <span class="lb" data-line="6">&lt;141,6&gt;</span><br class="lb-br"/></p>
       <h2>141,6</h2>
@@ -1300,7 +1313,7 @@
       </div>
       <h2>142,7</h2>
       <p>tataś ca sa mantrī saṃbhāvito 'pi kathaṃ jñāsyatīti praśnaḥ | uttaram | <span class="lb" data-line="8">&lt;142,8&gt;</span><br class="lb-br"/> śukaḥ prāha | tato 'sau buddhimān mantrī yaṣṭikāṃ jale cikṣepa | jñātaṃ  <span class="lb" data-line="9">&lt;142,9&gt;</span><br class="lb-br"/> ca | yato yan mūlaṃ tad īṣaj jale magnam | tac ca nṛpater niveditam | tena  <span class="lb" data-line="10">&lt;142,10&gt;</span><br class="lb-br"/> ca teṣāṃ dūtānām api kathitam | tatas te śrutvā svarājñe nyavedayan |  <span class="lb" data-line="11">&lt;142,11&gt;</span><br class="lb-br"/> tataś ca te rājāno nandādhirājasya pūrvajalpitaṃ karaṃ daduḥ | iti kathāṃ  <span class="lb" data-line="12">&lt;142,12&gt;</span><br class="lb-br"/> śrutvā prabhāvatī suptā |  <span class="lb" data-line="13">&lt;142,13&gt;</span><br class="lb-br"/> iti śukasaptatau ekonapañcāśattamī kathā ||  </p>
-      <h1 id="section_50">{50}</h1>
+      <h1 id="50">{50}</h1>
       <span class="pb" data-page="143">&lt;143,1&gt;</span>
       <br class="pb-br"/>
       <h2>143,1</h2>
@@ -1319,7 +1332,7 @@
       </div>
       <h2>143,13</h2>
       <p>tena ca duṣṭabuddhinā tad dravyam utpāṭya gṛhītvā nijagṛham ānītam | kālakrameṇa <span class="pb" data-page="144">&lt;144,1&gt;</span><br class="pb-br"/> ca saṃmīlitau pippalādhaḥsthitaṃ dravyaṃ grahītuṃ gatau yāvad ālokayataḥ  <span class="lb" data-line="2">&lt;144,2&gt;</span><br class="lb-br"/> tāvad dravyaṃ nāsti | dharmabuddhis tato gatvā mantriṇo 'gre ācakhyau  <span class="lb" data-line="3">&lt;144,3&gt;</span><br class="lb-br"/> dhanavṛttāntaṃ hṛtaṃ cāpi kubuddhinā | kubuddhināhṛtena uttaraṃ kṛtam |  <span class="lb" data-line="4">&lt;144,4&gt;</span><br class="lb-br"/> sahasrasya paṇo muktaḥ | etadarthe śapathaṃ dāpayiṣyāmi | mantriṇoktam evam  <span class="lb" data-line="5">&lt;144,5&gt;</span><br class="lb-br"/> evāstu | dvitīyenāpi pratipannaṃ yadā tadā mantriṇā pratibhuvau gṛhītvā  <span class="lb" data-line="6">&lt;144,6&gt;</span><br class="lb-br"/> muktau gatau gehaṃ pṛthakpṛthak | tato duṣṭabuddhir nijaṃ pitaraṃ viditārthaṃ  <span class="lb" data-line="7">&lt;144,7&gt;</span><br class="lb-br"/> kṛtvā vṛkṣakoṭare cikṣepa | prabhāte sacivas tau ca vādinau kautukī  <span class="lb" data-line="8">&lt;144,8&gt;</span><br class="lb-br"/> lokaś ca taṃ pippalaṃ yayuḥ | duṣṭabuddhiḥ snātaḥ kṛtāñjaliḥ satyaṃ  <span class="lb" data-line="9">&lt;144,9&gt;</span><br class="lb-br"/> kṛtvā jagāda | idaṃ satyaṃ brūhi nagottama | yadi mayā dravyam apahṛtaṃ  <span class="lb" data-line="10">&lt;144,10&gt;</span><br class="lb-br"/> tadānena hṛtam iti vācyam | yadi na hṛtaṃ tadānena na hṛtam iti  <span class="lb" data-line="11">&lt;144,11&gt;</span><br class="lb-br"/> vācyam | iti śrutvā tatpitrā nahīti jalpitaṃ sarvalokapratyakṣam |  <span class="pb" data-page="145">&lt;145,1&gt;</span><br class="pb-br"/> tato dharmabuddhiḥ kathaṃ bhavatu | iti praśnaḥ | tatsaṃdiṣṭaḥ śukaḥ prāha |  <span class="lb" data-line="2">&lt;145,2&gt;</span><br class="lb-br"/> dharmabuddhis taṃ śabdaṃ tatpitur jñātvā koṭare vahniṃ jajvāla | taṃ pitaraṃ koṭarāt  <span class="lb" data-line="3">&lt;145,3&gt;</span><br class="lb-br"/> pūtkurvantam ardhajvalitaṃ ca patitaṃ dṛṣṭvā duṣṭabuddher nigrahaṃ vidhāya mantrī  <span class="lb" data-line="4">&lt;145,4&gt;</span><br class="lb-br"/> dharmabuddhim ānandayām āsa | iti kathāṃ śrutvā prabhāvatī suptā |  <span class="lb" data-line="5">&lt;145,5&gt;</span><br class="lb-br"/> iti śukasaptatau pañcāśattamī kathā ||  <span class="lb" data-line="6">&lt;145,6&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_51">{51}</h1>
+      <h1 id="51">{51}</h1>
       <h2>145,6</h2>
       <p>anyadā sā bālā śukaṃ papraccha | śukaḥ | <span class="lb" data-line="7">&lt;145,7&gt;</span><br class="lb-br"/></p>
       <h2>145,7</h2>
@@ -1336,7 +1349,7 @@
       </div>
       <h2>146,10</h2>
       <p>iti kathāṃ śrutvā prabhāvatī suptā | <span class="lb" data-line="11">&lt;146,11&gt;</span><br class="lb-br"/> iti śukasaptatau ekapañcāśattamī kathā ||  <span class="lb" data-line="12">&lt;146,12&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_52">{52}</h1>
+      <h1 id="52">{52}</h1>
       <h2>146,12</h2>
       <p>atikramya divaṃ prabhāvatī triyāmāsamaye dvijaṃ prāha | vrajāmīti | śukaḥ | <span class="lb" data-line="13">&lt;146,13&gt;</span><br class="lb-br"/></p>
       <h2>146,13</h2>
@@ -1366,7 +1379,7 @@
       <div class="lg"/>
       <h2>150,6</h2>
       <p>tasmāt tāta nātra kāpi cintā kāryā | prasthāpyās te 'nyadeśinaḥ yathā <span class="lb" data-line="7">&lt;150,7&gt;</span><br class="lb-br"/> tān prabodhayāmi | prasthāpitās te mantriṇā tayāpi snāpitā bhojitāś ca  <span class="lb" data-line="8">&lt;150,8&gt;</span><br class="lb-br"/> pṛthak pṛthak śāyitāḥ | tataḥ sā śṛṅgāraṃ vidhāya pradhānaṃ rājaputraṃ  <span class="lb" data-line="9">&lt;150,9&gt;</span><br class="lb-br"/> prāha | ahaṃ ratyarthinī tava pārśvaṃ samāgatā | tvaṃ ca mahyaṃ kāñcanaśataṃ  <span class="lb" data-line="10">&lt;150,10&gt;</span><br class="lb-br"/> dattvā māṃ bhuṅkṣva | tenoktam | ahaṃ tava dravyaṃ rājyaṃ copārjya dāsyāmi |  <span class="lb" data-line="11">&lt;150,11&gt;</span><br class="lb-br"/> param adhunā na kiṃcana vidyate | iti taṃ nirdravyaṃ jñātvā brāhmaṇaṃ  <span class="lb" data-line="12">&lt;150,12&gt;</span><br class="lb-br"/> gatā | brāhmaṇam api pūrvoktam evoktavatī | brāhmaṇo jagāda | yadas matpituḥ  <span class="lb" data-line="13">&lt;150,13&gt;</span><br class="lb-br"/> pārśve dravyaṃ śāsanabaddhā bhūmir api tat sarvaṃ tubhyaṃ dāsye | tam api nirdhanaṃ  <span class="lb" data-line="14">&lt;150,14&gt;</span><br class="lb-br"/> jñātvā parityajya sūtradhāraṃ yayau | āha ca saḥ | sāṃprataṃ mama pārśve  <span class="lb" data-line="15">&lt;150,15&gt;</span><br class="lb-br"/> kiṃcin na vidyate paraṃ paścāl lākṣaṃ dāsyāmi | tam api nirdravyaṃ parityajya  <span class="pb" data-page="151">&lt;151,1&gt;</span><br class="pb-br"/> vaṇiksutaṃ yayau | tathaiva gaditavatī | sa āha | svāmini ratnacatuṣṭayaṃ  <span class="lb" data-line="2">&lt;151,2&gt;</span><br class="lb-br"/> gṛhītvā māṃ bhuṅkṣva | tato jaṅghāyāḥ samākṛṣya ratnajātaṃ samarpayām  <span class="lb" data-line="3">&lt;151,3&gt;</span><br class="lb-br"/> āsa | tataḥ sā savyājam utthāya śīlarakṣāṃ kurvāṇā jayaśrīr gṛham āyayau |  <span class="lb" data-line="4">&lt;151,4&gt;</span><br class="lb-br"/> ratnacatuṣṭayaṃ pitur arpayām āsa | mantry api tān ākārya nijaṃ nijaṃ  <span class="lb" data-line="5">&lt;151,5&gt;</span><br class="lb-br"/> ratnaṃ samarpayām āsa | te 'pi svaratnalābhāt kṛtakṛtyā nijaṃ nijaṃ gṛhaṃ  <span class="lb" data-line="6">&lt;151,6&gt;</span><br class="lb-br"/> yayuḥ | iti kathāṃ śrutvā prabhāvatī suptā |  <span class="lb" data-line="7">&lt;151,7&gt;</span><br class="lb-br"/> iti śukasaptatī dvipañcāśattamī kathā ||  <span class="lb" data-line="8">&lt;151,8&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_53">{53}</h1>
+      <h1 id="53">{53}</h1>
       <h2>151,8</h2>
       <p>athāparedyuḥ prabhāvatī gamanāya śukaṃ pṛcchati | śukaḥ provāca | <span class="lb" data-line="9">&lt;151,9&gt;</span><br class="lb-br"/></p>
       <h2>151,9</h2>
@@ -1383,7 +1396,7 @@
       </div>
       <h2>152,7</h2>
       <p>tatas tad vākyaṃ śrutvā bhīto māntrikam ākaraṇāya sa mūrkho bhramituṃ gato <span class="lb" data-line="8">&lt;152,8&gt;</span><br class="lb-br"/> grāme yāvat tāvat tayā ca niḥsārito jāraḥ svaveśma gataḥ | tatas tvam  <span class="lb" data-line="9">&lt;152,9&gt;</span><br class="lb-br"/> apy uttaraṃ viṣame yadi vetsi tadā gaccha | anyathā śayanaṃ kuru | iti  <span class="lb" data-line="10">&lt;152,10&gt;</span><br class="lb-br"/> kathāṃ śrutvā prabhāvatī suptā |  <span class="lb" data-line="11">&lt;152,11&gt;</span><br class="lb-br"/> iti śukasaptatau tripañcāśattamī kathā ||  </p>
-      <h1 id="section_54">{54}</h1>
+      <h1 id="54">{54}</h1>
       <span class="pb" data-page="153">&lt;153,1&gt;</span>
       <br class="pb-br"/>
       <h2>153,1</h2>
@@ -1402,7 +1415,7 @@
       </div>
       <h2>155,2</h2>
       <p>ity uktvā sahasotthāya kare bhasma kṛtvā rājñe samarpayām āsa | sa ca <span class="lb" data-line="3">&lt;155,3&gt;</span><br class="lb-br"/> tena vacasā tuṣṭiparo vavande | tenāpi tuṣṭena pratiprābhṛtaṃ mahat preṣitam |  <span class="lb" data-line="4">&lt;155,4&gt;</span><br class="lb-br"/> sa ca viṣṇuḥ saṃmānya visarjitaḥ | tatas tvam api bhāmini viṣame uttaraṃ  <span class="lb" data-line="5">&lt;155,5&gt;</span><br class="lb-br"/> jānāsi yadi tadā gamyatām anyathā tiṣṭha | iti kathāṃ śrutvā prabhāvatī  <span class="lb" data-line="6">&lt;155,6&gt;</span><br class="lb-br"/> suptā |  <span class="lb" data-line="7">&lt;155,7&gt;</span><br class="lb-br"/> iti śukasaptatau catuḥpañcāśattamī kathā ||  <span class="lb" data-line="8">&lt;155,8&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_55">{55}</h1>
+      <h1 id="55">{55}</h1>
       <h2>155,8</h2>
       <p>anyadā yāminīsamaye prabhāvatī gamanāya śukam āpṛcchati | kīra <span class="lb" data-line="9">&lt;155,9&gt;</span><br class="lb-br"/> uvāca |  <span class="lb" data-line="10">&lt;155,10&gt;</span><br class="lb-br"/></p>
       <h2>155,10</h2>
@@ -1412,7 +1425,7 @@
       </div>
       <h2>156,1</h2>
       <p>prabhāvaty āha | katham etat | śuko brūte | carmakūṭe grāme dvijaḥ śrīdharo <span class="lb" data-line="2">&lt;156,2&gt;</span><br class="lb-br"/> nāma | tatraiva candanākhyaś carmakāraḥ | tatpārśvāt śrīdhareṇopānahayugalaṃ  <span class="lb" data-line="3">&lt;156,3&gt;</span><br class="lb-br"/> kāritam | carmakāro 'pi nityam eva dravyaṃ yācate | vipro 'pi vadati |  <span class="lb" data-line="4">&lt;156,4&gt;</span><br class="lb-br"/> tvāṃ hṛṣṭacittaṃ kariṣye | evaṃ sumahān kālo yayau | sa vipro  <span class="lb" data-line="5">&lt;156,5&gt;</span><br class="lb-br"/> 'nyadā carmakāreṇa vidhṛtaḥ | dhanaṃ vinā sa vipraḥ kathaṃ mucyate | tat kathayeti  <span class="lb" data-line="6">&lt;156,6&gt;</span><br class="lb-br"/> praśnaḥ | uttaram | śukaḥ prāha | etasminn antare grāmapālasya gṛhe  <span class="lb" data-line="7">&lt;156,7&gt;</span><br class="lb-br"/> suto jātaḥ | tato dvijaḥ prāha chalānveṣī san | carmakṛn mayā pūrvam  <span class="lb" data-line="8">&lt;156,8&gt;</span><br class="lb-br"/> uktam | tvāṃ hṛṣṭacittaṃ kariṣyāmi | tad asmin sute jāte tvaṃ hṛṣṭacitto  <span class="lb" data-line="9">&lt;156,9&gt;</span><br class="lb-br"/> na veti | yadi sa brūte nāhaṃ hṛṣṭacitta iti tadā rājñā grāhyaḥ  <span class="lb" data-line="10">&lt;156,10&gt;</span><br class="lb-br"/> syāt | anyathā ca dravyaṃ yāti | tatas tenoktam | hṛṣṭacitto 'haṃ jātaḥ |  <span class="pb" data-page="157">&lt;157,1&gt;</span><br class="pb-br"/> tato dvijaś chalenātmānaṃ vimucya gataḥ | tato bhāmini yady evam uttaraṃ  <span class="lb" data-line="2">&lt;157,2&gt;</span><br class="lb-br"/> jānāsi tadā gaccha | iti kathāṃ śrutvā prabhāvatī suptā |  <span class="lb" data-line="3">&lt;157,3&gt;</span><br class="lb-br"/> iti śukasaptatau pañcapañcāśattamī kathā ||  <span class="lb" data-line="4">&lt;157,4&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_56">{56}</h1>
+      <h1 id="56">{56}</h1>
       <h2>157,4</h2>
       <p>athāparedyuḥ prabhāvatī gamanāya śukaṃ pṛcchati | śukaḥ | <span class="lb" data-line="5">&lt;157,5&gt;</span><br class="lb-br"/></p>
       <h2>157,5</h2>
@@ -1429,7 +1442,7 @@
       </div>
       <h2>158,5</h2>
       <p>taṃ lekhakaṃ ca dṛṣṭvā yakṣadhanam iti jñātvā taṃ praṇamya te gatāś caurāḥ | <span class="lb" data-line="6">&lt;158,6&gt;</span><br class="lb-br"/> sa ca dravyaṃ gṛhītvā kṣemeṇa gṛhaṃ yayau | iti kathāṃ śrutvā prabhāvatī  <span class="lb" data-line="7">&lt;158,7&gt;</span><br class="lb-br"/> suptā |  <span class="lb" data-line="8">&lt;158,8&gt;</span><br class="lb-br"/> iti śukasaptatau ṣaṭpañcāśattamī kathā ||  <span class="lb" data-line="9">&lt;158,9&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_57">{57}</h1>
+      <h1 id="57">{57}</h1>
       <h2>158,9</h2>
       <div class="lg"/>
       <h2>159,2</h2>
@@ -1478,7 +1491,7 @@
       </div>
       <h2>165,10</h2>
       <p>paṇḍito 'pi rājñaḥ prasādāt sukhaṃ bhuṅkte tayā samam | yady evaṃ prabhāvati <span class="lb" data-line="11">&lt;165,11&gt;</span><br class="lb-br"/> tvam api samaye vaktuṃ jānāsi tadā gamyatām | anyathā sthīyatām |  <span class="lb" data-line="12">&lt;165,12&gt;</span><br class="lb-br"/> iti kathāṃ śrutvā prabhāvatī suptā |  <span class="lb" data-line="13">&lt;165,13&gt;</span><br class="lb-br"/> iti śukasaptatau saptapañcāśattamī kathā ||  </p>
-      <h1 id="section_58">{58}</h1>
+      <h1 id="58">{58}</h1>
       <span class="pb" data-page="166">&lt;166,1&gt;</span>
       <br class="pb-br"/>
       <h2>166,1</h2>
@@ -1494,7 +1507,7 @@
       <div class="lg"/>
       <h2>167,10</h2>
       <p>iti kathāṃ śrutvā prabhāvatī suptā | <span class="lb" data-line="11">&lt;167,11&gt;</span><br class="lb-br"/> iti śukasaptatau aṣṭapañcāśattamī kathā ||  <span class="lb" data-line="12">&lt;167,12&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_59">{59}</h1>
+      <h1 id="59">{59}</h1>
       <h2>167,12</h2>
       <p>atha dinānte sā śukaṃ gamanāya pṛcchati sma | śukaḥ | <span class="lb" data-line="13">&lt;167,13&gt;</span><br class="lb-br"/></p>
       <h2>167,13</h2>
@@ -1549,7 +1562,7 @@
       </div>
       <h2>172,13</h2>
       <p>etat tvayoktaṃ pativratāviṣayaṃ nānyāsu | iti kathāṃ śrutvā prabhāvatī suptā | <span class="lb" data-line="14">&lt;172,14&gt;</span><br class="lb-br"/> iti śukasaptatau ekonaṣaṣṭitamī kathā ||  </p>
-      <h1 id="section_60">{60}</h1>
+      <h1 id="60">{60}</h1>
       <span class="pb" data-page="173">&lt;173,1&gt;</span>
       <br class="pb-br"/>
       <h2>173,1</h2>
@@ -1565,7 +1578,7 @@
       <div class="lg"/>
       <h2>173,9</h2>
       <p>sa dūtas tatpurīṃ gatvā nṛpaṃ dṛṣṭvā taṃ jagāda | matsvāmināhaṃ sacitrāṃ <span class="lb" data-line="10">&lt;173,10&gt;</span><br class="lb-br"/> tava sabhām avalokayitum utkalitaḥ | rājā prāha | prātar darśayiṣye |  <span class="pb" data-page="174">&lt;174,1&gt;</span><br class="pb-br"/> tato rājñā dvitīyadine dūta ākāritaḥ | sa ca sahasāgatas tāṃ sabhāṃ  <span class="lb" data-line="2">&lt;174,2&gt;</span><br class="lb-br"/> vicitraratnakhacitāṃ dṛṣṭvā jalamayīṃ sthalamayīṃ veti niścetum aśaktaḥ kathaṃ  <span class="lb" data-line="3">&lt;174,3&gt;</span><br class="lb-br"/> bhavatv iti praśnaḥ | śukaḥ | tataḥ sa pūgīphalaṃ puraḥ kṣiptvā sthalaṃ jñātvā  <span class="lb" data-line="4">&lt;174,4&gt;</span><br class="lb-br"/> gṛhaṃ yayau | iti kathāṃ śrutvā prabhāvatī suptā |  <span class="lb" data-line="5">&lt;174,5&gt;</span><br class="lb-br"/> iti śukasaptatau ṣaṣṭitamī kathā ||  <span class="lb" data-line="6">&lt;174,6&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_61">{61}</h1>
+      <h1 id="61">{61}</h1>
       <h2>174,6</h2>
       <p>anyadā sā śukaṃ pṛcchati sma | śuka prāha | <span class="lb" data-line="7">&lt;174,7&gt;</span><br class="lb-br"/></p>
       <h2>174,7</h2>
@@ -1593,7 +1606,7 @@
       </div>
       <h2>179,5</h2>
       <p>iti kathāṃ śrutvā prabhāvatī suptā | <span class="lb" data-line="6">&lt;179,6&gt;</span><br class="lb-br"/> iti śukasaptatau ekaṣaṣṭitamī kathā ||  <span class="lb" data-line="7">&lt;179,7&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_62">{62}</h1>
+      <h1 id="62">{62}</h1>
       <h2>179,7</h2>
       <p>anyadā sā prabhāvatī śukam āpṛcchati | śukaḥ prāha | <span class="lb" data-line="8">&lt;179,8&gt;</span><br class="lb-br"/></p>
       <h2>179,8</h2>
@@ -1617,7 +1630,7 @@
       </div>
       <h2>183,5</h2>
       <p>iti kathāṃ śrutvā prabhāvatī suptā | <span class="lb" data-line="6">&lt;183,6&gt;</span><br class="lb-br"/> iti śukasaptatau dviṣaṣṭitamī kathā ||  <span class="lb" data-line="7">&lt;183,7&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_63">{63}</h1>
+      <h1 id="63">{63}</h1>
       <h2>183,7</h2>
       <p>anyasmin pradoṣe prabhāvatī yāmīti śukaṃ pratyāha | śukaḥ prāha | <span class="lb" data-line="8">&lt;183,8&gt;</span><br class="lb-br"/></p>
       <h2>183,8</h2>
@@ -1634,7 +1647,7 @@
       </div>
       <h2>184,5</h2>
       <p>iti kathāṃ śrutvā prabhāvatī suptā | <span class="lb" data-line="6">&lt;184,6&gt;</span><br class="lb-br"/> iti śukasaptatau triṣaṣṭitamī kathā ||  <span class="lb" data-line="7">&lt;184,7&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_64">{64}</h1>
+      <h1 id="64">{64}</h1>
       <h2>184,7</h2>
       <p>anyadā prabhāvatī śukam āpṛcchati sma | so 'py āha | <span class="lb" data-line="8">&lt;184,8&gt;</span><br class="lb-br"/></p>
       <h2>184,8</h2>
@@ -1644,7 +1657,7 @@
       </div>
       <h2>184,10</h2>
       <p>prabhāvatī prāha | katham etat | śukaḥ | asti kūṭapurābhidho grāmaḥ | <span class="pb" data-page="185">&lt;185,1&gt;</span><br class="pb-br"/> tatra rājaputraḥ somarājaḥ | tasya maṇḍukā nāma patnī priyadarśanā  <span class="lb" data-line="2">&lt;185,2&gt;</span><br class="lb-br"/> narāntaralolupā | tāṃ caiko naraḥ kṛtasaṃketaḥ saghaṇṭako rātrau gṛhāṅgaṇe  <span class="lb" data-line="3">&lt;185,3&gt;</span><br class="lb-br"/> bhuṅkte | tatpatir ghaṇṭāśabdaṃ śṛṇvann ekadā laguḍam ādāya pradhāvitaḥ ṣaṇḍaśaṅkayā |  <span class="lb" data-line="4">&lt;185,4&gt;</span><br class="lb-br"/> tataḥ ṣaṇḍaveṣadhārī upapatiḥ kathaṃ bhavitv iti praśnaḥ | śukaḥ |  <span class="lb" data-line="5">&lt;185,5&gt;</span><br class="lb-br"/> devikā nāma sakhī maṇḍukāyāḥ patiṃ ghaṇṭāśabdānusāriṇam āgacchantaṃ  <span class="lb" data-line="6">&lt;185,6&gt;</span><br class="lb-br"/> dṛṣṭvā jārasya naśyato ghaṇṭālālāṃ haste dhṛtvā taṃ prati jagāda | bhāvuka  <span class="lb" data-line="7">&lt;185,7&gt;</span><br class="lb-br"/> kāṃdiśīko vṛṣo naṣṭaḥ | tataḥ sa vyāvṛtya nijapauruṣaṃ patnyai kathayām  <span class="lb" data-line="8">&lt;185,8&gt;</span><br class="lb-br"/> āsa | iti kathāṃ śrutvā prabhāvatī suptā |  <span class="lb" data-line="9">&lt;185,9&gt;</span><br class="lb-br"/> iti śukasaptatau catuḥṣaṣṭitamī kathā ||  </p>
-      <h1 id="section_65">{65}</h1>
+      <h1 id="65">{65}</h1>
       <span class="pb" data-page="186">&lt;186,1&gt;</span>
       <br class="pb-br"/>
       <h2>186,1</h2>
@@ -1656,7 +1669,7 @@
       </div>
       <h2>186,4</h2>
       <p>asti devi janasthānaṃ nāma pattanam | tatra nandano nāma rājā <span class="lb" data-line="5">&lt;186,5&gt;</span><br class="lb-br"/> yathārthaḥ | tatpattane śrīvatso nāma śrāvakaḥ paraṃ maheśvararataḥ | tena  <span class="lb" data-line="6">&lt;186,6&gt;</span><br class="lb-br"/> anyadā vārāṇasīṃ nagarīṃ prati prasthitena saśiṣyena pathi gacchatā ekaḥ  <span class="lb" data-line="7">&lt;186,7&gt;</span><br class="lb-br"/> śiṣyaḥ māṃsaharaṇāya sthāpitaḥ | anyaśrāvakair dṛṣṭaḥ sa kathaṃ bhavatv iti  <span class="lb" data-line="8">&lt;186,8&gt;</span><br class="lb-br"/> praśnaḥ | śukaḥ prāha | yathā sarvaśrāvakā āgatyopaviṣṭāḥ tadāṭṭahāsaṃ  <span class="lb" data-line="9">&lt;186,9&gt;</span><br class="lb-br"/> jahasuḥ | pṛṣṭaḥ sarvair jagāda | īdṛśo 'yaṃ śiṣyaḥ | mayoktaṃ māṃ saṃvartata  <span class="lb" data-line="10">&lt;186,10&gt;</span><br class="lb-br"/> abuddhyā anena māṃsasya ● ● ● ● | iti kathāṃ śrutvā prabhāvatī suptā |  <span class="lb" data-line="11">&lt;186,11&gt;</span><br class="lb-br"/> iti śukasaptatau pañcaṣaṣṭitamī kathā ||  </p>
-      <h1 id="section_66">{66}</h1>
+      <h1 id="66">{66}</h1>
       <span class="pb" data-page="187">&lt;187,1&gt;</span>
       <br class="pb-br"/>
       <h2>187,1</h2>
@@ -1665,7 +1678,7 @@
       <div class="lg"/>
       <h2>188,3</h2>
       <p>tatra gavyūtivistīrṇe śītacchāye jalāśayatīrasthite vaṭe śaṅkhadhavalo <span class="lb" data-line="4">&lt;188,4&gt;</span><br class="lb-br"/> nāma haṃsarāṭ sakuṭumbo medinīṃ bhrāntvā dinātyaye śete |  <span class="pb" data-page="189">&lt;189,1&gt;</span><br class="pb-br"/> anyadā teṣu haṃseṣu bhramaṇāya gateṣu pāparddhinā jālaṃ baddham | pradoṣāgatāḥ  <span class="lb" data-line="2">&lt;189,2&gt;</span><br class="lb-br"/> patitāḥ sarve 'pi kathaṃ mucyante | iti praśnaḥ | śukaḥ | tatas tu  <span class="lb" data-line="3">&lt;189,3&gt;</span><br class="lb-br"/> svaṃ kuṭumbaṃ tathā baddhaṃ jñātvā rātrau śaṅkhadhavalaḥ prāha | re re putrā  <span class="lb" data-line="4">&lt;189,4&gt;</span><br class="lb-br"/> yadāsau lubdhakaḥ prātar bhūruhaṃ samāruhya yuṣmān avalokayati tadā bhavadbhir  <span class="lb" data-line="5">&lt;189,5&gt;</span><br class="lb-br"/> mṛtakalpair ucchvāsaniḥśvāsarahitaiḥ sthātavyam | so 'pi yuṣmān mṛtān  <span class="lb" data-line="6">&lt;189,6&gt;</span><br class="lb-br"/> iti jñātvā yadā bhūmau sarvān kṣipati tadā sarvair apy uḍḍīya gantavyam |  <span class="lb" data-line="7">&lt;189,7&gt;</span><br class="lb-br"/> iti kṛte lubdhakaḥ prātaḥ samāyayau | tena te mṛtā iti  <span class="lb" data-line="8">&lt;189,8&gt;</span><br class="lb-br"/> jñātvā bhūmau kṣiptāḥ tadā te uḍḍīya kāṅkṣitaṃ deśaṃ yayuḥ | iti  <span class="lb" data-line="9">&lt;189,9&gt;</span><br class="lb-br"/> kathāṃ śrutvā prabhāvatī suptā |  <span class="lb" data-line="10">&lt;189,10&gt;</span><br class="lb-br"/> iti śukasaptatau ṣaṭṣaṣṭitamī kathā ||  </p>
-      <h1 id="section_67">{67}</h1>
+      <h1 id="67">{67}</h1>
       <span class="pb" data-page="190">&lt;190,1&gt;</span>
       <br class="pb-br"/>
       <h2>190,1</h2>
@@ -1720,7 +1733,7 @@
       </div>
       <h2>194,4</h2>
       <p>iti kathāṃ śrutvā prabhāvatī suptā | <span class="lb" data-line="5">&lt;194,5&gt;</span><br class="lb-br"/> iti śukasaptatau saptaṣaṣṭitamī kathā ||  <span class="lb" data-line="6">&lt;194,6&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_68">{68}</h1>
+      <h1 id="68">{68}</h1>
       <h2>194,6</h2>
       <p>athānyedyuḥ śukaṃ prāha prabhāvatī | śukaḥ | <span class="lb" data-line="7">&lt;194,7&gt;</span><br class="lb-br"/></p>
       <h2>194,7</h2>
@@ -1730,7 +1743,7 @@
       </div>
       <h2>194,9</h2>
       <p>asti vidyāsthānaṃ nāma grāmaḥ brāhmaṇānām | tatra keśavo brāhmaṇaḥ | <span class="lb" data-line="10">&lt;194,10&gt;</span><br class="lb-br"/> tena ca snānāya gatena taṭāke ramyā vaṇikputrī dṛṣṭā | sa ca tāṃ  <span class="lb" data-line="11">&lt;194,11&gt;</span><br class="lb-br"/> rantum icchati | anyadā tayā prokto dvijaḥ snānād utthitaḥ | yat tvaṃ mama  <span class="pb" data-page="195">&lt;195,1&gt;</span><br class="pb-br"/> śirasi dvitīyaṃ ghaṭam āropaya | atas tena ghaṭam āropayatā tasyā oṣṭhaś cumbitaḥ |  <span class="lb" data-line="2">&lt;195,2&gt;</span><br class="lb-br"/> sa ca tathā kurvan patinā dṛṣṭaḥ | nīto rājakulaṃ kathaṃ mucyatām |  <span class="lb" data-line="3">&lt;195,3&gt;</span><br class="lb-br"/> iti praśnaḥ | uttaraṃ | śukaḥ prāha | atha tanmitraṃ vitarko  <span class="lb" data-line="4">&lt;195,4&gt;</span><br class="lb-br"/> nāma | sa ca tatsamīpam āgagatyedam abravīt | mitra tvayā rājakulagatena  <span class="lb" data-line="5">&lt;195,5&gt;</span><br class="lb-br"/> vacacety eva vākyaṃ jalpanīyaṃ nānyat | tathā kṛte ca mantriṇoktam |  <span class="lb" data-line="6">&lt;195,6&gt;</span><br class="lb-br"/> nāyaṃ doṣabhāk | prakṛtir evaṃvidhaivāsya | tenaiva cottareṇa loke sādhutāṃ  <span class="lb" data-line="7">&lt;195,7&gt;</span><br class="lb-br"/> gato vitarkasāhāyikabuddhyā | yadi tvam api tathā jānāsi tadā  <span class="lb" data-line="8">&lt;195,8&gt;</span><br class="lb-br"/> gaccha | iti kathāṃ śrutvā prabhāvatī supta |  <span class="lb" data-line="9">&lt;195,9&gt;</span><br class="lb-br"/> iti śukasaptatau aṣṭaṣaṣṭitamī kathā ||  </p>
-      <h1 id="section_69">{69}</h1>
+      <h1 id="69">{69}</h1>
       <span class="pb" data-page="196">&lt;196,1&gt;</span>
       <br class="pb-br"/>
       <h2>196,1</h2>
@@ -1742,7 +1755,7 @@
       </div>
       <h2>196,4</h2>
       <p>asti sthānaṃ kalāsthānaṃ nāma | tatraiko vaṇiksutaḥ | tasya bhāryā ca <span class="lb" data-line="5">&lt;196,5&gt;</span><br class="lb-br"/> vejikā nāmātivallabhā | anyadā ca taṃ bhartāraṃ snāpayantī upapatiṃ  <span class="lb" data-line="6">&lt;196,6&gt;</span><br class="lb-br"/> pūrvakṛtasaṃketaṃ pathi gacchantaṃ dṛṣṭvā nātra pānīyaṃ pracuram iti miṣāntaraṃ  <span class="lb" data-line="7">&lt;196,7&gt;</span><br class="lb-br"/> kṛtvā pānīyānayanavyājād gṛhān nirgatā jāreṇa sākaṃ bahukālaṃ ca sthitā |  <span class="pb" data-page="197">&lt;197,1&gt;</span><br class="pb-br"/> tato 'rdhasnātaṃ patiṃ muktvā tathā sthitā kim uttaraṃ karotv iti praśnaḥ |  <span class="lb" data-line="2">&lt;197,2&gt;</span><br class="lb-br"/> uttaram | śukaḥ | tataḥ sā jāreṇa bhuktā svapativañcanaṃ vicintyātmānaṃ  <span class="lb" data-line="3">&lt;197,3&gt;</span><br class="lb-br"/> kūpe cikṣepa | tataḥ kolāhalaḥ saṃvṛttaḥ | kūpe kāpi varākī patitāstīti  <span class="lb" data-line="4">&lt;197,4&gt;</span><br class="lb-br"/> pravādaḥ saṃjātaḥ | tena tatpatis tadvacanaṃ śrutvā vyacintayat | nūnaṃ  <span class="lb" data-line="5">&lt;197,5&gt;</span><br class="lb-br"/> sā matpatnī kūpe patitā bhaviṣyati | iti drutaṃ gatvāvalokayām āsa |  <span class="lb" data-line="6">&lt;197,6&gt;</span><br class="lb-br"/> tatas tāṃ kūpād ākṛṣyānīyāmānayat | iti kathāṃ śrutvā prabhāvatī suptā |  <span class="lb" data-line="7">&lt;197,7&gt;</span><br class="lb-br"/> iti śukasaptatau ekonasaptatitamī kathā ||  <span class="lb" data-line="8">&lt;197,8&gt;</span><br class="lb-br"/></p>
-      <h1 id="section_70">{70}</h1>
+      <h1 id="70">{70}</h1>
       <h2>197,8</h2>
       <p>etāvatīnāṃ kathānāṃ paryante tadbhartā madano deśāntarād āgataḥ | tasmiṃś <span class="lb" data-line="9">&lt;197,9&gt;</span><br class="lb-br"/> cāgate sā tathaiva tasmin snehalābhūt | śuka eva mandaṃ mandaṃ paṭhati |  <span class="lb" data-line="10">&lt;197,10&gt;</span><br class="lb-br"/></p>
       <h2>197,10</h2>
