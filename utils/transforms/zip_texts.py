@@ -61,10 +61,14 @@ def main(folder: str):
         zip_path_txt = output_dir / f'{tier}_txt.zip'
         create_zip(tier_dir, zip_path_txt, version_file)
 
-        # html files
-        source_dir_html = tier_dir / 'transforms' / 'html'
-        zip_path_html = output_dir / f'{tier}_html.zip'
-        create_zip(source_dir_html, zip_path_html, version_file)
+        # html files (rich and plain)
+        source_dir_html_rich = tier_dir / 'transforms' / 'html' / 'rich'
+        zip_path_html_rich = output_dir / f'{tier}_html_rich.zip'
+        create_zip(source_dir_html_rich, zip_path_html_rich, version_file)
+
+        source_dir_html_plain = tier_dir / 'transforms' / 'html' / 'plain'
+        zip_path_html_plain = output_dir / f'{tier}_html_plain.zip'
+        create_zip(source_dir_html_plain, zip_path_html_plain, version_file)
 
         # xml files
         source_dir_xml = tier_dir / 'transforms' / 'xml'
