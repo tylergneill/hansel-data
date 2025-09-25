@@ -7,7 +7,7 @@ TIER_II_XML_DIR = os.path.join(PROJECT_ROOT, "texts/tier_ii/transforms")
 TIER_II_HTML_DIR = os.path.join(PROJECT_ROOT, "texts/tier_ii/transforms/html")
 TIER_III_XML_DIR = os.path.join(PROJECT_ROOT, "texts/tier_iii/transforms")
 TIER_III_HTML_DIR = os.path.join(PROJECT_ROOT, "texts/tier_iii/transforms/html")
-CONVERSION_SCRIPT = os.path.join(PROJECT_ROOT, "utils/transforms/xml/convert_xml_to_html.py")
+CONVERSION_SCRIPT = os.path.join(PROJECT_ROOT, "utils/transforms/html/convert_xml_to_html.py")
 
 flag_map = {
     "bANa_kAdambarI": '--line-by-line',

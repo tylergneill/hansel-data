@@ -36,15 +36,44 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
         #toc li { margin-bottom: 5px; }
         .button-container { position: fixed; top: 10px; right: 10px; z-index: 1000; }
         .button-container button { display: block; margin-bottom: 5px; }
+        .button-container div { margin-bottom: 10px; background: #f0f0f0; padding: 5px; border-radius: 4px; text-align: center; }
+        .button-container label { font-size: 0.8em; display: block; }
         .pb, .lb { display: none; }
         .show-breaks .pb, .show-breaks .lb { display: inline; cursor: pointer; color: blue; }
     """
     if verse_only:
         style_text += """
-        .verses { list-style: none; padding-left: 0; }
-        .verses > li { position: relative; margin-bottom: 1rem; }
-        .verse-number { display: inline-block; width: 4em; text-align: right; padding-right: 1em; }
-        .verse-line { display: inline-block; }
+        .verses { list-style: none; margin: 0; padding: 0; }
+        .verse { position: relative; padding: .5rem .75rem; }
+
+        /* alternate backgrounds per verse group */
+        .verse:nth-child(odd)  { background: hsl(220 20% 97%); }
+        .verse:nth-child(even) { background: hsl(220 20% 93%); }
+
+        /* 2-column pāda layout */
+        .padas {
+          list-style: none; margin: 0; padding: 0;
+          display: grid;
+          grid-template-columns: var(--left-col-width, 40%) 1fr;
+          column-gap: 1rem;
+          row-gap: .25rem;
+        }
+        .padas > li:first-child {
+          grid-column: 1;
+          grid-row: 1 / -1; /* This makes the first item span all rows */
+        }
+        .padas > li:not(:first-child) {
+          grid-column: 2;
+        }
+
+        /* clean line spacing */
+        .padas > li { line-height: 1.4; }
+
+        /* optional: collapse to single column on very narrow screens */
+         @media (max-width: 520px) {
+          .padas { grid-template-columns: 1fr; }
+          .padas > li { grid-column: 1 !important; grid-row: auto !important; }
+        }
         """
     else:  # Default, non-verse-only styles
         style_text += """
@@ -52,7 +81,7 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
         .show-line-breaks .hyphen { display: inline; }
         .show-line-breaks .lb-br, .show-line-breaks .pb-br { display: block; }
         """
-    style.text = style_text
+    style.text = "STYLE_PLACEHOLDER"
 
     script_text = """
         function toggleBreaks() {
@@ -65,15 +94,38 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
             document.getElementById("content").classList.toggle("show-line-breaks");
         }
         """
+    else:  # verse_only
+        script_text += """
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const slider = document.getElementById('width-slider');
+            if (slider) {
+                slider.addEventListener('input', (e) => {
+                    document.documentElement.style.setProperty('--left-col-width', e.target.value + '%');
+                });
+            }
+        });
+        """
 
     script = etree.SubElement(head, "script")
-    script.text = script_text
+    script.text = "SCRIPT_PLACEHOLDER"
 
     # --- 3. HTML Body ---
     body = etree.SubElement(html, "body")
 
     button_container = etree.SubElement(body, "div")
     button_container.set("class", "button-container")
+
+    if verse_only:
+        slider_div = etree.SubElement(button_container, "div")
+        slider_label = etree.SubElement(slider_div, "label")
+        slider_label.set("for", "width-slider")
+        slider_label.text = "Column Width"
+        slider_input = etree.SubElement(slider_div, "input")
+        slider_input.set("type", "range")
+        slider_input.set("id", "width-slider")
+        slider_input.set("min", "20")
+        slider_input.set("max", "80")
+        slider_input.set("value", "40")
 
     button1 = etree.SubElement(button_container, "button")
     button1.set("onclick", "toggleBreaks()")
@@ -110,49 +162,67 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
 
             h1 = etree.SubElement(content_div, "h1")
             h1.set("id", section_id)
-            h1.text = f"Chapter {chapter_n_full}"
+            h1.text = f"{{{chapter_n_full}}}"
 
             all_verses_in_section = section.findall('.//lg[@n]')
             if not all_verses_in_section:
                 continue
 
-            first_verse_n = all_verses_in_section[0].get('n').split('.')[-1]
-
-            ol = etree.SubElement(content_div, "ol")
-            ol.set("class", "verses")
-            if first_verse_n.isdigit():
-                ol.set("start", first_verse_n)
+            verses_ol = etree.SubElement(content_div, "ol")
+            verses_ol.set("class", "verses")
 
             for lg_element in all_verses_in_section:
                 verse_id = lg_element.get('n')
-                li = etree.SubElement(ol, "li")
-                li.set("id", f"v{verse_id.replace('.', ',')}")
+                verse_li = etree.SubElement(verses_ol, "li")
+                verse_li.set("class", "verse")
+                verse_li.set("id", f"v{verse_id.replace('.', '-')}")
 
-                verse_span = etree.SubElement(li, "span")
-                verse_span.set("class", "verse-number")
-                verse_span.text = verse_id
+                padas_ol = etree.SubElement(verse_li, "ol")
+                padas_ol.set("class", "padas")
 
                 l_children = lg_element.findall('l')
+                num_l_children = len(l_children)
                 for i, l_child in enumerate(l_children):
-                    if i > 0 and len(li) > 0:
-                        li[-1].tail = '\u00A0' * 20
-
-                    line_span = etree.SubElement(li, "span")
-                    line_span.set("class", "verse-line")
-
+                    pada_li = etree.SubElement(padas_ol, "li")
                     if l_child.text:
-                        line_span.text = l_child.text
-                    
+                        pada_li.text = l_child.text
+
                     for elem in l_child:
                         if elem.tag == 'pb':
-                            pb_span = etree.SubElement(line_span, "span")
+                            pb_span = etree.SubElement(pada_li, "span")
                             pb_span.set("class", "pb")
                             pb_span.set("data-page", elem.get("n"))
                             pb_span.text = f"<{elem.get('n')}>"
                             if elem.tail:
                                 pb_span.tail = (pb_span.tail or '') + elem.tail
                         else:
-                            line_span.append(elem)
+                            pada_li.append(elem)
+
+                    if i == num_l_children - 1:
+                        # Defer trailing pb markers until after the verse number is added
+                        trailing_pbs = []
+                        for child in reversed(pada_li):
+                            # We only care about pb spans that are literally at the end.
+                            # If a pb span has tail text, it's not at the end.
+                            if child.tag == 'span' and child.get('class') == 'pb' and not child.tail:
+                                trailing_pbs.insert(0, child)
+                            else:
+                                break
+
+                        for pb_span in trailing_pbs:
+                            pada_li.remove(pb_span)
+
+                        # Add the verse number, enclosed in ||
+                        verse_id = lg_element.get('n')
+                        text_to_append = f" {verse_id} ||"
+                        if len(pada_li) > 0:
+                            pada_li[-1].tail = (pada_li[-1].tail or '') + text_to_append
+                        else:
+                            pada_li.text = (pada_li.text or '') + text_to_append
+
+                        # Add the deferred pb markers back
+                        for pb_span in trailing_pbs:
+                            pada_li.append(pb_span)
 
     else:  # Original processing logic
         current_page = [""]
@@ -261,7 +331,10 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
 
     # Write the HTML to a file
     with open(html_path, "w", encoding="utf-8") as f:
-        f.write(etree.tostring(html, pretty_print=True, encoding="unicode"))
+        html_string = etree.tostring(html, pretty_print=True, encoding="unicode")
+        html_string = html_string.replace("STYLE_PLACEHOLDER", style_text, 1)
+        html_string = html_string.replace("SCRIPT_PLACEHOLDER", script_text, 1)
+        f.write(html_string)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Convert TEI XML to HTML.")
