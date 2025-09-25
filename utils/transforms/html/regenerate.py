@@ -3,9 +3,9 @@ import subprocess
 from pathlib import Path
 
 PROJECT_ROOT = "/Users/tyler/Git/hansel/hansel-data"
-TIER_II_XML_DIR = os.path.join(PROJECT_ROOT, "texts/tier_ii/transforms")
+TIER_II_XML_DIR = os.path.join(PROJECT_ROOT, "texts/tier_ii/transforms/xml")
 TIER_II_HTML_DIR = os.path.join(PROJECT_ROOT, "texts/tier_ii/transforms/html")
-TIER_III_XML_DIR = os.path.join(PROJECT_ROOT, "texts/tier_iii/transforms")
+TIER_III_XML_DIR = os.path.join(PROJECT_ROOT, "texts/tier_iii/transforms/xml")
 TIER_III_HTML_DIR = os.path.join(PROJECT_ROOT, "texts/tier_iii/transforms/html")
 CONVERSION_SCRIPT = os.path.join(PROJECT_ROOT, "utils/transforms/html/convert_xml_to_html.py")
 
