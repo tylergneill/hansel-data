@@ -28,13 +28,20 @@
 
             function toggleButtonContainer() {
                 const buttonContainer = document.querySelector('.button-container');
-                const mobileIcon = document.getElementById('mobile-controls-icon');
+                const mobileIcon = document.getElementById('controls-icon');
+                console.log('--- Toggling Button Container ---');
+                console.log('Container expanded before toggle: ' + buttonContainer.classList.contains('expanded'));
                 buttonContainer.classList.toggle('expanded');
+                console.log('Container expanded after toggle: ' + buttonContainer.classList.contains('expanded'));
                 if (buttonContainer.classList.contains('expanded')) {
                     mobileIcon.style.display = 'none';
+                    console.log('Action: Hide burger icon, show container.');
                 } else {
                     mobileIcon.style.display = 'block';
+                    console.log('Action: Show burger icon, hide container.');
                 }
+                console.log('Final container className: ' + buttonContainer.className);
+                console.log('---------------------------------');
             }
 
             document.addEventListener('DOMContentLoaded', (event) => {
@@ -42,7 +49,7 @@
                 if (tocHeader) { tocHeader.addEventListener('click', toggleToc); }
                 const metadataHeader = document.querySelector('#metadata h2');
                 if (metadataHeader) { metadataHeader.addEventListener('click', toggleMetadata); }
-                const mobileControlsIcon = document.getElementById('mobile-controls-icon');
+                const mobileControlsIcon = document.getElementById('controls-icon');
                 if (mobileControlsIcon) {
                     mobileControlsIcon.addEventListener('click', toggleButtonContainer);
                 }
@@ -50,7 +57,8 @@
                 if (closeButton) {
                     closeButton.addEventListener('click', toggleButtonContainer);
                 }
-        });</script>
+        });
+    </script>
     <style>
       body {
           font-family: sans-serif;
@@ -224,7 +232,11 @@
       .show-line-breaks .hyphen { display: inline; }
       .show-line-breaks .lb-br, .show-line-breaks .pb-br { display: block; }
 
-      #mobile-controls-icon span {
+      #controls-icon {
+          display: block;
+      }
+
+      #controls-icon span {
           display: block;
           width: 33px;
           height: 4px;
@@ -244,6 +256,22 @@
           z-index: 2;
       }
 
+      #controls-icon {
+          position: fixed;
+          top: 50px;
+          right: 15%;
+          cursor: pointer;
+          z-index: 1001;
+      }
+
+      .button-container {
+          display: none;
+      }
+
+      .button-container.expanded {
+          display: block;
+      }
+
       @media (max-width: 950px) {
           #top-widgets {
               flex-direction: column;
@@ -253,304 +281,292 @@
               margin-right: 0;
               margin-bottom: 1em;
           }
-          #mobile-controls-icon {
-              display: block;
-              position: fixed;
-              top: 50px;
-              right: 15%;
-              cursor: pointer;
-              z-index: 1001;
-          }
-          .button-container {
-              display: none;
-          }
-          .button-container.expanded {
-              display: block;
-          }
       }
     </style>
   </head>
   <body>
-    <div id="mobile-controls-icon">
+    <div id="controls-icon">
       <span></span>
       <span></span>
       <span></span>
     </div>
-          <div class="button-container">
-            <div id="close-button-container">&times;</div>
-            <div class="toggle-switch-container">
-                          <label class="switch">
-                            <input type="checkbox" onchange="toggleViewMode(this)">
-                            <span class="switch-text-off">Cite</span><span class="switch-text-on">Search</span>
-                          </label>
-                        </div>
-                        <div class="toggle-switch-container rich-text-toggle">
-                          <label class="switch">
-                            <input type="checkbox" onchange="toggleLineBreaks(this)">
-                            <span class="switch-text-off">Paragraph</span><span class="switch-text-on">Line</span>
-                          </label>
-                        </div>
-                        <div class="toggle-switch-container rich-text-toggle">
-                          <label class="simple-checkbox-label">
-                              Numbers <input type="checkbox" onchange="toggleBreaks(this)">
-                          </label>
-                        </div>          </div>    <div id="top-widgets">
-        <div id="metadata">
-            <h2>Metadata <span id="metadata-caret">▶</span></h2>
-            <ul id="metadata-list">
-                <li><b>Title:</b> Śukasaptati, “Textus Simplicior”</li>
-                <li><b>Author:</b> (Unknown)</li>
-                <li><b>Source File:</b> Word document by Viliam Gostishchev, obtained directly from creator through private email exchange.</li>
-                <li><b>Edition:</b> Schmidt, Richard. “Die Çukasaptati. Textus Simplicior.” Abhandlungen für die Kunde des Morgenlandes, Band X, No. 1. Leipzig, 1893.</li>
-                <li><b>PDFs:</b>
-                    <ul>
-                        <li><a href="https://archive.org/details/dli.ministry.08828/page/n9/mode/2up">1897 Band X on Archive (DLI & public.resource.org)</a></li>
-                        <li>1893 Band X, No. 1 (improved by V. Gostishchev) on Archive, to be uploaded soon...</li>
-                    </ul>
-                </li>
-                <li><b>Tier:</b> II</li>
-                <li><b>Digitization Notes:</b>
-                    <ul>
-                        <li>(202_–2025): V. Gostishchev: Typed up from edition, intensively proofread and structured.</li>
-                        <li>(July 2025): Tyler Neill: Restructured for HANSEL.</li>
-                    </ul>
-                </li>
-                <li><b>Extent:</b> Complete (with small lacunae). 205pp in edition.</li>
-                <li><b>File Size (KB):</b> 174</li>
-                <li><b>Genres:</b><ul><li>Kāvya</li><li>Kathā</li></ul></li>
-                <li><b>Structure:</b> The work consists of 70 stories in a frame story. The frame story's introduction and conclusion are not explicitly distinguished with distinct sections.</li>
-                <li><b>Translations:</b>
-                    <ul>
-                        <li>German, editor = R. Schmidt, 1894, <a href="https://catalog.hathitrust.org/Record/100160996">on HathiTrust</a></li>
-                        <li>German, editor = R. Schmidt, 1913, <a href="https://archive.org/details/sukasap00suka/page/n7/mode/2up">on Archive</a></li>
-                    </ul>
-                </li>
-                <li><b>Additional Notes:</b>
-                    <ul>
-                        <li>The <i>Simplicior</i> is believed to be older than the <i>Ornatior</i>.</li>
-                        <li>Indian editions (e.g. Ramakant Tripathi, Vārāṇasī, 1966, basis of the GRETIL text) are based on this <i>Simplicior</i> text by Schmidt.</li>
-                        <li>V. Gostishchev's original (= Tier I) version of the file contains added <i>chāyās</i> from the Indian editions and other useful notes.</li>
-                        <li>See also the editor's: “Anmerkungen zu dem Textus simplicior der Śukasaptati”, ZDMG 48, 1894, 580-628.</li>
-                        <li>This text still needs a final proofread to be ready for Tier III.</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-        <div id="toc">
-          <h2>Table of Contents <span id="toc-caret">▶</span></h2>
-          <ul id="toc-list">
-            <li>
-              <a href="#1">1 (starts on page 1)</a>
-            </li>
-            <li>
-              <a href="#2">2 (starts on page 9)</a>
-            </li>
-            <li>
-              <a href="#3">3 (starts on page 12)</a>
-            </li>
-            <li>
-              <a href="#4">4 (starts on page 14)</a>
-            </li>
-            <li>
-              <a href="#5">5 (starts on page 19)</a>
-            </li>
-            <li>
-              <a href="#6">6 (starts on page 25)</a>
-            </li>
-            <li>
-              <a href="#7">7 (starts on page 31)</a>
-            </li>
-            <li>
-              <a href="#8">8 (starts on page 37)</a>
-            </li>
-            <li>
-              <a href="#9">9 (starts on page 39)</a>
-            </li>
-            <li>
-              <a href="#10">10 (starts on page 44)</a>
-            </li>
-            <li>
-              <a href="#11">11 (starts on page 45)</a>
-            </li>
-            <li>
-              <a href="#12">12 (starts on page 51)</a>
-            </li>
-            <li>
-              <a href="#13">13 (starts on page 53)</a>
-            </li>
-            <li>
-              <a href="#14">14 (starts on page 54)</a>
-            </li>
-            <li>
-              <a href="#15">15 (starts on page 57)</a>
-            </li>
-            <li>
-              <a href="#16">16 (starts on page 60)</a>
-            </li>
-            <li>
-              <a href="#17">17 (starts on page 62)</a>
-            </li>
-            <li>
-              <a href="#18">18 (starts on page 65)</a>
-            </li>
-            <li>
-              <a href="#19">19 (starts on page 66)</a>
-            </li>
-            <li>
-              <a href="#20">20 (starts on page 68)</a>
-            </li>
-            <li>
-              <a href="#21">21 (starts on page 69)</a>
-            </li>
-            <li>
-              <a href="#22">22 (starts on page 74)</a>
-            </li>
-            <li>
-              <a href="#23">23 (starts on page 76)</a>
-            </li>
-            <li>
-              <a href="#24">24 (starts on page 90)</a>
-            </li>
-            <li>
-              <a href="#25">25 (starts on page 92)</a>
-            </li>
-            <li>
-              <a href="#26">26 (starts on page 93)</a>
-            </li>
-            <li>
-              <a href="#27">27 (starts on page 95)</a>
-            </li>
-            <li>
-              <a href="#28">28 (starts on page 96)</a>
-            </li>
-            <li>
-              <a href="#29">29 (starts on page 98)</a>
-            </li>
-            <li>
-              <a href="#30">30 (starts on page 99)</a>
-            </li>
-            <li>
-              <a href="#31">31 (starts on page 100)</a>
-            </li>
-            <li>
-              <a href="#32">32 (starts on page 102)</a>
-            </li>
-            <li>
-              <a href="#33">33 (starts on page 104)</a>
-            </li>
-            <li>
-              <a href="#34">34 (starts on page 107)</a>
-            </li>
-            <li>
-              <a href="#35">35 (starts on page 109)</a>
-            </li>
-            <li>
-              <a href="#36">36 (starts on page 111)</a>
-            </li>
-            <li>
-              <a href="#37">37 (starts on page 113)</a>
-            </li>
-            <li>
-              <a href="#38">38 (starts on page 115)</a>
-            </li>
-            <li>
-              <a href="#39">39 (starts on page 117)</a>
-            </li>
-            <li>
-              <a href="#40">40 (starts on page 120)</a>
-            </li>
-            <li>
-              <a href="#41">41 (starts on page 122)</a>
-            </li>
-            <li>
-              <a href="#42">42 (starts on page 126)</a>
-            </li>
-            <li>
-              <a href="#43">43 (starts on page 129)</a>
-            </li>
-            <li>
-              <a href="#44">44 (starts on page 131)</a>
-            </li>
-            <li>
-              <a href="#45">45 (starts on page 132)</a>
-            </li>
-            <li>
-              <a href="#46">46 (starts on page 135)</a>
-            </li>
-            <li>
-              <a href="#47">47 (starts on page 137)</a>
-            </li>
-            <li>
-              <a href="#48">48 (starts on page 139)</a>
-            </li>
-            <li>
-              <a href="#49">49 (starts on page 142)</a>
-            </li>
-            <li>
-              <a href="#50">50 (starts on page 143)</a>
-            </li>
-            <li>
-              <a href="#51">51 (starts on page 146)</a>
-            </li>
-            <li>
-              <a href="#52">52 (starts on page 147)</a>
-            </li>
-            <li>
-              <a href="#53">53 (starts on page 152)</a>
-            </li>
-            <li>
-              <a href="#54">54 (starts on page 153)</a>
-            </li>
-            <li>
-              <a href="#55">55 (starts on page 156)</a>
-            </li>
-            <li>
-              <a href="#56">56 (starts on page 158)</a>
-            </li>
-            <li>
-              <a href="#57">57 (starts on page 159)</a>
-            </li>
-            <li>
-              <a href="#58">58 (starts on page 166)</a>
-            </li>
-            <li>
-              <a href="#59">59 (starts on page 168)</a>
-            </li>
-            <li>
-              <a href="#60">60 (starts on page 173)</a>
-            </li>
-            <li>
-              <a href="#61">61 (starts on page 175)</a>
-            </li>
-            <li>
-              <a href="#62">62 (starts on page 180)</a>
-            </li>
-            <li>
-              <a href="#63">63 (starts on page 184)</a>
-            </li>
-            <li>
-              <a href="#64">64 (starts on page 185)</a>
-            </li>
-            <li>
-              <a href="#65">65 (starts on page 186)</a>
-            </li>
-            <li>
-              <a href="#66">66 (starts on page 187)</a>
-            </li>
-            <li>
-              <a href="#67">67 (starts on page 190)</a>
-            </li>
-            <li>
-              <a href="#68">68 (starts on page 195)</a>
-            </li>
-            <li>
-              <a href="#69">69 (starts on page 196)</a>
-            </li>
-            <li>
-              <a href="#70">70 (starts on page 198)</a>
-            </li>
-          </ul>
-        </div>
+    <div class="button-container">
+      <div id="close-button-container">&times;</div>
+      <div class="toggle-switch-container">
+        <label class="switch">
+          <input type="checkbox" onchange="toggleViewMode(this)">
+          <span class="switch-text-off">Cite</span><span class="switch-text-on">Search</span>
+        </label>
+      </div>
+      <div class="toggle-switch-container rich-text-toggle">
+        <label class="switch">
+          <input type="checkbox" onchange="toggleLineBreaks(this)">
+          <span class="switch-text-off">Paragraph</span><span class="switch-text-on">Line</span>
+        </label>
+      </div>
+      <div class="toggle-switch-container rich-text-toggle">
+        <label class="simple-checkbox-label">
+            Numbers <input type="checkbox" onchange="toggleBreaks(this)">
+        </label>
+      </div>
+    </div>
+    <div id="top-widgets">
+    <div id="metadata">
+        <h2>Metadata <span id="metadata-caret">▶</span></h2>
+        <ul id="metadata-list">
+            <li><b>Title:</b> Śukasaptati, “Textus Simplicior”</li>
+            <li><b>Author:</b> (Unknown)</li>
+            <li><b>Source File:</b> Word document by Viliam Gostishchev, obtained directly from creator through private email exchange.</li>
+            <li><b>Edition:</b> Schmidt, Richard. “Die Çukasaptati. Textus Simplicior.” Abhandlungen für die Kunde des Morgenlandes, Band X, No. 1. Leipzig, 1893.</li>
+            <li><b>PDFs:</b>
+                <ul>
+                    <li><a href="https://archive.org/details/dli.ministry.08828/page/n9/mode/2up">1897 Band X on Archive (DLI & public.resource.org)</a></li>
+                    <li>1893 Band X, No. 1 (improved by V. Gostishchev) on Archive, to be uploaded soon...</li>
+                </ul>
+            </li>
+            <li><b>Tier:</b> II</li>
+            <li><b>Digitization Notes:</b>
+                <ul>
+                    <li>(202_–2025): V. Gostishchev: Typed up from edition, intensively proofread and structured.</li>
+                    <li>(July 2025): Tyler Neill: Restructured for HANSEL.</li>
+                </ul>
+            </li>
+            <li><b>Extent:</b> Complete (with small lacunae). 205pp in edition.</li>
+            <li><b>File Size (KB):</b> 174</li>
+            <li><b>Genres:</b><ul><li>Kāvya</li><li>Kathā</li></ul></li>
+            <li><b>Structure:</b> The work consists of 70 stories in a frame story. The frame story's introduction and conclusion are not explicitly distinguished with distinct sections.</li>
+            <li><b>Translations:</b>
+                <ul>
+                    <li>German, editor = R. Schmidt, 1894, <a href="https://catalog.hathitrust.org/Record/100160996">on HathiTrust</a></li>
+                    <li>German, editor = R. Schmidt, 1913, <a href="https://archive.org/details/sukasap00suka/page/n7/mode/2up">on Archive</a></li>
+                </ul>
+            </li>
+            <li><b>Additional Notes:</b>
+                <ul>
+                    <li>The <i>Simplicior</i> is believed to be older than the <i>Ornatior</i>.</li>
+                    <li>Indian editions (e.g. Ramakant Tripathi, Vārāṇasī, 1966, basis of the GRETIL text) are based on this <i>Simplicior</i> text by Schmidt.</li>
+                    <li>V. Gostishchev's original (= Tier I) version of the file contains added <i>chāyās</i> from the Indian editions and other useful notes.</li>
+                    <li>See also the editor's: “Anmerkungen zu dem Textus simplicior der Śukasaptati”, ZDMG 48, 1894, 580-628.</li>
+                    <li>This text still needs a final proofread to be ready for Tier III.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div id="toc">
+      <h2>Table of Contents <span id="toc-caret">▶</span></h2>
+      <ul id="toc-list">
+        <li>
+          <a href="#1">1 (starts on page 1)</a>
+        </li>
+        <li>
+          <a href="#2">2 (starts on page 9)</a>
+        </li>
+        <li>
+          <a href="#3">3 (starts on page 12)</a>
+        </li>
+        <li>
+          <a href="#4">4 (starts on page 14)</a>
+        </li>
+        <li>
+          <a href="#5">5 (starts on page 19)</a>
+        </li>
+        <li>
+          <a href="#6">6 (starts on page 25)</a>
+        </li>
+        <li>
+          <a href="#7">7 (starts on page 31)</a>
+        </li>
+        <li>
+          <a href="#8">8 (starts on page 37)</a>
+        </li>
+        <li>
+          <a href="#9">9 (starts on page 39)</a>
+        </li>
+        <li>
+          <a href="#10">10 (starts on page 44)</a>
+        </li>
+        <li>
+          <a href="#11">11 (starts on page 45)</a>
+        </li>
+        <li>
+          <a href="#12">12 (starts on page 51)</a>
+        </li>
+        <li>
+          <a href="#13">13 (starts on page 53)</a>
+        </li>
+        <li>
+          <a href="#14">14 (starts on page 54)</a>
+        </li>
+        <li>
+          <a href="#15">15 (starts on page 57)</a>
+        </li>
+        <li>
+          <a href="#16">16 (starts on page 60)</a>
+        </li>
+        <li>
+          <a href="#17">17 (starts on page 62)</a>
+        </li>
+        <li>
+          <a href="#18">18 (starts on page 65)</a>
+        </li>
+        <li>
+          <a href="#19">19 (starts on page 66)</a>
+        </li>
+        <li>
+          <a href="#20">20 (starts on page 68)</a>
+        </li>
+        <li>
+          <a href="#21">21 (starts on page 69)</a>
+        </li>
+        <li>
+          <a href="#22">22 (starts on page 74)</a>
+        </li>
+        <li>
+          <a href="#23">23 (starts on page 76)</a>
+        </li>
+        <li>
+          <a href="#24">24 (starts on page 90)</a>
+        </li>
+        <li>
+          <a href="#25">25 (starts on page 92)</a>
+        </li>
+        <li>
+          <a href="#26">26 (starts on page 93)</a>
+        </li>
+        <li>
+          <a href="#27">27 (starts on page 95)</a>
+        </li>
+        <li>
+          <a href="#28">28 (starts on page 96)</a>
+        </li>
+        <li>
+          <a href="#29">29 (starts on page 98)</a>
+        </li>
+        <li>
+          <a href="#30">30 (starts on page 99)</a>
+        </li>
+        <li>
+          <a href="#31">31 (starts on page 100)</a>
+        </li>
+        <li>
+          <a href="#32">32 (starts on page 102)</a>
+        </li>
+        <li>
+          <a href="#33">33 (starts on page 104)</a>
+        </li>
+        <li>
+          <a href="#34">34 (starts on page 107)</a>
+        </li>
+        <li>
+          <a href="#35">35 (starts on page 109)</a>
+        </li>
+        <li>
+          <a href="#36">36 (starts on page 111)</a>
+        </li>
+        <li>
+          <a href="#37">37 (starts on page 113)</a>
+        </li>
+        <li>
+          <a href="#38">38 (starts on page 115)</a>
+        </li>
+        <li>
+          <a href="#39">39 (starts on page 117)</a>
+        </li>
+        <li>
+          <a href="#40">40 (starts on page 120)</a>
+        </li>
+        <li>
+          <a href="#41">41 (starts on page 122)</a>
+        </li>
+        <li>
+          <a href="#42">42 (starts on page 126)</a>
+        </li>
+        <li>
+          <a href="#43">43 (starts on page 129)</a>
+        </li>
+        <li>
+          <a href="#44">44 (starts on page 131)</a>
+        </li>
+        <li>
+          <a href="#45">45 (starts on page 132)</a>
+        </li>
+        <li>
+          <a href="#46">46 (starts on page 135)</a>
+        </li>
+        <li>
+          <a href="#47">47 (starts on page 137)</a>
+        </li>
+        <li>
+          <a href="#48">48 (starts on page 139)</a>
+        </li>
+        <li>
+          <a href="#49">49 (starts on page 142)</a>
+        </li>
+        <li>
+          <a href="#50">50 (starts on page 143)</a>
+        </li>
+        <li>
+          <a href="#51">51 (starts on page 146)</a>
+        </li>
+        <li>
+          <a href="#52">52 (starts on page 147)</a>
+        </li>
+        <li>
+          <a href="#53">53 (starts on page 152)</a>
+        </li>
+        <li>
+          <a href="#54">54 (starts on page 153)</a>
+        </li>
+        <li>
+          <a href="#55">55 (starts on page 156)</a>
+        </li>
+        <li>
+          <a href="#56">56 (starts on page 158)</a>
+        </li>
+        <li>
+          <a href="#57">57 (starts on page 159)</a>
+        </li>
+        <li>
+          <a href="#58">58 (starts on page 166)</a>
+        </li>
+        <li>
+          <a href="#59">59 (starts on page 168)</a>
+        </li>
+        <li>
+          <a href="#60">60 (starts on page 173)</a>
+        </li>
+        <li>
+          <a href="#61">61 (starts on page 175)</a>
+        </li>
+        <li>
+          <a href="#62">62 (starts on page 180)</a>
+        </li>
+        <li>
+          <a href="#63">63 (starts on page 184)</a>
+        </li>
+        <li>
+          <a href="#64">64 (starts on page 185)</a>
+        </li>
+        <li>
+          <a href="#65">65 (starts on page 186)</a>
+        </li>
+        <li>
+          <a href="#66">66 (starts on page 187)</a>
+        </li>
+        <li>
+          <a href="#67">67 (starts on page 190)</a>
+        </li>
+        <li>
+          <a href="#68">68 (starts on page 195)</a>
+        </li>
+        <li>
+          <a href="#69">69 (starts on page 196)</a>
+        </li>
+        <li>
+          <a href="#70">70 (starts on page 198)</a>
+        </li>
+      </ul>
+    </div>
     </div>
     <div id="content">
       <h1 id="1">{1}</h1>
