@@ -6,13 +6,12 @@ from pathlib import Path
 def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=False, plain=False):
     """
     Converts a TEI XML file to an HTML file with advanced display options.
-    Can generate a 'plain' version for searchability or a 'rich' version with interwoven plain/rich content.
+    Handles all known structural elements from the TEI builder, including nested lg groups,
+    heads, backs, and milestones.
     """
     parser = etree.XMLParser(remove_blank_text=True)
     tree = etree.parse(xml_path, parser)
     root = tree.getroot()
-
-    id_prefix = "plain_" if plain else ""
 
     # --- 1. TOC Data Collection (rich mode only) ---
     toc_data = []
@@ -55,6 +54,7 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
         .button-container label { font-size: 0.8em; display: block; }
         .pb, .lb { display: none; }
         .show-breaks .pb, .show-breaks .lb { display: inline; cursor: pointer; color: blue; }
+        .lg > span { display: block; }
         """
         if verse_only:
             style_text += """
@@ -177,41 +177,86 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
             element.text = (element.text or '') + text
 
     def process_children(xml_node, html_node, page_tracker, is_plain_version):
+        if is_plain_version:
+            text_content = ''.join(xml_node.itertext())
+            append_text(html_node, text_content)
+            return
+
         if xml_node.text:
             append_text(html_node, xml_node.text)
         for child in xml_node:
             if not is_plain_version:
-                break_no = child.get("break") == "no"
-                if break_no:
-                    hyphen_span = etree.SubElement(html_node, "span")
-                    hyphen_span.set("class", "hyphen")
-                    hyphen_span.text = "-"
                 if child.tag == 'lb':
-                    span = etree.SubElement(html_node, "span")
-                    span.set("class", "lb")
+                    lb_span = etree.SubElement(html_node, "span")
+                    lb_span.set("class", "lb rich-text")
                     line_n = child.get("n")
-                    span.set("data-line", line_n)
-                    span.text = f'<{page_tracker[0]},{line_n}>'
+                    lb_span.set("data-line", line_n)
+                    lb_span.text = f'<{page_tracker[0]},{line_n}>'
                     br = etree.SubElement(html_node, "br")
-                    br.set("class", "lb-br")
+                    br.set("class", "lb-br rich-text")
                 elif child.tag == 'pb':
                     page_tracker[0] = child.get("n")
-                    span = etree.SubElement(html_node, "span")
-                    span.set("class", "pb")
-                    span.set("data-page", page_tracker[0])
+                    pb_span = etree.SubElement(html_node, "span")
+                    pb_span.set("class", "pb rich-text")
+                    pb_span.set("data-page", page_tracker[0])
                     if no_line_numbers:
-                        span.text = f'<{page_tracker[0]}>'
+                        pb_span.text = f'<{page_tracker[0]}>'
                     else:
-                        span.text = f'<{page_tracker[0]},1>'
+                        pb_span.text = f'<{page_tracker[0]},1>'
                     br = etree.SubElement(html_node, "br")
-                    br.set("class", "pb-br")
+                    br.set("class", "pb-br rich-text")
             if child.tail:
                 append_text(html_node, child.tail)
 
+    def process_lg_content(lg_element, container, page_tracker, is_plain):
+        style = "padding-left: 2em;" if not verse_only else ""
+        if not is_plain:
+            # Rich version
+            div_rich = etree.SubElement(container, "div", {"class": "lg rich-text", "style": style})
+            head_el = lg_element.find('head')
+            if head_el is not None and head_el.text:
+                p = etree.SubElement(div_rich, "p")
+                p.text = head_el.text
+            for l in lg_element.findall("l"):
+                l_span = etree.SubElement(div_rich, "span")
+                process_children(l, l_span, page_tracker, is_plain_version=False)
+            back_el = lg_element.find('back')
+            if back_el is not None and back_el.text:
+                p_back = etree.SubElement(div_rich, "p")
+                p_back.text = back_el.text
+
+            # Plain version
+            div_plain = etree.SubElement(container, "div", {"class": "lg plain-text", "style": style})
+            head_el = lg_element.find('head')
+            if head_el is not None and head_el.text:
+                p = etree.SubElement(div_plain, "p")
+                p.text = head_el.text
+            for l in lg_element.findall("l"):
+                l_span = etree.SubElement(div_plain, "span")
+                process_children(l, l_span, page_tracker, is_plain_version=True)
+            back_el = lg_element.find('back')
+            if back_el is not None and back_el.text:
+                p_back = etree.SubElement(div_plain, "p")
+                p_back.text = back_el.text
+        else:
+            div = etree.SubElement(container, "div", {"class": "lg", "style": style})
+            head_el = lg_element.find('head')
+            if head_el is not None and head_el.text:
+                p = etree.SubElement(div, "p")
+                p.text = head_el.text
+            for l in lg_element.findall("l"):
+                l_span = etree.SubElement(div, "span")
+                process_children(l, l_span, page_tracker, is_plain_version=True)
+            back_el = lg_element.find('back')
+            if back_el is not None and back_el.text:
+                p_back = etree.SubElement(div, "p")
+                p_back.text = back_el.text
+
     if verse_only:
+        # Simplified logic for verse-only, as interwoven view is disabled
         for section in root.xpath('//body/div[@n]') :
             chapter_n_full = section.get('n')
-            section_id = f'{id_prefix}{chapter_n_full.replace(" ", "_")}'
+            section_id = f'{chapter_n_full.replace(" ", "_")}'
             h1 = etree.SubElement(content_div, "h1")
             h1.set("id", section_id)
             h1.text = f"{{{chapter_n_full}}}"
@@ -223,18 +268,18 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
                 verse_id = lg_element.get('n')
                 verse_li = etree.SubElement(verses_ol, "li")
                 verse_li.set("class", "verse")
-                verse_li.set("id", f"{id_prefix}v{verse_id.replace('.', '-')}")
+                verse_li.set("id", f"v{verse_id.replace('.', '-')}")
                 padas_ol = etree.SubElement(verse_li, "ol")
                 padas_ol.set("class", "padas")
                 l_children = lg_element.findall('l')
                 for i, l_child in enumerate(l_children):
                     pada_li = etree.SubElement(padas_ol, "li")
                     process_children(l_child, pada_li, [''], plain)
-    else:  # Original processing logic
+    else:
         current_page = [""]
         for section in root.xpath('//body/div[@n]') :
             section_name = section.get('n')
-            section_id = f'{id_prefix}{section_name.replace(" ", "_")}'
+            section_id = f'{section_name.replace(" ", "_")}'
             h1 = etree.SubElement(content_div, "h1")
             h1.set("id", section_id)
             h1.text = f"{{{section_name}}}"
@@ -242,25 +287,18 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
                 if element.tag == "pb":
                     current_page[0] = element.get("n")
                     if not plain:
-                        break_no = element.get("break") == "no"
-                        if break_no:
-                            hyphen_span = etree.SubElement(content_div, "span")
-                            hyphen_span.set("class", "hyphen")
-                            hyphen_span.text = "-"
-                        pb = etree.SubElement(content_div, "span")
-                        pb.set("class", "pb")
-                        pb.set("data-page", element.get("n"))
+                        pb_span = etree.SubElement(content_div, "span")
+                        pb_span.set("class", "pb rich-text")
+                        pb_span.set("data-page", current_page[0])
                         if no_line_numbers:
-                            pb.text = f'<{element.get("n")}>'
+                            pb_span.text = f'<{current_page[0]}>'
                         else:
-                            pb.text = f'<{element.get("n")},1>'
+                            pb_span.text = f'<{current_page[0]},1>'
                         br = etree.SubElement(content_div, "br")
-                        br.set("class", "pb-br")
-                elif element.tag == "milestone":
-                    if not plain:
-                        span = etree.SubElement(content_div, "span")
-                        span.set("class", "milestone")
-                        span.text = f'[{element.get("n")}]'
+                        br.set("class", "pb-br rich-text")
+                    elif element.tag == "milestone":
+                        p_milestone = etree.SubElement(content_div, "p")
+                        p_milestone.text = f'<{element.get("n")}>'
                 elif element.tag == "p":
                     n_attr = element.get("n")
                     if n_attr:
@@ -271,85 +309,28 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
                             current_page[0] = page_from_n
                     
                     if not plain:
-                        # Rich version
-                        p_rich = etree.SubElement(content_div, "p")
-                        p_rich.set("class", "rich-text")
+                        p_rich = etree.SubElement(content_div, "p", {"class": "rich-text"})
                         process_children(element, p_rich, current_page, is_plain_version=False)
-                        
-                        # Plain version
-                        p_plain = etree.SubElement(content_div, "p")
-                        p_plain.set("class", "plain-text")
+                        p_plain = etree.SubElement(content_div, "p", {"class": "plain-text"})
                         process_children(element, p_plain, current_page, is_plain_version=True)
                     else:
                         p_element = etree.SubElement(content_div, "p")
                         process_children(element, p_element, current_page, is_plain_version=True)
 
                 elif element.tag == "lg":
+                    n_attr = element.get("n")
+                    if n_attr:
+                        h2 = etree.SubElement(content_div, "h2")
+                        h2.text = n_attr
+                        page_from_n = n_attr.split(',')[0]
+                        if page_from_n:
+                            current_page[0] = page_from_n
+
                     if element.get('type') == 'group':
-                        n_attr = element.get("n")
-                        if n_attr:
-                            h2 = etree.SubElement(content_div, "h2")
-                            h2.text = n_attr
                         for lg_child in element.findall("lg"):
-                            if not plain:
-                                div_rich = etree.SubElement(content_div, "div")
-                                div_rich.set("class", "lg rich-text")
-                                for l in lg_child.findall("l"):
-                                    l_span = etree.SubElement(div_rich, "span")
-                                    process_children(l, l_span, current_page, is_plain_version=False)
-                                if not lg_child.findall("l"):
-                                    div_rich.text = ""
-
-                                div_plain = etree.SubElement(content_div, "div")
-                                div_plain.set("class", "lg plain-text")
-                                for l in lg_child.findall("l"):
-                                    l_span = etree.SubElement(div_plain, "span")
-                                    process_children(l, l_span, current_page, is_plain_version=True)
-                                if not lg_child.findall("l"):
-                                    div_plain.text = ""
-                            else:
-                                div = etree.SubElement(content_div, "div")
-                                div.set("class", "lg")
-                                for l in lg_child.findall("l"):
-                                    l_span = etree.SubElement(div, "span")
-                                    process_children(l, l_span, current_page, is_plain_version=True)
-                                if not lg_child.findall("l"):
-                                    div.text = ""
+                            process_lg_content(lg_child, content_div, current_page, plain)
                     else:
-                        n_attr = element.get("n")
-                        if n_attr:
-                            h2 = etree.SubElement(content_div, "h2")
-                            h2.text = n_attr
-                            page_from_n = n_attr.split(',')[0]
-                            if page_from_n:
-                                current_page[0] = page_from_n
-
-                        if not plain:
-                            # Rich version
-                            div_rich = etree.SubElement(content_div, "div")
-                            div_rich.set("class", "lg rich-text")
-                            for l in element.findall("l"):
-                                l_span = etree.SubElement(div_rich, "span")
-                                process_children(l, l_span, current_page, is_plain_version=False)
-                            if not element.findall("l"):
-                                div_rich.text = ""
-
-                            # Plain version
-                            div_plain = etree.SubElement(content_div, "div")
-                            div_plain.set("class", "lg plain-text")
-                            for l in element.findall("l"):
-                                l_span = etree.SubElement(div_plain, "span")
-                                process_children(l, l_span, current_page, is_plain_version=True)
-                            if not element.findall("l"):
-                                div_plain.text = ""
-                        else:
-                            div = etree.SubElement(content_div, "div")
-                            div.set("class", "lg")
-                            for l in element.findall("l"):
-                                l_span = etree.SubElement(div, "span")
-                                process_children(l, l_span, current_page, is_plain_version=True)
-                            if not element.findall("l"):
-                                div.text = ""
+                        process_lg_content(element, content_div, current_page, plain)
 
     # Write the HTML to a file
     with open(html_path, "w", encoding="utf-8") as f:
