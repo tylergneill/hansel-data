@@ -2,6 +2,8 @@ from lxml import etree
 import os
 import argparse
 from pathlib import Path
+import markdown
+from lxml.html import fromstring
 
 def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=False, plain=False):
     """
@@ -16,7 +18,7 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
     # --- 1. TOC Data Collection (rich mode only) ---
     toc_data = []
     if not plain:
-        for div_section in root.xpath('//body/div[@n]') :
+        for div_section in root.xpath('//body/div[@n]'):
             section_name = div_section.get('n')
             first_pb = div_section.find('.//pb')
             start_page = first_pb.get('n') if first_pb is not None else 'N/A'
@@ -29,143 +31,116 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
     meta.set("charset", "utf-8")
     title = etree.SubElement(head, "title")
     title.text = os.path.basename(xml_path)
-
-    style = etree.SubElement(head, "style")
-    style_text = "body { font-family: sans-serif; margin: 2em; }\n"
-    script_text = ""
+    etree.SubElement(head, "meta", name="viewport", content="width=device-width, initial-scale=1.0")
 
     if not plain:
-        style_text += """
-        .plain-text { display: none; }
-        .rich-text { display: block; }
-        body.simple-view .plain-text { display: block; }
-        body.simple-view .rich-text { display: none; }
-        #toc { border: 1px solid #ccc; padding: 10px; margin-bottom: 20px; width: 30%; }
-        #toc h2 { margin-top: 0; cursor: pointer; user-select: none; }
-        #toc-caret { display: inline-block; transition: transform 0.2s; margin-left: 8px; }
-        #toc.expanded #toc-caret { transform: rotate(90deg); }
-        #toc ul { list-style: none; padding-left: 0; }
-        #toc-list { margin-bottom: 0; max-height: 4.5em; /* Approx 3 lines */ overflow: hidden; transition: max-height 0.3s ease-out; }
-        #toc.expanded #toc-list { max-height: 500px; /* Large enough for content */ overflow-y: auto; transition: max-height 0.5s ease-in; }
-        #toc li { margin-bottom: 5px; }
-        .button-container { position: fixed; top: 10px; right: 10px; z-index: 1000; }
-        .button-container button { display: block; margin-bottom: 5px; }
-        .button-container div { margin-bottom: 10px; background: #f0f0f0; padding: 5px; border-radius: 4px; text-align: center; }
-        .button-container label { font-size: 0.8em; display: block; }
-        .pb, .lb { display: none; }
-        .show-breaks .pb, .show-breaks .lb { display: inline; cursor: pointer; color: blue; }
-        .lg > span { display: block; }
-        """
+        components_dir = Path('utils/transforms/html/components')
+        html_dir = Path(html_path).parent
+        relative_components_path = os.path.relpath(components_dir, start=html_dir)
+
+        link = etree.SubElement(head, "link")
+        link.set("rel", "stylesheet")
+        link.set("href", (Path(relative_components_path) / 'style.css').as_posix())
+
+        script = etree.SubElement(head, "script")
+        script.set("src", (Path(relative_components_path) / 'script.js').as_posix())
+        script.text = ""
+
         if verse_only:
-            style_text += """
-            .verses { list-style: none; margin: 0; padding: 0; }
-            .verse { position: relative; padding: .5rem .75rem; }
-            .verse:nth-child(odd)  { background: hsl(220 20% 97%); }
-            .verse:nth-child(even) { background: hsl(220 20% 93%); }
-            .padas { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: var(--left-col-width, 40%) 1fr; column-gap: 1rem; row-gap: .25rem; }
-            .padas > li:first-child { grid-column: 1; grid-row: 1 / -1; }
-            .padas > li:not(:first-child) { grid-column: 2; }
-            .padas > li { line-height: 1.4; }
-            @media (max-width: 520px) {
-              .padas { grid-template-columns: 1fr; }
-              .padas > li { grid-column: 1 !important; grid-row: auto !important; }
-            }
-            """
-        else:
-            style_text += """
-            .hyphen, .lb-br, .pb-br { display: none; }
-            .show-line-breaks .hyphen { display: inline; }
-            .show-line-breaks .lb-br, .show-line-breaks .pb-br { display: block; }
-            """
-
-        script_text += """
-            function toggleBreaks() { document.getElementById("content").classList.toggle("show-breaks"); }
-            function toggleToc() { document.getElementById('toc').classList.toggle('expanded'); }
-        """
-        if not verse_only:
-            script_text += """
-            function toggleViewMode() {
-                document.body.classList.toggle('simple-view');
-                const toc = document.getElementById('toc');
-                if (document.body.classList.contains('simple-view')) {
-                    if(toc) toc.style.display = 'none';
-                } else {
-                    if(toc) toc.style.display = 'block';
-                }
-            }
-            """
-            script_text += "function toggleLineBreaks() { document.getElementById(\"content\").classList.toggle(\"show-line-breaks\"); }\n"
-
-        script_text += """
-            document.addEventListener('DOMContentLoaded', (event) => {
-                const tocHeader = document.querySelector('#toc h2');
-                if (tocHeader) { tocHeader.addEventListener('click', toggleToc); }
-        """
-        if verse_only:
-            script_text += """
-                const slider = document.getElementById('width-slider');
-                if (slider) {
-                    slider.addEventListener('input', (e) => {
-                        document.documentElement.style.setProperty('--left-col-width', e.target.value + '%');
-                    });
-                }
-            """
-        script_text += "});"
-
-    style.text = "STYLE_PLACEHOLDER"
-    script = etree.SubElement(head, "script")
-    script.text = "SCRIPT_PLACEHOLDER"
+            verse_style_link = etree.SubElement(head, "link")
+            verse_style_link.set("rel", "stylesheet")
+            verse_style_link.set("href", (Path(relative_components_path) / 'verse_style.css').as_posix())
+            
+            verse_script = etree.SubElement(head, "script")
+            verse_script.set("src", (Path(relative_components_path) / 'verse_script.js').as_posix())
+            verse_script.text = ""
 
     # --- 3. HTML Body ---
     body = etree.SubElement(html, "body")
 
     if not plain:
-        button_container = etree.SubElement(body, "div")
-        button_container.set("class", "button-container")
-        
+        controls_icon = etree.SubElement(body, "div", id="controls-icon")
+        etree.SubElement(controls_icon, "span").text = ""
+        etree.SubElement(controls_icon, "span").text = ""
+        etree.SubElement(controls_icon, "span").text = ""
+
+        button_container = etree.SubElement(body, "div", **{"class": "button-container"})
+        etree.SubElement(button_container, "div", id="close-button-container").text = u"\u00d7"
+
         if not verse_only:
-            button_view = etree.SubElement(button_container, "button")
-            button_view.set("onclick", "toggleViewMode()")
-            button_view.text = "Toggle Search View"
+            sw_container1 = etree.SubElement(button_container, "div",
+                                            {"class": "toggle-switch-container"})
+            sw_label1 = etree.SubElement(sw_container1, "label", {"class": "simple-checkbox-label"})
+            sw_label1.text = "Clean search "
+            etree.SubElement(sw_label1, "input", type="checkbox", onchange="toggleViewMode(this)")
+
+            sw_container2 = etree.SubElement(button_container, "div", {"class": "toggle-switch-container rich-text-toggle"})
+            sw_label2 = etree.SubElement(sw_container2, "label", {"class": "switch"})
+            etree.SubElement(sw_label2, "input", type="checkbox", onchange="toggleLineBreaks(this)")
+            etree.SubElement(sw_label2, "span", {"class": "switch-text-off"}).text = "Paragraphs"
+            etree.SubElement(sw_label2, "span", {"class": "switch-text-on"}).text = "Lines"
+
+        cb_container = etree.SubElement(button_container, "div", {"class": "toggle-switch-container rich-text-toggle"})
+        cb_label = etree.SubElement(cb_container, "label", {"class": "simple-checkbox-label"})
+        cb_label.text = "(Page, Line) "
+        etree.SubElement(cb_label, "input", type="checkbox", onchange="toggleBreaks(this)")
 
         if verse_only:
-            slider_div = etree.SubElement(button_container, "div")
-            slider_label = etree.SubElement(slider_div, "label")
-            slider_label.set("for", "width-slider")
+            slider_div = etree.SubElement(button_container, "div", {"class": "toggle-switch-container"})
+            slider_label = etree.SubElement(slider_div, "label", {"class": "simple-checkbox-label"})
             slider_label.text = "Column Width"
-            slider_input = etree.SubElement(slider_div, "input")
-            slider_input.set("type", "range")
-            slider_input.set("id", "width-slider")
-            slider_input.set("min", "20")
-            slider_input.set("max", "80")
-            slider_input.set("value", "40")
+            slider_input = etree.SubElement(slider_div, "input", id="width-slider", type="range", min="20", max="80", value="40")
 
-        button1 = etree.SubElement(button_container, "button")
-        button1.set("onclick", "toggleBreaks()")
-        button1.text = "Show page/line break info"
+        top_widgets_div = etree.SubElement(body, "div", id="top-widgets")
 
-        if not verse_only:
-            button2 = etree.SubElement(button_container, "button")
-            button2.set("onclick", "toggleLineBreaks()")
-            button2.text = "Toggle line breaks"
+        metadata_div = etree.SubElement(top_widgets_div, "div", id="metadata")
+        metadata_h2 = etree.SubElement(metadata_div, "h2")
+        metadata_h2.text = "Metadata "
+        etree.SubElement(metadata_h2, "span", id="metadata-caret").text = "▶"
+        metadata_ul = etree.SubElement(metadata_div, "ul", id="metadata-list")
+        
+        base_name = Path(xml_path).stem
+        metadata_md_path = Path('metadata') / f'{base_name}.md'
+        if metadata_md_path.exists():
+            md_content = metadata_md_path.read_text(encoding="utf-8")
+            html_content = markdown.markdown(md_content, extensions=['tables', 'fenced_code'])
+            parsed_md_body = fromstring(html_content)
 
-        toc_div = etree.SubElement(body, "div")
-        toc_div.set("id", "toc")
+            nodes = list(parsed_md_body.iterchildren())
+            i = 0
+            while i < len(nodes):
+                node = nodes[i]
+                if node.tag == 'h1':
+                    li = etree.SubElement(metadata_ul, "li")
+                    b = etree.SubElement(li, "b")
+                    b.text = (node.text or '') + ": "
+                    
+                    content_nodes = []
+                    i += 1
+                    while i < len(nodes) and nodes[i].tag != 'h1':
+                        content_nodes.append(nodes[i])
+                        i += 1
+                    
+                    if len(content_nodes) == 1 and content_nodes[0].tag == 'p':
+                        p_text = content_nodes[0].text_content()
+                        b.tail = (b.tail or '') + p_text
+                    else:
+                        for content_node in content_nodes:
+                            li.append(content_node)
+                else:
+                    i += 1
+
+        toc_div = etree.SubElement(top_widgets_div, "div", id="toc")
         toc_h2 = etree.SubElement(toc_div, "h2")
         toc_h2.text = "Table of Contents "
-        caret = etree.SubElement(toc_h2, "span")
-        caret.set("id", "toc-caret")
-        caret.text = "▶"
-        toc_ul = etree.SubElement(toc_div, "ul")
-        toc_ul.set("id", "toc-list")
+        etree.SubElement(toc_h2, "span", id="toc-caret").text = "▶"
+        toc_ul = etree.SubElement(toc_div, "ul", id="toc-list")
         for item in toc_data:
             li = etree.SubElement(toc_ul, "li")
-            a = etree.SubElement(li, "a")
-            a.set("href", f"#{item['id']}")
-            a.text = f"{item['name']} (starts on page {item['page']})"
+            a = etree.SubElement(li, "a", href=f"#{item['id']}")
+            a.text = f"§ {item['name']} (p.{item['page']})"
 
-    content_div = etree.SubElement(body, "div")
-    content_div.set("id", "content")
+    content_div = etree.SubElement(body, "div", id="content")
 
     # --- 4. Content Processing ---
     def append_text(element, text):
@@ -253,8 +228,7 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
                 p_back.text = back_el.text
 
     if verse_only:
-        # Simplified logic for verse-only, as interwoven view is disabled
-        for section in root.xpath('//body/div[@n]') :
+        for section in root.xpath('//body/div[@n]'):
             chapter_n_full = section.get('n')
             section_id = f'{chapter_n_full.replace(" ", "_")}'
             h1 = etree.SubElement(content_div, "h1")
@@ -277,7 +251,7 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
                     process_children(l_child, pada_li, [''], plain)
     else:
         current_page = [""]
-        for section in root.xpath('//body/div[@n]') :
+        for section in root.xpath('//body/div[@n]'):
             section_name = section.get('n')
             section_id = f'{section_name.replace(" ", "_")}'
             h1 = etree.SubElement(content_div, "h1")
@@ -335,8 +309,6 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
     # Write the HTML to a file
     with open(html_path, "w", encoding="utf-8") as f:
         html_string = etree.tostring(html, pretty_print=True, encoding="unicode")
-        html_string = html_string.replace("STYLE_PLACEHOLDER", style_text, 1)
-        html_string = html_string.replace("SCRIPT_PLACEHOLDER", script_text, 1)
         f.write(html_string)
 
 if __name__ == "__main__":
