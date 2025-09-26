@@ -23,19 +23,12 @@
             function toggleButtonContainer() {
                 const buttonContainer = document.querySelector('.button-container');
                 const mobileIcon = document.getElementById('controls-icon');
-                console.log('--- Toggling Button Container ---');
-                console.log('Container expanded before toggle: ' + buttonContainer.classList.contains('expanded'));
                 buttonContainer.classList.toggle('expanded');
-                console.log('Container expanded after toggle: ' + buttonContainer.classList.contains('expanded'));
                 if (buttonContainer.classList.contains('expanded')) {
                     mobileIcon.style.display = 'none';
-                    console.log('Action: Hide burger icon, show container.');
                 } else {
                     mobileIcon.style.display = 'block';
-                    console.log('Action: Show burger icon, hide container.');
                 }
-                console.log('Final container className: ' + buttonContainer.className);
-                console.log('---------------------------------');
             }
 
             document.addEventListener('DOMContentLoaded', (event) => {
