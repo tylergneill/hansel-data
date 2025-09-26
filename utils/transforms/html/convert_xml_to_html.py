@@ -191,7 +191,7 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
                     lb_span.set("class", "lb rich-text")
                     line_n = child.get("n")
                     lb_span.set("data-line", line_n)
-                    lb_span.text = f'<{page_tracker[0]},{line_n}>'
+                    lb_span.text = f'(p.{page_tracker[0]}, l.{line_n})'
                     br = etree.SubElement(html_node, "br")
                     br.set("class", "lb-br rich-text")
                 elif child.tag == 'pb':
@@ -200,9 +200,9 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
                     pb_span.set("class", "pb rich-text")
                     pb_span.set("data-page", page_tracker[0])
                     if no_line_numbers:
-                        pb_span.text = f'<{page_tracker[0]}>'
+                        pb_span.text = f'(p.{page_tracker[0]})'
                     else:
-                        pb_span.text = f'<{page_tracker[0]},1>'
+                        pb_span.text = f'(p.{page_tracker[0]}, l.1)'
                     br = etree.SubElement(html_node, "br")
                     br.set("class", "pb-br rich-text")
             if child.tail:
@@ -259,7 +259,7 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
             section_id = f'{chapter_n_full.replace(" ", "_")}'
             h1 = etree.SubElement(content_div, "h1")
             h1.set("id", section_id)
-            h1.text = f"{{{chapter_n_full}}}"
+            h1.text = f"§ {chapter_n_full}"
             all_verses_in_section = section.findall('.//lg[@n]')
             if not all_verses_in_section: continue
             verses_ol = etree.SubElement(content_div, "ol")
@@ -282,7 +282,7 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
             section_id = f'{section_name.replace(" ", "_")}'
             h1 = etree.SubElement(content_div, "h1")
             h1.set("id", section_id)
-            h1.text = f"{{{section_name}}}"
+            h1.text = f"§ {section_name}"
             for element in section.iterchildren():
                 if element.tag == "pb":
                     current_page[0] = element.get("n")
@@ -291,14 +291,14 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
                         pb_span.set("class", "pb rich-text")
                         pb_span.set("data-page", current_page[0])
                         if no_line_numbers:
-                            pb_span.text = f'<{current_page[0]}>'
+                            pb_span.text = f'(p.{current_page[0]})'
                         else:
-                            pb_span.text = f'<{current_page[0]},1>'
+                            pb_span.text = f'(p.{current_page[0]}, l.1)'
                         br = etree.SubElement(content_div, "br")
                         br.set("class", "pb-br rich-text")
                     elif element.tag == "milestone":
                         p_milestone = etree.SubElement(content_div, "p")
-                        p_milestone.text = f'<{element.get("n")}>'
+                        p_milestone.text = f'({element.get("n")}>'
                 elif element.tag == "p":
                     n_attr = element.get("n")
                     if n_attr:
