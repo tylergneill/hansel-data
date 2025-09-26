@@ -55,3 +55,5 @@ venv*/
 .DS_Store
 
 utils/validation/tmp/bracketless_content.txt
+
+GEMINI.md

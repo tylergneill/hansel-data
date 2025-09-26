@@ -39,7 +39,7 @@ def main():
     for tier in ['tier_ii', 'tier_iii']:
         in_dir = BASE_IN_DIR / tier
         if use_transforms_subdir_for_input:
-            in_dir = in_dir / 'transforms'
+            in_dir = in_dir / 'transforms' / 'xml'
 
         if not os.path.exists(in_dir):
             print(f"Directory not found, skipping: {in_dir}")
@@ -47,7 +47,7 @@ def main():
 
         out_dir = base_out_dir / tier
         if use_transforms_subdir_for_output:
-            out_dir = out_dir / 'transforms'
+            out_dir = out_dir / 'transforms' / 'xml'
 
         out_dir.mkdir(parents=True, exist_ok=True)
 
