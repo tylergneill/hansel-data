@@ -6,29 +6,13 @@ from pathlib import Path
 def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=False, plain=False):
     """
     Converts a TEI XML file to an HTML file with advanced display options.
-    Can generate a 'plain' version for searchability or a 'rich' version with all features.
+    Can generate a 'plain' version for searchability or a 'rich' version with interwoven plain/rich content.
     """
-    # Parse the XML file
     parser = etree.XMLParser(remove_blank_text=True)
     tree = etree.parse(xml_path, parser)
     root = tree.getroot()
 
     id_prefix = "plain_" if plain else ""
-
-    # --- Plain Content Embedding Logic (for rich mode) ---
-    plain_body_content = ""
-    if not plain:
-        try:
-            plain_path = Path(html_path).parent.parent / 'plain' / Path(html_path).name
-            if plain_path.exists():
-                with open(plain_path, "r", encoding="utf-8") as f:
-                    plain_html_content = f.read()
-                plain_tree = etree.HTML(plain_html_content)
-                plain_body = plain_tree.find('body')
-                if plain_body is not None:
-                    plain_body_content = (plain_body.text or '') + ''.join(etree.tostring(child, encoding='unicode') for child in plain_body)
-        except Exception as e:
-            print(f"Warning: Could not read or parse plain HTML file '{plain_path}': {e}")
 
     # --- 1. TOC Data Collection (rich mode only) ---
     toc_data = []
@@ -53,6 +37,10 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
 
     if not plain:
         style_text += """
+        .plain-text { display: none; }
+        .rich-text { display: block; }
+        body.simple-view .plain-text { display: block; }
+        body.simple-view .rich-text { display: none; }
         #toc { border: 1px solid #ccc; padding: 10px; margin-bottom: 20px; width: 30%; }
         #toc h2 { margin-top: 0; cursor: pointer; user-select: none; }
         #toc-caret { display: inline-block; transition: transform 0.2s; margin-left: 8px; }
@@ -67,7 +55,6 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
         .button-container label { font-size: 0.8em; display: block; }
         .pb, .lb { display: none; }
         .show-breaks .pb, .show-breaks .lb { display: inline; cursor: pointer; color: blue; }
-        #simple-view { display: none; }
         """
         if verse_only:
             style_text += """
@@ -75,13 +62,7 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
             .verse { position: relative; padding: .5rem .75rem; }
             .verse:nth-child(odd)  { background: hsl(220 20% 97%); }
             .verse:nth-child(even) { background: hsl(220 20% 93%); }
-            .padas {
-              list-style: none; margin: 0; padding: 0;
-              display: grid;
-              grid-template-columns: var(--left-col-width, 40%) 1fr;
-              column-gap: 1rem;
-              row-gap: .25rem;
-            }
+            .padas { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: var(--left-col-width, 40%) 1fr; column-gap: 1rem; row-gap: .25rem; }
             .padas > li:first-child { grid-column: 1; grid-row: 1 / -1; }
             .padas > li:not(:first-child) { grid-column: 2; }
             .padas > li { line-height: 1.4; }
@@ -100,48 +81,19 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
         script_text += """
             function toggleBreaks() { document.getElementById("content").classList.toggle("show-breaks"); }
             function toggleToc() { document.getElementById('toc').classList.toggle('expanded'); }
-            function getTopmostVisibleElement(containerSelector) {
-                const container = document.querySelector(containerSelector);
-                if (!container) return null;
-                const elements = container.querySelectorAll('[id]');
-                for (const elem of elements) {
-                    const rect = elem.getBoundingClientRect();
-                    if (rect.top >= 0 && rect.bottom <= window.innerHeight) { return elem; }
-                }
-                return null;
-            }
-            function toggleViewMode() {
-                const richView = document.getElementById('content');
-                const simpleView = document.getElementById('simple-view');
-                const toc = document.getElementById('toc');
-                let sourceViewSelector, targetViewSelector;
-                if (richView.style.display === 'none') {
-                    sourceViewSelector = '#simple-view';
-                    targetViewSelector = '#content';
-                    richView.style.display = 'block';
-                    simpleView.style.display = 'none';
-                    if(toc) toc.style.display = 'block';
-                } else {
-                    sourceViewSelector = '#content';
-                    targetViewSelector = '#simple-view';
-                    richView.style.display = 'none';
-                    simpleView.style.display = 'block';
-                    if(toc) toc.style.display = 'none';
-                }
-                const topElem = getTopmostVisibleElement(sourceViewSelector);
-                if (topElem && topElem.id) {
-                    let targetId;
-                    if (sourceViewSelector === '#content') { // from rich to simple
-                        targetId = 'plain_' + topElem.id;
-                    } else { // from simple to rich
-                        targetId = topElem.id.replace('plain_', '');
-                    }
-                    const targetElem = document.querySelector(`${targetViewSelector} #${targetId}`);
-                    if (targetElem) { targetElem.scrollIntoView({ behavior: 'auto', block: 'start' }); }
-                }
-            }
         """
         if not verse_only:
+            script_text += """
+            function toggleViewMode() {
+                document.body.classList.toggle('simple-view');
+                const toc = document.getElementById('toc');
+                if (document.body.classList.contains('simple-view')) {
+                    if(toc) toc.style.display = 'none';
+                } else {
+                    if(toc) toc.style.display = 'block';
+                }
+            }
+            """
             script_text += "function toggleLineBreaks() { document.getElementById(\"content\").classList.toggle(\"show-line-breaks\"); }\n"
 
         script_text += """
@@ -171,9 +123,10 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
         button_container = etree.SubElement(body, "div")
         button_container.set("class", "button-container")
         
-        button_view = etree.SubElement(button_container, "button")
-        button_view.set("onclick", "toggleViewMode()")
-        button_view.text = "Toggle Search View"
+        if not verse_only:
+            button_view = etree.SubElement(button_container, "button")
+            button_view.set("onclick", "toggleViewMode()")
+            button_view.text = "Toggle Search View"
 
         if verse_only:
             slider_div = etree.SubElement(button_container, "div")
@@ -223,11 +176,11 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
         else:
             element.text = (element.text or '') + text
 
-    def process_children(xml_node, html_node, page_tracker):
+    def process_children(xml_node, html_node, page_tracker, is_plain_version):
         if xml_node.text:
             append_text(html_node, xml_node.text)
         for child in xml_node:
-            if not plain:
+            if not is_plain_version:
                 break_no = child.get("break") == "no"
                 if break_no:
                     hyphen_span = etree.SubElement(html_node, "span")
@@ -276,7 +229,7 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
                 l_children = lg_element.findall('l')
                 for i, l_child in enumerate(l_children):
                     pada_li = etree.SubElement(padas_ol, "li")
-                    process_children(l_child, pada_li, [''])
+                    process_children(l_child, pada_li, [''], plain)
     else:  # Original processing logic
         current_page = [""]
         for section in root.xpath('//body/div[@n]') :
@@ -303,7 +256,6 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
                             pb.text = f'<{element.get("n")},1>'
                         br = etree.SubElement(content_div, "br")
                         br.set("class", "pb-br")
-
                 elif element.tag == "milestone":
                     if not plain:
                         span = etree.SubElement(content_div, "span")
@@ -317,35 +269,93 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
                         page_from_n = n_attr.split(',')[0]
                         if page_from_n:
                             current_page[0] = page_from_n
-                    p_element = etree.SubElement(content_div, "p")
-                    process_children(element, p_element, current_page)
+                    
+                    if not plain:
+                        # Rich version
+                        p_rich = etree.SubElement(content_div, "p")
+                        p_rich.set("class", "rich-text")
+                        process_children(element, p_rich, current_page, is_plain_version=False)
+                        
+                        # Plain version
+                        p_plain = etree.SubElement(content_div, "p")
+                        p_plain.set("class", "plain-text")
+                        process_children(element, p_plain, current_page, is_plain_version=True)
+                    else:
+                        p_element = etree.SubElement(content_div, "p")
+                        process_children(element, p_element, current_page, is_plain_version=True)
 
                 elif element.tag == "lg":
-                    n_attr = element.get("n")
-                    if n_attr:
-                        h2 = etree.SubElement(content_div, "h2")
-                        h2.text = n_attr
-                        page_from_n = n_attr.split(',')[0]
-                        if page_from_n:
-                            current_page[0] = page_from_n
-                    div = etree.SubElement(content_div, "div")
-                    div.set("class", "lg")
-                    for l in element.findall("l"):
-                        l_span = etree.SubElement(div, "span")
-                        process_children(l, l_span, current_page)
+                    if element.get('type') == 'group':
+                        n_attr = element.get("n")
+                        if n_attr:
+                            h2 = etree.SubElement(content_div, "h2")
+                            h2.text = n_attr
+                        for lg_child in element.findall("lg"):
+                            if not plain:
+                                div_rich = etree.SubElement(content_div, "div")
+                                div_rich.set("class", "lg rich-text")
+                                for l in lg_child.findall("l"):
+                                    l_span = etree.SubElement(div_rich, "span")
+                                    process_children(l, l_span, current_page, is_plain_version=False)
+                                if not lg_child.findall("l"):
+                                    div_rich.text = ""
 
-    if not plain:
-        simple_view_div = etree.SubElement(body, "div")
-        simple_view_div.set("id", "simple-view")
-        simple_view_div.text = "SIMPLE_VIEW_PLACEHOLDER"
+                                div_plain = etree.SubElement(content_div, "div")
+                                div_plain.set("class", "lg plain-text")
+                                for l in lg_child.findall("l"):
+                                    l_span = etree.SubElement(div_plain, "span")
+                                    process_children(l, l_span, current_page, is_plain_version=True)
+                                if not lg_child.findall("l"):
+                                    div_plain.text = ""
+                            else:
+                                div = etree.SubElement(content_div, "div")
+                                div.set("class", "lg")
+                                for l in lg_child.findall("l"):
+                                    l_span = etree.SubElement(div, "span")
+                                    process_children(l, l_span, current_page, is_plain_version=True)
+                                if not lg_child.findall("l"):
+                                    div.text = ""
+                    else:
+                        n_attr = element.get("n")
+                        if n_attr:
+                            h2 = etree.SubElement(content_div, "h2")
+                            h2.text = n_attr
+                            page_from_n = n_attr.split(',')[0]
+                            if page_from_n:
+                                current_page[0] = page_from_n
+
+                        if not plain:
+                            # Rich version
+                            div_rich = etree.SubElement(content_div, "div")
+                            div_rich.set("class", "lg rich-text")
+                            for l in element.findall("l"):
+                                l_span = etree.SubElement(div_rich, "span")
+                                process_children(l, l_span, current_page, is_plain_version=False)
+                            if not element.findall("l"):
+                                div_rich.text = ""
+
+                            # Plain version
+                            div_plain = etree.SubElement(content_div, "div")
+                            div_plain.set("class", "lg plain-text")
+                            for l in element.findall("l"):
+                                l_span = etree.SubElement(div_plain, "span")
+                                process_children(l, l_span, current_page, is_plain_version=True)
+                            if not element.findall("l"):
+                                div_plain.text = ""
+                        else:
+                            div = etree.SubElement(content_div, "div")
+                            div.set("class", "lg")
+                            for l in element.findall("l"):
+                                l_span = etree.SubElement(div, "span")
+                                process_children(l, l_span, current_page, is_plain_version=True)
+                            if not element.findall("l"):
+                                div.text = ""
 
     # Write the HTML to a file
     with open(html_path, "w", encoding="utf-8") as f:
         html_string = etree.tostring(html, pretty_print=True, encoding="unicode")
         html_string = html_string.replace("STYLE_PLACEHOLDER", style_text, 1)
         html_string = html_string.replace("SCRIPT_PLACEHOLDER", script_text, 1)
-        if not plain:
-            html_string = html_string.replace("SIMPLE_VIEW_PLACEHOLDER", plain_body_content, 1)
         f.write(html_string)
 
 if __name__ == "__main__":
