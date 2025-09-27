@@ -70,9 +70,11 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
         if not verse_only:
             sw_container1 = etree.SubElement(button_container, "div",
                                             {"class": "toggle-switch-container"})
-            sw_label1 = etree.SubElement(sw_container1, "label", {"class": "simple-checkbox-label"})
-            sw_label1.text = "Search-friendly "
+            sw_label1 = etree.SubElement(sw_container1, "label", {"class": "toggle-switch"})
             etree.SubElement(sw_label1, "input", type="checkbox", onchange="toggleViewMode(this)")
+            sw_span_text = etree.SubElement(sw_label1, "span", {"class": "toggle-switch-text"})
+            sw_span_text.text = "Search-friendly"
+            etree.SubElement(sw_label1, "span", {"class": "toggle-switch-handle"})
 
             sw_container2 = etree.SubElement(button_container, "div", {"class": "toggle-switch-container rich-text-toggle"})
             sw_label2 = etree.SubElement(sw_container2, "label", {"class": "switch"})
@@ -81,9 +83,11 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
             etree.SubElement(sw_label2, "span", {"class": "switch-text-on"}).text = "Lines"
 
         cb_container = etree.SubElement(button_container, "div", {"class": "toggle-switch-container rich-text-toggle"})
-        cb_label = etree.SubElement(cb_container, "label", {"class": "simple-checkbox-label"})
-        cb_label.text = "(Page, Line) "
+        cb_label = etree.SubElement(cb_container, "label", {"class": "toggle-switch"})
         etree.SubElement(cb_label, "input", type="checkbox", onchange="toggleBreaks(this)")
+        cb_span_text = etree.SubElement(cb_label, "span", {"class": "toggle-switch-text"})
+        cb_span_text.text = "(Page, Line)"
+        etree.SubElement(cb_label, "span", {"class": "toggle-switch-handle"})
 
         if verse_only:
             slider_div = etree.SubElement(button_container, "div", {"class": "toggle-switch-container"})
