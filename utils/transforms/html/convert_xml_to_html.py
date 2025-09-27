@@ -71,7 +71,7 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
             sw_container1 = etree.SubElement(button_container, "div",
                                             {"class": "toggle-switch-container"})
             sw_label1 = etree.SubElement(sw_container1, "label", {"class": "simple-checkbox-label"})
-            sw_label1.text = "Clean search "
+            sw_label1.text = "Search-friendly "
             etree.SubElement(sw_label1, "input", type="checkbox", onchange="toggleViewMode(this)")
 
             sw_container2 = etree.SubElement(button_container, "div", {"class": "toggle-switch-container rich-text-toggle"})
@@ -278,6 +278,7 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
                     if n_attr:
                         h2 = etree.SubElement(content_div, "h2")
                         h2.text = n_attr
+                        h2.set("id", n_attr)
                         page_from_n = n_attr.split(',')[0]
                         if page_from_n:
                             current_page[0] = page_from_n
@@ -296,6 +297,7 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
                     if n_attr:
                         h2 = etree.SubElement(content_div, "h2")
                         h2.text = n_attr
+                        h2.set("id", n_attr)
                         page_from_n = n_attr.split(',')[0]
                         if page_from_n:
                             current_page[0] = page_from_n
