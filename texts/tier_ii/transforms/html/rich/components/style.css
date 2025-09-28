@@ -175,6 +175,10 @@ body.simple-view .rich-text { display: none; }
 .show-line-breaks .hyphen { display: inline; }
 .show-line-breaks .lb-br, .show-line-breaks .pb-br { display: block; }
 
+#content.hide-location-markers .location-marker {
+    display: none;
+}
+
 #controls-icon {
     display: block;
 }

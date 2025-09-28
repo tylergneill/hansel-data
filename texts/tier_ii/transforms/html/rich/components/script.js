@@ -20,6 +20,8 @@ function toggleViewMode(checkbox) {
 }
 function toggleLineBreaks(checkbox) { document.getElementById("content").classList.toggle("show-line-breaks", checkbox.checked); }
 
+function toggleLocationMarkers(checkbox) { document.getElementById("content").classList.toggle("hide-location-markers"); }
+
 function toggleButtonContainer() {
     const buttonContainer = document.querySelector('.button-container');
     const mobileIcon = document.getElementById('controls-icon');

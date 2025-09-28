@@ -68,6 +68,13 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
         etree.SubElement(button_container, "div", id="close-button-container").text = u"\u00d7"
 
         if not verse_only:
+            loc_container = etree.SubElement(button_container, "div", {"class": "toggle-switch-container"})
+            loc_label = etree.SubElement(loc_container, "label", {"class": "toggle-switch"})
+            etree.SubElement(loc_label, "input", type="checkbox", onchange="toggleLocationMarkers(this)")
+            loc_span_text = etree.SubElement(loc_label, "span", {"class": "toggle-switch-text"})
+            loc_span_text.text = "Show Locations"
+            etree.SubElement(loc_label, "span", {"class": "toggle-switch-handle"})
+
             sw_container1 = etree.SubElement(button_container, "div",
                                             {"class": "toggle-switch-container"})
             sw_label1 = etree.SubElement(sw_container1, "label", {"class": "toggle-switch"})
@@ -145,6 +152,8 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
             a.text = f"§ {item['name']} (p.{item['page']})"
 
     content_div = etree.SubElement(body, "div", id="content")
+    if not plain and not verse_only:
+        content_div.set('class', 'hide-location-markers')
 
     # --- 4. Content Processing ---
     def append_text(element, text):
@@ -281,6 +290,7 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
                     n_attr = element.get("n")
                     if n_attr:
                         h2 = etree.SubElement(content_div, "h2")
+                        h2.set("class", "location-marker")
                         h2.text = n_attr
                         h2.set("id", n_attr)
                         page_from_n = n_attr.split(',')[0]
@@ -300,6 +310,7 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
                     n_attr = element.get("n")
                     if n_attr:
                         h2 = etree.SubElement(content_div, "h2")
+                        h2.set("class", "location-marker")
                         h2.text = n_attr
                         h2.set("id", n_attr)
                         page_from_n = n_attr.split(',')[0]
