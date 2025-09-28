@@ -72,7 +72,7 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
             loc_label = etree.SubElement(loc_container, "label", {"class": "toggle-switch"})
             etree.SubElement(loc_label, "input", type="checkbox", onchange="toggleLocationMarkers(this)")
             loc_span_text = etree.SubElement(loc_label, "span", {"class": "toggle-switch-text"})
-            loc_span_text.text = "Show Locations"
+            loc_span_text.text = "Locations"
             etree.SubElement(loc_label, "span", {"class": "toggle-switch-handle"})
 
             sw_container1 = etree.SubElement(button_container, "div",
@@ -93,7 +93,7 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
         cb_label = etree.SubElement(cb_container, "label", {"class": "toggle-switch"})
         etree.SubElement(cb_label, "input", type="checkbox", onchange="toggleBreaks(this)")
         cb_span_text = etree.SubElement(cb_label, "span", {"class": "toggle-switch-text"})
-        cb_span_text.text = "(Page, Line)"
+        cb_span_text.text = "Line breaks"
         etree.SubElement(cb_label, "span", {"class": "toggle-switch-handle"})
 
         if verse_only:
@@ -291,8 +291,16 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
                     if n_attr:
                         h2 = etree.SubElement(content_div, "h2")
                         h2.set("class", "location-marker")
-                        h2.text = n_attr
                         h2.set("id", n_attr)
+
+                        n_parts = n_attr.split(',')
+                        if len(n_parts) == 2:
+                            h2.text = f"p.{n_parts[0].strip()}, l.{n_parts[1].strip()}"
+                        elif len(n_parts) == 1:
+                            h2.text = f"p.{n_parts[0].strip()}"
+                        else:
+                            h2.text = n_attr
+
                         page_from_n = n_attr.split(',')[0]
                         if page_from_n:
                             current_page[0] = page_from_n
@@ -311,8 +319,16 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
                     if n_attr:
                         h2 = etree.SubElement(content_div, "h2")
                         h2.set("class", "location-marker")
-                        h2.text = n_attr
                         h2.set("id", n_attr)
+
+                        n_parts = n_attr.split(',')
+                        if len(n_parts) == 2:
+                            h2.text = f"p.{n_parts[0].strip()}, l.{n_parts[1].strip()}"
+                        elif len(n_parts) == 1:
+                            h2.text = f"p.{n_parts[0].strip()}"
+                        else:
+                            h2.text = n_attr
+
                         page_from_n = n_attr.split(',')[0]
                         if page_from_n:
                             current_page[0] = page_from_n
