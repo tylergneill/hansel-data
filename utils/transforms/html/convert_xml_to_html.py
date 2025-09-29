@@ -34,7 +34,7 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
     etree.SubElement(head, "meta", name="viewport", content="width=device-width, initial-scale=1.0")
 
     if not plain:
-        components_dir = Path('texts/tier_ii/transforms/html/rich/components')
+        components_dir = Path('texts/transforms/html/rich/components')
         html_dir = Path(html_path).parent
         relative_components_path = os.path.relpath(components_dir, start=html_dir)
 

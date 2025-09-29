@@ -4,9 +4,8 @@ on:
   push:
     paths:
       - 'VERSION'
-      - 'texts/tier_i/**'
-      - 'texts/tier_ii/**'
-      - 'texts/tier_iii/**'
+      - 'texts/processed_txt/**'
+      - 'texts/transforms/**'
       - 'metadata/**'
   workflow_dispatch:
 
