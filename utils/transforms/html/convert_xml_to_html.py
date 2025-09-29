@@ -259,7 +259,24 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
                 padas_ol = etree.SubElement(verse_li, "ol")
                 padas_ol.set("class", "padas")
                 l_children = lg_element.findall('l')
-                for i, l_child in enumerate(l_children):
+
+                if l_children:
+                    last_l = l_children[-1]
+                    trailing_breaks = []
+                    while len(last_l) > 0 and last_l[-1].tag in ['pb', 'lb']:
+                        child_to_move = last_l[-1]
+                        trailing_breaks.insert(0, child_to_move)
+                        last_l.remove(child_to_move)
+
+                    if len(last_l) > 0:
+                        last_l[-1].tail = (last_l[-1].tail or '') + f" {verse_id} ||"
+                    else:
+                        last_l.text = (last_l.text or '') + f" {verse_id} ||"
+
+                    for br_tag in trailing_breaks:
+                        last_l.append(br_tag)
+
+                for l_child in l_children:
                     pada_li = etree.SubElement(padas_ol, "li")
                     process_children(l_child, pada_li, [''], plain)
     else:
