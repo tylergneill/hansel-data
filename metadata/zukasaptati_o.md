@@ -22,13 +22,9 @@ München: Verl. d. K. Akademie, 1899.
 - [on GRETIL E-Library](http://gretil.sub.uni-goettingen.de/gretil_elib/Suk901__Sukasaptati_TextOrnat_ed_Schmidt.pdf)
 - [on Archive (x2)](https://archive.org/details/sukasaptatitextornatedschmidt/Suk901__Sukasaptati_TextOrnat_ed_Schmidt)
 
-# Tier
-
-III
-
 # Digitization Notes
 
-- (Aug 2022) Ambuda user `suhasm`: Item created, Google Cloud Vision OCR performed.
+- (Aug 2022) Suhas Mahesh (Ambuda user `suhasm`): Item created, Google Cloud Vision OCR performed.
 - (Mar–May 2023) Ambuda user `shivjun1685`: Proofread once.
 - (May–Jul 2025) Tyler Neill: Second OCR and merge with previous corrections, proofread final time, restructured for HANSEL.
 
@@ -59,4 +55,4 @@ as _kathāvatāra_ (9pp in edition) and _kathāvadhi_ (1p).
 # Additional Notes
 
 - The _Simplicior_ text is believed to be older than the _Ornatior_.
-- Tier III content improvements also contributed back to Ambuda.
+- Content improvements have been contributed back to Ambuda.

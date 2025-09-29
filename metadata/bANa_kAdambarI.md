@@ -31,10 +31,6 @@ NB! Bombay Sanskrit Series No. XXIV was printed in three forms:
 - [1889 on HathiTrust](https://babel.hathitrust.org/cgi/pt?id=uc1.b4023759&seq=5)
 - [1883 on Google Books](https://play.google.com/books/reader?id=tbMIAAAAQAAJ&pg=GBS.PP8)
 
-# Tier
-
-II
-
 # Digitization Notes
 
 - (2022) Andrew Ollett: Initial OCR (1885/9 edition used, not 1883 as noted), some proofreading, XML markup for SARIT.
@@ -66,4 +62,4 @@ Uttarabhāga 239–369.
 
 # Additional Notes
 
-- This text still needs a final proofread to be ready for Tier III.
+- This text still needs a final proofread.

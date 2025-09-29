@@ -23,10 +23,6 @@ NB: Band X as a whole (Nos. 1–4) was published in 1897.
 - [1897 Band X on Archive (DLI & public.resource.org)](https://archive.org/details/dli.ministry.08828/page/n9/mode/2up)
 - 1893 Band X, No. 1 (improved by V. Gostishchev) on Archive, to be uploaded soon...
 
-# Tier
-
-II
-
 # Digitization Notes
 
 - (202_–2025): V. Gostishchev: Typed up from edition, intensively proofread and structured.
@@ -60,6 +56,6 @@ The frame story's introduction and conclusion are not explicitly distinguished w
 
 - The _Simplicior_ is believed to be older than the _Ornatior_.
 - Indian editions (e.g. Ramakant Tripathi, Vārāṇasī, 1966, basis of the GRETIL text) are based on this _Simplicior_ text by Schmidt.
-- V. Gostishchev's original (= Tier I) version of the file contains added _chāyās_ from the Indian editions and other useful notes.
+- V. Gostishchev's original version of the file contains added _chāyās_ from the Indian editions and other useful notes.
 - See also the editor's: “Anmerkungen zu dem Textus simplicior der Śukasaptati”, ZDMG 48, 1894, 580-628.
-- This text still needs a final proofread to be ready for Tier III.
+- This text still needs a final proofread.
