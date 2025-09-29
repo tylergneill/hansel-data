@@ -4,20 +4,20 @@
   padding: 0;
 }
 
-.verse {
+body:not(.simple-verse-style) .verse {
   position: relative;
   padding: .5rem .75rem;
 }
 
-.verse:nth-child(odd) {
+body:not(.simple-verse-style) .verse:nth-child(odd) {
   background: hsl(220 20% 97%);
 }
 
-.verse:nth-child(even) {
+body:not(.simple-verse-style) .verse:nth-child(even) {
   background: hsl(220 20% 93%);
 }
 
-.padas {
+body:not(.simple-verse-style) .padas {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -27,12 +27,12 @@
   row-gap: .25rem;
 }
 
-.padas > li:first-child {
+body:not(.simple-verse-style) .padas > li:first-child {
   grid-column: 1;
   grid-row: 1 / -1;
 }
 
-.padas > li:not(:first-child) {
+body:not(.simple-verse-style) .padas > li:not(:first-child) {
   grid-column: 2;
 }
 
@@ -45,12 +45,26 @@ input[type=range] {
 }
 
 @media (max-width: 520px) {
-  .padas {
+  body:not(.simple-verse-style) .padas {
     grid-template-columns: 1fr;
   }
 
-  .padas > li {
+  body:not(.simple-verse-style) .padas > li {
     grid-column: 1 !important;
     grid-row: auto !important;
   }
+}
+
+body.simple-verse-style .verses {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+body.simple-verse-style .verse {
+  margin-bottom: 1.3em;
+}
+
+body.simple-verse-style .padas {
+  list-style-type: none;
+  padding-left: 0;
 }

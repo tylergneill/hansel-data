@@ -97,7 +97,14 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
         etree.SubElement(cb_label, "span", {"class": "toggle-switch-handle"})
 
         if verse_only:
-            slider_div = etree.SubElement(button_container, "div", {"class": "toggle-switch-container"})
+            v_format_container = etree.SubElement(button_container, "div", {"class": "toggle-switch-container"})
+            v_format_label = etree.SubElement(v_format_container, "label", {"class": "toggle-switch"})
+            etree.SubElement(v_format_label, "input", type="checkbox", onchange="toggleVerseFormatting(this)")
+            v_format_span_text = etree.SubElement(v_format_label, "span", {"class": "toggle-switch-text"})
+            v_format_span_text.text = "Verse Styling"
+            etree.SubElement(v_format_label, "span", {"class": "toggle-switch-handle"})
+
+            slider_div = etree.SubElement(button_container, "div", {"class": "toggle-switch-container verse-format-toggle"})
             slider_label = etree.SubElement(slider_div, "label", {"class": "simple-checkbox-label"})
             slider_label.text = "Column Width"
             slider_input = etree.SubElement(slider_div, "input", id="width-slider", type="range", min="20", max="80", value="40")
@@ -197,7 +204,7 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
                 append_text(html_node, child.tail)
 
     def process_lg_content(lg_element, container, page_tracker, is_plain):
-        style = "padding-left: 2em;" if not verse_only else ""
+        style = "padding-left: 2em; margin-bottom: 1.3em;" if not verse_only else ""
         if not is_plain:
             # Rich version
             div_rich = etree.SubElement(container, "div", {"class": "lg rich-text", "style": style})
@@ -249,15 +256,15 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
             h1.text = f"§ {chapter_n_full}"
             all_verses_in_section = section.findall('.//lg[@n]')
             if not all_verses_in_section: continue
-            verses_ol = etree.SubElement(content_div, "ol")
-            verses_ol.set("class", "verses")
+            verses_ul = etree.SubElement(content_div, "ul")
+            verses_ul.set("class", "verses")
             for lg_element in all_verses_in_section:
                 verse_id = lg_element.get('n')
-                verse_li = etree.SubElement(verses_ol, "li")
+                verse_li = etree.SubElement(verses_ul, "li")
                 verse_li.set("class", "verse")
                 verse_li.set("id", f"v{verse_id.replace('.', '-')}")
-                padas_ol = etree.SubElement(verse_li, "ol")
-                padas_ol.set("class", "padas")
+                padas_ul = etree.SubElement(verse_li, "ul")
+                padas_ul.set("class", "padas")
                 l_children = lg_element.findall('l')
 
                 if l_children:
@@ -277,7 +284,7 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
                         last_l.append(br_tag)
 
                 for l_child in l_children:
-                    pada_li = etree.SubElement(padas_ol, "li")
+                    pada_li = etree.SubElement(padas_ul, "li")
                     process_children(l_child, pada_li, [''], plain)
     else:
         current_page = [""]
