@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  run-tier-ii-text-validation:
+  run-text-validation:
     runs-on: ubuntu-latest
 
     steps:
@@ -31,8 +31,8 @@ jobs:
 
     - run: echo "setting execute permission for validation script"
     - name: Set execute permission for validation script
-      run: chmod +x .github/scripts/validate_tier_ii_text_data.sh
+      run: chmod +x .github/scripts/validate_text_data.sh
 
-    - run: echo "running Tier II validation script"
+    - run: echo "running validation script"
     - name: Run script
-      run: .github/scripts/validate_tier_ii_text_data.sh
+      run: .github/scripts/validate_text_data.sh

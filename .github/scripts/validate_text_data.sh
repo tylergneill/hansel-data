@@ -4,7 +4,7 @@
 REPO_ROOT=$(git rev-parse --show-toplevel)
 
 # Define paths relative to the root directory
-TEXT_DATA_DIR="$REPO_ROOT/texts/tier_ii"
+TEXT_DATA_DIR="$REPO_ROOT/texts/processed_txt"
 VALIDATION_SCRIPT="$REPO_ROOT/utils/validation/validate.py"
 
 echo "Validation script paths:"
@@ -18,7 +18,7 @@ for file in "$TEXT_DATA_DIR"/*.txt; do
     python "$VALIDATION_SCRIPT" -i "$file" -s
 done
 
-echo "Running validation script with -c content option (allow fail for Tier II)"
+echo "Running validation script with -c content option (allow fail)"
 
 for file in "$TEXT_DATA_DIR"/*.txt; do
     python "$VALIDATION_SCRIPT" -i "$file" -c --allow-content-fail
@@ -29,7 +29,7 @@ errors=()
 
 # Check for missing XML files
 for txt_file in "$TEXT_DATA_DIR"/*.txt; do
-  xml_file="$REPO_ROOT/texts/tier_ii/transforms/xml/$(basename "$txt_file" .txt).xml"
+  xml_file="$REPO_ROOT/texts/transforms/xml/$(basename "$txt_file" .txt).xml"
   if [ ! -f "$xml_file" ]; then
     errors+=("XML file for $txt_file not found. Please run 'python utils/transforms/xml/regenerate.py --xml'.")
   fi
@@ -37,8 +37,8 @@ done
 
 # Check for stale XML files
 shopt -s nullglob
-for xml_file in texts/tier_ii/transforms/*.xml; do
-  txt_file="texts/tier_ii/$(basename "$xml_file" .xml).txt"
+for xml_file in texts/transforms/*.xml; do
+  txt_file="texts/$(basename "$xml_file" .xml).txt"
   if [ ! -f "$txt_file" ]; then
     errors+=("Stale XML file found: $xml_file. Source .txt file does not exist. Please run 'python utils/transforms/xml/regenerate.py --xml'.")
   fi
@@ -52,4 +52,4 @@ if [ ${#errors[@]} -ne 0 ]; then
   exit 1
 fi
 
-echo "All Tier II text files have corresponding XML files."
+echo "All text files have corresponding XML files."

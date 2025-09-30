@@ -3,12 +3,9 @@ import subprocess
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
-TIER_II_XML_DIR = os.path.join(PROJECT_ROOT, "texts/tier_ii/transforms/xml")
-TIER_II_PLAIN_DIR = os.path.join(PROJECT_ROOT, "texts/tier_ii/transforms/html/plain")
-TIER_II_RICH_DIR = os.path.join(PROJECT_ROOT, "texts/tier_ii/transforms/html/rich")
-TIER_III_XML_DIR = os.path.join(PROJECT_ROOT, "texts/tier_iii/transforms/xml")
-TIER_III_PLAIN_DIR = os.path.join(PROJECT_ROOT, "texts/tier_iii/transforms/html/plain")
-TIER_III_RICH_DIR = os.path.join(PROJECT_ROOT, "texts/tier_iii/transforms/html/rich")
+XML_DIR = os.path.join(PROJECT_ROOT, "texts/transforms/xml")
+HTML_PLAIN_DIR = os.path.join(PROJECT_ROOT, "texts/transforms/html/plain")
+HTML_RICH_DIR = os.path.join(PROJECT_ROOT, "texts/transforms/html/rich")
 CONVERSION_SCRIPT = os.path.join(PROJECT_ROOT, "utils/transforms/html/convert_xml_to_html.py")
 
 flag_map = {
@@ -58,5 +55,4 @@ def regenerate_html(xml_dir, plain_dir, rich_dir):
         subprocess.run(command)
 
 if __name__ == "__main__":
-    regenerate_html(TIER_II_XML_DIR, TIER_II_PLAIN_DIR, TIER_II_RICH_DIR)
-    regenerate_html(TIER_III_XML_DIR, TIER_III_PLAIN_DIR, TIER_III_RICH_DIR)
+    regenerate_html(XML_DIR, HTML_PLAIN_DIR, HTML_RICH_DIR)

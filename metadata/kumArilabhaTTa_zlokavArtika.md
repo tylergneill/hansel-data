@@ -21,10 +21,6 @@ Vārāṇasī: Tara Publications, 1978.
 
 - [on Archive (missing a few pages)](https://archive.org/details/SlokavarttikaNyayaratnakara/mode/2up)
 
-# Tier
-
-II
-
 # Digitization Notes
 
 - (Date unknown) H. Krasser: Created.
@@ -84,4 +80,4 @@ II
 
 # Additional Notes
 
-- This text still needs a final proofread to be ready for Tier III.
+- This text still needs a final proofread.

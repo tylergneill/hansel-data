@@ -50,7 +50,7 @@ def parse_markdown(path: Path) -> dict:
     return meta
 
 def get_file_extension(filename_without_extension):
-    search_folder = './texts/tier_i'
+    search_folder = './texts/originals'
     for item in os.listdir(search_folder):
         base_name, extension = os.path.splitext(item)
         if base_name.lower() == filename_without_extension.lower():
@@ -76,8 +76,8 @@ def main(folder: str):
         # convert file size (kb) to float
         consolidated[k]['File Size (KB)'] = float(consolidated[k]['File Size (KB)'])
 
-        # detect and store Tier I file type
-        consolidated[k]['Tier I Filetype'] = get_file_extension(consolidated[k]['Filename'])
+        # detect and store original file type
+        consolidated[k]['Original Filetype'] = get_file_extension(consolidated[k]['Filename'])
 
     # Add version to the consolidated data
     consolidated['version'] = version

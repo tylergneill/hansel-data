@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """
-Zips text files from tier_i, tier_ii, and tier_iii directories into cumulative archives.
+Zips text files from originals and processed_txt directories into cumulative archives.
 
-- For tier_i, it creates a single 'tier_i_misc.zip' from files in 'texts/tier_i'.
-- For tier_ii and tier_iii, it creates three archives:
-  - '_txt.zip' from plaintext files in the tier's root directory.
-  - '_html.zip' from 'transforms/html'.
-  - '_xml.zip' from 'transforms/xml'.
+- For originals, it creates a single 'originals_misc.zip' from files in 'texts/originals'.
+- For processed txt files, it creates four archives:
+  - 'txt.zip' from plaintext files
+  - 'xml.zip' from 'transforms/xml'
+  - 'html_plain.zip' from 'transforms/html/plain'
+  - 'html_rich.zip' from 'transforms/html/rich'
 """
 
 import sys
@@ -32,48 +33,38 @@ def create_zip(source_dir, zip_path, version_file):
         print(f"No files found in {source_dir} to zip.")
 
 def main(folder: str):
-    """Orchestrates zipping of text tiers based on their structure."""
+    """Orchestrates zipping of files based on folder structures."""
     root = Path(folder)
     texts_folder = root / 'texts'
-
-    # Get version
+    output_dir = texts_folder / 'transforms' / 'cumulative'
     version_file = root / 'VERSION'
-    version_content = version_file.read_text(encoding="utf-8")
-    version = version_content.strip().split('"')[1]
 
-    # --- Tier i ---
-    tier_i_dir = texts_folder / 'tier_i'
-    if tier_i_dir.is_dir():
-        output_dir_i = tier_i_dir / 'transforms' / 'cumulative'
-        zip_path_i = output_dir_i / 'tier_i_misc.zip'
-        create_zip(tier_i_dir, zip_path_i, version_file)
+    # originals
+    source_dir_originals = texts_folder / 'originals'
+    zip_path = output_dir / 'originals_misc.zip'
+    create_zip(source_dir_originals, zip_path, version_file)
 
-    # --- Tier ii and iii ---
-    for tier in ['tier_ii', 'tier_iii']:
-        tier_dir = texts_folder / tier
-        if not tier_dir.is_dir():
-            print(f"Directory not found: {tier_dir}")
-            continue
+    # processed_txt
+    source_dir_processed_txt = texts_folder / 'processed_txt'
+    zip_path_txt = output_dir / f'txt.zip'
+    create_zip(source_dir_processed_txt, zip_path_txt, version_file)
 
-        output_dir = tier_dir / 'transforms' / 'cumulative'
-        
-        # txt files
-        zip_path_txt = output_dir / f'{tier}_txt.zip'
-        create_zip(tier_dir, zip_path_txt, version_file)
+    # --- transforms ---
 
-        # html files (rich and plain)
-        source_dir_html_rich = tier_dir / 'transforms' / 'html' / 'rich'
-        zip_path_html_rich = output_dir / f'{tier}_html_rich.zip'
-        create_zip(source_dir_html_rich, zip_path_html_rich, version_file)
+    # xml
+    source_dir_xml = texts_folder / 'transforms' / 'xml'
+    zip_path_xml = output_dir / f'xml.zip'
+    create_zip(source_dir_xml, zip_path_xml, version_file)
 
-        source_dir_html_plain = tier_dir / 'transforms' / 'html' / 'plain'
-        zip_path_html_plain = output_dir / f'{tier}_html_plain.zip'
-        create_zip(source_dir_html_plain, zip_path_html_plain, version_file)
+    # html files (plain and rich)
+    source_dir_html_plain = texts_folder / 'transforms' / 'html' / 'plain'
+    zip_path_html_plain = output_dir / f'html_plain.zip'
+    create_zip(source_dir_html_plain, zip_path_html_plain, version_file)
 
-        # xml files
-        source_dir_xml = tier_dir / 'transforms' / 'xml'
-        zip_path_xml = output_dir / f'{tier}_xml.zip'
-        create_zip(source_dir_xml, zip_path_xml, version_file)
+    source_dir_html_rich = texts_folder / 'transforms' / 'html' / 'rich'
+    zip_path_html_rich = output_dir / f'html_rich.zip'
+    create_zip(source_dir_html_rich, zip_path_html_rich, version_file)
+
 
 if __name__ == '__main__':
     main(sys.argv[1] if len(sys.argv) > 1 else '.')

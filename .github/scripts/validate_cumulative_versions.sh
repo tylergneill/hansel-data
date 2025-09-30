@@ -31,33 +31,18 @@ check_zip_version() {
   fi
 }
 
-# Tier I
-if find "$REPO_ROOT/texts/tier_i" -maxdepth 1 -type f -print -quit | grep -q .; then
-    check_zip_version "$REPO_ROOT/texts/tier_i/transforms/cumulative/tier_i_misc.zip" "$VERSION"
+if find "$REPO_ROOT/texts/originals" -maxdepth 1 -type f -print -quit | grep -q .; then
+    check_zip_version "$REPO_ROOT/texts/transforms/cumulative/originals_misc.zip" "$VERSION"
 fi
 
-# Tier II
-if find "$REPO_ROOT/texts/tier_ii" -maxdepth 1 -type f -print -quit | grep -q .; then
-    tier_ii_zips=(
-      "texts/tier_ii/transforms/cumulative/tier_ii_txt.zip"
-      "texts/tier_ii/transforms/cumulative/tier_ii_xml.zip"
-      "texts/tier_ii/transforms/cumulative/tier_ii_html_plain.zip"
-      "texts/tier_ii/transforms/cumulative/tier_ii_html_rich.zip"
+if find "$REPO_ROOT/texts/processed_txt" -maxdepth 1 -type f -print -quit | grep -q .; then
+    zips=(
+      "texts/transforms/cumulative/txt.zip"
+      "texts/transforms/cumulative/xml.zip"
+      "texts/transforms/cumulative/html_plain.zip"
+      "texts/transforms/cumulative/html_rich.zip"
     )
-    for zip in "${tier_ii_zips[@]}"; do
-      check_zip_version "$REPO_ROOT/$zip" "$VERSION"
-    done
-fi
-
-# Tier III
-if find "$REPO_ROOT/texts/tier_iii" -maxdepth 1 -type f -print -quit | grep -q .; then
-    tier_iii_zips=(
-      "texts/tier_iii/transforms/cumulative/tier_iii_txt.zip"
-      "texts/tier_iii/transforms/cumulative/tier_iii_xml.zip"
-      "texts/tier_iii/transforms/cumulative/tier_iii_html_plain.zip"
-      "texts/tier_iii/transforms/cumulative/tier_iii_html_rich.zip"
-    )
-    for zip in "${tier_iii_zips[@]}"; do
+    for zip in "${zips[@]}"; do
       check_zip_version "$REPO_ROOT/$zip" "$VERSION"
     done
 fi
