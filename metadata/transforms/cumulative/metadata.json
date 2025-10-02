@@ -3,6 +3,7 @@
     "Title": "Śukasaptati, “Textus Ornatior”",
     "Author": "(Unknown)",
     "Source File": "Ambuda website “Proofing” section, extracted page-by-page (CC0 license).",
+    "Edition Short": "Schmidt 1899",
     "Edition": "Schmidt, Richard. “Der Textus ornatior der Śukasaptati.”  Abhandlungen der Philosophisch-Philologischen Classe  der Königlich Bayerischen Akademie der Wissenschaften, Band XXI. München: Verl. d. K. Akademie, 1899.",
     "PDFs": [
       "[on GRETIL E-Library](http://gretil.sub.uni-goettingen.de/gretil_elib/Suk901__Sukasaptati_TextOrnat_ed_Schmidt.pdf)",
@@ -37,6 +38,7 @@
     "Title": "Śukasaptati, “Textus Simplicior”",
     "Author": "(Unknown)",
     "Source File": "Word document by Viliam Gostishchev,  obtained directly from creator through private email exchange.",
+    "Edition Short": "Schmidt 1893",
     "Edition": "Schmidt, Richard. “Die Çukasaptati. Textus Simplicior.”  Abhandlungen für die Kunde des Morgenlandes, Band X, No. 1. Leipzig, 1893.  NB: Band X as a whole (Nos. 1–4) was published in 1897.",
     "PDFs": [
       "[1897 Band X on Archive (DLI & public.resource.org)](https://archive.org/details/dli.ministry.08828/page/n9/mode/2up)",
@@ -74,6 +76,7 @@
     "Title": "Ślokavārtika",
     "Author": "Kumārila Bhaṭṭa",
     "Source File": "Word document by Helmut Krasser, obtained second-hand through private exchange.",
+    "Edition Short": "Dvārikādāsa Śāstrī 1978",
     "Edition": "Dvārikādāsa Śāstrī, “Ślokavārttika of Śrī Kumārila Bhaṭṭa with the Commentary Nyāyaratnākara of Śrī Pārthasārathi Miśra.” Vārāṇasī: Tara Publications, 1978.",
     "PDFs": [
       "[on Archive (missing a few pages)](https://archive.org/details/SlokavarttikaNyayaratnakara/mode/2up)"
@@ -111,6 +114,7 @@
       "Bhūṣaṇa Bhaṭṭa (Uttarabhāga)"
     ],
     "Source File": "SARIT XML file downloaded from GitHub: [bana-kadambari.xml, commit  8ad8588, Feb 1, 2022](https://github.com/sarit/SARIT-corpus/blob/8ad858812f8fcd0a62f8684e7c4fdab74ffb2435/bana-kadambari.xml).",
+    "Edition Short": "Peterson 1885",
     "Edition": "Peterson, Peter. “Kâdambarî.” Bombay: Government Central Book Depôt, 1885.  NB! Bombay Sanskrit Series No. XXIV was printed in three forms: - 1883 (first edition) - 1885 (revised edition) - 1889 (simple reset of 1885)",
     "PDFs": [
       "[1885 on Archive](https://archive.org/details/kadambari01bana/page/n7/mode/2up)",
@@ -143,5 +147,5 @@
     "Filename": "bANa_kAdambarI",
     "Original Filetype": ".xml"
   },
-  "version": "2025-09-26"
+  "version": "2025-10-01"
 }

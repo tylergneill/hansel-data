@@ -11,6 +11,10 @@
 Word document by Viliam Gostishchev, 
 obtained directly from creator through private email exchange.
 
+# Edition Short
+
+Schmidt 1893
+
 # Edition
 
 Schmidt, Richard. “Die Çukasaptati. Textus Simplicior.” 

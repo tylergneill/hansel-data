@@ -10,6 +10,10 @@
 
 Ambuda website “Proofing” section, extracted page-by-page (CC0 license).
 
+# Edition Short
+
+Schmidt 1899
+
 # Edition
 
 Schmidt, Richard. “Der Textus ornatior der Śukasaptati.” 
