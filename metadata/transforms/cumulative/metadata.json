@@ -74,7 +74,9 @@
   },
   "kumārilabhaṭṭa_ślokavārtika": {
     "Title": "Ślokavārtika",
+    "Pandit Work": "88597",
     "Author": "Kumārila Bhaṭṭa",
+    "Pandit Author": "85206",
     "Source File": "Word document by Helmut Krasser, obtained second-hand through private exchange.",
     "Edition Short": "Dvārikādāsa Śāstrī 1978",
     "Edition": "Dvārikādāsa Śāstrī, “Ślokavārttika of Śrī Kumārila Bhaṭṭa with the Commentary Nyāyaratnākara of Śrī Pārthasārathi Miśra.” Vārāṇasī: Tara Publications, 1978.",
@@ -109,9 +111,14 @@
   },
   "bāṇa_kādambarī": {
     "Title": "Kādambarī",
+    "Pandit Work": "109562",
     "Authors": [
       "Bāṇa Bhaṭṭa (Pūrvabhāga)",
       "Bhūṣaṇa Bhaṭṭa (Uttarabhāga)"
+    ],
+    "Pandit Authors": [
+      "108814",
+      "109559"
     ],
     "Source File": "SARIT XML file downloaded from GitHub: [bana-kadambari.xml, commit  8ad8588, Feb 1, 2022](https://github.com/sarit/SARIT-corpus/blob/8ad858812f8fcd0a62f8684e7c4fdab74ffb2435/bana-kadambari.xml).",
     "Edition Short": "Peterson 1885",
