@@ -2,10 +2,19 @@
 
 Kādambarī
 
+# Pandit Work
+
+109562
+
 # Authors
 
 - Bāṇa Bhaṭṭa (Pūrvabhāga)
 - Bhūṣaṇa Bhaṭṭa (Uttarabhāga)
+
+# Pandit Authors
+
+- 108814
+- 109559
 
 # Source File
 
