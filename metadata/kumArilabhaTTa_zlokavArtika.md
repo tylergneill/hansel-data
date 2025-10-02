@@ -11,6 +11,10 @@ Kumārila Bhaṭṭa
 Word document by Helmut Krasser,
 obtained second-hand through private exchange.
 
+# Edition Short
+
+Dvārikādāsa Śāstrī 1978
+
 # Edition
 
 Dvārikādāsa Śāstrī, “Ślokavārttika of Śrī Kumārila Bhaṭṭa
