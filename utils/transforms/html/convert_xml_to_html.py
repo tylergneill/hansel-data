@@ -30,7 +30,7 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
     meta = etree.SubElement(head, "meta")
     meta.set("charset", "utf-8")
     title = etree.SubElement(head, "title")
-    title.text = os.path.basename(xml_path)
+    title.text = os.path.basename(Path(xml_path).stem)
     etree.SubElement(head, "meta", name="viewport", content="width=device-width, initial-scale=1.0")
 
     if not plain:
