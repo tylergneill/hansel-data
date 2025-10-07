@@ -83,6 +83,13 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
             sw_span_text.text = "Search-friendly"
             etree.SubElement(sw_label1, "span", {"class": "toggle-switch-handle"})
 
+            corr_container = etree.SubElement(button_container, "div", {"class": "toggle-switch-container"})
+            corr_label = etree.SubElement(corr_container, "label", {"class": "toggle-switch"})
+            etree.SubElement(corr_label, "input", type="checkbox", onchange="toggleCorrections(this)")
+            corr_span_text = etree.SubElement(corr_label, "span", {"class": "toggle-switch-text"})
+            corr_span_text.text = "Corrections"
+            etree.SubElement(corr_label, "span", {"class": "toggle-switch-handle"})
+
             sw_container2 = etree.SubElement(button_container, "div", {"class": "toggle-switch-container rich-text-toggle"})
             sw_label2 = etree.SubElement(sw_container2, "label", {"class": "switch"})
             etree.SubElement(sw_label2, "input", type="checkbox", onchange="toggleLineBreaks(this)")
@@ -171,35 +178,88 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
         else:
             element.text = (element.text or '') + text
 
+    def get_plain_text_recursive(element):
+        text = ''
+        if element.text:
+            text += element.text
+        for child in element:
+            if child.tag == 'choice':
+                corr = child.find('corr')
+                if corr is not None:
+                    text += get_plain_text_recursive(corr)
+            elif child.tag == 'del':
+                pass
+            elif child.tag == 'supplied':
+                text += get_plain_text_recursive(child)
+            else:
+                text += get_plain_text_recursive(child)
+            if child.tail:
+                text += child.tail
+        return text
+
     def process_children(xml_node, html_node, page_tracker, is_plain_version):
         if is_plain_version:
-            text_content = ''.join(xml_node.itertext())
+            text_content = get_plain_text_recursive(xml_node)
             append_text(html_node, text_content)
             return
 
         if xml_node.text:
             append_text(html_node, xml_node.text)
         for child in xml_node:
-            if not is_plain_version:
-                if child.tag == 'lb':
-                    lb_span = etree.SubElement(html_node, "span")
-                    lb_span.set("class", "lb rich-text")
-                    line_n = child.get("n")
-                    lb_span.set("data-line", line_n)
-                    lb_span.text = f'(p.{page_tracker[0]}, l.{line_n})'
-                    br = etree.SubElement(html_node, "br")
-                    br.set("class", "lb-br rich-text")
-                elif child.tag == 'pb':
-                    page_tracker[0] = child.get("n")
-                    pb_span = etree.SubElement(html_node, "span")
-                    pb_span.set("class", "pb rich-text")
-                    pb_span.set("data-page", page_tracker[0])
-                    if no_line_numbers:
-                        pb_span.text = f'(p.{page_tracker[0]})'
-                    else:
-                        pb_span.text = f'(p.{page_tracker[0]}, l.1)'
-                    br = etree.SubElement(html_node, "br")
-                    br.set("class", "pb-br rich-text")
+            if child.tag == 'lb':
+                lb_span = etree.SubElement(html_node, "span")
+                lb_span.set("class", "lb rich-text")
+                line_n = child.get("n")
+                lb_span.set("data-line", line_n)
+                lb_span.text = f'(p.{page_tracker[0]}, l.{line_n})'
+                br = etree.SubElement(html_node, "br")
+                br.set("class", "lb-br rich-text")
+            elif child.tag == 'pb':
+                page_tracker[0] = child.get("n")
+                pb_span = etree.SubElement(html_node, "span")
+                pb_span.set("class", "pb rich-text")
+                pb_span.set("data-page", page_tracker[0])
+                if no_line_numbers:
+                    pb_span.text = f'(p.{page_tracker[0]})'
+                else:
+                    pb_span.text = f'(p.{page_tracker[0]}, l.1)'
+                br = etree.SubElement(html_node, "br")
+                br.set("class", "pb-br rich-text")
+            elif child.tag == 'choice':
+                corr_span = etree.SubElement(html_node, "span", {"class": "correction"})
+                sic = child.find('sic')
+                corr = child.find('corr')
+                sic_text = ''.join(sic.itertext()) if sic is not None else ''
+                corr_text = ''.join(corr.itertext()) if corr is not None else ''
+                ante = etree.SubElement(corr_span, "i", {"class": "ante-correction"})
+                ante.set("title", f"pre-correction (post-: {corr_text})")
+                if sic is not None:
+                    process_children(sic, ante, page_tracker, False)
+                post = etree.SubElement(corr_span, "i", {"class": "post-correction", "style": "display:none;"})
+                post.set("title", f"post-correction (pre-: {sic_text})")
+                if corr is not None:
+                    process_children(corr, post, page_tracker, False)
+            elif child.tag == 'del':
+                corr_span = etree.SubElement(html_node, "span", {"class": "correction"})
+                ante = etree.SubElement(corr_span, "i", {"class": "ante-correction"})
+                ante.set("title", "deletion")
+                process_children(child, ante, page_tracker, False)
+                post_empty = etree.SubElement(corr_span, "i", {"class": "post-correction", "style": "display:none;"})
+                post_empty.text = ''
+            elif child.tag == 'supplied':
+                corr_span = etree.SubElement(html_node, "span", {"class": "correction"})
+                ante_empty = etree.SubElement(corr_span, "i", {"class": "ante-correction"})
+                ante_empty.text = ''
+                post = etree.SubElement(corr_span, "i", {"class": "post-correction", "style": "display:none;"})
+                post.set("title", "supplied")
+                process_children(child, post, page_tracker, False)
+            elif child.tag == 'unclear':
+                unclear_span = etree.SubElement(html_node, "span", {"class": "unclear"})
+                unclear_span.set("title", "unclear")
+                process_children(child, unclear_span, page_tracker, False)
+            else:
+                process_children(child, html_node, page_tracker, False)
+
             if child.tail:
                 append_text(html_node, child.tail)
 

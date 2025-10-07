@@ -25,6 +25,10 @@ PAGE_RE = re.compile(r"^<(\d+)>$")  # <page>
 PAGE_LINE_RE = re.compile(r"^<(\d+),(\d+)>$")  # <page,line>
 ADDITIONAL_STRUCTURE_NOTE_RE = re.compile(r"^<[^\n>]+>$")  # other <...>
 VERSE_MARKER_RE = re.compile(r"\|\| ([^|]{1,20}) \|\|(?: |$)")
+CHOICE_RE = re.compile(r"≤([^≥]*)≥«([^»]*)»")
+DEL_RE = re.compile(r"≤([^≥]*)≥")
+SUPPLIED_RE = re.compile(r"«([^»]*)»")
+UNCLEAR_RE = re.compile(r"¿([^¿]*)¿")
 VERSE_BACK_BOUNDARY_RE = re.compile(r"\|\|(?![^|]{1,20} \|\|)")
 CLOSE_L_RE = re.compile(r"\|\|?(?:[ \n]|$)")
 HYPHEN_EOL_RE = re.compile(r"-\s*$")  # tweak later if you need fancy hyphens
@@ -224,7 +228,8 @@ class TEIBuilder:
 
         prefix = ""
         if use_tail and not s.prev_line_hyphen:
-            prefix = " "
+            if sink_el.tag in ('lb', 'pb'):
+                prefix = " "
 
         if use_tail:
             sink_el.tail = (sink_el.tail or "") + prefix + text
@@ -321,11 +326,51 @@ class TEIBuilder:
         page, line_num = match.groups()
         self._emit_pb(page, line_num)
 
+    def _emit_choice(self, match: re.Match):
+        choice = etree.Element("choice")
+        sic = etree.SubElement(choice, "sic")
+        sic.text = match.group(1)
+        corr = etree.SubElement(choice, "corr")
+        corr.text = match.group(2)
+        self._add_inline_element(choice)
+
+    def _emit_del(self, match: re.Match):
+        del_el = etree.Element("del")
+        del_el.text = match.group(1)
+        self._add_inline_element(del_el)
+
+    def _emit_supplied(self, match: re.Match):
+        supplied = etree.Element("supplied")
+        supplied.text = match.group(1)
+        self._add_inline_element(supplied)
+
+    def _emit_unclear(self, match: re.Match):
+        unclear = etree.Element("unclear")
+        unclear.text = match.group(1)
+        self._add_inline_element(unclear)
+
+    def _add_inline_element(self, el: etree._Element):
+        s = self.state
+        sink = s.last_tail_text_sink
+
+        if sink is None:
+            container = s.current_l if s.current_l is not None else s.current_p
+            if container is not None:
+                container.append(el)
+        else:
+            sink.addnext(el)
+
+        s.last_tail_text_sink = el
+
     def _process_content_with_midline_elements(self, content: str, mode: str, raw_line_for_hyphen_check: str):
         s = self.state
         
         markers = [
-            (MID_LINE_PAGE_RE, self._emit_pb_from_match)
+            (MID_LINE_PAGE_RE, self._emit_pb_from_match),
+            (CHOICE_RE, self._emit_choice),
+            (DEL_RE, self._emit_del),
+            (SUPPLIED_RE, self._emit_supplied),
+            (UNCLEAR_RE, self._emit_unclear),
         ]
         
         all_matches = []
@@ -333,10 +378,17 @@ class TEIBuilder:
             for match in marker_re.finditer(content):
                 all_matches.append({"match": match, "handler": handler})
                 
-        all_matches.sort(key=lambda x: x["match"].start())
-        
-        last_match_end = 0
+        all_matches.sort(key=lambda x: (x["match"].start(), -x["match"].end()))
+
+        filtered_matches = []
+        last_end = -1
         for item in all_matches:
+            if item['match'].start() >= last_end:
+                filtered_matches.append(item)
+                last_end = item['match'].end()
+
+        last_match_end = 0
+        for item in filtered_matches:
             match = item["match"]
             handler = item["handler"]
             
