@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="components/style.css"/>
     <script src="components/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@indic-transliteration/sanscript/sanscript.min.js"></script>
+    <script src="components/transliteration_script.js"></script>
     <link rel="stylesheet" href="components/verse_style.css"/>
     <script src="components/verse_script.js"></script>
   </head>
@@ -22,6 +24,12 @@
           <span class="toggle-switch-text">Line breaks</span>
           <span class="toggle-switch-handle"/>
         </label>
+      </div>
+      <div class="toggle-switch-container">
+        <label for="transliteration-scheme">Transliteration:</label>
+        <select id="transliteration-scheme"/>
+        <input type="checkbox" id="show-all-schemes-checkbox" style="margin-left: 1em;"/>
+        <label for="show-all-schemes-checkbox">Show all</label>
       </div>
       <div class="toggle-switch-container">
         <label class="toggle-switch">

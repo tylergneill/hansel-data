@@ -46,6 +46,11 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
         script = etree.SubElement(head, "script")
         script.set("src", (Path(relative_components_path) / 'script.js').as_posix())
         script.text = ""
+        sanscript_script = etree.SubElement(head, "script", src="https://cdn.jsdelivr.net/npm/@indic-transliteration/sanscript/sanscript.min.js")
+        sanscript_script.text = ""
+        translit_script = etree.SubElement(head, "script")
+        translit_script.set("src", (Path(relative_components_path) / 'transliteration_script.js').as_posix())
+        translit_script.text = ""
 
         if verse_only:
             verse_style_link = etree.SubElement(head, "link")
@@ -110,6 +115,18 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
         cb_span_text = etree.SubElement(cb_label, "span", {"class": "toggle-switch-text"})
         cb_span_text.text = "Line breaks"
         etree.SubElement(cb_label, "span", {"class": "toggle-switch-handle"})
+
+        # Transliteration controls
+        translit_container = etree.SubElement(button_container, "div", {"class": "toggle-switch-container"})
+        translit_label = etree.SubElement(translit_container, "label")
+        translit_label.set("for", "transliteration-scheme")
+        translit_label.text = "Transliteration:"
+        etree.SubElement(translit_container, "select", id="transliteration-scheme")
+        translit_checkbox = etree.SubElement(translit_container, "input", type="checkbox", id="show-all-schemes-checkbox")
+        translit_checkbox.set("style", "margin-left: 1em;")
+        translit_checkbox_label = etree.SubElement(translit_container, "label")
+        translit_checkbox_label.set("for", "show-all-schemes-checkbox")
+        translit_checkbox_label.text = "Show all"
 
         if verse_only:
             v_format_container = etree.SubElement(button_container, "div", {"class": "toggle-switch-container"})
@@ -521,3 +538,4 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     convert_xml_to_html(args.xml_path, args.html_path, no_line_numbers=args.no_line_numbers, verse_only=args.verse_only, plain=args.plain)
+    print(f"Wrote {args.html_path}")
