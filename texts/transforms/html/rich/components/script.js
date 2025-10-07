@@ -47,3 +47,19 @@ document.addEventListener('DOMContentLoaded', (event) => {
         closeButton.addEventListener('click', toggleButtonContainer);
     }
 });
+
+function toggleCorrections(checkbox) {
+    const content = document.getElementById('content');
+    if (!content) return;
+
+    const anteCorrectionElements = content.querySelectorAll('.ante-correction');
+    const postCorrectionElements = content.querySelectorAll('.post-correction');
+
+    if (checkbox.checked) { // Show post-correction
+        anteCorrectionElements.forEach(el => el.style.display = 'none');
+        postCorrectionElements.forEach(el => el.style.display = 'inline');
+    } else { // Show ante-correction (default)
+        anteCorrectionElements.forEach(el => el.style.display = 'inline');
+        postCorrectionElements.forEach(el => el.style.display = 'none');
+    }
+}
