@@ -84,12 +84,19 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
             sw_span_text.text = "Search-friendly"
             etree.SubElement(sw_label1, "span", {"class": "toggle-switch-handle"})
 
-            corr_container = etree.SubElement(button_container, "div", {"class": "toggle-switch-container"})
+            corr_container = etree.SubElement(button_container, "div", {"class": "toggle-switch-container rich-text-toggle"})
             corr_label = etree.SubElement(corr_container, "label", {"class": "toggle-switch"})
             etree.SubElement(corr_label, "input", type="checkbox", onchange="toggleCorrections(this)")
             corr_span_text = etree.SubElement(corr_label, "span", {"class": "toggle-switch-text"})
             corr_span_text.text = "Corrections"
             etree.SubElement(corr_label, "span", {"class": "toggle-switch-handle"})
+
+            info_icon = etree.SubElement(corr_container, "img")
+            info_icon.set("id", "corrections-info-icon")
+            info_icon.set("src", (Path(relative_components_path) / 'info.png').as_posix())
+            info_icon.set("class", "info-icon")
+            info_icon.set("title", "Toggles display of corrections, listed at the bottom of the metadata panel.")
+            info_icon.set("style", "width: 16px; height: 16px; margin-left: 8px; vertical-align: middle; cursor: help;")
 
             sw_container2 = etree.SubElement(button_container, "div", {"class": "toggle-switch-container rich-text-toggle"})
             sw_label2 = etree.SubElement(sw_container2, "label", {"class": "switch"})
@@ -460,26 +467,44 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
                         process_lg_content(element, content_div, current_page, current_line, plain)
 
     if corrections_data and not plain:
-        # Add link to metadata
-        li = etree.SubElement(metadata_ul, "li")
-        b = etree.SubElement(li, "b")
-        b.text = "Corrections: "
-        a = etree.SubElement(li, "a", href="#", id="show-corrections-link")
-        a.text = f"View {len(corrections_data)} corrections"
+        # Create a collapsible list of corrections within the metadata panel
+        corrections_li = etree.SubElement(metadata_ul, "li", id="corrections-list-container")
+        
+        # Title with caret
+        corrections_title = etree.SubElement(corrections_li, "b")
+        corrections_title.text = f"Corrections ({len(corrections_data)}) "
+        
+        # The caret for collapsing
+        caret = etree.SubElement(corrections_title, "span", {"class": "caret"})
+        caret.text = "▶"
 
-        corrections_div = etree.SubElement(top_widgets_div, "div", id="corrections-container", style="display: none;")
-        corrections_h2 = etree.SubElement(corrections_div, "h2")
-        corrections_h2.text = "List of Corrections "
-        etree.SubElement(corrections_h2, "span", id="corrections-caret").text = "▶"
-        corrections_ul = etree.SubElement(corrections_div, "ul", id="corrections-list")
+        # The nested table of corrections
+        corrections_table = etree.SubElement(corrections_li, "table", style="display: none; padding-left: 2em;")
+        tbody = etree.SubElement(corrections_table, "tbody")
+
         for item in corrections_data:
-            li = etree.SubElement(corrections_ul, "li")
-            li.text = f"p.{item['page']}, l.{item['line']}: "
-            sic_span = etree.SubElement(li, "span")
-            sic_span.text = f"'{item['sic']}'"
-            sic_span.tail = " → "
-            corr_span = etree.SubElement(li, "span")
-            corr_span.text = f"'{item['corr']}'"
+            tr = etree.SubElement(tbody, "tr")
+            
+            # Location column
+            td1 = etree.SubElement(tr, "td", style="padding-right: 1em;")
+            td1.text = f"p.{item['page']}, l.{item['line']}:"
+            
+            sic = item['sic']
+            corr = item['corr']
+            
+            # Change description column
+            td2 = etree.SubElement(tr, "td")
+
+            if sic == '' and corr == ' ':
+                td2.text = 'space added'
+            elif sic == ' ' and corr == '':
+                td2.text = 'space removed'
+            elif corr == '' and sic != '':
+                td2.text = f"{sic} deleted"
+            elif sic == '' and corr != '':
+                td2.text = f"{corr} added"
+            else:
+                td2.text = f"{sic} → {corr}"
 
     # Write the HTML to a file
     with open(html_path, "w", encoding="utf-8") as f:

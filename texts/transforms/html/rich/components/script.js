@@ -2,13 +2,6 @@ function toggleBreaks(checkbox) { document.getElementById("content").classList.t
 function toggleToc() { document.getElementById('toc').classList.toggle('expanded'); }
 function toggleMetadata() { document.getElementById('metadata').classList.toggle('expanded'); }
 
-function toggleCorrectionsPanel() {
-    const container = document.getElementById('corrections-container');
-    if (container) {
-        container.classList.toggle('expanded');
-    }
-}
-
 function toggleViewMode(checkbox) {
     document.body.classList.toggle('simple-view', checkbox.checked);
     const toc = document.getElementById('toc');
@@ -22,7 +15,7 @@ function toggleViewMode(checkbox) {
     } else {
         if(toc) toc.style.display = 'block';
         if(metadata) metadata.style.display = 'block';
-        richTextToggles.forEach(toggle => toggle.style.display = 'block');
+        richTextToggles.forEach(toggle => toggle.style.display = 'flex');
     }
 }
 function toggleLineBreaks(checkbox) { document.getElementById("content").classList.toggle("show-line-breaks", checkbox.checked); }
@@ -46,9 +39,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const metadataHeader = document.querySelector('#metadata h2');
     if (metadataHeader) { metadataHeader.addEventListener('click', toggleMetadata); }
 
-    const correctionsHeader = document.querySelector('#corrections-container h2');
-    if (correctionsHeader) { correctionsHeader.addEventListener('click', toggleCorrectionsPanel); }
-
     const mobileControlsIcon = document.getElementById('controls-icon');
     if (mobileControlsIcon) {
         mobileControlsIcon.addEventListener('click', toggleButtonContainer);
@@ -58,20 +48,42 @@ document.addEventListener('DOMContentLoaded', (event) => {
         closeButton.addEventListener('click', toggleButtonContainer);
     }
 
-    const showCorrectionsLink = document.getElementById('show-corrections-link');
-    if (showCorrectionsLink) {
-        showCorrectionsLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            const correctionsContainer = document.getElementById('corrections-container');
-            if (correctionsContainer) {
-                if (correctionsContainer.style.display === 'none') {
-                    correctionsContainer.style.display = 'block';
-                    correctionsContainer.classList.add('expanded');
-                    correctionsContainer.scrollIntoView({ behavior: 'smooth' });
-                } else {
-                    correctionsContainer.style.display = 'none';
-                    correctionsContainer.classList.remove('expanded');
-                }
+    const correctionsListItem = document.getElementById('corrections-list-container');
+    if (correctionsListItem) {
+        const title = correctionsListItem.querySelector('b');
+        title.style.cursor = 'pointer';
+        title.addEventListener('click', () => {
+            const table = correctionsListItem.querySelector('table');
+            const caret = title.querySelector('.caret');
+            const isHidden = table.style.display === 'none';
+            table.style.display = isHidden ? 'table' : 'none';
+            caret.textContent = isHidden ? '▼' : '▶';
+        });
+    }
+
+    const infoIcon = document.getElementById('corrections-info-icon');
+    if (infoIcon) {
+        infoIcon.addEventListener('click', () => {
+            const metadataPanel = document.getElementById('metadata');
+            const correctionsListContainer = document.getElementById('corrections-list-container');
+
+            if (metadataPanel) {
+                metadataPanel.classList.add('expanded');
+            }
+
+            if (correctionsListContainer) {
+                const title = correctionsListContainer.querySelector('b');
+                const table = correctionsListContainer.querySelector('table');
+                const caret = title.querySelector('.caret');
+                
+                // Expand the corrections list
+                table.style.display = 'table';
+                caret.textContent = '▼';
+
+                // Wait for animations to finish before scrolling
+                setTimeout(() => {
+                    correctionsListContainer.scrollIntoView({ behavior: 'smooth' });
+                }, 500); // Match the CSS transition duration
             }
         });
     }
