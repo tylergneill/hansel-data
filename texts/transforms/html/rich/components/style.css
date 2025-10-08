@@ -328,3 +328,27 @@ body.simple-view .rich-text { display: none; }
 .toggle-switch:has(input:checked) .toggle-switch-handle {
     left: calc(100% - 31px);
 }
+
+#corrections-info-icon {
+    cursor: pointer; 
+    width: 16px; 
+    height: 16px; 
+    margin-left: 8px; 
+    vertical-align: middle;
+}
+
+#transliteration-controls-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+#transliteration-controls {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+#transliteration-scheme {
+    margin-right: 5px;
+}

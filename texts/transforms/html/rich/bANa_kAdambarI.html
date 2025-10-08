@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="components/style.css"/>
     <script src="components/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@indic-transliteration/sanscript/sanscript.min.js"></script>
   </head>
   <body>
     <div id="controls-icon">
@@ -34,7 +35,7 @@
           <span class="toggle-switch-text">Corrections</span>
           <span class="toggle-switch-handle"/>
         </label>
-        <img id="corrections-info-icon" src="components/info.png" class="info-icon" title="Toggles display of corrections, listed at the bottom of the metadata panel." style="width: 16px; height: 16px; margin-left: 8px; vertical-align: middle; cursor: help;"/>
+        <img id="corrections-info-icon" src="components/info.png" class="info-icon" title="Toggles display of corrections, listed at the bottom of the metadata panel."/>
       </div>
       <div class="toggle-switch-container rich-text-toggle">
         <label class="switch">
@@ -49,6 +50,18 @@
           <span class="toggle-switch-text">Line breaks</span>
           <span class="toggle-switch-handle"/>
         </label>
+      </div>
+      <div class="toggle-switch-container">
+        <div id="transliteration-controls-container">
+          <span class="toggle-switch-text">ā→आ</span>
+          <div id="transliteration-controls">
+            <select id="transliteration-scheme"/>
+            <label id="toggle-switch-text">
+              <input type="checkbox" id="show-all-schemes-checkbox"/>
+              <span class="toggle-switch-text"> more</span>
+            </label>
+          </div>
+        </div>
       </div>
     </div>
     <div id="top-widgets">

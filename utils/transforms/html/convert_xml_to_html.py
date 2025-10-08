@@ -46,6 +46,8 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
         script = etree.SubElement(head, "script")
         script.set("src", (Path(relative_components_path) / 'script.js').as_posix())
         script.text = ""
+        sanscript_script = etree.SubElement(head, "script", src="https://cdn.jsdelivr.net/npm/@indic-transliteration/sanscript/sanscript.min.js")
+        sanscript_script.text = ""
 
         if verse_only:
             verse_style_link = etree.SubElement(head, "link")
@@ -96,7 +98,6 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
             info_icon.set("src", (Path(relative_components_path) / 'info.png').as_posix())
             info_icon.set("class", "info-icon")
             info_icon.set("title", "Toggles display of corrections, listed at the bottom of the metadata panel.")
-            info_icon.set("style", "width: 16px; height: 16px; margin-left: 8px; vertical-align: middle; cursor: help;")
 
             sw_container2 = etree.SubElement(button_container, "div", {"class": "toggle-switch-container rich-text-toggle"})
             sw_label2 = etree.SubElement(sw_container2, "label", {"class": "switch"})
@@ -110,6 +111,18 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
         cb_span_text = etree.SubElement(cb_label, "span", {"class": "toggle-switch-text"})
         cb_span_text.text = "Line breaks"
         etree.SubElement(cb_label, "span", {"class": "toggle-switch-handle"})
+
+        # Transliteration controls
+        translit_wrapper = etree.SubElement(button_container, "div", {"class": "toggle-switch-container"})
+        inner_container = etree.SubElement(translit_wrapper, "div", id="transliteration-controls-container")
+        label_span = etree.SubElement(inner_container, "span", {"class": "toggle-switch-text"})
+        label_span.text = "ā→आ"
+        controls_div = etree.SubElement(inner_container, "div", id="transliteration-controls")
+        select = etree.SubElement(controls_div, "select", id="transliteration-scheme")
+        more_label = etree.SubElement(controls_div, "label", id="toggle-switch-text")
+        etree.SubElement(more_label, "input", type="checkbox", id="show-all-schemes-checkbox")
+        more_text = etree.SubElement(more_label, "span", **{"class": "toggle-switch-text"})
+        more_text.text = " more"
 
         if verse_only:
             v_format_container = etree.SubElement(button_container, "div", {"class": "toggle-switch-container"})
@@ -521,3 +534,4 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     convert_xml_to_html(args.xml_path, args.html_path, no_line_numbers=args.no_line_numbers, verse_only=args.verse_only, plain=args.plain)
+    print(f"Wrote {args.html_path}")
