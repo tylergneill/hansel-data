@@ -5,7 +5,7 @@
 
 # Get the root directory of the repository
 REPO_ROOT=$(git rev-parse --show-toplevel)
-VERSION=$(cat "$REPO_ROOT/VERSION" | cut -d '"' -f 2)
+VERSION=$(head -n 1 "$REPO_ROOT/VERSION" | cut -d '"' -f 2)
 
 echo "Validating cumulative files against version: $VERSION"
 
@@ -24,7 +24,7 @@ check_zip_version() {
   if [ $? -ne 0 ]; then
     errors+=("VERSION file not found in ${zip_file_path}.")
   else
-    unzipped_version=$(unzip -p "${zip_file_path}" VERSION | cut -d '"' -f 2)
+unzipped_version=$(unzip -p "${zip_file_path}" VERSION | head -n 1 | cut -d '"' -f 2)
     if [ "$unzipped_version" != "$expected_version" ]; then
       errors+=("Version mismatch in ${zip_file_path}. Expected ${expected_version}, found ${unzipped_version}.")
     fi

@@ -3,6 +3,7 @@
 Zips metadata files (.md and .html) into cumulative archives.
 """
 
+import re
 import sys
 import zipfile
 from pathlib import Path
@@ -21,7 +22,10 @@ def main(folder: str):
     # Get version
     version_file = root / 'VERSION'
     version_content = version_file.read_text(encoding="utf-8")
-    version = version_content.strip().split('"')[1]
+    version_match = re.search(r'__data_version__\s*=\s*"([^"]+)"', version_content)
+    if not version_match:
+        sys.exit("Could not find __data_version__ in VERSION file.")
+    version = version_content.splitlines()[0].split('"')[1]
 
     # Create cumulative directory if it doesn't exist
     cumulative_folder.mkdir(exist_ok=True)
