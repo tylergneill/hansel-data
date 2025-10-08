@@ -2,6 +2,13 @@ function toggleBreaks(checkbox) { document.getElementById("content").classList.t
 function toggleToc() { document.getElementById('toc').classList.toggle('expanded'); }
 function toggleMetadata() { document.getElementById('metadata').classList.toggle('expanded'); }
 
+function toggleCorrectionsPanel() {
+    const container = document.getElementById('corrections-container');
+    if (container) {
+        container.classList.toggle('expanded');
+    }
+}
+
 function toggleViewMode(checkbox) {
     document.body.classList.toggle('simple-view', checkbox.checked);
     const toc = document.getElementById('toc');
@@ -38,6 +45,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
     if (tocHeader) { tocHeader.addEventListener('click', toggleToc); }
     const metadataHeader = document.querySelector('#metadata h2');
     if (metadataHeader) { metadataHeader.addEventListener('click', toggleMetadata); }
+
+    const correctionsHeader = document.querySelector('#corrections-container h2');
+    if (correctionsHeader) { correctionsHeader.addEventListener('click', toggleCorrectionsPanel); }
+
     const mobileControlsIcon = document.getElementById('controls-icon');
     if (mobileControlsIcon) {
         mobileControlsIcon.addEventListener('click', toggleButtonContainer);
@@ -45,6 +56,24 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const closeButton = document.getElementById('close-button-container');
     if (closeButton) {
         closeButton.addEventListener('click', toggleButtonContainer);
+    }
+
+    const showCorrectionsLink = document.getElementById('show-corrections-link');
+    if (showCorrectionsLink) {
+        showCorrectionsLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            const correctionsContainer = document.getElementById('corrections-container');
+            if (correctionsContainer) {
+                if (correctionsContainer.style.display === 'none') {
+                    correctionsContainer.style.display = 'block';
+                    correctionsContainer.classList.add('expanded');
+                    correctionsContainer.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    correctionsContainer.style.display = 'none';
+                    correctionsContainer.classList.remove('expanded');
+                }
+            }
+        });
     }
 });
 
