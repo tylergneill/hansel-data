@@ -48,9 +48,6 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
         script.text = ""
         sanscript_script = etree.SubElement(head, "script", src="https://cdn.jsdelivr.net/npm/@indic-transliteration/sanscript/sanscript.min.js")
         sanscript_script.text = ""
-        translit_script = etree.SubElement(head, "script")
-        translit_script.set("src", (Path(relative_components_path) / 'transliteration_script.js').as_posix())
-        translit_script.text = ""
 
         if verse_only:
             verse_style_link = etree.SubElement(head, "link")
@@ -101,7 +98,6 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
             info_icon.set("src", (Path(relative_components_path) / 'info.png').as_posix())
             info_icon.set("class", "info-icon")
             info_icon.set("title", "Toggles display of corrections, listed at the bottom of the metadata panel.")
-            info_icon.set("style", "width: 16px; height: 16px; margin-left: 8px; vertical-align: middle; cursor: help;")
 
             sw_container2 = etree.SubElement(button_container, "div", {"class": "toggle-switch-container rich-text-toggle"})
             sw_label2 = etree.SubElement(sw_container2, "label", {"class": "switch"})
@@ -118,15 +114,14 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
 
         # Transliteration controls
         translit_wrapper = etree.SubElement(button_container, "div", {"class": "toggle-switch-container"})
-        inner_container = etree.SubElement(translit_wrapper, "div", {"style": "display: flex; align-items: center; width: 100%;"})
+        inner_container = etree.SubElement(translit_wrapper, "div", id="transliteration-controls-container")
         label_span = etree.SubElement(inner_container, "span", {"class": "toggle-switch-text"})
         label_span.text = "ā→आ"
-        controls_div = etree.SubElement(inner_container, "div", {"style": "margin-left: auto; display: flex; align-items: center;"})
+        controls_div = etree.SubElement(inner_container, "div", id="transliteration-controls")
         select = etree.SubElement(controls_div, "select", id="transliteration-scheme")
-        select.set("style", "border: 2px solid rgb(17, 49, 33); border-radius: 4px;")
-        more_label = etree.SubElement(controls_div, "label", {"style": "margin-left: 1em; display: inline-flex; align-items: center;"})
+        more_label = etree.SubElement(controls_div, "label", id="toggle-switch-text")
         etree.SubElement(more_label, "input", type="checkbox", id="show-all-schemes-checkbox")
-        more_text = etree.SubElement(more_label, "span", {"style": "font-size: smaller;"})
+        more_text = etree.SubElement(more_label, "span", **{"class": "toggle-switch-text"})
         more_text.text = " more"
 
         if verse_only:
