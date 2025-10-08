@@ -117,8 +117,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const transliteratedContent = {};
 
     const allSchemes = {
-        "Roman Schemes": ["hk", "iast", "iso", "itrans", "slp1", "velthuis", "wx"],
-        "Brahmic Schemes": ["bengali", "devanagari", "gujarati", "kannada", "malayalam", "oriya", "sinhala", "tamil"]
+        "Roman": ["hk", "iast", "iso", "itrans", "slp1", "velthuis", "wx"],
+        "Brahmic": ["bengali", "devanagari", "gujarati", "kannada", "malayalam", "oriya", "sinhala", "tamil"]
     };
     const defaultSchemes = ["iast", "devanagari", "hk", "itrans"];
     const schemeDisplayNames = {
