@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     const defaultSchemes = ["iast", "devanagari", "hk", "itrans"];
     const schemeDisplayNames = {
-        "iast": "IAST (Original)", // Clarify that IAST is the original
+        "iast": "IAST",
         "hk": "HK",
         "itrans": "ITRANS",
         "slp1": "SLP1",
