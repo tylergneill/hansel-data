@@ -53,10 +53,16 @@
         </label>
       </div>
       <div class="toggle-switch-container">
-        <label for="transliteration-scheme">Transliteration:</label>
-        <select id="transliteration-scheme"/>
-        <input type="checkbox" id="show-all-schemes-checkbox" style="margin-left: 1em;"/>
-        <label for="show-all-schemes-checkbox">Show all</label>
+        <div style="display: flex; align-items: center; width: 100%;">
+          <span class="toggle-switch-text">ā→आ</span>
+          <div style="margin-left: auto; display: flex; align-items: center;">
+            <select id="transliteration-scheme" style="border: 2px solid rgb(17, 49, 33); border-radius: 4px;"/>
+            <label style="margin-left: 1em; display: inline-flex; align-items: center;">
+              <input type="checkbox" id="show-all-schemes-checkbox"/>
+              <span style="font-size: smaller;"> more</span>
+            </label>
+          </div>
+        </div>
       </div>
     </div>
     <div id="top-widgets">

@@ -117,16 +117,17 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
         etree.SubElement(cb_label, "span", {"class": "toggle-switch-handle"})
 
         # Transliteration controls
-        translit_container = etree.SubElement(button_container, "div", {"class": "toggle-switch-container"})
-        translit_label = etree.SubElement(translit_container, "label")
-        translit_label.set("for", "transliteration-scheme")
-        translit_label.text = "Transliteration:"
-        etree.SubElement(translit_container, "select", id="transliteration-scheme")
-        translit_checkbox = etree.SubElement(translit_container, "input", type="checkbox", id="show-all-schemes-checkbox")
-        translit_checkbox.set("style", "margin-left: 1em;")
-        translit_checkbox_label = etree.SubElement(translit_container, "label")
-        translit_checkbox_label.set("for", "show-all-schemes-checkbox")
-        translit_checkbox_label.text = "Show all"
+        translit_wrapper = etree.SubElement(button_container, "div", {"class": "toggle-switch-container"})
+        inner_container = etree.SubElement(translit_wrapper, "div", {"style": "display: flex; align-items: center; width: 100%;"})
+        label_span = etree.SubElement(inner_container, "span", {"class": "toggle-switch-text"})
+        label_span.text = "ā→आ"
+        controls_div = etree.SubElement(inner_container, "div", {"style": "margin-left: auto; display: flex; align-items: center;"})
+        select = etree.SubElement(controls_div, "select", id="transliteration-scheme")
+        select.set("style", "border: 2px solid rgb(17, 49, 33); border-radius: 4px;")
+        more_label = etree.SubElement(controls_div, "label", {"style": "margin-left: 1em; display: inline-flex; align-items: center;"})
+        etree.SubElement(more_label, "input", type="checkbox", id="show-all-schemes-checkbox")
+        more_text = etree.SubElement(more_label, "span", {"style": "font-size: smaller;"})
+        more_text.text = " more"
 
         if verse_only:
             v_format_container = etree.SubElement(button_container, "div", {"class": "toggle-switch-container"})
