@@ -63,7 +63,10 @@ def main(folder: str):
     # Get version
     version_file = root / 'VERSION'
     version_content = version_file.read_text(encoding="utf-8")
-    version = version_content.strip().split('"')[1]
+    version_match = re.search(r'__data_version__\s*=\s*"([^"]+)"', version_content)
+    if not version_match:
+        sys.exit("Could not find __data_version__ in VERSION file.")
+    version = version_content.splitlines()[0].split('"')[1]
 
     consolidated = {}
     for md in metadata_folder.glob('*.md'):
