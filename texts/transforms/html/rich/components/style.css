@@ -1,9 +1,12 @@
 body {
     font-family: sans-serif;
     margin: 0;
-    border: 30px solid rgb(17, 49, 33);
+    border-top: 30px solid rgb(17, 49, 33);
+    border-bottom: 30px solid rgb(17, 49, 33);
+    border-left: 30px solid rgb(17, 49, 33);
     padding: 1em;
     box-sizing: border-box;
+    border-radius: 10px;
 }
 .plain-text { display: none; }
 .rich-text { display: block; }
