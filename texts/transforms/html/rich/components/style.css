@@ -20,6 +20,7 @@ body.simple-view .rich-text { display: none; }
 #metadata {
     width: 45%;
     border: 3px solid rgb(231, 159, 58);
+    border-radius: 5px;
     padding: 10px;
     box-sizing: border-box;
     margin-right: 1em;
@@ -27,6 +28,7 @@ body.simple-view .rich-text { display: none; }
 #toc {
     width: 30%;
     border: 3px solid rgb(231, 159, 58);
+    border-radius: 5px;
     padding: 10px;
     box-sizing: border-box;
 }
@@ -235,6 +237,10 @@ body.simple-view .rich-text { display: none; }
     z-index: 1;
 }
 
+#controls-icon span:last-child {
+    margin-bottom: 0;
+}
+
 #close-button-container {
     position: absolute;
     bottom: -5px;
@@ -250,6 +256,11 @@ body.simple-view .rich-text { display: none; }
     right: 5%;
     cursor: pointer;
     z-index: 1001;
+    background-color: white;
+    padding: 5px;
+    border: 3px solid white;
+    border-radius: 5px;
+    outline: 3px solid rgb(231, 159, 58);
 }
 
 .button-container {
