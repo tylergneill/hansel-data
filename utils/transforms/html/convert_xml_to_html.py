@@ -60,6 +60,8 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
 
     # --- 3. HTML Body ---
     body = etree.SubElement(html, "body")
+    if verse_only:
+        body.set("class", "simple-verse-style")
 
     if not plain:
         controls_icon = etree.SubElement(body, "div", id="controls-icon")
