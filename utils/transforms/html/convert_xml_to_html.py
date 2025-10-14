@@ -60,6 +60,8 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
 
     # --- 3. HTML Body ---
     body = etree.SubElement(html, "body")
+    if verse_only:
+        body.set("class", "simple-verse-style")
 
     if not plain:
         controls_icon = etree.SubElement(body, "div", id="controls-icon")
@@ -134,8 +136,8 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
 
             slider_div = etree.SubElement(button_container, "div", {"class": "toggle-switch-container verse-format-toggle"})
             slider_label = etree.SubElement(slider_div, "label", {"class": "simple-checkbox-label"})
-            slider_label.text = "Column Width"
-            slider_input = etree.SubElement(slider_div, "input", id="width-slider", type="range", min="20", max="80", value="40")
+            slider_label.text = "Verse Spacing"
+            slider_input = etree.SubElement(slider_div, "input", id="width-slider", type="range", min="0", max="1.6", step="0.4", value="0.8")
 
         top_widgets_div = etree.SubElement(body, "div", id="top-widgets")
 
