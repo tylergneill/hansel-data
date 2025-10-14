@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="components/verse_style.css"/>
     <script src="components/verse_script.js"></script>
   </head>
-  <body>
+  <body class="simple-verse-style">
     <div id="controls-icon">
       <span></span>
       <span></span>
@@ -20,7 +20,7 @@
       <div class="toggle-switch-container rich-text-toggle">
         <label class="toggle-switch">
           <input type="checkbox" onchange="toggleBreaks(this)"/>
-          <span class="toggle-switch-text">Line breaks</span>
+          <span class="toggle-switch-text">Page breaks</span>
           <span class="toggle-switch-handle"/>
         </label>
       </div>
@@ -44,8 +44,8 @@
         </label>
       </div>
       <div class="toggle-switch-container verse-format-toggle">
-        <label class="simple-checkbox-label">Column Width</label>
-        <input id="width-slider" type="range" min="20" max="80" value="40"/>
+        <label class="simple-checkbox-label">Verse Spacing</label>
+        <input id="width-slider" type="range" min="0" max="1.6" step="0.4" value="0.8"/>
       </div>
     </div>
     <div id="top-widgets">
