@@ -111,7 +111,7 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
         cb_label = etree.SubElement(cb_container, "label", {"class": "toggle-switch"})
         etree.SubElement(cb_label, "input", type="checkbox", onchange="toggleBreaks(this)")
         cb_span_text = etree.SubElement(cb_label, "span", {"class": "toggle-switch-text"})
-        cb_span_text.text = "Line breaks"
+        cb_span_text.text = "Line/Page breaks" if not verse_only else "Page breaks"
         etree.SubElement(cb_label, "span", {"class": "toggle-switch-handle"})
 
         # Transliteration controls
