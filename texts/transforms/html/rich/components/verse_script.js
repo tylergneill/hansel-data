@@ -9,9 +9,21 @@ function toggleVerseFormatting(checkbox) {
 document.addEventListener('DOMContentLoaded', (event) => {
     const slider = document.getElementById('width-slider');
     if (slider) {
+        const handleSliderChange = (value) => {
+            document.documentElement.style.setProperty('--verse-spacing', value + 'em');
+            if (parseFloat(value) === 0) {
+                document.body.classList.add('no-verse-padding');
+            } else {
+                document.body.classList.remove('no-verse-padding');
+            }
+        };
+
         slider.addEventListener('input', (e) => {
-            document.documentElement.style.setProperty('--left-col-width', e.target.value + '%');
+            handleSliderChange(e.target.value);
         });
+
+        // Set initial state
+        handleSliderChange(slider.value);
     }
 
     // Set initial state based on the toggle
