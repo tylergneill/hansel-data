@@ -66,5 +66,4 @@ as _kathāvatāra_ (9pp in edition) and _kathāvadhi_ (1p).
 
 # Additional Notes
 
-- The _Simplicior_ text is believed to be older than the _Ornatior_.
 - Content improvements have been contributed back to Ambuda.
