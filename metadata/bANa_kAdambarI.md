@@ -8,8 +8,8 @@ Kādambarī
 
 # Authors
 
-- Bāṇa Bhaṭṭa (Pūrvabhāga)
-- Bhūṣaṇa Bhaṭṭa (Uttarabhāga)
+- Bāṇa Bhaṭṭa
+- Bhūṣaṇa Bhaṭṭa
 
 # Pandit Authors
 

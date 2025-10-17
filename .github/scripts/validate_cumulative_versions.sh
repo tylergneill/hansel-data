@@ -77,7 +77,7 @@ if [ ${#errors[@]} -ne 0 ]; then
   for error in "${errors[@]}"; do
     echo "Error: $error"
   done
-  echo "Please run 'python utils/transforms/zip_texts.py' and 'python utils/transforms/metadata/regenerate.py' and commit the new files."
+  echo "Please run 'python utils/transforms/metadata/regenerate.py && python utils/transforms/zip_texts.py' and commit the new files."
   exit 1
 fi
 
