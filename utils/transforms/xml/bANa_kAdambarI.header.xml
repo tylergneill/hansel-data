@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<teiHeader xml:lang="en" xmlns="http://www.tei-c.org/ns/1.0">
+    <fileDesc>
+        <titleStmt>
+            <title type="main">Kādambarī</title>
+            <title type="sub">A HANSEL edition</title>
+            <author>Bāṇa Bhaṭṭa</author>
+            <author>Bhūṣaṇa Bhaṭṭa</author>
+            <respStmt>
+                <persName>Andrew Ollett</persName>
+                <resp>Creation of machine-readable version for SARIT.</resp>
+            </respStmt>
+            <respStmt>
+                <persName>Tyler Neill</persName>
+                <resp>Re-creation of machine-readable version for HANSEL.</resp>
+            </respStmt>
+        </titleStmt>
+
+        <publicationStmt>
+            <authority>HANSEL: Human-Accessible NLP-ready Sanskrit E-text Library</authority>
+            <availability status="restricted">
+                <p>Copyright 2025 Tyler Neill.</p>
+                <p>
+                    <ref target="https://creativecommons.org/licenses/by-nc-sa/4.0/" type="licence">Distributed by <ref target="https://hansel-library.info" type="url">HANSEL</ref> under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.</ref>
+                </p>
+                <p>Under this licence, you are free <list>
+                        <item>to Share — to copy and redistribute the material in any medium or format</item>
+                        <item>to Adapt — remix, transform, and build upon the material</item>
+                    </list></p>
+                <p>Under the following terms:</p>
+                <p>
+                    <list>
+                        <item>Attribution — You must give appropriate credit , provide a link to the license, and indicate if changes were made . You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.</item>
+                        <item>NonCommercial — You may not use the material for commercial purposes .</item>
+                        <item>ShareAlike — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.</item>
+                    </list>
+                </p>
+                <p>More information and fuller details of this license are given on the Creative
+                    Commons website.</p>
+                <p>HANSEL assumes no responsibility for unauthorised use that infringes the
+                    rights of any copyright owners, known or unknown.</p>
+            </availability>
+            <date>2025</date>
+        </publicationStmt>
+
+        <notesStmt>
+            <note>This famous literary work was begun by Bāṇa Bhaṭṭa (so-called Pūrvabhāga, pp. 1–237) and finished by his son Bhūṣaṇa Bhaṭṭa (Uttarabhāga, pp. 239–369). It is fully extant. Peterson's edition, on which this e-text is based, added paragraph breaks as further structure. (Later editions also added headers to indicate beginnings of significant portions of the story, but those are not used here.) The overall story is that of a romance between the two characters Candrāpīḍa and Kādambarī, but the book also contains innumerable side stories.</note>
+        </notesStmt>
+
+        <sourceDesc>
+            <bibl>
+                <title>Kâdambarî</title>
+                <editor>Peterson, Peter</editor>
+                <publisher>Government Central Book Depôt</publisher>
+                <pubPlace>Bombay</pubPlace>
+                <date>1885</date>
+                <note>NB! Bombay Sanskrit Series No. XXIV was printed in three forms:
+                    <ul>
+                        <li>1883 (first edition)</li>
+                        <li>1885 (revised edition)</li>
+                        <li>- 1889 (simple reset of 1885)</li>
+                    </ul>
+                </note>
+            </bibl>
+        </sourceDesc>
+    </fileDesc>
+
+    <encodingDesc>
+      <editorialDecl>
+            <p>The published edition from which this e-text was transcribed is printed in the
+                Devanāgarī script. The electronic text below is in a lossless transliteration
+                using the Latin alphabet. The transliteration scheme used is the IAST (<ref
+                    target="http://en.wikipedia.org/wiki/International_Alphabet_of_Sanskrit_Transliteration"
+                    >The International Alphabet of Sanskrit Transliteration</ref>). IAST differs
+                in small ways from ISO 15919, but is preferred by most working Sanskrit
+                scholars. Conversion of this file to ISO 15919 can be achieved by performing the
+                following replacements throughout the file:
+                <ul>
+                    <li><code>ṛ -> r̥</code></li>
+                    <li><code>ḷ -> l̥</code></li>
+                    <li><code>ṃ -> ṁ </code></li>
+                    <li><code>e -> ē</code></li>
+                    <li><code>o -> ō</code></li>
+                </ul>
+            </p>
+            <p>Text division is as Devanāgarī ("ityevam" not "ity evam".) </p>
+            <normalization>
+                <p>Initial vowel elision for avagraha is reversed and marked with a + sign:
+                    e.g., "prathamo+adhyāyaḥ"</p>
+            </normalization>
+            <p>Similarly, external sandhis are undone and marked: "yathā+amarā"</p>
+            <p>The ampersand (&amp;) was used by the inputters as an anchor to mark places in
+                the e-text where the printed edition has a footnote, and again with the text of
+                the related footnote being placed nearby in the e-text. I have regularized these
+                footnotes in many, but not all, cases, changing them to <tag>note</tag>s. The
+                use of the ampersand may still be irregular in places, and needs to be checked
+                against the edition, and some notes have been omitted and need to be added from
+                the edition.</p>
+            <p>The notes by Trivikramātmaja Ācārya are included in the e-text . using the
+                    <tag>note</tag> element. </p>
+            <segmentation>
+                <p>A first cut has been made at distinguishing verse and prose. Prose passages
+                    are enclosed in the normal <tag>p</tag> tags. Verse passages are grouped
+                    within the line-group tag, <tag>lg</tag>, and individually tagged as verse
+                    lines, <tag>l</tag>.</p>
+                <p>Inserted comments <tag>!-- subdivision --</tag> and <tag>!-- /subdivision
+                        --</tag> around passages where the text section is subdivided into a
+                    level below that of the surrounding text. These comment tags need to be
+                    replaced with something better, but we can't use <tag>div3</tag>, for
+                    example, because of the problem of TEI's policy on tessellation. See TEI
+                    Guidelines P5, section 4.3.2, et passim. Nor are these subdivisions floating
+                    text, or groups, or other obvious units. They could be marked with
+                        <tag>span</tag>s (<tag>span type="interesting" spanTo="#xy"</tag>
+                        ...<tag>anchor xml:id="xy"</tag>) or <tag>milestone</tag>s, but these
+                    mechanisms seem clumsy. The question stands for now. </p>
+            </segmentation>
+        </editorialDecl>
+    </encodingDesc>
+
+    <revisionDesc>
+        <change when="2022-02-01" who="Andrew Ollett">Initial OCR (1885/9 edition used, not 1883 as noted), some proofreading, XML markup for SARIT, uploaded to GitHub ([bana-kadambari.xml, commit 8ad8588, Feb 1, 2022](https://github.com/sarit/SARIT-corpus/blob/8ad858812f8fcd0a62f8684e7c4fdab74ffb2435/bana-kadambari.xml)).</change>
+        <change when="2024–2025" who="Tyler Neill">Second OCR (1885 edition) and merge with previous corrections, some more proofreading, plaintext markup for HANSEL.</change>
+    </revisionDesc>
+
+</teiHeader>
