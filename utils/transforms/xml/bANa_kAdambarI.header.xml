@@ -20,25 +20,24 @@
             <authority>HANSEL: Human-Accessible NLP-ready Sanskrit E-text Library</authority>
             <availability status="restricted">
                 <p>Copyright 2025 Tyler Neill.</p>
-                <p>
-                    <ref target="https://creativecommons.org/licenses/by-nc-sa/4.0/" type="licence">Distributed by <ref target="https://hansel-library.info" type="url">HANSEL</ref> under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.</ref>
-                </p>
-                <p>Under this licence, you are free <list>
-                        <item>to Share — to copy and redistribute the material in any medium or format</item>
-                        <item>to Adapt — remix, transform, and build upon the material</item>
-                    </list></p>
-                <p>Under the following terms:</p>
-                <p>
-                    <list>
-                        <item>Attribution — You must give appropriate credit , provide a link to the license, and indicate if changes were made . You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.</item>
-                        <item>NonCommercial — You may not use the material for commercial purposes .</item>
-                        <item>ShareAlike — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.</item>
-                    </list>
-                </p>
-                <p>More information and fuller details of this license are given on the Creative
-                    Commons website.</p>
-                <p>HANSEL assumes no responsibility for unauthorised use that infringes the
-                    rights of any copyright owners, known or unknown.</p>
+                <license>
+                    <p>
+                        <ref target="https://creativecommons.org/licenses/by-nc-sa/4.0/" type="licence">Distributed by <ref target="https://hansel-library.info" type="url">HANSEL</ref> under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.</ref>
+                    </p>
+                    <p>You are free to:
+                      <list>
+                        <item>Share</item>
+                        <item>Adapt</item>
+                      </list>
+                    </p>
+                    <p>Under the terms:
+                      <list>
+                        <item>Attribution</item>
+                        <item>NonCommercial</item>
+                        <item>ShareAlike</item>
+                      </list>
+                    </p>
+                </license>
             </availability>
             <date when="2025-10-15">October 15, 2025</date>
         </publicationStmt>

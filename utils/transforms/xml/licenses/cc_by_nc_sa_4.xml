@@ -1,7 +1,7 @@
-<availability status="restricted" xmlns="http://www.tei-c.org/ns/1.0">
-  <p>Copyright {{COPYRIGHT_YEAR}} {{RIGHTS_HOLDER}}.</p>
-  <licence target="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</licence>
-  <p>Distributed by <ref type="url" target="{{PROJECT_URL}}">HANSEL</ref>.</p>
+<license>
+  <p>
+      <ref target="https://creativecommons.org/licenses/by-nc-sa/4.0/" type="licence">Distributed by <ref target="https://hansel-library.info" type="url">HANSEL</ref> under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.</ref>
+  </p>
   <p>You are free to:
     <list>
       <item>Share</item>
@@ -15,4 +15,4 @@
       <item>ShareAlike</item>
     </list>
   </p>
-</availability>
+</license>
