@@ -1,0 +1,18 @@
+<availability status="restricted" xmlns="http://www.tei-c.org/ns/1.0">
+  <p>Copyright {{COPYRIGHT_YEAR}} {{RIGHTS_HOLDER}}.</p>
+  <licence target="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</licence>
+  <p>Distributed by <ref type="url" target="{{PROJECT_URL}}">HANSEL</ref>.</p>
+  <p>You are free to:
+    <list>
+      <item>Share</item>
+      <item>Adapt</item>
+    </list>
+  </p>
+  <p>Under the terms:
+    <list>
+      <item>Attribution</item>
+      <item>NonCommercial</item>
+      <item>ShareAlike</item>
+    </list>
+  </p>
+</availability>
