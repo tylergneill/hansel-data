@@ -73,10 +73,10 @@
 
     <encodingDesc>
       <editorialDecl>
-          <p>
+          <p id="file-creation-method">
               I (Tyler Neill) produced this HANSEL edition by first running a PDF of the 1885 edition through both Google Cloud Vision OCR (via Skrutable) and Gemini 2.5 Flash (via Dharmamitra). These two OCR outputs were then automatically harmonized using Gemini 2.5 Pro (via direct API) and a custom prompt. Finally, the harmonized OCR output was contrasted against the previous version by Andrew Ollett (which was in fact based on 1885/1889 as well) using Meld, and differences were reconciled individually with reference to the PDF.
           </p>
-          <p>
+          <p id="transliteration">
               The published edition from which this e-text was transcribed is printed in the Devanāgarī script. The electronic text below is in a lossless transliteration using the Latin alphabet. The transliteration scheme used is the IAST (<ref target="http://en.wikipedia.org/wiki/International_Alphabet_of_Sanskrit_Transliteration">The International Alphabet of Sanskrit Transliteration</ref>). IAST differs in small ways from ISO 15919, but is preferred by most working Sanskrit scholars. Conversion of this file to ISO 15919 can be achieved by performing the following replacements throughout the file:
                <ul>
                    <li><code>ṛ -> r̥</code></li>
@@ -86,10 +86,10 @@
                    <li><code>o -> ō</code></li>
                </ul>
           </p>
-          <p>
+          <p id="word-division">
               Text division is as Devanāgarī ("ityevam" not "ity evam".)
           </p>
-          <p>
+          <p id="error-markup">
               Errors discovered in the source edition and fixed in this electronic version are marked with the following:
               <ul>
                   <li>
@@ -108,11 +108,11 @@
               </ul>
               Unclear or suspect material is marked with <unclear/>.
           </p>
-          <segmentation>
+          <p id="intermediate-textual-units">
               <p>
-                  Peterson's prose paragraphs are retained and enclosed in the normal <tag>p</tag> tags. Verse passages are grouped within the line-group tag, <tag>lg</tag>, and verse halves are tagged with <tag>l</tag>.
+                  Prose paragraphs are enclosed in the normal <tag>p</tag> tags. Verse passages are grouped enclosed in line-group tag <tag>lg</tag>, with one parent <tag>lg</tag> for groups of verses, and verse halves are individually tagged with <tag>l</tag>. <tag>p</tag> and parent <tag>lg</tag> have location markers.
               </p>
-            </segmentation>
+            </p>
         </editorialDecl>
     </encodingDesc>
 
