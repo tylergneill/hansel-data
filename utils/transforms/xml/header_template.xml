@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TEI xml:lang="en" xmlns="http://www.tei-c.org/ns/1.0">
-  <!-- Optional stable id for the TEI document -->
   <teiHeader>
     <fileDesc>
       <titleStmt>
         <title type="main">{{TITLE}}</title>
         <title type="sub">A HANSEL edition</title>
-
-        <!-- DUPLICATE <author>…</author> FOR MORE AUTHORS -->
+        <!-- DUPLICATE FOR MORE AUTHORS -->
         <author>{{AUTHOR_1}}</author>
-
-        <!-- DUPLICATE <respStmt>…</respStmt> FOR MORE CONTRIBUTORS -->
+        <!-- DUPLICATE FOR MORE CONTRIBUTORS -->
         <respStmt>
           <persName>{{RESP_NAME_1}}</persName>
           <resp>{{RESP_ROLE_DESCRIPTION_1}}</resp>
@@ -23,29 +20,31 @@
 
         <!-- DEFAULT, OVERRIDE IF NEEDED -->
         <availability status="restricted">
-          <p>Copyright {{COPYRIGHT_YEAR}} Tyler Neill</p>
-          <p>
-            <ref target="https://creativecommons.org/licenses/by-nc-sa/4.0/" type="licence">
-              Distributed by <ref target="https://hansel-library.info" type="url">HANSEL</ref>
-              under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
-            </ref>
-          </p>
-          <p>Under this licence, you are free
-            <list>
-              <item>to Share — to copy and redistribute the material in any medium or format</item>
-              <item>to Adapt — remix, transform, and build upon the material</item>
-            </list>
-          </p>
-          <p>Under the following terms:</p>
-          <p>
-            <list>
-              <item>Attribution — give appropriate credit, link to the license, indicate changes.</item>
-              <item>NonCommercial — no commercial use.</item>
-              <item>ShareAlike — distribute contributions under the same license.</item>
-            </list>
-          </p>
-          <p>See the Creative Commons site for full details.</p>
-          <p>HANSEL assumes no responsibility for unauthorised use that infringes rights.</p>
+          <p>Copyright {{COPYRIGHT_YEAR}} Tyler Neill.</p>
+          <licence>
+            <p>
+              <ref target="https://creativecommons.org/licenses/by-nc-sa/4.0/" type="licence">
+                Distributed by <ref target="https://hansel-library.info" type="url">HANSEL</ref>
+                under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+              </ref>
+            </p>
+            <p>Under this licence, you are free
+              <list>
+                <item>to Share — to copy and redistribute the material in any medium or format</item>
+                <item>to Adapt — remix, transform, and build upon the material</item>
+              </list>
+            </p>
+            <p>Under the following terms:</p>
+            <p>
+              <list>
+                <item>Attribution — give appropriate credit, link to the license, indicate changes.</item>
+                <item>NonCommercial — no commercial use.</item>
+                <item>ShareAlike — distribute contributions under the same license.</item>
+              </list>
+            </p>
+            <p>See the Creative Commons site for full details.</p>
+            <p>HANSEL assumes no responsibility for unauthorised use that infringes rights.</p>
+          </licence>
         </availability>
 
         <date when="{{PUB_DATE_ISO}}">{{PUB_DATE_HUMAN}}</date>
@@ -66,10 +65,10 @@
           </imprint>
         </bibl>
         <series>
-          <title level="s">Bombay Sanskrit Series</title>
-          <biblScope>No. XXIV</biblScope>
-          <note>{{SERIES_NOTE}}</note>
+          <title level="s">{{SERIES_TITLE}}</title>
+          <biblScope>{{SERIES_PART}}</biblScope>
         </series>
+        <note>{{IMPRINT_NOTE}}</note>
       </sourceDesc>
     </fileDesc>
 
@@ -82,6 +81,7 @@
           <list>
             <item><code>ṛ → r̥</code></item>
             <item><code>ḷ → l̥</code></item>
+            <item><code>ḻ → ḷ</code></item>
             <item><code>ṃ → ṁ</code></item>
             <item><code>e → ē</code></item>
             <item><code>o → ō</code></item>
@@ -97,9 +97,7 @@
             <item>Unclear: <unclear/></item>
           </list>
         </p>
-        <p id="intermediate-textual-units">
-          <p>{{INTERMEDIATE_TEXTUAL_UNITS}}.</p>
-        </p>
+        <p id="intermediate-textual-units">{{INTERMEDIATE_TEXTUAL_UNITS}}.</p>
       </editorialDecl>
     </encodingDesc>
 
