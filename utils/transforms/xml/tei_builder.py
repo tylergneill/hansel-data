@@ -780,6 +780,7 @@ class TeiHeaderBuilder:
             if not latest_date or meta_date > latest_date:
                 latest_date = meta_date
 
+        year = ""
         if latest_date:
             year = str(latest_date.year)
             pub_date_iso = latest_date.date().isoformat()
@@ -788,23 +789,49 @@ class TeiHeaderBuilder:
             replace_placeholder('PUB_DATE_ISO', pub_date_iso)
             replace_placeholder('PUB_DATE_HUMAN', pub_date_human)
 
-        license_name = self.metadata.get('License', 'CC BY-NC-SA 4.0')
-        if 'BY-NC-SA' not in license_name:
-            license_file = None
-            if 'BY' in license_name and 'NC' not in license_name:
-                license_file = self.licenses_path / 'cc_by_4.xml'
-            elif 'CC0' in license_name:
-                license_file = self.licenses_path / 'cc0_1.xml'
-            if license_file and license_file.exists():
-                availability_template = root.find('.//tei:availability', self.ns)
-                if availability_template is not None:
-                    new_availability_str = license_file.read_text(encoding='utf-8')
-                    year = self.metadata.get('Text Last Updated', '')[:4]
-                    new_availability_str = new_availability_str.replace('{{COPYRIGHT_YEAR}}', year)
-                    new_availability_str = new_availability_str.replace('{{RIGHTS_HOLDER}}', 'Tyler Neill')
-                    new_availability = etree.fromstring(new_availability_str)
-                    availability_template.getparent().replace(availability_template, new_availability)
+        license_name = self.metadata.get('HANSEL License')
+        if not license_name:
+            raise ValueError("HANSEL License is missing from metadata.")
 
+        license_map = {
+            'CC BY-SA 4.0': 'cc_by_sa_4.xml',
+            'CC BY-NC-SA 4.0': 'cc_by_nc_sa_4.xml',
+            'CC BY 4.0': 'cc_by_4.xml',
+            'CC0 1.0': 'cc0_1.xml'
+        }
+        license_filename = license_map.get(license_name.strip())
+        if not license_filename:
+            raise ValueError(f"Unknown HANSEL License: '{license_name}'")
+
+        license_file = self.licenses_path / license_filename
+        if not license_file.exists():
+            raise FileNotFoundError(f"License file not found: {license_file}")
+
+        availability_template = root.find('.//tei:availability', self.ns)
+        if availability_template is not None:
+            license_str = license_file.read_text(encoding='utf-8')
+
+            if not year:
+                if text_date:
+                    year = str(text_date.year)
+                elif meta_date:
+                    year = str(meta_date.year)
+                else:
+                    year = str(datetime.now().year)
+
+            license_str = license_str.replace('{{COPYRIGHT_YEAR}}', year)
+            license_str = license_str.replace('{{RIGHTS_HOLDER}}', 'Tyler Neill')
+
+            try:
+                license_element = etree.fromstring(license_str)
+                availability_template.text = ''
+                for child in list(availability_template):
+                    availability_template.remove(child)
+                availability_template.append(license_element)
+            except etree.XMLSyntaxError as e:
+                raise ValueError(f"Error parsing license file {license_file}: {e}")
+
+        breakpoint()
         if 'Edition' in self.metadata and isinstance(self.metadata['Edition'], dict):
             edition_dict = self.metadata['Edition']
             for key, value in edition_dict.items():
@@ -838,6 +865,8 @@ class TeiHeaderBuilder:
                     new_change = etree.Element("change", nsmap=self.ns)
                     if when: new_change.set('when', when)
                     if who: new_change.set('who', who)
+                    if desc and 'HANSEL' in desc:
+                        new_change.set('ana', '#hansel-contributor')
                     new_change.text = desc.strip() if isinstance(desc, str) else ''
                     parent.insert(idx, new_change)
                     idx += 1
@@ -861,13 +890,36 @@ class TeiHeaderBuilder:
                                 when = when_match.group('when').strip()
                             else:
                                 desc = note.strip()
-                    
+
                     new_change = etree.Element("change", nsmap=self.ns)
                     if when: new_change.set('when', when)
                     if who: new_change.set('who', who)
+                    if desc and 'HANSEL' in desc:
+                        new_change.set('ana', '#hansel-contributor')
                     new_change.text = desc
                     parent.insert(idx, new_change)
                     idx += 1
+
+        # Set from/to dates on publicationStmt/date based on contributor changes
+        revision_desc = root.find('.//tei:revisionDesc', self.ns)
+        if revision_desc is not None:
+            years = []
+            for change in revision_desc.findall('change', self.ns):
+                if change.get('ana') == '#hansel-contributor':
+                    when = change.get('when')
+                    if when:
+                        found_years = re.findall(r'\b(\d{4})\b', when)
+                        for year_str in found_years:
+                            years.append(int(year_str))
+
+            if years:
+                min_year = min(years)
+                max_year = max(years)
+
+                pub_stmt_date = root.find('.//tei:publicationStmt/tei:date', self.ns)
+                if pub_stmt_date is not None:
+                    pub_stmt_date.set('from', str(min_year))
+                    pub_stmt_date.set('to', str(max_year))
 
         if 'Text Type' in self.metadata and 'Prose with verse' in self.metadata['Text Type']:
             boilerplate_file = Path("utils/transforms/xml/template_components/textual_units/prose_with_verse.xml")

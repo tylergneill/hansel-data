@@ -1,18 +1,26 @@
-<license>
+<licence>
+  <p>Copyright {{COPYRIGHT_YEAR}} Tyler Neill.</p>
   <p>
-      <ref target="https://creativecommons.org/licenses/by-nc-sa/4.0/" type="licence">Distributed by <ref target="https://hansel-library.info" type="url">HANSEL</ref> under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.</ref>
+    <ref target="https://creativecommons.org/licenses/by-nc-sa/4.0/" type="licence">
+      Distributed by <ref target="https://hansel-library.info" type="url">HANSEL</ref>
+      under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+    </ref>
   </p>
-  <p>You are free to:
+  <p>Under this licence, you are free to:
     <list>
-      <item>Share</item>
-      <item>Adapt</item>
+      <item>Share — copy and redistribute the material in any medium or format.</item>
+      <item>Adapt — remix, transform, and build upon the material.</item>
     </list>
   </p>
-  <p>Under the terms:
+  <p>Under the following terms:</p>
+  <p>
     <list>
-      <item>Attribution</item>
-      <item>NonCommercial</item>
-      <item>ShareAlike</item>
+      <item>Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.</item>
+      <item>NonCommercial — You may not use the material for commercial purposes.</item>
+      <item>ShareAlike — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.</item>
+      <item>No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.</item>
     </list>
   </p>
-</license>
+  <p>See the Creative Commons site for full details.</p>
+  <p>HANSEL assumes no responsibility for unauthorised use that infringes rights.</p>
+</licence>

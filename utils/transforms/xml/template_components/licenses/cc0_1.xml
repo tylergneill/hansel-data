@@ -1,5 +1,21 @@
-<availability status="free" xmlns="http://www.tei-c.org/ns/1.0">
-  <p>To the extent possible under law, {{RIGHTS_HOLDER}} has dedicated this work to the public domain by waiving all rights to the work worldwide under CC0 1.0.</p>
-  <licence target="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 Universal (Public Domain Dedication)</licence>
-  <p>Distributed by <ref type="url" target="{{PROJECT_URL}}">HANSEL</ref>.</p>
-</availability>
+<licence>
+  <p>No Copyright.</p>
+  <p>
+    <ref target="https://creativecommons.org/publicdomain/zero/1.0/" type="licence">
+      Distributed by <ref target="https://hansel-library.info" type="url">HANSEL</ref>
+      under the Creative Commons CC0 1.0 Universal Public Domain Dedication.
+    </ref>
+  </p>
+  <p>The person who associated a work with this deed has dedicated the work to the public domain by waiving all of his or her rights to the work worldwide under copyright law, including all related and neighboring rights, to the extent allowed by law.</p>
+  <p>You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission. See Other Information below.</p>
+  <p>Other Information:</p>
+  <p>
+    <list>
+      <item>In no way are the patent or trademark rights of any person affected by CC0, nor are the rights that other persons may have in the work or in how the work is used, such as publicity or privacy rights.</item>
+      <item>Unless expressly stated otherwise, the person who associated a work with this deed makes no warranties about the work, and disclaims liability for all uses of the work, to the fullest extent permitted by applicable law.</item>
+      <item>When using or citing the work, you should not imply endorsement by the author or the affirmer.</item>
+    </list>
+  </p>
+  <p>See the Creative Commons site for full details.</p>
+  <p>HANSEL assumes no responsibility for unauthorised use that infringes rights.</p>
+</licence>

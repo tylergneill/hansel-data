@@ -1,9 +1,9 @@
 <licence>
   <p>Copyright {{COPYRIGHT_YEAR}} Tyler Neill.</p>
   <p>
-    <ref target="https://creativecommons.org/licenses/by/4.0/" type="licence">
+    <ref target="https://creativecommons.org/licenses/by-sa/4.0/" type="licence">
       Distributed by <ref target="https://hansel-library.info" type="url">HANSEL</ref>
-      under a Creative Commons Attribution 4.0 International License.
+      under a Creative Commons Attribution-ShareAlike 4.0 International License.
     </ref>
   </p>
   <p>Under this licence, you are free to:
@@ -17,6 +17,7 @@
   <p>
     <list>
       <item>Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.</item>
+      <item>ShareAlike — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.</item>
       <item>No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.</item>
     </list>
   </p>

@@ -20,31 +20,7 @@
 
         <!-- DEFAULT, OVERRIDE IF NEEDED -->
         <availability status="restricted">
-          <p>Copyright {{COPYRIGHT_YEAR}} Tyler Neill.</p>
-          <licence>
-            <p>
-              <ref target="https://creativecommons.org/licenses/by-nc-sa/4.0/" type="licence">
-                Distributed by <ref target="https://hansel-library.info" type="url">HANSEL</ref>
-                under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
-              </ref>
-            </p>
-            <p>Under this licence, you are free
-              <list>
-                <item>to Share — to copy and redistribute the material in any medium or format</item>
-                <item>to Adapt — remix, transform, and build upon the material</item>
-              </list>
-            </p>
-            <p>Under the following terms:</p>
-            <p>
-              <list>
-                <item>Attribution — give appropriate credit, link to the license, indicate changes.</item>
-                <item>NonCommercial — no commercial use.</item>
-                <item>ShareAlike — distribute contributions under the same license.</item>
-              </list>
-            </p>
-            <p>See the Creative Commons site for full details.</p>
-            <p>HANSEL assumes no responsibility for unauthorised use that infringes rights.</p>
-          </licence>
+          {{LICENSE}}
         </availability>
 
         <date when="{{PUB_DATE_ISO}}">{{PUB_DATE_HUMAN}}</date>
@@ -103,7 +79,7 @@
 
     <revisionDesc>
       <!-- DUPLICATE <change>…</change> FOR MORE CONTRIBUTIONS -->
-      <change when="{{CHANGE_DATE_1}}" who="{{CHANGE_WHO_1}}">{{CHANGE_DESC_1}}</change>
+      <change when="{{CHANGE_DATE_1}}" who="{{CHANGE_WHO_1}}" ana="hansel-contributor">{{CHANGE_DESC_1}}</change>
     </revisionDesc>
   </teiHeader>
 </TEI>
