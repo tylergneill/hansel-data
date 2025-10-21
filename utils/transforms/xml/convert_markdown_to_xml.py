@@ -57,8 +57,8 @@ def cli():
     configure_cli(parser)
     args = parser.parse_args()
 
-    template_path = Path("utils/transforms/xml/header_template.xml")
-    licenses_path = Path("utils/transforms/xml/components/licenses")
+    template_path = Path("utils/transforms/xml/template_components/header_template.xml")
+    licenses_path = Path("utils/transforms/xml/template_components/licenses")
 
     # This returns the <teiHeader> element
     header_element = build_tei_header(args.src, template_path, licenses_path)
@@ -66,7 +66,9 @@ def cli():
     ns = {'tei': 'http://www.tei-c.org/ns/1.0'}
     root = None
 
-    if args.update:
+    is_update = args.update and args.out.exists() and args.out.stat().st_size > 0
+
+    if is_update:
         parser = etree.XMLParser(remove_blank_text=True)
         tree = etree.parse(str(args.out), parser)
         root = tree.getroot()

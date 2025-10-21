@@ -68,9 +68,13 @@ class TextBuildState:
     line_by_line: bool = False
 
     # DOM pointers
-    root: etree._Element = field(default_factory=lambda: etree.Element("TEI", nsmap={"xml": _XML_NS}))
-    body: etree._Element = field(init=False)
-    current_div: etree._Element = field(init=False)
+    root: etree._Element = field(default_factory=lambda: etree.Element(
+        "TEI",
+        nsmap={None: "http://www.tei-c.org/ns/1.0", "xml": _XML_NS}
+    ))
+    text: Optional[etree._Element] = None
+    body: Optional[etree._Element] = None
+    current_div: Optional[etree._Element] = None
     current_p: Optional[etree._Element] = None
     current_lg: Optional[etree._Element] = None
     current_l: Optional[etree._Element] = None
@@ -98,11 +102,6 @@ class TextBuildState:
     # verse head buffer
     pending_head_elem: Optional[etree._Element] = None
 
-    def __post_init__(self):
-        text = etree.SubElement(self.root, "text")
-        self.body = etree.SubElement(text, "body")
-        self.current_div = self.body
-
 # ----------------------------
 # Builder class
 # ----------------------------
@@ -112,6 +111,9 @@ class TeiTextBuilder:
             verse_only=verse_only,
             line_by_line=line_by_line
         )
+        self.state.text = etree.SubElement(self.state.root, "text")
+        self.state.body = etree.SubElement(self.state.text, "body")
+        self.state.current_div = self.state.body
 
     def build(self, lines: list[str]) -> etree._Element:
         for raw in lines:
@@ -868,7 +870,7 @@ class TeiHeaderBuilder:
                     idx += 1
 
         if 'Text Type' in self.metadata and 'Prose with verse' in self.metadata['Text Type']:
-            boilerplate_file = Path("utils/transforms/xml/components/textual_units/prose_with_verse.xml")
+            boilerplate_file = Path("utils/transforms/xml/template_components/textual_units/prose_with_verse.xml")
             if boilerplate_file.exists():
                 p_template = root.find(".//tei:p[@id='intermediate-textual-units']", namespaces=self.ns)
                 if p_template is not None:
