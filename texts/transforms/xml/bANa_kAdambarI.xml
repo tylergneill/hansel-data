@@ -1,4 +1,125 @@
-<TEI>
+<?xml version='1.0' encoding='UTF-8'?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title type="main">Kādambarī</title>
+        <title type="sub">A HANSEL edition</title>
+        <author>Bāṇa Bhaṭṭa</author>
+        <author>Bhūṣaṇa Bhaṭṭa</author>
+        <respStmt>
+          <persName>Andrew Ollett</persName>
+          <resp>Contribution to the digital edition.</resp>
+        </respStmt>
+        <respStmt>
+          <persName>Tyler Neill</persName>
+          <resp>Contribution to the digital edition.</resp>
+        </respStmt>
+      </titleStmt>
+      <publicationStmt>
+        <authority>HANSEL: Human-Accessible NLP-ready Sanskrit E-text Library</authority>
+        <availability status="restricted">
+          <licence>
+            <p>Copyright 2025 Tyler Neill.</p>
+            <p>
+              <ref target="https://creativecommons.org/licenses/by-sa/4.0/" type="licence">
+      Distributed by <ref target="https://hansel-library.info" type="url">HANSEL</ref>
+      under a Creative Commons Attribution-ShareAlike 4.0 International License.
+    </ref>
+            </p>
+            <p>Under this licence, you are free to:
+    <list>
+                <item>Share — copy and redistribute the material in any medium or format for any purpose, even commercially.</item>
+                <item>Adapt — remix, transform, and build upon the material for any purpose, even commercially.</item>
+              </list>
+            </p>
+            <p>The licensor cannot revoke these freedoms as long as you follow the license terms.</p>
+            <p>Under the following terms:</p>
+            <p>
+              <list>
+                <item>Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.</item>
+                <item>ShareAlike — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.</item>
+                <item>No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.</item>
+              </list>
+            </p>
+            <p>See the Creative Commons site for full details.</p>
+            <p>HANSEL assumes no responsibility for unauthorised use that infringes rights.</p>
+          </licence>
+        </availability>
+        <date when="2025-10-21" from="2024" to="2025">October 21, 2025</date>
+      </publicationStmt>
+      <notesStmt>
+        <note>This famous literary work — a romance between two main characters Candrāpīḍa and Kādambarī, plus innumerable side stories — was begun by Bāṇa Bhaṭṭa (570–650 CE) and finished posthumously by his son Bhūṣaṇa Bhaṭṭa (600–660 CE). These two contributions are the so-called Pūrvabhāga (Peterson ed. pp. 1–237) and Uttarabhāga (pp. 239–369), respectively. Peterson's edition, on which this e-text is based, added paragraph breaks as further structure. Later editions and translations also add headers to indicate beginnings of significant portions of the story, but no such headers are used here.</note>
+      </notesStmt>
+      <sourceDesc>
+        <bibl>
+          <title>Kâdambarî</title>
+          <editor>Peterson, Peter</editor>
+          <imprint>
+            <publisher>Government Central Book Depôt</publisher>
+            <pubPlace>Bombay</pubPlace>
+            <date>1885</date>
+          </imprint>
+        </bibl>
+        <series>
+          <title level="s">Bombay Sanskrit Series</title>
+          <biblScope>No. XXIV</biblScope>
+        </series>
+        <note>Bombay Sanskrit Series No. XXIV was printed in three forms: 1883 (first edition), 1885 (revised edition), and 1889 (simple reset of 1885).</note>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <editorialDecl>
+        <p id="file-creation-method">I (Tyler Neill) produced this HANSEL edition by first running a PDF of the 1885 edition through both Google Cloud Vision OCR (via Skrutable) and Gemini 2.0 Flash (via Dharmamitra). These two OCR outputs were then automatically harmonized using Gemini 2.5 Pro (via direct API and using a custom prompt). Finally, the harmonized OCR output was contrasted against the previous version by Andrew Ollett (which was in fact based on 1885/1889 as well) using Meld, and differences were reconciled individually with reference to the PDF. The text still needs a final proofread.</p>
+        <p id="transliteration">
+          The source edition is printed in Devanāgarī; the electronic text uses lossless IAST transliteration.
+          IAST differs slightly from ISO 15919; conversion can be achieved via:
+          <list>
+            <item>
+              <code>ṛ → r̥</code>
+            </item>
+            <item>
+              <code>ḷ → l̥</code>
+            </item>
+            <item>
+              <code>ḻ → ḷ</code>
+            </item>
+            <item>
+              <code>ṃ → ṁ</code>
+            </item>
+            <item>
+              <code>e → ē</code>
+            </item>
+            <item>
+              <code>o → ō</code>
+            </item>
+          </list>
+        </p>
+        <p id="word-division">Devanāgarī-like (ityevam, not ity evam)</p>
+        <p id="error-markup">
+          Corrections and uncertainties:
+          <list>
+            <item>Replacement: <choice>
+                <sic>before</sic>
+                <corr>after</corr>
+              </choice>
+            </item>
+            <item>Deletion: <del/>
+            </item>
+            <item>Addition: <supplied/>
+            </item>
+            <item>Unclear: <unclear/>
+            </item>
+          </list>
+        </p>
+        <p id="intermediate-textual-units">Prose paragraphs are enclosed in the normal <tag>p</tag> tags. Verse passages are grouped enclosed in line-group tag <tag>lg</tag>, with one parent <tag>lg</tag> for groups of verses, and verse halves are individually tagged with <tag>l</tag>. <tag>p</tag> and parent <tag>lg</tag> have location markers.</p>
+      </editorialDecl>
+    </encodingDesc>
+    <revisionDesc>
+      <change when="2022-02-01" who="Andrew Ollett">Initial OCR (using Google Cloud Vision, on 1885/9 edition — not 1883 as noted), some proofreading, XML markup for SARIT, uploaded to GitHub.</change>
+      <change when="2024–2025" who="Tyler Neill" ana="#hansel-contributor">Second OCR (using two models, on 1885 edition, merged with AI), manual reconciliation of differences relative to previous version, some more proofreading, markup for HANSEL.</change>
+    </revisionDesc>
+  </teiHeader>
   <body>
     <div n="pūrvabhāga">
       <pb n="1"/><milestone n="&lt;kādambarī |&gt;"/>
