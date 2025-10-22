@@ -42,8 +42,8 @@ Peterson 1885
 # Extent
 
 - The complete work is extant.
-- The edition contains the complete work.
-- The work fills 368 pages in the edition, with no other intervening material.
+- The edition contains a complete text.
+- The text fills 368 pages in the edition, with no other intervening material.
 
 # File Size (KB)
 

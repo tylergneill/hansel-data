@@ -2,7 +2,7 @@
 
 Ślokavārtika
 
-# Pandit Work
+# Pandit Work ID
 
 88597
 
@@ -10,14 +10,9 @@
 
 Kumārila Bhaṭṭa
 
-# Pandit Author
+# Pandit Author IDs
 
 85206
-
-# Source File
-
-Word document by Helmut Krasser,
-obtained second-hand through private exchange.
 
 # Edition Short
 
@@ -25,35 +20,26 @@ Dvārikādāsa Śāstrī 1978
 
 # Edition
 
-Dvārikādāsa Śāstrī, “Ślokavārttika of Śrī Kumārila Bhaṭṭa
-with the Commentary Nyāyaratnākara of Śrī Pārthasārathi Miśra.”
-Vārāṇasī: Tara Publications, 1978.
+- Editor: Dvārikādāsa Śāstrī
+- Title: Ślokavārttika of Śrī Kumārila Bhaṭṭa with the Commentary Nyāyaratnākara of Śrī Pārthasārathi Miśra.
+- Place: Varanasi
+- Publisher: Tara Publications
+- Year: 1978
 
-# PDFs
+# Edition PDFs
 
 - [on Archive (missing a few pages)](https://archive.org/details/SlokavarttikaNyayaratnakara/mode/2up)
 
-# Digitization Notes
-
-- (Date unknown) H. Krasser: Created.
-- (2017–2021) Tyler Neill: Supplied missing _Arthāpattipariccheda_ (5.8), restructured for Pramāṇa NLP.
-- (2025) Tyler Neill: Page numbers added for HANSEL structure.
-
 # Extent
 
-- Complete.
-- 3,350 verses (mostly anuṣṭubh).
-- 664pp in edition (with commentary on same pages).
+- The complete work is extant.
+- The edition contains a complete text.
+- The text consist of about 3,350 verses (mostly anuṣṭubh).
+- The text is spread out over 664 pages in the edition, interspersed with commentary and occasional footnotes.
 
 # File Size (KB)
 
 457
-
-# Genres
-
-- Darśana
-- Mīmāṃsā
-- Pramāṇaśāstra
 
 # Structure
 
@@ -86,10 +72,55 @@ Vārāṇasī: Tara Publications, 1978.
 | 7    | vākyādhikaraṇa (VAA)          | 598     | 486         |
 | 8    | vedapauruṣeyatādhikaraṇa (VPA) | 669     | 553         |
 
-# Translations:
+# Work Description
+
+xyz
+
+# Genres
+
+- Darśana
+- Mīmāṃsā
+- Pramāṇaśāstra
+
+# Translations
 
 - English, G. Jha, 1907, [on Archive](https://archive.org/details/in.ernet.dli.2015.282831/mode/2up)
 
-# Additional Notes
+# Source Collection
 
-- This text still needs a final proofread.
+Personal collection of Helmut Krasser
+
+# HANSEL License
+
+CC BY-NC-SA 4.0
+
+# Contributors
+
+- Helmut Krasser
+- Tyler Neill
+
+# Digitization Notes
+
+- (Date unknown) H. Krasser: Created.
+- (2017–2021) Tyler Neill: Supplied missing _Arthāpattipariccheda_ (5.8), restructured for Pramāṇa NLP collection.
+- (2025) Tyler Neill: Added page numbers for HANSEL structure.
+
+# File Creation Method
+
+I (Tyler Neill) produced this HANSEL edition by minimally adapting the corresponding file in the Pramāṇa NLP collection by adding page numbers. The Pramāṇa NLP file had been manually converted from Helmut Krasser's Word document into plain text, also by myself a few years earlier, mainly using regular expressions. Krasser's original Word file had been manually typed from the edition in an abstracted fashion, namely by extracting only the Ślokavārtika content and ignoring both Pārthasārathi Miśra's commentary and all physical aspects of the edition (e.g., page numbers). The text is known to contain errors and still needs a final proofread.
+
+# Text Type
+
+Prose with verse.
+
+# Word Division Style
+
+Roman-like (ity evam, not ityevam)
+
+# Text Last Updated
+
+2025-09-29
+
+# Metadata Last Updated 
+
+2025-10-21
