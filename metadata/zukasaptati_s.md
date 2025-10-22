@@ -28,8 +28,9 @@ Schmidt 1893
 
 # Extent
 
-- Complete (with small lacunae).
-- 205pp in edition.
+- The complete work is nearly extant except for a few small lacunae.
+- The edition contains a complete text of the known work.
+- The text fills 206 pages in the edition, with roughly half of each page dedicated to variant readings.
 
 # File Size (KB)
 
@@ -41,7 +42,7 @@ The work consists of seventy stories in a frame story. The edition does not expl
 
 # Work Description
 
-xyz
+The work's frame story takes place over seventy nights. In the frame, a pet parrot belongs to a young, lonely woman named Prabhāvatī, and he seeks to keep her faithful while her merchant husband, Madanavinoda, is away on business. Each night, when Prabhāvatī is tempted to meet a lover, the clever bird tells her a story meant to dissuade her. After seventy nights of such tales, her husband returns, and she has remained true, bringing the drama to a close. The stories feature clever protagonists who extricate themselves from difficult situations, especially women who outsmart men in episodes involving adultery.
 
 # Genres
 
@@ -72,9 +73,24 @@ CC BY-NC-SA 4.0
 - (2020–2025): V. Gostishchev: Typed up from edition, intensively proofread and structured.
 - (July 2025): Tyler Neill: Restructured for HANSEL.
 
+# File Creation Method
+
+I (Tyler Neill) produced this HANSEL edition by manually converting the original Word document to plaintext and then automatically adding XML markup. The text still needs a final proofread.
+
+# Text Type
+
+Prose with verse
+
 # Word Division Style
 
 Roman-like (ity evam, not ityevam)
+
+# Additional Notes
+
+- Indian editions (e.g. Ramakant Tripathi, Vārāṇasī, 1966, basis of the GRETIL text) are based on this _Simplicior_ text by Schmidt.
+- V. Gostishchev's original version of the file contains added _chāyās_ from the Indian editions and other useful notes.
+- On the construction of the text, see the editor's 1890 PhD dissertation “Vier Erzählungen aus der Çukasaptati”, [on Google Books](https://books.google.fr/books?id=iq5LAQAAMAAJ)
+- See also the editor's: “Anmerkungen zu dem Textus simplicior der Śukasaptati”, ZDMG 48, 1894, 580-628.
 
 # Text Last Updated
 
@@ -83,11 +99,3 @@ Roman-like (ity evam, not ityevam)
 # Metadata Last Updated 
 
 2025-10-21
-
-# Additional Notes
-
-- Indian editions (e.g. Ramakant Tripathi, Vārāṇasī, 1966, basis of the GRETIL text) are based on this _Simplicior_ text by Schmidt.
-- V. Gostishchev's original version of the file contains added _chāyās_ from the Indian editions and other useful notes.
-- On construction of the text, see the editor's 1890 PhD dissertation “Vier Erzählungen aus der Çukasaptati”, [on Google Books](https://books.google.fr/books?id=iq5LAQAAMAAJ)
-- See also the editor's: “Anmerkungen zu dem Textus simplicior der Śukasaptati”, ZDMG 48, 1894, 580-628.
-- This text still needs a final proofread.

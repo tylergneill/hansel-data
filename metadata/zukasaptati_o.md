@@ -49,7 +49,7 @@ The work consists of seventy stories in a frame story. The frame story's introdu
 
 # Work Description
 
-xyz
+The work's frame story takes place over seventy nights. In the frame, a pet parrot belongs to a young, lonely woman named Prabhāvatī, and he seeks to keep her faithful while her merchant husband, Madanavinoda, is away on business. Each night, when Prabhāvatī is tempted to meet a lover, the clever bird tells her a story meant to dissuade her. After seventy nights of such tales, her husband returns, and she has remained true, bringing the drama to a close. The stories feature clever protagonists who extricate themselves from difficult situations, especially women who outsmart men in episodes involving adultery.
 
 # Genres
 
@@ -94,7 +94,7 @@ I (Tyler Neill) produced this HANSEL edition by first extracting the text page-b
 
 # Text Type
 
-Prose with verse.
+Prose with verse
 
 # Word Division Style
 

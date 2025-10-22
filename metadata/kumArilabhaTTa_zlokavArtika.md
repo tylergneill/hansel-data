@@ -111,7 +111,7 @@ I (Tyler Neill) produced this HANSEL edition by minimally adapting the correspon
 
 # Text Type
 
-Prose with verse.
+Numbered verse
 
 # Word Division Style
 

@@ -100,7 +100,7 @@ I (Tyler Neill) produced this HANSEL edition by first running a PDF of the 1885 
 
 # Text Type
 
-Prose with verse.
+Prose with verse
 
 # Word Division Style
 
