@@ -831,7 +831,6 @@ class TeiHeaderBuilder:
             except etree.XMLSyntaxError as e:
                 raise ValueError(f"Error parsing license file {license_file}: {e}")
 
-        breakpoint()
         if 'Edition' in self.metadata and isinstance(self.metadata['Edition'], dict):
             edition_dict = self.metadata['Edition']
             for key, value in edition_dict.items():
