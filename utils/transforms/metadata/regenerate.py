@@ -2,12 +2,13 @@
 """
 Runs all metadata processing scripts to regenerate cumulative files.
 1. Deletes old generated files.
-2. Renders Markdown metadata to HTML.
+2. Renders Markdown to HTML.
 3. Consolidates Markdown metadata to JSON.
 4. Zips all metadata (.md, .html).
 """
 
 import subprocess
+import sys
 from pathlib import Path
 import os
 
@@ -51,23 +52,27 @@ def main():
             print(f"Deleted old version file: {f}")
     print("--- Cleaning complete ---\n")
 
+    try:
+        # 2. Render Markdown to HTML
+        print("--- Rendering Markdown to HTML ---")
+        subprocess.run(['python', str(render_script), str(project_root)], check=True)
+        print("")
 
-    # 2. Render Markdown to HTML
-    print("--- Rendering Markdown to HTML ---")
-    subprocess.run(['python', str(render_script), str(project_root)])
-    print("")
+        # 3. Consolidate metadata to JSON
+        print("--- Consolidating metadata to JSON ---")
+        subprocess.run(['python', str(jsonify_script), str(project_root)], check=True)
+        print("")
 
-    # 3. Consolidate metadata to JSON
-    print("--- Consolidating metadata to JSON ---")
-    subprocess.run(['python', str(jsonify_script), str(project_root)])
-    print("")
+        # 4. Zip metadata files
+        print("--- Zipping metadata files ---")
+        subprocess.run(['python', str(zip_script), str(project_root)], check=True)
+        print("")
 
-    # 4. Zip metadata files
-    print("--- Zipping metadata files ---")
-    subprocess.run(['python', str(zip_script), str(project_root)])
-    print("")
+        print("Metadata regeneration complete.")
 
-    print("Metadata regeneration complete.")
+    except subprocess.CalledProcessError:
+        print("\n--- Metadata regeneration FAILED. ---")
+        sys.exit(1)
 
 if __name__ == '__main__':
     main()
