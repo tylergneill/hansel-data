@@ -50,8 +50,9 @@
     "File Creation Method": "I (Tyler Neill) produced this HANSEL edition by first extracting the text page-by-page from the Ambuda website “Proofing” section. I then ran a PDF of the edition through both Google Cloud Vision OCR (via Skrutable) and Gemini 2.0 Flash (via Dharmamitra). These two OCR outputs were then automatically harmonized using Gemini 2.5 Pro (via direct API and using a custom prompt). This harmonized OCR output was then contrasted against the Ambuda-derived version using Meld and differences were reconciled individually with reference to the PDF. I then fully proofread the text, word by word. Finally, I contributed content improvements back to Ambuda using its page-by-page Proofing interface.",
     "Text Type": "Prose with verse",
     "Word Division Style": "Devanāgarī-like (ityevam, not ity evam)",
+    "Submission Last Updated": "2025-07-24",
     "Text Last Updated": "2025-09-29",
-    "Metadata Last Updated": "2025-10-21",
+    "Metadata Last Updated": "2025-10-22",
     "Filename": "zukasaptati_o",
     "Original Filetype": ".txt"
   },
@@ -109,8 +110,9 @@
       "On the construction of the text, see the editor's 1890 PhD dissertation “Vier Erzählungen aus der Çukasaptati”, [on Google Books](https://books.google.fr/books?id=iq5LAQAAMAAJ)",
       "See also the editor's: “Anmerkungen zu dem Textus simplicior der Śukasaptati”, ZDMG 48, 1894, 580-628."
     ],
+    "Submission Last Updated": "2025-06-25",
     "Text Last Updated": "2025-09-29",
-    "Metadata Last Updated": "2025-10-21",
+    "Metadata Last Updated": "2025-10-22",
     "Filename": "zukasaptati_s",
     "Original Filetype": ".doc"
   },
@@ -161,8 +163,9 @@
     "File Creation Method": "I (Tyler Neill) produced this HANSEL edition by minimally adapting the corresponding file in the Pramāṇa NLP collection by adding page numbers. The Pramāṇa NLP file had been manually converted from Helmut Krasser's Word document into plain text, also by myself a few years earlier, mainly using regular expressions. Krasser's original Word file had been manually typed from the edition in an abstracted fashion, namely by extracting only the Ślokavārtika content and ignoring both Pārthasārathi Miśra's commentary and all physical aspects of the edition (e.g., page numbers). The text is known to contain errors and still needs a final proofread.",
     "Text Type": "Numbered verse",
     "Word Division Style": "Roman-like (ity evam, not ityevam)",
+    "Submission Last Updated": "2025-07-24",
     "Text Last Updated": "2025-09-29",
-    "Metadata Last Updated": "2025-10-21",
+    "Metadata Last Updated": "2025-10-22",
     "Filename": "kumArilabhaTTa_zlokavArtika",
     "Original Filetype": ".doc"
   },
@@ -226,8 +229,9 @@
     "File Creation Method": "I (Tyler Neill) produced this HANSEL edition by first running a PDF of the 1885 edition through both Google Cloud Vision OCR (via Skrutable) and Gemini 2.0 Flash (via Dharmamitra). These two OCR outputs were then automatically harmonized using Gemini 2.5 Pro (via direct API and using a custom prompt). Finally, the harmonized OCR output was contrasted against the previous version by Andrew Ollett (which was in fact based on 1885/1889 as well) using Meld, and differences were reconciled individually with reference to the PDF. The text still needs a final proofread.",
     "Text Type": "Prose with verse",
     "Word Division Style": "Devanāgarī-like (ityevam, not ity evam)",
+    "Submission Last Updated": "2025-07-24",
     "Text Last Updated": "2025-09-29",
-    "Metadata Last Updated": "2025-10-21",
+    "Metadata Last Updated": "2025-10-22",
     "Filename": "bANa_kAdambarI",
     "Original Filetype": ".xml"
   },
