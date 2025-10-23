@@ -9,6 +9,7 @@ See DATA_MODEL.md for more details.
 """
 import copy
 import re
+
 from dataclasses import dataclass, field
 from datetime import datetime
 from pathlib import Path
@@ -119,7 +120,7 @@ class TeiTextBuilder:
         for raw in lines:
             self._handle_line(raw.rstrip("\n"))
         self._flush_verse_group_buffer()
-        return self.state.root
+        return self.state.text
 
     # ---- per-line handler ----
     def _handle_line(self, line: str) -> None:
