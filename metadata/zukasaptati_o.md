@@ -100,10 +100,14 @@ Prose with verse
 
 Devanāgarī-like (ityevam, not ity evam)
 
+# Submission Last Updated
+
+2025-07-24
+
 # Text Last Updated
 
 2025-09-29
 
 # Metadata Last Updated 
 
-2025-10-21
+2025-10-22
