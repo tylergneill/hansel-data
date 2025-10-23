@@ -34,7 +34,14 @@ class XMLToPlaintext:
             raise ValueError(f"Invalid XML in {xml_path}: {e}")
 
         root = self.tree.getroot()
-        body = root.find('{*}body')
+
+        # Find the <body> element to start processing.
+        # It should be inside <text>, but we search robustly.
+        body = root.find('{*}text/{*}body')
+        if body is None:
+            # Fallback for older structures or variations, find the first body anywhere.
+            body = root.find('.//{*}body')
+
         if body is None:
             return ""
 
