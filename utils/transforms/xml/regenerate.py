@@ -34,6 +34,9 @@ def main():
     TEXTS_DIR = Path('texts')
     
     if args.xml:
+
+        # TODO: resolve why order of these two matters (namespaces?)
+
         md_to_xml_kwargs = {
             "script_name": 'utils/transforms/xml/convert_markdown_to_xml.py',
             "in_dir": Path('metadata'),

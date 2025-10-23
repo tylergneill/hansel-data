@@ -638,7 +638,6 @@ class TeiHeaderBuilder:
         self.licenses_path = licenses_path
         self.metadata = {}
         self.ns = {'tei': 'http://www.tei-c.org/ns/1.0'}
-        etree.register_namespace("tei", self.ns['tei'])
         parser = etree.XMLParser(remove_comments=True)
         self.template_tree = etree.parse(str(template_path), parser)
 
