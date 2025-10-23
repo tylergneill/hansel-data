@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# This script validates cumulative file versions.
+# This script validates cumulative file types and their version information.
 # It requires `unzip` and `jq` to be installed.
 
 # Get the root directory of the repository
@@ -71,6 +71,19 @@ else
       errors+=("Version mismatch in ${metadata_json}. Expected ${DATA_VERSION}, found ${json_version}.")
     fi
   fi
+fi
+
+# Run zip process (output not committed etc.) in order to fail loudly if version info doesn't match up
+echo "Running data version validation..."
+VALIDATION_OUTPUT=$(python "$REPO_ROOT/utils/transforms/metadata/zip_metadata.py" "$REPO_ROOT" 2>&1)
+VALIDATION_EXIT_CODE=$?
+
+if [ "$VALIDATION_EXIT_CODE" -ne 0 ]; then
+  errors+=("Data version validation failed:")
+  # Add each line of the output as a separate error for clarity
+  while IFS= read -r line; do
+    errors+=("  $line")
+  done <<< "$VALIDATION_OUTPUT"
 fi
 
 if [ ${#errors[@]} -ne 0 ]; then
