@@ -63,15 +63,20 @@ class XMLToPlaintext:
             self.at_line_start = True
 
     def _process_text(self, text: str):
+        if self.at_line_start:
+            text = text.lstrip()
+
         if not text:
             return
 
-        processed_text = ' '.join(text.split())
-        if not processed_text:
-            return
-
-        if not self.at_line_start and not self.lines[-1].endswith(("\t", " ")):
-            self._append(" ")
+        # Heuristic: if text contains a newline, it's formatting whitespace.
+        # Collapse it. Otherwise, preserve it.
+        if '\n' in text:
+            processed_text = ' '.join(text.split())
+            if not processed_text:
+                return
+        else:
+            processed_text = text
 
         self._append(processed_text)
 
@@ -127,6 +132,18 @@ class XMLToPlaintext:
             self._append("(")
         elif tag == 'caesura':
             self.pending_indent = True
+        elif tag == 'choice':
+            pass  # container
+        elif tag == 'sic':
+            self._append("≤")
+        elif tag == 'corr':
+            self._append("«")
+        elif tag == 'del':
+            self._append("≤")
+        elif tag == 'supplied':
+            self._append("«")
+        elif tag == 'unclear':
+            self._append("¿")
 
         # --- RECURSION ---
         old_lg_base = self.current_lg_base_n
@@ -170,6 +187,16 @@ class XMLToPlaintext:
             self._append('\t')
         elif tag == 'note':
             self._append(")")
+        elif tag == 'sic':
+            self._append("≥")
+        elif tag == 'corr':
+            self._append("»")
+        elif tag == 'del':
+            self._append("≥")
+        elif tag == 'supplied':
+            self._append("»")
+        elif tag == 'unclear':
+            self._append("¿")
 
     def postprocess(self, plaintext, verse_only, extra_space_after_location):
         """
