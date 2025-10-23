@@ -27,20 +27,20 @@ done
 echo "Checking that generated files all exist..."
 errors=()
 
-# Check for missing XML files
+# Check for stranded TXT files
 for txt_file in "$TEXT_DATA_DIR"/*.txt; do
   xml_file="$REPO_ROOT/texts/transforms/xml/$(basename "$txt_file" .txt).xml"
   if [ ! -f "$xml_file" ]; then
-    errors+=("XML file for $txt_file not found. Please run 'python utils/transforms/xml/regenerate.py --xml'.")
+    errors+=("Stranded TXT file found: $txt_file. Source .xml file does not exist. Please run 'python utils/transforms/xml/regenerate.py --xml'.")
   fi
 done
 
-# Check for stale XML files
+# Check for stranded XML files
 shopt -s nullglob
 for xml_file in texts/transforms/*.xml; do
   txt_file="texts/$(basename "$xml_file" .xml).txt"
   if [ ! -f "$txt_file" ]; then
-    errors+=("Stale XML file found: $xml_file. Source .txt file does not exist. Please run 'python utils/transforms/xml/regenerate.py --xml'.")
+    errors+=("Stranded XML file found: $xml_file. Source .txt file does not exist. Please run 'python utils/transforms/xml/regenerate.py --txt'.")
   fi
 done
 shopt -u nullglob
