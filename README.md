@@ -1,38 +1,76 @@
 # HANSEL: Human-Accessible and NLP-ready Sanskrit E-Text Library
 
-A companion project to the now-defunct GRETIL.
+A companion project to GRETIL.
 
 HANSEL is a Sanskrit e-text library. 
 It is also a website giving access to that library. 
 
 This repo contains the library data and code.
-[Another repo](https://github.com/tylergneill/hansel-app) contains code for the website..
+[Another repo](https://github.com/tylergneill/hansel-app) contains code for the website.
 
-# Data Repo Concept and Structure
+# Data Repository Concept and Structure
 
-Users submit e-text material to HANSEL via email (`hanselrepository@gmail`) in any format that they like.
-These are preserved in `texts/originals`.
+Users submit e-text material to HANSEL through the website contact form (or by email) in any format they prefer.  
+All submissions are preserved in `texts/submissions`.
 
-The project maintainer manually converts this content into a plain-text file.
-This is stored in `texts/processed_txt`,
-and a corresponding metadata file, in Markdown, is stored in `metadata`.
+The project maintainer manually converts each submission into a normalized plain-text file, stored in `texts/txt`.  
+A corresponding metadata file (in Markdown) is created and stored in `metadata`.
 
-The plain-text file is structurally reworked until it passes `utils.validation.validate -s`.
-It is then transformed into TEI-XML with `utils.transforms.xml.convert_plaintext_to_xml`.
-The quality of this XML representation is tested by converting it round-trip back to plain-text
-with `utils.transforms.xml.convert_xml_to_plaintext`.
-This constitutes structural validation.
+The plain-text file is iteratively revised until it passes structural validation with `utils.validation.validate -s`.  
+Once valid, it is transformed into TEI-XML `<text>` format using `utils.transforms.xml.convert_plaintext_to_xml`.  
+This XML is then round-tripped back to plain text via `utils.transforms.xml.convert_xml_to_plaintext` to confirm internal consistency.
+This completes structural validation.
 
-The XML can then be transformed into more usable HTML with `utils.transforms.html.convert_xml_to_html`.
+From there, the XML can be converted into HTML with `utils.transforms.html.convert_xml_to_html`.  
+The XML also serves as an alternate “master” version of the text alongside the plain-text,
+for situations where modifying the XML directly is preferable.  
+For example, when the original submission is already in (TEI) XML,
+system ingestion may proceed first via XML and only later in plain-text.
 
-All file types are zipped together using `utils.transforms.zip_texts`.
+The XML `<teiHeader>` is initially generated from Markdown metadata using `utils.transforms.xml.convert_markdown_to_xml`  
+and also regularly updated in the same way.
+The Markdown file always remains the authoritative metadata source.
 
-Metadata is also transformed to HTML, with `utils.metadata.render_md_to_html`,
-and consolidated in two ways: `utils.metadata.zip_metadata` and `utils.metadata.jsonify_metadata`.
+All text formats (submission, plain text, XML, HTML) are bundled together using `utils.transforms.zip_texts`.
 
-All file consolidations are packaged with the latest `VERSION` file,
-which is bumped to the current date whenever there are changes to core data (`originals`, `processed_txt`, `metadata`).
-Derivatives (XML, HTML, JSON, zips) are automatically ensured to have the latest `VERSION` and regenerated as needed.
+Metadata is similarly transformed into HTML via `utils.metadata.render_md_to_html`  
+and consolidated in two forms: a zip file (`utils.metadata.zip_metadata`) and JSON (`utils.metadata.jsonify_metadata`).
+
+All consolidated files are packaged with the current `VERSION` file.  
+This file is updated to the most recent date whenever changes occur in core data (`submissions`, `txt`, `xml`, `metadata`),
+according to the three "Updated" fields in the metadata files, which must be updated manually.
+Derivative formats (HTML, JSON, ZIPs) automatically inherit the latest version information and are regenerated as needed.
+
+# Data Transform Maintenance
+
+The data in this repository undergoes several transformations 
+to automatically produce various output formats (TEI-XML, TXT, HTML, JSON, ZIP). 
+These transformations are orchestrated by a set of Python scripts 
+located in the `utils/transforms/` directory.
+
+The primary script for regenerating all derivative data is `utils/transforms/regenerate_all.py`. 
+This script executes the following in sequence:
+
+1.  `utils/transforms/metadata/regenerate.py`: This script processes all metadata files. It renders Markdown metadata to HTML, consolidates metadata into a JSON file, and then zips all metadata files (Markdown and HTML).
+2.  `utils/transforms/xml/regenerate.py --xml/--txt`: This script converts processed plaintext files into TEI-XML `<text>` format or vice verse, depending on respective flags. The `--xml` mode also updates TEI headers in XML files using information from the Markdown metadata.
+3.  `utils/transforms/html/regenerate.py`: This script converts the generated TEI-XML files into HTML.
+
+The `utils/transforms/regenerate_all.py` script also requires the `--xml/--txt` flag to determine the mode of `xml/regenerate.py`.
+
+## Version Control and Validation
+
+To ensure data consistency and proper versioning, a strict version check is implemented.
+The `__data_version__` value specified in the `VERSION` file at the project root 
+must exactly match the latest date found 
+in any `# Text Last Updated` or `# Metadata Last Updated` field 
+across all Markdown metadata files (`metadata/*.md`). 
+This check is performed by the `utils/transforms/metadata/zip_metadata.py` script, 
+which is part of the metadata regeneration pipeline. 
+If there is a mismatch, the script will fail, 
+prompting the maintainer to update the `__data_version__` in the `VERSION` file 
+to reflect the latest changes in the metadata. 
+This ensures that the `VERSION` file always accurately reflects 
+the most recent update across all data.
 
 # Integration with App Repo
 
@@ -40,7 +78,7 @@ The web app repo has a dummy data folder `static/data` for local dev testing.
 At actual runtime, the `docker run` option `-v, --volume` overwrites the dummy data 
 by mounting a local clone of this data repo.  
 
-See dev instructions at https://github.com/tylergneill/hansel-app for more info.
+Find dev instructions for the app at https://github.com/tylergneill/hansel-app.
 
 # Curation and Governance
 
