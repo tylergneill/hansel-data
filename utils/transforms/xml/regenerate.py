@@ -37,23 +37,14 @@ def main():
 
         # TODO: resolve why order of these two matters (namespaces?)
 
-        md_to_xml_kwargs = {
-            "script_name": 'utils/transforms/xml/convert_markdown_to_xml.py',
-            "in_dir": Path('metadata'),
-            "in_ext": '.md',
-            "out_dir": TEXTS_DIR / 'transforms' / 'xml',
-            "out_ext": '.xml',
-            "flag_map": {},
-        }
-        run_conversion(**md_to_xml_kwargs)
 
-        pt_in_dir = TEXTS_DIR / 'processed_txt'
-        in_ext = '.txt'
+
+        pt_in_dir = TEXTS_DIR / 'masters' / 'txt'
         pt_to_xml_kwargs = {
             "script_name": 'utils/transforms/xml/convert_plaintext_to_xml.py',
             "in_dir": pt_in_dir,
-            "in_ext": in_ext,
-            "out_dir": TEXTS_DIR / 'transforms' / 'xml',
+            "in_ext": '.txt',
+            "out_dir": TEXTS_DIR / 'masters' / 'xml',
             "out_ext": '.xml',
             "flag_map": flag_map,
         }

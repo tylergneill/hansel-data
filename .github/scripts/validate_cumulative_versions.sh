@@ -39,19 +39,19 @@ check_zip_version() {
 }
 
 if find "$REPO_ROOT/texts/originals" -maxdepth 1 -type f -print -quit | grep -q .; then
-    check_zip_version "$REPO_ROOT/texts/transforms/cumulative/originals_misc.zip" "$DATA_VERSION" "$BUNDLE_VERSION"
+  check_zip_version "$REPO_ROOT/texts/transforms/cumulative/originals_misc.zip" "$DATA_VERSION" "$BUNDLE_VERSION"
 fi
 
-if find "$REPO_ROOT/texts/processed_txt" -maxdepth 1 -type f -print -quit | grep -q .; then
-    zips=(
-      "texts/transforms/cumulative/txt.zip"
-      "texts/transforms/cumulative/xml.zip"
-      "texts/transforms/cumulative/html_plain.zip"
-      "texts/transforms/cumulative/html_rich.zip"
-    )
-    for zip in "${zips[@]}"; do
-      check_zip_version "$REPO_ROOT/$zip" "$DATA_VERSION" "$BUNDLE_VERSION"
-    done
+if find "$REPO_ROOT/texts/masters/txt" -maxdepth 1 -type f -print -quit | grep -q .; then
+  zips=(
+    "texts/transforms/cumulative/txt.zip"
+    "texts/transforms/cumulative/xml.zip"
+    "texts/transforms/cumulative/html_plain.zip"
+    "texts/transforms/cumulative/html_rich.zip"
+  )
+  for zip in "${zips[@]}"; do
+    check_zip_version "$REPO_ROOT/$zip" "$DATA_VERSION" "$BUNDLE_VERSION"
+  done
 fi
 
 # Metadata files

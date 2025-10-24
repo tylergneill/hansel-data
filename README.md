@@ -84,5 +84,5 @@ Find dev instructions for the app at https://github.com/tylergneill/hansel-app.
 
 During HANSEL's initial phase, the creator will oversee all repository activities.
 
-Once HANSEL has been operating and accepting contributions for a few years,
+Once HANSEL has been operating and accepting contributions for a while (a few years?),
 control will be distributed more widely to a team of experts.

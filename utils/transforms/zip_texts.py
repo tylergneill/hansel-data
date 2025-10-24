@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-Zips text files from originals and processed_txt directories into cumulative archives.
+Zips text files from originals and masters directories into cumulative archives.
 
-- For originals, it creates a single 'originals_misc.zip' from files in 'texts/originals'.
-- For processed txt files, it creates four archives:
-  - 'txt.zip' from plaintext files
-  - 'xml.zip' from 'transforms/xml'
-  - 'html_plain.zip' from 'transforms/html/plain'
-  - 'html_rich.zip' from 'transforms/html/rich'
+This script creates several zip files:
+- 'originals_misc.zip' from files in 'texts/originals'.
+- 'txt.zip' from files in 'texts/masters/txt'.
+- 'xml.zip' from files in 'texts/masters/xml'.
+- 'html_plain.zip' from files in 'texts/transforms/html/plain'.
+- 'html_rich.zip' from files in 'texts/transforms/html/rich'.
 """
 
 import sys
@@ -44,15 +44,13 @@ def main(folder: str):
     zip_path = output_dir / 'originals_misc.zip'
     create_zip(source_dir_originals, zip_path, version_file)
 
-    # processed_txt
-    source_dir_processed_txt = texts_folder / 'processed_txt'
-    zip_path_txt = output_dir / f'txt.zip'
-    create_zip(source_dir_processed_txt, zip_path_txt, version_file)
-
-    # --- transforms ---
+    # txt
+    source_dir_txt = texts_folder / 'masters' / 'txt'
+    zip_path_txt = output_dir / 'txt.zip'
+    create_zip(source_dir_txt, zip_path_txt, version_file)
 
     # xml
-    source_dir_xml = texts_folder / 'transforms' / 'xml'
+    source_dir_xml = texts_folder / 'masters' / 'xml'
     zip_path_xml = output_dir / f'xml.zip'
     create_zip(source_dir_xml, zip_path_xml, version_file)
 
