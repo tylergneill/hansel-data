@@ -11,7 +11,7 @@ This repo contains the library data and code.
 # Data Repository Concept and Structure
 
 Users submit e-text material to HANSEL through the website contact form (or by email) in any format they prefer.  
-All submissions are preserved in `texts/submissions`.
+All submitted originals are preserved in `texts/originals`.
 
 The project maintainer manually converts each submission into a normalized plain-text file, stored in `texts/txt`.  
 A corresponding metadata file (in Markdown) is created and stored in `metadata`.
@@ -37,7 +37,7 @@ Metadata is similarly transformed into HTML via `utils.metadata.render_md_to_htm
 and consolidated in two forms: a zip file (`utils.metadata.zip_metadata`) and JSON (`utils.metadata.jsonify_metadata`).
 
 All consolidated files are packaged with the current `VERSION` file.  
-This file is updated to the most recent date whenever changes occur in core data (`submissions`, `txt`, `xml`, `metadata`),
+This file is updated to the most recent date whenever changes occur in core data (`originals`, `txt`, `xml`, `metadata`),
 according to the three "Updated" fields in the metadata files, which must be updated manually.
 Derivative formats (HTML, JSON, ZIPs) automatically inherit the latest version information and are regenerated as needed.
 

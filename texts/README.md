@@ -10,7 +10,7 @@ In addition to using Git to track the evolution of every file,
 this collection also retains a static copy of the originally submitted file,
 whatever its format.
 
-Then, from these original submissions are produced the master files in XML and plain-text.
+Then, from these submitted originals are produced the master files in XML and plain-text.
 These are generally modified only to reflect substantial updates to the curated text.
 
 Finally, any changes to master files are reflected in transforms
@@ -57,5 +57,5 @@ From the plaintext source files, several additional data types are automatically
   - "plain" is a simpler, search-friendly representation
   - "rich" is built for in-browser reading
 
-In addition, all five data stages (submissions, plain-text, XML, and HTML x2)
+In addition, all five data stages (originals, plain-text, XML, and HTML x2)
 are packages together as `.zip` files for cumulative download.
