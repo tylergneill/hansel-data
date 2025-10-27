@@ -106,7 +106,7 @@ Prose with verse
 
 Devanāgarī-like (ityevam, not ity evam)
 
-# Submission Last Updated
+# Original Submission Last Updated
 
 2025-07-24
 

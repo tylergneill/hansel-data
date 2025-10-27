@@ -39,12 +39,12 @@ def main():
 
 
 
-        pt_in_dir = TEXTS_DIR / 'masters' / 'txt'
+        pt_in_dir = TEXTS_DIR / 'project_editions' / 'txt'
         pt_to_xml_kwargs = {
             "script_name": 'utils/transforms/xml/convert_plaintext_to_xml.py',
             "in_dir": pt_in_dir,
             "in_ext": '.txt',
-            "out_dir": TEXTS_DIR / 'masters' / 'xml',
+            "out_dir": TEXTS_DIR / 'project_editions' / 'xml',
             "out_ext": '.xml',
             "flag_map": flag_map,
         }

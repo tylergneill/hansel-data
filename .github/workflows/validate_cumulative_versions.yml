@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - 'VERSION'
-      - 'texts/masters/txt/**'
+      - 'texts/project_editions/txt/**'
       - 'texts/transforms/**'
       - 'metadata/**'
   workflow_dispatch:

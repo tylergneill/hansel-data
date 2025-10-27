@@ -3,7 +3,7 @@ import subprocess
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
-XML_DIR = os.path.join(PROJECT_ROOT, "texts/masters/xml")
+XML_DIR = os.path.join(PROJECT_ROOT, "texts/project_editions/xml")
 HTML_PLAIN_DIR = os.path.join(PROJECT_ROOT, "texts/transforms/html/plain")
 HTML_RICH_DIR = os.path.join(PROJECT_ROOT, "texts/transforms/html/rich")
 CONVERSION_SCRIPT = os.path.join(PROJECT_ROOT, "utils/transforms/html/convert_xml_to_html.py")

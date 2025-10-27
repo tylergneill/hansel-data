@@ -11,7 +11,7 @@ This repo contains the library data and code.
 # Data Repository Concept and Structure
 
 Users submit e-text material to HANSEL through the website contact form (or by email) in any format they prefer.  
-All submitted originals are preserved in `texts/originals`.
+All originally submitted files are preserved in `texts/original_submissions`.
 
 The project maintainer manually converts each submission into a normalized plain-text file, stored in `texts/txt`.  
 A corresponding metadata file (in Markdown) is created and stored in `metadata`.
@@ -22,7 +22,7 @@ This XML is then round-tripped back to plain text via `utils.transforms.xml.conv
 This completes structural validation.
 
 From there, the XML can be converted into HTML with `utils.transforms.html.convert_xml_to_html`.  
-The XML also serves as an alternate “master” version of the text alongside the plain-text,
+The XML also serves as a co-primary edition of the text alongside the plain-text,
 for situations where modifying the XML directly is preferable.  
 For example, when the original submission is already in (TEI) XML,
 system ingestion may proceed first via XML and only later in plain-text.
@@ -31,13 +31,14 @@ The XML `<teiHeader>` is initially generated from Markdown metadata using `utils
 and also regularly updated in the same way.
 The Markdown file always remains the authoritative metadata source.
 
-All text formats (submission, plain text, XML, HTML) are bundled together using `utils.transforms.zip_texts`.
+All text formats (misc. original submissions, digital edition plain text and XML, HTML)
+are bundled together using `utils.transforms.zip_texts`.
 
 Metadata is similarly transformed into HTML via `utils.metadata.render_md_to_html`  
 and consolidated in two forms: a zip file (`utils.metadata.zip_metadata`) and JSON (`utils.metadata.jsonify_metadata`).
 
 All consolidated files are packaged with the current `VERSION` file.  
-This file is updated to the most recent date whenever changes occur in core data (`originals`, `txt`, `xml`, `metadata`),
+This file is updated to the most recent date whenever changes occur in core data (`original_submissions`, `txt`, `xml`, `metadata`),
 according to the three "Updated" fields in the metadata files, which must be updated manually.
 Derivative formats (HTML, JSON, ZIPs) automatically inherit the latest version information and are regenerated as needed.
 

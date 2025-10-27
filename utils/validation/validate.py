@@ -22,7 +22,7 @@ def validate_structure(structured_content):
 
     This function performs two main types of checks:
     1. Non-Destructive Structural Checks: It first validates the nesting of different
-       bracket types on the original, unmodified content. This ensures that the
+       bracket types on the iast, unmodified content. This ensures that the
        hierarchical structure is correct.
     2. Content and Existence Checks: It then checks for the existence of mandatory
        identifiers and ensures they are not empty.

@@ -117,7 +117,7 @@ Numbered verse
 
 Roman-like (ity evam, not ityevam)
 
-# Submission Last Updated
+# Original Submission Last Updated
 
 2025-07-24
 

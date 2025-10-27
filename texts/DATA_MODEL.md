@@ -31,7 +31,7 @@ as explained below.
 1. Texts most validly express the data model
 insofar as they successfully survive automatic transformations from plaintext to XML —
 this XML can then be used to render HTML for web presentation, etc. —
-and back again from the produced XML to plaintext, which should match the original.
+and back again from the produced XML to plaintext with minimal deviation.
 
 2. A structural validation script can also detect basic model violations.
 Also, insofar as structure can be automatically isolated from content for this purpose,

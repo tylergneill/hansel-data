@@ -38,11 +38,11 @@ check_zip_version() {
   fi
 }
 
-if find "$REPO_ROOT/texts/originals" -maxdepth 1 -type f -print -quit | grep -q .; then
-  check_zip_version "$REPO_ROOT/texts/transforms/cumulative/originals_misc.zip" "$DATA_VERSION" "$BUNDLE_VERSION"
+if find "$REPO_ROOT/texts/original_submissions" -maxdepth 1 -type f -print -quit | grep -q .; then
+  check_zip_version "$REPO_ROOT/texts/transforms/cumulative/original_submissions_misc.zip" "$DATA_VERSION" "$BUNDLE_VERSION"
 fi
 
-if find "$REPO_ROOT/texts/masters/txt" -maxdepth 1 -type f -print -quit | grep -q .; then
+if find "$REPO_ROOT/texts/project_editions/txt" -maxdepth 1 -type f -print -quit | grep -q .; then
   zips=(
     "texts/transforms/cumulative/txt.zip"
     "texts/transforms/cumulative/xml.zip"

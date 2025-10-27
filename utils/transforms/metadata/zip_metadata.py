@@ -49,8 +49,8 @@ def validate_data_version(project_root: Path):
             if date > latest_date:
                 latest_date = date
 
-        # Find Submission Last Updated (NEW)
-        submission_date_match = re.search(r"# Submission Last Updated\s*\n\s*(\d{4}-\d{2}-\d{2})", content)
+        # Find Original Submission Last Updated
+        submission_date_match = re.search(r"# Original Submission Last Updated\s*\n\s*(\d{4}-\d{2}-\d{2})", content)
         if submission_date_match:
             date = submission_date_match.group(1)
             if date > latest_date:

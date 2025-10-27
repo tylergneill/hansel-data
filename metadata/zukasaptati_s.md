@@ -92,7 +92,7 @@ Roman-like (ity evam, not ityevam)
 - On the construction of the text, see the editor's 1890 PhD dissertation “Vier Erzählungen aus der Çukasaptati”, [on Google Books](https://books.google.fr/books?id=iq5LAQAAMAAJ)
 - See also the editor's: “Anmerkungen zu dem Textus simplicior der Śukasaptati”, ZDMG 48, 1894, 580-628.
 
-# Submission Last Updated
+# Original Submission Last Updated
 
 2025-06-25
 

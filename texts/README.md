@@ -10,13 +10,16 @@ In addition to using Git to track the evolution of every file,
 this collection also retains a static copy of the originally submitted file,
 whatever its format.
 
-Then, from these submitted originals are produced the master files in XML and plain-text.
-These are generally modified only to reflect substantial updates to the curated text.
+Then, from these original submissions are produced the core edition files in XML and plain-text.
+These digital editions are the canonical forms of the text maintained by the project.
+They are generally modified only to reflect substantial updates to the curated text.
+Within this project digital editions layer, both TEI-XML and plain-text are co-equal representations,
+each convertible to the other, without loss of editorial responsibility.
 
-Finally, any changes to master files are reflected in transforms
-automatically generated from masters.
+Finally, any changes to project digital edition files are immediately reflected in
+the automatically generated transforms, which are never modified by hand.
 
-## Originals
+## Original Submissions
 
 These items are preserved as-is at the time of import into HANSEL.
 They often contain additional information included by their creators,
@@ -25,10 +28,14 @@ but frequently they are not yet ready for consistent NLP processing.
 Often, given file types like `.doc` etc.,
 these do not render in-browser and so must be downloaded for inspection.
 
-## Masters
+## Project Digital Editions
 
-HANSEL uses two parallel master formats: plain-text and XML.
-The `DATA_MODEL.md` indicates how the respective components of each correspond to each other.
+HANSEL uses two “co-primary” internal working formats: plain-text and XML.
+See `DATA_MODEL.md` for how the respective components of each correspond to each other.
+
+These are the authoritative text versions within the system,
+reflecting latest curatorial improvement,
+and suitable for citation.
 
 These items have been manually streamlined and restructured.
 Among other things, this streamlining frequently involves removing para-textual notes outright
@@ -57,5 +64,6 @@ From the plaintext source files, several additional data types are automatically
   - "plain" is a simpler, search-friendly representation
   - "rich" is built for in-browser reading
 
-In addition, all five data stages (originals, plain-text, XML, and HTML x2)
-are packages together as `.zip` files for cumulative download.
+In addition, files of a given type within the project
+(original submissions, project digital edition plain-text and XML, HTML x2)
+are packaged together as `.zip` files for cumulative download.

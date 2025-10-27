@@ -4,7 +4,7 @@
 REPO_ROOT=$(git rev-parse --show-toplevel)
 
 # Define paths relative to the root directory
-TEXT_DATA_DIR="$REPO_ROOT/texts/masters/txt"
+TEXT_DATA_DIR="$REPO_ROOT/texts/project_editions/txt"
 VALIDATION_SCRIPT="$REPO_ROOT/utils/validation/validate.py"
 
 echo "Validation script paths:"
@@ -29,7 +29,7 @@ errors=()
 
 # Check for stranded TXT files
 for txt_file in "$TEXT_DATA_DIR"/*.txt; do
-  xml_file="$REPO_ROOT/texts/masters/xml/$(basename "$txt_file" .txt).xml"
+  xml_file="$REPO_ROOT/texts/project_editions/xml/$(basename "$txt_file" .txt).xml"
   if [ ! -f "$xml_file" ]; then
     errors+=("Stranded TXT file found: $txt_file does not have corresponding .xml file. Please run 'python utils/transforms/xml/regenerate.py --xml'.")
   fi
@@ -37,8 +37,8 @@ done
 
 # Check for stranded XML files
 shopt -s nullglob
-for xml_file in "$REPO_ROOT/texts/masters/xml"/*.xml; do
-  txt_file="$REPO_ROOT/texts/masters/txt/$(basename "$xml_file" .xml).txt"
+for xml_file in "$REPO_ROOT/texts/project_editions/xml"/*.xml; do
+  txt_file="$REPO_ROOT/texts/project_editions/txt/$(basename "$xml_file" .xml).txt"
   if [ ! -f "$txt_file" ]; then
     errors+=("Stranded XML file found: $xml_file does not have corresponding .txt file. Please run 'python utils/transforms/xml/regenerate.py --txt'.")
   fi

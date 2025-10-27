@@ -1,7 +1,7 @@
 # Utils and Static Data Bundle
 
 This folder contains code that transforms HANSEL's core files
-— master texts (.txt, .xml) and metadata (.md) —
+— project digital editions (.txt, .xml) and metadata (.md) —
 into other formats (.html, .json, .zip).
 
 ## Versioning
