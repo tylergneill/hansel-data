@@ -31,16 +31,28 @@ def main():
     group.add_argument('--txt', action='store_true', help='Convert XML to plaintext.')
     args = parser.parse_args()
 
+    METADATA_DIR = Path('metadata')
     TEXTS_DIR = Path('texts')
     
     if args.xml:
 
+        # run TWO conversions, corresponding to <teiHeader> and <text> elements
         # TODO: resolve why order of these two matters (namespaces?)
 
+        # metadata => <teiHeader>
+        script_kwargs_1 = {
+            "script_name": 'utils/transforms/xml/convert_markdown_to_xml.py',
+            "in_dir": METADATA_DIR,
+            "in_ext": '.md',
+            "out_dir": TEXTS_DIR / 'project_editions' / 'xml',
+            "out_ext": '.xml',
+            "flag_map": {},
+        }
+        run_conversion(**script_kwargs_1)
 
-
+        # project_edition plain-text => <text>
         pt_in_dir = TEXTS_DIR / 'project_editions' / 'txt'
-        pt_to_xml_kwargs = {
+        script_kwargs_2 = {
             "script_name": 'utils/transforms/xml/convert_plaintext_to_xml.py',
             "in_dir": pt_in_dir,
             "in_ext": '.txt',
@@ -48,18 +60,18 @@ def main():
             "out_ext": '.xml',
             "flag_map": flag_map,
         }
-        run_conversion(**pt_to_xml_kwargs)
+        run_conversion(**script_kwargs_2)
 
     elif args.txt:
-        txt_kwargs = {
+        script_kwargs = {
             "script_name": 'utils/transforms/xml/convert_xml_to_plaintext.py',
-            "in_dir": TEXTS_DIR / 'transforms' / 'xml',
+            "in_dir": TEXTS_DIR / 'project_editions' / 'xml',
             "in_ext": '.xml',
             "out_dir": Path('utils/transforms/xml/roundtrip_txt'),
             "out_ext": '.txt',
             "flag_map": flag_map,
         }
-        run_conversion(**txt_kwargs)
+        run_conversion(**script_kwargs)
 
 if __name__ == "__main__":
     main()
