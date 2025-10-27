@@ -7,6 +7,7 @@ def main():
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument('--xml', action='store_true', help='Run XML regeneration (plaintext to XML). ')
     group.add_argument('--txt', action='store_true', help='Run XML to plaintext regeneration.')
+    parser.add_argument('--dev', action='store_true', help='Allow development version suffixes.')
     args = parser.parse_args()
 
     project_root = Path(__file__).parent.parent.parent
@@ -17,8 +18,12 @@ def main():
     elif args.txt:
         xml_regenerate_command += " --txt"
 
+    metadata_regenerate_command = "python utils/transforms/metadata/regenerate.py"
+    if args.dev:
+        metadata_regenerate_command += " --dev"
+
     commands = [
-        "python utils/transforms/metadata/regenerate.py",
+        metadata_regenerate_command,
         xml_regenerate_command,
         "python utils/transforms/html/regenerate.py",
         "python utils/transforms/zip_texts.py"

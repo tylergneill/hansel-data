@@ -7,9 +7,10 @@ import re
 import sys
 import zipfile
 from pathlib import Path
+import argparse
 
 
-def validate_data_version(project_root: Path):
+def validate_data_version(project_root: Path, is_dev: bool = False):
     """
     Validates that __data_version__ in VERSION matches the latest date
     in the metadata files.
@@ -61,19 +62,22 @@ def validate_data_version(project_root: Path):
 
     # 3. Compare and exit on mismatch
     elif data_version != latest_date:
-        print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-        print("Error: Version mismatch!")
-        print(f"  VERSION file (__data_version__): {data_version}")
-        print(f"  Latest date in metadata files:     {latest_date}")
-        print("Please update the __data_version__ in the VERSION file.")
-        print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-        sys.exit(1)
+        if is_dev and data_version.startswith(latest_date):
+            print(f"Dev version detected ({data_version}) and matches latest date ({latest_date}). Allowing.")
+        else:
+            print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+            print("Error: Version mismatch!")
+            print(f"  VERSION file (__data_version__): {data_version}")
+            print(f"  Latest date in metadata files:     {latest_date}")
+            print("Please update the __data_version__ in the VERSION file.")
+            print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+            sys.exit(1)
 
     print("Data version is up to date.")
     print("--- Validation complete ---\n")
 
 
-def main(folder: str):
+def main(folder: str, is_dev: bool = False):
     """
     Zips .md files from metadata/ and .html files from metadata/transforms/html/
     into two separate zip files in metadata/transforms/cumulative/.
@@ -81,7 +85,7 @@ def main(folder: str):
     root = Path(folder)
 
     # Validate version first
-    validate_data_version(root)
+    validate_data_version(root, is_dev=is_dev)
 
     metadata_folder = root / 'metadata'
     transforms_folder = metadata_folder / 'transforms'
@@ -125,4 +129,8 @@ def main(folder: str):
 
 
 if __name__ == '__main__':
-    main(sys.argv[1] if len(sys.argv) > 1 else '.')
+    parser = argparse.ArgumentParser(description="Zip metadata files and validate data version.")
+    parser.add_argument("folder", nargs='?', default='.', help="Root folder of the project.")
+    parser.add_argument("--dev", action="store_true", help="Allow development version suffixes in __data_version__.")
+    args = parser.parse_args()
+    main(args.folder, is_dev=args.dev)

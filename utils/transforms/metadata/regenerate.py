@@ -11,8 +11,9 @@ import subprocess
 import sys
 from pathlib import Path
 import os
+import argparse
 
-def main():
+def main(is_dev: bool = False):
     """
     Orchestrates the metadata processing pipeline.
     """
@@ -65,7 +66,10 @@ def main():
 
         # 4. Zip metadata files
         print("--- Zipping metadata files ---")
-        subprocess.run(['python', str(zip_script), str(project_root)], check=True)
+        zip_command = ['python', str(zip_script), str(project_root)]
+        if is_dev:
+            zip_command.append('--dev')
+        subprocess.run(zip_command, check=True)
         print("")
 
         print("Metadata regeneration complete.")
@@ -75,4 +79,7 @@ def main():
         sys.exit(1)
 
 if __name__ == '__main__':
-    main()
+    parser = argparse.ArgumentParser(description="Run all metadata regeneration scripts.")
+    parser.add_argument("--dev", action="store_true", help="Allow development version suffixes for zipping.")
+    args = parser.parse_args()
+    main(is_dev=args.dev)
