@@ -20,7 +20,8 @@ def main():
     commands = [
         "python utils/transforms/metadata/regenerate.py",
         xml_regenerate_command,
-        "python utils/transforms/html/regenerate.py"
+        "python utils/transforms/html/regenerate.py",
+        "python utils/transforms/zip_texts.py"
     ]
 
     for command_str in commands:
