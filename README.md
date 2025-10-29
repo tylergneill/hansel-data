@@ -27,16 +27,20 @@ Once validated, the XML is converted into HTML using `utils/transforms/html/conv
 
 ## Versioning
 
-In addition to Git and GitHub's fine-grained versioning, changes to project-edition and metadata files are logged in the "Digitization Notes" and "Last Updated" metadata fields. The machine-actionable timestamps from the latter are aggregated into a single `data_version` value, equal the latest change date, and stored in the repository's `VERSION` file. Cumulative downloads include both this file and full metadata, complete with datestamps for individual items. Additional file history can be viewed directly on GitHub.
+In addition to Git and GitHub's fine-grained versioning, changes to project-edition and metadata files are logged in the "Digitization Notes" and "Last Updated" metadata fields. The machine-actionable timestamps from the latter are aggregated into a single `__data_version__` value, equal to the latest change date, and stored in the repository's `VERSION` file.
+
+The same `VERSION` file also records `__bundle_version__`, a Semantic Versioning identifier for the utility code and static data bundle produced by `utils/`. This number increments whenever the transformation tooling or generated outputs change.
+
+Cumulative downloads generated with the website include both the version file and full metadata, complete with datestamps for individual items. Additional file history can be viewed directly on GitHub.
 
 
-# Data Transform Maintenance
+# Data Transform Pipeline
  
-Transformations that generate the various output formats (TEI-XML, TXT, HTML, JSON) are managed by a coordinated set of Python scripts located in the `utils/transforms/` directory.
+Transformations that generate various file formats (TEI-XML, TXT, HTML, JSON) are managed by a coordinated set of Python scripts located in the `utils/transforms/` directory.
 
 The main entry point for regenerating all derivative data is `utils/transforms/regenerate_all.py`, which executes the following sequence:
 
-1.  `utils/transforms/metadata/regenerate.py`: Processes all metadata files, rendering Markdown metadata to HTML and consolidating them into a single JSON file.
+1.  `utils/transforms/metadata/regenerate.py`: Processes all metadata files, rendering each Markdown metadata file to HTML and also consolidating all of them into a single JSON file.
 2.  `utils/transforms/xml/regenerate.py --xml/--txt`: Converts processed plain-text files into TEI-XML `<text>` format or vice versa, depending on the mode flag. When run with `--xml`, it also updates the TEI headers in XML files using information from the corresponding Markdown metadata.
 3.  `utils/transforms/html/regenerate.py`: Converts TEI-XML files into HTML, producing both "rich" (the primary display format on the HANSEL website) and "plain" versions. The "plain" version is also embedded within the "rich" one to improve in-browser full-text search performance. 
 

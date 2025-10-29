@@ -1,9 +1,11 @@
 # Utils and Static Data Bundle
 
-This folder contains code that transforms HANSEL's core file types — project digital editions (`.txt`, `.xml`) and metadata (`.md`) — into derived formats (`.html`, `.json`).
+This directory contains the scripts and configuration that generate HANSEL's derived formats (HTML, JSON, etc.) from the curated project editions and metadata.
 
-## Versioning
+## Key Entry Points
 
-This repository's [VERSION file](https://github.com/tylergneill/hansel-data/blob/main/VERSION) contains two values:
-- `__data_version__`: a **datestamp** for the core data, corresponding to the latest "Last Updated" value found in the metadata
-- `__bundle_version__`: a **Semantic Versioning number** for this utility code and the transforms it produces, i.e., the static data bundle
+- `transforms/regenerate_all.py`: orchestrates regeneration of metadata, XML/text interchange, and HTML outputs. Requires either `--xml` or `--txt` to set the operating mode for the XML ↔ plaintext step.
+- `validation/validate.py`: runs structural (`-s`) and optional content (`-c`) checks on plain-text editions.
+- `metadata/render_md_to_html.py` and `metadata/jsonify_metadata.py`: produce the HTML and JSON bundles consumed by downstream applications.
+
+Additional context on how these pieces fit together, and on version numbering for the static data bundle, is presented in the [top-level repository README](https://github.com/tylergneill/hansel-data/blob/main/README.md).
