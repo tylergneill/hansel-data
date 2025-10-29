@@ -2,18 +2,17 @@
 """
 Runs all metadata processing scripts to regenerate cumulative files.
 1. Deletes old generated files.
-2. Renders Markdown to HTML.
-3. Consolidates Markdown metadata to JSON.
-4. Zips all metadata (.md, .html).
+2. Updates the data version.
+3. Renders Markdown to HTML.
+4. Consolidates Markdown metadata to JSON.
 """
 
 import subprocess
 import sys
 from pathlib import Path
 import os
-import argparse
 
-def main(is_dev: bool = False):
+def main():
     """
     Orchestrates the metadata processing pipeline.
     """
@@ -24,9 +23,9 @@ def main(is_dev: bool = False):
     cumulative_dir = metadata_dir / 'transforms' / 'cumulative'
     
     # Scripts
+    update_version_script = project_root / 'utils' / 'transforms' / 'metadata' / 'update_version.py'
     render_script = project_root / 'utils' / 'transforms' / 'metadata' / 'render_md_to_html.py'
     jsonify_script = project_root / 'utils' / 'transforms' / 'metadata' / 'jsonify_metadata.py'
-    zip_script = project_root / 'utils' / 'transforms' / 'metadata' / 'zip_metadata.py'
 
     # 1. Clean output directories
     print("--- Cleaning output directories ---")
@@ -45,31 +44,22 @@ def main(is_dev: bool = False):
         for f in cumulative_dir.glob('metadata_*.json'):
             os.remove(f)
             print(f"Deleted old version file: {f}")
-        for f in cumulative_dir.glob('metadata_md_*.zip'):
-            os.remove(f)
-            print(f"Deleted old version file: {f}")
-        for f in cumulative_dir.glob('metadata_html_*.zip'):
-            os.remove(f)
-            print(f"Deleted old version file: {f}")
     print("--- Cleaning complete ---\n")
 
     try:
-        # 2. Render Markdown to HTML
+        # 2. Update data version
+        print("--- Updating data version ---")
+        subprocess.run(['python', str(update_version_script)], check=True)
+        print("")
+
+        # 3. Render Markdown to HTML
         print("--- Rendering Markdown to HTML ---")
         subprocess.run(['python', str(render_script), str(project_root)], check=True)
         print("")
 
-        # 3. Consolidate metadata to JSON
+        # 4. Consolidate metadata to JSON
         print("--- Consolidating metadata to JSON ---")
         subprocess.run(['python', str(jsonify_script), str(project_root)], check=True)
-        print("")
-
-        # 4. Zip metadata files
-        print("--- Zipping metadata files ---")
-        zip_command = ['python', str(zip_script), str(project_root)]
-        if is_dev:
-            zip_command.append('--dev')
-        subprocess.run(zip_command, check=True)
         print("")
 
         print("Metadata regeneration complete.")
@@ -79,7 +69,4 @@ def main(is_dev: bool = False):
         sys.exit(1)
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description="Run all metadata regeneration scripts.")
-    parser.add_argument("--dev", action="store_true", help="Allow development version suffixes for zipping.")
-    args = parser.parse_args()
-    main(is_dev=args.dev)
+    main()
