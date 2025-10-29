@@ -67,7 +67,7 @@ def main():
             "script_name": 'utils/transforms/xml/convert_xml_to_plaintext.py',
             "in_dir": TEXTS_DIR / 'project_editions' / 'xml',
             "in_ext": '.xml',
-            "out_dir": Path('utils/transforms/xml/roundtrip_txt'),
+            "out_dir": TEXTS_DIR / 'project_editions' / 'txt',
             "out_ext": '.txt',
             "flag_map": flag_map,
         }
