@@ -63,7 +63,3 @@ From the plaintext source files, several additional data types are automatically
 - Using `utils.transforms.html.convert_xml_to_html`, XML is transformed into HTML, of two types:
   - "plain" is a simpler, search-friendly representation
   - "rich" is built for in-browser reading
-
-In addition, files of a given type within the project
-(original submissions, project digital edition plain-text and XML, HTML x2)
-are packaged together as `.zip` files for cumulative download.

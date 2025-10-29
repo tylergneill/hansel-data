@@ -154,7 +154,7 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
         metadata_ul = etree.SubElement(metadata_div, "ul", id="metadata-list")
         
         base_name = Path(xml_path).stem
-        metadata_md_path = Path('metadata') / f'{base_name}.md'
+        metadata_md_path = Path('metadata') / 'markdown' / f'{base_name}.md'
         if metadata_md_path.exists():
             md_content = metadata_md_path.read_text(encoding="utf-8")
             html_content = markdown.markdown(md_content, extensions=['tables', 'fenced_code'])

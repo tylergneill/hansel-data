@@ -15,7 +15,7 @@ def main():
     project_root = Path(__file__).resolve().parent.parent.parent.parent
 
     # 1. Find the latest date from all metadata files
-    metadata_dir = project_root / 'metadata'
+    metadata_dir = project_root / 'metadata' / 'markdown'
     md_files = list(metadata_dir.glob('*.md'))
 
     latest_date = ""

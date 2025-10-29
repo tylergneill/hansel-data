@@ -24,15 +24,15 @@ HTML_WRAPPER = """<!DOCTYPE html>
 
 def main(root_folder='.'):
     project_root = Path(root_folder).resolve()
-    md_dir = project_root / 'metadata'
-    out_dir = md_dir / 'transforms' / 'html'
+    markdown_in_dir = project_root / 'metadata' / 'markdown'
+    html_out_dir = project_root / 'metadata' / 'transforms' / 'html'
 
     # Make sure output dir exists
-    out_dir.mkdir(parents=True, exist_ok=True)
+    html_out_dir.mkdir(parents=True, exist_ok=True)
 
-    md_files = list(md_dir.glob("*.md"))
+    md_files = list(markdown_in_dir.glob("*.md"))
     if not md_files:
-        print(f"No .md files found in {md_dir}")
+        print(f"No .md files found in {markdown_in_dir}")
         return
 
     for md_file in md_files:
@@ -42,7 +42,7 @@ def main(root_folder='.'):
 
         wrapped_html = HTML_WRAPPER.format(title=T.transliterate(md_file.stem), body=html_body)
 
-        out_file = out_dir / (md_file.stem + ".html")
+        out_file = html_out_dir / (md_file.stem + ".html")
         out_file.write_text(wrapped_html, encoding="utf-8")
         print(f"Rendered {md_file.relative_to(project_root)} -> {out_file.relative_to(project_root)}")
 
