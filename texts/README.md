@@ -14,7 +14,7 @@ Curated project editions live in `project_editions/xml/` and `project_editions/t
 
 Together, these co-editions are streamlined for consistent NLP processing, manually proofed over time, and validated before publication. Validation currently includes:
 - schema validation of XML against the SARIT Simple profile
-- structural checks of plain-text via `utils/validation/validate.py -s`
+- structural checks of plain-text via `utils/validation/txt/validate.py -s`
 
 Metadata about editorial state and outstanding tasks is recorded in the corresponding files under `metadata/markdown`.
 

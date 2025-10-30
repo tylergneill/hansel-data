@@ -19,7 +19,7 @@ The library curator (Tyler) then manually converts each submission into standard
 
 A corresponding metadata file in `metadata/markdown` serves as the source of truth for bibliographic and versioning information. The XML `<teiHeader>` is populated from a subset of fields in these Markdown files using `utils/transforms/xml/convert_markdown_to_xml.py`.
 
-The XML `<teiHeader>` and `<text>` are validated against RELAX NG and Schematron schemas generated from the SARIT Simple `.odd` file. The plain-text files are validated with the internal tool `utils/validation/validate.py` with the `-s` (structure) flag, and optionally the `-c` (content) flag, which analyzes n-gram frequencies. These two working formats (XML and plain-text) are guaranteed to be fully round-trip convertible using `utils/transforms/xml/convert_plaintext_to_xml.py` and `utils/transforms/xml/convert_xml_to_plaintext.py`.
+The XML `<teiHeader>` and `<text>` are validated against RELAX NG and Schematron schemas generated from the SARIT Simple `.odd` file. The plain-text files are validated with the internal tool `utils/validation/txt/validate.py` with the `-s` (structure) flag, and optionally the `-c` (content) flag, which analyzes n-gram frequencies. These two working formats (XML and plain-text) are guaranteed to be fully round-trip convertible using `utils/transforms/xml/convert_plaintext_to_xml.py` and `utils/transforms/xml/convert_xml_to_plaintext.py`.
 
 ## Transforms
 

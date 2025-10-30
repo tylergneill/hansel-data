@@ -41,7 +41,7 @@ and against empirically-calibrated frequency expectations for all possible chara
 
 To see these transforms and validations in action,
 anyone can clone the repo and execute the Python scripts
-in `utils/transforms/xml` and in `utils/validation`, respectively.
+in `utils/transforms/xml` and in `utils/validation/txt`, respectively.
 
 
 # Examples
