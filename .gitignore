@@ -54,6 +54,11 @@ venv*/
 # macOS
 .DS_Store
 
-utils/validation/tmp/bracketless_content.txt
+utils/validation/txt/tmp/bracketless_content.txt
 
 GEMINI.md
+
+# Oxygen
+*.xpr
+utils/validation/xml/oxygen_comparison/*.txt
+utils/validation/xml/oxygen_comparison/*.csv

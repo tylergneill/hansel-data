@@ -1,50 +1,59 @@
 # HANSEL: Human-Accessible and NLP-ready Sanskrit E-Text Library
 
-A companion project to the now-defunct GRETIL.
+A companion project to GRETIL.
 
-HANSEL is a Sanskrit e-text library. 
-It is also a website giving access to that library. 
+HANSEL is a Sanskrit e-text library. It is also a website giving access to that library. 
 
-This repo contains the library data and code.
-[Another repo](https://github.com/tylergneill/hansel-app) contains code for the website..
+This repo contains the library data and code. [Another repo](https://github.com/tylergneill/hansel-app) contains code for the website.
 
-# Data Repo Concept and Structure
 
-Users submit e-text material to HANSEL via email (`hanselrepository@gmail`) in any format that they like.
-These are preserved in `texts/originals`.
+# Data Repository Concept and Structure
 
-The project maintainer manually converts this content into a plain-text file.
-This is stored in `texts/processed_txt`,
-and a corresponding metadata file, in Markdown, is stored in `metadata`.
+## Submission
 
-The plain-text file is structurally reworked until it passes `utils.validation.validate -s`.
-It is then transformed into TEI-XML with `utils.transforms.xml.convert_plaintext_to_xml`.
-The quality of this XML representation is tested by converting it round-trip back to plain-text
-with `utils.transforms.xml.convert_xml_to_plaintext`.
-This constitutes structural validation.
+First-time users submit e-text material to HANSEL through the website contact form (or later by email) in whatever format they prefer. These submitted files are preserved in `texts/original_submissions` and made available on the website as received.
 
-The XML can then be transformed into more usable HTML with `utils.transforms.html.convert_xml_to_html`.
+## Project Editions and Metadata
 
-All file types are zipped together using `utils.transforms.zip_texts`.
+The library curator (Tyler) then manually converts each submission into standardized formats (`texts/project_editions/txt`, `texts/project_editions/xml`) compatible with HANSEL's automated system. These living digital documents, subject to ongoing manual refinement and carefully versioned for accurate citation, constitute HANSEL's project editions.
 
-Metadata is also transformed to HTML, with `utils.metadata.render_md_to_html`,
-and consolidated in two ways: `utils.metadata.zip_metadata` and `utils.metadata.jsonify_metadata`.
+A corresponding metadata file in `metadata/markdown` serves as the source of truth for bibliographic and versioning information. The XML `<teiHeader>` is populated from a subset of fields in these Markdown files using `utils/transforms/xml/convert_markdown_to_xml.py`.
 
-All file consolidations are packaged with the latest `VERSION` file,
-which is bumped to the current date whenever there are changes to core data (`originals`, `processed_txt`, `metadata`).
-Derivatives (XML, HTML, JSON, zips) are automatically ensured to have the latest `VERSION` and regenerated as needed.
+The XML `<teiHeader>` and `<text>` are validated against RELAX NG and Schematron schemas generated from the SARIT Simple `.odd` file. The plain-text files are validated with the internal tool `utils/validation/txt/validate.py` with the `-s` (structure) flag, and optionally the `-c` (content) flag, which analyzes n-gram frequencies. These two working formats (XML and plain-text) are guaranteed to be fully round-trip convertible using `utils/transforms/xml/convert_plaintext_to_xml.py` and `utils/transforms/xml/convert_xml_to_plaintext.py`.
+
+## Transforms
+
+Once validated, the XML is converted into HTML using `utils/transforms/html/convert_xml_to_html.py`. Metadata is transformed into HTML with `utils/metadata/render_md_to_html.py` and also consolidated into JSON using `utils/metadata/jsonify_metadata.py`. These transformation scripts reside in `texts/transforms` and `metadata/transforms`, respectively.
+
+## Versioning
+
+In addition to Git and GitHub's fine-grained versioning, changes to project-edition and metadata files are logged in the "Digitization Notes" and "Last Updated" metadata fields. The machine-actionable timestamps from the latter are aggregated into a single `__data_version__` value, equal to the latest change date, and stored in the repository's `VERSION` file.
+
+The same `VERSION` file also records `__bundle_version__`, a Semantic Versioning identifier for the utility code and static data bundle produced by `utils/`. This number increments whenever the transformation tooling or generated outputs change.
+
+Cumulative downloads generated with the website include both the version file and full metadata, complete with datestamps for individual items. Additional file history can be viewed directly on GitHub.
+
+
+# Data Transform Pipeline
+ 
+Transformations that generate various file formats (TEI-XML, TXT, HTML, JSON) are managed by a coordinated set of Python scripts located in the `utils/transforms/` directory.
+
+The main entry point for regenerating all derivative data is `utils/transforms/regenerate_all.py`, which executes the following sequence:
+
+1.  `utils/transforms/metadata/regenerate.py`: Processes all metadata files, rendering each Markdown metadata file to HTML and also consolidating all of them into a single JSON file.
+2.  `utils/transforms/xml/regenerate.py --xml/--txt`: Converts processed plain-text files into TEI-XML `<text>` format or vice versa, depending on the mode flag. When run with `--xml`, it also updates the TEI headers in XML files using information from the corresponding Markdown metadata.
+3.  `utils/transforms/html/regenerate.py`: Converts TEI-XML files into HTML, producing both "rich" (the primary display format on the HANSEL website) and "plain" versions. The "plain" version is also embedded within the "rich" one to improve in-browser full-text search performance. 
+
+Note that `utils/transforms/regenerate_all.py` also requires the `--xml` or `--txt` flag to determine the operating mode for `utils/transforms/xml/regenerate.py`.
 
 # Integration with App Repo
 
-The web app repo has a dummy data folder `static/data` for local dev testing.
-At actual runtime, the `docker run` option `-v, --volume` overwrites the dummy data 
-by mounting a local clone of this data repo.  
+The web app repository includes a dummy data folder at `static/data` for local development and testing. At runtime, Docker's `-v, --volume` option mounts a clone of the actual data repository from a local path, either on a developer's machine or the cloud-based public server.
 
-See dev instructions at https://github.com/tylergneill/hansel-app for more info.
+Find dev instructions for the app at https://github.com/tylergneill/hansel-app.
 
 # Curation and Governance
 
-During HANSEL's initial phase, the creator will oversee all repository activities.
+During HANSEL's initial phase, the project creator (Tyler) will oversee all repository activity.
 
-Once HANSEL has been operating and accepting contributions for a few years,
-control will be distributed more widely to a team of experts.
+After the project has been running and accepting contributions for some time (on the order of a few years), stewardship will gradually be distributed among a broader team of experts.

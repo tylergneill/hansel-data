@@ -13,6 +13,12 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
     """
     parser = etree.XMLParser(remove_blank_text=True)
     tree = etree.parse(xml_path, parser)
+
+    # Strip unhelpful namespace info from the tree in-memory
+    for elem in tree.iter():
+        if '}' in elem.tag:
+            elem.tag = elem.tag.split('}', 1)[1]
+
     root = tree.getroot()
 
     # --- 1. TOC Data Collection (rich mode only) ---
@@ -148,7 +154,7 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
         metadata_ul = etree.SubElement(metadata_div, "ul", id="metadata-list")
         
         base_name = Path(xml_path).stem
-        metadata_md_path = Path('metadata') / f'{base_name}.md'
+        metadata_md_path = Path('metadata') / 'markdown' / f'{base_name}.md'
         if metadata_md_path.exists():
             md_content = metadata_md_path.read_text(encoding="utf-8")
             html_content = markdown.markdown(md_content, extensions=['tables', 'fenced_code'])

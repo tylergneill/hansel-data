@@ -1,0 +1,1 @@
+<p>Prose paragraphs are enclosed in the normal <tag>p</tag> tags. Verse passages are enclosed in line-group tag <tag>lg</tag>, with one parent <tag>lg</tag> for groups of verses, and verse halves are individually tagged with <tag>l</tag>. <tag>p</tag> and parent <tag>lg</tag> have location markers.</p>

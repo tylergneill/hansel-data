@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:lang="en" xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title type="main">{{TITLE}}</title>
+        <title type="sub">A HANSEL edition</title>
+        <!-- DUPLICATE FOR MORE AUTHORS -->
+        <author>{{AUTHOR_1}}</author>
+        <!-- DUPLICATE FOR MORE CONTRIBUTORS -->
+        <respStmt>
+          <persName>{{RESP_NAME_1}}</persName>
+          <resp>{{RESP_ROLE_DESCRIPTION_1}}</resp>
+        </respStmt>
+
+      </titleStmt>
+
+      <publicationStmt>
+        <authority>HANSEL: Human-Accessible NLP-ready Sanskrit E-text Library</authority>
+
+        <!-- DEFAULT, OVERRIDE IF NEEDED -->
+        <availability status="restricted">
+          {{LICENSE}}
+        </availability>
+
+        <date when="{{PUB_DATE_ISO}}">{{PUB_DATE_HUMAN}}</date>
+      </publicationStmt>
+
+      <notesStmt>
+        <note>{{WORK_DESCRIPTION}}</note>
+      </notesStmt>
+
+      <sourceDesc>
+        <bibl>
+          <title>{{EDITION_TITLE}}</title>
+          <editor>{{EDITION_EDITOR}}</editor>
+          <imprint>
+            <publisher>{{EDITION_PUBLISHER}}</publisher>
+            <pubPlace>{{EDITION_PLACE}}</pubPlace>
+            <date>{{EDITION_YEAR}}</date>
+          </imprint>
+        </bibl>
+        <series>
+          <title level="s">{{SERIES_TITLE}}</title>
+          <biblScope>{{SERIES_PART}}</biblScope>
+        </series>
+        <note>{{IMPRINT_NOTE}}</note>
+      </sourceDesc>
+    </fileDesc>
+
+    <encodingDesc>
+      <editorialDecl>
+        <p id="file-creation-method">{{FILE_CREATION_METHOD}}</p>
+        <p id="transliteration">
+          The source edition is printed in Devanāgarī; the electronic text uses lossless IAST transliteration.
+          IAST differs slightly from ISO 15919; conversion can be achieved via:
+          <list>
+            <item><code>ṛ → r̥</code></item>
+            <item><code>ḷ → l̥</code></item>
+            <item><code>ḻ → ḷ</code></item>
+            <item><code>ṃ → ṁ</code></item>
+            <item><code>e → ē</code></item>
+            <item><code>o → ō</code></item>
+          </list>
+        </p>
+        <p id="word-division">{{WORD_DIVISION_STYLE}}</p>
+        <p id="error-markup">
+          Corrections and uncertainties:
+          <list>
+            <item>Replacement: <choice><sic>before</sic><corr>after</corr></choice></item>
+            <item>Deletion: <del/></item>
+            <item>Addition: <supplied/></item>
+            <item>Unclear: <unclear/></item>
+          </list>
+        </p>
+        <p id="intermediate-textual-units">{{INTERMEDIATE_TEXTUAL_UNITS}}.</p>
+      </editorialDecl>
+    </encodingDesc>
+
+    <revisionDesc>
+      <!-- DUPLICATE <change>…</change> FOR MORE CONTRIBUTIONS -->
+      <change when="{{CHANGE_DATE_1}}" who="{{CHANGE_WHO_1}}" ana="hansel-contributor">{{CHANGE_DESC_1}}</change>
+    </revisionDesc>
+  </teiHeader>
+</TEI>

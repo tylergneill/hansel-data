@@ -1,10 +1,10 @@
 # Utils and Static Data Bundle
 
-This folder contains code that generates additional data types 
-from HANSEL's core files (originals, processed plain text, and Markdown metadata).
+This directory contains the scripts and configuration that generate HANSEL's derived formats (HTML, JSON, etc.) from the curated project editions and metadata.
 
-## Versioning
+## Key Entry Points
 
-While the core data is versioned with a simple datestamp,
-this utility code and the data it generates are versioned separately using Semantic Versioning.
-Both versions are recorded in the project's `VERSION` file.
+- `transforms/regenerate_all.py`: orchestrates regeneration of metadata, XML/text interchange, and HTML outputs. Requires either `--xml` or `--txt` to set the operating mode for the XML ↔ plaintext step.
+- `validation/txt/validate.py`: runs structural (`-s`) and optional content (`-c`) checks on plain-text editions.
+
+Additional context on how these pieces fit together, and on version numbering for the static data bundle, is presented in the [top-level repository README](https://github.com/tylergneill/hansel-data/blob/main/README.md).

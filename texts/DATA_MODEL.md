@@ -1,153 +1,69 @@
-# Data Model Origin and Purpose
+# HANSEL Text Data Model
 
-HANSEL's Sanskrit e-text data model, based on plaintext, originates in the Pramāṇa NLP project.
+HANSEL maintains two co-equal, losslessly convertible representations of its digital editions: TEI-XML and lightly marked-up plain-text. Via the TEI-XML, they are validated against the SARIT "Simple" schema (`schemas/sarit.rng` + `schemas/sarit.isosch`) by the workflows in `utils/validation/xml/`.
 
-It focuses primarily on representing the following:
-- printed editions — NOT manuscripts or born-digital editions
-- single-work texts — NOT books with multiple works typeset in parallel
-- natural language — NOT philological detail like notes, apparatus, etc.
-- diplomatic transcription that e.g. OCR would see — NOT born-digital improvements
- 
-These latter things aren't necessarily precluded by the data model,
-but insofar as it supports them, they are secondary.
+Within that schema, the project focuses on a subset of possible text representations:
 
-The goal is to have e-texts that are both useful for humans
-(readable and easy to cross-reference against source material)
-and consistently structured for machines
-(automatically parsable, with unique identifiers).
-They should also be easy to compare against fresh OCR output,
-in order to enable continuous improvement.
-For this latter reason, these e-texts tend toward line-by-line representation.
+- printed editions rather than manuscripts or born-digital editions
+- single-work texts instead of multi-work books typeset in parallel
+- continuous running text, omitting critical apparatus or dense philological notes
+- diplomatic transcription supplemented only by explicit editorial markup (`≤...≥`, `«...»`, etc.)
 
+The goal is to keep texts legible and easy to cross-reference while still being machine-actionable with stable identifiers. Close alignment with the printed page also keeps the corpus comparable to fresh OCR output, so line-by-line representation is prioritized whenever possible.
 
-# Embodiment through Validation and Conversion Processes
+## TEI-XML and Plain-text Elements
 
-In addition to this document, which describes the data model in words,
-and a small number of initial documents to exemplify it (see below),
-the data model is best expressed though 1) the data repository's included
-plaintext-XML roundtrip conversion process and 2) automatic validation,
-as explained below.
+| TEI-XML                                      | Plain-text                                                                                                                                     | Notes                                                                                                                                                                                                                                             |
+|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `<div n="section title">`                    | Curly-bracket `{section title}` on its own line                                                                                                | Begins a logical division, which is never nested.                                                                                                                                                                                                 |
+| `<p n="location">`                           | Square-bracket `[location]` on its own line                                                                                                    | Begins a prose paragraph.                                                                                                                                                                                                                         |
+| `<lg n="location"><l>...</l></lg>`           | *Standard mode:* square-bracket `[location]` on its own line.<br/><br/>*Verse-only mode:* `[location]` + tab + verse material on the same line | Begins a verse group.<br/><br/>*Standard mode:* location info recorded at verse-group level, for which a parent `<lg>` is used.<br/><br/>*Verse-only mode:* location info recorded at the sub-verse level.<br/><br/><l> is for a verse half.      |
+| `<caesura/>`                                 | Tabs within verse halves.                                                                                                                      | Marks *yati* breaks between *pādas*.                                                                                                                                                                                                              |
+| `<head>`                                     | Trailing `_` at line end                                                                                                                       | For brief prose preceding verse, e.g., `uktaṃ ca                                                                                                                                                                                                  |_`.                                                                                                                                        |
+| `<back>`                                     | Verse line followed by prose after `\|\|`                                                                                                      | E.g., "\|\| iti \|"                                                                                                                                                                           |
+| `<pb n="123">` plus `<lb>` sequence          | `<123>` or `<123,45>`, either on its own line or inline.                                                                                       | Records numerical page (and optionally line) break info.<br/><br/>Attribute `break="no"` corresponds to hyphenated line ending set.                                                                                                               |
+| `<milestone n="additional structural info">` | `<additional structural info>`                                                                                                                 | Edition-specific, e.g., super-sections.                                                                                                                                                                                                           |
+| `<note>`                                     | Parentheses `(text)`                                                                                                                           | Ancillary in-line remarks that do not belong to the text.                                                                                                                                                                                         |
+| `<choice>/<sic>/<corr>` and related          | Editorial brackets<br/>`≤...≥`<br/>`«...»`<br/>`¿...¿`                                                                                         | See "Editorial markup and interpretation" below.                                                                                                                                                                                                  |
 
-1. Texts most validly express the data model
-insofar as they successfully survive automatic transformations from plaintext to XML —
-this XML can then be used to render HTML for web presentation, etc. —
-and back again from the produced XML to plaintext, which should match the original.
+## Verse-only vs. standard orientations
 
-2. A structural validation script can also detect basic model violations.
-Also, insofar as structure can be automatically isolated from content for this purpose,
-validation can then also check the (IAST) Sanskrit content of the files.
-It does this by comparing file content both against a set of allowed characters
-and against empirically-calibrated frequency expectations for all possible character combinations (n-grams).
+The data model has two structural formats, depending on the dominance of numbered verse:
+1. Verse-only: oriented toward verse/aphorism numbering
+2. Standard (any mix of prose +/- verse): oriented toward physical features of edition
 
-To see these transforms and validations in action,
-anyone can clone the repo and execute the Python scripts
-in `utils/transforms/xml` and in `utils/validation`, respectively.
+Location markers drive both formats. In mixed verse-and-prose texts, not only page breaks but also all line breaks are recorded. Using this info, it is `<p>` and (parent) `<lg>` elements that carry unique identifiers of the `page,line` type. This follows academic practice and facilitates efficient cross-reference. By contrast, in verse-only texts, location info recorded at the verse or sub-verse level is the primary mode of reference. Page numbers are also marked but hold secondary status, while line breaks are not marked.
 
+Some mixed verse-and-prose texts may alternate constantly between a base layer with numbered verses or aphorisms and a prose commentarial layer. In such cases, section markers (`<div n="section title">` and `{section title}`) can be used liberally to mark each base/commentary pairing by the base's logical numbering, while location markers ( `<p n="location">`/`<lg n="location">` and `[location]`) can mark page and line for each of the base and commentary components.
 
-# Examples
+## Editorial markup and interpretation
 
-The first files included in the repository serve as examples:
-- Bāṇa's _Kādmabarī_
-- Kumārila's _Ślokavārtika_
-- _Śukasaptati Simplicior_
-- _Śukasaptati Ornatior_
+A small set of bracket conventions keeps editorial decisions explicit:
 
+- `<choice><sic>sic</sic><corr>corr</corr></choice>` = `≤sic≥«corr»` 
+- `<del>text</del>` = `≤text≥` 
+- `<supplied>text</supplied>` = `«text»` 
+- `<unclear>text</unclear>` = `¿text¿`
 
-# Markup Scheme
+Symbols found in printed editions should be interpreted into one of these patterns. This departs slightly from HANSEL's otherwise strictly diplomatic standard for the sake of clearly signalling interpretive stances.
 
-## Structural Markup
+## Validation workflow
 
-HANSEL data is typified by plaintext structural markers preceding textual content.
-The primary markers and what they correspond to in TEI-XML are:
-- Section markers `{...}` (on own line only) → `<div>` (flat, never nested)
-- Location markers `[...]` (either on own line or in-line with tab-separation) → either `<p>` or `<lg>` (latter can nest x1 for groups).
-- Tab `\t` indent → `<lg>`/`<l>`
-- Page markers `<page[col][,line]>` → `<pb>`, (possibly also `<cb>`, `<lb>`) (with `n` attribute)
+- TEI view: run `make` (or `make compare`) in `utils/validation/xml/` to execute RELAX NG and Schematron checks across `texts/project_editions/xml`.
+- Plain-text view: validate structure with `utils/validation/txt/validate.py -s` and optionally profile content with `-c` (n-gram analysis).
+- Format parity: `utils/transforms/xml/regenerate.py` supports both `--xml` and `--txt` modes to confirm round-trip fidelity between the two representations.
 
-The location marker `[...]` is the heart of the structural markup,
-constituting a unique identifier for each part of the text.
-Typical scopes are a prose paragraph
-(in which case the label inside the `[...]` marker is `page,starting_line_number`)
-or a verse or group of verses
-(in which case the label is either `page,starting_line_number` or the verse number).
+## Character set and punctuation
 
-Further structural notes use `<...>` → `<milestone>` (with `n` attribute).
+HANSEL texts use IAST with pre-composed characters (for example, the single-codepoint `ṝ` rather than the three-codepoint stacking combination). HANSEL prefers `ṃ ṛ ḷ e o` over ISO 15919 `ṁ r̥ l̥ ē ō`, and the extended set `ḻ ẖ ḫ ṁl` represents `ळ ᳵ ᳶ लँ`. For Prakrit, diaeresis `¨` is used for post-hiatus vowels that would otherwise be ambiguous with Sanskrit (e.g., `jaïo`) and breve `˘` is used to explicit short vowels `ĕ ŏ`.
 
-For handling short bits of prose or annotations closely associated with verse material (e.g., closing iti):
-  - Material preceding/following on same lines as verse material represented by `<head>/<back>`, respectively
-  - Head-material on a preceding line can be manually associated with verse material below by using trailing underscore `_`, e.g., "uktaṃ ca |_".
+The website provides transliteration options via the Sanscript JavaScript package.
 
-Line-end markup is interpreted strictly:
-- Newline `\n` → `<lb>` (with `n` attribute)
-- Hyphen `-` → `break="no"` attribute for `<pb>` and `<lb>` (and `<cb>`)
+Punctuation conventions:
 
-A `--line-by-line` option in the XML conversion gives control 
-over handling of this line-end information.
-So too is there a script, `utils/transforms/process_hyphens.py`, 
-which will automatically drop them from plaintext.
+- vertical bar `|` for the daṇḍa (`। ॥`)
+- apostrophe `'` reserved for avagraha `ऽ`
+- em dash `—` for syntactic breaks, en dash `–` for ranges, hyphen `-` for line-break continuations
+- underscore `_` for pending `<head>` material as described above
 
-
-## Editorial Markup
-
-The data model also includes editorial bracket sets that describe the evolving e-text itself, NOT the printed edition source:
-- `≤...≥` is _ante-correctionem_ (to be deleted)
-- `«...»` is _post-correctionem_ (to be kept)
-- `¿...¿` is a doubtful reading (also to be kept but suspected of being mistaken)
-- Notes `(...)` → `<note>` (any other sort of note not directly helping to establish the author's natural-language flow)
-
-Editorial markup as found in the printed edition itself 
-should be *interpreted* and *re-represented* in one of the above ways. 
-E.g., if the editor used "[...]" for an unwanted interpolation 
-or "(...)" to suggest a correction for some number of _akṣaras_, 
-these would need to be interpreted with `≤...≥` 
-and a combination of `≤...≥«...»` (around the correct number of _akṣaras_), respectively.
-This constitutes an exception to the diplomatic transcription policy. 
-
-In this way, to a limited extent, these editorial markup elements allows for ongoing improvement of the material
-alongside the goal of retaining fidelity to a less-refined version of the text as presented in the source.
-
-NB: The special characters above can be easily typed on Mac using the option `⌥` key +
-comma `,`, period `.`, backslash `\`, vertical bar `|`, and question mark `?`, respectively.
-
-
-## Verse vs. Prose, Logical vs. Physical Orientation
-
-The data model has two structural flavors, depending on the dominance of numbered verse:
-1. Strictly numbered verse - primarily oriented toward verse numbering
-2. Anything else (prose/verse) - primarily oriented toward physical features of edition
-
-A strictly-numbered, verse-only text basically has two tab-separated columns:
-logical verse identifiers on the left, text on the right.
-Edition page numbers are recorded for reference purposes,
-but they are not used for location markers.
-
-For texts without this kind of numbered-verse structure
-(e.g., verse base text + commentary, _śāstric_ treatise, _gadyakāvya_, or even unnumbered verse)
-structure must instead orient to the physical features of the edition:
-page and line numbers for the beginning of each paragraph.
-This reflects academic practice.
-
-NB: Section markers `{...}` can be used liberally to e.g.,
-divide a prose commentary according to the numbered verses of the base text
-on which it relies.
-
-Especially in conjunction with the latter type,
-line-by-line diplomatic representation, complete with line-final hyphenation,
-enables later automatic derivation of line number information for the purpose of creating location markers,
-freeing the transcriber from the burden of manually counting lines during digitization.
-
-
-# Character Set
-
-The transliteration scheme used is IAST, with the following preferences:
-- pre-composed characters (e.g., single-character `ṝ` rather than triple-character `ṝ`)
-- standard IAST `ṃ ṛ ḷ e o` (rather than ISO 15919 `ṁ r̥ l̥ ē ō`)
-- special chars `ḻ ẖ ḫ ṁl` for `ळ ᳵ ᳶ लँ`
-- lowercase except for e.g. emphasis of proper names or indication of grammatical _anubandhas_
-- Prakrit: diaresis `¨`for otherwise ambiguous intra-word vowel hiatus (e.g., jaïo), breve `˘` for short vowels (ĕ ŏ)
-
-Punctuation preferences:
-- simple ASCII vertical bar `|` for _daṇḍa_ (`। ॥`)
-- simple apostrophe `'` reserved for _avagraha_ `ऽ` rather than quotation
-- em-dash `—` for syntax breaks, en-dash `–` for ranges, hyphen `-` reserved for line-final word-breaks
-- underscore `_` for pending `<head>` material (see above)
+On macOS you can enter the editorial brackets with Option + , (`≤`), Option + . (`≥`), Option + \ (`«`), Option + Shift + \ (`»`), and Option + Shift + ? (`¿`).

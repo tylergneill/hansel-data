@@ -50,7 +50,7 @@ def parse_markdown(path: Path) -> dict:
     return meta
 
 def get_file_extension(filename_without_extension):
-    search_folder = './texts/originals'
+    search_folder = './texts/original_submissions'
     for item in os.listdir(search_folder):
         base_name, extension = os.path.splitext(item)
         if base_name.lower() == filename_without_extension.lower():
@@ -58,7 +58,7 @@ def get_file_extension(filename_without_extension):
 
 def main(folder: str):
     root = Path(folder)
-    metadata_folder = root / 'metadata'
+    metadata_markdown_in_dir = root / 'metadata' / 'markdown'
 
     # Get version
     version_file = root / 'VERSION'
@@ -69,7 +69,7 @@ def main(folder: str):
     version = version_content.splitlines()[0].split('"')[1]
 
     consolidated = {}
-    for md in metadata_folder.glob('*.md'):
+    for md in metadata_markdown_in_dir.glob('*.md'):
         record = parse_markdown(md)
         translit_key = T.transliterate(md.stem)
         consolidated[translit_key] = record
@@ -80,15 +80,15 @@ def main(folder: str):
         consolidated[k]['File Size (KB)'] = float(consolidated[k]['File Size (KB)'])
 
         # detect and store original file type
-        consolidated[k]['Original Filetype'] = get_file_extension(consolidated[k]['Filename'])
+        consolidated[k]['Original Submission Filetype'] = get_file_extension(consolidated[k]['Filename'])
 
     # Add version to the consolidated data
     consolidated['version'] = version
 
-    metadata_file = metadata_folder / 'transforms' / 'cumulative' / 'metadata.json'
-    metadata_file.write_text(json.dumps(consolidated, ensure_ascii=False, indent=2),
+    metadata_json_file = root / 'metadata' / 'transforms' / 'metadata.json'
+    metadata_json_file.write_text(json.dumps(consolidated, ensure_ascii=False, indent=2),
                    encoding='utf-8')
-    print(f'Wrote {metadata_file} ({len(consolidated)} files).')
+    print(f'Wrote {metadata_json_file} ({len(consolidated)} files).')
 
 if __name__ == '__main__':
     main(sys.argv[1] if len(sys.argv) > 1 else '.')
