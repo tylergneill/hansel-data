@@ -57,3 +57,8 @@ venv*/
 utils/validation/txt/tmp/bracketless_content.txt
 
 GEMINI.md
+
+# Oxygen
+*.xpr
+utils/validation/xml/oxygen_comparison/*.txt
+utils/validation/xml/oxygen_comparison/*.csv
