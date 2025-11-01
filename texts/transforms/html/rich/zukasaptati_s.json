@@ -1,0 +1,494 @@
+{
+    "title": "zukasaptati_s",
+    "toc": [
+        {
+            "name": "1",
+            "page": "1",
+            "id": "1"
+        },
+        {
+            "name": "2",
+            "page": "9",
+            "id": "2"
+        },
+        {
+            "name": "3",
+            "page": "12",
+            "id": "3"
+        },
+        {
+            "name": "4",
+            "page": "14",
+            "id": "4"
+        },
+        {
+            "name": "5",
+            "page": "19",
+            "id": "5"
+        },
+        {
+            "name": "6",
+            "page": "25",
+            "id": "6"
+        },
+        {
+            "name": "7",
+            "page": "31",
+            "id": "7"
+        },
+        {
+            "name": "8",
+            "page": "37",
+            "id": "8"
+        },
+        {
+            "name": "9",
+            "page": "39",
+            "id": "9"
+        },
+        {
+            "name": "10",
+            "page": "44",
+            "id": "10"
+        },
+        {
+            "name": "11",
+            "page": "45",
+            "id": "11"
+        },
+        {
+            "name": "12",
+            "page": "51",
+            "id": "12"
+        },
+        {
+            "name": "13",
+            "page": "53",
+            "id": "13"
+        },
+        {
+            "name": "14",
+            "page": "54",
+            "id": "14"
+        },
+        {
+            "name": "15",
+            "page": "57",
+            "id": "15"
+        },
+        {
+            "name": "16",
+            "page": "60",
+            "id": "16"
+        },
+        {
+            "name": "17",
+            "page": "62",
+            "id": "17"
+        },
+        {
+            "name": "18",
+            "page": "65",
+            "id": "18"
+        },
+        {
+            "name": "19",
+            "page": "66",
+            "id": "19"
+        },
+        {
+            "name": "20",
+            "page": "68",
+            "id": "20"
+        },
+        {
+            "name": "21",
+            "page": "69",
+            "id": "21"
+        },
+        {
+            "name": "22",
+            "page": "74",
+            "id": "22"
+        },
+        {
+            "name": "23",
+            "page": "76",
+            "id": "23"
+        },
+        {
+            "name": "24",
+            "page": "90",
+            "id": "24"
+        },
+        {
+            "name": "25",
+            "page": "92",
+            "id": "25"
+        },
+        {
+            "name": "26",
+            "page": "93",
+            "id": "26"
+        },
+        {
+            "name": "27",
+            "page": "95",
+            "id": "27"
+        },
+        {
+            "name": "28",
+            "page": "96",
+            "id": "28"
+        },
+        {
+            "name": "29",
+            "page": "98",
+            "id": "29"
+        },
+        {
+            "name": "30",
+            "page": "99",
+            "id": "30"
+        },
+        {
+            "name": "31",
+            "page": "100",
+            "id": "31"
+        },
+        {
+            "name": "32",
+            "page": "102",
+            "id": "32"
+        },
+        {
+            "name": "33",
+            "page": "104",
+            "id": "33"
+        },
+        {
+            "name": "34",
+            "page": "107",
+            "id": "34"
+        },
+        {
+            "name": "35",
+            "page": "109",
+            "id": "35"
+        },
+        {
+            "name": "36",
+            "page": "111",
+            "id": "36"
+        },
+        {
+            "name": "37",
+            "page": "113",
+            "id": "37"
+        },
+        {
+            "name": "38",
+            "page": "115",
+            "id": "38"
+        },
+        {
+            "name": "39",
+            "page": "117",
+            "id": "39"
+        },
+        {
+            "name": "40",
+            "page": "120",
+            "id": "40"
+        },
+        {
+            "name": "41",
+            "page": "122",
+            "id": "41"
+        },
+        {
+            "name": "42",
+            "page": "126",
+            "id": "42"
+        },
+        {
+            "name": "43",
+            "page": "129",
+            "id": "43"
+        },
+        {
+            "name": "44",
+            "page": "131",
+            "id": "44"
+        },
+        {
+            "name": "45",
+            "page": "132",
+            "id": "45"
+        },
+        {
+            "name": "46",
+            "page": "135",
+            "id": "46"
+        },
+        {
+            "name": "47",
+            "page": "137",
+            "id": "47"
+        },
+        {
+            "name": "48",
+            "page": "139",
+            "id": "48"
+        },
+        {
+            "name": "49",
+            "page": "142",
+            "id": "49"
+        },
+        {
+            "name": "50",
+            "page": "143",
+            "id": "50"
+        },
+        {
+            "name": "51",
+            "page": "146",
+            "id": "51"
+        },
+        {
+            "name": "52",
+            "page": "147",
+            "id": "52"
+        },
+        {
+            "name": "53",
+            "page": "152",
+            "id": "53"
+        },
+        {
+            "name": "54",
+            "page": "153",
+            "id": "54"
+        },
+        {
+            "name": "55",
+            "page": "156",
+            "id": "55"
+        },
+        {
+            "name": "56",
+            "page": "158",
+            "id": "56"
+        },
+        {
+            "name": "57",
+            "page": "159",
+            "id": "57"
+        },
+        {
+            "name": "58",
+            "page": "166",
+            "id": "58"
+        },
+        {
+            "name": "59",
+            "page": "168",
+            "id": "59"
+        },
+        {
+            "name": "60",
+            "page": "173",
+            "id": "60"
+        },
+        {
+            "name": "61",
+            "page": "175",
+            "id": "61"
+        },
+        {
+            "name": "62",
+            "page": "180",
+            "id": "62"
+        },
+        {
+            "name": "63",
+            "page": "184",
+            "id": "63"
+        },
+        {
+            "name": "64",
+            "page": "185",
+            "id": "64"
+        },
+        {
+            "name": "65",
+            "page": "186",
+            "id": "65"
+        },
+        {
+            "name": "66",
+            "page": "187",
+            "id": "66"
+        },
+        {
+            "name": "67",
+            "page": "190",
+            "id": "67"
+        },
+        {
+            "name": "68",
+            "page": "195",
+            "id": "68"
+        },
+        {
+            "name": "69",
+            "page": "196",
+            "id": "69"
+        },
+        {
+            "name": "70",
+            "page": "198",
+            "id": "70"
+        }
+    ],
+    "toc_available": true,
+    "metadata_entries": [
+        {
+            "type": "field",
+            "label": "Title",
+            "inline_text": "Śukasaptati, “Textus Simplicior”",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Pandit Work ID",
+            "inline_text": "116326",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Edition Short",
+            "inline_text": "Schmidt 1893",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Edition",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>Editor: Schmidt, Richard</li>\n<li>Title: Die Çukasaptati. Textus Simplicior.</li>\n<li>Place: Leipzig</li>\n<li>Publisher: Deutsche Morgenländische Gesellschaft</li>\n<li>Series: Abhandlungen für die Kunde des Morgenlandes</li>\n<li>Series Part: Band X, No. 1</li>\n<li>Year: 1893</li>\n<li>Note: Band X as a whole (Nos. 1–4) was published in 1897.</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Edition PDFs",
+            "inline_text": null,
+            "content_html": "<ul>\n<li><a href=\"https://archive.org/details/dli.ministry.08828/page/n9/mode/2up\">1897 Band X on Archive (DLI &amp; public.resource.org)</a></li>\n<li>1893 Band X, No. 1 (improved by V. Gostishchev) on Archive, to be uploaded soon...</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Extent",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>The complete work is nearly extant except for a few small lacunae.</li>\n<li>The edition contains a complete text of the known work.</li>\n<li>The text fills 206 pages in the edition, with roughly half of each page dedicated to variant readings.</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "File Size (KB)",
+            "inline_text": "174",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Structure",
+            "inline_text": "The work consists of seventy stories in a frame story. The edition does not explicitly distinguish the frame story's introduction and conclusion with distinct sections.",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Work Description",
+            "inline_text": "The work's frame story takes place over seventy nights. In the frame, a pet parrot belongs to a young, lonely woman named Prabhāvatī, and he seeks to keep her faithful while her merchant husband, Madanavinoda, is away on business. Each night, when Prabhāvatī is tempted to meet a lover, the clever bird tells her a story meant to dissuade her. After seventy nights of such tales, her husband returns, and she has remained true, bringing the drama to a close. The stories feature clever protagonists who extricate themselves from difficult situations, especially women who outsmart men in episodes involving adultery.",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Genres",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>Kāvya</li>\n<li>Kathā</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Translations",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>German, editor = R. Schmidt, 1894, <a href=\"https://catalog.hathitrust.org/Record/100160996\">on HathiTrust</a></li>\n<li>German, editor = R. Schmidt, 1913, <a href=\"https://archive.org/details/sukasap00suka/page/n7/mode/2up\">on Archive</a></li>\n<li>See excellent translation bibliography by V. Gostishchev, <a href=\"https://docs.google.com/document/d/17vAjnnIo5j-yd1gcq9xBIFlpHCzyRTW-/edit?usp=drive_link&amp;ouid=109139093909110592902&amp;rtpof=true&amp;sd=true\">on Google Drive (Word doc)</a> </li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Source Collection",
+            "inline_text": "Personal collection of Viliam Gostishchev.",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "HANSEL License",
+            "inline_text": "CC BY-NC-SA 4.0",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Contributors",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>Viliam Gostishchev</li>\n<li>Tyler Neill</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Digitization Notes",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>(2020–2025): V. Gostishchev: Typed up from edition, intensively proofread and structured.</li>\n<li>(July 2025): Tyler Neill: Restructured for HANSEL.</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "File Creation Method",
+            "inline_text": "I (Tyler Neill) produced this HANSEL edition by manually converting the original Word document to plaintext and then automatically adding XML markup. The text still needs a final proofread.",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Text Type",
+            "inline_text": "Prose with verse",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Word Division Style",
+            "inline_text": "Roman-like (ity evam, not ityevam)",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Additional Notes",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>Indian editions (e.g. Ramakant Tripathi, Vārāṇasī, 1966, basis of the GRETIL text) are based on this <em>Simplicior</em> text by Schmidt.</li>\n<li>V. Gostishchev's original version of the file contains added <em>chāyās</em> from the Indian editions and other useful notes.</li>\n<li>On the construction of the text, see the editor's 1890 PhD dissertation “Vier Erzählungen aus der Çukasaptati”, <a href=\"https://books.google.fr/books?id=iq5LAQAAMAAJ\">on Google Books</a></li>\n<li>See also the editor's: “Anmerkungen zu dem Textus simplicior der Śukasaptati”, ZDMG 48, 1894, 580-628.</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Original Submission Last Updated",
+            "inline_text": "2025-06-25",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Text Last Updated",
+            "inline_text": "2025-09-29",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Metadata Last Updated",
+            "inline_text": "2025-10-22",
+            "content_html": ""
+        }
+    ],
+    "metadata_available": true,
+    "verse_only": false,
+    "includes_plain_variant": true,
+    "no_line_numbers": false
+}
