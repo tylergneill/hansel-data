@@ -34,11 +34,8 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
             start_page = first_pb.get('n') if first_pb is not None else 'N/A'
             toc_data.append({'name': section_name, 'page': start_page, 'id': f'{section_name.replace(" ", "_")}'})
 
-        # This path needs to be relative to the script location or an absolute path
-        # Assuming the script is run from the project root for now.
         metadata_md_path = Path('hansel-data/metadata/markdown/') / f'{base_name}.md'
         if not metadata_md_path.exists():
-             # Fallback for different execution contexts
              metadata_md_path = Path(__file__).resolve().parents[2] / 'metadata' / 'markdown' / f'{base_name}.md'
 
         if metadata_md_path.exists():
@@ -160,47 +157,109 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
 
     def process_lg_content(lg_element, container, page_tracker, line_tracker, is_plain):
         style = "padding-left: 2em; margin-bottom: 1.3em;" if not verse_only else ""
+
+        def process_lg_children(target_div, is_plain_version):
+            for child in lg_element.iterchildren():
+                if child.tag == 'head':
+                    if child.text:
+                        etree.SubElement(target_div, "p").text = child.text
+                elif child.tag == 'l':
+                    span_tag = etree.SubElement(target_div, "span")
+                    process_children(child, span_tag, page_tracker, line_tracker, is_plain_version)
+                elif child.tag == 'back':
+                    if child.text:
+                        etree.SubElement(target_div, "p").text = child.text
+                elif child.tag == 'milestone':
+                    if not is_plain_version:
+                        milestone_span = etree.SubElement(target_div, "span", {"class": "milestone"})
+                        milestone_span.text = f'{child.get("n")}'
+
         if not is_plain:
             div_rich = etree.SubElement(container, "div", {"class": "lg rich-text", "style": style})
-            head_el = lg_element.find('head')
-            if head_el is not None and head_el.text: etree.SubElement(div_rich, "p").text = head_el.text
-            for l in lg_element.findall("l"): process_children(l, etree.SubElement(div_rich, "span"), page_tracker, line_tracker, is_plain_version=False)
-            back_el = lg_element.find('back')
-            if back_el is not None and back_el.text: etree.SubElement(div_rich, "p").text = back_el.text
+            process_lg_children(div_rich, is_plain_version=False)
 
             div_plain = etree.SubElement(container, "div", {"class": "lg plain-text", "style": style})
-            head_el = lg_element.find('head')
-            if head_el is not None and head_el.text: etree.SubElement(div_plain, "p").text = head_el.text
-            for l in lg_element.findall("l"): process_children(l, etree.SubElement(div_plain, "span"), page_tracker, line_tracker, is_plain_version=True)
-            back_el = lg_element.find('back')
-            if back_el is not None and back_el.text: etree.SubElement(div_plain, "p").text = back_el.text
+            process_lg_children(div_plain, is_plain_version=True)
         else:
             div = etree.SubElement(container, "div", {"class": "lg", "style": style})
-            head_el = lg_element.find('head')
-            if head_el is not None and head_el.text: etree.SubElement(div, "p").text = head_el.text
-            for l in lg_element.findall("l"): process_children(l, etree.SubElement(div, "span"), page_tracker, line_tracker, is_plain_version=True)
-            back_el = lg_element.find('back')
-            if back_el is not None and back_el.text: etree.SubElement(div, "p").text = back_el.text
+            process_lg_children(div, is_plain_version=True)
 
     # --- Main Content Processing Loop ---
-    current_page = [""]
-    current_line = ["1"]
-    for section in root.xpath('//body/div[@n]'):
-        section_name = section.get('n')
-        h1 = etree.SubElement(content_div, "h1", id=f'{section_name.replace(" ", "_")}')
-        h1.text = f"§ {section_name}"
-        for element in section.iterchildren():
-            if element.tag == "p":
-                if not plain:
-                    p_rich = etree.SubElement(content_div, "p", {"class": "rich-text"})
-                    process_children(element, p_rich, current_page, current_line, is_plain_version=False)
-                    p_plain = etree.SubElement(content_div, "p", {"class": "plain-text"})
-                    process_children(element, p_plain, current_page, current_line, is_plain_version=True)
-                else:
-                    p_element = etree.SubElement(content_div, "p")
-                    process_children(element, p_element, current_page, current_line, is_plain_version=True)
-            elif element.tag == "lg":
-                process_lg_content(element, content_div, current_page, current_line, plain)
+    if verse_only:
+        for section in root.xpath('//body/div[@n]'):
+            chapter_n_full = section.get('n')
+            h1 = etree.SubElement(content_div, "h1", id=f'{chapter_n_full.replace(" ", "_")}')
+            h1.text = f"§ {chapter_n_full}"
+            all_verses_in_section = section.findall('.//lg[@n]')
+            if not all_verses_in_section: continue
+            verses_ul = etree.SubElement(content_div, "ul", {"class": "verses"})
+            for lg_element in all_verses_in_section:
+                verse_id = lg_element.get('n')
+                verse_li = etree.SubElement(verses_ul, "li", {"class": "verse", "id": f"v{verse_id.replace('.', '-')}"})
+                padas_ul = etree.SubElement(verse_li, "ul", {"class": "padas"})
+                children_of_lg = list(lg_element.iterchildren())
+
+                # Find the last 'l' element to append the verse number.
+                last_l = next((child for child in reversed(children_of_lg) if child.tag == 'l'), None)
+
+                if last_l is not None:
+                    trailing_breaks = []
+                    while len(last_l) > 0 and last_l[-1].tag in ['pb', 'lb']:
+                        child_to_move = last_l[-1]
+                        trailing_breaks.insert(0, child_to_move)
+                        last_l.remove(child_to_move)
+                    
+                    if len(last_l) > 0:
+                        last_l[-1].tail = (last_l[-1].tail or '') + f" {verse_id} ||"
+                    else:
+                        last_l.text = (last_l.text or '') + f" {verse_id} ||"
+                    
+                    for br_tag in trailing_breaks:
+                        last_l.append(br_tag)
+
+                # Process all children, creating list items for each.
+                for child in children_of_lg:
+                    if child.tag == 'l':
+                        process_children(child, etree.SubElement(padas_ul, "li"), [''], ['1'], plain)
+                    elif child.tag == 'milestone':
+                        etree.SubElement(padas_ul, "br")
+                        milestone_li = etree.SubElement(padas_ul, "li", {"class": "milestone-verse"})
+                        milestone_li.text = f'{child.get("n")}'
+    else:
+        current_page = [""]
+        current_line = ["1"]
+        for section in root.xpath('//body/div[@n]'):
+            section_name = section.get('n')
+            h1 = etree.SubElement(content_div, "h1", id=f'{section_name.replace(" ", "_")}')
+            h1.text = f"§ {section_name}"
+            for element in section.iterchildren():
+                if element.tag == "pb":
+                    current_page[0] = element.get("n")
+                    if not plain: 
+                        pb_span = etree.SubElement(content_div, "span", {"class": "pb rich-text", "data-page": current_page[0]})
+                        pb_span.text = f'(p.{current_page[0]}, l.1)' if not no_line_numbers else f'(p.{current_page[0]})'
+                        etree.SubElement(content_div, "br", {"class": "pb-br rich-text"})
+                elif element.tag == "milestone":
+                    etree.SubElement(content_div, "p").text = f'{element.get("n")}'
+                elif element.tag in ["p", "lg"]:
+                    n_attr = element.get("n")
+                    if n_attr:
+                        h2 = etree.SubElement(content_div, "h2", {"class": "location-marker", "id": n_attr})
+                        n_parts = n_attr.split(',')
+                        h2.text = f"p.{n_parts[0].strip()}, l.{n_parts[1].strip()}" if len(n_parts) == 2 else f"p.{n_parts[0].strip()}" if len(n_parts) == 1 else n_attr
+                        page_from_n = n_attr.split(',')[0]
+                        if page_from_n: current_page[0], current_line[0] = page_from_n, "1"
+                    if element.tag == "p":
+                        if not plain:
+                            process_children(element, etree.SubElement(content_div, "p", {"class": "rich-text"}), current_page, current_line, is_plain_version=False)
+                            process_children(element, etree.SubElement(content_div, "p", {"class": "plain-text"}), current_page, current_line, is_plain_version=True)
+                        else:
+                            process_children(element, etree.SubElement(content_div, "p"), current_page, current_line, is_plain_version=True)
+                    else: # lg
+                        if element.get('type') == 'group':
+                            for lg_child in element.findall("lg"): process_lg_content(lg_child, content_div, current_page, current_line, plain)
+                        else:
+                            process_lg_content(element, content_div, current_page, current_line, plain)
 
     # --- Final Output Generation ---
     if plain:
