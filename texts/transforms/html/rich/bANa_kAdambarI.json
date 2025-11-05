@@ -12,7 +12,6 @@
             "id": "uttarabhāga"
         }
     ],
-    "toc_available": true,
     "metadata_entries": [
         {
             "type": "field",
@@ -261,7 +260,6 @@
             ]
         }
     ],
-    "metadata_available": true,
     "verse_only": false,
     "includes_plain_variant": true,
     "no_line_numbers": false

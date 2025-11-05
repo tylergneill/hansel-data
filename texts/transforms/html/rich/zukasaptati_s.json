@@ -352,7 +352,6 @@
             "id": "70"
         }
     ],
-    "toc_available": true,
     "metadata_entries": [
         {
             "type": "field",
@@ -487,7 +486,6 @@
             "content_html": ""
         }
     ],
-    "metadata_available": true,
     "verse_only": false,
     "includes_plain_variant": true,
     "no_line_numbers": false

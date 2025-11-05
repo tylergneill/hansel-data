@@ -31,7 +31,19 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
         for div_section in root.xpath('//body/div[@n]'):
             section_name = div_section.get('n')
             first_pb = div_section.find('.//pb')
-            start_page = first_pb.get('n') if first_pb is not None else 'N/A'
+            start_page = 'N/A'
+            if first_pb is not None:
+                start_page = first_pb.get('n')
+            else:
+                # Find the first child element with an 'n' attribute
+                first_elem_with_n = div_section.find('.//*[@n]')
+                if first_elem_with_n is not None:
+                    n_attr = first_elem_with_n.get('n')
+                    if ',' in n_attr:
+                        start_page = n_attr.split(',')[0]
+                    else:
+                        start_page = n_attr
+
             toc_data.append({'name': section_name, 'page': start_page, 'id': f'{section_name.replace(" ", "_")}'})
 
         metadata_md_path = Path(__file__).resolve().parents[3] / 'metadata' / 'markdown' / f'{base_name}.md'
