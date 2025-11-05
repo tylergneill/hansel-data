@@ -128,8 +128,147 @@
         }
     ],
     "toc_available": true,
-    "metadata_entries": [],
-    "metadata_available": false,
+    "metadata_entries": [
+        {
+            "type": "field",
+            "label": "Title",
+            "inline_text": "Ślokavārtika",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Pandit Work ID",
+            "inline_text": "88597",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Author",
+            "inline_text": "Kumārila Bhaṭṭa",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Pandit Author IDs",
+            "inline_text": "85206",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Edition Short",
+            "inline_text": "Dvārikādāsa Śāstrī 1978",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Edition",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>Editor: Dvārikādāsa Śāstrī</li>\n<li>Title: Ślokavārttika of Śrī Kumārila Bhaṭṭa with the Commentary Nyāyaratnākara of Śrī Pārthasārathi Miśra.</li>\n<li>Place: Varanasi</li>\n<li>Publisher: Tara Publications</li>\n<li>Year: 1978</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Edition PDFs",
+            "inline_text": null,
+            "content_html": "<ul>\n<li><a href=\"https://archive.org/details/SlokavarttikaNyayaratnakara/mode/2up\">on Archive (missing a few pages)</a></li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Extent",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>The complete work is extant.</li>\n<li>The edition contains a complete text.</li>\n<li>The text consist of about 3,350 verses (mostly anuṣṭubh).</li>\n<li>The text is spread out over 664 pages in the edition, interspersed with commentary and occasional footnotes.</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "File Size (KB)",
+            "inline_text": "457",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Structure",
+            "inline_text": null,
+            "content_html": "<table>\n<thead>\n<tr>\n<th>#</th>\n<th>Section</th>\n<th>edition</th>\n<th>Jha transl.</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>1</td>\n<td>pratijñāsūtra (PJS)</td>\n<td>3</td>\n<td>1</td>\n</tr>\n<tr>\n<td>2</td>\n<td>codanāsūtra (CDS)</td>\n<td>34</td>\n<td>21</td>\n</tr>\n<tr>\n<td>3</td>\n<td>nimittasūtra (NMS)</td>\n<td>96</td>\n<td>67</td>\n</tr>\n<tr>\n<td>4</td>\n<td>pratyakṣasūtra (PAS)</td>\n<td>97</td>\n<td>68</td>\n</tr>\n<tr>\n<td>5</td>\n<td>autpattikasūtra</td>\n<td>––</td>\n<td>––</td>\n</tr>\n<tr>\n<td>5.1</td>\n<td>vṛttikāragrantha (VKG)</td>\n<td>149</td>\n<td>113</td>\n</tr>\n<tr>\n<td>5.2</td>\n<td>(VKG vv. 17–26)</td>\n<td>152</td>\n<td>116</td>\n</tr>\n<tr>\n<td>5.3</td>\n<td>nirālambanavāda (NAV)</td>\n<td>155</td>\n<td>119</td>\n</tr>\n<tr>\n<td>5.4</td>\n<td>śunyavāda (SNV)</td>\n<td>191</td>\n<td>148</td>\n</tr>\n<tr>\n<td>5.5</td>\n<td>anumānapariccheda (AMP)</td>\n<td>246</td>\n<td>182</td>\n</tr>\n<tr>\n<td>5.6</td>\n<td>śabdapariccheda (SBP)</td>\n<td>287</td>\n<td>207</td>\n</tr>\n<tr>\n<td>5.7</td>\n<td>upamānapariccheda (UMP)</td>\n<td>307</td>\n<td>222</td>\n</tr>\n<tr>\n<td>5.8</td>\n<td>arthāpattipariccheda (AAP)</td>\n<td>320</td>\n<td>230</td>\n</tr>\n<tr>\n<td>5.9</td>\n<td>abhāvapariccheda (ABH)</td>\n<td>335</td>\n<td>243</td>\n</tr>\n<tr>\n<td>5.10</td>\n<td>citrākṣepavāda (CAV)</td>\n<td>349</td>\n<td>253</td>\n</tr>\n<tr>\n<td>5.11</td>\n<td>sambandhākṣepavāda (SAV)</td>\n<td>353</td>\n<td>254</td>\n</tr>\n<tr>\n<td>5.12</td>\n<td>sphoṭavāda (SPH)</td>\n<td>361</td>\n<td>261</td>\n</tr>\n<tr>\n<td>5.13</td>\n<td>ākṛtivāda (AKV)</td>\n<td>385</td>\n<td>281</td>\n</tr>\n<tr>\n<td>5.14</td>\n<td>apohavāda (APV)</td>\n<td>400</td>\n<td>295</td>\n</tr>\n<tr>\n<td>5.15</td>\n<td>vanavāda (VAV)</td>\n<td>435</td>\n<td>329</td>\n</tr>\n<tr>\n<td>5.16</td>\n<td>sambandhākṣepaparihāra (SAP)</td>\n<td>453</td>\n<td>347</td>\n</tr>\n<tr>\n<td>5.17</td>\n<td>citrākṣepaparihāra (CAP)</td>\n<td>483</td>\n<td>375</td>\n</tr>\n<tr>\n<td>5.18</td>\n<td>ātmavāda (ATV)</td>\n<td>488</td>\n<td>382</td>\n</tr>\n<tr>\n<td>6</td>\n<td>śabdanityatādhikaraṇa (SNA)</td>\n<td>515</td>\n<td>409</td>\n</tr>\n<tr>\n<td>7</td>\n<td>vākyādhikaraṇa (VAA)</td>\n<td>598</td>\n<td>486</td>\n</tr>\n<tr>\n<td>8</td>\n<td>vedapauruṣeyatādhikaraṇa (VPA)</td>\n<td>669</td>\n<td>553</td>\n</tr>\n</tbody>\n</table>\n"
+        },
+        {
+            "type": "field",
+            "label": "Work Description",
+            "inline_text": "xyz",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Genres",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>Darśana</li>\n<li>Mīmāṃsā</li>\n<li>Pramāṇaśāstra</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Translations",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>English, G. Jha, 1907, <a href=\"https://archive.org/details/in.ernet.dli.2015.282831/mode/2up\">on Archive</a></li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Source Collection",
+            "inline_text": "Personal collection of Helmut Krasser",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "HANSEL License",
+            "inline_text": "CC BY-NC-SA 4.0",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Contributors",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>Helmut Krasser</li>\n<li>Tyler Neill</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Digitization Notes",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>(Date unknown) H. Krasser: Created.</li>\n<li>(2017–2021) Tyler Neill: Supplied missing <em>Arthāpattipariccheda</em> (5.8), restructured for Pramāṇa NLP collection.</li>\n<li>(2025) Tyler Neill: Added page numbers for HANSEL structure.</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "File Creation Method",
+            "inline_text": "I (Tyler Neill) produced this HANSEL edition by minimally adapting the corresponding file in the Pramāṇa NLP collection by adding page numbers. The Pramāṇa NLP file had been manually converted from Helmut Krasser's Word document into plain text, also by myself a few years earlier, mainly using regular expressions. Krasser's original Word file had been manually typed from the edition in an abstracted fashion, namely by extracting only the Ślokavārtika content and ignoring both Pārthasārathi Miśra's commentary and all physical aspects of the edition (e.g., page numbers). The text is known to contain errors and still needs a final proofread.",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Text Type",
+            "inline_text": "Numbered verse",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Word Division Style",
+            "inline_text": "Roman-like (ity evam, not ityevam)",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Original Submission Last Updated",
+            "inline_text": "2025-07-24",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Text Last Updated",
+            "inline_text": "2025-09-29",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Metadata Last Updated",
+            "inline_text": "2025-10-22",
+            "content_html": ""
+        }
+    ],
+    "metadata_available": true,
     "verse_only": true,
     "includes_plain_variant": false,
     "no_line_numbers": true

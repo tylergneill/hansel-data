@@ -34,9 +34,7 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
             start_page = first_pb.get('n') if first_pb is not None else 'N/A'
             toc_data.append({'name': section_name, 'page': start_page, 'id': f'{section_name.replace(" ", "_")}'})
 
-        metadata_md_path = Path('hansel-data/metadata/markdown/') / f'{base_name}.md'
-        if not metadata_md_path.exists():
-             metadata_md_path = Path(__file__).resolve().parents[2] / 'metadata' / 'markdown' / f'{base_name}.md'
+        metadata_md_path = Path(__file__).resolve().parents[3] / 'metadata' / 'markdown' / f'{base_name}.md'
 
         if metadata_md_path.exists():
             md_content = metadata_md_path.read_text(encoding="utf-8")
@@ -287,11 +285,9 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
         document_context = {
             "title": base_name,
             "toc": toc_data,
-            "toc_available": bool(toc_data),
             "metadata_entries": metadata_entries,
-            "metadata_available": bool(metadata_entries),
             "verse_only": bool(verse_only),
-            "includes_plain_variant": not verse_only,
+            "includes_plain_variant": not verse_only,  # TODO: figure out whether this is a bug
             "no_line_numbers": bool(no_line_numbers)
         }
 

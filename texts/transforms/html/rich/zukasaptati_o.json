@@ -350,6 +350,156 @@
     "toc_available": true,
     "metadata_entries": [
         {
+            "type": "field",
+            "label": "Title",
+            "inline_text": "Śukasaptati, “Textus Ornatior”",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Pandit Work ID",
+            "inline_text": "116327",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Attributed Author",
+            "inline_text": "Cintāmaṇi Bhaṭṭa",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Pandit Attributed Author ID",
+            "inline_text": "116325",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Edition Short",
+            "inline_text": "Schmidt 1899",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Edition",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>Editor: Schmidt, Richard</li>\n<li>Title: Der Textus ornatior der Śukasaptati</li>\n<li>Place: München</li>\n<li>Publisher: Verlag der Königlichen Akademie</li>\n<li>Series: Abhandlungen der Philosophisch-Philologischen Classe der Königlich Bayerischen Akademie der Wissenschaften</li>\n<li>Series Part: Band XXI</li>\n<li>Year: 1899</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Edition PDFs",
+            "inline_text": null,
+            "content_html": "<ul>\n<li><a href=\"http://gretil.sub.uni-goettingen.de/gretil_elib/Suk901__Sukasaptati_TextOrnat_ed_Schmidt.pdf\">on GRETIL E-Library</a></li>\n<li><a href=\"https://archive.org/details/sukasaptatitextornatedschmidt/Suk901__Sukasaptati_TextOrnat_ed_Schmidt\">on Archive (x2)</a></li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Extent",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>The complete work is nearly extant except for a few small lacunae.</li>\n<li>The edition contains a complete text of the known work.</li>\n<li>The text fills 66 pages in the edition (pp. 319–384), with no other intervening material.</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "File Size (KB)",
+            "inline_text": "275",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Structure",
+            "inline_text": "The work consists of seventy stories in a frame story. The frame story's introduction and conclusion are explicitly distinguished by the edition as kathāvatāra (9pp in edition) and kathāvadhi (1p), respectively.",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Work Description",
+            "inline_text": "The work's frame story takes place over seventy nights. In the frame, a pet parrot belongs to a young, lonely woman named Prabhāvatī, and he seeks to keep her faithful while her merchant husband, Madanavinoda, is away on business. Each night, when Prabhāvatī is tempted to meet a lover, the clever bird tells her a story meant to dissuade her. After seventy nights of such tales, her husband returns, and she has remained true, bringing the drama to a close. The stories feature clever protagonists who extricate themselves from difficult situations, especially women who outsmart men in episodes involving adultery.",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Genres",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>Kāvya</li>\n<li>Kathā</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Translations",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>German, R. Schmidt (ed.), 1899, <a href=\"http://gretil.sub.uni-goettingen.de/gretil_elib/Suk899__Sukasaptati_TextOrnat_tr_Schmidt.pdf\">on GRETIL E-Library</a></li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Source Collection",
+            "inline_text": "Ambuda",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Source File Link",
+            "inline_text": "शुकसप्ततिः",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Source File License",
+            "inline_text": "CC0",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "HANSEL License",
+            "inline_text": "CC BY-NC-SA 4.0",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Contributors",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>Suhas Mahesh</li>\n<li>\"shivjun1685\"</li>\n<li>Tyler Neill</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Digitization Notes",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>(Aug 2022) Suhas Mahesh (Ambuda user <code>suhasm</code>): Item created, Google Cloud Vision OCR performed.</li>\n<li>(Mar–May 2023) Ambuda user <code>shivjun1685</code>: Proofread once.</li>\n<li>(May–Jul 2025) Tyler Neill: Second OCR and merge with previous corrections, proofread final time, restructured for HANSEL.</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "File Creation Method",
+            "inline_text": "I (Tyler Neill) produced this HANSEL edition by first extracting the text page-by-page from the Ambuda website “Proofing” section. I then ran a PDF of the edition through both Google Cloud Vision OCR (via Skrutable) and Gemini 2.0 Flash (via Dharmamitra). These two OCR outputs were then automatically harmonized using Gemini 2.5 Pro (via direct API and using a custom prompt). This harmonized OCR output was then contrasted against the Ambuda-derived version using Meld and differences were reconciled individually with reference to the PDF. I then fully proofread the text, word by word. Finally, I contributed content improvements back to Ambuda using its page-by-page Proofing interface.",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Text Type",
+            "inline_text": "Prose with verse",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Word Division Style",
+            "inline_text": "Devanāgarī-like (ityevam, not ity evam)",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Original Submission Last Updated",
+            "inline_text": "2025-07-24",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Text Last Updated",
+            "inline_text": "2025-09-29",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Metadata Last Updated",
+            "inline_text": "2025-10-22",
+            "content_html": ""
+        },
+        {
             "type": "corrections",
             "count": 29,
             "rows": [

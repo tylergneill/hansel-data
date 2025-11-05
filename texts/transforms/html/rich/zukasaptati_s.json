@@ -353,8 +353,141 @@
         }
     ],
     "toc_available": true,
-    "metadata_entries": [],
-    "metadata_available": false,
+    "metadata_entries": [
+        {
+            "type": "field",
+            "label": "Title",
+            "inline_text": "Śukasaptati, “Textus Simplicior”",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Pandit Work ID",
+            "inline_text": "116326",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Edition Short",
+            "inline_text": "Schmidt 1893",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Edition",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>Editor: Schmidt, Richard</li>\n<li>Title: Die Çukasaptati. Textus Simplicior.</li>\n<li>Place: Leipzig</li>\n<li>Publisher: Deutsche Morgenländische Gesellschaft</li>\n<li>Series: Abhandlungen für die Kunde des Morgenlandes</li>\n<li>Series Part: Band X, No. 1</li>\n<li>Year: 1893</li>\n<li>Note: Band X as a whole (Nos. 1–4) was published in 1897.</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Edition PDFs",
+            "inline_text": null,
+            "content_html": "<ul>\n<li><a href=\"https://archive.org/details/dli.ministry.08828/page/n9/mode/2up\">1897 Band X on Archive (DLI &amp; public.resource.org)</a></li>\n<li>1893 Band X, No. 1 (improved by V. Gostishchev) on Archive, to be uploaded soon...</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Extent",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>The complete work is nearly extant except for a few small lacunae.</li>\n<li>The edition contains a complete text of the known work.</li>\n<li>The text fills 206 pages in the edition, with roughly half of each page dedicated to variant readings.</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "File Size (KB)",
+            "inline_text": "174",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Structure",
+            "inline_text": "The work consists of seventy stories in a frame story. The edition does not explicitly distinguish the frame story's introduction and conclusion with distinct sections.",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Work Description",
+            "inline_text": "The work's frame story takes place over seventy nights. In the frame, a pet parrot belongs to a young, lonely woman named Prabhāvatī, and he seeks to keep her faithful while her merchant husband, Madanavinoda, is away on business. Each night, when Prabhāvatī is tempted to meet a lover, the clever bird tells her a story meant to dissuade her. After seventy nights of such tales, her husband returns, and she has remained true, bringing the drama to a close. The stories feature clever protagonists who extricate themselves from difficult situations, especially women who outsmart men in episodes involving adultery.",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Genres",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>Kāvya</li>\n<li>Kathā</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Translations",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>German, editor = R. Schmidt, 1894, <a href=\"https://catalog.hathitrust.org/Record/100160996\">on HathiTrust</a></li>\n<li>German, editor = R. Schmidt, 1913, <a href=\"https://archive.org/details/sukasap00suka/page/n7/mode/2up\">on Archive</a></li>\n<li>See excellent translation bibliography by V. Gostishchev, <a href=\"https://docs.google.com/document/d/17vAjnnIo5j-yd1gcq9xBIFlpHCzyRTW-/edit?usp=drive_link&amp;ouid=109139093909110592902&amp;rtpof=true&amp;sd=true\">on Google Drive (Word doc)</a> </li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Source Collection",
+            "inline_text": "Personal collection of Viliam Gostishchev.",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "HANSEL License",
+            "inline_text": "CC BY-NC-SA 4.0",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Contributors",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>Viliam Gostishchev</li>\n<li>Tyler Neill</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Digitization Notes",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>(2020–2025): V. Gostishchev: Typed up from edition, intensively proofread and structured.</li>\n<li>(July 2025): Tyler Neill: Restructured for HANSEL.</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "File Creation Method",
+            "inline_text": "I (Tyler Neill) produced this HANSEL edition by manually converting the original Word document to plaintext and then automatically adding XML markup. The text still needs a final proofread.",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Text Type",
+            "inline_text": "Prose with verse",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Word Division Style",
+            "inline_text": "Roman-like (ity evam, not ityevam)",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Additional Notes",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>Indian editions (e.g. Ramakant Tripathi, Vārāṇasī, 1966, basis of the GRETIL text) are based on this <em>Simplicior</em> text by Schmidt.</li>\n<li>V. Gostishchev's original version of the file contains added <em>chāyās</em> from the Indian editions and other useful notes.</li>\n<li>On the construction of the text, see the editor's 1890 PhD dissertation “Vier Erzählungen aus der Çukasaptati”, <a href=\"https://books.google.fr/books?id=iq5LAQAAMAAJ\">on Google Books</a></li>\n<li>See also the editor's: “Anmerkungen zu dem Textus simplicior der Śukasaptati”, ZDMG 48, 1894, 580-628.</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Original Submission Last Updated",
+            "inline_text": "2025-06-25",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Text Last Updated",
+            "inline_text": "2025-09-29",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Metadata Last Updated",
+            "inline_text": "2025-10-22",
+            "content_html": ""
+        }
+    ],
+    "metadata_available": true,
     "verse_only": false,
     "includes_plain_variant": true,
     "no_line_numbers": false
