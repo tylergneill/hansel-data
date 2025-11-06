@@ -6,7 +6,7 @@ from pathlib import Path
 import markdown
 from lxml.html import fromstring
 
-def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=False, plain=False):
+def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=False, plain=False, standalone=False):
     """
     Converts a TEI XML file to an HTML fragment and a corresponding JSON sidecar file.
     - The HTML file contains only the core text content inside a <div id="content">.
@@ -283,6 +283,18 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
         body_full.append(content_div)
         with open(html_path, "w", encoding="utf-8") as f:
             f.write(etree.tostring(html_doc, pretty_print=True, encoding="unicode"))
+    elif standalone:
+        template_path = Path(__file__).parent / 'templates' / 'standalone.html'
+        with open(template_path, 'r', encoding='utf-8') as f:
+            template_str = f.read()
+
+        content_str = etree.tostring(content_div, pretty_print=True, encoding="unicode")
+
+        output_html = template_str.replace('{{ title }}', base_name)
+        output_html = output_html.replace('{{ content_html | safe }}', content_str)
+
+        with open(html_path, "w", encoding="utf-8") as f:
+            f.write(output_html)
     else:
         with open(html_path, "w", encoding="utf-8") as f:
             f.write(etree.tostring(content_div, pretty_print=True, encoding="unicode"))
@@ -314,7 +326,11 @@ if __name__ == "__main__":
     parser.add_argument("--no-line-numbers", action="store_true", help="Format page breaks as <PAGE> instead of <PAGE,1>.")
     parser.add_argument("--verse-only", action="store_true", help="Render chapters as ordered lists of verses.")
     parser.add_argument("--plain", action="store_true", help="Generate a plain HTML version without rich features.")
+    parser.add_argument("--standalone", action="store_true", help="Generate a standalone HTML file for development.")
     args = parser.parse_args()
 
-    convert_xml_to_html(args.xml_path, args.html_path, no_line_numbers=args.no_line_numbers, verse_only=args.verse_only, plain=args.plain)
-    print(f"Wrote {args.html_path} and {Path(args.html_path).with_suffix('.json')}")
+    convert_xml_to_html(args.xml_path, args.html_path, no_line_numbers=args.no_line_numbers, verse_only=args.verse_only, plain=args.plain, standalone=args.standalone)
+    if not args.standalone and not args.plain:
+        print(f"Wrote {args.html_path} and {Path(args.html_path).with_suffix('.json')}")
+    else:
+        print(f"Wrote {args.html_path}")

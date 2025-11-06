@@ -1,0 +1,20 @@
+.plain-text { display: none; }
+.rich-text { display: block; }
+body.simple-view .plain-text { display: block; }
+body.simple-view .rich-text { display: none; }
+
+h1, h2, h3, h4, h5, h6 {
+    scroll-margin-top: 40px;
+}
+
+.pb, .lb { display: none; }
+.show-breaks .pb, .show-breaks .lb { display: inline; cursor: pointer; color: blue; }
+.lg > span { display: block; }
+
+.hyphen, .lb-br, .pb-br { display: none; }
+.show-line-breaks .hyphen { display: inline; }
+.show-line-breaks .lb-br, .show-line-breaks .pb-br { display: block; }
+
+#content.hide-location-markers .location-marker {
+    display: none;
+}

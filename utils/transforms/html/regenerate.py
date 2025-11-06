@@ -1,6 +1,7 @@
 import os
 import subprocess
 from pathlib import Path
+import argparse
 
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
 XML_DIR = os.path.join(PROJECT_ROOT, "texts/project_editions/xml")
@@ -15,7 +16,7 @@ flag_map = {
     "zukasaptati_o": '--line-by-line --extra-space-after-location',
 }
 
-def regenerate_html(xml_dir, plain_dir, rich_dir):
+def regenerate_html(xml_dir, plain_dir, rich_dir, standalone=False):
     """
     Converts all XML files in a directory to both plain and rich HTML versions.
     """
@@ -51,8 +52,14 @@ def regenerate_html(xml_dir, plain_dir, rich_dir):
             command.append("--no-line-numbers")
         if "--verse-only" in flags:
             command.append("--verse-only")
+        if standalone:
+            command.append("--standalone")
 
         subprocess.run(command)
 
 if __name__ == "__main__":
-    regenerate_html(XML_DIR, HTML_PLAIN_DIR, HTML_RICH_DIR)
+    parser = argparse.ArgumentParser(description="Regenerate HTML files from XML.")
+    parser.add_argument("--standalone", action="store_true", help="Generate standalone HTML files for development.")
+    args = parser.parse_args()
+
+    regenerate_html(XML_DIR, HTML_PLAIN_DIR, HTML_RICH_DIR, standalone=args.standalone)
