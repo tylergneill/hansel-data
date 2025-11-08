@@ -1,0 +1,266 @@
+{
+    "title": "bANa_kAdambarI",
+    "toc": [
+        {
+            "name": "pūrvabhāga",
+            "page": "1",
+            "id": "pūrvabhāga"
+        },
+        {
+            "name": "uttarabhāga",
+            "page": "239",
+            "id": "uttarabhāga"
+        }
+    ],
+    "metadata_entries": [
+        {
+            "type": "field",
+            "label": "Title",
+            "inline_text": "Kādambarī",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Pandit Work ID",
+            "inline_text": "109562",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Authors",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>Bāṇa Bhaṭṭa</li>\n<li>Bhūṣaṇa Bhaṭṭa</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Pandit Author IDs",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>108814</li>\n<li>109559</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Edition Short",
+            "inline_text": "Peterson 1885",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Edition",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>Editor: Peterson, Peter</li>\n<li>Title: Kâdambarî</li>\n<li>Place: Bombay</li>\n<li>Publisher: Government Central Book Depôt</li>\n<li>Series: Bombay Sanskrit Series</li>\n<li>Series Part: No. XXIV</li>\n<li>Year: 1885</li>\n<li>Note: Bombay Sanskrit Series No. XXIV was printed in three forms: 1883 (first edition), 1885 (revised edition), and 1889 (simple reset of 1885).</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Edition PDFs",
+            "inline_text": null,
+            "content_html": "<ul>\n<li><a href=\"https://archive.org/details/kadambari01bana/page/n7/mode/2up\">1885 on Archive</a></li>\n<li><a href=\"https://babel.hathitrust.org/cgi/pt?id=hvd.32044092178649&amp;seq=7\">1885 on HathiTrust</a></li>\n<li><a href=\"https://archive.org/details/in.ernet.dli.2015.383504\">1889 on Archive</a></li>\n<li><a href=\"https://babel.hathitrust.org/cgi/pt?id=uc1.b4023759&amp;seq=5\">1889 on HathiTrust</a></li>\n<li><a href=\"https://play.google.com/books/reader?id=tbMIAAAAQAAJ&amp;pg=GBS.PP8\">1883 on Google Books</a></li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Extent",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>The complete work is extant.</li>\n<li>The edition contains a complete text.</li>\n<li>The text fills 368 pages in the edition, with no other intervening material.</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "File Size (KB)",
+            "inline_text": "683",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Structure",
+            "inline_text": "Pūrvabhāga pp. 1–237, Uttarabhāga pp. 239–369.",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Work Description",
+            "inline_text": "This famous literary work — a romance between two main characters Candrāpīḍa and Kādambarī, plus innumerable side stories — was begun by Bāṇa Bhaṭṭa (570–650 CE) and finished posthumously by his son Bhūṣaṇa Bhaṭṭa (600–660 CE). These two contributions are the so-called Pūrvabhāga (Peterson ed. pp. 1–237) and Uttarabhāga (pp. 239–369), respectively. Peterson's edition, on which this e-text is based, added paragraph breaks as further structure. Later editions and translations also add headers to indicate beginnings of significant portions of the story, but no such headers are used here.",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Genres",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>Kāvya</li>\n<li>Gadyakāvya</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Translations",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>English, M.R. Kale, 1924, <a href=\"https://archive.org/details/in.ernet.dli.2015.121163/mode/2up\">on Archive</a></li>\n<li>English, G. Layne, 1991, <a href=\"http://gretil.sub.uni-goettingen.de/gretil_elib/BaK991__Bana_Kadambari_EN_Layne.pdf\">on GRETIL E-Library</a></li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Source Collection",
+            "inline_text": "SARIT",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Source File Link",
+            "inline_text": "bana-kadambari.xml, commit \n8ad8588, Feb 1, 2022",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Source File License",
+            "inline_text": "CC BY-SA 4.0",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "HANSEL License",
+            "inline_text": "CC BY-SA 4.0",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Contributors",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>Andrew Ollett</li>\n<li>Tyler Neill</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Digitization Notes",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>(2022-02-01) Andrew Ollett: Initial OCR (using Google Cloud Vision, on 1885/9 edition — not 1883 as noted), some proofreading, XML markup for SARIT, uploaded to GitHub.</li>\n<li>(2024–2025) Tyler Neill: Second OCR (using two models, on 1885 edition, merged with AI), manual reconciliation of differences relative to previous version, some more proofreading, markup for HANSEL.</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "File Creation Method",
+            "inline_text": "I (Tyler Neill) produced this HANSEL edition by first running a PDF of the 1885 edition through both Google Cloud Vision OCR (via Skrutable) and Gemini 2.0 Flash (via Dharmamitra). These two OCR outputs were then automatically harmonized using Gemini 2.5 Pro (via direct API and using a custom prompt). Finally, the harmonized OCR output was contrasted against the previous version by Andrew Ollett (which was in fact based on 1885/1889 as well) using Meld, and differences were reconciled individually with reference to the PDF. The text still needs a final proofread.",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Text Type",
+            "inline_text": "Prose with verse",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Word Division Style",
+            "inline_text": "Devanāgarī-like (ityevam, not ity evam)",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Original Submission Last Updated",
+            "inline_text": "2025-07-24",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Text Last Updated",
+            "inline_text": "2025-09-29",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Metadata Last Updated",
+            "inline_text": "2025-10-22",
+            "content_html": ""
+        },
+        {
+            "type": "corrections",
+            "count": 15,
+            "rows": [
+                {
+                    "sic": "cinhāni",
+                    "corr": "cihnāni",
+                    "page": "72",
+                    "line": "19"
+                },
+                {
+                    "sic": "",
+                    "corr": "-",
+                    "page": "79",
+                    "line": "16"
+                },
+                {
+                    "sic": "-",
+                    "corr": "",
+                    "page": "112",
+                    "line": "9"
+                },
+                {
+                    "sic": "",
+                    "corr": " ",
+                    "page": "181",
+                    "line": "17"
+                },
+                {
+                    "sic": " ",
+                    "corr": "",
+                    "page": "194",
+                    "line": "5"
+                },
+                {
+                    "sic": "na",
+                    "corr": "ṇa",
+                    "page": "206",
+                    "line": "20"
+                },
+                {
+                    "sic": "dukhaḥ",
+                    "corr": "duḥkha",
+                    "page": "214",
+                    "line": "10"
+                },
+                {
+                    "sic": "",
+                    "corr": " ",
+                    "page": "220",
+                    "line": "12"
+                },
+                {
+                    "sic": "dṛṣṭayā",
+                    "corr": "dṛṣṭyā",
+                    "page": "220",
+                    "line": "13"
+                },
+                {
+                    "sic": "māla",
+                    "corr": "mālā",
+                    "page": "225",
+                    "line": "11"
+                },
+                {
+                    "sic": "nya",
+                    "corr": "jña",
+                    "page": "231",
+                    "line": "10"
+                },
+                {
+                    "sic": "",
+                    "corr": " ",
+                    "page": "284",
+                    "line": "1"
+                },
+                {
+                    "sic": "ndā",
+                    "corr": "ndrā",
+                    "page": "314",
+                    "line": "15"
+                },
+                {
+                    "sic": "ttha",
+                    "corr": "thya",
+                    "page": "330",
+                    "line": "1"
+                },
+                {
+                    "sic": "ṃ",
+                    "corr": "",
+                    "page": "338",
+                    "line": "8"
+                }
+            ]
+        }
+    ],
+    "verse_only": false,
+    "includes_plain_variant": true,
+    "no_line_numbers": false
+}

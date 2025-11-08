@@ -12,7 +12,7 @@ HTML_WRAPPER = """<!DOCTYPE html>
     <meta charset="UTF-8">
     <title>metadata for {title}</title>
     <style>
-        body {{ font-family: sans-serif; max-width: 700px; margin: 2em auto; line-height: 1.6; }}
+        body {{ font-family: sans-serif; max-width: 700px; margin: 2em 0; padding-left: 6em; line-height: 1.6; }}
         h1, h2, h3 {{ border-bottom: 1px solid #ccc; }}
         pre, code {{ background-color: #f4f4f4; padding: 0.2em 0.4em; }}
     </style>

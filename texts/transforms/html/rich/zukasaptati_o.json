@@ -1,0 +1,685 @@
+{
+    "title": "zukasaptati_o",
+    "toc": [
+        {
+            "name": "kathāvatāra",
+            "page": "319",
+            "id": "kathāvatāra"
+        },
+        {
+            "name": "1",
+            "page": "329",
+            "id": "1"
+        },
+        {
+            "name": "2",
+            "page": "330",
+            "id": "2"
+        },
+        {
+            "name": "3",
+            "page": "331",
+            "id": "3"
+        },
+        {
+            "name": "4",
+            "page": "333",
+            "id": "4"
+        },
+        {
+            "name": "5",
+            "page": "334",
+            "id": "5"
+        },
+        {
+            "name": "6",
+            "page": "335",
+            "id": "6"
+        },
+        {
+            "name": "7",
+            "page": "337",
+            "id": "7"
+        },
+        {
+            "name": "8",
+            "page": "337",
+            "id": "8"
+        },
+        {
+            "name": "9",
+            "page": "338",
+            "id": "9"
+        },
+        {
+            "name": "10",
+            "page": "339",
+            "id": "10"
+        },
+        {
+            "name": "11",
+            "page": "340",
+            "id": "11"
+        },
+        {
+            "name": "12",
+            "page": "341",
+            "id": "12"
+        },
+        {
+            "name": "13",
+            "page": "344",
+            "id": "13"
+        },
+        {
+            "name": "14",
+            "page": "345",
+            "id": "14"
+        },
+        {
+            "name": "15",
+            "page": "345",
+            "id": "15"
+        },
+        {
+            "name": "16",
+            "page": "346",
+            "id": "16"
+        },
+        {
+            "name": "17",
+            "page": "347",
+            "id": "17"
+        },
+        {
+            "name": "18",
+            "page": "348",
+            "id": "18"
+        },
+        {
+            "name": "19",
+            "page": "349",
+            "id": "19"
+        },
+        {
+            "name": "20",
+            "page": "350",
+            "id": "20"
+        },
+        {
+            "name": "21",
+            "page": "350",
+            "id": "21"
+        },
+        {
+            "name": "22",
+            "page": "351",
+            "id": "22"
+        },
+        {
+            "name": "23",
+            "page": "352",
+            "id": "23"
+        },
+        {
+            "name": "24",
+            "page": "352",
+            "id": "24"
+        },
+        {
+            "name": "25",
+            "page": "353",
+            "id": "25"
+        },
+        {
+            "name": "26",
+            "page": "354",
+            "id": "26"
+        },
+        {
+            "name": "27",
+            "page": "355",
+            "id": "27"
+        },
+        {
+            "name": "28",
+            "page": "355",
+            "id": "28"
+        },
+        {
+            "name": "29",
+            "page": "356",
+            "id": "29"
+        },
+        {
+            "name": "30",
+            "page": "357",
+            "id": "30"
+        },
+        {
+            "name": "31",
+            "page": "358",
+            "id": "31"
+        },
+        {
+            "name": "32",
+            "page": "358",
+            "id": "32"
+        },
+        {
+            "name": "33",
+            "page": "359",
+            "id": "33"
+        },
+        {
+            "name": "34",
+            "page": "360",
+            "id": "34"
+        },
+        {
+            "name": "35",
+            "page": "362",
+            "id": "35"
+        },
+        {
+            "name": "36",
+            "page": "362",
+            "id": "36"
+        },
+        {
+            "name": "37",
+            "page": "363",
+            "id": "37"
+        },
+        {
+            "name": "38",
+            "page": "363",
+            "id": "38"
+        },
+        {
+            "name": "39",
+            "page": "364",
+            "id": "39"
+        },
+        {
+            "name": "40",
+            "page": "365",
+            "id": "40"
+        },
+        {
+            "name": "41",
+            "page": "366",
+            "id": "41"
+        },
+        {
+            "name": "42",
+            "page": "366",
+            "id": "42"
+        },
+        {
+            "name": "43",
+            "page": "367",
+            "id": "43"
+        },
+        {
+            "name": "44",
+            "page": "368",
+            "id": "44"
+        },
+        {
+            "name": "45",
+            "page": "369",
+            "id": "45"
+        },
+        {
+            "name": "46",
+            "page": "370",
+            "id": "46"
+        },
+        {
+            "name": "47",
+            "page": "371",
+            "id": "47"
+        },
+        {
+            "name": "48",
+            "page": "371",
+            "id": "48"
+        },
+        {
+            "name": "49",
+            "page": "372",
+            "id": "49"
+        },
+        {
+            "name": "50",
+            "page": "373",
+            "id": "50"
+        },
+        {
+            "name": "51",
+            "page": "374",
+            "id": "51"
+        },
+        {
+            "name": "52",
+            "page": "375",
+            "id": "52"
+        },
+        {
+            "name": "53",
+            "page": "375",
+            "id": "53"
+        },
+        {
+            "name": "54",
+            "page": "376",
+            "id": "54"
+        },
+        {
+            "name": "55",
+            "page": "377",
+            "id": "55"
+        },
+        {
+            "name": "56",
+            "page": "378",
+            "id": "56"
+        },
+        {
+            "name": "57",
+            "page": "378",
+            "id": "57"
+        },
+        {
+            "name": "58",
+            "page": "379",
+            "id": "58"
+        },
+        {
+            "name": "59",
+            "page": "379",
+            "id": "59"
+        },
+        {
+            "name": "60",
+            "page": "380",
+            "id": "60"
+        },
+        {
+            "name": "61",
+            "page": "381",
+            "id": "61"
+        },
+        {
+            "name": "62",
+            "page": "381",
+            "id": "62"
+        },
+        {
+            "name": "63",
+            "page": "382",
+            "id": "63"
+        },
+        {
+            "name": "64",
+            "page": "382",
+            "id": "64"
+        },
+        {
+            "name": "68",
+            "page": "383",
+            "id": "68"
+        },
+        {
+            "name": "69",
+            "page": "384",
+            "id": "69"
+        },
+        {
+            "name": "70",
+            "page": "384",
+            "id": "70"
+        },
+        {
+            "name": "kathāvadhi",
+            "page": "384",
+            "id": "kathāvadhi"
+        }
+    ],
+    "metadata_entries": [
+        {
+            "type": "field",
+            "label": "Title",
+            "inline_text": "Śukasaptati, “Textus Ornatior”",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Pandit Work ID",
+            "inline_text": "116327",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Attributed Author",
+            "inline_text": "Cintāmaṇi Bhaṭṭa",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Pandit Attributed Author ID",
+            "inline_text": "116325",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Edition Short",
+            "inline_text": "Schmidt 1899",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Edition",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>Editor: Schmidt, Richard</li>\n<li>Title: Der Textus ornatior der Śukasaptati</li>\n<li>Place: München</li>\n<li>Publisher: Verlag der Königlichen Akademie</li>\n<li>Series: Abhandlungen der Philosophisch-Philologischen Classe der Königlich Bayerischen Akademie der Wissenschaften</li>\n<li>Series Part: Band XXI</li>\n<li>Year: 1899</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Edition PDFs",
+            "inline_text": null,
+            "content_html": "<ul>\n<li><a href=\"http://gretil.sub.uni-goettingen.de/gretil_elib/Suk901__Sukasaptati_TextOrnat_ed_Schmidt.pdf\">on GRETIL E-Library</a></li>\n<li><a href=\"https://archive.org/details/sukasaptatitextornatedschmidt/Suk901__Sukasaptati_TextOrnat_ed_Schmidt\">on Archive (x2)</a></li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Extent",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>The complete work is nearly extant except for a few small lacunae.</li>\n<li>The edition contains a complete text of the known work.</li>\n<li>The text fills 66 pages in the edition (pp. 319–384), with no other intervening material.</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "File Size (KB)",
+            "inline_text": "275",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Structure",
+            "inline_text": "The work consists of seventy stories in a frame story. The frame story's introduction and conclusion are explicitly distinguished by the edition as kathāvatāra (9pp in edition) and kathāvadhi (1p), respectively.",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Work Description",
+            "inline_text": "The work's frame story takes place over seventy nights. In the frame, a pet parrot belongs to a young, lonely woman named Prabhāvatī, and he seeks to keep her faithful while her merchant husband, Madanavinoda, is away on business. Each night, when Prabhāvatī is tempted to meet a lover, the clever bird tells her a story meant to dissuade her. After seventy nights of such tales, her husband returns, and she has remained true, bringing the drama to a close. The stories feature clever protagonists who extricate themselves from difficult situations, especially women who outsmart men in episodes involving adultery.",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Genres",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>Kāvya</li>\n<li>Kathā</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Translations",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>German, R. Schmidt (ed.), 1899, <a href=\"http://gretil.sub.uni-goettingen.de/gretil_elib/Suk899__Sukasaptati_TextOrnat_tr_Schmidt.pdf\">on GRETIL E-Library</a></li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Source Collection",
+            "inline_text": "Ambuda",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Source File Link",
+            "inline_text": "शुकसप्ततिः",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Source File License",
+            "inline_text": "CC0",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "HANSEL License",
+            "inline_text": "CC BY-NC-SA 4.0",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Contributors",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>Suhas Mahesh</li>\n<li>\"shivjun1685\"</li>\n<li>Tyler Neill</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Digitization Notes",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>(Aug 2022) Suhas Mahesh (Ambuda user <code>suhasm</code>): Item created, Google Cloud Vision OCR performed.</li>\n<li>(Mar–May 2023) Ambuda user <code>shivjun1685</code>: Proofread once.</li>\n<li>(May–Jul 2025) Tyler Neill: Second OCR and merge with previous corrections, proofread final time, restructured for HANSEL.</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "File Creation Method",
+            "inline_text": "I (Tyler Neill) produced this HANSEL edition by first extracting the text page-by-page from the Ambuda website “Proofing” section. I then ran a PDF of the edition through both Google Cloud Vision OCR (via Skrutable) and Gemini 2.0 Flash (via Dharmamitra). These two OCR outputs were then automatically harmonized using Gemini 2.5 Pro (via direct API and using a custom prompt). This harmonized OCR output was then contrasted against the Ambuda-derived version using Meld and differences were reconciled individually with reference to the PDF. I then fully proofread the text, word by word. Finally, I contributed content improvements back to Ambuda using its page-by-page Proofing interface.",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Text Type",
+            "inline_text": "Prose with verse",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Word Division Style",
+            "inline_text": "Devanāgarī-like (ityevam, not ity evam)",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Original Submission Last Updated",
+            "inline_text": "2025-07-24",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Text Last Updated",
+            "inline_text": "2025-09-29",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Metadata Last Updated",
+            "inline_text": "2025-10-22",
+            "content_html": ""
+        },
+        {
+            "type": "corrections",
+            "count": 29,
+            "rows": [
+                {
+                    "sic": "ce",
+                    "corr": "je",
+                    "page": "319",
+                    "line": "1"
+                },
+                {
+                    "sic": "piḥ",
+                    "corr": "pi",
+                    "page": "321",
+                    "line": "34"
+                },
+                {
+                    "sic": "",
+                    "corr": "|",
+                    "page": "323",
+                    "line": "8"
+                },
+                {
+                    "sic": "prā",
+                    "corr": "pā",
+                    "page": "324",
+                    "line": "8"
+                },
+                {
+                    "sic": "|",
+                    "corr": "",
+                    "page": "324",
+                    "line": "19"
+                },
+                {
+                    "sic": "ri",
+                    "corr": "ti",
+                    "page": "325",
+                    "line": "24"
+                },
+                {
+                    "sic": "ṭgho",
+                    "corr": "dgho",
+                    "page": "329",
+                    "line": "11"
+                },
+                {
+                    "sic": "",
+                    "corr": "||",
+                    "page": "329",
+                    "line": "26"
+                },
+                {
+                    "sic": "ba",
+                    "corr": "va",
+                    "page": "338",
+                    "line": "35"
+                },
+                {
+                    "sic": "sarpī",
+                    "corr": "sarpo",
+                    "page": "341",
+                    "line": "1"
+                },
+                {
+                    "sic": "lpa",
+                    "corr": "lya",
+                    "page": "342",
+                    "line": "23"
+                },
+                {
+                    "sic": "nṛ",
+                    "corr": "nu",
+                    "page": "347",
+                    "line": "31"
+                },
+                {
+                    "sic": "rtre",
+                    "corr": "rte",
+                    "page": "351",
+                    "line": "8"
+                },
+                {
+                    "sic": "",
+                    "corr": " ",
+                    "page": "352",
+                    "line": "1"
+                },
+                {
+                    "sic": "cat",
+                    "corr": "cet",
+                    "page": "354",
+                    "line": "1"
+                },
+                {
+                    "sic": "na",
+                    "corr": "naṃ",
+                    "page": "355",
+                    "line": "22"
+                },
+                {
+                    "sic": "ṭgho",
+                    "corr": "dgho",
+                    "page": "356",
+                    "line": "32"
+                },
+                {
+                    "sic": "ba",
+                    "corr": "va",
+                    "page": "359",
+                    "line": "21"
+                },
+                {
+                    "sic": "bhu",
+                    "corr": "mu",
+                    "page": "361",
+                    "line": "13"
+                },
+                {
+                    "sic": "mi",
+                    "corr": "bhi",
+                    "page": "361",
+                    "line": "22"
+                },
+                {
+                    "sic": "t",
+                    "corr": "n",
+                    "page": "365",
+                    "line": "2"
+                },
+                {
+                    "sic": "ni ",
+                    "corr": "nu",
+                    "page": "368",
+                    "line": "1"
+                },
+                {
+                    "sic": "",
+                    "corr": "ṃ",
+                    "page": "369",
+                    "line": "10"
+                },
+                {
+                    "sic": "pra",
+                    "corr": "prā",
+                    "page": "369",
+                    "line": "15"
+                },
+                {
+                    "sic": "nyie",
+                    "corr": "nye",
+                    "page": "369",
+                    "line": "25"
+                },
+                {
+                    "sic": "tpa",
+                    "corr": "tya",
+                    "page": "371",
+                    "line": "19"
+                },
+                {
+                    "sic": "n",
+                    "corr": "t",
+                    "page": "371",
+                    "line": "26"
+                },
+                {
+                    "sic": "hya",
+                    "corr": "hma",
+                    "page": "377",
+                    "line": "19"
+                },
+                {
+                    "sic": "iīpya",
+                    "corr": "dīvya",
+                    "page": "381",
+                    "line": "7"
+                }
+            ]
+        }
+    ],
+    "verse_only": false,
+    "includes_plain_variant": true,
+    "no_line_numbers": false
+}
