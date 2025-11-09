@@ -1,12 +1,11 @@
 from lxml import etree
-import os
 import argparse
 import json
 from pathlib import Path
 import markdown
 from lxml.html import fromstring
 
-def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=False, plain=False, standalone=False):
+def convert_xml_to_html(xml_path, html_path):
     """
     Converts a TEI XML file to an HTML fragment and a corresponding JSON sidecar file.
     - The HTML file contains only the core text content inside a <div id="content">.
@@ -27,7 +26,7 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
     corrections_data = []
     metadata_entries = []
 
-    if not plain:
+    if not PLAIN:
         for div_section in root.xpath('//body/div[@n]'):
             section_name = div_section.get('n')
             first_pb = div_section.find('.//pb')
@@ -88,7 +87,7 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
     # --- HTML Body Generation ---
     body = etree.Element("body")
     content_div = etree.SubElement(body, "div", id="content")
-    if not plain and not verse_only:
+    if not PLAIN and not VERSE_ONLY:
         content_div.set('class', 'hide-location-markers')
 
     # --- Content Processing Functions ---
@@ -132,7 +131,7 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
                 page_tracker[0] = child.get("n")
                 line_tracker[0] = "1"
                 pb_span = etree.SubElement(html_node, "span", {"class": "pb rich-text", "data-page": page_tracker[0]})
-                pb_span.text = f'(p.{page_tracker[0]}, l.1)' if not no_line_numbers else f'(p.{page_tracker[0]})'
+                pb_span.text = f'(p.{page_tracker[0]}, l.1)' if not NO_LINE_NUMBERS else f'(p.{page_tracker[0]})'
                 etree.SubElement(html_node, "br", {"class": "pb-br rich-text"})
             elif child.tag == 'choice':
                 corr_span = etree.SubElement(html_node, "span", {"class": "correction"})
@@ -140,7 +139,7 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
                 corr = child.find('corr')
                 sic_text = ''.join(sic.itertext()) if sic is not None else ''
                 corr_text = ''.join(corr.itertext()) if corr is not None else ''
-                if not plain: corrections_data.append({'sic': sic_text, 'corr': corr_text, 'page': page_tracker[0], 'line': line_tracker[0]})
+                if not PLAIN: corrections_data.append({'sic': sic_text, 'corr': corr_text, 'page': page_tracker[0], 'line': line_tracker[0]})
                 ante = etree.SubElement(corr_span, "i", {"class": "ante-correction", "title": f"pre-correction (post-: {corr_text})"})
                 if sic is not None: process_children(sic, ante, page_tracker, line_tracker, False)
                 post = etree.SubElement(corr_span, "i", {"class": "post-correction", "style": "display:none;", "title": f"post-correction (pre-: {sic_text})"})
@@ -148,7 +147,7 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
             elif child.tag in ['del', 'supplied']:
                 corr_span = etree.SubElement(html_node, "span", {"class": "correction"})
                 text = ''.join(child.itertext())
-                if not plain:
+                if not PLAIN:
                     corrections_data.append({'sic': text if child.tag == 'del' else '', 'corr': text if child.tag == 'supplied' else '', 'page': page_tracker[0], 'line': line_tracker[0]})
                 if child.tag == 'del':
                     ante = etree.SubElement(corr_span, "i", {"class": "ante-correction", "title": "deletion"})
@@ -166,7 +165,7 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
             if child.tail: append_text(html_node, child.tail)
 
     def process_lg_content(lg_element, container, page_tracker, line_tracker, is_plain):
-        style = "padding-left: 2em; margin-bottom: 1.3em;" if not verse_only else ""
+        style = "padding-left: 2em; margin-bottom: 1.3em;" if not VERSE_ONLY else ""
 
         def process_lg_children(target_div, is_plain_version):
             for child in lg_element.iterchildren():
@@ -195,7 +194,7 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
             process_lg_children(div, is_plain_version=True)
 
     # --- Main Content Processing Loop ---
-    if verse_only:
+    if VERSE_ONLY:
         for section in root.xpath('//body/div[@n]'):
             chapter_n_full = section.get('n')
             h1 = etree.SubElement(content_div, "h1", id=f'{chapter_n_full.replace(" ", "_")}')
@@ -230,7 +229,7 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
                 # Process all children, creating list items for each.
                 for child in children_of_lg:
                     if child.tag == 'l':
-                        process_children(child, etree.SubElement(padas_ul, "li"), [''], ['1'], plain)
+                        process_children(child, etree.SubElement(padas_ul, "li"), [''], ['1'], PLAIN)
                     elif child.tag == 'milestone':
                         etree.SubElement(padas_ul, "br")
                         milestone_li = etree.SubElement(padas_ul, "li", {"class": "milestone-verse"})
@@ -245,9 +244,9 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
             for element in section.iterchildren():
                 if element.tag == "pb":
                     current_page[0] = element.get("n")
-                    if not plain: 
+                    if not PLAIN:
                         pb_span = etree.SubElement(content_div, "span", {"class": "pb rich-text", "data-page": current_page[0]})
-                        pb_span.text = f'(p.{current_page[0]}, l.1)' if not no_line_numbers else f'(p.{current_page[0]})'
+                        pb_span.text = f'(p.{current_page[0]}, l.1)' if not NO_LINE_NUMBERS else f'(p.{current_page[0]})'
                         etree.SubElement(content_div, "br", {"class": "pb-br rich-text"})
                 elif element.tag == "milestone":
                     etree.SubElement(content_div, "p").text = f'{element.get("n")}'
@@ -260,19 +259,19 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
                         page_from_n = n_attr.split(',')[0]
                         if page_from_n: current_page[0], current_line[0] = page_from_n, "1"
                     if element.tag == "p":
-                        if not plain:
+                        if not PLAIN:
                             process_children(element, etree.SubElement(content_div, "p", {"class": "rich-text"}), current_page, current_line, is_plain_version=False)
                             process_children(element, etree.SubElement(content_div, "p", {"class": "plain-text"}), current_page, current_line, is_plain_version=True)
                         else:
                             process_children(element, etree.SubElement(content_div, "p"), current_page, current_line, is_plain_version=True)
                     else: # lg
                         if element.get('type') == 'group':
-                            for lg_child in element.findall("lg"): process_lg_content(lg_child, content_div, current_page, current_line, plain)
+                            for lg_child in element.findall("lg"): process_lg_content(lg_child, content_div, current_page, current_line, PLAIN)
                         else:
-                            process_lg_content(element, content_div, current_page, current_line, plain)
+                            process_lg_content(element, content_div, current_page, current_line, PLAIN)
 
     # --- Final Output Generation ---
-    if plain:
+    if PLAIN:
         html_doc = etree.Element("html")
         head = etree.SubElement(html_doc, "head")
         etree.SubElement(head, "meta", charset="utf-8")
@@ -283,7 +282,7 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
         body_full.append(content_div)
         with open(html_path, "w", encoding="utf-8") as f:
             f.write(etree.tostring(html_doc, pretty_print=True, encoding="unicode"))
-    elif standalone:
+    elif STANDALONE:
         template_path = Path(__file__).parent / 'templates' / 'standalone.html'
         with open(template_path, 'r', encoding='utf-8') as f:
             template_str = f.read()
@@ -310,9 +309,9 @@ def convert_xml_to_html(xml_path, html_path, no_line_numbers=False, verse_only=F
             "title": base_name,
             "toc": toc_data,
             "metadata_entries": metadata_entries,
-            "verse_only": bool(verse_only),
-            "includes_plain_variant": not verse_only,  # TODO: figure out whether this is a bug
-            "no_line_numbers": bool(no_line_numbers)
+            "verse_only": VERSE_ONLY,
+            "includes_plain_variant": not VERSE_ONLY,  # TODO: figure out whether this is a bug
+            "no_line_numbers": NO_LINE_NUMBERS
         }
 
         json_path = Path(html_path).with_suffix('.json')
@@ -323,13 +322,19 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Convert TEI XML to HTML and JSON context.")
     parser.add_argument("xml_path", help="Path to the input XML file.")
     parser.add_argument("html_path", help="Path to the output HTML file.")
-    parser.add_argument("--no-line-numbers", action="store_true", help="Format page breaks as <PAGE> instead of <PAGE,1>.")
-    parser.add_argument("--verse-only", action="store_true", help="Render chapters as ordered lists of verses.")
+    parser.add_argument("--no-line-numbers", action="store_true", help="Format page breaks as <PAGE> instead of <PAGE,1> and do not produce <br/>.")
+    parser.add_argument("--verse-only", action="store_true", help="Produce special formatting for texts consisting only of numbered verse.")
     parser.add_argument("--plain", action="store_true", help="Generate a plain HTML version without rich features.")
-    parser.add_argument("--standalone", action="store_true", help="Generate a standalone HTML file for development.")
+    parser.add_argument("--standalone", action="store_true", help="Generate a browser-viewable HTML file for development.")
     args = parser.parse_args()
 
-    convert_xml_to_html(args.xml_path, args.html_path, no_line_numbers=args.no_line_numbers, verse_only=args.verse_only, plain=args.plain, standalone=args.standalone)
+    # set globals
+    NO_LINE_NUMBERS = args.no_line_numbers
+    VERSE_ONLY = args.verse_only
+    PLAIN = args.plain
+    STANDALONE = args.standalone
+
+    convert_xml_to_html(args.xml_path, args.html_path)
     if not args.standalone and not args.plain:
         print(f"Wrote {args.html_path} and {Path(args.html_path).with_suffix('.json')}")
     else:
