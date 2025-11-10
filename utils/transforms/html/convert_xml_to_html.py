@@ -258,8 +258,7 @@ def convert_xml_to_html(xml_path, html_path):
 
     # 3. generate content_div HTML fragment
 
-    body = etree.Element("body")
-    content_div = etree.SubElement(body, "div", id="content")
+    content_div = etree.Element("div", id="content")
     if not PLAIN and not VERSE_ONLY:
         content_div.set('class', 'hide-location-markers')
 
