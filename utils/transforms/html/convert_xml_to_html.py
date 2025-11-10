@@ -10,7 +10,113 @@ NO_LINE_NUMBERS: bool = None
 VERSE_ONLY: bool = None
 PLAIN: bool = None
 STANDALONE: bool = None
+TOC_DATA = []
+CORRECTIONS_DATA = []
+METADATA_ENTRIES = []
 
+
+# --- Content Processing Functions ---
+def append_text(element, text):
+    if not text: return
+    if len(element) > 0:
+        last_child = element[-1]
+        last_child.tail = (last_child.tail or '') + text
+    else:
+        element.text = (element.text or '') + text
+
+def get_plain_text_recursive(element):
+    text = ''
+    if element.text: text += element.text
+    for child in element:
+        if child.tag == 'choice':
+            corr = child.find('corr')
+            if corr is not None: text += get_plain_text_recursive(corr)
+        elif child.tag == 'del': pass
+        elif child.tag == 'supplied': text += get_plain_text_recursive(child)
+        else: text += get_plain_text_recursive(child)
+        if child.tail: text += child.tail
+    return text
+
+def process_children(xml_node, html_node, page_tracker, line_tracker, plain):
+    if plain:
+        text_content = get_plain_text_recursive(xml_node)
+        append_text(html_node, text_content)
+        return
+
+    if xml_node.text:
+        append_text(html_node, xml_node.text)
+    for child in xml_node:
+        if child.tag == 'lb':
+            line_n = child.get("n")
+            if line_n: line_tracker[0] = line_n
+            lb_span = etree.SubElement(html_node, "span", {"class": "lb rich-text", "data-line": line_n})
+            lb_span.text = f'(p.{page_tracker[0]}, l.{line_n})'
+            etree.SubElement(html_node, "br", {"class": "lb-br rich-text"})
+        elif child.tag == 'pb':
+            page_tracker[0] = child.get("n")
+            line_tracker[0] = "1"
+            pb_span = etree.SubElement(html_node, "span", {"class": "pb rich-text", "data-page": page_tracker[0]})
+            pb_span.text = f'(p.{page_tracker[0]}, l.1)' if not NO_LINE_NUMBERS else f'(p.{page_tracker[0]})'
+            etree.SubElement(html_node, "br", {"class": "pb-br rich-text"})
+        elif child.tag == 'choice':
+            corr_span = etree.SubElement(html_node, "span", {"class": "correction"})
+            sic = child.find('sic')
+            corr = child.find('corr')
+            sic_text = ''.join(sic.itertext()) if sic is not None else ''
+            corr_text = ''.join(corr.itertext()) if corr is not None else ''
+            if not PLAIN: CORRECTIONS_DATA.append({'sic': sic_text, 'corr': corr_text, 'page': page_tracker[0], 'line': line_tracker[0]})
+            ante = etree.SubElement(corr_span, "i", {"class": "ante-correction", "title": f"pre-correction (post-: {corr_text})"})
+            if sic is not None: process_children(sic, ante, page_tracker, line_tracker, False)
+            post = etree.SubElement(corr_span, "i", {"class": "post-correction", "style": "display:none;", "title": f"post-correction (pre-: {sic_text})"})
+            if corr is not None: process_children(corr, post, page_tracker, line_tracker, False)
+        elif child.tag in ['del', 'supplied']:
+            corr_span = etree.SubElement(html_node, "span", {"class": "correction"})
+            text = ''.join(child.itertext())
+            if not PLAIN:
+                CORRECTIONS_DATA.append({'sic': text if child.tag == 'del' else '', 'corr': text if child.tag == 'supplied' else '', 'page': page_tracker[0], 'line': line_tracker[0]})
+            if child.tag == 'del':
+                ante = etree.SubElement(corr_span, "i", {"class": "ante-correction", "title": "deletion"})
+                process_children(child, ante, page_tracker, line_tracker, False)
+                etree.SubElement(corr_span, "i", {"class": "post-correction", "style": "display:none;"}).text = ''
+            else: # supplied
+                etree.SubElement(corr_span, "i", {"class": "ante-correction"}).text = ''
+                post = etree.SubElement(corr_span, "i", {"class": "post-correction", "style": "display:none;", "title": "supplied"})
+                process_children(child, post, page_tracker, line_tracker, False)
+        elif child.tag == 'unclear':
+            unclear_span = etree.SubElement(html_node, "span", {"class": "unclear", "title": "unclear"})
+            process_children(child, unclear_span, page_tracker, line_tracker, False)
+        else:
+            process_children(child, html_node, page_tracker, line_tracker, False)
+        if child.tail: append_text(html_node, child.tail)
+
+def process_lg_content(lg_element, container, page_tracker, line_tracker, plain):
+    style = "padding-left: 2em; margin-bottom: 1.3em;" if not VERSE_ONLY else ""
+
+    def process_lg_children(target_div, plain):
+        for child in lg_element.iterchildren():
+            if child.tag == 'head':
+                if child.text:
+                    etree.SubElement(target_div, "p").text = child.text
+            elif child.tag == 'l':
+                span_tag = etree.SubElement(target_div, "span")
+                process_children(child, span_tag, page_tracker, line_tracker, plain)
+            elif child.tag == 'back':
+                if child.text:
+                    etree.SubElement(target_div, "p").text = child.text
+            elif child.tag == 'milestone':
+                if not plain:
+                    milestone_span = etree.SubElement(target_div, "span", {"class": "milestone"})
+                    milestone_span.text = f'{child.get("n")}'
+
+    if not plain:
+        div_rich = etree.SubElement(container, "div", {"class": "lg rich-text", "style": style})
+        process_lg_children(div_rich, plain=False)
+
+        div_plain = etree.SubElement(container, "div", {"class": "lg plain-text", "style": style})
+        process_lg_children(div_plain, plain=True)
+    else:
+        div = etree.SubElement(container, "div", {"class": "lg", "style": style})
+        process_lg_children(div, plain=True)
 
 def convert_xml_to_html(xml_path, html_path):
     """
@@ -27,11 +133,6 @@ def convert_xml_to_html(xml_path, html_path):
 
     root = tree.getroot()
     base_name = Path(xml_path).stem
-
-    # --- Data Collection ---
-    toc_data = []
-    corrections_data = []
-    metadata_entries = []
 
     if not PLAIN:
         for div_section in root.xpath('//body/div[@n]'):
@@ -50,7 +151,7 @@ def convert_xml_to_html(xml_path, html_path):
                     else:
                         start_page = n_attr
 
-            toc_data.append({'name': section_name, 'page': start_page, 'id': f'{section_name.replace(" ", "_")}'})
+            TOC_DATA.append({'name': section_name, 'page': start_page, 'id': f'{section_name.replace(" ", "_")}'})
 
         metadata_md_path = Path(__file__).resolve().parents[3] / 'metadata' / 'markdown' / f'{base_name}.md'
 
@@ -82,7 +183,7 @@ def convert_xml_to_html(xml_path, html_path):
                     label_text = (node.text or '').strip()
                     if not (inline_text or rendered_html).strip():
                         continue
-                    metadata_entries.append({
+                    METADATA_ENTRIES.append({
                         "type": "field",
                         "label": label_text or None,
                         "inline_text": (inline_text or '').strip() or None,
@@ -96,109 +197,6 @@ def convert_xml_to_html(xml_path, html_path):
     content_div = etree.SubElement(body, "div", id="content")
     if not PLAIN and not VERSE_ONLY:
         content_div.set('class', 'hide-location-markers')
-
-    # --- Content Processing Functions ---
-    def append_text(element, text):
-        if not text: return
-        if len(element) > 0:
-            last_child = element[-1]
-            last_child.tail = (last_child.tail or '') + text
-        else:
-            element.text = (element.text or '') + text
-
-    def get_plain_text_recursive(element):
-        text = ''
-        if element.text: text += element.text
-        for child in element:
-            if child.tag == 'choice':
-                corr = child.find('corr')
-                if corr is not None: text += get_plain_text_recursive(corr)
-            elif child.tag == 'del': pass
-            elif child.tag == 'supplied': text += get_plain_text_recursive(child)
-            else: text += get_plain_text_recursive(child)
-            if child.tail: text += child.tail
-        return text
-
-    def process_children(xml_node, html_node, page_tracker, line_tracker, plain):
-        if plain:
-            text_content = get_plain_text_recursive(xml_node)
-            append_text(html_node, text_content)
-            return
-
-        if xml_node.text:
-            append_text(html_node, xml_node.text)
-        for child in xml_node:
-            if child.tag == 'lb':
-                line_n = child.get("n")
-                if line_n: line_tracker[0] = line_n
-                lb_span = etree.SubElement(html_node, "span", {"class": "lb rich-text", "data-line": line_n})
-                lb_span.text = f'(p.{page_tracker[0]}, l.{line_n})'
-                etree.SubElement(html_node, "br", {"class": "lb-br rich-text"})
-            elif child.tag == 'pb':
-                page_tracker[0] = child.get("n")
-                line_tracker[0] = "1"
-                pb_span = etree.SubElement(html_node, "span", {"class": "pb rich-text", "data-page": page_tracker[0]})
-                pb_span.text = f'(p.{page_tracker[0]}, l.1)' if not NO_LINE_NUMBERS else f'(p.{page_tracker[0]})'
-                etree.SubElement(html_node, "br", {"class": "pb-br rich-text"})
-            elif child.tag == 'choice':
-                corr_span = etree.SubElement(html_node, "span", {"class": "correction"})
-                sic = child.find('sic')
-                corr = child.find('corr')
-                sic_text = ''.join(sic.itertext()) if sic is not None else ''
-                corr_text = ''.join(corr.itertext()) if corr is not None else ''
-                if not PLAIN: corrections_data.append({'sic': sic_text, 'corr': corr_text, 'page': page_tracker[0], 'line': line_tracker[0]})
-                ante = etree.SubElement(corr_span, "i", {"class": "ante-correction", "title": f"pre-correction (post-: {corr_text})"})
-                if sic is not None: process_children(sic, ante, page_tracker, line_tracker, False)
-                post = etree.SubElement(corr_span, "i", {"class": "post-correction", "style": "display:none;", "title": f"post-correction (pre-: {sic_text})"})
-                if corr is not None: process_children(corr, post, page_tracker, line_tracker, False)
-            elif child.tag in ['del', 'supplied']:
-                corr_span = etree.SubElement(html_node, "span", {"class": "correction"})
-                text = ''.join(child.itertext())
-                if not PLAIN:
-                    corrections_data.append({'sic': text if child.tag == 'del' else '', 'corr': text if child.tag == 'supplied' else '', 'page': page_tracker[0], 'line': line_tracker[0]})
-                if child.tag == 'del':
-                    ante = etree.SubElement(corr_span, "i", {"class": "ante-correction", "title": "deletion"})
-                    process_children(child, ante, page_tracker, line_tracker, False)
-                    etree.SubElement(corr_span, "i", {"class": "post-correction", "style": "display:none;"}).text = ''
-                else: # supplied
-                    etree.SubElement(corr_span, "i", {"class": "ante-correction"}).text = ''
-                    post = etree.SubElement(corr_span, "i", {"class": "post-correction", "style": "display:none;", "title": "supplied"})
-                    process_children(child, post, page_tracker, line_tracker, False)
-            elif child.tag == 'unclear':
-                unclear_span = etree.SubElement(html_node, "span", {"class": "unclear", "title": "unclear"})
-                process_children(child, unclear_span, page_tracker, line_tracker, False)
-            else:
-                process_children(child, html_node, page_tracker, line_tracker, False)
-            if child.tail: append_text(html_node, child.tail)
-
-    def process_lg_content(lg_element, container, page_tracker, line_tracker, plain):
-        style = "padding-left: 2em; margin-bottom: 1.3em;" if not VERSE_ONLY else ""
-
-        def process_lg_children(target_div, plain):
-            for child in lg_element.iterchildren():
-                if child.tag == 'head':
-                    if child.text:
-                        etree.SubElement(target_div, "p").text = child.text
-                elif child.tag == 'l':
-                    span_tag = etree.SubElement(target_div, "span")
-                    process_children(child, span_tag, page_tracker, line_tracker, plain)
-                elif child.tag == 'back':
-                    if child.text:
-                        etree.SubElement(target_div, "p").text = child.text
-                elif child.tag == 'milestone':
-                    if not plain:
-                        milestone_span = etree.SubElement(target_div, "span", {"class": "milestone"})
-                        milestone_span.text = f'{child.get("n")}'
-
-        if not plain:
-            div_rich = etree.SubElement(container, "div", {"class": "lg rich-text", "style": style})
-            process_lg_children(div_rich, plain=False)
-
-            div_plain = etree.SubElement(container, "div", {"class": "lg plain-text", "style": style})
-            process_lg_children(div_plain, plain=True)
-        else:
-            div = etree.SubElement(container, "div", {"class": "lg", "style": style})
-            process_lg_children(div, plain=True)
 
     # --- Main Content Processing Loop ---
     if VERSE_ONLY:
@@ -305,17 +303,17 @@ def convert_xml_to_html(xml_path, html_path):
         with open(html_path, "w", encoding="utf-8") as f:
             f.write(etree.tostring(content_div, pretty_print=True, encoding="unicode"))
 
-        if corrections_data:
-            metadata_entries.append({
+        if CORRECTIONS_DATA:
+            METADATA_ENTRIES.append({
                 "type": "corrections",
-                "count": len(corrections_data),
-                "rows": corrections_data
+                "count": len(CORRECTIONS_DATA),
+                "rows": CORRECTIONS_DATA
             })
 
         document_context = {
             "title": base_name,
-            "toc": toc_data,
-            "metadata_entries": metadata_entries,
+            "toc": TOC_DATA,
+            "metadata_entries": METADATA_ENTRIES,
             "verse_only": VERSE_ONLY,
             "includes_plain_variant": not VERSE_ONLY,  # TODO: figure out whether this is a bug
             "no_line_numbers": NO_LINE_NUMBERS
