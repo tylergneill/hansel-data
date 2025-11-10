@@ -140,7 +140,7 @@ class HtmlConverter:
                 self.append_text(html_node, child.tail)
         return page, line
 
-    def process_lg_content(self, lg_element, container, page, line, plain):
+    def process_lg_content(self, lg_element, container, page, line):
         """Processes a TEI <lg> (line group) element into an HTML structure.
 
         Creates a styled <div> for the line group and processes its children,
@@ -154,8 +154,6 @@ class HtmlConverter:
             line: The current line number string.
             plain: A boolean flag; if True, generates simplified plain text content.
         """
-        style = "padding-left: 2em; margin-bottom: 1.3em;" if not self.verse_only else ""
-
         def process_lg_children(target_div, plain, page, line):
             """Processes the children of a TEI <lg> element, converting them to HTML.
 
@@ -183,15 +181,14 @@ class HtmlConverter:
                         milestone_span.text = f'{child.get("n")}'
             return page, line
 
-        if not plain:
-            div_rich = etree.SubElement(container, "div", {"class": "lg rich-text", "style": style})
-            page, line = process_lg_children(div_rich, plain=False, page=page, line=line)
-
-            div_plain = etree.SubElement(container, "div", {"class": "lg plain-text", "style": style})
-            process_lg_children(div_plain, plain=True, page=page, line=line)
-        else:
-            div = etree.SubElement(container, "div", {"class": "lg", "style": style})
-            page, line = process_lg_children(div, plain=True, page=page, line=line)
+        style = "padding-left: 2em; margin-bottom: 1.3em;" if not self.verse_only else ""
+        if not self.plain:
+            # do a rich version
+            div_elem = etree.SubElement(container, "div", {"class": "lg rich-text", "style": style})
+            page, line = process_lg_children(div_elem, plain=False, page=page, line=line)
+        # always do a plain version
+        div_elem = etree.SubElement(container, "div", {"class": "lg plain-text", "style": style})
+        process_lg_children(div_elem, plain=True, page=page, line=line)
         return page, line
 
     def convert_xml_to_html(self, xml_path, html_path):
@@ -329,7 +326,7 @@ class HtmlConverter:
                 h1.text = f"§ {section_name}"
                 for element in section.iterchildren():
 
-                    if element.tag == "pb":
+                    if element.tag == "pb": # TODO: investigate whether this can be consolidated & fixed for plain case
                         current_page = element.get("n")
                         if not self.plain:
                             pb_span = etree.SubElement(content_div, "span", {"class": "pb rich-text", "data-page": current_page})
@@ -341,7 +338,7 @@ class HtmlConverter:
 
                     elif element.tag in ["p", "lg"]:
 
-                        # process n
+                        # process n for page and line info
                         n_attr = element.get("n")
                         if n_attr:
                             h2 = etree.SubElement(content_div, "h2", {"class": "location-marker", "id": n_attr})
@@ -355,7 +352,7 @@ class HtmlConverter:
                             else:
                                 h2.text = n_attr
 
-                        # process text
+                        # process textual content
                         if element.tag == "p":
                             if not self.plain:
                                 # do a rich version
@@ -365,11 +362,12 @@ class HtmlConverter:
                                 "class": "plain-text"}), current_page, current_line, plain=True)
 
                         else: # lg
+                            # basically ignore groups by flattening, bc purpose of group to hold n attribute already fulfilled
                             if element.get('type') == 'group':
                                 for lg_child in element.findall("lg"):
-                                    current_page, current_line = self.process_lg_content(lg_child, content_div, current_page, current_line, self.plain)
+                                    current_page, current_line = self.process_lg_content(lg_child, content_div, current_page, current_line)
                             else:
-                                current_page, current_line = self.process_lg_content(element, content_div, current_page, current_line, self.plain)
+                                current_page, current_line = self.process_lg_content(element, content_div, current_page, current_line)
 
         # 4. write output depending on mode
         if self.plain:
