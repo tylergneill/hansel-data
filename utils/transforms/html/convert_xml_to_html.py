@@ -183,17 +183,21 @@ def convert_xml_to_html(xml_path, html_path):
     Converts a TEI XML file to an HTML fragment and a corresponding JSON sidecar file.
     - The HTML file contains only the core text content inside a <div id="content">.
     - The JSON file contains all metadata, TOC, corrections, and display flags.
+    Plain and standalone modes omit the JSON sidecar.
+    Plain mode omits special formatting.
+    Standalone mode outputs a complete HTML document, not a fragment.
     """
+
+    # 1. prep XML data, remove namespace prefixes, get text name
     parser = etree.XMLParser(remove_blank_text=True)
     tree = etree.parse(xml_path, parser)
-
     for elem in tree.iter():
         if '}' in elem.tag:
             elem.tag = elem.tag.split('}', 1)[1]
-
     root = tree.getroot()
-    base_name = Path(xml_path).stem
+    text_base_name = Path(xml_path).stem
 
+    # 2. generate JSON sidecar (TOC + Metadata for rich HTML)
     if not PLAIN:
         for div_section in root.xpath('//body/div[@n]'):
             section_name = div_section.get('n')
@@ -213,7 +217,7 @@ def convert_xml_to_html(xml_path, html_path):
 
             TOC_DATA.append({'name': section_name, 'page': start_page, 'id': f'{section_name.replace(" ", "_")}'})
 
-        metadata_md_path = Path(__file__).resolve().parents[3] / 'metadata' / 'markdown' / f'{base_name}.md'
+        metadata_md_path = Path(__file__).resolve().parents[3] / 'metadata' / 'markdown' / f'{text_base_name}.md'
 
         if metadata_md_path.exists():
             md_content = metadata_md_path.read_text(encoding="utf-8")
@@ -252,14 +256,17 @@ def convert_xml_to_html(xml_path, html_path):
                 else:
                     i += 1
 
-    # --- HTML Body Generation ---
+    # 3. generate content_div HTML fragment
+
     body = etree.Element("body")
     content_div = etree.SubElement(body, "div", id="content")
     if not PLAIN and not VERSE_ONLY:
         content_div.set('class', 'hide-location-markers')
 
     # --- Main Content Processing Loop ---
+
     if VERSE_ONLY:
+        # format text as list of verses with numbering appended at line-end
         for section in root.xpath('//body/div[@n]'):
             chapter_n_full = section.get('n')
             h1 = etree.SubElement(content_div, "h1", id=f'{chapter_n_full.replace(" ", "_")}')
@@ -300,6 +307,7 @@ def convert_xml_to_html(xml_path, html_path):
                         milestone_li = etree.SubElement(padas_ul, "li", {"class": "milestone-verse"})
                         milestone_li.text = f'{child.get("n")}'
     else:
+        # format standard text (prose/mixed) with indented verse
         current_page = [""]
         current_line = ["1"]
         for section in root.xpath('//body/div[@n]'):
@@ -335,31 +343,34 @@ def convert_xml_to_html(xml_path, html_path):
                         else:
                             process_lg_content(element, content_div, current_page, current_line, PLAIN)
 
-    # --- Final Output Generation ---
+    # 4. write output depending on mode
     if PLAIN:
+        # inject rich content_div fragment into simple HTML template
         html_doc = etree.Element("html")
         head = etree.SubElement(html_doc, "head")
         etree.SubElement(head, "meta", charset="utf-8")
         title = etree.SubElement(head, "title")
-        title.text = base_name
+        title.text = text_base_name
         etree.SubElement(head, "meta", name="viewport", content="width=device-width, initial-scale=1.0")
         body_full = etree.SubElement(html_doc, "body")
         body_full.append(content_div)
         with open(html_path, "w", encoding="utf-8") as f:
             f.write(etree.tostring(html_doc, pretty_print=True, encoding="unicode"))
     elif STANDALONE:
+        # inject rich content_div fragment into HTML template with rich CSS
         template_path = Path(__file__).parent / 'templates' / 'standalone.html'
         with open(template_path, 'r', encoding='utf-8') as f:
             template_str = f.read()
 
         content_str = etree.tostring(content_div, pretty_print=True, encoding="unicode")
 
-        output_html = template_str.replace('{{ title }}', base_name)
+        output_html = template_str.replace('{{ title }}', text_base_name)
         output_html = output_html.replace('{{ content_html | safe }}', content_str)
 
         with open(html_path, "w", encoding="utf-8") as f:
             f.write(output_html)
     else:
+        # bare rich content_div fragment and JSON sidecar
         with open(html_path, "w", encoding="utf-8") as f:
             f.write(etree.tostring(content_div, pretty_print=True, encoding="unicode"))
 
@@ -371,7 +382,7 @@ def convert_xml_to_html(xml_path, html_path):
             })
 
         document_context = {
-            "title": base_name,
+            "title": text_base_name,
             "toc": TOC_DATA,
             "metadata_entries": METADATA_ENTRIES,
             "verse_only": VERSE_ONLY,
@@ -400,7 +411,7 @@ if __name__ == "__main__":
     STANDALONE = args.standalone
 
     convert_xml_to_html(args.xml_path, args.html_path)
-    if not args.standalone and not args.plain:
+    if not STANDALONE and not PLAIN:
         print(f"Wrote {args.html_path} and {Path(args.html_path).with_suffix('.json')}")
     else:
         print(f"Wrote {args.html_path}")
