@@ -17,6 +17,15 @@ METADATA_ENTRIES = []
 
 # --- Content Processing Functions ---
 def append_text(element, text):
+    """Appends text to an lxml element, handling children correctly.
+
+    If the element has children, the text is appended to the tail of the last
+    child. Otherwise, it's appended to the element's text attribute.
+
+    Args:
+        element: The lxml.etree._Element to append text to.
+        text: The string to append.
+    """
     if not text: return
     if len(element) > 0:
         last_child = element[-1]
@@ -25,6 +34,20 @@ def append_text(element, text):
         element.text = (element.text or '') + text
 
 def get_plain_text_recursive(element):
+    """Recursively extracts and returns the plain text content of an XML element.
+
+    This function traverses the XML tree, concatenating text content. It makes
+    choices about which content to include based on TEI tags:
+    - <corr> inside <choice> is preferred.
+    - <del> content is ignored.
+    - <supplied> content is included.
+
+    Args:
+        element: The lxml.etree._Element to extract text from.
+
+    Returns:
+        A string containing the concatenated plain text.
+    """
     text = ''
     if element.text: text += element.text
     for child in element:
@@ -38,6 +61,20 @@ def get_plain_text_recursive(element):
     return text
 
 def process_children(xml_node, html_node, page_tracker, line_tracker, plain):
+    """Recursively processes TEI XML nodes and converts them to HTML elements.
+
+    This function walks through the children of an XML node, creating corresponding
+    HTML structures. It handles various TEI tags for line breaks, page breaks,
+    corrections, and unclear text, generating rich HTML with spans and data
+    attributes, or a plain text representation.
+
+    Args:
+        xml_node: The source lxml.etree._Element from the TEI XML.
+        html_node: The parent lxml.etree._Element in the target HTML tree.
+        page_tracker: A list containing the current page number string.
+        line_tracker: A list containing the current line number string.
+        plain: A boolean flag; if True, generates simplified plain text content.
+    """
     if plain:
         text_content = get_plain_text_recursive(xml_node)
         append_text(html_node, text_content)
@@ -90,9 +127,32 @@ def process_children(xml_node, html_node, page_tracker, line_tracker, plain):
         if child.tail: append_text(html_node, child.tail)
 
 def process_lg_content(lg_element, container, page_tracker, line_tracker, plain):
+    """Processes a TEI <lg> (line group) element into an HTML structure.
+
+    Creates a styled <div> for the line group and processes its children,
+    which can include <head>, <l>, <back>, and <milestone> tags. It can
+    generate both rich and plain text versions of the content.
+
+    Args:
+        lg_element: The <lg> lxml.etree._Element to process.
+        container: The parent HTML element for the generated content.
+        page_tracker: A list containing the current page number string.
+        line_tracker: A list containing the current line number string.
+        plain: A boolean flag; if True, generates simplified plain text content.
+    """
     style = "padding-left: 2em; margin-bottom: 1.3em;" if not VERSE_ONLY else ""
 
     def process_lg_children(target_div, plain):
+        """Processes the children of a TEI <lg> element, converting them to HTML.
+
+        This nested function iterates through the direct children of an <lg> element,
+        handling specific TEI tags like <head>, <l>, <back>, and <milestone>
+        to create corresponding HTML elements within the target div.
+
+        Args:
+            target_div: The HTML div element where the processed children will be appended.
+            plain: A boolean flag; if True, generates simplified plain text content.
+        """
         for child in lg_element.iterchildren():
             if child.tag == 'head':
                 if child.text:
