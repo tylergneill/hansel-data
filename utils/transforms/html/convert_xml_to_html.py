@@ -60,7 +60,7 @@ def get_plain_text_recursive(element):
         if child.tail: text += child.tail
     return text
 
-def process_children(xml_node, html_node, page_tracker, line_tracker, plain):
+def process_children(xml_node, html_node, page, line, plain):
     """Recursively processes TEI XML nodes and converts them to HTML elements.
 
     This function walks through the children of an XML node, creating corresponding
@@ -71,29 +71,29 @@ def process_children(xml_node, html_node, page_tracker, line_tracker, plain):
     Args:
         xml_node: The source lxml.etree._Element from the TEI XML.
         html_node: The parent lxml.etree._Element in the target HTML tree.
-        page_tracker: A list containing the current page number string.
-        line_tracker: A list containing the current line number string.
+        page: The current page number string.
+        line: The current line number string.
         plain: A boolean flag; if True, generates simplified plain text content.
     """
     if plain:
         text_content = get_plain_text_recursive(xml_node)
         append_text(html_node, text_content)
-        return
+        return page, line
 
     if xml_node.text:
         append_text(html_node, xml_node.text)
     for child in xml_node:
         if child.tag == 'lb':
             line_n = child.get("n")
-            if line_n: line_tracker[0] = line_n
+            if line_n: line = line_n
             lb_span = etree.SubElement(html_node, "span", {"class": "lb rich-text", "data-line": line_n})
-            lb_span.text = f'(p.{page_tracker[0]}, l.{line_n})'
+            lb_span.text = f'(p.{page}, l.{line_n})'
             etree.SubElement(html_node, "br", {"class": "lb-br rich-text"})
         elif child.tag == 'pb':
-            page_tracker[0] = child.get("n")
-            line_tracker[0] = "1"
-            pb_span = etree.SubElement(html_node, "span", {"class": "pb rich-text", "data-page": page_tracker[0]})
-            pb_span.text = f'(p.{page_tracker[0]}, l.1)' if not NO_LINE_NUMBERS else f'(p.{page_tracker[0]})'
+            page = child.get("n")
+            line = "1"
+            pb_span = etree.SubElement(html_node, "span", {"class": "pb rich-text", "data-page": page})
+            pb_span.text = f'(p.{page}, l.1)' if not NO_LINE_NUMBERS else f'(p.{page})'
             etree.SubElement(html_node, "br", {"class": "pb-br rich-text"})
         elif child.tag == 'choice':
             corr_span = etree.SubElement(html_node, "span", {"class": "correction"})
@@ -101,32 +101,33 @@ def process_children(xml_node, html_node, page_tracker, line_tracker, plain):
             corr = child.find('corr')
             sic_text = ''.join(sic.itertext()) if sic is not None else ''
             corr_text = ''.join(corr.itertext()) if corr is not None else ''
-            if not PLAIN: CORRECTIONS_DATA.append({'sic': sic_text, 'corr': corr_text, 'page': page_tracker[0], 'line': line_tracker[0]})
+            if not PLAIN: CORRECTIONS_DATA.append({'sic': sic_text, 'corr': corr_text, 'page': page, 'line': line})
             ante = etree.SubElement(corr_span, "i", {"class": "ante-correction", "title": f"pre-correction (post-: {corr_text})"})
-            if sic is not None: process_children(sic, ante, page_tracker, line_tracker, False)
+            if sic is not None: page, line = process_children(sic, ante, page, line, False)
             post = etree.SubElement(corr_span, "i", {"class": "post-correction", "style": "display:none;", "title": f"post-correction (pre-: {sic_text})"})
-            if corr is not None: process_children(corr, post, page_tracker, line_tracker, False)
+            if corr is not None: page, line = process_children(corr, post, page, line, False)
         elif child.tag in ['del', 'supplied']:
             corr_span = etree.SubElement(html_node, "span", {"class": "correction"})
             text = ''.join(child.itertext())
             if not PLAIN:
-                CORRECTIONS_DATA.append({'sic': text if child.tag == 'del' else '', 'corr': text if child.tag == 'supplied' else '', 'page': page_tracker[0], 'line': line_tracker[0]})
+                CORRECTIONS_DATA.append({'sic': text if child.tag == 'del' else '', 'corr': text if child.tag == 'supplied' else '', 'page': page, 'line': line})
             if child.tag == 'del':
                 ante = etree.SubElement(corr_span, "i", {"class": "ante-correction", "title": "deletion"})
-                process_children(child, ante, page_tracker, line_tracker, False)
+                page, line = process_children(child, ante, page, line, False)
                 etree.SubElement(corr_span, "i", {"class": "post-correction", "style": "display:none;"}).text = ''
             else: # supplied
                 etree.SubElement(corr_span, "i", {"class": "ante-correction"}).text = ''
                 post = etree.SubElement(corr_span, "i", {"class": "post-correction", "style": "display:none;", "title": "supplied"})
-                process_children(child, post, page_tracker, line_tracker, False)
+                page, line = process_children(child, post, page, line, False)
         elif child.tag == 'unclear':
             unclear_span = etree.SubElement(html_node, "span", {"class": "unclear", "title": "unclear"})
-            process_children(child, unclear_span, page_tracker, line_tracker, False)
+            page, line = process_children(child, unclear_span, page, line, False)
         else:
-            process_children(child, html_node, page_tracker, line_tracker, False)
+            page, line = process_children(child, html_node, page, line, False)
         if child.tail: append_text(html_node, child.tail)
+    return page, line
 
-def process_lg_content(lg_element, container, page_tracker, line_tracker, plain):
+def process_lg_content(lg_element, container, page, line, plain):
     """Processes a TEI <lg> (line group) element into an HTML structure.
 
     Creates a styled <div> for the line group and processes its children,
@@ -136,13 +137,13 @@ def process_lg_content(lg_element, container, page_tracker, line_tracker, plain)
     Args:
         lg_element: The <lg> lxml.etree._Element to process.
         container: The parent HTML element for the generated content.
-        page_tracker: A list containing the current page number string.
-        line_tracker: A list containing the current line number string.
+        page: The current page number string.
+        line: The current line number string.
         plain: A boolean flag; if True, generates simplified plain text content.
     """
     style = "padding-left: 2em; margin-bottom: 1.3em;" if not VERSE_ONLY else ""
 
-    def process_lg_children(target_div, plain):
+    def process_lg_children(target_div, plain, page, line):
         """Processes the children of a TEI <lg> element, converting them to HTML.
 
         This nested function iterates through the direct children of an <lg> element,
@@ -159,7 +160,7 @@ def process_lg_content(lg_element, container, page_tracker, line_tracker, plain)
                     etree.SubElement(target_div, "p").text = child.text
             elif child.tag == 'l':
                 span_tag = etree.SubElement(target_div, "span")
-                process_children(child, span_tag, page_tracker, line_tracker, plain)
+                page, line = process_children(child, span_tag, page, line, plain)
             elif child.tag == 'back':
                 if child.text:
                     etree.SubElement(target_div, "p").text = child.text
@@ -167,25 +168,27 @@ def process_lg_content(lg_element, container, page_tracker, line_tracker, plain)
                 if not plain:
                     milestone_span = etree.SubElement(target_div, "span", {"class": "milestone"})
                     milestone_span.text = f'{child.get("n")}'
+        return page, line
 
     if not plain:
         div_rich = etree.SubElement(container, "div", {"class": "lg rich-text", "style": style})
-        process_lg_children(div_rich, plain=False)
+        page, line = process_lg_children(div_rich, plain=False, page=page, line=line)
 
         div_plain = etree.SubElement(container, "div", {"class": "lg plain-text", "style": style})
-        process_lg_children(div_plain, plain=True)
+        process_lg_children(div_plain, plain=True, page=page, line=line)
     else:
         div = etree.SubElement(container, "div", {"class": "lg", "style": style})
-        process_lg_children(div, plain=True)
+        page, line = process_lg_children(div, plain=True, page=page, line=line)
+    return page, line
 
 def convert_xml_to_html(xml_path, html_path):
     """
-    Converts a TEI XML file to an HTML fragment and a corresponding JSON sidecar file.
+    In default rich mode, converts a TEI XML file into an HTML fragment and corresponding JSON sidecar file.
     - The HTML file contains only the core text content inside a <div id="content">.
     - The JSON file contains all metadata, TOC, corrections, and display flags.
     Plain and standalone modes omit the JSON sidecar.
-    Plain mode omits special formatting.
-    Standalone mode outputs a complete HTML document, not a fragment.
+    Plain mode omits rich formatting anticipating JavaScript controls.
+    Standalone mode outputs a complete rich HTML document, not a fragment.
     """
 
     # 1. prep XML data, remove namespace prefixes, get text name
@@ -256,13 +259,10 @@ def convert_xml_to_html(xml_path, html_path):
                 else:
                     i += 1
 
-    # 3. generate content_div HTML fragment
-
+    # 3. generate content_div HTML fragment (= main content processing loop)
     content_div = etree.Element("div", id="content")
     if not PLAIN and not VERSE_ONLY:
         content_div.set('class', 'hide-location-markers')
-
-    # --- Main Content Processing Loop ---
 
     if VERSE_ONLY:
         # format text as list of verses with numbering appended at line-end
@@ -300,25 +300,25 @@ def convert_xml_to_html(xml_path, html_path):
                 # Process all children, creating list items for each.
                 for child in children_of_lg:
                     if child.tag == 'l':
-                        process_children(child, etree.SubElement(padas_ul, "li"), [''], ['1'], PLAIN)
+                        process_children(child, etree.SubElement(padas_ul, "li"), '', '1', PLAIN)
                     elif child.tag == 'milestone':
                         etree.SubElement(padas_ul, "br")
                         milestone_li = etree.SubElement(padas_ul, "li", {"class": "milestone-verse"})
                         milestone_li.text = f'{child.get("n")}'
     else:
         # format standard text (prose/mixed) with indented verse
-        current_page = [""]
-        current_line = ["1"]
+        current_page = ""
+        current_line = "1"
         for section in root.xpath('//body/div[@n]'):
             section_name = section.get('n')
             h1 = etree.SubElement(content_div, "h1", id=f'{section_name.replace(" ", "_")}')
             h1.text = f"§ {section_name}"
             for element in section.iterchildren():
                 if element.tag == "pb":
-                    current_page[0] = element.get("n")
+                    current_page = element.get("n")
                     if not PLAIN:
-                        pb_span = etree.SubElement(content_div, "span", {"class": "pb rich-text", "data-page": current_page[0]})
-                        pb_span.text = f'(p.{current_page[0]}, l.1)' if not NO_LINE_NUMBERS else f'(p.{current_page[0]})'
+                        pb_span = etree.SubElement(content_div, "span", {"class": "pb rich-text", "data-page": current_page})
+                        pb_span.text = f'(p.{current_page}, l.1)' if not NO_LINE_NUMBERS else f'(p.{current_page})'
                         etree.SubElement(content_div, "br", {"class": "pb-br rich-text"})
                 elif element.tag == "milestone":
                     etree.SubElement(content_div, "p").text = f'{element.get("n")}'
@@ -329,18 +329,18 @@ def convert_xml_to_html(xml_path, html_path):
                         n_parts = n_attr.split(',')
                         h2.text = f"p.{n_parts[0].strip()}, l.{n_parts[1].strip()}" if len(n_parts) == 2 else f"p.{n_parts[0].strip()}" if len(n_parts) == 1 else n_attr
                         page_from_n = n_attr.split(',')[0]
-                        if page_from_n: current_page[0], current_line[0] = page_from_n, "1"
+                        if page_from_n: current_page, current_line = page_from_n, "1"
                     if element.tag == "p":
                         if not PLAIN:
-                            process_children(element, etree.SubElement(content_div, "p", {"class": "rich-text"}), current_page, current_line, plain=False)
+                            current_page, current_line = process_children(element, etree.SubElement(content_div, "p", {"class": "rich-text"}), current_page, current_line, plain=False)
                             process_children(element, etree.SubElement(content_div, "p", {"class": "plain-text"}), current_page, current_line, plain=True)
                         else:
-                            process_children(element, etree.SubElement(content_div, "p"), current_page, current_line, plain=True)
+                            current_page, current_line = process_children(element, etree.SubElement(content_div, "p"), current_page, current_line, plain=True)
                     else: # lg
                         if element.get('type') == 'group':
-                            for lg_child in element.findall("lg"): process_lg_content(lg_child, content_div, current_page, current_line, PLAIN)
+                            for lg_child in element.findall("lg"): current_page, current_line = process_lg_content(lg_child, content_div, current_page, current_line, PLAIN)
                         else:
-                            process_lg_content(element, content_div, current_page, current_line, PLAIN)
+                            current_page, current_line = process_lg_content(element, content_div, current_page, current_line, PLAIN)
 
     # 4. write output depending on mode
     if PLAIN:
