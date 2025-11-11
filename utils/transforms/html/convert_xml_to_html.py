@@ -201,8 +201,13 @@ class HtmlConverter:
                     span_tag = etree.SubElement(target_div, "span")
                     self.process_children(child, span_tag, treat_as_plain, in_lg=(not treat_as_plain))
                 elif child.tag == 'back':
-                    p_tag = etree.SubElement(target_div, "p")
-                    self.process_children(child, p_tag, treat_as_plain, in_lg=(not treat_as_plain))
+                    if len(target_div) > 0:
+                        last_element = target_div[-1]
+                        self.process_children(child, last_element, treat_as_plain, in_lg=(not treat_as_plain))
+                    else:
+                        # Fallback for unlikely case where <back> is the first element
+                        p_tag = etree.SubElement(target_div, "p")
+                        self.process_children(child, p_tag, treat_as_plain, in_lg=(not treat_as_plain))
                 elif child.tag == 'milestone':
                     if not treat_as_plain:
                         milestone_span = etree.SubElement(target_div, "span", {"class": "milestone"})
