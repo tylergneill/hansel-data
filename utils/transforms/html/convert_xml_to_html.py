@@ -21,7 +21,7 @@ class HtmlConverter:
         self.pending_breaks = 0
 
     # --- Content Processing Functions ---
-    def append_text(self, element, text):
+    def append_text(self, element, text, strip_leading_whitespace=False):
         """Appends text to an lxml element, handling children correctly.
 
         If the element has children, the text is appended to the tail of the last
@@ -30,11 +30,13 @@ class HtmlConverter:
         Args:
             element: The lxml.etree._Element to append text to.
             text: The string to append.
+            strip_leading_whitespace: If True, leading whitespace will be stripped from text
+                                      if labels/breaks were just flushed.
         """
         if not text:
             return
 
-        # If there's pending work and the text is actual content, flush the queues.
+        # Determine the text to append, stripping leading whitespace if a label was just flushed.
         text_to_append = text
         if (self.pending_breaks or self.pending_labels) and text.strip():
             for _ in range(self.pending_breaks):
@@ -45,8 +47,9 @@ class HtmlConverter:
                 element.append(label_span)
             self.pending_labels = []
             
-            text_to_append = text.lstrip()
-
+            if strip_leading_whitespace:
+                text_to_append = text.lstrip()
+        
         if len(element) > 0:
             last_child = element[-1]
             last_child.tail = (last_child.tail or '') + text_to_append
@@ -110,6 +113,19 @@ class HtmlConverter:
             if child.tag == 'lb':
                 if child.get("break") == "no":
                     etree.SubElement(html_node, "span", {"class": "hyphen"}).text = "-"
+                else:
+                    # Ensure a space precedes a non-hyphenated break.
+                    if len(html_node) > 0:
+                        last_elem = html_node[-1]
+                        if last_elem.tail:
+                            if not last_elem.tail.endswith(' '):
+                                last_elem.tail += ' '
+                        else:
+                            last_elem.tail = ' '
+                    elif html_node.text:
+                        if not html_node.text.endswith(' '):
+                            html_node.text += ' '
+
                 line_n = child.get("n")
                 if line_n:
                     self.current_line = line_n
@@ -127,6 +143,19 @@ class HtmlConverter:
             elif child.tag == 'pb':
                 if child.get("break") == "no":
                     etree.SubElement(html_node, "span", {"class": "hyphen"}).text = "-"
+                else:
+                    # Ensure a space precedes a non-hyphenated break.
+                    if len(html_node) > 0:
+                        last_elem = html_node[-1]
+                        if last_elem.tail:
+                            if not last_elem.tail.endswith(' '):
+                                last_elem.tail += ' '
+                        else:
+                            last_elem.tail = ' '
+                    elif html_node.text:
+                        if not html_node.text.endswith(' '):
+                            html_node.text += ' '
+
                 self.current_page = child.get("n")
                 self.current_line = "1"
                 if not in_lg:
@@ -167,7 +196,8 @@ class HtmlConverter:
             else:
                 self.process_children(child, html_node, treat_as_plain, in_lg=in_lg)
             if child.tail:
-                self.append_text(html_node, child.tail)
+                should_strip = (child.tag in ['lb', 'pb']) and not treat_as_plain
+                self.append_text(html_node, child.tail, strip_leading_whitespace=should_strip)
 
     def process_lg_content(self, lg_element, container, treat_as_plain):
         """Processes a TEI <lg> (line group) element into an HTML structure.
@@ -446,7 +476,7 @@ class HtmlConverter:
         else: # rich
             # directly write rich content_div fragment and JSON sidecar
             with open(html_path, "w", encoding="utf-8") as f:
-                f.write(etree.tostring(content_div, pretty_print=True, encoding="unicode"))
+                f.write(etree.tostring(content_div, pretty_print=False, encoding="unicode"))
 
             if self.corrections_data:
                 self.metadata_entries.append({
