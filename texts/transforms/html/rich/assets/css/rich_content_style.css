@@ -22,6 +22,7 @@ h1, h2, h3, h4, h5, h6 {
     color: blue;
 }
 .lg > span { display: block; }
+.lg-head { margin-left: -2em; }
 
 .hyphen, .lb-br, .pb-br { display: none; }
 .show-line-breaks .hyphen { display: inline; }
