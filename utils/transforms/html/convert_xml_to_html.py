@@ -358,19 +358,29 @@ class HtmlConverter:
                         self.append_text(p, f'{element.get("n")}')
 
                     elif element.tag in ["p", "lg"]:
-                        # If there are no pending labels from a previous element's <lb>,
-                        # use the n attribute of the current block element to create the first label.
-                        if not self.pending_labels:
-                            n_attr = element.get("n")
-                            if n_attr:
-                                n_parts = n_attr.split(',')
-                                self.current_page = n_parts[0].strip()
-                                if len(n_parts) == 2:
-                                    self.current_line = n_parts[1].strip()
-                                    label_text = f"p.{self.current_page}, l.{self.current_line}"
-                                else:
-                                    label_text = f"p.{self.current_page}"
-                                
+                        # process n for page and line info, creating both an h2 marker and a pending span label
+                        n_attr = element.get("n")
+                        if n_attr:
+                            h2 = etree.SubElement(content_div, "h2", {"class": "location-marker", "id": n_attr})
+                            n_parts = n_attr.split(',')
+                            page_part = n_parts[0].strip()
+                            line_part = n_parts[1].strip() if len(n_parts) > 1 else "1"
+
+                            # Update state
+                            self.current_page = page_part
+                            self.current_line = line_part
+
+                            # Set h2 text
+                            if len(n_parts) == 2:
+                                h2.text = f"p.{page_part}, l.{line_part}"
+                            elif len(n_parts) == 1:
+                                h2.text = f"p.{page_part}"
+                            else:
+                                h2.text = n_attr
+
+                            # Conditionally queue the inline span label
+                            if not self.pending_labels:
+                                label_text = h2.text  # Reuse the text we just figured out for the h2
                                 n_span = etree.Element("span", {"class": "lb-label rich-text", "data-line": self.current_line})
                                 n_span.text = f'({label_text})'
                                 self.pending_labels.append(n_span)
