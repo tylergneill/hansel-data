@@ -35,6 +35,7 @@ class HtmlConverter:
             return
 
         # If there's pending work and the text is actual content, flush the queues.
+        text_to_append = text
         if (self.pending_breaks or self.pending_labels) and text.strip():
             for _ in range(self.pending_breaks):
                 etree.SubElement(element, "br", {"class": "lb-br rich-text"})
@@ -43,12 +44,14 @@ class HtmlConverter:
             for label_span in self.pending_labels:
                 element.append(label_span)
             self.pending_labels = []
+            
+            text_to_append = text.lstrip()
 
         if len(element) > 0:
             last_child = element[-1]
-            last_child.tail = (last_child.tail or '') + text
+            last_child.tail = (last_child.tail or '') + text_to_append
         else:
-            element.text = (element.text or '') + text
+            element.text = (element.text or '') + text_to_append
 
     def get_plain_text_recursive(self, element):
         """Recursively extracts and returns the plain text content of an XML element.
