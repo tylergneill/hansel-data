@@ -7,8 +7,20 @@ h1, h2, h3, h4, h5, h6 {
     scroll-margin-top: 40px;
 }
 
-.pb, .lb { display: none; }
-.show-breaks .pb, .show-breaks .lb { display: inline; cursor: pointer; color: blue; }
+.pb-label, .lb-label { display: none; }
+.show-breaks .pb-label,
+.show-breaks .lb-label {
+    display: inline;
+    color: darkgreen;
+    cursor: default;
+}
+
+/* Override for page-start labels to be blue and clickable */
+.show-breaks .pb-label,
+.show-breaks .lb-label[data-line="1"] {
+    cursor: pointer;
+    color: blue;
+}
 .lg > span { display: block; }
 
 .hyphen, .lb-br, .pb-br { display: none; }

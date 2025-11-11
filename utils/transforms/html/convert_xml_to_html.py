@@ -17,6 +17,8 @@ class HtmlConverter:
         self.metadata_entries = []
         self.current_page = ""
         self.current_line = "1"
+        self.pending_labels = []
+        self.pending_breaks = 0
 
     # --- Content Processing Functions ---
     def append_text(self, element, text):
@@ -31,11 +33,25 @@ class HtmlConverter:
         """
         if not text:
             return
+
+        # If there's pending work and the text is actual content, flush the queues.
+        text_to_append = text
+        if (self.pending_breaks or self.pending_labels) and text.strip():
+            for _ in range(self.pending_breaks):
+                etree.SubElement(element, "br", {"class": "lb-br rich-text"})
+            self.pending_breaks = 0
+
+            for label_span in self.pending_labels:
+                element.append(label_span)
+            self.pending_labels = []
+            
+            text_to_append = text.lstrip()
+
         if len(element) > 0:
             last_child = element[-1]
-            last_child.tail = (last_child.tail or '') + text
+            last_child.tail = (last_child.tail or '') + text_to_append
         else:
-            element.text = (element.text or '') + text
+            element.text = (element.text or '') + text_to_append
 
     def get_plain_text_recursive(self, element):
         """Recursively extracts and returns the plain text content of an XML element.
@@ -70,7 +86,7 @@ class HtmlConverter:
                 text += child.tail
         return text
 
-    def process_children(self, xml_node, html_node, treat_as_plain):
+    def process_children(self, xml_node, html_node, treat_as_plain, in_lg=False):
         """Recursively processes TEI XML nodes and converts them to HTML elements.
 
         This function walks through the children of an XML node, creating corresponding
@@ -92,18 +108,32 @@ class HtmlConverter:
             self.append_text(html_node, xml_node.text)
         for child in xml_node:
             if child.tag == 'lb':
+                if child.get("break") == "no":
+                    etree.SubElement(html_node, "span", {"class": "hyphen"}).text = "-"
                 line_n = child.get("n")
                 if line_n:
                     self.current_line = line_n
-                lb_span = etree.SubElement(html_node, "span", {"class": "lb rich-text", "data-line": line_n})
+
+                is_after_caesura = False
+                previous_sibling = child.getprevious()
+                if previous_sibling is not None and previous_sibling.tag == 'caesura':
+                    is_after_caesura = True
+
+                if not in_lg or is_after_caesura:
+                    self.pending_breaks += 1
+                lb_span = etree.Element("span", {"class": "lb-label rich-text", "data-line": line_n})
                 lb_span.text = f'(p.{self.current_page}, l.{line_n})'
-                etree.SubElement(html_node, "br", {"class": "lb-br rich-text"})
+                self.pending_labels.append(lb_span)
             elif child.tag == 'pb':
+                if child.get("break") == "no":
+                    etree.SubElement(html_node, "span", {"class": "hyphen"}).text = "-"
                 self.current_page = child.get("n")
                 self.current_line = "1"
-                pb_span = etree.SubElement(html_node, "span", {"class": "pb rich-text", "data-page": self.current_page})
+                if not in_lg:
+                    self.pending_breaks += 1
+                pb_span = etree.Element("span", {"class": "pb-label rich-text", "data-page": self.current_page})
                 pb_span.text = f'(p.{self.current_page}, l.1)' if not self.no_line_numbers else f'(p.{self.current_page})'
-                etree.SubElement(html_node, "br", {"class": "pb-br rich-text"})
+                self.pending_labels.append(pb_span)
             elif child.tag == 'choice':
                 corr_span = etree.SubElement(html_node, "span", {"class": "correction"})
                 sic = child.find('sic')
@@ -114,10 +144,10 @@ class HtmlConverter:
                     self.corrections_data.append({'sic': sic_text, 'corr': corr_text, 'page': self.current_page, 'line': self.current_line})
                 ante = etree.SubElement(corr_span, "i", {"class": "ante-correction", "title": f"pre-correction (post-: {corr_text})"})
                 if sic is not None:
-                    self.process_children(sic, ante, treat_as_plain)
+                    self.process_children(sic, ante, treat_as_plain, in_lg=in_lg)
                 post = etree.SubElement(corr_span, "i", {"class": "post-correction", "style": "display:none;", "title": f"post-correction (pre-: {sic_text})"})
                 if corr is not None:
-                    self.process_children(corr, post, treat_as_plain)
+                    self.process_children(corr, post, treat_as_plain, in_lg=in_lg)
             elif child.tag in ['del', 'supplied']:
                 corr_span = etree.SubElement(html_node, "span", {"class": "correction"})
                 text = ''.join(child.itertext())
@@ -125,21 +155,21 @@ class HtmlConverter:
                     self.corrections_data.append({'sic': text if child.tag == 'del' else '', 'corr': text if child.tag == 'supplied' else '', 'page': self.current_page, 'line': self.current_line})
                 if child.tag == 'del':
                     ante = etree.SubElement(corr_span, "i", {"class": "ante-correction", "title": "deletion"})
-                    self.process_children(child, ante, treat_as_plain)
+                    self.process_children(child, ante, treat_as_plain, in_lg=in_lg)
                     etree.SubElement(corr_span, "i", {"class": "post-correction", "style": "display:none;"}).text = ''
                 else: # supplied
                     etree.SubElement(corr_span, "i", {"class": "ante-correction"}).text = ''
                     post = etree.SubElement(corr_span, "i", {"class": "post-correction", "style": "display:none;", "title": "supplied"})
-                    self.process_children(child, post, treat_as_plain)
+                    self.process_children(child, post, treat_as_plain, in_lg=in_lg)
             elif child.tag == 'unclear':
                 unclear_span = etree.SubElement(html_node, "span", {"class": "unclear", "title": "unclear"})
-                self.process_children(child, unclear_span, treat_as_plain)
+                self.process_children(child, unclear_span, treat_as_plain, in_lg=in_lg)
             else:
-                self.process_children(child, html_node, treat_as_plain)
+                self.process_children(child, html_node, treat_as_plain, in_lg=in_lg)
             if child.tail:
                 self.append_text(html_node, child.tail)
 
-    def process_lg_content(self, lg_element, container):
+    def process_lg_content(self, lg_element, container, treat_as_plain):
         """Processes a TEI <lg> (line group) element into an HTML structure.
 
         Creates a styled <div> for the line group and processes its children,
@@ -149,6 +179,7 @@ class HtmlConverter:
         Args:
             lg_element: The <lg> lxml.etree._Element to process.
             container: The parent HTML element for the generated content.
+            treat_as_plain: A boolean flag; if True, generates simplified plain text content.
         """
         def process_lg_children(target_div, treat_as_plain):
             """Processes the children of a TEI <lg> element, converting them to HTML.
@@ -164,26 +195,28 @@ class HtmlConverter:
             for child in lg_element.iterchildren():
                 if child.tag == 'head':
                     if child.text:
-                        etree.SubElement(target_div, "p").text = child.text
+                        p_tag = etree.SubElement(target_div, "p")
+                        self.append_text(p_tag, child.text)
                 elif child.tag == 'l':
                     span_tag = etree.SubElement(target_div, "span")
-                    self.process_children(child, span_tag, treat_as_plain)
+                    self.process_children(child, span_tag, treat_as_plain, in_lg=(not treat_as_plain))
                 elif child.tag == 'back':
-                    if child.text:
-                        etree.SubElement(target_div, "p").text = child.text
+                    if len(target_div) > 0:
+                        last_element = target_div[-1]
+                        self.process_children(child, last_element, treat_as_plain, in_lg=(not treat_as_plain))
+                    else:
+                        # Fallback for unlikely case where <back> is the first element
+                        p_tag = etree.SubElement(target_div, "p")
+                        self.process_children(child, p_tag, treat_as_plain, in_lg=(not treat_as_plain))
                 elif child.tag == 'milestone':
                     if not treat_as_plain:
                         milestone_span = etree.SubElement(target_div, "span", {"class": "milestone"})
                         milestone_span.text = f'{child.get("n")}'
 
         style = "padding-left: 2em; margin-bottom: 1.3em;" if not self.verse_only else ""
-        if not self.only_plain:
-            # do a rich version
-            div_elem = etree.SubElement(container, "div", {"class": "lg rich-text", "style": style})
-            process_lg_children(div_elem, treat_as_plain=False)
-        # always do a plain version
-        div_elem = etree.SubElement(container, "div", {"class": "lg plain-text", "style": style})
-        process_lg_children(div_elem, treat_as_plain=True)
+        cls = "lg plain-text" if treat_as_plain else "lg rich-text"
+        div_elem = etree.SubElement(container, "div", {"class": cls, "style": style})
+        process_lg_children(div_elem, treat_as_plain=treat_as_plain)
 
     def convert_xml_to_html(self, xml_path, html_path):
         """
@@ -319,48 +352,58 @@ class HtmlConverter:
                 h1 = etree.SubElement(content_div, "h1", id=f'{section_name.replace(" ", "_")}')
                 h1.text = f"§ {section_name}"
                 for element in section.iterchildren():
-
-                    if element.tag == "pb": # TODO: investigate whether this can be consolidated & fixed for plain case
-                        self.current_page = element.get("n")
-                        if not self.only_plain:
-                            pb_span = etree.SubElement(content_div, "span", {"class": "pb rich-text", "data-page": self.current_page})
-                            pb_span.text = f'(p.{self.current_page}, l.1)' if not self.no_line_numbers else f'(p.{self.current_page})'
-                            etree.SubElement(content_div, "br", {"class": "pb-br rich-text"})
-
-                    elif element.tag == "milestone":
-                        etree.SubElement(content_div, "p").text = f'{element.get("n")}'
+                    if element.tag == "milestone":
+                        # Milestones are simple paragraphs, flush any pending breaks before them
+                        p = etree.SubElement(content_div, "p")
+                        self.append_text(p, f'{element.get("n")}')
 
                     elif element.tag in ["p", "lg"]:
-
-                        # process n for page and line info
-                        n_attr = element.get("n")
-                        if n_attr:
-                            h2 = etree.SubElement(content_div, "h2", {"class": "location-marker", "id": n_attr})
-                            n_parts = n_attr.split(',')  # TODO: make less brittle, currently only works for "X,Y" location markers
-                            self.current_page = n_parts[0]
-                            if len(n_parts) == 2:
-                                self.current_line =  n_parts[1]
-                                h2.text = f"p.{self.current_page.strip()}, l.{self.current_line.strip()}"
-                            elif len(n_parts) == 1:
-                                h2.text = f"p.{self.current_page.strip()}"
-                            else:
-                                h2.text = n_attr
+                        # If there are no pending labels from a previous element's <lb>,
+                        # use the n attribute of the current block element to create the first label.
+                        if not self.pending_labels:
+                            n_attr = element.get("n")
+                            if n_attr:
+                                n_parts = n_attr.split(',')
+                                self.current_page = n_parts[0].strip()
+                                if len(n_parts) == 2:
+                                    self.current_line = n_parts[1].strip()
+                                    label_text = f"p.{self.current_page}, l.{self.current_line}"
+                                else:
+                                    label_text = f"p.{self.current_page}"
+                                
+                                n_span = etree.Element("span", {"class": "lb-label rich-text", "data-line": self.current_line})
+                                n_span.text = f'({label_text})'
+                                self.pending_labels.append(n_span)
 
                         # process textual content
                         if element.tag == "p":
                             if not self.only_plain:
                                 # do a rich version
-                                self.process_children(element, etree.SubElement(content_div, "p", {"class": "rich-text"}), treat_as_plain=False)
+                                self.process_children(element, etree.SubElement(content_div, "p", {"class": "rich-text"}), treat_as_plain=False, in_lg=False)
+                                # Clear pending state before processing plain version
+                                self.pending_labels = []
+                                self.pending_breaks = 0
                             # always do a plain version
-                            self.process_children(element, etree.SubElement(content_div, "p", {"class": "plain-text"}), treat_as_plain=True)
+                            self.process_children(element, etree.SubElement(content_div, "p", {"class": "plain-text"}), treat_as_plain=True, in_lg=False)
 
-                        else: # lg
-                            # basically ignore groups by flattening, bc purpose of group to hold n attribute already fulfilled
+                        else:  # lg
+                            # Rich pass
+                            if not self.only_plain:
+                                if element.get('type') == 'group':
+                                    for lg_child in element.findall("lg"):
+                                        self.process_lg_content(lg_child, content_div, treat_as_plain=False)
+                                else:
+                                    self.process_lg_content(element, content_div, treat_as_plain=False)
+                                # Clear state after rich pass is fully done
+                                self.pending_labels = []
+                                self.pending_breaks = 0
+
+                            # Plain pass
                             if element.get('type') == 'group':
                                 for lg_child in element.findall("lg"):
-                                    self.process_lg_content(lg_child, content_div)
+                                    self.process_lg_content(lg_child, content_div, treat_as_plain=True)
                             else:
-                                self.process_lg_content(element, content_div)
+                                self.process_lg_content(element, content_div, treat_as_plain=True)
 
         # 4. write output depending on mode
         if self.only_plain:
