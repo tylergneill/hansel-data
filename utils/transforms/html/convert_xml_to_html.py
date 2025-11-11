@@ -105,6 +105,8 @@ class HtmlConverter:
             self.append_text(html_node, xml_node.text)
         for child in xml_node:
             if child.tag == 'lb':
+                if child.get("break") == "no":
+                    etree.SubElement(html_node, "span", {"class": "hyphen"}).text = "-"
                 line_n = child.get("n")
                 if line_n:
                     self.current_line = line_n
@@ -120,6 +122,8 @@ class HtmlConverter:
                 lb_span.text = f'(p.{self.current_page}, l.{line_n})'
                 self.pending_labels.append(lb_span)
             elif child.tag == 'pb':
+                if child.get("break") == "no":
+                    etree.SubElement(html_node, "span", {"class": "hyphen"}).text = "-"
                 self.current_page = child.get("n")
                 self.current_line = "1"
                 if not in_lg:
