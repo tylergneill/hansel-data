@@ -225,7 +225,7 @@ class HtmlConverter:
             for child in lg_element.iterchildren():
                 if child.tag == 'head':
                     if child.text:
-                        p_tag = etree.SubElement(target_div, "p")
+                        p_tag = etree.SubElement(target_div, "p", {"class": "lg-head"})
                         self.append_text(p_tag, child.text)
                 elif child.tag == 'l':
                     span_tag = etree.SubElement(target_div, "span")
