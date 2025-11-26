@@ -476,7 +476,7 @@ class HtmlConverter:
         else: # rich
             # directly write rich content_div fragment and JSON sidecar
             with open(html_path, "w", encoding="utf-8") as f:
-                f.write(etree.tostring(content_div, pretty_print=False, encoding="unicode"))
+                f.write(etree.tostring(content_div, pretty_print=True, encoding="unicode"))
 
             if self.corrections_data:
                 self.metadata_entries.append({
