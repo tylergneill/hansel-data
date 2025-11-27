@@ -328,6 +328,40 @@ class HtmlConverter:
                     else:
                         i += 1
 
+                pdf_link_url = None
+                pdf_offsets = None
+                edition_pdfs_entry = next((entry for entry in self.metadata_entries if entry['label'] == 'Edition PDFs'), None)
+                if edition_pdfs_entry and edition_pdfs_entry['content_html']:
+                    html_fragment = fromstring(edition_pdfs_entry['content_html'])
+                    link = html_fragment.find('.//a')
+                    if link is not None and 'href' in link.attrib:
+                        pdf_link_url = link.get('href')
+
+                pdf_offset_entry = next((entry for entry in self.metadata_entries if entry['label'] == 'PDF Page Offset'), None)
+                if pdf_offset_entry and pdf_offset_entry['content_html']:
+                    html_fragment = fromstring(pdf_offset_entry['content_html']) # this will be a <ul>
+                    offsets = []
+                    for li in html_fragment.findall('.//li'):
+                        text = li.text_content().strip()
+                        if '->' in text:
+                            parts = [p.strip() for p in text.split('->')]
+                        else:
+                            parts = [p.strip() for p in text.split(',')]
+                        if len(parts) == 2:
+                            try:
+                                offsets.append([int(parts[0]), int(parts[1])])
+                            except ValueError:
+                                pass
+                    if offsets:
+                        pdf_offsets = offsets
+
+                if pdf_link_url and pdf_offsets:
+                    self.pdf_page_mapping = {
+                        "url": pdf_link_url,
+                        "offsets": pdf_offsets
+                    }
+
+
         # 3. generate content_div HTML fragment (= main content processing loop)
         content_div = etree.Element("div", id="content")
         if not self.only_plain and not self.verse_only:
@@ -487,6 +521,8 @@ class HtmlConverter:
                 "includes_plain_variant": not self.verse_only,  # TODO: figure out whether this is a bug
                 "no_line_numbers": self.no_line_numbers
             }
+            if self.pdf_page_mapping:
+                document_context["pdf_page_mapping"] = self.pdf_page_mapping
 
             json_path = Path(html_path).with_suffix('.json')
             with open(json_path, "w", encoding='utf-8') as f:
