@@ -28,7 +28,7 @@ Dvārikādāsa Śāstrī 1978
 
 # Edition PDFs
 
-- [on Archive (missing a few pages)](https://archive.org/details/SlokavarttikaNyayaratnakara/mode/2up)
+- [on Archive (missing a few pages)](https://archive.org/details/SlokavarttikaNyayaratnakara/page/n29/mode/2up)
 
 # PDF Page Offset
 

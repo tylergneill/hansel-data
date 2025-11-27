@@ -168,7 +168,7 @@
             "type": "field",
             "label": "Edition PDFs",
             "inline_text": null,
-            "content_html": "<ul>\n<li><a href=\"https://archive.org/details/SlokavarttikaNyayaratnakara/mode/2up\">on Archive (missing a few pages)</a></li>\n</ul>\n"
+            "content_html": "<ul>\n<li><a href=\"https://archive.org/details/SlokavarttikaNyayaratnakara/page/n29/mode/2up\">on Archive (missing a few pages)</a></li>\n</ul>\n"
         },
         {
             "type": "field",
@@ -277,7 +277,7 @@
     "includes_plain_variant": false,
     "no_line_numbers": true,
     "pdf_page_mapping": {
-        "url": "https://archive.org/details/SlokavarttikaNyayaratnakara/mode/2up",
+        "url": "https://archive.org/details/SlokavarttikaNyayaratnakara/page/n29/mode/2up",
         "offsets": [
             [
                 3,
