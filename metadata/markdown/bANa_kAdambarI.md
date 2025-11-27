@@ -39,6 +39,10 @@ Peterson 1885
 - [1889 on HathiTrust](https://babel.hathitrust.org/cgi/pt?id=uc1.b4023759&seq=5)
 - [1883 on Google Books](https://play.google.com/books/reader?id=tbMIAAAAQAAJ&pg=GBS.PP8)
 
+# PDF Page Offset
+
+- 1 -> 12
+
 # Extent
 
 - The complete work is extant.
