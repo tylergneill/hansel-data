@@ -172,6 +172,12 @@
         },
         {
             "type": "field",
+            "label": "PDF Page Offset",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>3 -&gt; 29</li>\n<li>232 -&gt; 257</li>\n<li>381 -&gt; 405</li>\n<li>446 -&gt; 468</li>\n<li>495 -&gt; 516</li>\n<li>607 -&gt; 627</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
             "label": "Extent",
             "inline_text": null,
             "content_html": "<ul>\n<li>The complete work is extant.</li>\n<li>The edition contains a complete text.</li>\n<li>The text consist of about 3,350 verses (mostly anuṣṭubh).</li>\n<li>The text is spread out over 664 pages in the edition, interspersed with commentary and occasional footnotes.</li>\n</ul>\n"
@@ -269,5 +275,34 @@
     ],
     "verse_only": true,
     "includes_plain_variant": false,
-    "no_line_numbers": true
+    "no_line_numbers": true,
+    "pdf_page_mapping": {
+        "url": "https://archive.org/details/SlokavarttikaNyayaratnakara/mode/2up",
+        "offsets": [
+            [
+                3,
+                29
+            ],
+            [
+                232,
+                257
+            ],
+            [
+                381,
+                405
+            ],
+            [
+                446,
+                468
+            ],
+            [
+                495,
+                516
+            ],
+            [
+                607,
+                627
+            ]
+        ]
+    }
 }

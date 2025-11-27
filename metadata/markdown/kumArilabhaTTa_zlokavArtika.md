@@ -30,6 +30,15 @@ Dvārikādāsa Śāstrī 1978
 
 - [on Archive (missing a few pages)](https://archive.org/details/SlokavarttikaNyayaratnakara/mode/2up)
 
+# PDF Page Offset
+
+- 3 -> 29
+- 232 -> 257
+- 381 -> 405
+- 446 -> 468
+- 495 -> 516
+- 607 -> 627
+
 # Extent
 
 - The complete work is extant.
