@@ -162,9 +162,9 @@ class HtmlConverter:
                 self.current_line = "1"
                 if not in_lg:
                     self.pending_breaks += 1
-                pb_span = etree.Element("span", {"class": "pb-label rich-text", "data-page": self.current_page})
-                pb_span.text = f'(p.{self.current_page}, l.1)' if not self.no_line_numbers else f'(p.{self.current_page})'
-                self.pending_label = pb_span
+                pb_a = etree.Element("a", {"class": "pb-label rich-text", "data-page": self.current_page, "target": "_blank"})
+                pb_a.text = f'(p.{self.current_page}, l.1)' if not self.no_line_numbers else f'(p.{self.current_page})'
+                self.pending_label = pb_a
             elif child.tag == 'choice':
                 corr_span = etree.SubElement(html_node, "span", {"class": "correction"})
                 sic = child.find('sic')
