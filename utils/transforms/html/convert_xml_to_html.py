@@ -17,11 +17,11 @@ class HtmlConverter:
         self.metadata_entries = []
         self.current_page = ""
         self.current_line = "1"
-        self.pending_labels = []
+        self.pending_label = None
         self.pending_breaks = 0
 
     # --- Content Processing Functions ---
-    def append_text(self, element, text, strip_leading_whitespace=False):
+    def append_text(self, element, text, strip_leading_whitespace=False, treat_as_plain=True):
         """Appends text to an lxml element, handling children correctly.
 
         If the element has children, the text is appended to the tail of the last
@@ -38,17 +38,19 @@ class HtmlConverter:
 
         # Determine the text to append, stripping leading whitespace if a label was just flushed.
         text_to_append = text
-        if (self.pending_breaks or self.pending_labels) and text.strip():
-            for _ in range(self.pending_breaks):
-                etree.SubElement(element, "br", {"class": "lb-br rich-text"})
-            self.pending_breaks = 0
 
-            for label_span in self.pending_labels:
-                element.append(label_span)
-            self.pending_labels = []
-            
-            if strip_leading_whitespace:
-                text_to_append = text.lstrip()
+        if not treat_as_plain:
+            if (self.pending_breaks or self.pending_label is not None) and text.strip():
+                for _ in range(self.pending_breaks):
+                    etree.SubElement(element, "br", {"class": "lb-br rich-text"})
+                self.pending_breaks = 0
+
+                if self.pending_label is not None:
+                    element.append(self.pending_label)
+                    self.pending_label = None
+
+                if strip_leading_whitespace:
+                    text_to_append = text.lstrip()
         
         if len(element) > 0:
             last_child = element[-1]
@@ -104,11 +106,11 @@ class HtmlConverter:
         """
         if treat_as_plain:
             text_content = self.get_plain_text_recursive(xml_node)
-            self.append_text(html_node, text_content)
+            self.append_text(html_node, text_content, treat_as_plain=treat_as_plain)
             return
 
         if xml_node.text:
-            self.append_text(html_node, xml_node.text)
+            self.append_text(html_node, xml_node.text, treat_as_plain=treat_as_plain)
         for child in xml_node:
             if child.tag == 'lb':
                 if child.get("break") == "no":
@@ -139,7 +141,7 @@ class HtmlConverter:
                     self.pending_breaks += 1
                 lb_span = etree.Element("span", {"class": "lb-label rich-text", "data-line": line_n})
                 lb_span.text = f'(p.{self.current_page}, l.{line_n})'
-                self.pending_labels.append(lb_span)
+                self.pending_label = lb_span
             elif child.tag == 'pb':
                 if child.get("break") == "no":
                     etree.SubElement(html_node, "span", {"class": "hyphen"}).text = "-"
@@ -162,7 +164,7 @@ class HtmlConverter:
                     self.pending_breaks += 1
                 pb_span = etree.Element("span", {"class": "pb-label rich-text", "data-page": self.current_page})
                 pb_span.text = f'(p.{self.current_page}, l.1)' if not self.no_line_numbers else f'(p.{self.current_page})'
-                self.pending_labels.append(pb_span)
+                self.pending_label = pb_span
             elif child.tag == 'choice':
                 corr_span = etree.SubElement(html_node, "span", {"class": "correction"})
                 sic = child.find('sic')
@@ -197,7 +199,7 @@ class HtmlConverter:
                 self.process_children(child, html_node, treat_as_plain, in_lg=in_lg)
             if child.tail:
                 should_strip = (child.tag in ['lb', 'pb']) and not treat_as_plain
-                self.append_text(html_node, child.tail, strip_leading_whitespace=should_strip)
+                self.append_text(html_node, child.tail, strip_leading_whitespace=should_strip, treat_as_plain=treat_as_plain)
 
     def process_lg_content(self, lg_element, container, treat_as_plain):
         """Processes a TEI <lg> (line group) element into an HTML structure.
@@ -226,7 +228,7 @@ class HtmlConverter:
                 if child.tag == 'head':
                     if child.text:
                         p_tag = etree.SubElement(target_div, "p", {"class": "lg-head"})
-                        self.append_text(p_tag, child.text)
+                        self.append_text(p_tag, child.text, treat_as_plain=treat_as_plain)
                 elif child.tag == 'l':
                     span_tag = etree.SubElement(target_div, "span")
                     self.process_children(child, span_tag, treat_as_plain, in_lg=(not treat_as_plain))
@@ -383,9 +385,14 @@ class HtmlConverter:
                 h1.text = f"§ {section_name}"
                 for element in section.iterchildren():
                     if element.tag == "milestone":
-                        # Milestones are simple paragraphs, flush any pending breaks before them
-                        p = etree.SubElement(content_div, "p")
-                        self.append_text(p, f'{element.get("n")}')
+                        # Milestones are simple paragraphs
+                        if not self.only_plain:
+                            # do a rich version
+                            p = etree.SubElement(content_div, "p", {"class": "rich-text"})
+                            self.append_text(p, f'{element.get("n")}', treat_as_plain=False)
+                        # always do a plain version
+                        p = etree.SubElement(content_div, "p", {"class": "plain-text"})
+                        self.append_text(p, f'{element.get("n")}', treat_as_plain=True)
 
                     elif element.tag in ["p", "lg"]:
                         # process n for page and line info, creating both an h2 marker and a pending span label
@@ -408,21 +415,11 @@ class HtmlConverter:
                             else:
                                 h2.text = n_attr
 
-                            # Conditionally queue the inline span label
-                            if not self.pending_labels:
-                                label_text = h2.text  # Reuse the text we just figured out for the h2
-                                n_span = etree.Element("span", {"class": "lb-label rich-text", "data-line": self.current_line})
-                                n_span.text = f'({label_text})'
-                                self.pending_labels.append(n_span)
-
                         # process textual content
                         if element.tag == "p":
                             if not self.only_plain:
                                 # do a rich version
                                 self.process_children(element, etree.SubElement(content_div, "p", {"class": "rich-text"}), treat_as_plain=False, in_lg=False)
-                                # Clear pending state before processing plain version
-                                self.pending_labels = []
-                                self.pending_breaks = 0
                             # always do a plain version
                             self.process_children(element, etree.SubElement(content_div, "p", {"class": "plain-text"}), treat_as_plain=True, in_lg=False)
 
@@ -434,9 +431,6 @@ class HtmlConverter:
                                         self.process_lg_content(lg_child, content_div, treat_as_plain=False)
                                 else:
                                     self.process_lg_content(element, content_div, treat_as_plain=False)
-                                # Clear state after rich pass is fully done
-                                self.pending_labels = []
-                                self.pending_breaks = 0
 
                             # Plain pass
                             if element.get('type') == 'group':
