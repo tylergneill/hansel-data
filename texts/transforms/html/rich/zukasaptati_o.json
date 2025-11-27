@@ -388,7 +388,13 @@
             "type": "field",
             "label": "Edition PDFs",
             "inline_text": null,
-            "content_html": "<ul>\n<li><a href=\"http://gretil.sub.uni-goettingen.de/gretil_elib/Suk901__Sukasaptati_TextOrnat_ed_Schmidt.pdf\">on GRETIL E-Library</a></li>\n<li><a href=\"https://archive.org/details/sukasaptatitextornatedschmidt/Suk901__Sukasaptati_TextOrnat_ed_Schmidt\">on Archive (x2)</a></li>\n</ul>\n"
+            "content_html": "<ul>\n<li><a href=\"https://archive.org/details/sukasaptatitextornatedschmidt/Suk901__Sukasaptati_TextOrnat_ed_Schmidt/page/n3/mode/2up\">on Archive (x2)</a></li>\n<li><a href=\"http://gretil.sub.uni-goettingen.de/gretil_elib/Suk901__Sukasaptati_TextOrnat_ed_Schmidt.pdf\">on GRETIL E-Library</a></li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "PDF Page Offset",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>319 -&gt; 4</li>\n</ul>\n"
         },
         {
             "type": "field",
@@ -681,5 +687,14 @@
     ],
     "verse_only": false,
     "includes_plain_variant": true,
-    "no_line_numbers": false
+    "no_line_numbers": false,
+    "pdf_page_mapping": {
+        "url": "https://archive.org/details/sukasaptatitextornatedschmidt/Suk901__Sukasaptati_TextOrnat_ed_Schmidt/page/n3/mode/2up",
+        "offsets": [
+            [
+                319,
+                4
+            ]
+        ]
+    }
 }

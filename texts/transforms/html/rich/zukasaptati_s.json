@@ -385,6 +385,12 @@
         },
         {
             "type": "field",
+            "label": "PDF Page Offset",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>1 -&gt; 19</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
             "label": "Extent",
             "inline_text": null,
             "content_html": "<ul>\n<li>The complete work is nearly extant except for a few small lacunae.</li>\n<li>The edition contains a complete text of the known work.</li>\n<li>The text fills 206 pages in the edition, with roughly half of each page dedicated to variant readings.</li>\n</ul>\n"
@@ -488,5 +494,14 @@
     ],
     "verse_only": false,
     "includes_plain_variant": true,
-    "no_line_numbers": false
+    "no_line_numbers": false,
+    "pdf_page_mapping": {
+        "url": "https://archive.org/details/dli.ministry.08828/page/n9/mode/2up",
+        "offsets": [
+            [
+                1,
+                19
+            ]
+        ]
+    }
 }
