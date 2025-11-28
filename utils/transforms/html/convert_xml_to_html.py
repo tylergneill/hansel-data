@@ -390,6 +390,8 @@ class HtmlConverter:
                         trailing_breaks = []
                         while len(last_l) > 0 and last_l[-1].tag in ['pb', 'lb']:
                             child_to_move = last_l[-1]
+                            if child_to_move.tail and child_to_move.tail.strip():
+                                break
                             trailing_breaks.insert(0, child_to_move)
                             last_l.remove(child_to_move)
                         
