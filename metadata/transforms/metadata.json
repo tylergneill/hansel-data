@@ -15,8 +15,11 @@
       "Year: 1899"
     ],
     "Edition PDFs": [
-      "[on GRETIL E-Library](http://gretil.sub.uni-goettingen.de/gretil_elib/Suk901__Sukasaptati_TextOrnat_ed_Schmidt.pdf)",
-      "[on Archive (x2)](https://archive.org/details/sukasaptatitextornatedschmidt/Suk901__Sukasaptati_TextOrnat_ed_Schmidt)"
+      "[on Archive (x2)](https://archive.org/details/sukasaptatitextornatedschmidt/Suk901__Sukasaptati_TextOrnat_ed_Schmidt/page/n3/mode/2up)",
+      "[on GRETIL E-Library](http://gretil.sub.uni-goettingen.de/gretil_elib/Suk901__Sukasaptati_TextOrnat_ed_Schmidt.pdf)"
+    ],
+    "PDF Page Offset": [
+      "319 → 4"
     ],
     "Extent": [
       "The complete work is nearly extant except for a few small lacunae.",
@@ -52,7 +55,7 @@
     "Word Division Style": "Devanāgarī-like (ityevam, not ity evam)",
     "Original Submission Last Updated": "2025-07-24",
     "Text Last Updated": "2025-09-29",
-    "Metadata Last Updated": "2025-10-22",
+    "Metadata Last Updated": "2025-11-28",
     "Filename": "zukasaptati_o",
     "Original Submission Filetype": ".txt"
   },
@@ -73,6 +76,9 @@
     "Edition PDFs": [
       "[1897 Band X on Archive (DLI & public.resource.org)](https://archive.org/details/dli.ministry.08828/page/n9/mode/2up)",
       "1893 Band X, No. 1 (improved by V. Gostishchev) on Archive, to be uploaded soon..."
+    ],
+    "PDF Page Offset": [
+      "1 → 19"
     ],
     "Extent": [
       "The complete work is nearly extant except for a few small lacunae.",
@@ -112,7 +118,7 @@
     ],
     "Original Submission Last Updated": "2025-06-25",
     "Text Last Updated": "2025-09-29",
-    "Metadata Last Updated": "2025-10-22",
+    "Metadata Last Updated": "2025-11-28",
     "Filename": "zukasaptati_s",
     "Original Submission Filetype": ".doc"
   },
@@ -130,7 +136,15 @@
       "Year: 1978"
     ],
     "Edition PDFs": [
-      "[on Archive (missing a few pages)](https://archive.org/details/SlokavarttikaNyayaratnakara/mode/2up)"
+      "[on Archive (missing a few pages)](https://archive.org/details/SlokavarttikaNyayaratnakara/page/n29/mode/2up)"
+    ],
+    "PDF Page Offset": [
+      "3 → 29",
+      "232 → 257",
+      "381 → 405",
+      "446 → 468",
+      "495 → 516",
+      "607 → 627"
     ],
     "Extent": [
       "The complete work is extant.",
@@ -165,7 +179,7 @@
     "Word Division Style": "Roman-like (ity evam, not ityevam)",
     "Original Submission Last Updated": "2025-07-24",
     "Text Last Updated": "2025-09-29",
-    "Metadata Last Updated": "2025-10-22",
+    "Metadata Last Updated": "2025-11-28",
     "Filename": "kumArilabhaTTa_zlokavArtika",
     "Original Submission Filetype": ".doc"
   },
@@ -197,6 +211,9 @@
       "[1889 on Archive](https://archive.org/details/in.ernet.dli.2015.383504)",
       "[1889 on HathiTrust](https://babel.hathitrust.org/cgi/pt?id=uc1.b4023759&seq=5)",
       "[1883 on Google Books](https://play.google.com/books/reader?id=tbMIAAAAQAAJ&pg=GBS.PP8)"
+    ],
+    "PDF Page Offset": [
+      "1 → 12"
     ],
     "Extent": [
       "The complete work is extant.",
@@ -231,9 +248,9 @@
     "Word Division Style": "Devanāgarī-like (ityevam, not ity evam)",
     "Original Submission Last Updated": "2025-07-24",
     "Text Last Updated": "2025-09-29",
-    "Metadata Last Updated": "2025-10-22",
+    "Metadata Last Updated": "2025-11-28",
     "Filename": "bANa_kAdambarI",
     "Original Submission Filetype": ".xml"
   },
-  "version": "2025-10-22"
+  "version": "2025-11-28"
 }
