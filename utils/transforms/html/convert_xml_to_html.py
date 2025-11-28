@@ -373,11 +373,20 @@ class HtmlConverter:
                 chapter_n_full = section.get('n')
                 h1 = etree.SubElement(content_div, "h1", id=f'{chapter_n_full.replace(" ", "_")}')
                 h1.text = f"§ {chapter_n_full}"
-                all_verses_in_section = section.findall('.//lg[@n]')
-                if not all_verses_in_section:
-                    continue
                 verses_ul = etree.SubElement(content_div, "ul", {"class": "verses"})
-                for lg_element in all_verses_in_section:
+                for element in section.iterchildren():
+                    if element.tag == 'pb':
+                        self.current_page = element.get("n")
+                        self.current_line = "1"
+                        pb_a = etree.Element("a", {"class": "pb-label rich-text", "data-page": self.current_page, "target": "_blank"})
+                        pb_a.text = f'(p.{self.current_page}, l.1)' if not self.no_line_numbers else f'(p.{self.current_page})'
+                        self.pending_label = pb_a
+                        continue
+
+                    if element.tag != 'lg' or element.get('n') is None:
+                        continue
+                    
+                    lg_element = element
                     verse_id = lg_element.get('n')
                     verse_li = etree.SubElement(verses_ul, "li", {"class": "verse", "id": f"v{verse_id.replace('.', '-')}"})
                     padas_ul = etree.SubElement(verse_li, "ul", {"class": "padas"})
@@ -394,12 +403,12 @@ class HtmlConverter:
                                 break
                             trailing_breaks.insert(0, child_to_move)
                             last_l.remove(child_to_move)
-                        
+
                         if len(last_l) > 0:
                             last_l[-1].tail = (last_l[-1].tail or '') + f" {verse_id} ||"
                         else:
                             last_l.text = (last_l.text or '') + f" {verse_id} ||"
-                        
+
                         for br_tag in trailing_breaks:
                             last_l.append(br_tag)
 
