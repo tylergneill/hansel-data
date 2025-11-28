@@ -28,7 +28,7 @@ Schmidt 1893
 
 # PDF Page Offset
 
--  1 -> 19
+-  1 → 19
 
 # Extent
 

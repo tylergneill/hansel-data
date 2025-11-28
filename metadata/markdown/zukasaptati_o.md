@@ -35,7 +35,7 @@ Schmidt 1899
 
 # PDF Page Offset
 
-- 319 -> 4
+- 319 → 4
 
 # Extent
 

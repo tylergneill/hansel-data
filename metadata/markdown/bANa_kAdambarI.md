@@ -41,7 +41,7 @@ Peterson 1885
 
 # PDF Page Offset
 
-- 1 -> 12
+- 1 → 12
 
 # Extent
 
