@@ -28,7 +28,16 @@ Dvārikādāsa Śāstrī 1978
 
 # Edition PDFs
 
-- [on Archive (missing a few pages)](https://archive.org/details/SlokavarttikaNyayaratnakara/mode/2up)
+- [on Archive (missing a few pages)](https://archive.org/details/SlokavarttikaNyayaratnakara/page/n29/mode/2up)
+
+# PDF Page Offset
+
+- 3 → 29
+- 232 → 257
+- 381 → 405
+- 446 → 468
+- 495 → 516
+- 607 → 627
 
 # Extent
 
@@ -127,4 +136,4 @@ Roman-like (ity evam, not ityevam)
 
 # Metadata Last Updated 
 
-2025-10-22
+2025-11-28

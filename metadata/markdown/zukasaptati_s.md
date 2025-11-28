@@ -26,6 +26,10 @@ Schmidt 1893
 - [1897 Band X on Archive (DLI & public.resource.org)](https://archive.org/details/dli.ministry.08828/page/n9/mode/2up)
 - 1893 Band X, No. 1 (improved by V. Gostishchev) on Archive, to be uploaded soon...
 
+# PDF Page Offset
+
+-  1 → 19
+
 # Extent
 
 - The complete work is nearly extant except for a few small lacunae.
@@ -102,4 +106,4 @@ Roman-like (ity evam, not ityevam)
 
 # Metadata Last Updated 
 
-2025-10-22
+2025-11-28
