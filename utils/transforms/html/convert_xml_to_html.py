@@ -430,6 +430,13 @@ class HtmlConverter:
                         p = etree.SubElement(content_div, "p", {"class": "plain-text"})
                         self.append_text(p, f'{element.get("n")}', treat_as_plain=True)
 
+                    elif element.tag == "pb":
+                        self.current_page = element.get("n")
+                        self.current_line = "1"
+                        pb_a = etree.Element("a", {"class": "pb-label rich-text", "data-page": self.current_page, "target": "_blank"})
+                        pb_a.text = f'(p.{self.current_page}, l.1)' if not self.no_line_numbers else f'(p.{self.current_page})'
+                        self.pending_label = pb_a
+
                     elif element.tag in ["p", "lg"]:
                         # process n for page and line info, creating both an h2 marker and a pending span label
                         n_attr = element.get("n")
