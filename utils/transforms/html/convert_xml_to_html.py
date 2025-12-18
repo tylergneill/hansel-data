@@ -19,6 +19,7 @@ class HtmlConverter:
         self.current_line = "1"
         self.pending_label = None
         self.pending_breaks = 0
+        self.pdf_page_mapping = None
 
     # --- Content Processing Functions ---
     def append_text(self, element, text, strip_leading_whitespace=False, treat_as_plain=True):
@@ -343,8 +344,8 @@ class HtmlConverter:
                     offsets = []
                     for li in html_fragment.findall('.//li'):
                         text = li.text_content().strip()
-                        if '->' in text:
-                            parts = [p.strip() for p in text.split('->')]
+                        if '→' in text:
+                            parts = [p.strip() for p in text.split('→')]
                         else:
                             parts = [p.strip() for p in text.split(',')]
                         if len(parts) == 2:
