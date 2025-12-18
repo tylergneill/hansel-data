@@ -154,7 +154,7 @@
     ],
     "File Size (KB)": 457.0,
     "Structure": "| #    | Section                       | edition | Jha transl. | |------|-------------------------------|---------|-------------| | 1    | pratijñāsūtra (PJS)           | 3       | 1           | | 2    | codanāsūtra (CDS)             | 34      | 21          | | 3    | nimittasūtra (NMS)            | 96      | 67          | | 4    | pratyakṣasūtra (PAS)          | 97      | 68          | | 5    | autpattikasūtra               | ––      | ––          | | 5.1  | vṛttikāragrantha (VKG)        | 149     | 113         | | 5.2  | (VKG vv. 17–26)               | 152     | 116         | | 5.3  | nirālambanavāda (NAV)         | 155     | 119         | | 5.4  | śunyavāda (SNV)               | 191     | 148         | | 5.5  | anumānapariccheda (AMP)       | 246     | 182         | | 5.6  | śabdapariccheda (SBP)         | 287     | 207         | | 5.7  | upamānapariccheda (UMP)       | 307     | 222         | | 5.8  | arthāpattipariccheda (AAP)    | 320     | 230         | | 5.9  | abhāvapariccheda (ABH)        | 335     | 243         | | 5.10 | citrākṣepavāda (CAV)          | 349     | 253         | | 5.11 | sambandhākṣepavāda (SAV)      | 353     | 254         | | 5.12 | sphoṭavāda (SPH)              | 361     | 261         | | 5.13 | ākṛtivāda (AKV)               | 385     | 281         | | 5.14 | apohavāda (APV)               | 400     | 295         | | 5.15 | vanavāda (VAV)                | 435     | 329         | | 5.16 | sambandhākṣepaparihāra (SAP)  | 453     | 347         | | 5.17 | citrākṣepaparihāra (CAP)      | 483     | 375         | | 5.18 | ātmavāda (ATV)                | 488     | 382         | | 6    | śabdanityatādhikaraṇa (SNA)   | 515     | 409         | | 7    | vākyādhikaraṇa (VAA)          | 598     | 486         | | 8    | vedapauruṣeyatādhikaraṇa (VPA) | 669     | 553         |",
-    "Work Description": "xyz",
+    "Work Description": "Ślokavārttika is one of the foundational texts of classical Indian philosophy, especially for understanding how Sanskrit intellectuals argued about knowledge, language, and authority. In it, Kumārila argues that Vedic language is a reliable means for knowing what human beings ought to do, not because of the intention of any human or divine author, but because of stable, conventional relations inherent in language itself. Though formally a commentary on parts of Jaimini’s Mīmāṃsāsūtra, the work functions less as explanation than as intertextual polemic, sharpening debates with Buddhists, Naiyāyikas, and rival Mīmāṃsakas in tightly compressed verse. For getting started with this notoriously difficult text, the most reliable English-language resources are the Stanford Encyclopedia of Philosophy articles on Mīmāṃsā and Testimony (śabda), together with John Taber’s essays on Kumārila and svataḥ prāmāṇya.",
     "Genres": [
       "Darśana",
       "Mīmāṃsā",
@@ -172,14 +172,14 @@
     "Digitization Notes": [
       "(Date unknown) H. Krasser: Created.",
       "(2017–2021) Tyler Neill: Supplied missing _Arthāpattipariccheda_ (5.8), restructured for Pramāṇa NLP collection.",
-      "(2025) Tyler Neill: Added page numbers for HANSEL structure."
+      "(2025) Tyler Neill: Added page numbers for HANSEL structure, corrected about 150 unmetrical verses."
     ],
     "File Creation Method": "I (Tyler Neill) produced this HANSEL edition by minimally adapting the corresponding file in the Pramāṇa NLP collection by adding page numbers. The Pramāṇa NLP file had been manually converted from Helmut Krasser's Word document into plain text, also by myself a few years earlier, mainly using regular expressions. Krasser's original Word file had been manually typed from the edition in an abstracted fashion, namely by extracting only the Ślokavārtika content and ignoring both Pārthasārathi Miśra's commentary and all physical aspects of the edition (e.g., page numbers). The text is known to contain errors and still needs a final proofread.",
     "Text Type": "Numbered verse",
-    "Word Division Style": "Roman-like (ity evam, not ityevam)",
+    "Word Division Style": "Roman-like (ity evam, not ityevam), but inconsistent",
     "Original Submission Last Updated": "2025-07-24",
-    "Text Last Updated": "2025-09-29",
-    "Metadata Last Updated": "2025-11-28",
+    "Text Last Updated": "2025-12-17",
+    "Metadata Last Updated": "2025-12-17",
     "Filename": "kumArilabhaTTa_zlokavArtika",
     "Original Submission Filetype": ".doc"
   },
@@ -252,5 +252,5 @@
     "Filename": "bANa_kAdambarI",
     "Original Submission Filetype": ".xml"
   },
-  "version": "2025-11-28"
+  "version": "2025-12-17"
 }
