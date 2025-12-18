@@ -512,175 +512,204 @@
                     "sic": "ce",
                     "corr": "je",
                     "page": "319",
-                    "line": "24"
+                    "line": "24",
+                    "location_id": "319_24"
                 },
                 {
                     "sic": "piḥ",
                     "corr": "pi",
                     "page": "321",
-                    "line": "34"
+                    "line": "34",
+                    "location_id": "321_30"
                 },
                 {
                     "sic": "",
                     "corr": "|",
                     "page": "323",
-                    "line": "8"
+                    "line": "8",
+                    "location_id": "323_6"
                 },
                 {
                     "sic": "prā",
                     "corr": "pā",
                     "page": "324",
-                    "line": "8"
+                    "line": "8",
+                    "location_id": "324_7"
                 },
                 {
                     "sic": "|",
                     "corr": "",
                     "page": "324",
-                    "line": "19"
+                    "line": "19",
+                    "location_id": "324_18"
                 },
                 {
                     "sic": "ri",
                     "corr": "ti",
                     "page": "325",
-                    "line": "24"
+                    "line": "24",
+                    "location_id": "325_13"
                 },
                 {
                     "sic": "ṭgho",
                     "corr": "dgho",
                     "page": "329",
-                    "line": "11"
+                    "line": "11",
+                    "location_id": "328_30"
                 },
                 {
                     "sic": "",
                     "corr": "||",
                     "page": "329",
-                    "line": "26"
+                    "line": "26",
+                    "location_id": "329_16"
                 },
                 {
                     "sic": "ba",
                     "corr": "va",
                     "page": "338",
-                    "line": "35"
+                    "line": "35",
+                    "location_id": "338_23"
                 },
                 {
                     "sic": "sarpī",
                     "corr": "sarpo",
                     "page": "341",
-                    "line": "6"
+                    "line": "6",
+                    "location_id": "341_6"
                 },
                 {
                     "sic": "lpa",
                     "corr": "lya",
                     "page": "342",
-                    "line": "23"
+                    "line": "23",
+                    "location_id": "341_21"
                 },
                 {
                     "sic": "nṛ",
                     "corr": "nu",
                     "page": "347",
-                    "line": "31"
+                    "line": "31",
+                    "location_id": "347_30"
                 },
                 {
                     "sic": "rtre",
                     "corr": "rte",
                     "page": "351",
-                    "line": "8"
+                    "line": "8",
+                    "location_id": "350_28"
                 },
                 {
                     "sic": "",
                     "corr": " ",
                     "page": "352",
-                    "line": "1"
+                    "line": "1",
+                    "location_id": "351_14"
                 },
                 {
                     "sic": "cat",
                     "corr": "cet",
                     "page": "354",
-                    "line": "1"
+                    "line": "1",
+                    "location_id": "353_26"
                 },
                 {
                     "sic": "na",
                     "corr": "naṃ",
                     "page": "355",
-                    "line": "22"
+                    "line": "22",
+                    "location_id": "355_8"
                 },
                 {
                     "sic": "ṭgho",
                     "corr": "dgho",
                     "page": "356",
-                    "line": "32"
+                    "line": "32",
+                    "location_id": "356_21"
                 },
                 {
                     "sic": "ba",
                     "corr": "va",
                     "page": "359",
-                    "line": "21"
+                    "line": "21",
+                    "location_id": "358_32"
                 },
                 {
                     "sic": "bhu",
                     "corr": "mu",
                     "page": "361",
-                    "line": "13"
+                    "line": "13",
+                    "location_id": "361_8"
                 },
                 {
                     "sic": "mi",
                     "corr": "bhi",
                     "page": "361",
-                    "line": "22"
+                    "line": "22",
+                    "location_id": "361_8"
                 },
                 {
                     "sic": "t",
                     "corr": "n",
                     "page": "365",
-                    "line": "2"
+                    "line": "2",
+                    "location_id": "364_11"
                 },
                 {
                     "sic": "ni ",
                     "corr": "nu",
                     "page": "368",
-                    "line": "30"
+                    "line": "30",
+                    "location_id": "368_30"
                 },
                 {
                     "sic": "",
                     "corr": "ṃ",
                     "page": "369",
-                    "line": "10"
+                    "line": "10",
+                    "location_id": "368_30"
                 },
                 {
                     "sic": "pra",
                     "corr": "prā",
                     "page": "369",
-                    "line": "15"
+                    "line": "15",
+                    "location_id": "368_30"
                 },
                 {
                     "sic": "nyie",
                     "corr": "nye",
                     "page": "369",
-                    "line": "25"
+                    "line": "25",
+                    "location_id": "369_21"
                 },
                 {
                     "sic": "tpa",
                     "corr": "tya",
                     "page": "371",
-                    "line": "19"
+                    "line": "19",
+                    "location_id": "371_4"
                 },
                 {
                     "sic": "n",
                     "corr": "t",
                     "page": "371",
-                    "line": "26"
+                    "line": "26",
+                    "location_id": "371_4"
                 },
                 {
                     "sic": "hya",
                     "corr": "hma",
                     "page": "377",
-                    "line": "19"
+                    "line": "19",
+                    "location_id": "377_9"
                 },
                 {
                     "sic": "iīpya",
                     "corr": "dīvya",
                     "page": "381",
-                    "line": "7"
+                    "line": "7",
+                    "location_id": "381_4"
                 }
             ]
         }

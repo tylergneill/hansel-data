@@ -280,175 +280,204 @@
                     "sic": "",
                     "corr": "d a",
                     "verse": "1.27",
-                    "verse_part": "cd"
+                    "verse_part": "cd",
+                    "location_id": "v1-27"
                 },
                 {
                     "sic": "da",
                     "corr": "",
                     "verse": "1.40",
-                    "verse_part": "cd"
+                    "verse_part": "cd",
+                    "location_id": "v1-40"
                 },
                 {
                     "sic": "ṃ",
                     "corr": "",
                     "verse": "4.239",
-                    "verse_part": "ab"
+                    "verse_part": "ab",
+                    "location_id": "v4-239"
                 },
                 {
                     "sic": "",
                     "corr": ",",
                     "verse": "5,4.53",
-                    "verse_part": "cd"
+                    "verse_part": "cd",
+                    "location_id": "v5,4-53"
                 },
                 {
                     "sic": "",
                     "corr": "ta",
                     "verse": "5,4.159",
-                    "verse_part": "cd"
+                    "verse_part": "cd",
+                    "location_id": "v5,4-159"
                 },
                 {
                     "sic": "mū",
                     "corr": "m",
                     "verse": "5,6.3",
-                    "verse_part": "ab"
+                    "verse_part": "ab",
+                    "location_id": "v5,6-3"
                 },
                 {
                     "sic": "ṇā",
                     "corr": "ṇa",
                     "verse": "5,11.41",
-                    "verse_part": "ab"
+                    "verse_part": "ab",
+                    "location_id": "v5,11-41"
                 },
                 {
                     "sic": "ra",
                     "corr": "rā",
                     "verse": "5,12.21",
-                    "verse_part": "ab"
+                    "verse_part": "ab",
+                    "location_id": "v5,12-21"
                 },
                 {
                     "sic": "ptā",
                     "corr": "tā",
                     "verse": "5,12.45",
-                    "verse_part": "ab"
+                    "verse_part": "ab",
+                    "location_id": "v5,12-45"
                 },
                 {
                     "sic": "śrī",
                     "corr": "dhī",
                     "verse": "5,12.92",
-                    "verse_part": "cd"
+                    "verse_part": "cd",
+                    "location_id": "v5,12-92"
                 },
                 {
                     "sic": "",
                     "corr": "m ā",
                     "verse": "5,14.37",
-                    "verse_part": "ab"
+                    "verse_part": "ab",
+                    "location_id": "v5,14-37"
                 },
                 {
                     "sic": "nai",
                     "corr": "rnai",
                     "verse": "5,18.45",
-                    "verse_part": "cd"
+                    "verse_part": "cd",
+                    "location_id": "v5,18-45"
                 },
                 {
                     "sic": "",
                     "corr": "r ",
                     "verse": "5,18.130",
-                    "verse_part": "ab"
+                    "verse_part": "ab",
+                    "location_id": "v5,18-130"
                 },
                 {
                     "sic": "",
                     "corr": "na",
                     "verse": "5,18.137",
-                    "verse_part": "cd"
+                    "verse_part": "cd",
+                    "location_id": "v5,18-137"
                 },
                 {
                     "sic": "",
                     "corr": "ṃ",
                     "verse": "6.92",
-                    "verse_part": "ab"
+                    "verse_part": "ab",
+                    "location_id": "v6-92"
                 },
                 {
                     "sic": "bhibhaṃ",
                     "corr": "bhir bha",
                     "verse": "6.96",
-                    "verse_part": "cd"
+                    "verse_part": "cd",
+                    "location_id": "v6-96"
                 },
                 {
                     "sic": "ghri",
                     "corr": "dhri",
                     "verse": "6.142",
-                    "verse_part": "ab"
+                    "verse_part": "ab",
+                    "location_id": "v6-142"
                 },
                 {
                     "sic": "sa",
                     "corr": "",
                     "verse": "6.143",
-                    "verse_part": "ab"
+                    "verse_part": "ab",
+                    "location_id": "v6-143"
                 },
                 {
                     "sic": "ṃ",
                     "corr": "",
                     "verse": "6.147",
-                    "verse_part": "cd"
+                    "verse_part": "cd",
+                    "location_id": "v6-147"
                 },
                 {
                     "sic": "ta",
                     "corr": "te",
                     "verse": "6.164",
-                    "verse_part": "ab"
+                    "verse_part": "ab",
+                    "location_id": "v6-164"
                 },
                 {
                     "sic": "ṃ ",
                     "corr": "",
                     "verse": "6.167",
-                    "verse_part": "ab"
+                    "verse_part": "ab",
+                    "location_id": "v6-167"
                 },
                 {
                     "sic": "ṃ",
                     "corr": "",
                     "verse": "7.62",
-                    "verse_part": "ab"
+                    "verse_part": "ab",
+                    "location_id": "v7-62"
                 },
                 {
                     "sic": "ca ",
                     "corr": "",
                     "verse": "7.65",
-                    "verse_part": "ab"
+                    "verse_part": "ab",
+                    "location_id": "v7-65"
                 },
                 {
                     "sic": "ddha",
                     "corr": "",
                     "verse": "7.182",
-                    "verse_part": "cd"
+                    "verse_part": "cd",
+                    "location_id": "v7-182"
                 },
                 {
                     "sic": " ",
                     "corr": "",
                     "verse": "7.214",
-                    "verse_part": "cd"
+                    "verse_part": "cd",
+                    "location_id": "v7-214"
                 },
                 {
                     "sic": "",
                     "corr": "ṃ",
                     "verse": "7.282",
-                    "verse_part": "ab"
+                    "verse_part": "ab",
+                    "location_id": "v7-282"
                 },
                 {
                     "sic": "",
                     "corr": "'va",
                     "verse": "7.315",
-                    "verse_part": "ab"
+                    "verse_part": "ab",
+                    "location_id": "v7-315"
                 },
                 {
                     "sic": "tm",
                     "corr": "tvam",
                     "verse": "7.341",
-                    "verse_part": "ab"
+                    "verse_part": "ab",
+                    "location_id": "v7-341"
                 },
                 {
                     "sic": "va",
                     "corr": "",
                     "verse": "7.354",
-                    "verse_part": "ab"
+                    "verse_part": "ab",
+                    "location_id": "v7-354"
                 }
             ]
         }
