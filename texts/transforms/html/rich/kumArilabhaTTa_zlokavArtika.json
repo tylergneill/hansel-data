@@ -174,7 +174,7 @@
             "type": "field",
             "label": "PDF Page Offset",
             "inline_text": null,
-            "content_html": "<ul>\n<li>3 -&gt; 29</li>\n<li>232 -&gt; 257</li>\n<li>381 -&gt; 405</li>\n<li>446 -&gt; 468</li>\n<li>495 -&gt; 516</li>\n<li>607 -&gt; 627</li>\n</ul>\n"
+            "content_html": "<ul>\n<li>3 → 29</li>\n<li>232 → 257</li>\n<li>381 → 405</li>\n<li>446 → 468</li>\n<li>495 → 516</li>\n<li>607 → 627</li>\n</ul>\n"
         },
         {
             "type": "field",
@@ -197,7 +197,7 @@
         {
             "type": "field",
             "label": "Work Description",
-            "inline_text": "xyz",
+            "inline_text": "Ślokavārttika is one of the foundational texts of classical Indian philosophy, especially for understanding how Sanskrit intellectuals argued about knowledge, language, and authority. In it, Kumārila argues that Vedic language is a reliable means for knowing what human beings ought to do, not because of the intention of any human or divine author, but because of stable, conventional relations inherent in language itself. Though formally a commentary on parts of Jaimini’s Mīmāṃsāsūtra, the work functions less as explanation than as intertextual polemic, sharpening debates with Buddhists, Naiyāyikas, and rival Mīmāṃsakas in tightly compressed verse. For getting started with this notoriously difficult text, the most reliable English-language resources are the Stanford Encyclopedia of Philosophy articles on Mīmāṃsā and Testimony (śabda), together with John Taber’s essays on Kumārila and svataḥ prāmāṇya.",
             "content_html": ""
         },
         {
@@ -234,7 +234,7 @@
             "type": "field",
             "label": "Digitization Notes",
             "inline_text": null,
-            "content_html": "<ul>\n<li>(Date unknown) H. Krasser: Created.</li>\n<li>(2017–2021) Tyler Neill: Supplied missing <em>Arthāpattipariccheda</em> (5.8), restructured for Pramāṇa NLP collection.</li>\n<li>(2025) Tyler Neill: Added page numbers for HANSEL structure.</li>\n</ul>\n"
+            "content_html": "<ul>\n<li>(Date unknown) H. Krasser: Created.</li>\n<li>(2017–2021) Tyler Neill: Supplied missing <em>Arthāpattipariccheda</em> (5.8), restructured for Pramāṇa NLP collection.</li>\n<li>(2025) Tyler Neill: Added page numbers for HANSEL structure, corrected about 150 unmetrical verses.</li>\n</ul>\n"
         },
         {
             "type": "field",
@@ -251,7 +251,7 @@
         {
             "type": "field",
             "label": "Word Division Style",
-            "inline_text": "Roman-like (ity evam, not ityevam)",
+            "inline_text": "Roman-like (ity evam, not ityevam), but inconsistent",
             "content_html": ""
         },
         {
@@ -263,14 +263,194 @@
         {
             "type": "field",
             "label": "Text Last Updated",
-            "inline_text": "2025-09-29",
+            "inline_text": "2025-12-17",
             "content_html": ""
         },
         {
             "type": "field",
             "label": "Metadata Last Updated",
-            "inline_text": "2025-10-22",
+            "inline_text": "2025-12-17",
             "content_html": ""
+        },
+        {
+            "type": "corrections",
+            "count": 29,
+            "rows": [
+                {
+                    "sic": "",
+                    "corr": "d a",
+                    "page": "",
+                    "line": "1"
+                },
+                {
+                    "sic": "da",
+                    "corr": "",
+                    "page": "",
+                    "line": "1"
+                },
+                {
+                    "sic": "ṃ",
+                    "corr": "",
+                    "page": "",
+                    "line": "1"
+                },
+                {
+                    "sic": "",
+                    "corr": ",",
+                    "page": "",
+                    "line": "1"
+                },
+                {
+                    "sic": "",
+                    "corr": "ta",
+                    "page": "",
+                    "line": "1"
+                },
+                {
+                    "sic": "mū",
+                    "corr": "m",
+                    "page": "",
+                    "line": "1"
+                },
+                {
+                    "sic": "ṇā",
+                    "corr": "ṇa",
+                    "page": "",
+                    "line": "1"
+                },
+                {
+                    "sic": "ra",
+                    "corr": "rā",
+                    "page": "",
+                    "line": "1"
+                },
+                {
+                    "sic": "ptā",
+                    "corr": "tā",
+                    "page": "",
+                    "line": "1"
+                },
+                {
+                    "sic": "śrī",
+                    "corr": "dhī",
+                    "page": "",
+                    "line": "1"
+                },
+                {
+                    "sic": "",
+                    "corr": "m ā",
+                    "page": "",
+                    "line": "1"
+                },
+                {
+                    "sic": "nai",
+                    "corr": "rnai",
+                    "page": "",
+                    "line": "1"
+                },
+                {
+                    "sic": "",
+                    "corr": "r ",
+                    "page": "",
+                    "line": "1"
+                },
+                {
+                    "sic": "",
+                    "corr": "na",
+                    "page": "",
+                    "line": "1"
+                },
+                {
+                    "sic": "",
+                    "corr": "ṃ",
+                    "page": "",
+                    "line": "1"
+                },
+                {
+                    "sic": "bhibhaṃ",
+                    "corr": "bhir bha",
+                    "page": "",
+                    "line": "1"
+                },
+                {
+                    "sic": "ghri",
+                    "corr": "dhri",
+                    "page": "",
+                    "line": "1"
+                },
+                {
+                    "sic": "sa",
+                    "corr": "",
+                    "page": "",
+                    "line": "1"
+                },
+                {
+                    "sic": "ṃ",
+                    "corr": "",
+                    "page": "",
+                    "line": "1"
+                },
+                {
+                    "sic": "ta",
+                    "corr": "te",
+                    "page": "",
+                    "line": "1"
+                },
+                {
+                    "sic": "ṃ ",
+                    "corr": "",
+                    "page": "",
+                    "line": "1"
+                },
+                {
+                    "sic": "ṃ",
+                    "corr": "",
+                    "page": "",
+                    "line": "1"
+                },
+                {
+                    "sic": "ca ",
+                    "corr": "",
+                    "page": "",
+                    "line": "1"
+                },
+                {
+                    "sic": "ddha",
+                    "corr": "",
+                    "page": "",
+                    "line": "1"
+                },
+                {
+                    "sic": " ",
+                    "corr": "",
+                    "page": "",
+                    "line": "1"
+                },
+                {
+                    "sic": "",
+                    "corr": "ṃ",
+                    "page": "",
+                    "line": "1"
+                },
+                {
+                    "sic": "",
+                    "corr": "'va",
+                    "page": "",
+                    "line": "1"
+                },
+                {
+                    "sic": "tm",
+                    "corr": "tvam",
+                    "page": "",
+                    "line": "1"
+                },
+                {
+                    "sic": "va",
+                    "corr": "",
+                    "page": "",
+                    "line": "1"
+                }
+            ]
         }
     ],
     "verse_only": true,

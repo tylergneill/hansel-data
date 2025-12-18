@@ -394,7 +394,7 @@
             "type": "field",
             "label": "PDF Page Offset",
             "inline_text": null,
-            "content_html": "<ul>\n<li>319 -&gt; 4</li>\n</ul>\n"
+            "content_html": "<ul>\n<li>319 → 4</li>\n</ul>\n"
         },
         {
             "type": "field",
@@ -501,7 +501,7 @@
         {
             "type": "field",
             "label": "Metadata Last Updated",
-            "inline_text": "2025-10-22",
+            "inline_text": "2025-11-28",
             "content_html": ""
         },
         {
