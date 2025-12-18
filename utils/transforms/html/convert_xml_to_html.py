@@ -22,6 +22,7 @@ class HtmlConverter:
         self.pdf_page_mapping = None
         self.current_verse = None
         self.current_verse_part = None
+        self.current_location_id = None
 
     # --- Content Processing Functions ---
     def append_text(self, element, text, strip_leading_whitespace=False, treat_as_plain=True):
@@ -176,9 +177,9 @@ class HtmlConverter:
                 corr_text = ''.join(corr.itertext()) if corr is not None else ''
                 if not self.only_plain:
                     if self.verse_only:
-                        entry = {'sic': sic_text, 'corr': corr_text, 'verse': self.current_verse, 'verse_part': self.current_verse_part}
+                        entry = {'sic': sic_text, 'corr': corr_text, 'verse': self.current_verse, 'verse_part': self.current_verse_part, 'location_id': self.current_location_id}
                     else:
-                        entry = {'sic': sic_text, 'corr': corr_text, 'page': self.current_page, 'line': self.current_line}
+                        entry = {'sic': sic_text, 'corr': corr_text, 'page': self.current_page, 'line': self.current_line, 'location_id': self.current_location_id}
                     self.corrections_data.append(entry)
                 ante = etree.SubElement(corr_span, "i", {"class": "ante-correction", "title": f"pre-correction (post-: {corr_text})"})
                 if sic is not None:
@@ -191,9 +192,9 @@ class HtmlConverter:
                 text = ''.join(child.itertext())
                 if not self.only_plain:
                     if self.verse_only:
-                        entry = {'sic': text if child.tag == 'del' else '', 'corr': text if child.tag == 'supplied' else '', 'verse': self.current_verse, 'verse_part': self.current_verse_part}
+                        entry = {'sic': text if child.tag == 'del' else '', 'corr': text if child.tag == 'supplied' else '', 'verse': self.current_verse, 'verse_part': self.current_verse_part, 'location_id': self.current_location_id}
                     else:
-                        entry = {'sic': text if child.tag == 'del' else '', 'corr': text if child.tag == 'supplied' else '', 'page': self.current_page, 'line': self.current_line}
+                        entry = {'sic': text if child.tag == 'del' else '', 'corr': text if child.tag == 'supplied' else '', 'page': self.current_page, 'line': self.current_line, 'location_id': self.current_location_id}
                     self.corrections_data.append(entry)
                 if child.tag == 'del':
                     ante = etree.SubElement(corr_span, "i", {"class": "ante-correction", "title": "deletion"})
@@ -382,7 +383,7 @@ class HtmlConverter:
             # format text as list of verses with numbering appended at line-end
             for section in root.xpath('//body/div[@n]'):
                 chapter_n_full = section.get('n')
-                h1 = etree.SubElement(content_div, "h1", id=f'{chapter_n_full.replace(" ", "_")}')
+                h1 = etree.SubElement(content_div, "h1", id=chapter_n_full.replace(" ", "_"))
                 h1.text = f"§ {chapter_n_full}"
                 verses_ul = etree.SubElement(content_div, "ul", {"class": "verses"})
                 for element in section.iterchildren():
@@ -400,7 +401,8 @@ class HtmlConverter:
                     lg_element = element
                     verse_id = lg_element.get('n')
                     self.current_verse = verse_id
-                    verse_li = etree.SubElement(verses_ul, "li", {"class": "verse", "id": f"v{verse_id.replace('.', '-')}"})
+                    self.current_location_id = f"v{verse_id.replace('.', '-')}"
+                    verse_li = etree.SubElement(verses_ul, "li", {"class": "verse", "id": self.current_location_id})
                     padas_ul = etree.SubElement(verse_li, "ul", {"class": "padas"})
                     children_of_lg = list(lg_element.iterchildren())
 
@@ -439,11 +441,17 @@ class HtmlConverter:
             self.current_page, self.current_line = '', '1'  # TODO: investigate whether necessary to reset like this
             for section in root.xpath('//body/div[@n]'):
                 section_name = section.get('n')
-                h1 = etree.SubElement(content_div, "h1", id=f'{section_name.replace(" ", "_")}')
+                h1 = etree.SubElement(content_div, "h1", id=section_name.replace(" ", "_"))
                 h1.text = f"§ {section_name}"
                 for element in section.iterchildren():
                     if element.tag == "milestone":
                         # Milestones are simple paragraphs
+                        n_attr = element.get("n")
+                        if n_attr:
+                            self.current_location_id = n_attr.replace(',', '_').replace(' ', '').replace('|', '')
+                            if not self.only_plain:
+                                etree.SubElement(content_div, "h2", {"class": "location-marker", "id": self.current_location_id}).text = n_attr
+
                         if not self.only_plain:
                             # do a rich version
                             p = etree.SubElement(content_div, "p", {"class": "rich-text"})
@@ -463,7 +471,8 @@ class HtmlConverter:
                         # process n for page and line info, creating both an h2 marker and a pending span label
                         n_attr = element.get("n")
                         if n_attr:
-                            h2 = etree.SubElement(content_div, "h2", {"class": "location-marker", "id": n_attr})
+                            self.current_location_id = n_attr.replace(',', '_').replace(' ', '')
+                            h2 = etree.SubElement(content_div, "h2", {"class": "location-marker", "id": self.current_location_id})
                             n_parts = n_attr.split(',')
                             page_part = n_parts[0].strip()
                             line_part = n_parts[1].strip() if len(n_parts) > 1 else "1"
