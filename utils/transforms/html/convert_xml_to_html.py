@@ -20,6 +20,8 @@ class HtmlConverter:
         self.pending_label = None
         self.pending_breaks = 0
         self.pdf_page_mapping = None
+        self.current_verse = None
+        self.current_verse_part = None
 
     # --- Content Processing Functions ---
     def append_text(self, element, text, strip_leading_whitespace=False, treat_as_plain=True):
@@ -173,7 +175,11 @@ class HtmlConverter:
                 sic_text = ''.join(sic.itertext()) if sic is not None else ''
                 corr_text = ''.join(corr.itertext()) if corr is not None else ''
                 if not self.only_plain:
-                    self.corrections_data.append({'sic': sic_text, 'corr': corr_text, 'page': self.current_page, 'line': self.current_line})
+                    if self.verse_only:
+                        entry = {'sic': sic_text, 'corr': corr_text, 'verse': self.current_verse, 'verse_part': self.current_verse_part}
+                    else:
+                        entry = {'sic': sic_text, 'corr': corr_text, 'page': self.current_page, 'line': self.current_line}
+                    self.corrections_data.append(entry)
                 ante = etree.SubElement(corr_span, "i", {"class": "ante-correction", "title": f"pre-correction (post-: {corr_text})"})
                 if sic is not None:
                     self.process_children(sic, ante, treat_as_plain, in_lg=in_lg)
@@ -184,7 +190,11 @@ class HtmlConverter:
                 corr_span = etree.SubElement(html_node, "span", {"class": "correction"})
                 text = ''.join(child.itertext())
                 if not self.only_plain:
-                    self.corrections_data.append({'sic': text if child.tag == 'del' else '', 'corr': text if child.tag == 'supplied' else '', 'page': self.current_page, 'line': self.current_line})
+                    if self.verse_only:
+                        entry = {'sic': text if child.tag == 'del' else '', 'corr': text if child.tag == 'supplied' else '', 'verse': self.current_verse, 'verse_part': self.current_verse_part}
+                    else:
+                        entry = {'sic': text if child.tag == 'del' else '', 'corr': text if child.tag == 'supplied' else '', 'page': self.current_page, 'line': self.current_line}
+                    self.corrections_data.append(entry)
                 if child.tag == 'del':
                     ante = etree.SubElement(corr_span, "i", {"class": "ante-correction", "title": "deletion"})
                     self.process_children(child, ante, treat_as_plain, in_lg=in_lg)
@@ -389,6 +399,7 @@ class HtmlConverter:
                     
                     lg_element = element
                     verse_id = lg_element.get('n')
+                    self.current_verse = verse_id
                     verse_li = etree.SubElement(verses_ul, "li", {"class": "verse", "id": f"v{verse_id.replace('.', '-')}"})
                     padas_ul = etree.SubElement(verse_li, "ul", {"class": "padas"})
                     children_of_lg = list(lg_element.iterchildren())
@@ -417,6 +428,7 @@ class HtmlConverter:
                     for child in children_of_lg:
                         if child.tag == 'l':
                             self.current_page, self.current_line = '', '1'  # TODO: investigate whether necessary to reset like this
+                            self.current_verse_part = child.get('n')
                             self.process_children(child, etree.SubElement(padas_ul, "li"), self.only_plain)
                         elif child.tag == 'milestone':
                             etree.SubElement(padas_ul, "br")
