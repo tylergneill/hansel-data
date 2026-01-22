@@ -45,6 +45,10 @@ def parse_markdown(path: Path) -> dict:
     if key is not None:
         meta[key] = _normalise(buf)
 
+    # Set default for PDF Page Offset if missing
+    if "PDF Page Offset" not in meta:
+        meta["PDF Page Offset"] = ["1 → 1"]
+
     # Add filename field
     meta["Filename"] = path.name[:-3]
     return meta
