@@ -183,6 +183,117 @@
     "Filename": "kumArilabhaTTa_zlokavArtika",
     "Original Submission Filetype": ".doc"
   },
+  "vākyapadīyaprameyasaṃgraha": {
+    "Title": "Vākyapadīyaprameyasaṃgraha",
+    "Pandit Work ID": "89140",
+    "Edition Short": "Rau 1981",
+    "Edition": [
+      "Editors: Wilhelm Rau, Peri Sarveswara Sharma",
+      "Title: Vākyapadīyaprameyasaṃgraha: ein anonymes Scholion zum zweiten Kāṇḍa des Vākyapadīya",
+      "Place: München",
+      "Publisher: Wilhelm Fink Verlag",
+      "Series: Abhandlungen der Marburger Gelehrten Gesellschaft",
+      "Series Part: Jahrgang 1978, Nummer 2",
+      "Year: 1981"
+    ],
+    "Edition PDFs": [
+      "[on Archive](https://archive.org/details/vakyapadiya-prameya-samgraha/mode/2up)"
+    ],
+    "PDF Page Offset": [
+      "1 → 100"
+    ],
+    "Extent": [
+      "The work's ending is missing.",
+      "The edition contains a complete text of the known work.",
+      "The text fills 54 pages in the edition, with intervening footnotes."
+    ],
+    "File Size (KB)": 94.0,
+    "Structure": "The Prameyasaṃgraha is based on the second of the Vākyapadīya's three chapters, the Vākyakāṇḍa, which comprises 493 kārikās. Of these, it discusses 258 (listed below), leaving 235 untreated, according to Rau's marginal annotations. The coverage proceeds largely in linear order through the chapter, with only a few deviations from strict sequentiality. The 258 kārikās discussed are 3, 5, 10, 12, 19–22, 30–31, 64–65, 69, 72–80, 87–88, 92, 95–101, 105, 108, 120–123, 154–162, 164–172, 174–176, 178–183, 185–190, 192–195, 197–202, 204, 216–217, 219–227, 229–230, 233, 238–258, 267, 273–281, 283–284, 298, 300, 302–308, 311–316, 318–321, 323–328, 334–335, 346–349, 351, 354–357, 359–364, 367, 369–376, 378–385, 388–397, 399–402, 404, 406, 409–434, 436, 438–440, 442–447, 449–450, 452, and 454–468.",
+    "Work Description": "The Vākyapadīya-Prameyasaṃgraha is an anonymous scholastic work, probably composed in the early twelfth century, that reorganizes Bhartṛhari's Vākyapadīya, especially the Vākyakāṇḍa, into a compact doctrinal compendium rather than a continuous commentary, covering roughly half of that chapter's content. It survives in a single incomplete manuscript discovered in Benares in 1969, with the author's name lost along with the colophon. Best read as a witness to reception history, the work shows how Bhartṛhari's philosophy was selectively systematized and transmitted in later grammatical tradition.",
+    "Genres": [
+      "Darśana",
+      "Vyākaraṇa"
+    ],
+    "Source Collection": "Personal collection of Charles Li.",
+    "Source File License": "CC BY-SA 4.0",
+    "HANSEL License": "CC BY-SA 4.0",
+    "Contributors": [
+      "Charles Li",
+      "Tyler Neill"
+    ],
+    "Digitization Notes": [
+      "(\"ages ago\") Charles Li: Typed up; removed brackets with folio/line numbers, e.g. (2r5:) for easier searching; added notes in brackets at the beginning of some paragraphs, indicating the pages being transcribed and also the verses being commented, e.g, \"2,222\" is 2nd kāṇḍa, verse 222, which information is from Rau, in the margin notes.",
+      "(Jan 2026) Tyler Neill: Second OCR (using two models, on 1981 edition, merged with AI), manual reconciliation of differences relative to previous version, some more light proofreading, markup for HANSEL."
+    ],
+    "File Creation Method": "I (Tyler Neill) produced this HANSEL edition by first running a PDF of the 1981 edition through both Google Cloud Vision OCR (via Skrutable) and Gemini 2.0 Flash (via Dharmamitra). These two OCR outputs were then automatically harmonized using Gemini 2.5 Flash (via direct API and using a custom prompt). Finally, the harmonized OCR output was contrasted against the previous version by Charles Li using Meld, and differences were reconciled individually with reference to the PDF. The text still needs a final proofread.",
+    "Text Type": "Prose with quoted verse",
+    "Word Division Style": "Roman-like (ity evam, not ityevam)",
+    "Original Submission Last Updated": "2025-12-22",
+    "Text Last Updated": "2026-01-21",
+    "Metadata Last Updated": "2026-01-22",
+    "Filename": "vAkyapadIyaprameyasaMgraha",
+    "Original Submission Filetype": ".txt"
+  },
+  "bhāsarvañna_nyāyabhūṣaṇa": {
+    "Title": "Nyāyabhūṣaṇa",
+    "Pandit Work ID": "89001",
+    "Authors": "Bhāsarvajña",
+    "Pandit Author IDs": "85303",
+    "Edition Short": "Yogindrananda 1968",
+    "Edition": [
+      "Editor: Swāmi Yogīndrānanda",
+      "Title: Śrīmadācāryabhāsarvajñapraṇītasya Nyāyasārasya svopajñaṃ vyākhyānaṃ Nyāyabhūṣaṇam",
+      "Place: Vārāṇasī",
+      "Publisher: Ṣaḍdarśana Prakāśana Pratiṣṭhānam",
+      "Series: Ṣaḍdarśanaprakāśanagranthamālāyāḥ",
+      "Series Part: Puṣpam 1",
+      "Year: 1968"
+    ],
+    "Edition PDFs": [
+      "[Jangamwadi Math library copy on Archive](https://archive.org/details/xiSi_nyaya-bhushan-of-acharya-bhas-sarvagya-with-commentary-by-swami-yogindranand-ser/mode/2up)",
+      "[H. Krasser's copy on Archive (derived, single pages, improved metadata)](https://archive.org/details/nyayabhusanam)",
+      "[H. Krasser's copy on Archive (original, double pages)](https://archive.org/details/nyayabhushanautocommonnyayasaraswamiyogindrananda_202003_425_q)"
+    ],
+    "PDF Page Offset": [
+      "..."
+    ],
+    "Extent": [
+      "The complete work is extant, minus a small amount at the very end.",
+      "The edition contains a complete text.",
+      "The text fills ... pages in the edition, with no other intervening material."
+    ],
+    "File Size (KB)": 1261.0,
+    "Structure": "Pratyakṣa Pariccheda pp. 1–187, Anumāna Pariccheda pp. 239–369, Āgama Pariccheda",
+    "Work Description": "This famous literary work — a romance between two main characters Candrāpīḍa and Kādambarī, plus innumerable side stories — was begun by Bāṇa Bhaṭṭa (570–650 CE) and finished posthumously by his son Bhūṣaṇa Bhaṭṭa (600–660 CE). These two contributions are the so-called Pūrvabhāga (Peterson ed. pp. 1–237) and Uttarabhāga (pp. 239–369), respectively. Peterson's edition, on which this e-text is based, added paragraph breaks as further structure. Later editions and translations also add headers to indicate beginnings of significant portions of the story, but no such headers are used here.",
+    "Genres": [
+      "Kāvya",
+      "Gadyakāvya"
+    ],
+    "Translations": [
+      "English, M.R. Kale, 1924, [on Archive](https://archive.org/details/in.ernet.dli.2015.121163/mode/2up)",
+      "English, G. Layne, 1991, [on GRETIL E-Library](http://gretil.sub.uni-goettingen.de/gretil_elib/BaK991__Bana_Kadambari_EN_Layne.pdf)"
+    ],
+    "Source Collection": "SARIT",
+    "Source File Link": "[bana-kadambari.xml, commit  8ad8588, Feb 1, 2022](https://github.com/sarit/SARIT-corpus/blob/8ad858812f8fcd0a62f8684e7c4fdab74ffb2435/bana-kadambari.xml)",
+    "Source File License": "CC BY-SA 4.0",
+    "HANSEL License": "CC BY-SA 4.0",
+    "Contributors": [
+      "Andrew Ollett",
+      "Tyler Neill"
+    ],
+    "Digitization Notes": [
+      "(2022-02-01) Andrew Ollett: Initial OCR (using Google Cloud Vision, on 1885/9 edition — not 1883 as noted), some proofreading, XML markup for SARIT, uploaded to GitHub.",
+      "(2024–2025) Tyler Neill: Second OCR (using two models, on 1885 edition, merged with AI), manual reconciliation of differences relative to previous version, some more proofreading, markup for HANSEL."
+    ],
+    "File Creation Method": "I (Tyler Neill) produced this HANSEL edition by first running a PDF of the 1885 edition through both Google Cloud Vision OCR (via Skrutable) and Gemini 2.0 Flash (via Dharmamitra). These two OCR outputs were then automatically harmonized using Gemini 2.5 Pro (via direct API and using a custom prompt). Finally, the harmonized OCR output was contrasted against the previous version by Andrew Ollett (which was in fact based on 1885/1889 as well) using Meld, and differences were reconciled individually with reference to the PDF. The text still needs a final proofread.",
+    "Text Type": "Prose with verse",
+    "Word Division Style": "Devanāgarī-like (ityevam, not ity evam)",
+    "Original Submission Last Updated": "2025-07-24",
+    "Text Last Updated": "2025-09-29",
+    "Metadata Last Updated": "2025-11-28",
+    "Filename": "bhAsarvaJna_nyAyabhUSaNa",
+    "Original Submission Filetype": null
+  },
   "bāṇa_kādambarī": {
     "Title": "Kādambarī",
     "Pandit Work ID": "109562",
@@ -252,5 +363,5 @@
     "Filename": "bANa_kAdambarI",
     "Original Submission Filetype": ".xml"
   },
-  "version": "2025-12-17"
+  "version": "2026-01-22"
 }
