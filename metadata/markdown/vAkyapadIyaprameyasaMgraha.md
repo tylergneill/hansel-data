@@ -13,7 +13,7 @@ Rau 1981
 # Edition
 
 - Editors: Wilhelm Rau, Peri Sarveswara Sharma
-- Title: Vākyapadīyaprameyasaṃgraha : ein anonymes Scholion zum zweiten Kāṇḍa des Vākyapadīya
+- Title: Vākyapadīyaprameyasaṃgraha: ein anonymes Scholion zum zweiten Kāṇḍa des Vākyapadīya
 - Place: München
 - Publisher: Wilhelm Fink Verlag
 - Series: Abhandlungen der Marburger Gelehrten Gesellschaft
@@ -40,21 +40,16 @@ Rau 1981
 
 # Structure
 
-None? Implicit relation to base-text?
+The Prameyasaṃgraha is based on the second of the Vākyapadīya's three chapters, the Vākyakāṇḍa, which comprises 493 kārikās. Of these, it discusses 258 (listed below), leaving 235 untreated, according to Rau's marginal annotations. The coverage proceeds largely in linear order through the chapter, with only a few deviations from strict sequentiality. The 258 kārikās discussed are 3, 5, 10, 12, 19–22, 30–31, 64–65, 69, 72–80, 87–88, 92, 95–101, 105, 108, 120–123, 154–162, 164–172, 174–176, 178–183, 185–190, 192–195, 197–202, 204, 216–217, 219–227, 229–230, 233, 238–258, 267, 273–281, 283–284, 298, 300, 302–308, 311–316, 318–321, 323–328, 334–335, 346–349, 351, 354–357, 359–364, 367, 369–376, 378–385, 388–397, 399–402, 404, 406, 409–434, 436, 438–440, 442–447, 449–450, 452, and 454–468.  
 
 # Work Description
 
-See review on independence, date...
+The Vākyapadīya-Prameyasaṃgraha is an anonymous scholastic work, probably composed in the early twelfth century, that reorganizes Bhartṛhari's Vākyapadīya, especially the Vākyakāṇḍa, into a compact doctrinal compendium rather than a continuous commentary, covering roughly half of that chapter's content. It survives in a single incomplete manuscript discovered in Benares in 1969, with the author's name lost along with the colophon. Best read as a witness to reception history, the work shows how Bhartṛhari's philosophy was selectively systematized and transmitted in later grammatical tradition.
 
 # Genres
 
 - Darśana
-- Śābdabodha? (?)
-- Pramāṇaśāstra (?)
-
-# Translations
-
-None?
+- Vyākaraṇa
 
 # Source Collection
 
@@ -62,7 +57,7 @@ Personal collection of Charles Li.
 
 # Source File License
 
-CC BY-SA 4.0 (?)
+CC BY-SA 4.0
 
 # HANSEL License
 
@@ -76,7 +71,7 @@ CC BY-SA 4.0
 # Digitization Notes
 
 - ("ages ago") Charles Li: Typed up; removed brackets with folio/line numbers, e.g. (2r5:) for easier searching; added notes in brackets at the beginning of some paragraphs, indicating the pages being transcribed and also the verses being commented, e.g, "2,222" is 2nd kāṇḍa, verse 222, which information is from Rau, in the margin notes.
-- (Jan 2026) Tyler Neill: Second OCR (using two models, on 1981 edition, merged with AI), manual reconciliation of differences relative to previous version, some more proofreading, markup for HANSEL.
+- (Jan 2026) Tyler Neill: Second OCR (using two models, on 1981 edition, merged with AI), manual reconciliation of differences relative to previous version, some more light proofreading, markup for HANSEL.
 
 # File Creation Method
 
@@ -96,8 +91,8 @@ Roman-like (ity evam, not ityevam)
 
 # Text Last Updated
 
-2026-01-13...
+2026-01-21
 
 # Metadata Last Updated 
 
-2026-01-13...
+2026-01-22
