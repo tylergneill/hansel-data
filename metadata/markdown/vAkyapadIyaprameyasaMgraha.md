@@ -8,7 +8,7 @@ Vākyapadīyaprameyasaṃgraha
 
 # Edition Short
 
-Rau 1978
+Rau 1981
 
 # Edition
 
@@ -36,7 +36,7 @@ Rau 1978
 
 # File Size (KB)
 
-...
+94
 
 # Structure
 
