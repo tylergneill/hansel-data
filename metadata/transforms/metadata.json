@@ -199,9 +199,6 @@
     "Edition PDFs": [
       "[on Archive](https://archive.org/details/vakyapadiya-prameya-samgraha/page/n3/mode/2up)"
     ],
-    "PDF Page Offset": [
-      "1 → 100"
-    ],
     "Extent": [
       "The work's ending is missing.",
       "The edition contains a complete text of the known work.",
@@ -231,6 +228,9 @@
     "Original Submission Last Updated": "2025-12-22",
     "Text Last Updated": "2026-01-21",
     "Metadata Last Updated": "2026-01-22",
+    "PDF Page Offset": [
+      "1 → 1"
+    ],
     "Filename": "vAkyapadIyaprameyasaMgraha",
     "Original Submission Filetype": ".txt"
   },

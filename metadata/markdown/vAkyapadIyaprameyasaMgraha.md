@@ -24,10 +24,6 @@ Rau 1981
 
 - [on Archive](https://archive.org/details/vakyapadiya-prameya-samgraha/page/n3/mode/2up)
 
-# PDF Page Offset
-
-- 1 → 100
-
 # Extent
 
 - The work's ending is missing.
