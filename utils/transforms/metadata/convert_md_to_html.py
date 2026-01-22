@@ -1,10 +1,45 @@
 import markdown
 from pathlib import Path
+import re
 import sys
 
 from skrutable.transliteration import Transliterator
 
 T = Transliterator(from_scheme='HK', to_scheme='IAST')
+
+# Specify which metadata fields (H1 headers) to keep in the generated HTML.
+# Comment out fields to hide them.
+FIELDS_TO_KEEP = [
+    'Title',
+    'Authors',
+    'Author',
+    'Attributed Author',
+    'Work Description',
+    'Edition',
+    'Edition Short',
+    'Edition PDFs',
+    'Genres',
+    'Structure',
+    'Translations',
+    'Contributors',
+    'Source Collection',
+    'Source File Link',
+    'Source File License',
+    'HANSEL License',
+    'Pandit Work ID',
+    'Pandit Author IDs',
+    'Pandit Attributed Author ID',
+    # 'PDF Page Offset',
+    'Extent',
+    'File Size (KB)',
+    'Digitization Notes',
+    'File Creation Method',
+    'Text Type',
+    'Word Division Style',
+    'Original Submission Last Updated',
+    'Text Last Updated',
+    'Metadata Last Updated',
+]
 
 HTML_WRAPPER = """<!DOCTYPE html>
 <html lang="en">
@@ -22,6 +57,35 @@ HTML_WRAPPER = """<!DOCTYPE html>
 </body>
 </html>"""
 
+
+def filter_md_sections(md_content, allowed_fields):
+    """
+    Parses markdown content by H1 headers and retains only the sections
+    whose headers are in allowed_fields.
+    """
+    # Regex to split by H1 headers: ^# Header Title
+    # Capture the title so we can check it.
+    # The split will result in: [preamble, title1, body1, title2, body2, ...]
+    parts = re.split(r'^# (.+)$', md_content, flags=re.MULTILINE)
+
+    filtered_chunks = []
+
+    # Handle preamble (text before first header)
+    if parts[0].strip():
+        filtered_chunks.append(parts[0])
+
+    # Iterate over pairs of (title, body)
+    for i in range(1, len(parts), 2):
+        title = parts[i].strip()
+        body = parts[i+1]
+
+        if title in allowed_fields:
+            # Reconstruct the section
+            filtered_chunks.append(f"# {title}{body}")
+
+    return "".join(filtered_chunks)
+
+
 def main(root_folder='.'):
     project_root = Path(root_folder).resolve()
     markdown_in_dir = project_root / 'metadata' / 'markdown'
@@ -38,7 +102,8 @@ def main(root_folder='.'):
     for md_file in md_files:
         with md_file.open(encoding="utf-8") as f:
             content = f.read()
-            html_body = markdown.markdown(content, extensions=["mdx_gfm"], output_format='html5')
+            filtered_content = filter_md_sections(content, FIELDS_TO_KEEP)
+            html_body = markdown.markdown(filtered_content, extensions=["mdx_gfm"], output_format='html5')
 
         wrapped_html = HTML_WRAPPER.format(title=T.transliterate(md_file.stem), body=html_body)
 
