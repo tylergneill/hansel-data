@@ -40,6 +40,7 @@ MID_LINE_PAGE_RE = re.compile(r"<(\d+)(?:,(\d+))?>")
 COMBINED_VERSE_END_RE = re.compile(f"{VERSE_MARKER_RE.pattern}|{VERSE_BACK_BOUNDARY_RE.pattern}")
 CHAR_FOR_PENDING_HEAD = "_"
 PENDING_HEAD_RE = re.compile(f"^(.*\|)\s*{re.escape(CHAR_FOR_PENDING_HEAD)}$")
+PENDING_BACK_RE = re.compile(f"^{re.escape(CHAR_FOR_PENDING_HEAD)}(.*)$")
 
 # ----------------------------
 # Utility helpers
@@ -184,6 +185,12 @@ class TeiTextBuilder:
             s.pending_head_elem = head_elem
             return
 
+        # verse back (e.g. "_iti |")
+        pending_back_match = PENDING_BACK_RE.match(line)
+        if pending_back_match:
+            self._handle_pending_back(pending_back_match.group(1))
+            return
+
         # verse (<head>[TAB]verse[bar+space]<back>)
         if '\t' in line:
             self._handle_verse_line(line)
@@ -242,6 +249,38 @@ class TeiTextBuilder:
             sink_el.tail = (sink_el.tail or "") + prefix + text
         else:
             sink_el.text = (sink_el.text or "") + text
+
+    def _handle_pending_back(self, back_text: str) -> None:
+        s = self.state
+        text_to_append = back_text.strip()
+        
+        # 1. Find target LG
+        target_lg = s.current_lg
+        if target_lg is None:
+            if s.verse_group_buffer:
+                target_lg = s.verse_group_buffer[-1]
+            elif len(s.current_div) > 0 and s.current_div[-1].tag == 'lg':
+                target_lg = s.current_div[-1]
+        
+        if target_lg is None:
+            return
+
+        # 2. Find last L in target LG
+        last_l = None
+        for child in reversed(target_lg):
+            if child.tag == 'l':
+                last_l = child
+                break
+        
+        if last_l is None:
+            return
+
+        # 3. Append text
+        if len(last_l) > 0:
+            last_child = last_l[-1]
+            last_child.tail = (last_child.tail or "") + " " + text_to_append
+        else:
+            last_l.text = (last_l.text or "") + " " + text_to_append
 
     def _handle_verse_only_line(self, label, rest):
         s = self.state
