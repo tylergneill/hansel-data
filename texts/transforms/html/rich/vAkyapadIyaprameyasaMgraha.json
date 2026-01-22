@@ -1,0 +1,310 @@
+{
+    "title": "vAkyapadIyaprameyasaMgraha",
+    "toc": [
+        {
+            "name": "vākyapadīyaprameyasaṃgraha",
+            "page": "16",
+            "id": "vākyapadīyaprameyasaṃgraha"
+        }
+    ],
+    "metadata_entries": [
+        {
+            "type": "field",
+            "label": "Title",
+            "inline_text": "Vākyapadīyaprameyasaṃgraha",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Pandit Work ID",
+            "inline_text": "89140",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Edition Short",
+            "inline_text": "Rau 1981",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Edition",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>Editors: Wilhelm Rau, Peri Sarveswara Sharma</li>\n<li>Title: Vākyapadīyaprameyasaṃgraha: ein anonymes Scholion zum zweiten Kāṇḍa des Vākyapadīya</li>\n<li>Place: München</li>\n<li>Publisher: Wilhelm Fink Verlag</li>\n<li>Series: Abhandlungen der Marburger Gelehrten Gesellschaft</li>\n<li>Series Part: Jahrgang 1978, Nummer 2</li>\n<li>Year: 1981</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Edition PDFs",
+            "inline_text": null,
+            "content_html": "<ul>\n<li><a href=\"https://archive.org/details/vakyapadiya-prameya-samgraha/page/n3/mode/2up\">on Archive</a></li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Extent",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>The work's ending is missing.</li>\n<li>The edition contains a complete text of the known work.</li>\n<li>The text fills 54 pages in the edition, with intervening footnotes.</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "File Size (KB)",
+            "inline_text": "94",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Structure",
+            "inline_text": "The Prameyasaṃgraha is based on the second of the Vākyapadīya's three chapters, the Vākyakāṇḍa, which comprises 493 kārikās. Of these, it discusses 258 (listed below), leaving 235 untreated, according to Rau's marginal annotations. The coverage proceeds largely in linear order through the chapter, with only a few deviations from strict sequentiality. The 258 kārikās discussed are 3, 5, 10, 12, 19–22, 30–31, 64–65, 69, 72–80, 87–88, 92, 95–101, 105, 108, 120–123, 154–162, 164–172, 174–176, 178–183, 185–190, 192–195, 197–202, 204, 216–217, 219–227, 229–230, 233, 238–258, 267, 273–281, 283–284, 298, 300, 302–308, 311–316, 318–321, 323–328, 334–335, 346–349, 351, 354–357, 359–364, 367, 369–376, 378–385, 388–397, 399–402, 404, 406, 409–434, 436, 438–440, 442–447, 449–450, 452, and 454–468.",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Work Description",
+            "inline_text": "The Vākyapadīya-Prameyasaṃgraha is an anonymous scholastic work, probably composed in the early twelfth century, that reorganizes Bhartṛhari's Vākyapadīya, especially the Vākyakāṇḍa, into a compact doctrinal compendium rather than a continuous commentary, covering roughly half of that chapter's content. It survives in a single incomplete manuscript discovered in Benares in 1969, with the author's name lost along with the colophon. Best read as a witness to reception history, the work shows how Bhartṛhari's philosophy was selectively systematized and transmitted in later grammatical tradition.",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Genres",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>Darśana</li>\n<li>Vyākaraṇa</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Source Collection",
+            "inline_text": "Personal collection of Charles Li.",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Source File License",
+            "inline_text": "CC BY-SA 4.0",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "HANSEL License",
+            "inline_text": "CC BY-SA 4.0",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Contributors",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>Charles Li</li>\n<li>Tyler Neill</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Digitization Notes",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>(\"ages ago\") Charles Li: Typed up; removed brackets with folio/line numbers, e.g. (2r5:) for easier searching; added notes in brackets at the beginning of some paragraphs, indicating the pages being transcribed and also the verses being commented, e.g, \"2,222\" is 2nd kāṇḍa, verse 222, which information is from Rau, in the margin notes.</li>\n<li>(Jan 2026) Tyler Neill: Second OCR (using two models, on 1981 edition, merged with AI), manual reconciliation of differences relative to previous version, some more light proofreading, markup for HANSEL.</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "File Creation Method",
+            "inline_text": "I (Tyler Neill) produced this HANSEL edition by first running a PDF of the 1981 edition through both Google Cloud Vision OCR (via Skrutable) and Gemini 2.0 Flash (via Dharmamitra). These two OCR outputs were then automatically harmonized using Gemini 2.5 Flash (via direct API and using a custom prompt). Finally, the harmonized OCR output was contrasted against the previous version by Charles Li using Meld, and differences were reconciled individually with reference to the PDF. The text still needs a final proofread.",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Text Type",
+            "inline_text": "Prose with quoted verse",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Word Division Style",
+            "inline_text": "Roman-like (ity evam, not ityevam)",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Original Submission Last Updated",
+            "inline_text": "2025-12-22",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Text Last Updated",
+            "inline_text": "2026-01-21",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Metadata Last Updated",
+            "inline_text": "2026-01-22",
+            "content_html": ""
+        },
+        {
+            "type": "corrections",
+            "count": 22,
+            "rows": [
+                {
+                    "sic": "",
+                    "corr": "-",
+                    "page": "20",
+                    "line": "10",
+                    "location_id": "19_17"
+                },
+                {
+                    "sic": "",
+                    "corr": "-",
+                    "page": "21",
+                    "line": "1",
+                    "location_id": "19_17"
+                },
+                {
+                    "sic": "-",
+                    "corr": "",
+                    "page": "21",
+                    "line": "20",
+                    "location_id": "19_17"
+                },
+                {
+                    "sic": "dhy",
+                    "corr": "dhi",
+                    "page": "30",
+                    "line": "29",
+                    "location_id": "29_17"
+                },
+                {
+                    "sic": "",
+                    "corr": " ",
+                    "page": "31",
+                    "line": "5",
+                    "location_id": "31_2"
+                },
+                {
+                    "sic": "",
+                    "corr": " ",
+                    "page": "36",
+                    "line": "7",
+                    "location_id": "35_21"
+                },
+                {
+                    "sic": "",
+                    "corr": " ",
+                    "page": "38",
+                    "line": "22",
+                    "location_id": "37_9"
+                },
+                {
+                    "sic": "",
+                    "corr": " ",
+                    "page": "39",
+                    "line": "11",
+                    "location_id": "38_27"
+                },
+                {
+                    "sic": "",
+                    "corr": " ",
+                    "page": "39",
+                    "line": "12",
+                    "location_id": "38_27"
+                },
+                {
+                    "sic": "",
+                    "corr": " ",
+                    "page": "41",
+                    "line": "17",
+                    "location_id": "41_7"
+                },
+                {
+                    "sic": " ",
+                    "corr": "",
+                    "page": "43",
+                    "line": "1",
+                    "location_id": "42_14"
+                },
+                {
+                    "sic": "",
+                    "corr": " ",
+                    "page": "48",
+                    "line": "5",
+                    "location_id": "48_5"
+                },
+                {
+                    "sic": " ",
+                    "corr": "",
+                    "page": "49",
+                    "line": "12",
+                    "location_id": "49_9"
+                },
+                {
+                    "sic": "",
+                    "corr": " ",
+                    "page": "57",
+                    "line": "7",
+                    "location_id": "55_5"
+                },
+                {
+                    "sic": "",
+                    "corr": " ",
+                    "page": "57",
+                    "line": "11",
+                    "location_id": "57_10"
+                },
+                {
+                    "sic": "",
+                    "corr": " ",
+                    "page": "59",
+                    "line": "18",
+                    "location_id": "58_11"
+                },
+                {
+                    "sic": "",
+                    "corr": " ",
+                    "page": "61",
+                    "line": "12",
+                    "location_id": "60_13"
+                },
+                {
+                    "sic": "",
+                    "corr": " ",
+                    "page": "64",
+                    "line": "15",
+                    "location_id": "63_18"
+                },
+                {
+                    "sic": "",
+                    "corr": " ",
+                    "page": "64",
+                    "line": "20",
+                    "location_id": "63_18"
+                },
+                {
+                    "sic": "",
+                    "corr": " ",
+                    "page": "65",
+                    "line": "4",
+                    "location_id": "65_3"
+                },
+                {
+                    "sic": "",
+                    "corr": " ",
+                    "page": "66",
+                    "line": "12",
+                    "location_id": "66_7"
+                },
+                {
+                    "sic": "",
+                    "corr": " ",
+                    "page": "68",
+                    "line": "3",
+                    "location_id": "67_10"
+                }
+            ]
+        }
+    ],
+    "verse_only": false,
+    "includes_plain_variant": true,
+    "no_line_numbers": false,
+    "pdf_page_mapping": {
+        "url": "https://archive.org/details/vakyapadiya-prameya-samgraha/page/n3/mode/2up",
+        "offsets": [
+            [
+                1,
+                1
+            ]
+        ]
+    }
+}
