@@ -22,7 +22,7 @@ Rau 1981
 
 # Edition PDFs
 
-- [on Archive](https://archive.org/details/vakyapadiya-prameya-samgraha/mode/2up)
+- [on Archive](https://archive.org/details/vakyapadiya-prameya-samgraha/page/n3/mode/2up)
 
 # PDF Page Offset
 
