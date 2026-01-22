@@ -41,7 +41,7 @@ Transformations that generate various file formats (TEI-XML, TXT, HTML, JSON) ar
 The main entry point for regenerating all derivative data is `utils/transforms/regenerate_all.py`, which executes the following sequence:
 
 1.  `utils/transforms/metadata/regenerate.py`: Processes all metadata files, rendering each Markdown metadata file to HTML and also consolidating all of them into a single JSON file.
-2.  `utils/transforms/xml/regenerate.py --xml/--txt`: Converts processed plain-text files into TEI-XML `<text>` format or vice versa, depending on the mode flag. When run with `--xml`, it also updates the TEI headers in XML files using information from the corresponding Markdown metadata.
+2.  `utils/transforms/xml/regenerate.py --xml/--txt`: Converts processed plain-text files into TEI-XML `<text>` format or vice versa, depending on the mode flag, which specifies which will be generated. When run with `--xml`, it also updates the TEI headers in XML files using information from the corresponding Markdown metadata.
 3.  `utils/transforms/html/regenerate.py`: Converts TEI-XML files into HTML, producing both "rich" (the primary display format on the HANSEL website) and "plain" versions. The "plain" version is also embedded within the "rich" one to improve in-browser full-text search performance. 
 
 Note that `utils/transforms/regenerate_all.py` also requires the `--xml` or `--txt` flag to determine the operating mode for `utils/transforms/xml/regenerate.py`.
