@@ -23,7 +23,7 @@ The XML `<teiHeader>` and `<text>` are validated against RELAX NG and Schematron
 
 ## Transforms
 
-Once validated, the XML is converted into HTML using `utils/transforms/html/convert_xml_to_html.py`. Metadata is transformed into HTML with `utils/metadata/render_md_to_html.py` and also consolidated into JSON using `utils/metadata/jsonify_metadata.py`. These transformation scripts reside in `texts/transforms` and `metadata/transforms`, respectively.
+Once validated, the XML is converted into HTML using `utils/transforms/html/convert_xml_to_html.py`. Metadata is transformed into HTML with `utils/metadata/convert_md_to_html.py` and also consolidated into JSON using `utils/metadata/jsonify_metadata.py`. These transformation scripts reside in `texts/transforms` and `metadata/transforms`, respectively.
 
 ## Versioning
 

@@ -22,7 +22,7 @@ def main():
     
     # Scripts
     update_version_script = project_root / 'utils' / 'transforms' / 'metadata' / 'update_version.py'
-    render_script = project_root / 'utils' / 'transforms' / 'metadata' / 'render_md_to_html.py'
+    convert_script = project_root / 'utils' / 'transforms' / 'metadata' / 'convert_md_to_html.py'
     jsonify_script = project_root / 'utils' / 'transforms' / 'metadata' / 'jsonify_metadata.py'
 
     # 1. Clean output directories
@@ -47,7 +47,7 @@ def main():
 
         # 3. Render Markdown to HTML
         print("--- Rendering Markdown to HTML ---")
-        subprocess.run(['python', str(render_script), str(project_root)], check=True)
+        subprocess.run(['python', str(convert_script), str(project_root)], check=True)
         print("")
 
         # 4. Consolidate metadata to JSON
