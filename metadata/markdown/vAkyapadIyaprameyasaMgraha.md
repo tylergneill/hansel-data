@@ -71,7 +71,7 @@ CC BY-SA 4.0
 
 # File Creation Method
 
-I (Tyler Neill) produced this HANSEL edition by first running a PDF of the 1981 edition through both Google Cloud Vision OCR (via Skrutable) and Gemini 2.0 Flash (via Dharmamitra). These two OCR outputs were then automatically harmonized using Gemini 2.5 Flash (via direct API and using a custom prompt). Finally, the harmonized OCR output was contrasted against the previous version by Charles Li using Meld, and differences were reconciled individually with reference to the PDF. The text still needs a final proofread.
+I (T. Neill) produced this HANSEL edition by first running a PDF of the 1981 edition through both Google Cloud Vision OCR (via Skrutable) and Gemini 2.0 Flash (via Dharmamitra). These two OCR outputs were then automatically harmonized using Gemini 2.5 Flash (via direct API and using a custom prompt). Finally, the harmonized OCR output was contrasted against the previous version by C. Li using Meld, and differences were reconciled individually with reference to the PDF. Additional structural markup into sections was prepared by C. Li on the basis of Rau's marginal annotations of VP kārikās. Brackets for uncertain or illegible readings were removed, retaining Rau’s conjectures and ellipsis periods. Empty brackets ([]) denoting missing material described in Rau’s footnotes were converted to '...'. The text still needs a final proofread.
 
 # Text Type
 
@@ -95,4 +95,4 @@ Roman-like (ity evam, not ityevam)
 
 # Metadata Last Updated 
 
-2026-01-22
+2026-01-23

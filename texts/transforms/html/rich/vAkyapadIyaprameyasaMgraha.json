@@ -2,9 +2,184 @@
     "title": "vAkyapadIyaprameyasaMgraha",
     "toc": [
         {
-            "name": "vākyapadīyaprameyasaṃgraha",
+            "name": "0",
             "page": "16",
-            "id": "vākyapadīyaprameyasaṃgraha"
+            "id": "0"
+        },
+        {
+            "name": "2,3–2,31",
+            "page": "17",
+            "id": "2,3–2,31"
+        },
+        {
+            "name": "2,64–2,77",
+            "page": "20",
+            "id": "2,64–2,77"
+        },
+        {
+            "name": "2,78",
+            "page": "24",
+            "id": "2,78"
+        },
+        {
+            "name": "2,79",
+            "page": "25",
+            "id": "2,79"
+        },
+        {
+            "name": "2,80",
+            "page": "26",
+            "id": "2,80"
+        },
+        {
+            "name": "2,87",
+            "page": "29",
+            "id": "2,87"
+        },
+        {
+            "name": "2,88–2,108",
+            "page": "30",
+            "id": "2,88–2,108"
+        },
+        {
+            "name": "2,120–2,186",
+            "page": "32",
+            "id": "2,120–2,186"
+        },
+        {
+            "name": "2,187–2,190",
+            "page": "35",
+            "id": "2,187–2,190"
+        },
+        {
+            "name": "2,192–2,195, 2,188",
+            "page": "36",
+            "id": "2,192–2,195,_2,188"
+        },
+        {
+            "name": "2,197–2,221",
+            "page": "38",
+            "id": "2,197–2,221"
+        },
+        {
+            "name": "2,222",
+            "page": "40",
+            "id": "2,222"
+        },
+        {
+            "name": "2,223–2,224",
+            "page": "40",
+            "id": "2,223–2,224"
+        },
+        {
+            "name": "2,225",
+            "page": "41",
+            "id": "2,225"
+        },
+        {
+            "name": "2,226–2,249",
+            "page": "42",
+            "id": "2,226–2,249"
+        },
+        {
+            "name": "2,250",
+            "page": "43",
+            "id": "2,250"
+        },
+        {
+            "name": "2,251–2,284",
+            "page": "44",
+            "id": "2,251–2,284"
+        },
+        {
+            "name": "2,298–2,308",
+            "page": "47",
+            "id": "2,298–2,308"
+        },
+        {
+            "name": "2,311–2,314",
+            "page": "48",
+            "id": "2,311–2,314"
+        },
+        {
+            "name": "2,315–2,316",
+            "page": "49",
+            "id": "2,315–2,316"
+        },
+        {
+            "name": "2,318",
+            "page": "50",
+            "id": "2,318"
+        },
+        {
+            "name": "2,319–2,335",
+            "page": "51",
+            "id": "2,319–2,335"
+        },
+        {
+            "name": "2,346",
+            "page": "53",
+            "id": "2,346"
+        },
+        {
+            "name": "2,347",
+            "page": "53",
+            "id": "2,347"
+        },
+        {
+            "name": "2,348–2,369",
+            "page": "54",
+            "id": "2,348–2,369"
+        },
+        {
+            "name": "2,370–2,374",
+            "page": "58",
+            "id": "2,370–2,374"
+        },
+        {
+            "name": "2,375–2,397",
+            "page": "59",
+            "id": "2,375–2,397"
+        },
+        {
+            "name": "2,399–2,414",
+            "page": "61",
+            "id": "2,399–2,414"
+        },
+        {
+            "name": "2,415–2,420",
+            "page": "63",
+            "id": "2,415–2,420"
+        },
+        {
+            "name": "2,422",
+            "page": "63",
+            "id": "2,422"
+        },
+        {
+            "name": "2,423–2,424",
+            "page": "63",
+            "id": "2,423–2,424"
+        },
+        {
+            "name": "2,425–2,436",
+            "page": "64",
+            "id": "2,425–2,436"
+        },
+        {
+            "name": "2,438–2,446",
+            "page": "66",
+            "id": "2,438–2,446"
+        },
+        {
+            "name": "2,452–2,463",
+            "page": "68",
+            "id": "2,452–2,463"
+        },
+        {
+            "name": "2,464–2,468",
+            "page": "69",
+            "id": "2,464–2,468"
         }
     ],
     "metadata_entries": [
@@ -101,7 +276,7 @@
         {
             "type": "field",
             "label": "File Creation Method",
-            "inline_text": "I (Tyler Neill) produced this HANSEL edition by first running a PDF of the 1981 edition through both Google Cloud Vision OCR (via Skrutable) and Gemini 2.0 Flash (via Dharmamitra). These two OCR outputs were then automatically harmonized using Gemini 2.5 Flash (via direct API and using a custom prompt). Finally, the harmonized OCR output was contrasted against the previous version by Charles Li using Meld, and differences were reconciled individually with reference to the PDF. The text still needs a final proofread.",
+            "inline_text": "I (T. Neill) produced this HANSEL edition by first running a PDF of the 1981 edition through both Google Cloud Vision OCR (via Skrutable) and Gemini 2.0 Flash (via Dharmamitra). These two OCR outputs were then automatically harmonized using Gemini 2.5 Flash (via direct API and using a custom prompt). Finally, the harmonized OCR output was contrasted against the previous version by C. Li using Meld, and differences were reconciled individually with reference to the PDF. Additional structural markup into sections was prepared by C. Li on the basis of Rau's marginal annotations of VP kārikās. Brackets for uncertain or illegible readings were removed, retaining Rau’s conjectures and ellipsis periods. Empty brackets ([]) denoting missing material described in Rau’s footnotes were converted to '...'. The text still needs a final proofread.",
             "content_html": ""
         },
         {
@@ -137,7 +312,7 @@
         {
             "type": "field",
             "label": "Metadata Last Updated",
-            "inline_text": "2026-01-22",
+            "inline_text": "2026-01-23",
             "content_html": ""
         },
         {
