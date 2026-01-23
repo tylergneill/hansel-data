@@ -40,7 +40,7 @@ The Prameyasaṃgraha is based on the second of the Vākyapadīya's three chapte
 
 # Work Description
 
-The Vākyapadīya-Prameyasaṃgraha is an anonymous scholastic work, probably composed in the early twelfth century, that reorganizes Bhartṛhari's Vākyapadīya, especially the Vākyakāṇḍa, into a compact doctrinal compendium rather than a continuous commentary, covering roughly half of that chapter's content. It survives in a single incomplete manuscript discovered in Benares in 1969, with the author's name lost along with the colophon. Best read as a witness to reception history, the work shows how Bhartṛhari's philosophy was selectively systematized and transmitted in later grammatical tradition.
+The Vākyapadīya-Prameyasaṃgraha is an anonymous scholastic work, probably composed in the early twelfth century, that reorganizes Bhartṛhari's Vākyapadīya, especially the Vākyakāṇḍa, into a compact doctrinal compendium rather than a continuous commentary, covering roughly half of that chapter's content. It survives in a single incomplete manuscript discovered in Benares in 1969, with the author's name lost along with the colophon. The work shows how Bhartṛhari's philosophy was selectively systematized and transmitted in later grammatical tradition.
 
 # Genres
 
@@ -81,13 +81,17 @@ Prose with quoted verse
 
 Roman-like (ity evam, not ityevam)
 
+# Additional Notes
+
+- Bronkhorst's review in Kratylos ([here on Archive](https://archive.org/details/bronkhorst_review_rau_1981)) contains useful perspective on the nature of the work and how to best use Rau's edition.
+
 # Original Submission Last Updated
 
 2025-12-22
 
 # Text Last Updated
 
-2026-01-21
+2026-01-22
 
 # Metadata Last Updated 
 
