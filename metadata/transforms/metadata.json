@@ -222,7 +222,7 @@
       "(\"ages ago\") Charles Li: Typed up; removed brackets with folio/line numbers, e.g. (2r5:) for easier searching; added notes in brackets at the beginning of some paragraphs, indicating the pages being transcribed and also the verses being commented, e.g, \"2,222\" is 2nd kāṇḍa, verse 222, which information is from Rau, in the margin notes.",
       "(Jan 2026) Tyler Neill: Second OCR (using two models, on 1981 edition, merged with AI), manual reconciliation of differences relative to previous version, some more light proofreading, markup for HANSEL."
     ],
-    "File Creation Method": "I (Tyler Neill) produced this HANSEL edition by first running a PDF of the 1981 edition through both Google Cloud Vision OCR (via Skrutable) and Gemini 2.0 Flash (via Dharmamitra). These two OCR outputs were then automatically harmonized using Gemini 2.5 Flash (via direct API and using a custom prompt). Finally, the harmonized OCR output was contrasted against the previous version by Charles Li using Meld, and differences were reconciled individually with reference to the PDF. The text still needs a final proofread.",
+    "File Creation Method": "I (T. Neill) produced this HANSEL edition by first running a PDF of the 1981 edition through both Google Cloud Vision OCR (via Skrutable) and Gemini 2.0 Flash (via Dharmamitra). These two OCR outputs were then automatically harmonized using Gemini 2.5 Flash (via direct API and using a custom prompt). Finally, the harmonized OCR output was contrasted against the previous version by C. Li using Meld, and differences were reconciled individually with reference to the PDF. Additional structural markup into sections was prepared by C. Li on the basis of Rau's marginal annotations of VP kārikās. Brackets for uncertain or illegible readings were removed, retaining Rau’s conjectures and ellipsis periods. Empty brackets ([]) denoting missing material described in Rau’s footnotes were converted to '...'. The text still needs a final proofread.",
     "Text Type": "Prose with quoted verse",
     "Word Division Style": "Roman-like (ity evam, not ityevam)",
     "Additional Notes": [
@@ -230,7 +230,7 @@
     ],
     "Original Submission Last Updated": "2025-12-22",
     "Text Last Updated": "2026-01-23",
-    "Metadata Last Updated": "2026-01-22",
+    "Metadata Last Updated": "2026-01-23",
     "PDF Page Offset": [
       "1 → 1"
     ],
