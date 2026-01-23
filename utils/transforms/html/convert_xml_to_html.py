@@ -367,6 +367,9 @@ class HtmlConverter:
                     if offsets:
                         pdf_offsets = offsets
 
+                if pdf_offsets is None:
+                    pdf_offsets = [[1, 1]]
+
                 if pdf_link_url and pdf_offsets:
                     self.pdf_page_mapping = {
                         "url": pdf_link_url,

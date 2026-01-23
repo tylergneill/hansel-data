@@ -2,19 +2,17 @@ import os
 import subprocess
 from pathlib import Path
 import argparse
+import sys
 
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
+sys.path.append(str(PROJECT_ROOT))
+from utils.transforms.flag_map import flag_map
+
 XML_DIR = os.path.join(PROJECT_ROOT, "texts/project_editions/xml")
 HTML_PLAIN_DIR = os.path.join(PROJECT_ROOT, "texts/transforms/html/plain")
 HTML_RICH_DIR = os.path.join(PROJECT_ROOT, "texts/transforms/html/rich")
 CONVERSION_SCRIPT = os.path.join(PROJECT_ROOT, "utils/transforms/html/convert_xml_to_html.py")
 
-flag_map = {
-    "bANa_kAdambarI": '--line-by-line',
-    "kumArilabhaTTa_zlokavArtika": '--verse-only',
-    "zukasaptati_s": '--line-by-line --extra-space-after-location',
-    "zukasaptati_o": '--line-by-line --extra-space-after-location',
-}
 
 def regenerate_html(xml_dir, plain_dir, rich_dir, standalone=False):
     """
