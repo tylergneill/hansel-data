@@ -142,7 +142,7 @@
         },
         {
             "type": "corrections",
-            "count": 22,
+            "count": 23,
             "rows": [
                 {
                     "sic": "",
@@ -248,6 +248,13 @@
                     "page": "57",
                     "line": "11",
                     "location_id": "57_10"
+                },
+                {
+                    "sic": "-",
+                    "corr": "",
+                    "page": "57",
+                    "line": "13",
+                    "location_id": "57_12"
                 },
                 {
                     "sic": "",
