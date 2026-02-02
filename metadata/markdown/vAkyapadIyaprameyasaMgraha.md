@@ -81,6 +81,10 @@ Prose with quoted verse
 
 Roman-like (ity evam, not ityevam)
 
+# Additional Files
+
+- [Intermediate text](miscellaneous/vAkyapadIyaprameyasaMgraha_intermediate_text.txt): full bracket information from edition, including mid-line hyphens.
+
 # Additional Notes
 
 - Bronkhorst's review in Kratylos ([here on Archive](https://archive.org/details/bronkhorst_review_rau_1981)) contains useful perspective on the nature of the work and how to best use Rau's edition.
