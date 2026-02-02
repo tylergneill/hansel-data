@@ -60,6 +60,27 @@ def get_file_extension(filename_without_extension):
         if base_name.lower() == filename_without_extension.lower():
             return extension
 
+def parse_additional_files(file_list):
+    """
+    Parse a list of markdown links with descriptions into structured data.
+    Format: [Text](URL): Description
+    """
+    parsed_files = []
+    if not file_list:
+        return parsed_files
+    
+    for file_string in file_list:
+        # Match [Text](URL): Description or [Text](URL)
+        match = re.match(r'\[([^\]]+)\]\(([^)]+)\)(.*)', file_string)
+        if match:
+            text = match.group(1)
+            url = match.group(2)
+            description = match.group(3).strip()
+            if description.startswith(':'):
+                description = description[1:].strip()
+            parsed_files.append({'text': text, 'url': url, 'description': description})
+    return parsed_files
+
 def main(folder: str):
     root = Path(folder)
     metadata_markdown_in_dir = root / 'metadata' / 'markdown'
@@ -85,6 +106,10 @@ def main(folder: str):
 
         # detect and store original file type
         consolidated[k]['Original Submission Filetype'] = get_file_extension(consolidated[k]['Filename'])
+        
+        # parse additional files
+        if 'Additional Files' in consolidated[k]:
+             consolidated[k]['Additional Files'] = parse_additional_files(consolidated[k]['Additional Files'])
 
     # Add version to the consolidated data
     consolidated['version'] = version

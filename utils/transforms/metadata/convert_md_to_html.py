@@ -36,6 +36,7 @@ FIELDS_TO_KEEP = [
     'File Creation Method',
     'Text Type',
     'Word Division Style',
+    'Additional Files',
     'Additional Notes',
     'Original Submission Last Updated',
     'Text Last Updated',
