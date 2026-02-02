@@ -36,11 +36,11 @@ Rau 1981
 
 # Structure
 
-The Prameyasaṃgraha is based on the second of the Vākyapadīya's three chapters, the Vākyakāṇḍa, which comprises 493 kārikās. Of these, it discusses 258 (listed below), leaving 235 untreated, according to Rau's marginal annotations. The coverage proceeds largely in linear order through the chapter, with only a few deviations from strict sequentiality. The 258 kārikās discussed are 3, 5, 10, 12, 19–22, 30–31, 64–65, 69, 72–80, 87–88, 92, 95–101, 105, 108, 120–123, 154–162, 164–172, 174–176, 178–183, 185–190, 192–195, 197–202, 204, 216–217, 219–227, 229–230, 233, 238–258, 267, 273–281, 283–284, 298, 300, 302–308, 311–316, 318–321, 323–328, 334–335, 346–349, 351, 354–357, 359–364, 367, 369–376, 378–385, 388–397, 399–402, 404, 406, 409–434, 436, 438–440, 442–447, 449–450, 452, and 454–468.  
+The Prameyasaṃgraha is based on the second of the Vākyapadīya's three chapters, the Vākyakāṇḍa, which comprises 493 kārikās. Of these, it discusses 258 (listed below), leaving 235 untreated, according to Rau's marginal annotations. The coverage proceeds largely in linear order through the chapter, with only a few deviations from strict sequentiality. The 258 kārikās discussed are 3, 5, 10, 12, 19–22, 30–31, 64–65, 69, 72–80, 87–88, 92, 95–101, 105, 108, 120–123, 154–162, 164–172, 174–176, 178–183, 185–190, 192–195, 197–202, 204, 216–217, 219–227, 229–230, 233, 238–258, 267, 273–281, 283–284, 298, 300, 302–308, 311–316, 318–321, 323–328, 334–335, 346–349, 351, 354–357, 359–364, 367, 369–376, 378–385, 388–397, 399–402, 404, 406, 409–434, 436, 438–440, 442–447, 449–450, 452, and 454–468. Contributor C. Li created headings for groups of kārikās discussed, which are retained here to provide the table of contents. 
 
 # Work Description
 
-The Vākyapadīya-Prameyasaṃgraha is an anonymous scholastic work, probably composed in the early twelfth century, that reorganizes Bhartṛhari's Vākyapadīya, especially the Vākyakāṇḍa, into a compact doctrinal compendium rather than a continuous commentary, covering roughly half of that chapter's content. It survives in a single incomplete manuscript discovered in Benares in 1969, with the author's name lost along with the colophon. The work shows how Bhartṛhari's philosophy was selectively systematized and transmitted in later grammatical tradition.
+The Vākyapadīya-Prameyasaṃgraha is an anonymous scholastic work, probably composed in the early twelfth century, that builds upon Bhartṛhari's Vākyapadīya, specifically about half of the Vākyakāṇḍa, to create a compact doctrinal compendium. It survives in a single incomplete manuscript discovered in Benares in 1969, with the author's name lost along with the colophon.
 
 # Genres
 
@@ -99,4 +99,4 @@ Roman-like (ity evam, not ityevam)
 
 # Metadata Last Updated 
 
-2026-01-23
+2026-02-02
