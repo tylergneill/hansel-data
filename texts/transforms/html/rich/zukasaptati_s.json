@@ -469,6 +469,12 @@
         },
         {
             "type": "field",
+            "label": "Additional Files",
+            "inline_text": null,
+            "content_html": "<ul>\n<li><a href=\"/static/data/miscellaneous/zukasaptati_s_translation_bibliography.doc\">Bibliography</a>: Overview of translations by V. Gostishchev </li>\n</ul>\n"
+        },
+        {
+            "type": "field",
             "label": "Additional Notes",
             "inline_text": null,
             "content_html": "<ul>\n<li>Indian editions (e.g. Ramakant Tripathi, Vārāṇasī, 1966, basis of the GRETIL text) are based on this <em>Simplicior</em> text by Schmidt.</li>\n<li>V. Gostishchev's original version of the file contains added <em>chāyās</em> from the Indian editions and other useful notes.</li>\n<li>On the construction of the text, see the editor's 1890 PhD dissertation “Vier Erzählungen aus der Çukasaptati”, <a href=\"https://books.google.fr/books?id=iq5LAQAAMAAJ\">on Google Books</a></li>\n<li>See also the editor's: “Anmerkungen zu dem Textus simplicior der Śukasaptati”, ZDMG 48, 1894, 580-628.</li>\n</ul>\n"
@@ -488,7 +494,7 @@
         {
             "type": "field",
             "label": "Metadata Last Updated",
-            "inline_text": "2025-11-28",
+            "inline_text": "2026-02-03",
             "content_html": ""
         }
     ],

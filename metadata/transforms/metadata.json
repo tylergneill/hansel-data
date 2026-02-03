@@ -110,6 +110,14 @@
     "File Creation Method": "I (Tyler Neill) produced this HANSEL edition by manually converting the original Word document to plaintext and then automatically adding XML markup. The text still needs a final proofread.",
     "Text Type": "Prose with verse",
     "Word Division Style": "Roman-like (ity evam, not ityevam)",
+    "Additional Files": [
+      {
+        "text": "Bibliography",
+        "url": "/static/data/miscellaneous/zukasaptati_s_translation_bibliography.doc",
+        "description": "Overview of translations by V. Gostishchev",
+        "filetype": ".doc"
+      }
+    ],
     "Additional Notes": [
       "Indian editions (e.g. Ramakant Tripathi, Vārāṇasī, 1966, basis of the GRETIL text) are based on this _Simplicior_ text by Schmidt.",
       "V. Gostishchev's original version of the file contains added _chāyās_ from the Indian editions and other useful notes.",
@@ -118,7 +126,7 @@
     ],
     "Original Submission Last Updated": "2025-06-25",
     "Text Last Updated": "2025-09-29",
-    "Metadata Last Updated": "2025-11-28",
+    "Metadata Last Updated": "2026-02-03",
     "Filename": "zukasaptati_s",
     "Original Submission Filetype": ".doc"
   },
@@ -314,5 +322,5 @@
     "Filename": "bANa_kAdambarI",
     "Original Submission Filetype": ".xml"
   },
-  "version": "2026-02-02"
+  "version": "2026-02-03"
 }
