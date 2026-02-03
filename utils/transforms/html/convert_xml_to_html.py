@@ -262,6 +262,49 @@ class HtmlConverter:
         div_elem = etree.SubElement(container, "div", {"class": cls, "style": style})
         process_lg_children(div_elem, treat_as_plain=treat_as_plain)
 
+    def get_additional_files_html(self, md_content):
+        lines = md_content.splitlines()
+        in_section = False
+        items = []
+        for line in lines:
+            s_line = line.strip()
+            if s_line == '# Additional Files':
+                in_section = True
+                continue
+            if in_section:
+                if s_line.startswith('#'):
+                    break
+                if s_line.startswith('- ') or s_line.startswith('* '):
+                    s_line = s_line[2:].strip()
+                
+                start_bracket = s_line.find('[')
+                end_bracket = s_line.find(']')
+                start_paren = s_line.find('(')
+                end_paren = s_line.find(')')
+                
+                if start_bracket != -1 and end_bracket != -1 and start_paren != -1 and end_paren != -1:
+                    if start_bracket < end_bracket < start_paren < end_paren:
+                        text = s_line[start_bracket+1:end_bracket]
+                        url = s_line[start_paren+1:end_paren]
+                        description = s_line[end_paren+1:].strip()
+                        if description.startswith(':'):
+                            description = description[1:].strip()
+                        
+                        if url.startswith('miscellaneous/'):
+                             url = '/static/data/' + url
+                        elif url.startswith('/miscellaneous/'):
+                             url = '/static/data' + url
+                        
+                        item_html = f'<li><a href="{url}">{text}</a>'
+                        if description:
+                            item_html += f': {description}'
+                        item_html += '</li>'
+                        items.append(item_html)
+        
+        if items:
+            return '<ul>' + ''.join(items) + '</ul>'
+        return None
+
     def convert_xml_to_html(self, xml_path, html_path):
         """
         In default rich mode, converts a TEI XML file into an HTML fragment and corresponding JSON sidecar file.
@@ -313,6 +356,22 @@ class HtmlConverter:
                 while i < len(nodes):
                     node = nodes[i]
                     if node.tag == 'h1':
+                        label_text = (node.text or '').strip()
+
+                        if label_text == 'Additional Files':
+                            manual_html = self.get_additional_files_html(md_content)
+                            if manual_html:
+                                self.metadata_entries.append({
+                                    "type": "field",
+                                    "label": label_text,
+                                    "inline_text": None,
+                                    "content_html": manual_html
+                                })
+                            i += 1
+                            while i < len(nodes) and nodes[i].tag != 'h1':
+                                i += 1
+                            continue
+
                         content_nodes = []
                         i += 1
                         while i < len(nodes) and nodes[i].tag != 'h1':
@@ -328,7 +387,6 @@ class HtmlConverter:
                             if content_nodes:
                                 rendered_html = "".join(etree.tostring(cn, encoding="unicode") for cn in content_nodes)
 
-                        label_text = (node.text or '').strip()
                         if not (inline_text or rendered_html).strip():
                             continue
                         self.metadata_entries.append({

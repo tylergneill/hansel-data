@@ -228,8 +228,9 @@
     "Additional Files": [
       {
         "text": "Intermediate text",
-        "url": "miscellaneous/vAkyapadIyaprameyasaMgraha_intermediate_text.txt",
-        "description": "full bracket information from edition, including mid-line hyphens."
+        "url": "/static/data/miscellaneous/vAkyapadIyaprameyasaMgraha_intermediate_text.txt",
+        "description": "full bracket information from edition, including mid-line hyphens",
+        "filetype": ".txt"
       }
     ],
     "Additional Notes": [

@@ -295,7 +295,7 @@
             "type": "field",
             "label": "Additional Files",
             "inline_text": null,
-            "content_html": "<ul>\n<li><a href=\"miscellaneous/vAkyapadIyaprameyasaMgraha_intermediate_text.txt\">Intermediate text</a>: full bracket information from edition, including mid-line hyphens.</li>\n</ul>\n"
+            "content_html": "<ul><li><a href=\"/static/data/miscellaneous/vAkyapadIyaprameyasaMgraha_intermediate_text.txt\">Intermediate text</a>: full bracket information from edition, including mid-line hyphens</li></ul>"
         },
         {
             "type": "field",

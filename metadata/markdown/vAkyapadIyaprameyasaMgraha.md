@@ -83,7 +83,7 @@ Roman-like (ity evam, not ityevam)
 
 # Additional Files
 
-- [Intermediate text](miscellaneous/vAkyapadIyaprameyasaMgraha_intermediate_text.txt): full bracket information from edition, including mid-line hyphens.
+- [Intermediate text](/static/data/miscellaneous/vAkyapadIyaprameyasaMgraha_intermediate_text.txt): full bracket information from edition, including mid-line hyphens
 
 # Additional Notes
 

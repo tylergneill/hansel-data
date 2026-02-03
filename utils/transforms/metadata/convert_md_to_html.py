@@ -108,7 +108,8 @@ def main(root_folder='.'):
             html_body = markdown.markdown(filtered_content, extensions=["mdx_gfm"], output_format='html5')
             
             # Prefix miscellaneous links to point to /static/data/
-            html_body = re.sub(r'href="/?miscellaneous/', 'href="/static/data/miscellaneous/', html_body)
+            html_body = html_body.replace('href="miscellaneous/', 'href="/static/data/miscellaneous/')
+            html_body = html_body.replace('href="/miscellaneous/', 'href="/static/data/miscellaneous/')
 
         wrapped_html = HTML_WRAPPER.format(title=T.transliterate(md_file.stem), body=html_body)
 

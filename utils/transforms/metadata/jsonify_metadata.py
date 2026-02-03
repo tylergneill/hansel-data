@@ -69,16 +69,44 @@ def parse_additional_files(file_list):
     if not file_list:
         return parsed_files
     
+    if isinstance(file_list, str):
+        file_list = [file_list]
+
     for file_string in file_list:
-        # Match [Text](URL): Description or [Text](URL)
-        match = re.match(r'\[([^\]]+)\]\(([^)]+)\)(.*)', file_string)
-        if match:
-            text = match.group(1)
-            url = match.group(2)
-            description = match.group(3).strip()
-            if description.startswith(':'):
-                description = description[1:].strip()
-            parsed_files.append({'text': text, 'url': url, 'description': description})
+        # Expected format: [Text](URL): Description or [Text](URL)
+        start_bracket = file_string.find('[')
+        end_bracket = file_string.find(']')
+        start_paren = file_string.find('(')
+        end_paren = file_string.find(')')
+        
+        if start_bracket != -1 and end_bracket != -1 and start_paren != -1 and end_paren != -1:
+            if start_bracket < end_bracket < start_paren < end_paren:
+                text = file_string[start_bracket+1:end_bracket]
+                url = file_string[start_paren+1:end_paren]
+                description = file_string[end_paren+1:].strip()
+                if description.startswith(':'):
+                    description = description[1:].strip()
+                
+                # Replace miscellaneous path
+                if url.startswith('miscellaneous/'):
+                     url = '/static/data/' + url
+                elif url.startswith('/miscellaneous/'):
+                     url = '/static/data' + url
+
+                # Filetype
+                filetype = ''
+                lower_url = url.lower()
+                if lower_url.endswith('.txt'): filetype = '.txt'
+                elif lower_url.endswith('.xml'): filetype = '.xml'
+                elif lower_url.endswith('.html'): filetype = '.html'
+                elif lower_url.endswith('.doc'): filetype = '.doc'
+                
+                parsed_files.append({
+                    'text': text, 
+                    'url': url, 
+                    'description': description,
+                    'filetype': filetype
+                })
     return parsed_files
 
 def main(folder: str):
