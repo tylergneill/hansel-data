@@ -228,7 +228,7 @@
         {
             "type": "field",
             "label": "Structure",
-            "inline_text": "The Prameyasaṃgraha is based on the second of the Vākyapadīya's three chapters, the Vākyakāṇḍa, which comprises 493 kārikās. Of these, it discusses 258 (listed below), leaving 235 untreated, according to Rau's marginal annotations. The coverage proceeds largely in linear order through the chapter, with only a few deviations from strict sequentiality. The 258 kārikās discussed are 3, 5, 10, 12, 19–22, 30–31, 64–65, 69, 72–80, 87–88, 92, 95–101, 105, 108, 120–123, 154–162, 164–172, 174–176, 178–183, 185–190, 192–195, 197–202, 204, 216–217, 219–227, 229–230, 233, 238–258, 267, 273–281, 283–284, 298, 300, 302–308, 311–316, 318–321, 323–328, 334–335, 346–349, 351, 354–357, 359–364, 367, 369–376, 378–385, 388–397, 399–402, 404, 406, 409–434, 436, 438–440, 442–447, 449–450, 452, and 454–468. Contributor C. Li created headings for groups of kārikās discussed, which are retained here to provide the table of contents.",
+            "inline_text": "The base text Vākyakāṇḍa comprises 493 kārikās. Of these, the Prameyasaṃgraha discusses 258 and leaves 235 untreated, according to Rau's marginal annotations The 258 kārikās discussed are 3, 5, 10, 12, 19–22, 30–31, 64–65, 69, 72–80, 87–88, 92, 95–101, 105, 108, 120–123, 154–162, 164–172, 174–176, 178–183, 185–190, 192–195, 197–202, 204, 216–217, 219–227, 229–230, 233, 238–258, 267, 273–281, 283–284, 298, 300, 302–308, 311–316, 318–321, 323–328, 334–335, 346–349, 351, 354–357, 359–364, 367, 369–376, 378–385, 388–397, 399–402, 404, 406, 409–434, 436, 438–440, 442–447, 449–450, 452, and 454–468. This coverage proceeds largely in linear order through the chapter, with only a few deviations from strict sequentiality. Contributor C. Li created headings for groups of kārikās discussed, which are retained here to provide the table of contents.",
             "content_html": ""
         },
         {
@@ -271,7 +271,7 @@
             "type": "field",
             "label": "Digitization Notes",
             "inline_text": null,
-            "content_html": "<ul>\n<li>(\"ages ago\") Charles Li: Typed up; removed brackets with folio/line numbers, e.g. (2r5:) for easier searching; added notes in brackets at the beginning of some paragraphs, indicating the pages being transcribed and also the verses being commented, e.g, \"2,222\" is 2nd kāṇḍa, verse 222, which information is from Rau, in the margin notes.</li>\n<li>(Jan 2026) Tyler Neill: Second OCR (using two models, on 1981 edition, merged with AI), manual reconciliation of differences relative to previous version, some more light proofreading, markup for HANSEL.</li>\n</ul>\n"
+            "content_html": "<ul>\n<li>(2016–2017) Charles Li: Typed up; removed brackets with folio/line numbers, e.g. (2r5:) for easier searching; added notes in brackets at the beginning of some paragraphs, indicating the pages being transcribed and also the verses being commented, e.g, \"2,222\" is 2nd kāṇḍa, verse 222, which information is from Rau, in the margin notes.</li>\n<li>(Jan 2026) Tyler Neill: Second OCR (using two models, on 1981 edition, merged with AI), manual reconciliation of differences relative to previous version, some more light proofreading, markup for HANSEL.</li>\n</ul>\n"
         },
         {
             "type": "field",
