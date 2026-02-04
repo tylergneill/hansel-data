@@ -9,7 +9,7 @@ sys.path.append(str(PROJECT_ROOT))
 
 from utils.transforms.flag_map import flag_map
 
-METADATA_DIR = PROJECT_ROOT / 'metadata'
+METADATA_DIR = PROJECT_ROOT / 'metadata' / 'markdown'
 TEXTS_DIR = PROJECT_ROOT / 'texts'
 
 
