@@ -40,7 +40,7 @@ The base text Vākyakāṇḍa comprises 493 kārikās. Of these, the Prameyasa�
 
 # Work Description
 
-The Vākyapadīya-Prameyasaṃgraha is an anonymous scholastic work, probably composed in the early twelfth century, that builds upon Bhartṛhari's Vākyapadīya, specifically about half of the Vākyakāṇḍa, to create a compact doctrinal compendium. It survives in a single incomplete manuscript discovered in Benares in 1969, with the author's name lost along with the colophon.
+The Vākyapadīya-Prameyasaṃgraha is an anonymous scholastic work, probably composed in the early twelfth century, that builds upon Bhartṛhari's Vākyapadīya — specifically about half the second chapter of the three chapters, called the Vākyakāṇḍa — to create a compact doctrinal compendium. It survives in a single incomplete manuscript discovered in Benares in 1969, with the author's name lost along with the colophon.
 
 # Genres
 
@@ -67,11 +67,11 @@ CC BY-SA 4.0
 # Digitization Notes
 
 - (2016–2017) Charles Li: Typed up; removed brackets with folio/line numbers, e.g. (2r5:) for easier searching; added notes in brackets at the beginning of some paragraphs, indicating the pages being transcribed and also the verses being commented, e.g, "2,222" is 2nd kāṇḍa, verse 222, which information is from Rau, in the margin notes.
-- (Jan 2026) Tyler Neill: Second OCR (using two models, on 1981 edition, merged with AI), manual reconciliation of differences relative to previous version, some more light proofreading, markup for HANSEL.
+- (Jan 2026) Tyler Neill: Re-OCR (using two models, on 1981 edition, merged with AI), manual reconciliation of differences relative to previous version, some more light proofreading, markup for HANSEL.
 
 # File Creation Method
 
-I (T. Neill) produced this HANSEL edition by first running a PDF of the 1981 edition through both Google Cloud Vision OCR (via Skrutable) and Gemini 2.0 Flash (via Dharmamitra). These two OCR outputs were then automatically harmonized using Gemini 2.5 Flash (via direct API and using a custom prompt). Finally, the harmonized OCR output was contrasted against the previous version by C. Li using Meld, and differences were reconciled individually with reference to the PDF. Additional structural markup into sections was prepared by C. Li on the basis of Rau's marginal annotations of VP kārikās. Brackets for uncertain or illegible readings were removed, retaining Rau’s conjectures and ellipsis periods. Empty brackets ([]) denoting missing material described in Rau’s footnotes were converted to '...'. The text still needs a final proofread.
+I (T. Neill) produced this HANSEL edition by first running a PDF of the 1981 edition through both Google Cloud Vision OCR (via Skrutable) and Gemini 2.0 Flash (via Dharmamitra). These two OCR outputs were then automatically harmonized using Gemini 2.5 Flash (via direct API and using a custom prompt). Finally, the harmonized OCR output was contrasted against the previous version by C. Li using Meld, and differences were reconciled individually with reference to the PDF. Additional structural markup into sections was prepared by C. Li on the basis of Rau's marginal annotations of VP kārikās. Brackets marking partly legible or uncertain readings were kept in an intermediate file but removed in the project edition, leaving only the readings and Rau’s ellipses. Rau’s empty brackets ([]) for missing material, whose extent he described in footnotes, were replaced with "...". The text still needs a final proofread.
 
 # Text Type
 
@@ -99,4 +99,4 @@ Roman-like (ity evam, not ityevam)
 
 # Metadata Last Updated 
 
-2026-02-02
+2026-02-06
