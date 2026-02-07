@@ -45,10 +45,10 @@
             <p>HANSEL assumes no responsibility for unauthorised use that infringes rights.</p>
           </licence>
         </availability>
-        <date when="2025-10-22" from="2025" to="2025">October 22, 2025</date>
+        <date when="2025-12-17" from="2025" to="2025">December 17, 2025</date>
       </publicationStmt>
       <notesStmt>
-        <note>xyz</note>
+        <note>Ślokavārttika is one of the foundational texts of classical Indian philosophy, especially for understanding how Sanskrit intellectuals argued about knowledge, language, and authority. In it, Kumārila argues that Vedic language is a reliable means for knowing what human beings ought to do, not because of the intention of any human or divine author, but because of stable, conventional relations inherent in language itself. Though formally a commentary on parts of Jaimini’s Mīmāṃsāsūtra, the work functions less as explanation than as intertextual polemic, sharpening debates with Buddhists, Naiyāyikas, and rival Mīmāṃsakas in tightly compressed verse. For getting started with this notoriously difficult text, the most reliable English-language resources are the Stanford Encyclopedia of Philosophy articles on Mīmāṃsā and Testimony (śabda), together with John Taber’s essays on Kumārila and svataḥ prāmāṇya.</note>
       </notesStmt>
       <sourceDesc>
         <bibl>
@@ -94,7 +94,7 @@
             </item>
           </list>
         </p>
-        <p id="word-division">Roman-like (ity evam, not ityevam)</p>
+        <p id="word-division">Roman-like (ity evam, not ityevam), but inconsistent</p>
         <p id="error-markup">
           Corrections and uncertainties:
           <list>
@@ -117,7 +117,7 @@
     <revisionDesc>
       <change when="Date unknown" who="H. Krasser">Created.</change>
       <change when="2017–2021" who="Tyler Neill">Supplied missing _Arthāpattipariccheda_ (5.8), restructured for Pramāṇa NLP collection.</change>
-      <change when="2025" who="Tyler Neill" ana="#hansel-contributor">Added page numbers for HANSEL structure.</change>
+      <change when="2025" who="Tyler Neill" ana="#hansel-contributor">Added page numbers for HANSEL structure, corrected about 150 unmetrical verses.</change>
     </revisionDesc>
   </teiHeader>
   <text>

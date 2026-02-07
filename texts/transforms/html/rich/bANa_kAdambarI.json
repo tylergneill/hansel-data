@@ -106,8 +106,8 @@
         {
             "type": "field",
             "label": "Source File Link",
-            "inline_text": "bana-kadambari.xml, commit \n8ad8588, Feb 1, 2022",
-            "content_html": ""
+            "inline_text": null,
+            "content_html": "<p><a href=\"https://github.com/sarit/SARIT-corpus/blob/8ad858812f8fcd0a62f8684e7c4fdab74ffb2435/bana-kadambari.xml\">bana-kadambari.xml, commit \n8ad8588, Feb 1, 2022</a></p>\n"
         },
         {
             "type": "field",

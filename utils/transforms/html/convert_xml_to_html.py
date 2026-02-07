@@ -306,6 +306,10 @@ class HtmlConverter:
             if metadata_md_path.exists():
                 md_content = metadata_md_path.read_text(encoding="utf-8")
                 html_content = markdown.markdown(md_content, extensions=['tables', 'fenced_code'])
+                
+                # Prefix miscellaneous links to point to /static/data/
+                html_content = html_content.replace('href="miscellaneous/', 'href="/static/data/miscellaneous/')
+
                 parsed_md_body = fromstring(html_content)
 
                 nodes = list(parsed_md_body.iterchildren())
@@ -322,7 +326,8 @@ class HtmlConverter:
                         inline_text = None
                         rendered_html = ""
 
-                        if len(content_nodes) == 1 and content_nodes[0].tag == 'p':
+                        # If there's only one paragraph and it has no child elements (like links), treat it as inline text.
+                        if len(content_nodes) == 1 and content_nodes[0].tag == 'p' and len(content_nodes[0]) == 0:
                             inline_text = content_nodes[0].text_content()
                         else:
                             if content_nodes:
@@ -366,6 +371,9 @@ class HtmlConverter:
                                 pass
                     if offsets:
                         pdf_offsets = offsets
+
+                if pdf_offsets is None:
+                    pdf_offsets = [[1, 1]]
 
                 if pdf_link_url and pdf_offsets:
                     self.pdf_page_mapping = {

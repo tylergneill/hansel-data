@@ -89,6 +89,10 @@ Prose with verse
 
 Roman-like (ity evam, not ityevam)
 
+# Additional Files
+
+- [Bibliography](miscellaneous/zukasaptati_s_translation_bibliography.doc): Overview of translations by V. Gostishchev 
+
 # Additional Notes
 
 - Indian editions (e.g. Ramakant Tripathi, Vārāṇasī, 1966, basis of the GRETIL text) are based on this _Simplicior_ text by Schmidt.
@@ -106,4 +110,4 @@ Roman-like (ity evam, not ityevam)
 
 # Metadata Last Updated 
 
-2025-11-28
+2026-02-03

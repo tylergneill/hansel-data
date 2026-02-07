@@ -45,6 +45,10 @@ def parse_markdown(path: Path) -> dict:
     if key is not None:
         meta[key] = _normalise(buf)
 
+    # Set default for PDF Page Offset if missing
+    if "PDF Page Offset" not in meta:
+        meta["PDF Page Offset"] = ["1 → 1"]
+
     # Add filename field
     meta["Filename"] = path.name[:-3]
     return meta
@@ -55,6 +59,55 @@ def get_file_extension(filename_without_extension):
         base_name, extension = os.path.splitext(item)
         if base_name.lower() == filename_without_extension.lower():
             return extension
+
+def parse_additional_files(file_list):
+    """
+    Parse a list of markdown links with descriptions into structured data.
+    Format: [Text](URL): Description
+    """
+    parsed_files = []
+    if not file_list:
+        return parsed_files
+    
+    if isinstance(file_list, str):
+        file_list = [file_list]
+
+    for file_string in file_list:
+        # Expected format: [Text](URL): Description or [Text](URL)
+        start_bracket = file_string.find('[')
+        end_bracket = file_string.find(']')
+        start_paren = file_string.find('(')
+        end_paren = file_string.find(')')
+        
+        if start_bracket != -1 and end_bracket != -1 and start_paren != -1 and end_paren != -1:
+            if start_bracket < end_bracket < start_paren < end_paren:
+                text = file_string[start_bracket+1:end_bracket]
+                url = file_string[start_paren+1:end_paren]
+                description = file_string[end_paren+1:].strip()
+                if description.startswith(':'):
+                    description = description[1:].strip()
+                
+                # Replace miscellaneous path
+                if url.startswith('miscellaneous/'):
+                     url = '/static/data/' + url
+                elif url.startswith('/miscellaneous/'):
+                     url = '/static/data' + url
+
+                # Filetype
+                filetype = ''
+                lower_url = url.lower()
+                if lower_url.endswith('.txt'): filetype = '.txt'
+                elif lower_url.endswith('.xml'): filetype = '.xml'
+                elif lower_url.endswith('.html'): filetype = '.html'
+                elif lower_url.endswith('.doc'): filetype = '.doc'
+                
+                parsed_files.append({
+                    'text': text, 
+                    'url': url, 
+                    'description': description,
+                    'filetype': filetype
+                })
+    return parsed_files
 
 def main(folder: str):
     root = Path(folder)
@@ -81,6 +134,10 @@ def main(folder: str):
 
         # detect and store original file type
         consolidated[k]['Original Submission Filetype'] = get_file_extension(consolidated[k]['Filename'])
+        
+        # parse additional files
+        if 'Additional Files' in consolidated[k]:
+             consolidated[k]['Additional Files'] = parse_additional_files(consolidated[k]['Additional Files'])
 
     # Add version to the consolidated data
     consolidated['version'] = version
