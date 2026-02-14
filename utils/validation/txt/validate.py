@@ -60,7 +60,9 @@ def validate_structure(structured_content):
     all_squares = re.findall(r'\[.*?\]', structured_content, re.DOTALL)
     all_curlies = re.findall(r'\{.*?\}', structured_content, re.DOTALL)
     all_angles = re.findall(r'<.*?>', structured_content, re.DOTALL)
-    all_rounds = re.findall(r'\(.*?\)', structured_content, re.DOTALL)
+    # Strip stage directions ((...)) before round-bracket validation
+    content_for_round_check = re.sub(r'\(\([^)]+\)\)', '', structured_content)
+    all_rounds = re.findall(r'\(.*?\)', content_for_round_check, re.DOTALL)
     
     # 2. Perform Nesting Validation
     

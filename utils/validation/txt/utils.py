@@ -36,6 +36,14 @@ def remove_bracket_groups(content, bracket_group_pattern):
     
 
 def remove_removables(file_content):
+    # Drama: strip bracket characters but keep content for n-gram checking
+    # 1) ˹prakrit˼(chāyā) → prakrit chāyā  (both are validatable content)
+    file_content = re.sub(r'˹([^˼]*)˼\(([^)]*)\)', r'\1 \2', file_content)
+    # 2) Any remaining ˹...˼ without a chāyā pair
+    file_content = re.sub(r'˹([^˼]*)˼', r'\1', file_content)
+    # 3) ((stage direction)) → stage direction
+    file_content = re.sub(r'\(\(([^)]*)\)\)', r'\1', file_content)
+
     # Patterns for (valid sets of) brackets with removable content
     bracket_pairs = r'\(\)<>≤≥\[\]\{\}'
     patterns = [
@@ -45,12 +53,12 @@ def remove_removables(file_content):
         rf'\[[^{bracket_pairs}]*\]',
         rf'{{[^{bracket_pairs}]*}}' # double curly braces inside f-strings to escape
     ]
-    
+
     # Remove all removable brackets
     for pattern in patterns:
         while re.search(pattern, file_content):
             file_content = re.sub(pattern, '', file_content)
-    
+
     return file_content
 
 
