@@ -6,10 +6,10 @@ from tei_builder import TeiTextBuilder
 from conversion_utils import add_shared_argparse_args, get_root, ns, write_xml_file
 
 
-def build_tei_text(src: Path, line_by_line: bool = False) -> etree._Element:
+def build_tei_text(src: Path, line_by_line: bool = False, drama: bool = False) -> etree._Element:
     text = src.read_text(encoding="utf-8")
     lines = text.splitlines()
-    builder = TeiTextBuilder(line_by_line=line_by_line)
+    builder = TeiTextBuilder(line_by_line=line_by_line, drama=drama)
     return builder.build(lines)
 
 
@@ -22,6 +22,10 @@ def configure_cli(parser: argparse.ArgumentParser):
     parser.add_argument(
         "--extra-space-after-location", action="store_true",
         help="Add extra blank line after location markers (only used in xml-plaintext script)."
+    )
+    parser.add_argument(
+        "--drama", action="store_true",
+        help="Drama mode: handle speakers, stage directions, and Prakrit chāyās"
     )
 
 
@@ -39,7 +43,7 @@ def cli():
         root.remove(old_text_element)
 
     # create and insert new text
-    new_text_element = build_tei_text(args.src, line_by_line=args.line_by_line)
+    new_text_element = build_tei_text(args.src, line_by_line=args.line_by_line, drama=args.drama)
     if new_text_element is not None:
         root.append(new_text_element)  # whether teiHeader exists or not, ensures text comes after
 
