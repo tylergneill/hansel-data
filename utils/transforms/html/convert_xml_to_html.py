@@ -785,6 +785,17 @@ class HtmlConverter:
                 "drama": self.drama,
                 "has_chaya": has_chaya,
             }
+            # Only include boolean flags when true; the reader defaults absent keys to false
+            if self.verse_only:
+                document_context["verse_only"] = True
+            if not self.verse_only:  # TODO: figure out whether this is a bug
+                document_context["includes_plain_variant"] = True
+            if self.no_line_numbers:
+                document_context["no_line_numbers"] = True
+            if self.drama:
+                document_context["drama"] = True
+            if has_chaya:
+                document_context["has_chaya"] = True
             if self.pdf_page_mapping:
                 document_context["pdf_page_mapping"] = self.pdf_page_mapping
 
