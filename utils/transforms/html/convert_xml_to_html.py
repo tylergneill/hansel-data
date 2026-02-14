@@ -7,11 +7,12 @@ from lxml.html import fromstring
 
 
 class HtmlConverter:
-    def __init__(self, no_line_numbers=False, verse_only=False, only_plain=False, standalone=False):
+    def __init__(self, no_line_numbers=False, verse_only=False, only_plain=False, standalone=False, drama=False):
         self.no_line_numbers = no_line_numbers
         self.verse_only = verse_only
         self.only_plain = only_plain
         self.standalone = standalone
+        self.drama = drama
         self.toc_data = []
         self.corrections_data = []
         self.metadata_entries = []
@@ -89,6 +90,19 @@ class HtmlConverter:
                 pass
             elif child.tag == 'supplied':
                 text += self.get_plain_text_recursive(child)
+            elif child.tag == 'stage':
+                text += '((' + self.get_plain_text_recursive(child) + '))'
+            elif child.tag == 'seg':
+                seg_type = child.get('type', '')
+                if seg_type == 'prakrit':
+                    prakrit_text = child.text or ''
+                    chaya_el = child.find('seg[@type="chāyā"]')
+                    chaya_text = self.get_plain_text_recursive(chaya_el) if chaya_el is not None else ''
+                    text += prakrit_text + ' (' + chaya_text + ')'
+                elif seg_type == 'chāyā':
+                    pass  # handled by parent prakrit seg
+                else:
+                    text += self.get_plain_text_recursive(child)
             else:
                 text += self.get_plain_text_recursive(child)
             if child.tail:
@@ -207,6 +221,19 @@ class HtmlConverter:
             elif child.tag == 'unclear':
                 unclear_span = etree.SubElement(html_node, "span", {"class": "unclear", "title": "unclear"})
                 self.process_children(child, unclear_span, treat_as_plain, in_lg=in_lg)
+            elif child.tag == 'stage':
+                stage_span = etree.SubElement(html_node, "span", {"class": "stage-direction"})
+                self.process_children(child, stage_span, treat_as_plain, in_lg=in_lg)
+            elif child.tag == 'seg':
+                seg_type = child.get('type', '')
+                if seg_type == 'chāyā':
+                    chaya_span = etree.SubElement(html_node, "span", {"class": "chaya"})
+                    self.process_children(child, chaya_span, treat_as_plain, in_lg=in_lg)
+                elif seg_type == 'prakrit':
+                    prakrit_span = etree.SubElement(html_node, "span", {"class": "prakrit"})
+                    self.process_children(child, prakrit_span, treat_as_plain, in_lg=in_lg)
+                else:
+                    self.process_children(child, html_node, treat_as_plain, in_lg=in_lg)
             else:
                 self.process_children(child, html_node, treat_as_plain, in_lg=in_lg)
             if child.tail:
@@ -475,6 +502,65 @@ class HtmlConverter:
                         pb_a.text = f'(p.{self.current_page}, l.1)' if not self.no_line_numbers else f'(p.{self.current_page})'
                         self.pending_label = pb_a
 
+                    elif element.tag == "sp":
+                        # Drama: speech container
+                        speaker_el = element.find("speaker")
+                        speaker_name = (speaker_el.text or "") if speaker_el is not None else ""
+
+                        # Rich pass
+                        if not self.only_plain:
+                            speech_div = etree.SubElement(content_div, "div", {"class": "speech rich-text"})
+                            if speaker_name:
+                                speaker_span = etree.SubElement(speech_div, "span", {"class": "speaker"})
+                                speaker_span.text = speaker_name
+                            for sp_child in element.iterchildren():
+                                if sp_child.tag == "speaker":
+                                    continue
+                                elif sp_child.tag == "p":
+                                    self.process_children(sp_child, etree.SubElement(speech_div, "p"), treat_as_plain=False, in_lg=False)
+                                elif sp_child.tag == "lg":
+                                    if sp_child.get('type') == 'group':
+                                        for lg_child in sp_child.findall("lg"):
+                                            self.process_lg_content(lg_child, speech_div, treat_as_plain=False)
+                                    else:
+                                        self.process_lg_content(sp_child, speech_div, treat_as_plain=False)
+                                elif sp_child.tag == "stage":
+                                    stage_span = etree.SubElement(speech_div, "span", {"class": "stage-direction"})
+                                    self.process_children(sp_child, stage_span, treat_as_plain=False, in_lg=False)
+
+                        # Plain pass
+                        speech_div_plain = etree.SubElement(content_div, "div", {"class": "speech plain-text"})
+                        speaker_emitted = False
+                        for sp_child in element.iterchildren():
+                            if sp_child.tag == "speaker":
+                                continue
+                            elif sp_child.tag == "p":
+                                p_plain = etree.SubElement(speech_div_plain, "p")
+                                if speaker_name and not speaker_emitted:
+                                    self.append_text(p_plain, f"{speaker_name} \u2014 ", treat_as_plain=True)
+                                    speaker_emitted = True
+                                self.process_children(sp_child, p_plain, treat_as_plain=True, in_lg=False)
+                            elif sp_child.tag == "lg":
+                                if sp_child.get('type') == 'group':
+                                    for lg_child in sp_child.findall("lg"):
+                                        self.process_lg_content(lg_child, speech_div_plain, treat_as_plain=True)
+                                else:
+                                    self.process_lg_content(sp_child, speech_div_plain, treat_as_plain=True)
+                            elif sp_child.tag == "stage":
+                                p_plain = etree.SubElement(speech_div_plain, "p")
+                                stage_text = self.get_plain_text_recursive(sp_child)
+                                self.append_text(p_plain, f"(({stage_text}))", treat_as_plain=True)
+
+                    elif element.tag == "stage":
+                        # Top-level stage direction (outside <sp>)
+                        if not self.only_plain:
+                            p_rich = etree.SubElement(content_div, "p", {"class": "rich-text"})
+                            stage_span = etree.SubElement(p_rich, "span", {"class": "stage-direction"})
+                            self.process_children(element, stage_span, treat_as_plain=False, in_lg=False)
+                        p_plain = etree.SubElement(content_div, "p", {"class": "plain-text"})
+                        stage_text = self.get_plain_text_recursive(element)
+                        self.append_text(p_plain, f"(({stage_text}))", treat_as_plain=True)
+
                     elif element.tag in ["p", "lg"]:
                         # process n for page and line info, creating both an h2 marker and a pending span label
                         n_attr = element.get("n")
@@ -561,13 +647,16 @@ class HtmlConverter:
                     "rows": self.corrections_data
                 })
 
+            has_chaya = bool(root.xpath('//seg[@type="chāyā"]'))
             document_context = {
                 "title": text_base_name,
                 "toc": self.toc_data,
                 "metadata_entries": self.metadata_entries,
                 "verse_only": self.verse_only,
                 "includes_plain_variant": not self.verse_only,  # TODO: figure out whether this is a bug
-                "no_line_numbers": self.no_line_numbers
+                "no_line_numbers": self.no_line_numbers,
+                "drama": self.drama,
+                "has_chaya": has_chaya,
             }
             if self.pdf_page_mapping:
                 document_context["pdf_page_mapping"] = self.pdf_page_mapping
@@ -585,13 +674,15 @@ if __name__ == "__main__":
     parser.add_argument("--verse-only", action="store_true", help="Produce special formatting for texts consisting only of numbered verse.")
     parser.add_argument("--plain", action="store_true", help="Generate a plain HTML version without rich features.")
     parser.add_argument("--standalone", action="store_true", help="Generate a browser-viewable HTML file for development.")
+    parser.add_argument("--drama", action="store_true", help="Drama mode: handle speakers, stage directions, and chāyās.")
     args = parser.parse_args()
 
     converter = HtmlConverter(
         no_line_numbers=args.no_line_numbers,
         verse_only=args.verse_only,
         only_plain=args.plain,
-        standalone=args.standalone
+        standalone=args.standalone,
+        drama=args.drama,
     )
     converter.convert_xml_to_html(args.xml_path, args.html_path)
 

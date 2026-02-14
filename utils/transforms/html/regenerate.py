@@ -34,7 +34,9 @@ def regenerate_html(xml_dir, plain_dir, rich_dir, standalone=False):
         flags = flag_map.get(stem, "")
         if "--verse-only" in flags:
             command.append("--verse-only")
-        
+        if "--drama" in flags:
+            command.append("--drama")
+
         subprocess.run(command)
 
     # Pass 2: Generate all rich files
@@ -42,14 +44,16 @@ def regenerate_html(xml_dir, plain_dir, rich_dir, standalone=False):
         stem = Path(filename).stem
         xml_path = os.path.join(xml_dir, filename)
         rich_html_path = os.path.join(rich_dir, filename.replace(".xml", ".html"))
-        
+
         command = ["python", CONVERSION_SCRIPT, xml_path, rich_html_path]
-        
+
         flags = flag_map.get(stem, "")
         if "--line-by-line" not in flags:
             command.append("--no-line-numbers")
         if "--verse-only" in flags:
             command.append("--verse-only")
+        if "--drama" in flags:
+            command.append("--drama")
         if standalone:
             command.append("--standalone")
 
