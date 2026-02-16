@@ -7,8 +7,9 @@ from lxml.html import fromstring
 
 
 class HtmlConverter:
-    def __init__(self, no_line_numbers=False, only_plain=False, standalone=False):
+    def __init__(self, no_line_numbers=False, condensed_verse_format=False, only_plain=False, standalone=False):
         self.no_line_numbers = no_line_numbers
+        self.condensed_verse_format = condensed_verse_format
         self.only_plain = only_plain
         self.standalone = standalone
         self.toc_data = []
@@ -20,6 +21,7 @@ class HtmlConverter:
         self.pending_breaks = 0
         self.pdf_page_mapping = None
         self.has_verses = False
+        self.has_location_markers = False
         self.current_verse = None
         self.current_verse_part = None
         self.current_location_id = None
@@ -176,7 +178,10 @@ class HtmlConverter:
                 sic_text = ''.join(sic.itertext()) if sic is not None else ''
                 corr_text = ''.join(corr.itertext()) if corr is not None else ''
                 if not self.only_plain:
-                    entry = {'sic': sic_text, 'corr': corr_text, 'page': self.current_page, 'line': self.current_line, 'location_id': self.current_location_id}
+                    if self.condensed_verse_format:
+                        entry = {'sic': sic_text, 'corr': corr_text, 'verse': self.current_verse, 'verse_part': self.current_verse_part, 'location_id': self.current_location_id}
+                    else:
+                        entry = {'sic': sic_text, 'corr': corr_text, 'page': self.current_page, 'line': self.current_line, 'location_id': self.current_location_id}
                     self.corrections_data.append(entry)
                 ante = etree.SubElement(corr_span, "i", {"class": "ante-correction", "title": f"pre-correction (post-: {corr_text})"})
                 if sic is not None:
@@ -188,7 +193,10 @@ class HtmlConverter:
                 corr_span = etree.SubElement(html_node, "span", {"class": "correction"})
                 text = ''.join(child.itertext())
                 if not self.only_plain:
-                    entry = {'sic': text if child.tag == 'del' else '', 'corr': text if child.tag == 'supplied' else '', 'page': self.current_page, 'line': self.current_line, 'location_id': self.current_location_id}
+                    if self.condensed_verse_format:
+                        entry = {'sic': text if child.tag == 'del' else '', 'corr': text if child.tag == 'supplied' else '', 'verse': self.current_verse, 'verse_part': self.current_verse_part, 'location_id': self.current_location_id}
+                    else:
+                        entry = {'sic': text if child.tag == 'del' else '', 'corr': text if child.tag == 'supplied' else '', 'page': self.current_page, 'line': self.current_line, 'location_id': self.current_location_id}
                     self.corrections_data.append(entry)
                 if child.tag == 'del':
                     ante = etree.SubElement(corr_span, "i", {"class": "ante-correction", "title": "deletion"})
@@ -210,36 +218,76 @@ class HtmlConverter:
     def process_lg_content(self, lg_element, container, treat_as_plain):
         """Processes a TEI <lg> (line group) element into an HTML structure.
 
-        Uses <ul class="verses">/<li class="verse">/<ul class="padas">/<li> markup.
-        Appends verse number to the last pāda as " N ||".
+        In condensed-verse-format: uses <ul class="verses">/<li class="verse">/<ul class="padas">/<li>
+        markup with verse number appended to last pāda as " N ||".
+        In standard mode: uses <div class="lg">/<span> markup (indented verse).
 
         Args:
             lg_element: The <lg> lxml.etree._Element to process.
             container: The parent HTML element for the generated content.
             treat_as_plain: A boolean flag; if True, generates simplified plain text content.
         """
-        verse_n = lg_element.get("n")
         self.has_verses = True
+
+        def process_lg_children_standard(target_div, treat_as_plain):
+            for child in lg_element.iterchildren():
+                if child.tag == 'head':
+                    if child.text:
+                        p_tag = etree.SubElement(target_div, "p", {"class": "lg-head"})
+                        self.append_text(p_tag, child.text, treat_as_plain=treat_as_plain)
+                elif child.tag == 'l':
+                    span_tag = etree.SubElement(target_div, "span")
+                    self.process_children(child, span_tag, treat_as_plain, in_lg=(not treat_as_plain))
+                elif child.tag == 'back':
+                    if len(target_div) > 0:
+                        last_element = target_div[-1]
+                        self.process_children(child, last_element, treat_as_plain, in_lg=(not treat_as_plain))
+                    else:
+                        p_tag = etree.SubElement(target_div, "p")
+                        self.process_children(child, p_tag, treat_as_plain, in_lg=(not treat_as_plain))
+                elif child.tag == 'milestone':
+                    if not treat_as_plain:
+                        milestone_span = etree.SubElement(target_div, "span", {"class": "milestone"})
+                        milestone_span.text = f'{child.get("n")}'
+
+        if not self.condensed_verse_format:
+            if treat_as_plain:
+                div_elem = etree.SubElement(container, "div", {"class": "lg plain-text"})
+                process_lg_children_standard(div_elem, treat_as_plain=True)
+            else:
+                # Emit <head> elements before the verse li, directly on the container
+                for child in lg_element.iterchildren():
+                    if child.tag == 'head' and child.text:
+                        head_p = etree.SubElement(container, "li", {"class": "lg-head"})
+                        head_p.text = child.text
+                # Wrap verse lines in li.verse so verse-styling CSS can target it
+                verse_li = etree.SubElement(container, "li", {"class": "verse"})
+                div_elem = etree.SubElement(verse_li, "div", {"class": "lg rich-text"})
+                for child in lg_element.iterchildren():
+                    if child.tag == 'l':
+                        span_tag = etree.SubElement(div_elem, "span")
+                        self.process_children(child, span_tag, False, in_lg=True)
+                    elif child.tag == 'back':
+                        if len(div_elem) > 0:
+                            self.process_children(child, div_elem[-1], False, in_lg=True)
+                        else:
+                            p_tag = etree.SubElement(div_elem, "p")
+                            self.process_children(child, p_tag, False, in_lg=True)
+                    elif child.tag == 'milestone':
+                        milestone_span = etree.SubElement(div_elem, "span", {"class": "milestone"})
+                        milestone_span.text = f'{child.get("n")}'
+            return
+
+        # Condensed verse format below
 
         if treat_as_plain:
             cls = "lg plain-text"
             div_elem = etree.SubElement(container, "div", {"class": cls})
-            for child in lg_element.iterchildren():
-                if child.tag == 'head':
-                    if child.text:
-                        p_tag = etree.SubElement(div_elem, "p", {"class": "lg-head"})
-                        self.append_text(p_tag, child.text, treat_as_plain=True)
-                elif child.tag == 'l':
-                    span_tag = etree.SubElement(div_elem, "span")
-                    self.process_children(child, span_tag, True, in_lg=False)
-                elif child.tag == 'back':
-                    if len(div_elem) > 0:
-                        self.process_children(child, div_elem[-1], True, in_lg=False)
-                elif child.tag == 'milestone':
-                    pass
+            process_lg_children_standard(div_elem, treat_as_plain=True)
             return
 
-        # Rich pass: emit ul/li verse structure
+        # Rich pass for condensed verse format: emit ul/li verse structure
+        verse_n = lg_element.get("n")
         self.current_verse = verse_n
         self.current_location_id = f"v{verse_n.replace('.', '-')}" if verse_n else None
 
@@ -424,6 +472,7 @@ class HtmlConverter:
             for element in section.iterchildren():
                 if element.tag == "milestone":
                     current_verses_ul = None
+                    self.has_location_markers = True
                     n_attr = element.get("n")
                     if n_attr:
                         self.current_location_id = n_attr.replace(',', '_').replace(' ', '').replace('|', '')
@@ -447,6 +496,7 @@ class HtmlConverter:
                     current_verses_ul = None
                     n_attr = element.get("n")
                     if n_attr:
+                        self.has_location_markers = True
                         self.current_location_id = n_attr.replace(',', '_').replace(' ', '')
                         h2 = etree.SubElement(content_div, "h2", {"class": "location-marker", "id": self.current_location_id})
                         n_parts = n_attr.split(',')
@@ -469,39 +519,61 @@ class HtmlConverter:
 
                 elif element.tag == "lg":
                     n_attr = element.get("n")
-                    if n_attr:
-                        self.current_location_id = n_attr.replace(',', '_').replace(' ', '')
-                        h2 = etree.SubElement(content_div, "h2", {"class": "location-marker", "id": self.current_location_id})
-                        n_parts = n_attr.split(',')
-                        page_part = n_parts[0].strip()
-                        line_part = n_parts[1].strip() if len(n_parts) > 1 else "1"
 
-                        self.current_page = page_part
-                        self.current_line = line_part
+                    if self.condensed_verse_format:
+                        # Condensed verse format: no location marker h2, wrap in <ul class="verses">
+                        if not self.only_plain:
+                            if current_verses_ul is None:
+                                current_verses_ul = etree.SubElement(content_div, "ul", {"class": "verses"})
+                            if element.get('type') == 'group':
+                                for lg_child in element.findall("lg"):
+                                    self.process_lg_content(lg_child, current_verses_ul, treat_as_plain=False)
+                            else:
+                                self.process_lg_content(element, current_verses_ul, treat_as_plain=False)
 
-                        if len(n_parts) == 2:
-                            h2.text = f"p.{page_part}, l.{line_part}"
-                        elif len(n_parts) == 1:
-                            h2.text = f"p.{page_part}"
-                        else:
-                            h2.text = n_attr
-
-                    # Rich pass: emit into a <ul class="verses"> container
-                    if not self.only_plain:
-                        if current_verses_ul is None:
-                            current_verses_ul = etree.SubElement(content_div, "ul", {"class": "verses"})
+                        # Plain pass
                         if element.get('type') == 'group':
                             for lg_child in element.findall("lg"):
-                                self.process_lg_content(lg_child, current_verses_ul, treat_as_plain=False)
+                                self.process_lg_content(lg_child, content_div, treat_as_plain=True)
                         else:
-                            self.process_lg_content(element, current_verses_ul, treat_as_plain=False)
+                            self.process_lg_content(element, content_div, treat_as_plain=True)
 
-                    # Plain pass
-                    if element.get('type') == 'group':
-                        for lg_child in element.findall("lg"):
-                            self.process_lg_content(lg_child, content_div, treat_as_plain=True)
                     else:
-                        self.process_lg_content(element, content_div, treat_as_plain=True)
+                        # Standard mode: location marker h2, indented verse
+                        if n_attr:
+                            self.has_location_markers = True
+                            self.current_location_id = n_attr.replace(',', '_').replace(' ', '')
+                            h2 = etree.SubElement(content_div, "h2", {"class": "location-marker", "id": self.current_location_id})
+                            n_parts = n_attr.split(',')
+                            page_part = n_parts[0].strip()
+                            line_part = n_parts[1].strip() if len(n_parts) > 1 else "1"
+
+                            self.current_page = page_part
+                            self.current_line = line_part
+
+                            if len(n_parts) == 2:
+                                h2.text = f"p.{page_part}, l.{line_part}"
+                            elif len(n_parts) == 1:
+                                h2.text = f"p.{page_part}"
+                            else:
+                                h2.text = n_attr
+
+                        # Rich pass: wrap in <ul class="verses"> for verse-styling CSS
+                        if not self.only_plain:
+                            if current_verses_ul is None:
+                                current_verses_ul = etree.SubElement(content_div, "ul", {"class": "verses"})
+                            if element.get('type') == 'group':
+                                for lg_child in element.findall("lg"):
+                                    self.process_lg_content(lg_child, current_verses_ul, treat_as_plain=False)
+                            else:
+                                self.process_lg_content(element, current_verses_ul, treat_as_plain=False)
+
+                        # Plain pass
+                        if element.get('type') == 'group':
+                            for lg_child in element.findall("lg"):
+                                self.process_lg_content(lg_child, content_div, treat_as_plain=True)
+                        else:
+                            self.process_lg_content(element, content_div, treat_as_plain=True)
 
         # 4. write output depending on mode
         if self.only_plain:
@@ -548,6 +620,8 @@ class HtmlConverter:
                 "toc": self.toc_data,
                 "metadata_entries": self.metadata_entries,
                 "has_verses": self.has_verses,
+                "has_location_markers": self.has_location_markers,
+                "condensed_verse_format": self.condensed_verse_format,
                 "no_line_numbers": self.no_line_numbers
             }
             if self.pdf_page_mapping:
@@ -563,12 +637,14 @@ if __name__ == "__main__":
     parser.add_argument("xml_path", help="Path to the input XML file.")
     parser.add_argument("html_path", help="Path to the output HTML file.")
     parser.add_argument("--no-line-numbers", action="store_true", help="Format page breaks as <PAGE> instead of <PAGE,1> and do not produce <br/>.")
+    parser.add_argument("--condensed-verse-format", action="store_true", help="Condensed verse format: verse numbering appended at line-end, no location markers above verses.")
     parser.add_argument("--plain", action="store_true", help="Generate a plain HTML version without rich features.")
     parser.add_argument("--standalone", action="store_true", help="Generate a browser-viewable HTML file for development.")
     args = parser.parse_args()
 
     converter = HtmlConverter(
         no_line_numbers=args.no_line_numbers,
+        condensed_verse_format=args.condensed_verse_format,
         only_plain=args.plain,
         standalone=args.standalone
     )
