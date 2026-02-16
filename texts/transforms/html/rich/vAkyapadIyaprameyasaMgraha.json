@@ -428,7 +428,7 @@
                     "corr": " ",
                     "page": "57",
                     "line": "11",
-                    "location_id": "57_10"
+                    "location_id": null
                 },
                 {
                     "sic": "-",
@@ -489,8 +489,7 @@
             ]
         }
     ],
-    "verse_only": false,
-    "includes_plain_variant": true,
+    "has_verses": true,
     "no_line_numbers": false,
     "pdf_page_mapping": {
         "url": "https://archive.org/details/vakyapadiya-prameya-samgraha/page/n3/mode/2up",

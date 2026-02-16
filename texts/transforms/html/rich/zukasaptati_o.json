@@ -513,7 +513,7 @@
                     "corr": "je",
                     "page": "319",
                     "line": "24",
-                    "location_id": "319_24"
+                    "location_id": "v319,24"
                 },
                 {
                     "sic": "piḥ",
@@ -541,7 +541,7 @@
                     "corr": "",
                     "page": "324",
                     "line": "19",
-                    "location_id": "324_18"
+                    "location_id": "v324,18"
                 },
                 {
                     "sic": "ri",
@@ -576,7 +576,7 @@
                     "corr": "sarpo",
                     "page": "341",
                     "line": "6",
-                    "location_id": "341_6"
+                    "location_id": "v341,6"
                 },
                 {
                     "sic": "lpa",
@@ -714,8 +714,7 @@
             ]
         }
     ],
-    "verse_only": false,
-    "includes_plain_variant": true,
+    "has_verses": true,
     "no_line_numbers": false,
     "pdf_page_mapping": {
         "url": "https://archive.org/details/sukasaptatitextornatedschmidt/Suk901__Sukasaptati_TextOrnat_ed_Schmidt/page/n3/mode/2up",

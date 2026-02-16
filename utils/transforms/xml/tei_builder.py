@@ -66,7 +66,7 @@ def make_xml_id(label: str) -> str:
 # ----------------------------
 @dataclass
 class TextBuildState:
-    verse_only: bool = False
+    condensed_verse_format: bool = False
     line_by_line: bool = False
 
     # DOM pointers
@@ -108,9 +108,9 @@ class TextBuildState:
 # Builder class
 # ----------------------------
 class TeiTextBuilder:
-    def __init__(self, verse_only: bool = False, line_by_line: bool = False):
+    def __init__(self, condensed_verse_format: bool = False, line_by_line: bool = False):
         self.state = TextBuildState(
-            verse_only=verse_only,
+            condensed_verse_format=condensed_verse_format,
             line_by_line=line_by_line
         )
         self.state.text = etree.SubElement(self.state.root, "text")
@@ -157,13 +157,13 @@ class TeiTextBuilder:
 
         # 2c) TODO: Other structural note (...) not to be counted as physical line
 
-        # 3) Location marker [label] +/- tabbed verse-only content
+        # 3) Location marker [label] +/- tabbed condensed verse content
         location_match = LOCATION_VERSE_RE.match(line)
         if location_match:
             label, rest = location_match.group(1).strip(), location_match.group(2)
 
-            if s.verse_only:
-                self._handle_verse_only_line(label, rest)
+            if s.condensed_verse_format:
+                self._handle_condensed_verse_line(label, rest)
                 self._finalize_physical_line(line)
                 return
             else:
@@ -282,7 +282,7 @@ class TeiTextBuilder:
         else:
             last_l.text = (last_l.text or "") + " " + text_to_append
 
-    def _handle_verse_only_line(self, label, rest):
+    def _handle_condensed_verse_line(self, label, rest):
         s = self.state
         base, seg = self._parse_verse_label(label)
         self._open_or_switch_lg_for_label(base, group_by_base=True)
@@ -304,12 +304,12 @@ class TeiTextBuilder:
         pre_tab = pre_tab.rstrip()
 
         if pre_tab.strip() and s.current_lg is not None:
-            if not s.verse_only:
+            if not s.condensed_verse_format:
                 s.verse_group_buffer.append(s.current_lg)
             s.current_lg = None
             s.current_l = None
 
-        if s.verse_only:
+        if s.condensed_verse_format:
             lg = self._open_or_switch_lg_for_label(s.current_loc_label or "v", group_by_base=True)
             if s.pending_head_elem is not None:
                 lg.append(s.pending_head_elem)
@@ -365,7 +365,7 @@ class TeiTextBuilder:
                     back_el.append(milestone_to_move)
 
         if is_verse_close:
-            if s.current_lg is not None and not s.verse_only:
+            if s.current_lg is not None and not s.condensed_verse_format:
                 s.verse_group_buffer.append(s.current_lg)
             s.current_lg = None
             s.current_l = None
@@ -557,7 +557,7 @@ class TeiTextBuilder:
         self._close_lg()
         s.current_loc_label = label
         s.current_loc_xml_id = make_xml_id(label)
-        if "," in label and not s.verse_only:
+        if "," in label and not s.condensed_verse_format:
             try:
                 _page, line_no = map(str.strip, label.split(",", 1))
                 s.lb_count = int(line_no)
@@ -605,7 +605,7 @@ class TeiTextBuilder:
         s.current_loc_label = label
         lg_id = "v" + re.sub(r"\W+", "_", need_base)
         
-        if s.verse_only:
+        if s.condensed_verse_format:
             container = s.current_div
             lg = etree.SubElement(container, "lg", {
                 "n": need_base,
@@ -646,7 +646,7 @@ class TeiTextBuilder:
 
     def _flush_verse_group_buffer(self):
         s = self.state
-        if s.current_lg is not None and not s.verse_only:
+        if s.current_lg is not None and not s.condensed_verse_format:
             s.verse_group_buffer.append(s.current_lg)
             s.current_lg = None
             s.current_l = None

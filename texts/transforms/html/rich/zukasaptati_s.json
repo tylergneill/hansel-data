@@ -498,8 +498,7 @@
             "content_html": ""
         }
     ],
-    "verse_only": false,
-    "includes_plain_variant": true,
+    "has_verses": true,
     "no_line_numbers": false,
     "pdf_page_mapping": {
         "url": "https://archive.org/details/dli.ministry.08828/page/n9/mode/2up",
