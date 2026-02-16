@@ -162,7 +162,7 @@ class TeiTextBuilder:
         if location_match:
             label, rest = location_match.group(1).strip(), location_match.group(2)
 
-            if s.condensed_verse_format:
+            if s.condensed_verse_format and rest.strip():
                 self._handle_condensed_verse_line(label, rest)
                 self._finalize_physical_line(line)
                 return
@@ -557,7 +557,7 @@ class TeiTextBuilder:
         self._close_lg()
         s.current_loc_label = label
         s.current_loc_xml_id = make_xml_id(label)
-        if "," in label and not s.condensed_verse_format:
+        if "," in label:
             try:
                 _page, line_no = map(str.strip, label.split(",", 1))
                 s.lb_count = int(line_no)
