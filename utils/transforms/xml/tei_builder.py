@@ -66,7 +66,6 @@ def make_xml_id(label: str) -> str:
 # ----------------------------
 @dataclass
 class TextBuildState:
-    condensed_verse_format: bool = False
     line_by_line: bool = False
 
     # DOM pointers
@@ -108,9 +107,8 @@ class TextBuildState:
 # Builder class
 # ----------------------------
 class TeiTextBuilder:
-    def __init__(self, condensed_verse_format: bool = False, line_by_line: bool = False):
+    def __init__(self, line_by_line: bool = False):
         self.state = TextBuildState(
-            condensed_verse_format=condensed_verse_format,
             line_by_line=line_by_line
         )
         self.state.text = etree.SubElement(self.state.root, "text")
@@ -162,7 +160,7 @@ class TeiTextBuilder:
         if location_match:
             label, rest = location_match.group(1).strip(), location_match.group(2)
 
-            if s.condensed_verse_format and rest.strip():
+            if rest.strip():
                 self._handle_condensed_verse_line(label, rest)
                 self._finalize_physical_line(line)
                 return
@@ -304,23 +302,9 @@ class TeiTextBuilder:
         pre_tab = pre_tab.rstrip()
 
         if pre_tab.strip() and s.current_lg is not None:
-            if not s.condensed_verse_format:
-                s.verse_group_buffer.append(s.current_lg)
+            s.verse_group_buffer.append(s.current_lg)
             s.current_lg = None
             s.current_l = None
-
-        if s.condensed_verse_format:
-            lg = self._open_or_switch_lg_for_label(s.current_loc_label or "v", group_by_base=True)
-            if s.pending_head_elem is not None:
-                lg.append(s.pending_head_elem)
-                s.pending_head_elem = None
-            if pre_tab.strip():
-                self._append_child_text(lg, "head", pre_tab)
-            if s.current_l is None:
-                s.current_l = etree.SubElement(lg, "l")
-                s.last_tail_text_sink = None
-            self._process_content_with_midline_elements(after_tab, "verse", line)
-            return
 
         if s.current_lg is None:
             lg = etree.Element("lg")
@@ -365,7 +349,7 @@ class TeiTextBuilder:
                     back_el.append(milestone_to_move)
 
         if is_verse_close:
-            if s.current_lg is not None and not s.condensed_verse_format:
+            if s.current_lg is not None:
                 s.verse_group_buffer.append(s.current_lg)
             s.current_lg = None
             s.current_l = None
@@ -605,17 +589,11 @@ class TeiTextBuilder:
         s.current_loc_label = label
         lg_id = "v" + re.sub(r"\W+", "_", need_base)
         
-        if s.condensed_verse_format:
-            container = s.current_div
-            lg = etree.SubElement(container, "lg", {
-                "n": need_base,
-                f"{{{_XML_NS}}}id": lg_id
-            })
-        else:
-            lg = etree.Element("lg", {
-                "n": need_base,
-                f"{{{_XML_NS}}}id": lg_id
-            })
+        container = s.current_div
+        lg = etree.SubElement(container, "lg", {
+            "n": need_base,
+            f"{{{_XML_NS}}}id": lg_id
+        })
 
         s.current_lg = lg
         s.current_l = None
@@ -646,7 +624,7 @@ class TeiTextBuilder:
 
     def _flush_verse_group_buffer(self):
         s = self.state
-        if s.current_lg is not None and not s.condensed_verse_format:
+        if s.current_lg is not None and s.current_lg.getparent() is None:
             s.verse_group_buffer.append(s.current_lg)
             s.current_lg = None
             s.current_l = None
