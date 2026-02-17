@@ -90,7 +90,6 @@ class TextBuildState:
     current_loc_label: Optional[str] = None  # e.g., "1.1ab"
     current_loc_base: Optional[str] = None  # e.g., "1.1"
     current_loc_xml_id: Optional[str] = None
-    extra_p_suffix: int = 1  # for subsequent <p> after a finished <lg>
     last_emitted_lb: Optional[etree._Element] = None
 
     # text sink: most recent inline element (e.g., <lb/>) whose tail should
@@ -476,7 +475,6 @@ class TeiTextBuilder:
         s.current_div = div
         s.current_loc_label = None
         s.current_loc_xml_id = None
-        s.extra_p_suffix = 1
 
     def _get_container(self):
         s = self.state
@@ -498,11 +496,9 @@ class TeiTextBuilder:
         if s.last_emitted_lb is not None:
             lb_parent = s.last_emitted_lb.getparent()
             if lb_parent is not None:
-                # Check if the parent of the lb's container is the current div
-                if lb_parent.getparent().tag == 'div' and lb_parent.getparent() is not s.current_div:
-                    # if not, pb becomes sibling of the p/lg, not a child
-                    pass
-                else:
+                # Use lb's parent as container, unless it belongs to a different div
+                grandparent = lb_parent.getparent()
+                if not (grandparent is not None and grandparent.tag == 'div' and grandparent is not s.current_div):
                     container = lb_parent
 
                 if s.last_emitted_lb.get("break") == "no":
@@ -547,7 +543,6 @@ class TeiTextBuilder:
                 s.lb_count = int(line_no)
             except (ValueError, IndexError):
                 pass
-        s.extra_p_suffix = 1
         s.current_p = etree.SubElement(
             s.current_div, "p", {f"{{{_XML_NS}}}id": s.current_loc_xml_id, "n": label}
         )

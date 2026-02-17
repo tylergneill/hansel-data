@@ -27,7 +27,6 @@ class XMLToPlaintext:
         self.current_lg_base_n = None
         self.in_condensed_lg = False
         self.pending_indent = False
-        self.prev_el = None
 
     def convert(self, xml_path: Path) -> str:
         """
@@ -164,8 +163,6 @@ class XMLToPlaintext:
 
         if el.text:
             self._process_text(el.text)
-
-        self.prev_el = el
 
         for child in el:
             self._process_element(child)
