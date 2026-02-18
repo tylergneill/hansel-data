@@ -526,6 +526,7 @@ class TeiTextBuilder:
 
     def _emit_milestone(self, label: str) -> None:
         s = self.state
+        s.lb_count += 1
         container = self._get_container()
         label = re.sub(r'[<>]', '', label)
         etree.SubElement(container, "milestone", {"n": label})

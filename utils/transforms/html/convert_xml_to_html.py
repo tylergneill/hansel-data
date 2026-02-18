@@ -479,18 +479,14 @@ class HtmlConverter:
             for element in section.iterchildren():
                 if element.tag == "milestone":
                     current_verses_ul = None
-                    self.has_location_markers = True
+                    # Milestones occupy a physical line
+                    self.current_line = str(int(self.current_line) + 1)
+                    if self.pending_label is not None:
+                        label_text = f'(p.{self.current_page}, l.{self.current_line})' if not self.no_line_numbers else f'(p.{self.current_page})'
+                        self.pending_label.text = label_text
                     n_attr = element.get("n")
                     if n_attr:
-                        self.current_location_id = n_attr.replace(',', '_').replace(' ', '').replace('|', '')
-                        if not self.only_plain:
-                            etree.SubElement(content_div, "h2", {"class": "location-marker", "id": self.current_location_id}).text = n_attr
-
-                    if not self.only_plain:
-                        p = etree.SubElement(content_div, "p", {"class": "rich-text"})
-                        self.append_text(p, f'{element.get("n")}', treat_as_plain=False)
-                    p = etree.SubElement(content_div, "p", {"class": "plain-text"})
-                    self.append_text(p, f'{element.get("n")}', treat_as_plain=True)
+                        etree.SubElement(content_div, "h2").text = n_attr
 
                 elif element.tag == "pb":
                     self.current_page = element.get("n")
