@@ -4,133 +4,90 @@
 
 <kādambarī |>
 
-[1,2]
-	rajojuṣe janmani sattvavṛttaye
-	sthitau prajānāṃ pralaye tamaḥspṛśe |
-	ajāya sargasthitināśahetave
-	trayīmayāya triguṇātmane namaḥ || 1 ||
-
-[1,6]
-	jayanti bāṇāsuramaulilālitā
-	daśāsyacūḍāmaṇicakracumbinaḥ |
-	surāsurādhīśaśikhāntaśāyino
-	bhavacchidastryambakapādapāṃśavaḥ || 2 ||
-
-[1,10]
-	jayatyupendraḥ sa cakāra dūrato
-	bibhitsayā yaḥ kṣaṇalabdhalakṣyayā |
-	dṛśaiva kopāruṇayā riporuraḥ
-	svayaṃ bhayādbhinnamivāsrapāṭalam || 3 ||
-
-[1,14]
-	namāmi bharvoścaraṇāmbujadvayaṃ
-	saśekharairmaukharibhiḥ kṛtārcanam |
-	samastasāmantakirīṭavedikā-
-	viṭaṅkapīṭholluṭhitāruṇāṅguli || 4 ||
-
+[1.1a]	rajojuṣe janmani sattvavṛttaye
+[1.1b]	sthitau prajānāṃ pralaye tamaḥspṛśe |
+[1.1c]	ajāya sargasthitināśahetave
+[1.1d]	trayīmayāya triguṇātmane namaḥ ||
+[1.2a]	jayanti bāṇāsuramaulilālitā
+[1.2b]	daśāsyacūḍāmaṇicakracumbinaḥ |
+[1.2c]	surāsurādhīśaśikhāntaśāyino
+[1.2d]	bhavacchidastryambakapādapāṃśavaḥ ||
+[1.3a]	jayatyupendraḥ sa cakāra dūrato
+[1.3b]	bibhitsayā yaḥ kṣaṇalabdhalakṣyayā |
+[1.3c]	dṛśaiva kopāruṇayā riporuraḥ
+[1.3d]	svayaṃ bhayādbhinnamivāsrapāṭalam ||
+[1.4a]	namāmi bharvoścaraṇāmbujadvayaṃ
+[1.4b]	saśekharairmaukharibhiḥ kṛtārcanam |
+[1.4c]	samastasāmantakirīṭavedikā-
+[1.4b]	viṭaṅkapīṭholluṭhitāruṇāṅguli ||
 <2>
-
-[2,1]
-	akāraṇāviṣkṛtavairadāruṇā-
-	dasajjanātkasya bhayaṃ na jāyate |
-	viṣaṃ mahāheriva yasya durvacaḥ
-	suduḥsahaṃ saṃnihitaṃ sadā mukhe || 5 ||
-
-[2,5]
-	kaṭu kvaṇanto maladāyakāḥ khalā-
-	studantyalaṃ bandhanaśṛṅkhalā iva |
-	manastu sādhudhvanibhiḥ pade pade
-	haranti santo maṇinūpurā iva || 6 ||
-
-[2,9]
-	subhāṣitaṃ hāri viśatyadho galā-
-	na durjanasyārkariporivāmṛtam |
-	tadeva dhatte hṛdayena sajjano
-	harirmahāratnamivātinirmalam || 7 ||
-
-[2,13]
-	sphuratkalālāpavilāsakomalā
-	karoti rāgaṃ hṛdi kautukādhikam |
-	rasena śayyāṃ svayamabhyupāgatā
-	kathā janasyābhinavā vadhūriva || 8 ||
-
-[2,17]
-	haranti kaṃ nojjvaladīpakopamai-
-	rnavaiḥ padārthairupapāditāḥ kathāḥ |
-	nirantaraśleṣaghanāḥ sujātayo
-	mahāsrajaścampakakuḍmalairiva || 9 ||
-
+[1.5a]	akāraṇāviṣkṛtavairadāruṇā-
+[1.5b]	dasajjanātkasya bhayaṃ na jāyate |
+[1.5c]	viṣaṃ mahāheriva yasya durvacaḥ
+[1.5b]	suduḥsahaṃ saṃnihitaṃ sadā mukhe ||
+[1.6a]	kaṭu kvaṇanto maladāyakāḥ khalā-
+[1.6b]	studantyalaṃ bandhanaśṛṅkhalā iva |
+[1.6c]	manastu sādhudhvanibhiḥ pade pade
+[1.6b]	haranti santo maṇinūpurā iva ||
+[1.7a]	subhāṣitaṃ hāri viśatyadho galā-
+[1.7b]	na durjanasyārkariporivāmṛtam |
+[1.7c]	tadeva dhatte hṛdayena sajjano
+[1.7b]	harirmahāratnamivātinirmalam ||
+[1.8a]	sphuratkalālāpavilāsakomalā
+[1.8b]	karoti rāgaṃ hṛdi kautukādhikam |
+[1.8c]	rasena śayyāṃ svayamabhyupāgatā
+[1.8b]	kathā janasyābhinavā vadhūriva ||
+[1.9a]	haranti kaṃ nojjvaladīpakopamai-
+[1.9b]	rnavaiḥ padārthairupapāditāḥ kathāḥ |
+[1.9c]	nirantaraśleṣaghanāḥ sujātayo
+[1.9b]	mahāsrajaścampakakuḍmalairiva ||
 <3>
-
-[3,1]
-	babhūva vātsyāyanavaṃśasaṃbhavo
-	dvijo jagadgītaguṇograṇīḥ satām |
-	anekaguptārcitapādapaṅkajaḥ
-	kuberanāmāṃśa iva svayaṃbhuvaḥ || 10 ||
-
-[3,5]
-	uvāsa yasya śrutiśāntakalmaṣe
-	sadā puroḍāśapavitritādhare |
-	sarasvatī somakaṣāyitodare
-	samastaśāstrasmṛtibandhure mukhe || 11 ||
-
-[3,9]
-	jagurgṛhebhyastasamastavāṅmayaiḥ
-	sasārikaiḥ pañjaravartibhiḥ śukaiḥ |
-	nigṛhyamāṇā baṭavaḥ pade pade
-	yajūṃṣi sāmāni ca yasya śaṅkitāḥ || 12 ||
-
-[3,13]
-	hiraṇyagarbho bhuvanāṇḍakādiva
-	kṣapākaraḥ kṣīramahārṇavādiva |
-	abhūtsuparṇo vinatodarādiva
-	dvijanmanāmarthapatiḥ patistataḥ || 13 ||
-
-[3,17]
-	vivṛṇvato yasya visāri vāṅmayaṃ
-	dine dine śiṣyagaṇā navā navāḥ |
-	uṣassu lagnāḥ śravaṇedhikāṃ śriyaṃ
-	pracakrire candanapallavā iva || 14 ||
-
+[1.10a]	babhūva vātsyāyanavaṃśasaṃbhavo
+[1.10b]	dvijo jagadgītaguṇograṇīḥ satām |
+[1.10c]	anekaguptārcitapādapaṅkajaḥ
+[1.10b]	kuberanāmāṃśa iva svayaṃbhuvaḥ ||
+[1.11a]	uvāsa yasya śrutiśāntakalmaṣe
+[1.11b]	sadā puroḍāśapavitritādhare |
+[1.11c]	sarasvatī somakaṣāyitodare
+[1.11b]	samastaśāstrasmṛtibandhure mukhe ||
+[1.12a]	jagurgṛhebhyastasamastavāṅmayaiḥ
+[1.12b]	sasārikaiḥ pañjaravartibhiḥ śukaiḥ |
+[1.12c]	nigṛhyamāṇā baṭavaḥ pade pade
+[1.12b]	yajūṃṣi sāmāni ca yasya śaṅkitāḥ ||
+[1.13a]	hiraṇyagarbho bhuvanāṇḍakādiva
+[1.13b]	kṣapākaraḥ kṣīramahārṇavādiva |
+[1.13c]	abhūtsuparṇo vinatodarādiva
+[1.13b]	dvijanmanāmarthapatiḥ patistataḥ ||
+[1.14a]	vivṛṇvato yasya visāri vāṅmayaṃ
+[1.14b]	dine dine śiṣyagaṇā navā navāḥ |
+[1.14c]	uṣassu lagnāḥ śravaṇedhikāṃ śriyaṃ
+[1.14b]	pracakrire candanapallavā iva ||
 <4>
-
-[4,1]
-	vidhānasaṃpāditadānaśobhitaiḥ
-	sphuranmahāvīrasanāthamūrtibhiḥ |
-	makhairasaṃkhyairajayatsurālayaṃ
-	sukhena yo yūpakarairgajairiva || 15 ||
-
-[4,5]
-	sa citrabhānuṃ tanayaṃ mahātmanāṃ
-	sutottamānāṃ śrutiśāstraśālinām |
-	avāpa madhye sphaṭikopalopamaṃ
-	krameṇa kailāsamiva kṣamābhṛtām || 16 ||
-
-[4,9]
-	mahātmano yasya sudūranirgatāḥ
-	kalaṅkamuktendukalāmalatviṣaḥ |
-	dviṣanmanaḥ prāviviśuḥ kṛtāntarā
-	guṇā nṛsiṃhasya nakhāṅkurā iva || 17 ||
-
-[4,13]
-	diśāmalīkālakabhaṅgatāṃ gata-
-	strayīvadhūkarṇatamālapallavaḥ |
-	cakāra yasyādhvaradhūmasaṃcayo
-	malīmasaḥ śuklataraṃ nijaṃ yaśaḥ || 18 ||
-
-[4,17]
-	sarasvatīpāṇisarojasaṃpuṭa-
-	pramṛṣṭahomaśramasīkarāmbhasaḥ |
-	yaśoṃśuśuklīkṛtasaptaviṣṭapā-
-	ttataḥ suto bāṇa iti vyajāyata || 19 ||
-
+[1.15a]	vidhānasaṃpāditadānaśobhitaiḥ
+[1.15b]	sphuranmahāvīrasanāthamūrtibhiḥ |
+[1.15c]	makhairasaṃkhyairajayatsurālayaṃ
+[1.15b]	sukhena yo yūpakarairgajairiva ||
+[1.16a]	sa citrabhānuṃ tanayaṃ mahātmanāṃ
+[1.16b]	sutottamānāṃ śrutiśāstraśālinām |
+[1.16c]	avāpa madhye sphaṭikopalopamaṃ
+[1.16b]	krameṇa kailāsamiva kṣamābhṛtām ||
+[1.17a]	mahātmano yasya sudūranirgatāḥ
+[1.17b]	kalaṅkamuktendukalāmalatviṣaḥ |
+[1.17c]	dviṣanmanaḥ prāviviśuḥ kṛtāntarā
+[1.17b]	guṇā nṛsiṃhasya nakhāṅkurā iva ||
+[1.18a]	diśāmalīkālakabhaṅgatāṃ gata-
+[1.18b]	strayīvadhūkarṇatamālapallavaḥ |
+[1.18c]	cakāra yasyādhvaradhūmasaṃcayo
+[1.18b]	malīmasaḥ śuklataraṃ nijaṃ yaśaḥ ||
+[1.19a]	sarasvatīpāṇisarojasaṃpuṭa-
+[1.19b]	pramṛṣṭahomaśramasīkarāmbhasaḥ |
+[1.19c]	yaśoṃśuśuklīkṛtasaptaviṣṭapā-
+[1.19b]	ttataḥ suto bāṇa iti vyajāyata ||
 <5>
-
-[5,1]
-	dvijena tenākṣatakaṇṭhakauṇḍyayā
-	mahāmanomohamalīmasāndhayā |
-	alabdhavaidagdhyavilāsamugdhayā
-	dhiyā nibaddheyamatidvayī kathā || 20 ||
+[1.20a]	dvijena tenākṣatakaṇṭhakauṇḍyayā
+[1.20b]	mahāmanomohamalīmasāndhayā |
+[1.20c]	alabdhavaidagdhyavilāsamugdhayā
+[1.20d]	dhiyā nibaddheyamatidvayī kathā ||
 
 [5,5]
 āsīdaśeṣanarapatiśiraḥsamabhyarcitaśāsanaḥ pākaśāsana ivāpara-
@@ -6183,55 +6140,39 @@ namanapekṣitānujīvitaduḥkhadāruṇā syāmityatipraṇayitā jñāsyasi m
 
 <uttarabhāgaḥ |>
 
-[239,3]
-	dehadvayārdhaghaṭanāracitaṃ śarīra-
-	mekaṃ yayoranupalakṣitasaṃdhibhedam |
-	vande sudurghaṭakathāpariśeṣasiddhyai
-	sṛṣṭergurū girisutāparameśvarau tau || 1 ||
-
-[239,7]
-	vyādhūtakesarasaṭāvikarālavaktraṃ
-	hastāgravisphuritaśaṅkhagadāsicakram |
-	āviṣkṛtaṃ sapadi yena nṛsiṃharūpaṃ
-	nārāyaṇaṃ tamapi viśvasṛjaṃ namāmi || 2 ||
-
-[239,11]
-	ārya yamarcati gṛhe gṛha eva lokaḥ
-	puṇyaiḥ kṛtaśca yata eva mamātmalābhaḥ |
-	sṛṣṭaiva yena ca katheyamananyaśakyā
-	vāgīśvaraṃ pitarameva tamānatosmi || 3 ||
-
-[239,15]
-	yāte divaṃ pitari tadvacasaiva sārdhaṃ
-	vicchedamāpa bhuvi yastu kathāprabandhaḥ |
-	duḥkhaṃ satāṃ tadasamāptikṛtaṃ vilokya
-	prārabdha eva sa mayā na kavitvadarpāt || 4 ||
-
+[2.1a]	dehadvayārdhaghaṭanāracitaṃ śarīra-
+[2.1b]	mekaṃ yayoranupalakṣitasaṃdhibhedam |
+[2.1c]	vande sudurghaṭakathāpariśeṣasiddhyai
+[2.1d]	sṛṣṭergurū girisutāparameśvarau tau ||
+[2.2a]	vyādhūtakesarasaṭāvikarālavaktraṃ
+[2.2b]	hastāgravisphuritaśaṅkhagadāsicakram |
+[2.2c]	āviṣkṛtaṃ sapadi yena nṛsiṃharūpaṃ
+[2.2d]	nārāyaṇaṃ tamapi viśvasṛjaṃ namāmi ||
+[2.3a]	ārya yamarcati gṛhe gṛha eva lokaḥ
+[2.3b]	puṇyaiḥ kṛtaśca yata eva mamātmalābhaḥ |
+[2.3c]	sṛṣṭaiva yena ca katheyamananyaśakyā
+[2.3d]	vāgīśvaraṃ pitarameva tamānatosmi ||
+[2.4a]	yāte divaṃ pitari tadvacasaiva sārdhaṃ
+[2.4b]	vicchedamāpa bhuvi yastu kathāprabandhaḥ |
+[2.4c]	duḥkhaṃ satāṃ tadasamāptikṛtaṃ vilokya
+[2.4d]	prārabdha eva sa mayā na kavitvadarpāt ||
 <240>
-
-[240,1]
-	gadye kṛtepi guruṇā tu tathākṣarāṇi
-	yannirgatāni pitureva sa menubhāvaḥ |
-	ekaplavāmṛtarasāspadacandrapāda-
-	saṃparka eva hi mṛgāṅkamaṇerdravāya || 5 ||
-
-[240,5]
-	gaṅgāṃ praviśya bhuvi tanmayatāmupetya
-	sphītāḥ samudramitarā api yānti nadyaḥ |
-	āsindhugāmini piturvacanapravāhe
-	kṣiptā kathānughaṭanāya mayāpi vāṇī || 6 ||
-
-[240,9]
-	kādambarīrasabhareṇa samasta eva
-	matto na kiṃcidapi cetayate janoyam |
-	bhītosmi yanna rasavarṇavivarjitena
-	taccheṣamātmavacasāpyanusaṃdadhānaḥ || 7 ||
-
-[240,13]
-	bījāni garbhitaphalāni vikāsabhāñji
-	vaptreva yānyucitakarmabalātkṛtāni |
-	utkṛṣṭabhūmivitatāni ca yānti poṣaṃ
-	tānyeva tasya tanayena tu saṃhṛtāni || 8 ||
+[2.5a]	gadye kṛtepi guruṇā tu tathākṣarāṇi
+[2.5b]	yannirgatāni pitureva sa menubhāvaḥ |
+[2.5c]	ekaplavāmṛtarasāspadacandrapāda-
+[2.5d]	saṃparka eva hi mṛgāṅkamaṇerdravāya ||
+[2.6a]	gaṅgāṃ praviśya bhuvi tanmayatāmupetya
+[2.6b]	sphītāḥ samudramitarā api yānti nadyaḥ |
+[2.6c]	āsindhugāmini piturvacanapravāhe
+[2.6d]	kṣiptā kathānughaṭanāya mayāpi vāṇī ||
+[2.7a]	kādambarīrasabhareṇa samasta eva
+[2.7b]	matto na kiṃcidapi cetayate janoyam |
+[2.7c]	bhītosmi yanna rasavarṇavivarjitena
+[2.7d]	taccheṣamātmavacasāpyanusaṃdadhānaḥ ||
+[2.8a]	bījāni garbhitaphalāni vikāsabhāñji
+[2.8b]	vaptreva yānyucitakarmabalātkṛtāni |
+[2.8c]	utkṛṣṭabhūmivitatāni ca yānti poṣaṃ
+[2.8d]	tānyeva tasya tanayena tu saṃhṛtāni ||
 
 [240,17]
 api cedānīmānītasyāpi kumārasya na dadāti taralatālajjitā

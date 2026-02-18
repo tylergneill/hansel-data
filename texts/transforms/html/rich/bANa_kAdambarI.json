@@ -176,106 +176,106 @@
                 {
                     "sic": "cinhāni",
                     "corr": "cihnāni",
-                    "page": "72",
-                    "line": "19",
+                    "verse": "1.20",
+                    "verse_part": "c",
                     "location_id": "72_3"
                 },
                 {
                     "sic": "",
                     "corr": "-",
-                    "page": "79",
-                    "line": "16",
+                    "verse": "1.20",
+                    "verse_part": "c",
                     "location_id": "78_14"
                 },
                 {
                     "sic": "-",
                     "corr": "",
-                    "page": "112",
-                    "line": "9",
+                    "verse": "1.20",
+                    "verse_part": "c",
                     "location_id": "112_5"
                 },
                 {
                     "sic": "",
                     "corr": " ",
-                    "page": "181",
-                    "line": "17",
+                    "verse": "1.20",
+                    "verse_part": "c",
                     "location_id": "181_9"
                 },
                 {
                     "sic": " ",
                     "corr": "",
-                    "page": "194",
-                    "line": "5",
+                    "verse": "1.20",
+                    "verse_part": "c",
                     "location_id": "192_10"
                 },
                 {
                     "sic": "na",
                     "corr": "ṇa",
-                    "page": "206",
-                    "line": "20",
+                    "verse": "1.20",
+                    "verse_part": "c",
                     "location_id": "206_16"
                 },
                 {
                     "sic": "dukhaḥ",
                     "corr": "duḥkha",
-                    "page": "214",
-                    "line": "10",
+                    "verse": "1.20",
+                    "verse_part": "c",
                     "location_id": "212_7"
                 },
                 {
                     "sic": "",
                     "corr": " ",
-                    "page": "220",
-                    "line": "12",
+                    "verse": "1.20",
+                    "verse_part": "c",
                     "location_id": "220_6"
                 },
                 {
                     "sic": "dṛṣṭayā",
                     "corr": "dṛṣṭyā",
-                    "page": "220",
-                    "line": "13",
+                    "verse": "1.20",
+                    "verse_part": "c",
                     "location_id": "220_6"
                 },
                 {
                     "sic": "māla",
                     "corr": "mālā",
-                    "page": "225",
-                    "line": "11",
+                    "verse": "1.20",
+                    "verse_part": "c",
                     "location_id": "224_13"
                 },
                 {
                     "sic": "nya",
                     "corr": "jña",
-                    "page": "231",
-                    "line": "10",
+                    "verse": "1.20",
+                    "verse_part": "c",
                     "location_id": "230_15"
                 },
                 {
                     "sic": "",
                     "corr": " ",
-                    "page": "284",
-                    "line": "18",
+                    "verse": "2.8",
+                    "verse_part": "c",
                     "location_id": "284_18"
                 },
                 {
                     "sic": "ndā",
                     "corr": "ndrā",
-                    "page": "314",
-                    "line": "15",
+                    "verse": "2.8",
+                    "verse_part": "c",
                     "location_id": "314_12"
                 },
                 {
                     "sic": "ttha",
                     "corr": "thya",
-                    "page": "330",
-                    "line": "1",
+                    "verse": "2.8",
+                    "verse_part": "c",
                     "location_id": "328_13"
                 },
                 {
                     "sic": "ṃ",
                     "corr": "",
-                    "page": "338",
-                    "line": "8",
+                    "verse": "2.8",
+                    "verse_part": "c",
                     "location_id": "336_23"
                 }
             ]
