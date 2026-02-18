@@ -538,6 +538,8 @@ class HtmlConverter:
                     if not is_condensed and n_attr:
                         self.has_location_markers = True
                         self.current_location_id = n_attr.replace(',', '_').replace(' ', '')
+                        # Break the current verses_ul so a new one is created after this h2
+                        current_verses_ul = None
                         h2 = etree.SubElement(content_div, "h2", {"class": "location-marker", "id": self.current_location_id})
                         n_parts = n_attr.split(',')
                         page_part = n_parts[0].strip()
