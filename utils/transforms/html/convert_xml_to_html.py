@@ -536,6 +536,9 @@ class HtmlConverter:
 
                     # Standard mode: emit location marker h2 before the verse
                     if not is_condensed and n_attr:
+                        if ',' not in n_attr:
+                            raise ValueError(f"Standard-format <lg> has non-page,line n attribute: n=\"{n_attr}\". Use condensed verse format for verse-numbered lgs.")
+
                         self.has_location_markers = True
                         self.current_location_id = n_attr.replace(',', '_').replace(' ', '')
                         # Break the current verses_ul so a new one is created after this h2
