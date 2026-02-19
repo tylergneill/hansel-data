@@ -325,6 +325,9 @@ class HtmlConverter:
             for br_tag in trailing_breaks:
                 last_l.append(br_tag)
 
+        # Track which <l> is last so we can bold its verse number in the HTML output
+        last_l_for_bold = last_l if (last_l is not None and verse_n) else None
+
         for child in children_of_lg:
             if child.tag == 'head':
                 if child.text:
@@ -332,7 +335,29 @@ class HtmlConverter:
                     self.append_text(p_tag, child.text, treat_as_plain=False)
             elif child.tag == 'l':
                 self.current_verse_part = child.get('n')
-                self.process_children(child, etree.SubElement(padas_ul, "li"), False, in_lg=True)
+                li_elem = etree.SubElement(padas_ul, "li")
+                self.process_children(child, li_elem, False, in_lg=True)
+                if child is last_l_for_bold:
+                    # Bold the verse number in the HTML output.
+                    # The text " {verse_n} ||" was appended to the XML source,
+                    # so it's now in the HTML li's last child tail or the li's text.
+                    # Trailing <lb>/<pb> elements may add whitespace after "||",
+                    # so we match against rstripped text.
+                    marker = f" {verse_n} ||"
+                    if len(li_elem) > 0:
+                        last = li_elem[-1]
+                        if last.tail and last.tail.rstrip().endswith(marker):
+                            trailing_ws = last.tail[len(last.tail.rstrip()):]
+                            last.tail = last.tail.rstrip()[:-len(marker)] + " "
+                            b_tag = etree.SubElement(li_elem, "b")
+                            b_tag.text = verse_n
+                            b_tag.tail = " ||" + trailing_ws
+                    elif li_elem.text and li_elem.text.rstrip().endswith(marker):
+                        trailing_ws = li_elem.text[len(li_elem.text.rstrip()):]
+                        li_elem.text = li_elem.text.rstrip()[:-len(marker)] + " "
+                        b_tag = etree.SubElement(li_elem, "b")
+                        b_tag.text = verse_n
+                        b_tag.tail = " ||" + trailing_ws
             elif child.tag == 'back':
                 if len(padas_ul) > 0:
                     self.process_children(child, padas_ul[-1], False, in_lg=True)
