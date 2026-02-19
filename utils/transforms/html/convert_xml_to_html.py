@@ -499,6 +499,10 @@ class HtmlConverter:
                     current_verses_ul = None
                     n_attr = element.get("n")
                     if n_attr:
+                        # Clear pending breaks/labels from the previous element's trailing <lb>/<pb>,
+                        # since the location marker <h2> replaces their visual function.
+                        self.pending_breaks = 0
+                        self.pending_label = None
                         self.has_location_markers = True
                         self.current_location_id = n_attr.replace(',', '_').replace(' ', '')
                         h2 = etree.SubElement(content_div, "h2", {"class": "location-marker", "id": self.current_location_id})
@@ -535,6 +539,10 @@ class HtmlConverter:
                         if ',' not in n_attr:
                             raise ValueError(f"Standard-format <lg> has non-page,line n attribute: n=\"{n_attr}\". Use condensed verse format for verse-numbered lgs.")
 
+                        # Clear pending breaks/labels from the previous element's trailing <lb>/<pb>,
+                        # since the location marker <h2> replaces their visual function.
+                        self.pending_breaks = 0
+                        self.pending_label = None
                         self.has_location_markers = True
                         self.current_location_id = n_attr.replace(',', '_').replace(' ', '')
                         # Break the current verses_ul so a new one is created after this h2
