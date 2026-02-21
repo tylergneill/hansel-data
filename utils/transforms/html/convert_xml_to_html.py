@@ -265,11 +265,11 @@ class HtmlConverter:
                 # Emit <head> elements before the verse li, directly on the container
                 for child in lg_element.iterchildren():
                     if child.tag == 'head' and child.text:
-                        head_p = etree.SubElement(container, "li", {"class": "lg-head"})
+                        head_p = etree.SubElement(container, "li", {"class": "lg-head rich-text"})
                         head_p.text = child.text
                 # Wrap verse lines in li.verse so verse-styling CSS can target it
-                verse_li = etree.SubElement(container, "li", {"class": "verse"})
-                div_elem = etree.SubElement(verse_li, "div", {"class": "lg rich-text"})
+                verse_li = etree.SubElement(container, "li", {"class": "verse rich-text"})
+                div_elem = etree.SubElement(verse_li, "div", {"class": "lg"})
                 for child in lg_element.iterchildren():
                     if child.tag == 'l':
                         span_tag = etree.SubElement(div_elem, "span")
@@ -298,7 +298,7 @@ class HtmlConverter:
         self.current_verse = verse_n
         self.current_location_id = f"v{verse_n.replace('.', '-')}" if verse_n else None
 
-        verse_li = etree.SubElement(container, "li", {"class": "verse"})
+        verse_li = etree.SubElement(container, "li", {"class": "verse rich-text"})
         if self.current_location_id:
             verse_li.set("id", self.current_location_id)
         padas_ul = etree.SubElement(verse_li, "ul", {"class": "padas"})
@@ -511,7 +511,7 @@ class HtmlConverter:
                         self.pending_label.text = label_text
                     n_attr = element.get("n")
                     if n_attr:
-                        etree.SubElement(content_div, "h2").text = n_attr
+                        etree.SubElement(content_div, "h2", {"class": "rich-text"}).text = n_attr
 
                 elif element.tag == "pb":
                     self.current_page = element.get("n")
@@ -522,6 +522,8 @@ class HtmlConverter:
 
                 elif element.tag == "p":
                     current_verses_ul = None
+                    self.current_verse = None
+                    self.current_verse_part = None
                     n_attr = element.get("n")
                     if n_attr:
                         # Clear pending breaks/labels from the previous element's trailing <lb>/<pb>,
@@ -530,7 +532,7 @@ class HtmlConverter:
                         self.pending_label = None
                         self.has_location_markers = True
                         self.current_location_id = n_attr.replace(',', '_').replace(' ', '')
-                        h2 = etree.SubElement(content_div, "h2", {"class": "location-marker", "id": self.current_location_id})
+                        h2 = etree.SubElement(content_div, "h2", {"class": "location-marker rich-text", "id": self.current_location_id})
                         n_parts = n_attr.split(',')
                         page_part = n_parts[0].strip()
                         line_part = n_parts[1].strip() if len(n_parts) > 1 else "1"
@@ -572,7 +574,7 @@ class HtmlConverter:
                         self.current_location_id = n_attr.replace(',', '_').replace(' ', '')
                         # Break the current verses_ul so a new one is created after this h2
                         current_verses_ul = None
-                        h2 = etree.SubElement(content_div, "h2", {"class": "location-marker", "id": self.current_location_id})
+                        h2 = etree.SubElement(content_div, "h2", {"class": "location-marker rich-text", "id": self.current_location_id})
                         n_parts = n_attr.split(',')
                         page_part = n_parts[0].strip()
                         line_part = n_parts[1].strip() if len(n_parts) > 1 else "1"
@@ -590,7 +592,7 @@ class HtmlConverter:
                     # Rich pass: wrap in <ul class="verses"> for verse-styling CSS
                     if not self.only_plain:
                         if current_verses_ul is None:
-                            current_verses_ul = etree.SubElement(content_div, "ul", {"class": "verses"})
+                            current_verses_ul = etree.SubElement(content_div, "ul", {"class": "verses rich-text"})
                         if element.get('type') == 'group':
                             for lg_child in element.findall("lg"):
                                 self.process_lg_content(lg_child, current_verses_ul, treat_as_plain=False)
