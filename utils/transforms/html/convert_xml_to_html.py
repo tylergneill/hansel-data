@@ -511,7 +511,7 @@ class HtmlConverter:
                         self.pending_label.text = label_text
                     n_attr = element.get("n")
                     if n_attr:
-                        etree.SubElement(content_div, "h2", {"class": "rich-text"}).text = n_attr
+                        etree.SubElement(content_div, "h2", {"class": "milestone rich-text"}).text = n_attr
 
                 elif element.tag == "pb":
                     self.current_page = element.get("n")
