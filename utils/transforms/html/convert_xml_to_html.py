@@ -547,6 +547,19 @@ class HtmlConverter:
                         else:
                             h2.text = n_attr
 
+                        # Create pending inline label for the first line of the <p>,
+                        # so it gets an inline location marker like subsequent lines.
+                        # Use <a> (pb-label) when at line 1 so the PDF link works,
+                        # otherwise use <span> (lb-label).
+                        if len(n_parts) == 2:
+                            if line_part == "1":
+                                label = etree.Element("a", {"class": "pb-label rich-text", "data-page": page_part, "target": "_blank"})
+                                label.text = f'(p.{page_part}, l.1)'
+                            else:
+                                label = etree.Element("span", {"class": "lb-label rich-text", "data-line": line_part})
+                                label.text = f'(p.{page_part}, l.{line_part})'
+                            self.pending_label = label
+
                     if not self.only_plain:
                         self.process_children(element, etree.SubElement(content_div, "p", {"class": "rich-text"}), treat_as_plain=False, in_lg=False)
                     self.process_children(element, etree.SubElement(content_div, "p", {"class": "plain-text"}), treat_as_plain=True, in_lg=False)
@@ -588,6 +601,19 @@ class HtmlConverter:
                             h2.text = f"p.{page_part}"
                         else:
                             h2.text = n_attr
+
+                        # Create pending inline label for the first line of the <lg>,
+                        # so it gets an inline location marker like subsequent lines.
+                        # Use <a> (pb-label) when at line 1 so the PDF link works,
+                        # otherwise use <span> (lb-label).
+                        if len(n_parts) == 2:
+                            if line_part == "1":
+                                label = etree.Element("a", {"class": "pb-label rich-text", "data-page": page_part, "target": "_blank"})
+                                label.text = f'(p.{page_part}, l.1)'
+                            else:
+                                label = etree.Element("span", {"class": "lb-label rich-text", "data-line": line_part})
+                                label.text = f'(p.{page_part}, l.{line_part})'
+                            self.pending_label = label
 
                     # Rich pass: wrap in <ul class="verses"> for verse-styling CSS
                     if not self.only_plain:
