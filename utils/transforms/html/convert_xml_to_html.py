@@ -389,19 +389,35 @@ class HtmlConverter:
         if not self.only_plain:
             for div_section in root.xpath('//body/div[@n]'):
                 section_name = div_section.get('n')
-                first_pb = div_section.find('.//pb')
                 start_page = 'N/A'
-                if first_pb is not None:
-                    start_page = first_pb.get('n')
+                if self.no_line_numbers:
+                    # Condensed-verse-format: only <pb> elements carry page numbers.
+                    # Check if a <pb> is the div's first child (marks the section start).
+                    # Otherwise the section starts mid-page, so walk backwards to the
+                    # nearest preceding <pb>.
+                    first_child = div_section[0] if len(div_section) else None
+                    if first_child is not None and first_child.tag == 'pb':
+                        start_page = first_child.get('n')
+                    else:
+                        for prev in div_section.itersiblings(preceding=True):
+                            pbs = prev.xpath('.//pb')
+                            if pbs:
+                                start_page = pbs[-1].get('n')
+                                break
                 else:
-                    # Find the first child element with an 'n' attribute
+                    # Standard texts: the first content element (e.g. <p n="336,14">)
+                    # records the actual page,line where the section starts.
                     first_elem_with_n = div_section.find('.//*[@n]')
-                    if first_elem_with_n is not None:
+                    if first_elem_with_n is not None and first_elem_with_n.tag != 'pb':
                         n_attr = first_elem_with_n.get('n')
                         if ',' in n_attr:
                             start_page = n_attr.split(',')[0]
                         else:
                             start_page = n_attr
+                    else:
+                        first_pb = div_section.find('.//pb')
+                        if first_pb is not None:
+                            start_page = first_pb.get('n')
 
                 self.toc_data.append({'name': section_name, 'page': start_page, 'id': f'{section_name.replace(" ", "_")}'})
 
