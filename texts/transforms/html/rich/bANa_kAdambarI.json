@@ -281,8 +281,8 @@
             ]
         }
     ],
-    "verse_only": false,
-    "includes_plain_variant": true,
+    "has_verses": true,
+    "has_location_markers": true,
     "no_line_numbers": false,
     "pdf_page_mapping": {
         "url": "https://archive.org/details/kadambari01bana/page/n7/mode/2up",
