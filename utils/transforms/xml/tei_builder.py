@@ -95,7 +95,8 @@ class TextBuildState:
     # bookkeeping for multi-line under same location
     current_loc_label: Optional[str] = None  # e.g., "1.1ab"
     current_loc_base: Optional[str] = None  # e.g., "1.1"
-    current_loc_xml_id: Optional[str] = None
+    current_loc_xml_id_base: Optional[str] = None  # base for generating unique IDs
+    current_loc_id_counter: int = 0  # incremented for each element needing an ID
     last_emitted_lb: Optional[etree._Element] = None
 
     # text sink: most recent inline element (e.g., <lb/>) whose tail should
@@ -221,6 +222,17 @@ class TeiTextBuilder:
 
         # prose
         if s.current_p is not None:
+            self._process_content_with_midline_elements(line, "prose", raw_line_for_hyphen_check=line)
+            self._finalize_physical_line(line)
+            return
+
+        # prose continuation after verse within a location block
+        if s.current_loc_label is not None:
+            self._flush_verse_group_buffer()
+            p = etree.SubElement(self._get_sp_or_div(), "p")
+            s.current_p = p
+            s.last_tail_text_sink = None
+            s.prev_line_hyphen = False
             self._process_content_with_midline_elements(line, "prose", raw_line_for_hyphen_check=line)
             self._finalize_physical_line(line)
             return
@@ -527,7 +539,8 @@ class TeiTextBuilder:
         div = etree.SubElement(s.body, "div", {"n": label})
         s.current_div = div
         s.current_loc_label = None
-        s.current_loc_xml_id = None
+        s.current_loc_xml_id_base = None
+        s.current_loc_id_counter = 0
 
     def _get_container(self):
         s = self.state
@@ -590,7 +603,8 @@ class TeiTextBuilder:
         self._close_p()
         self._close_lg()
         s.current_loc_label = label
-        s.current_loc_xml_id = make_xml_id(label)
+        s.current_loc_xml_id_base = make_xml_id(label)
+        s.current_loc_id_counter = 0
         if "," in label:
             try:
                 _page, line_no = map(str.strip, label.split(",", 1))
@@ -598,7 +612,7 @@ class TeiTextBuilder:
             except (ValueError, IndexError):
                 pass
         s.current_p = etree.SubElement(
-            self._get_sp_or_div(), "p", {f"{{{_XML_NS}}}id": s.current_loc_xml_id, "n": label}
+            self._get_sp_or_div(), "p", {f"{{{_XML_NS}}}id": self._next_loc_xml_id(), "n": label}
         )
         s.last_tail_text_sink = None # Set to None so first append goes to .text
         s.prev_line_hyphen = False # Reset for new paragraph
@@ -662,6 +676,9 @@ class TeiTextBuilder:
                 parent = s.current_p.getparent()
                 if parent is not None:
                     parent.remove(s.current_p)
+                    # reclaim the xml:id that was assigned to this empty <p>
+                    if s.current_loc_id_counter > 0:
+                        s.current_loc_id_counter -= 1
             s.current_p = None
 
     def _close_lg(self) -> None:
@@ -674,6 +691,14 @@ class TeiTextBuilder:
     def _get_sp_or_div(self) -> etree._Element:
         s = self.state
         return s.current_sp if s.current_sp is not None else s.current_div
+
+    def _next_loc_xml_id(self) -> str:
+        """Return a unique xml:id for the current location, incrementing the counter."""
+        s = self.state
+        s.current_loc_id_counter += 1
+        if s.current_loc_id_counter == 1:
+            return s.current_loc_xml_id_base
+        return f"{s.current_loc_xml_id_base}_{s.current_loc_id_counter}"
 
     def _open_sp(self, speaker_name: str) -> None:
         s = self.state
@@ -715,20 +740,22 @@ class TeiTextBuilder:
             return
 
         container = self._get_sp_or_div()
+        loc_label = s.current_loc_label
         if len(s.verse_group_buffer) > 1:
             # Create a parent lg and move the children
-            parent_lg = etree.SubElement(container, "lg", {
-                "type": "group",
-                "n": s.current_loc_label,
-                f"{{{_XML_NS}}}id": s.current_loc_xml_id
-            })
+            attrs = {"type": "group"}
+            if loc_label is not None:
+                attrs["n"] = loc_label
+                attrs[f"{{{_XML_NS}}}id"] = self._next_loc_xml_id()
+            parent_lg = etree.SubElement(container, "lg", attrs)
             for child_lg in s.verse_group_buffer:
                 parent_lg.append(child_lg)
         else:
             # Just add the single lg
             single_lg = s.verse_group_buffer[0]
-            single_lg.set(f"{{{_XML_NS}}}id", s.current_loc_xml_id)
-            single_lg.set("n", s.current_loc_label)
+            if loc_label is not None:
+                single_lg.set(f"{{{_XML_NS}}}id", self._next_loc_xml_id())
+                single_lg.set("n", loc_label)
             container.append(single_lg)
 
         s.verse_group_buffer.clear()
