@@ -8,12 +8,12 @@
         },
         {
             "name": "2 codanāsūtra CDS",
-            "page": "35",
+            "page": "34",
             "id": "2_codanāsūtra_CDS"
         },
         {
             "name": "3 nimittasūtra NMS",
-            "page": "3.1",
+            "page": "96",
             "id": "3_nimittasūtra_NMS"
         },
         {
@@ -28,17 +28,17 @@
         },
         {
             "name": "5.2",
-            "page": "153",
+            "page": "152",
             "id": "5.2"
         },
         {
             "name": "5,3 nirālambanavāda NAV",
-            "page": "156",
+            "page": "155",
             "id": "5,3_nirālambanavāda_NAV"
         },
         {
             "name": "5,4 śunyavāda SNV",
-            "page": "192",
+            "page": "191",
             "id": "5,4_śunyavāda_SNV"
         },
         {
@@ -48,12 +48,12 @@
         },
         {
             "name": "5,6 śabdapariccheda SBP",
-            "page": "288",
+            "page": "287",
             "id": "5,6_śabdapariccheda_SBP"
         },
         {
             "name": "5,7 upamānapariccheda UMP",
-            "page": "308",
+            "page": "307",
             "id": "5,7_upamānapariccheda_UMP"
         },
         {
@@ -63,12 +63,12 @@
         },
         {
             "name": "5,9 abhāvapariccheda ABH",
-            "page": "336",
+            "page": "335",
             "id": "5,9_abhāvapariccheda_ABH"
         },
         {
             "name": "5,10 citrākṣepavāda CAV",
-            "page": "350",
+            "page": "349",
             "id": "5,10_citrākṣepavāda_CAV"
         },
         {
@@ -78,7 +78,7 @@
         },
         {
             "name": "5,12 sphoṭavāda SPH",
-            "page": "362",
+            "page": "361",
             "id": "5,12_sphoṭavāda_SPH"
         },
         {
@@ -93,7 +93,7 @@
         },
         {
             "name": "5,15 vanavāda VAV",
-            "page": "436",
+            "page": "435",
             "id": "5,15_vanavāda_VAV"
         },
         {
@@ -113,7 +113,7 @@
         },
         {
             "name": "6 śabdanityatādhikaraṇa SNA",
-            "page": "516",
+            "page": "515",
             "id": "6_śabdanityatādhikaraṇa_SNA"
         },
         {
@@ -123,7 +123,7 @@
         },
         {
             "name": "8 vedapauruṣeyatādhikaraṇa VPA",
-            "page": "670",
+            "page": "669",
             "id": "8_vedapauruṣeyatādhikaraṇa_VPA"
         }
     ],
@@ -482,8 +482,8 @@
             ]
         }
     ],
-    "verse_only": true,
-    "includes_plain_variant": false,
+    "has_verses": true,
+    "has_location_markers": false,
     "no_line_numbers": true,
     "pdf_page_mapping": {
         "url": "https://archive.org/details/SlokavarttikaNyayaratnakara/page/n29/mode/2up",

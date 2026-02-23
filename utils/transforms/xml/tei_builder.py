@@ -66,7 +66,6 @@ def make_xml_id(label: str) -> str:
 # ----------------------------
 @dataclass
 class TextBuildState:
-    verse_only: bool = False
     line_by_line: bool = False
 
     # DOM pointers
@@ -91,7 +90,6 @@ class TextBuildState:
     current_loc_label: Optional[str] = None  # e.g., "1.1ab"
     current_loc_base: Optional[str] = None  # e.g., "1.1"
     current_loc_xml_id: Optional[str] = None
-    extra_p_suffix: int = 1  # for subsequent <p> after a finished <lg>
     last_emitted_lb: Optional[etree._Element] = None
 
     # text sink: most recent inline element (e.g., <lb/>) whose tail should
@@ -108,9 +106,8 @@ class TextBuildState:
 # Builder class
 # ----------------------------
 class TeiTextBuilder:
-    def __init__(self, verse_only: bool = False, line_by_line: bool = False):
+    def __init__(self, line_by_line: bool = False):
         self.state = TextBuildState(
-            verse_only=verse_only,
             line_by_line=line_by_line
         )
         self.state.text = etree.SubElement(self.state.root, "text")
@@ -157,13 +154,13 @@ class TeiTextBuilder:
 
         # 2c) TODO: Other structural note (...) not to be counted as physical line
 
-        # 3) Location marker [label] +/- tabbed verse-only content
+        # 3) Location marker [label] +/- tabbed condensed verse content
         location_match = LOCATION_VERSE_RE.match(line)
         if location_match:
             label, rest = location_match.group(1).strip(), location_match.group(2)
 
-            if s.verse_only:
-                self._handle_verse_only_line(label, rest)
+            if rest.strip():
+                self._handle_condensed_verse_line(label, rest)
                 self._finalize_physical_line(line)
                 return
             else:
@@ -282,7 +279,7 @@ class TeiTextBuilder:
         else:
             last_l.text = (last_l.text or "") + " " + text_to_append
 
-    def _handle_verse_only_line(self, label, rest):
+    def _handle_condensed_verse_line(self, label, rest):
         s = self.state
         base, seg = self._parse_verse_label(label)
         self._open_or_switch_lg_for_label(base, group_by_base=True)
@@ -304,23 +301,9 @@ class TeiTextBuilder:
         pre_tab = pre_tab.rstrip()
 
         if pre_tab.strip() and s.current_lg is not None:
-            if not s.verse_only:
-                s.verse_group_buffer.append(s.current_lg)
+            s.verse_group_buffer.append(s.current_lg)
             s.current_lg = None
             s.current_l = None
-
-        if s.verse_only:
-            lg = self._open_or_switch_lg_for_label(s.current_loc_label or "v", group_by_base=True)
-            if s.pending_head_elem is not None:
-                lg.append(s.pending_head_elem)
-                s.pending_head_elem = None
-            if pre_tab.strip():
-                self._append_child_text(lg, "head", pre_tab)
-            if s.current_l is None:
-                s.current_l = etree.SubElement(lg, "l")
-                s.last_tail_text_sink = None
-            self._process_content_with_midline_elements(after_tab, "verse", line)
-            return
 
         if s.current_lg is None:
             lg = etree.Element("lg")
@@ -365,7 +348,7 @@ class TeiTextBuilder:
                     back_el.append(milestone_to_move)
 
         if is_verse_close:
-            if s.current_lg is not None and not s.verse_only:
+            if s.current_lg is not None:
                 s.verse_group_buffer.append(s.current_lg)
             s.current_lg = None
             s.current_l = None
@@ -492,7 +475,6 @@ class TeiTextBuilder:
         s.current_div = div
         s.current_loc_label = None
         s.current_loc_xml_id = None
-        s.extra_p_suffix = 1
 
     def _get_container(self):
         s = self.state
@@ -514,11 +496,9 @@ class TeiTextBuilder:
         if s.last_emitted_lb is not None:
             lb_parent = s.last_emitted_lb.getparent()
             if lb_parent is not None:
-                # Check if the parent of the lb's container is the current div
-                if lb_parent.getparent().tag == 'div' and lb_parent.getparent() is not s.current_div:
-                    # if not, pb becomes sibling of the p/lg, not a child
-                    pass
-                else:
+                # Use lb's parent as container, unless it belongs to a different div
+                grandparent = lb_parent.getparent()
+                if not (grandparent is not None and grandparent.tag == 'div' and grandparent is not s.current_div):
                     container = lb_parent
 
                 if s.last_emitted_lb.get("break") == "no":
@@ -546,6 +526,7 @@ class TeiTextBuilder:
 
     def _emit_milestone(self, label: str) -> None:
         s = self.state
+        s.lb_count += 1
         container = self._get_container()
         label = re.sub(r'[<>]', '', label)
         etree.SubElement(container, "milestone", {"n": label})
@@ -557,13 +538,12 @@ class TeiTextBuilder:
         self._close_lg()
         s.current_loc_label = label
         s.current_loc_xml_id = make_xml_id(label)
-        if "," in label and not s.verse_only:
+        if "," in label:
             try:
                 _page, line_no = map(str.strip, label.split(",", 1))
                 s.lb_count = int(line_no)
             except (ValueError, IndexError):
                 pass
-        s.extra_p_suffix = 1
         s.current_p = etree.SubElement(
             s.current_div, "p", {f"{{{_XML_NS}}}id": s.current_loc_xml_id, "n": label}
         )
@@ -605,17 +585,11 @@ class TeiTextBuilder:
         s.current_loc_label = label
         lg_id = "v" + re.sub(r"\W+", "_", need_base)
         
-        if s.verse_only:
-            container = s.current_div
-            lg = etree.SubElement(container, "lg", {
-                "n": need_base,
-                f"{{{_XML_NS}}}id": lg_id
-            })
-        else:
-            lg = etree.Element("lg", {
-                "n": need_base,
-                f"{{{_XML_NS}}}id": lg_id
-            })
+        container = s.current_div
+        lg = etree.SubElement(container, "lg", {
+            "n": need_base,
+            f"{{{_XML_NS}}}id": lg_id
+        })
 
         s.current_lg = lg
         s.current_l = None
@@ -646,7 +620,7 @@ class TeiTextBuilder:
 
     def _flush_verse_group_buffer(self):
         s = self.state
-        if s.current_lg is not None and not s.verse_only:
+        if s.current_lg is not None and s.current_lg.getparent() is None:
             s.verse_group_buffer.append(s.current_lg)
             s.current_lg = None
             s.current_l = None

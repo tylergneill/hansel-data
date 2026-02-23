@@ -25,16 +25,11 @@ def regenerate_html(xml_dir, plain_dir, rich_dir, standalone=False):
 
     # Pass 1: Generate all plain files
     for filename in xml_files:
-        stem = Path(filename).stem
         xml_path = os.path.join(xml_dir, filename)
         plain_html_path = os.path.join(plain_dir, filename.replace(".xml", ".html"))
-        
+
         command = ["python", CONVERSION_SCRIPT, xml_path, plain_html_path, "--plain"]
-        
-        flags = flag_map.get(stem, "")
-        if "--verse-only" in flags:
-            command.append("--verse-only")
-        
+
         subprocess.run(command)
 
     # Pass 2: Generate all rich files
@@ -48,8 +43,6 @@ def regenerate_html(xml_dir, plain_dir, rich_dir, standalone=False):
         flags = flag_map.get(stem, "")
         if "--line-by-line" not in flags:
             command.append("--no-line-numbers")
-        if "--verse-only" in flags:
-            command.append("--verse-only")
         if standalone:
             command.append("--standalone")
 
