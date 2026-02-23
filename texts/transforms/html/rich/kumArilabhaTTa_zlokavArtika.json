@@ -485,6 +485,8 @@
     "has_verses": true,
     "has_location_markers": false,
     "no_line_numbers": true,
+    "drama": false,
+    "has_chaya": false,
     "pdf_page_mapping": {
         "url": "https://archive.org/details/SlokavarttikaNyayaratnakara/page/n29/mode/2up",
         "offsets": [

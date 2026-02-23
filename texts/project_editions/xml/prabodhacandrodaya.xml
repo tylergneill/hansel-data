@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title type="main">Prabodhacandrodaya</title>
+        <title type="sub">A HANSEL edition</title>
+        <author>Kṛṣṇa Miśra</author>
+        <respStmt>
+          <persName>Matthew Kapstein</persName>
+          <resp>Contribution to the digital edition.</resp>
+        </respStmt>
+        <respStmt>
+          <persName>Tyler Neill</persName>
+          <resp>Contribution to the digital edition.</resp>
+        </respStmt>
+      </titleStmt>
+      <publicationStmt>
+        <authority>HANSEL: Human-Accessible NLP-ready Sanskrit E-text Library</authority>
+        <availability status="restricted">
+          <licence>
+            <p>Copyright 2026 Tyler Neill.</p>
+            <p>
+              <ref target="https://creativecommons.org/licenses/by-sa/4.0/" type="licence">
+      Distributed by <ref target="https://hansel-library.info" type="url">HANSEL</ref>
+      under a Creative Commons Attribution-ShareAlike 4.0 International License.
+    </ref>
+            </p>
+            <p>Under this licence, you are free to:
+    <list>
+                <item>Share — copy and redistribute the material in any medium or format for any purpose, even commercially.</item>
+                <item>Adapt — remix, transform, and build upon the material for any purpose, even commercially.</item>
+              </list>
+            </p>
+            <p>The licensor cannot revoke these freedoms as long as you follow the license terms.</p>
+            <p>Under the following terms:</p>
+            <p>
+              <list>
+                <item>Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.</item>
+                <item>ShareAlike — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.</item>
+                <item>No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.</item>
+              </list>
+            </p>
+            <p>See the Creative Commons site for full details.</p>
+            <p>HANSEL assumes no responsibility for unauthorised use that infringes rights.</p>
+          </licence>
+        </availability>
+        <date when="2026-02-13">February 13, 2026</date>
+      </publicationStmt>
+      <notesStmt>
+        <note>my description...</note>
+      </notesStmt>
+      <sourceDesc>
+        <bibl>
+          <title>something</title>
+          <editor>Matthew Kapstein</editor>
+          <imprint>
+            <publisher></publisher>
+            <pubPlace></pubPlace>
+            <date></date>
+          </imprint>
+        </bibl>
+        <series>
+          <title level="s"></title>
+          <biblScope></biblScope>
+        </series>
+        <note></note>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <editorialDecl>
+        <p id="file-creation-method">i did it this way</p>
+        <p id="transliteration">
+          The source edition is printed in Devanāgarī; the electronic text uses lossless IAST transliteration.
+          IAST differs slightly from ISO 15919; conversion can be achieved via:
+          <list>
+            <item>
+              <code>ṛ → r̥</code>
+            </item>
+            <item>
+              <code>ḷ → l̥</code>
+            </item>
+            <item>
+              <code>ḻ → ḷ</code>
+            </item>
+            <item>
+              <code>ṃ → ṁ</code>
+            </item>
+            <item>
+              <code>e → ē</code>
+            </item>
+            <item>
+              <code>o → ō</code>
+            </item>
+          </list>
+        </p>
+        <p id="word-division">Roman-like (ity evam, not ityevam)</p>
+        <p id="error-markup">
+          Corrections and uncertainties:
+          <list>
+            <item>Replacement: <choice>
+                <sic>before</sic>
+                <corr>after</corr>
+              </choice>
+            </item>
+            <item>Deletion: <del/>
+            </item>
+            <item>Addition: <supplied/>
+            </item>
+            <item>Unclear: <unclear/>
+            </item>
+          </list>
+        </p>
+        <p id="intermediate-textual-units">.</p>
+      </editorialDecl>
+    </encodingDesc>
+    <revisionDesc>
+      <change when="2009" who="Matthew Kapstein">Typed up...</change>
+      <change when="Feb 2026" who="Tyler Neill">Processed...</change>
+    </revisionDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <div n="act 1">
+        <sp who="rāmaḥ">
+          <speaker>rāmaḥ</speaker>
+          <p>
+            <stage>praviśya</stage> namaḥ sarvebhyaḥ. idaṃ vanaṃ paśyāmi. </p>
+        </sp>
+        <sp who="sītā">
+          <speaker>sītā</speaker>
+          <p>
+            <seg type="prakrit" xml:lang="pra-Latn">kajjaṃ ca paḍhantī.<seg type="chāyā" xml:lang="san-Latn">kāryaṃ ca paṭhantī.</seg>
+            </seg>
+          </p>
+        </sp>
+      </div>
+    </body>
+  </text>
+</TEI>
