@@ -99,6 +99,13 @@ class HtmlConverter:
                 pass
             elif child.tag == 'supplied':
                 text += self.get_plain_text_recursive(child)
+            elif child.tag == 'lg' and child.get('type') == 'chāyā':
+                # Nested chāyā verse group — extract plain text of its <l> children
+                chaya_lines = []
+                for sub_child in child:
+                    if sub_child.tag == 'l':
+                        chaya_lines.append(self.get_plain_text_recursive(sub_child))
+                text += ' (' + ' '.join(chaya_lines) + ')'
             elif child.tag == 'stage':
                 text += '((' + self.get_plain_text_recursive(child) + '))'
             elif child.tag == 'seg':
@@ -279,6 +286,12 @@ class HtmlConverter:
                     else:
                         p_tag = etree.SubElement(target_div, "p")
                         self.process_children(child, p_tag, treat_as_plain, in_lg=(not treat_as_plain))
+                elif child.tag == 'lg' and child.get('type') == 'chāyā':
+                    chaya_div = etree.SubElement(target_div, "div", {"class": "chaya"})
+                    for sub_child in child:
+                        if sub_child.tag == 'l':
+                            span_tag = etree.SubElement(chaya_div, "span")
+                            self.process_children(sub_child, span_tag, treat_as_plain, in_lg=(not treat_as_plain))
                 elif child.tag == 'milestone':
                     if not treat_as_plain:
                         milestone_span = etree.SubElement(target_div, "span", {"class": "milestone"})
@@ -301,6 +314,12 @@ class HtmlConverter:
                     if child.tag == 'l':
                         span_tag = etree.SubElement(div_elem, "span")
                         self.process_children(child, span_tag, False, in_lg=True)
+                    elif child.tag == 'lg' and child.get('type') == 'chāyā':
+                        chaya_div = etree.SubElement(div_elem, "div", {"class": "chaya"})
+                        for sub_child in child:
+                            if sub_child.tag == 'l':
+                                span_tag = etree.SubElement(chaya_div, "span")
+                                self.process_children(sub_child, span_tag, False, in_lg=True)
                     elif child.tag == 'back':
                         if len(div_elem) > 0:
                             self.process_children(child, div_elem[-1], False, in_lg=True)
@@ -774,7 +793,7 @@ class HtmlConverter:
                     "rows": self.corrections_data
                 })
 
-            has_chaya = bool(root.xpath('//seg[@type="chāyā"]'))
+            has_chaya = bool(root.xpath('//seg[@type="chāyā"]') or root.xpath('//lg[@type="chāyā"]'))
             document_context = {
                 "title": text_base_name,
                 "toc": self.toc_data,

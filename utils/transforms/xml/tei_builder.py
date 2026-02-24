@@ -41,7 +41,7 @@ COMBINED_VERSE_END_RE = re.compile(f"{VERSE_MARKER_RE.pattern}|{VERSE_BACK_BOUND
 # Drama-specific regexes
 SPEAKER_RE = re.compile(r"^(\S+) — (.*)$")
 STAGE_DIRECTION_RE = re.compile(r"\(\(([^)]+)\)\)")
-PRAKRIT_CHAYA_RE = re.compile(r"˹([^˼]+)˼\(([^)]+)\)")
+PRAKRIT_RE = re.compile(r"˹([^˼]+)˼(?:\s*\(([^)]+)\))?")
 
 CHAR_FOR_PENDING_HEAD = "_"
 PENDING_HEAD_RE = re.compile(f"^(.*[\|—,])\s*{re.escape(CHAR_FOR_PENDING_HEAD)}$")
@@ -112,6 +112,14 @@ class TextBuildState:
     # drama state
     current_sp: Optional[etree._Element] = None
 
+    # chāyā state (multi-line Prakrit/chāyā support)
+    awaiting_chaya: bool = False
+    chaya_prakrit_seg: Optional[etree._Element] = None  # prose: <seg type="prakrit"> to nest chāyā inside
+    chaya_target_lg: Optional[etree._Element] = None    # verse: the <lg> to attach chāyā <lg> to
+    in_chaya_verse: bool = False                        # True while processing chāyā verse lines
+    chaya_inner_lg: Optional[etree._Element] = None     # the <lg type="chāyā"> being built
+    in_prakrit_verse: bool = False                      # True while inside ˹...˼ verse markers
+
 # ----------------------------
 # Builder class
 # ----------------------------
@@ -137,6 +145,11 @@ class TeiTextBuilder:
         if not line.strip():
             return
         s = self.state
+
+        # CHĀYĀ DISPATCH — intercept lines when awaiting chāyā after ˹...˼
+        if s.awaiting_chaya:
+            if self._handle_chaya_line(line):
+                return
 
         # HANDLE STRUCTURE-ONLY LINES
 
@@ -337,19 +350,100 @@ class TeiTextBuilder:
 
         self._process_content_with_midline_elements(rest, "verse", rest)
 
-    def _handle_verse_line(self, line: str) -> None:
+    def _handle_chaya_line(self, line: str) -> bool:
+        """Handle a line when awaiting_chaya is True. Returns True if the line was consumed."""
         s = self.state
+        stripped = line.strip()
+
+        # --- Prose chāyā (single line): entire line is (...) ---
+        if s.chaya_prakrit_seg is not None and not s.in_chaya_verse:
+            m = re.match(r'^\((.+)\)$', stripped)
+            if m:
+                chaya = etree.SubElement(s.chaya_prakrit_seg, "seg", {"type": "chāyā"})
+                chaya.set(f"{{{_XML_NS}}}lang", "san-Latn")
+                chaya.text = m.group(1)
+                s.awaiting_chaya = False
+                s.chaya_prakrit_seg = None
+                return True
+
+        # --- Verse chāyā start: tab + ( ---
+        if s.chaya_target_lg is not None and not s.in_chaya_verse:
+            m = re.match(r'^\t\((.*)$', line)
+            if m:
+                inner_lg = etree.SubElement(s.chaya_target_lg, "lg", {"type": "chāyā"})
+                inner_lg.set(f"{{{_XML_NS}}}lang", "san-Latn")
+                s.chaya_inner_lg = inner_lg
+                s.in_chaya_verse = True
+                # Process the rest as a verse line (strip the leading '(')
+                reconstructed = '\t' + m.group(1)
+                # Check if this single line also closes with )
+                if reconstructed.rstrip().endswith(')'):
+                    reconstructed = reconstructed.rstrip()[:-1]
+                    s.current_l = None
+                    self._handle_verse_line(reconstructed, target_lg_override=inner_lg)
+                    self._finalize_physical_line(line)
+                    # Close chāyā state
+                    s.awaiting_chaya = False
+                    s.chaya_target_lg = None
+                    s.chaya_inner_lg = None
+                    s.in_chaya_verse = False
+                else:
+                    s.current_l = None
+                    self._handle_verse_line(reconstructed, target_lg_override=inner_lg)
+                    self._finalize_physical_line(line)
+                return True
+
+        # --- Verse chāyā continuation / end ---
+        if s.in_chaya_verse and s.chaya_inner_lg is not None:
+            # Check if line ends with ) — signals end of chāyā verse
+            content = line
+            is_end = False
+            if content.rstrip().endswith(')'):
+                content = content.rstrip()[:-1]
+                is_end = True
+
+            self._handle_verse_line(content, target_lg_override=s.chaya_inner_lg)
+            self._finalize_physical_line(line)
+
+            if is_end:
+                s.awaiting_chaya = False
+                s.chaya_target_lg = None
+                s.chaya_inner_lg = None
+                s.in_chaya_verse = False
+            return True
+
+        return False
+
+    def _handle_verse_line(self, line: str, target_lg_override: Optional[etree._Element] = None) -> None:
+        s = self.state
+
+        # Detect and strip Prakrit verse markers ˹ and ˼
+        has_prakrit_open = '˹' in line
+        has_prakrit_close = '˼' in line
+        if has_prakrit_open:
+            line = line.replace('˹', '')
+            s.in_prakrit_verse = True
+        if has_prakrit_close:
+            line = line.replace('˼', '')
+
         self._close_p()
 
         pre_tab, after_tab = line.split("\t", 1)
         pre_tab = pre_tab.rstrip()
 
-        if pre_tab.strip() and s.current_lg is not None:
-            s.verse_group_buffer.append(s.current_lg)
+        # Determine the lg to operate on
+        if target_lg_override is not None:
+            working_lg = target_lg_override
+        else:
+            working_lg = s.current_lg
+
+        if pre_tab.strip() and working_lg is not None and target_lg_override is None:
+            s.verse_group_buffer.append(working_lg)
             s.current_lg = None
+            working_lg = None
             s.current_l = None
 
-        if s.current_lg is None:
+        if working_lg is None:
             lg = etree.Element("lg")
             if s.pending_head_elem is not None:
                 lg.append(s.pending_head_elem)
@@ -357,12 +451,17 @@ class TeiTextBuilder:
             if pre_tab.strip():
                 self._append_child_text(lg, "head", pre_tab)
                 pre_tab = ""
-            s.current_lg = lg
+            working_lg = lg
+            if target_lg_override is None:
+                s.current_lg = lg
 
         if s.current_l is None:
             if pre_tab.strip():
-                self._append_child_text(s.current_lg, "head", pre_tab)
-            s.current_l = etree.SubElement(s.current_lg, "l")
+                self._append_child_text(working_lg, "head", pre_tab)
+            l_attrs = {}
+            if s.in_prakrit_verse:
+                l_attrs[f"{{{_XML_NS}}}lang"] = "pra-Latn"
+            s.current_l = etree.SubElement(working_lg, "l", l_attrs)
             s.last_tail_text_sink = None
 
         verse_payload = after_tab
@@ -381,7 +480,7 @@ class TeiTextBuilder:
 
         if back_text and back_text.strip():
             milestone_to_move = s.last_tail_text_sink
-            back_el = self._append_child_text(s.current_lg, "back", back_text)
+            back_el = self._append_child_text(working_lg, "back", back_text)
             if (
                     milestone_to_move is not None
                     and milestone_to_move.tag in ('lb', 'pb')
@@ -392,9 +491,15 @@ class TeiTextBuilder:
                     back_el.append(milestone_to_move)
 
         if is_verse_close:
-            if s.current_lg is not None:
-                s.verse_group_buffer.append(s.current_lg)
-            s.current_lg = None
+            if has_prakrit_close:
+                # Prakrit verse just closed — store the lg for chāyā attachment
+                s.awaiting_chaya = True
+                s.chaya_target_lg = working_lg
+                s.in_prakrit_verse = False
+            if target_lg_override is None:
+                if s.current_lg is not None:
+                    s.verse_group_buffer.append(s.current_lg)
+                s.current_lg = None
             s.current_l = None
 
     def _emit_pb_from_match(self, match: re.Match):
@@ -429,13 +534,20 @@ class TeiTextBuilder:
         stage.text = match.group(1)
         self._add_inline_element(stage)
 
-    def _emit_prakrit_chaya(self, match: re.Match):
+    def _emit_prakrit(self, match: re.Match):
+        s = self.state
         seg = etree.Element("seg", {"type": "prakrit"})
         seg.set(f"{{{_XML_NS}}}lang", "pra-Latn")
         seg.text = match.group(1)
-        chaya = etree.SubElement(seg, "seg", {"type": "chāyā"})
-        chaya.set(f"{{{_XML_NS}}}lang", "san-Latn")
-        chaya.text = match.group(2)
+        if match.group(2):
+            # Inline chāyā on the same line: ˹prakrit˼(chāyā)
+            chaya = etree.SubElement(seg, "seg", {"type": "chāyā"})
+            chaya.set(f"{{{_XML_NS}}}lang", "san-Latn")
+            chaya.text = match.group(2)
+        else:
+            # No inline chāyā — expect it on the next line
+            s.awaiting_chaya = True
+            s.chaya_prakrit_seg = seg
         self._add_inline_element(seg)
 
     def _add_inline_element(self, el: etree._Element):
@@ -465,7 +577,7 @@ class TeiTextBuilder:
         if s.drama:
             markers.extend([
                 (STAGE_DIRECTION_RE, self._emit_stage_direction),
-                (PRAKRIT_CHAYA_RE, self._emit_prakrit_chaya),
+                (PRAKRIT_RE, self._emit_prakrit),
             ])
         
         all_matches = []
