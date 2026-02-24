@@ -181,7 +181,7 @@
     "has_verses": true,
     "has_location_markers": true,
     "no_line_numbers": true,
-    "drama": false,
+    "drama": true,
     "has_chaya": true,
     "pdf_page_mapping": {
         "url": "https://archive.org/details/kapstein_prabodhacandrodaya_text_2026_01_16/page/n0/mode/2up",
