@@ -309,7 +309,7 @@ tan na yuktam ihāsmākam avasthātum |
 
 ((iti niṣkrāntau))
 
-viṣkambhaḥ |
+viṣkambhaḥ
 
 [1,82]
 
@@ -1313,19 +1313,19 @@ digambaraḥ — ˹ṇamo aluhantāṇam, aluhantāṇam! ṇavaduvālagharamajj
 
 ((nepathyābhimukham avalokya)) ˹saddhe, ido dāva˼(śraddhe, itas tāvat |)
 
-[3,34]
+[3,31]
 
 ((ubhe sabhayam ālokayataḥ | tataḥ pravśati tadanurūpaveṣā śraddhā))
 
-[3,35]
+[3,32]
 
 śraddhā — ˹kiṃ āṇavei lāaulaṃ?˼(kim ājñāpayati rājakulam?) ((śāntir mūrcchitā patati))
 
-[3,36]
+[3,33]
 
 digambarasiddhāntaḥ — ˹sāvaāṇaṃ kuḍumbaṃ muhuttaṃ pi mā paliccaa |˼(śrāvakāṇāṃ kuṭumbaaṃ muhūrtam api mā parityaja |)
 
-[3,37]
+[3,34]
 
 śraddhā — ˹jaṃ āṇavei lāaulam˼(yad ājñāpayati rājakulam |) ((iti niṣkrāntā))
 
@@ -1663,7 +1663,7 @@ kṣapaṇakaḥ — ((saromāñcam)) ˹aho arihanta! aho arihanta! kāvālinīe
 
 ˹aho, kāvāliaṃ jevva ekkaṃ daṃsaṇaṃ sokkhamokkhasāhaṇaṃ | bho, ācālia! ahaṃ tuha dāso saṃvutto | maṃ pi mahābhailavāṇusāsaṇe dīkkhedu!˼(aho, kāpālikaṃ darśanam evaikaṃ saukhyamokṣasādhanam | bho, ācārya! ahaṃ tava dāsaḥ saṃvṛttaḥ | mām api mahābhairavānuśāsane dīkṣayata!)
 
-[3,116]
+[3,114]
 
 kāpālīkāḥ — upaviśyatām | ((ubhau tathā kurutaḥ |))
 
@@ -1992,7 +1992,7 @@ maitrī — ˹tā gacchaü, piasahī! ahaṃ vi taṇṇioaṃ aṇuciṭṭhām
 
 ((iti niṣkrānte |))
 
-viṣkambhakaḥ |
+viṣkambhakaḥ
 
 <57>
 
@@ -2152,7 +2152,7 @@ kṣamā —
 	na cāpi hiṃsādir anarthayogaḥ,
 	ślāghyā paraṃ krodhajaye 'ham ekā ||
 
-[4,70]
+[4,69]
 
 ((ity ubhe parikrāmataḥ |))
 
@@ -2628,7 +2628,7 @@ viṣṇubhaktiḥ — tad bhavatu! asya vairāgyotpattaye vaiyāsikīṃ sarasv
 
 ((iti niṣkrānte))
 
-praveśakaḥ |
+praveśakaḥ
 
 <79>
 
@@ -3126,7 +3126,7 @@ madhumatīṃ ca bhūmim āpannaḥ, sthānābhimāninībhir devatābhir upaccha
 
 ((iti niṣkrānte))
 
-praveśakaḥ |
+praveśakaḥ
 
 <95>
 
@@ -3665,7 +3665,7 @@ tathāpīdam astu!
 
 [6,171]
 
-bharatavākyam |_
+((bharatavākyam |))
 
 	parjanyo 'smin jagati mahatīṃ vṛṣṭim iṣṭāṃ vidhattāṃ |
 	rājānaḥ kṣmāṃ galitavividhopaplavāṃ pālayantu |
