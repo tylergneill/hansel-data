@@ -16,11 +16,13 @@ def _is_condensed_lg(lg_element):
 
 
 class HtmlConverter:
-    def __init__(self, no_line_numbers=False, only_plain=False, standalone=False, drama=False):
+    def __init__(self, no_line_numbers=False, only_plain=False, standalone=False, drama=False, page_label="p", line_label="l"):
         self.no_line_numbers = no_line_numbers
         self.only_plain = only_plain
         self.standalone = standalone
         self.drama = drama
+        self.page_label = page_label
+        self.line_label = line_label
         self.toc_data = []
         self.corrections_data = []
         self.metadata_entries = []
@@ -238,7 +240,7 @@ class HtmlConverter:
                 if not in_lg or is_after_caesura:
                     self.pending_breaks += 1
                 lb_span = etree.Element("span", {"class": "lb-label rich-text", "data-line": line_n})
-                lb_span.text = f'(p.{self.current_page}, l.{line_n})'
+                lb_span.text = f'({self.page_label}.{self.current_page}, {self.line_label}.{line_n})'
                 self.pending_label = lb_span
             elif child.tag == 'pb':
                 if child.get("break") == "no":
@@ -261,7 +263,7 @@ class HtmlConverter:
                 if not in_lg:
                     self.pending_breaks += 1
                 pb_a = etree.Element("a", {"class": "pb-label rich-text", "data-page": self.current_page, "target": "_blank"})
-                pb_a.text = f'(p.{self.current_page}, l.1)' if not self.no_line_numbers else f'(p.{self.current_page})'
+                pb_a.text = f'({self.page_label}.{self.current_page}, {self.line_label}.1)' if not self.no_line_numbers else f'({self.page_label}.{self.current_page})'
                 self.pending_label = pb_a
             elif child.tag == 'choice':
                 corr_span = etree.SubElement(html_node, "span", {"class": "correction"})
@@ -319,6 +321,37 @@ class HtmlConverter:
             if child.tail:
                 should_strip = (child.tag in ['lb', 'pb']) and not treat_as_plain
                 self.append_text(html_node, child.tail, strip_leading_whitespace=should_strip, treat_as_plain=treat_as_plain)
+
+    def _emit_location_h2(self, content_div, n_attr):
+        """Emit a location-marker <h2> to content_div for the given n attribute value.
+
+        Resets pending breaks/labels and updates current_page/line state.
+        Used by both the main section loop and the <sp> handler.
+        """
+        self.pending_breaks = 0
+        self.pending_label = None
+        self.has_location_markers = True
+        self.current_location_id = n_attr.replace(',', '_').replace(' ', '')
+        h2 = etree.SubElement(content_div, "h2", {"class": "location-marker rich-text", "id": self.current_location_id})
+        n_parts = n_attr.split(',')
+        page_part = n_parts[0].strip()
+        line_part = n_parts[1].strip() if len(n_parts) > 1 else "1"
+        self.current_page = page_part
+        self.current_line = line_part
+        if len(n_parts) == 2:
+            h2.text = f"{self.page_label}.{page_part}, {self.line_label}.{line_part}"
+        elif len(n_parts) == 1:
+            h2.text = f"{self.page_label}.{page_part}"
+        else:
+            h2.text = n_attr
+        if len(n_parts) == 2:
+            if line_part == "1":
+                label = etree.Element("a", {"class": "pb-label rich-text", "data-page": page_part, "target": "_blank"})
+                label.text = f'({self.page_label}.{page_part}, {self.line_label}.1)'
+            else:
+                label = etree.Element("span", {"class": "lb-label rich-text", "data-line": line_part})
+                label.text = f'({self.page_label}.{page_part}, {self.line_label}.{line_part})'
+            self.pending_label = label
 
     def process_lg_content(self, lg_element, container, treat_as_plain):
         """Processes a TEI <lg> (line group) element into an HTML structure.
@@ -629,7 +662,7 @@ class HtmlConverter:
                     # Milestones occupy a physical line
                     self.current_line = str(int(self.current_line) + 1)
                     if self.pending_label is not None:
-                        label_text = f'(p.{self.current_page}, l.{self.current_line})' if not self.no_line_numbers else f'(p.{self.current_page})'
+                        label_text = f'({self.page_label}.{self.current_page}, {self.line_label}.{self.current_line})' if not self.no_line_numbers else f'({self.page_label}.{self.current_page})'
                         self.pending_label.text = label_text
                     n_attr = element.get("n")
                     if n_attr:
@@ -639,54 +672,67 @@ class HtmlConverter:
                     self.current_page = element.get("n")
                     self.current_line = "1"
                     pb_a = etree.Element("a", {"class": "pb-label rich-text", "data-page": self.current_page, "target": "_blank"})
-                    pb_a.text = f'(p.{self.current_page}, l.1)' if not self.no_line_numbers else f'(p.{self.current_page})'
+                    pb_a.text = f'({self.page_label}.{self.current_page}, {self.line_label}.1)' if not self.no_line_numbers else f'({self.page_label}.{self.current_page})'
                     self.pending_label = pb_a
 
                 elif element.tag == "sp":
-                    # Drama: speech container
+                    # Drama: speech container.
+                    # Rich and plain passes are unified into one loop so that
+                    # location-marker <h2> elements can be interleaved at
+                    # content_div level between speech containers.
                     speaker_el = element.find("speaker")
                     speaker_name = (speaker_el.text or "") if speaker_el is not None else ""
 
-                    # Rich pass
-                    if not self.only_plain:
-                        speech_div = etree.SubElement(content_div, "div", {"class": "speech rich-text"})
-                        if speaker_name:
-                            speaker_span = etree.SubElement(speech_div, "span", {"class": "speaker"})
-                            speaker_span.text = speaker_name
-                        for sp_child in element.iterchildren():
-                            if sp_child.tag == "speaker":
-                                continue
-                            elif sp_child.tag == "p":
+                    speech_div = None       # rich container; reset at each location marker
+                    speech_div_plain = None  # plain container; reset at each location marker
+                    first_rich_div = True    # speaker span emitted only on the first rich div
+                    speaker_shown = False    # speaker name prepended only on first <p> (plain)
+
+                    for sp_child in element.iterchildren():
+                        if sp_child.tag == "speaker":
+                            continue
+
+                        n_attr = sp_child.get("n")
+                        if n_attr and ',' in n_attr:
+                            # Location marker: emit <h2> and reset speech containers
+                            # so the content following the marker starts a fresh div.
+                            speech_div = None
+                            speech_div_plain = None
+                            self._emit_location_h2(content_div, n_attr)
+
+                        # Lazily create speech containers (or re-create after a reset).
+                        if not self.only_plain and speech_div is None:
+                            speech_div = etree.SubElement(content_div, "div", {"class": "speech rich-text"})
+                            if speaker_name and first_rich_div:
+                                etree.SubElement(speech_div, "span", {"class": "speaker"}).text = speaker_name
+                            first_rich_div = False
+                        if speech_div_plain is None:
+                            speech_div_plain = etree.SubElement(content_div, "div", {"class": "speech plain-text"})
+
+                        if sp_child.tag == "p":
+                            if not self.only_plain:
                                 self.process_children(sp_child, etree.SubElement(speech_div, "p"), treat_as_plain=False, in_lg=False)
-                            elif sp_child.tag == "lg":
+                            p_plain = etree.SubElement(speech_div_plain, "p")
+                            if speaker_name and not speaker_shown:
+                                self.append_text(p_plain, f"{speaker_name} \u2014 ", treat_as_plain=True)
+                                speaker_shown = True
+                            self.process_children(sp_child, p_plain, treat_as_plain=True, in_lg=False)
+                        elif sp_child.tag == "lg":
+                            if not self.only_plain:
                                 if sp_child.get('type') == 'group':
                                     for lg_child in sp_child.findall("lg"):
                                         self.process_lg_content(lg_child, speech_div, treat_as_plain=False)
                                 else:
                                     self.process_lg_content(sp_child, speech_div, treat_as_plain=False)
-                            elif sp_child.tag == "stage":
-                                stage_span = etree.SubElement(speech_div, "span", {"class": "stage-direction"})
-                                self.process_children(sp_child, stage_span, treat_as_plain=False, in_lg=False)
-
-                    # Plain pass
-                    speech_div_plain = etree.SubElement(content_div, "div", {"class": "speech plain-text"})
-                    speaker_emitted = False
-                    for sp_child in element.iterchildren():
-                        if sp_child.tag == "speaker":
-                            continue
-                        elif sp_child.tag == "p":
-                            p_plain = etree.SubElement(speech_div_plain, "p")
-                            if speaker_name and not speaker_emitted:
-                                self.append_text(p_plain, f"{speaker_name} \u2014 ", treat_as_plain=True)
-                                speaker_emitted = True
-                            self.process_children(sp_child, p_plain, treat_as_plain=True, in_lg=False)
-                        elif sp_child.tag == "lg":
                             if sp_child.get('type') == 'group':
                                 for lg_child in sp_child.findall("lg"):
                                     self.process_lg_content(lg_child, speech_div_plain, treat_as_plain=True)
                             else:
                                 self.process_lg_content(sp_child, speech_div_plain, treat_as_plain=True)
                         elif sp_child.tag == "stage":
+                            if not self.only_plain:
+                                stage_span = etree.SubElement(speech_div, "span", {"class": "stage-direction"})
+                                self.process_children(sp_child, stage_span, treat_as_plain=False, in_lg=False)
                             p_plain = etree.SubElement(speech_div_plain, "p")
                             stage_text = self.get_plain_text_recursive(sp_child)
                             self.append_text(p_plain, f"(({stage_text}))", treat_as_plain=True)
@@ -722,9 +768,9 @@ class HtmlConverter:
                         self.current_line = line_part
 
                         if len(n_parts) == 2:
-                            h2.text = f"p.{page_part}, l.{line_part}"
+                            h2.text = f"{self.page_label}.{page_part}, {self.line_label}.{line_part}"
                         elif len(n_parts) == 1:
-                            h2.text = f"p.{page_part}"
+                            h2.text = f"{self.page_label}.{page_part}"
                         else:
                             h2.text = n_attr
 
@@ -735,10 +781,10 @@ class HtmlConverter:
                         if len(n_parts) == 2:
                             if line_part == "1":
                                 label = etree.Element("a", {"class": "pb-label rich-text", "data-page": page_part, "target": "_blank"})
-                                label.text = f'(p.{page_part}, l.1)'
+                                label.text = f'({self.page_label}.{page_part}, {self.line_label}.1)'
                             else:
                                 label = etree.Element("span", {"class": "lb-label rich-text", "data-line": line_part})
-                                label.text = f'(p.{page_part}, l.{line_part})'
+                                label.text = f'({self.page_label}.{page_part}, {self.line_label}.{line_part})'
                             self.pending_label = label
 
                     if not self.only_plain:
@@ -777,9 +823,9 @@ class HtmlConverter:
                         self.current_line = line_part
 
                         if len(n_parts) == 2:
-                            h2.text = f"p.{page_part}, l.{line_part}"
+                            h2.text = f"{self.page_label}.{page_part}, {self.line_label}.{line_part}"
                         elif len(n_parts) == 1:
-                            h2.text = f"p.{page_part}"
+                            h2.text = f"{self.page_label}.{page_part}"
                         else:
                             h2.text = n_attr
 
@@ -790,10 +836,10 @@ class HtmlConverter:
                         if len(n_parts) == 2:
                             if line_part == "1":
                                 label = etree.Element("a", {"class": "pb-label rich-text", "data-page": page_part, "target": "_blank"})
-                                label.text = f'(p.{page_part}, l.1)'
+                                label.text = f'({self.page_label}.{page_part}, {self.line_label}.1)'
                             else:
                                 label = etree.Element("span", {"class": "lb-label rich-text", "data-line": line_part})
-                                label.text = f'(p.{page_part}, l.{line_part})'
+                                label.text = f'({self.page_label}.{page_part}, {self.line_label}.{line_part})'
                             self.pending_label = label
 
                     # Rich pass: wrap in <ul class="verses"> for verse-styling CSS
@@ -887,6 +933,8 @@ if __name__ == "__main__":
     parser.add_argument("--plain", action="store_true", help="Generate a plain HTML version without rich features.")
     parser.add_argument("--standalone", action="store_true", help="Generate a browser-viewable HTML file for development.")
     parser.add_argument("--drama", action="store_true", help="Drama mode: handle speakers, stage directions, and chāyās.")
+    parser.add_argument("--page-label", default="p", help="Label used for the first coordinate of a location marker (default: p).")
+    parser.add_argument("--line-label", default="l", help="Label used for the second coordinate of a location marker (default: l).")
     args = parser.parse_args()
 
     converter = HtmlConverter(
@@ -894,6 +942,8 @@ if __name__ == "__main__":
         only_plain=args.plain,
         standalone=args.standalone,
         drama=args.drama,
+        page_label=args.page_label,
+        line_label=args.line_label,
     )
     converter.convert_xml_to_html(args.xml_path, args.html_path)
 
