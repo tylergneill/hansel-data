@@ -1,5 +1,6 @@
 from lxml import etree
 import argparse
+import copy
 import json
 from pathlib import Path
 import markdown
@@ -124,6 +125,69 @@ class HtmlConverter:
             if child.tail:
                 text += child.tail
         return text
+
+    def _render_l_as_spans(self, l_element, target_div, treat_as_plain, in_lg):
+        """Render an <l> element as one or more <span> elements.
+
+        If the <l> contains a <caesura/>, split into two <span> elements
+        so that each pāda displays on its own line.
+        """
+        caesura = l_element.find('caesura')
+        if caesura is None:
+            span_tag = etree.SubElement(target_div, "span")
+            self.process_children(l_element, span_tag, treat_as_plain, in_lg=in_lg)
+            return
+
+        # Split <l> at <caesura/>: build two virtual halves
+        # First half: l.text + children before caesura (with their tails)
+        # Second half: caesura.tail + children after caesura (with their tails)
+        before_caesura = True
+        first_span = etree.SubElement(target_div, "span")
+        second_span = etree.SubElement(target_div, "span")
+
+        if l_element.text:
+            first_span.text = l_element.text
+
+        for child in l_element:
+            if child.tag == 'caesura':
+                before_caesura = False
+                if child.tail:
+                    second_span.text = child.tail
+                continue
+            target_span = first_span if before_caesura else second_span
+            child_copy = copy.deepcopy(child)
+            # Move tail to the copy
+            target_span.append(child_copy)
+
+        # Now process each half through process_children wouldn't work since
+        # we've already built the structure. Instead, re-process from scratch
+        # using temporary <l> wrappers.
+        # Clear what we built and do it properly:
+        target_div.remove(first_span)
+        target_div.remove(second_span)
+
+        first_l = etree.Element("l")
+        second_l = etree.Element("l")
+        first_l.text = l_element.text
+
+        for child in l_element:
+            if child.tag == 'caesura':
+                before_caesura = False
+                # caesura.tail becomes second_l.text (or prepend)
+                if child.tail:
+                    second_l.text = child.tail
+                continue
+            if before_caesura:
+                child_copy = copy.deepcopy(child)
+                first_l.append(child_copy)
+            else:
+                child_copy = copy.deepcopy(child)
+                second_l.append(child_copy)
+
+        first_span = etree.SubElement(target_div, "span")
+        self.process_children(first_l, first_span, treat_as_plain, in_lg=in_lg)
+        second_span = etree.SubElement(target_div, "span")
+        self.process_children(second_l, second_span, treat_as_plain, in_lg=in_lg)
 
     def process_children(self, xml_node, html_node, treat_as_plain, in_lg=False):
         """Recursively processes TEI XML nodes and converts them to HTML elements.
@@ -277,8 +341,7 @@ class HtmlConverter:
                         p_tag = etree.SubElement(target_div, "p", {"class": "lg-head"})
                         self.append_text(p_tag, child.text, treat_as_plain=treat_as_plain)
                 elif child.tag == 'l':
-                    span_tag = etree.SubElement(target_div, "span")
-                    self.process_children(child, span_tag, treat_as_plain, in_lg=(not treat_as_plain))
+                    self._render_l_as_spans(child, target_div, treat_as_plain, in_lg=(not treat_as_plain))
                 elif child.tag == 'back':
                     if len(target_div) > 0:
                         last_element = target_div[-1]
@@ -290,8 +353,7 @@ class HtmlConverter:
                     chaya_div = etree.SubElement(target_div, "div", {"class": "chaya"})
                     for sub_child in child:
                         if sub_child.tag == 'l':
-                            span_tag = etree.SubElement(chaya_div, "span")
-                            self.process_children(sub_child, span_tag, treat_as_plain, in_lg=(not treat_as_plain))
+                            self._render_l_as_spans(sub_child, chaya_div, treat_as_plain, in_lg=(not treat_as_plain))
                 elif child.tag == 'milestone':
                     if not treat_as_plain:
                         milestone_span = etree.SubElement(target_div, "span", {"class": "milestone"})
@@ -312,14 +374,12 @@ class HtmlConverter:
                 div_elem = etree.SubElement(verse_li, "div", {"class": "lg"})
                 for child in lg_element.iterchildren():
                     if child.tag == 'l':
-                        span_tag = etree.SubElement(div_elem, "span")
-                        self.process_children(child, span_tag, False, in_lg=True)
+                        self._render_l_as_spans(child, div_elem, False, in_lg=True)
                     elif child.tag == 'lg' and child.get('type') == 'chāyā':
                         chaya_div = etree.SubElement(div_elem, "div", {"class": "chaya"})
                         for sub_child in child:
                             if sub_child.tag == 'l':
-                                span_tag = etree.SubElement(chaya_div, "span")
-                                self.process_children(sub_child, span_tag, False, in_lg=True)
+                                self._render_l_as_spans(sub_child, chaya_div, False, in_lg=True)
                     elif child.tag == 'back':
                         if len(div_elem) > 0:
                             self.process_children(child, div_elem[-1], False, in_lg=True)
