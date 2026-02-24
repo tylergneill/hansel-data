@@ -44,7 +44,7 @@ STAGE_DIRECTION_RE = re.compile(r"\(\(([^)]+)\)\)")
 PRAKRIT_CHAYA_RE = re.compile(r"˹([^˼]+)˼\(([^)]+)\)")
 
 CHAR_FOR_PENDING_HEAD = "_"
-PENDING_HEAD_RE = re.compile(f"^(.*[\|—])\s*{re.escape(CHAR_FOR_PENDING_HEAD)}$")
+PENDING_HEAD_RE = re.compile(f"^(.*[\|—,])\s*{re.escape(CHAR_FOR_PENDING_HEAD)}$")
 PENDING_BACK_RE = re.compile(f"^{re.escape(CHAR_FOR_PENDING_HEAD)}(.*)$")
 
 # ----------------------------
