@@ -341,7 +341,7 @@ class HtmlConverter:
                 self.append_text(html_node, child.tail, strip_leading_whitespace=should_strip, treat_as_plain=treat_as_plain)
 
     def _emit_editorial_coord_h2(self, content_div, n_attr):
-        """Emit an editorial-coordinate <h2> to content_div for the given n attribute value.
+        """Emit an editorial-coordinate <h3> to content_div for the given n attribute value.
 
         Resets pending breaks/labels and updates current_page/line state.
         Used by the <sp> handler (drama mode).
@@ -370,7 +370,7 @@ class HtmlConverter:
             self.pending_breaks = 0
             self.has_editorial_coords = True
             self.current_coord_id = n_attr.replace(',', '_').replace(' ', '')
-            h2 = etree.SubElement(content_div, "h2", {"class": "editorial-coord rich-text", "id": self.current_coord_id})
+            h2 = etree.SubElement(content_div, "h3", {"class": "editorial-coord rich-text", "id": self.current_coord_id})
             if len(n_parts) == 2:
                 h2.text = f"{self.page_label}.{page_part}, {self.line_label}.{line_part}"
             elif len(n_parts) == 1:
@@ -384,7 +384,7 @@ class HtmlConverter:
         self.pending_label = None
         self.has_editorial_coords = True
         self.current_coord_id = n_attr.replace(',', '_').replace(' ', '')
-        h2 = etree.SubElement(content_div, "h2", {"class": "editorial-coord rich-text", "id": self.current_coord_id})
+        h2 = etree.SubElement(content_div, "h3", {"class": "editorial-coord rich-text", "id": self.current_coord_id})
         if len(n_parts) == 2:
             h2.text = f"{self.page_label}.{page_part}, {self.line_label}.{line_part}"
         elif len(n_parts) == 1:
@@ -828,7 +828,7 @@ class HtmlConverter:
                                 self.pending_breaks = 0
                                 self.has_editorial_coords = True
                                 self.current_coord_id = n_attr.replace(',', '_').replace(' ', '')
-                                h2 = etree.SubElement(content_div, "h2", {"class": "editorial-coord rich-text", "id": self.current_coord_id})
+                                h2 = etree.SubElement(content_div, "h3", {"class": "editorial-coord rich-text", "id": self.current_coord_id})
                                 if len(n_parts) == 2:
                                     h2.text = f"{self.page_label}.{page_part}, {self.line_label}.{line_part}"
                                 elif len(n_parts) == 1:
@@ -841,7 +841,7 @@ class HtmlConverter:
                             self.pending_label = None
                             self.has_editorial_coords = True
                             self.current_coord_id = n_attr.replace(',', '_').replace(' ', '')
-                            h2 = etree.SubElement(content_div, "h2", {"class": "editorial-coord rich-text", "id": self.current_coord_id})
+                            h2 = etree.SubElement(content_div, "h3", {"class": "editorial-coord rich-text", "id": self.current_coord_id})
                             if len(n_parts) == 2:
                                 h2.text = f"{self.page_label}.{page_part}, {self.line_label}.{line_part}"
                             elif len(n_parts) == 1:
@@ -890,7 +890,7 @@ class HtmlConverter:
                                 self.has_editorial_coords = True
                                 self.current_coord_id = n_attr.replace(',', '_').replace(' ', '')
                                 current_verses_ul = None
-                                h2 = etree.SubElement(content_div, "h2", {"class": "editorial-coord rich-text", "id": self.current_coord_id})
+                                h2 = etree.SubElement(content_div, "h3", {"class": "editorial-coord rich-text", "id": self.current_coord_id})
                                 if len(n_parts) == 2:
                                     h2.text = f"{self.page_label}.{page_part}, {self.line_label}.{line_part}"
                                 elif len(n_parts) == 1:
@@ -904,7 +904,7 @@ class HtmlConverter:
                             self.has_editorial_coords = True
                             self.current_coord_id = n_attr.replace(',', '_').replace(' ', '')
                             current_verses_ul = None
-                            h2 = etree.SubElement(content_div, "h2", {"class": "editorial-coord rich-text", "id": self.current_coord_id})
+                            h2 = etree.SubElement(content_div, "h3", {"class": "editorial-coord rich-text", "id": self.current_coord_id})
                             if len(n_parts) == 2:
                                 h2.text = f"{self.page_label}.{page_part}, {self.line_label}.{line_part}"
                             elif len(n_parts) == 1:
