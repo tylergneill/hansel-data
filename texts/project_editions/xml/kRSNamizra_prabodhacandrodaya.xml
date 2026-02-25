@@ -45,7 +45,7 @@
             <p>HANSEL assumes no responsibility for unauthorised use that infringes rights.</p>
           </licence>
         </availability>
-        <date when="2026-02-24" from="2026" to="2026">February 24, 2026</date>
+        <date when="2026-02-25" from="2026" to="2026">February 25, 2026</date>
       </publicationStmt>
       <notesStmt>
         <note/>
@@ -69,7 +69,7 @@
     </fileDesc>
     <encodingDesc>
       <editorialDecl>
-        <p id="file-creation-method">I (Tyler Neill) produced this HANSEL edition by manually converting M. Kapstein's submitted Word file into plain text, standardizing some punctuation, and adding structural markup for HANSEL. The text may still contain errors and needs a final proofread.</p>
+        <p id="file-creation-method">I (T. Neill) produced this HANSEL edition by manually converting M. Kapstein's submitted Word file into plain text, standardizing some punctuation, and adding structural markup for HANSEL. The text may still contain errors and needs a final proofread.</p>
         <p id="transliteration">
           The source edition is printed in Devanāgarī; the electronic text uses lossless IAST transliteration.
           IAST differs slightly from ISO 15919; conversion can be achieved via:
@@ -115,7 +115,7 @@
       </editorialDecl>
     </encodingDesc>
     <revisionDesc>
-      <change when="2009" who="Matthew Kapstein">Edited text based primarily on 1936 Trivandrum edition (see CSL vol. intro p. liii) plus some more material not found in the Kerala recension and sourced from other editions. Formatted as Word document.</change>
+      <change when="200?–2009" who="Matthew Kapstein">Edited text based primarily on 1936 Trivandrum edition (see CSL vol. intro p. liii) plus some more material not found in the Kerala recension and sourced from other editions. Formatted as Word document.</change>
       <change when="Feb 2026" who="Tyler Neill" ana="#hansel-contributor">Processed for HANSEL.</change>
     </revisionDesc>
   </teiHeader>
