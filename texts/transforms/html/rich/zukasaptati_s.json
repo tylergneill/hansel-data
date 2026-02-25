@@ -500,6 +500,7 @@
     ],
     "has_verses": true,
     "has_location_markers": true,
+    "has_line_breaks": true,
     "no_line_numbers": false,
     "drama": false,
     "has_chaya": false,

@@ -180,6 +180,7 @@
     ],
     "has_verses": true,
     "has_location_markers": true,
+    "has_line_breaks": false,
     "no_line_numbers": true,
     "drama": true,
     "has_chaya": true,

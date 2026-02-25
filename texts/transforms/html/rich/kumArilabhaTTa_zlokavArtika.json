@@ -484,6 +484,7 @@
     ],
     "has_verses": true,
     "has_location_markers": false,
+    "has_line_breaks": false,
     "no_line_numbers": true,
     "drama": false,
     "has_chaya": false,

@@ -33,6 +33,7 @@ class HtmlConverter:
         self.pdf_page_mapping = None
         self.has_verses = False
         self.has_location_markers = False
+        self.has_line_breaks = False
         self.current_verse = None
         self.current_verse_part = None
         self.current_location_id = None
@@ -231,6 +232,7 @@ class HtmlConverter:
                 line_n = child.get("n")
                 if line_n:
                     self.current_line = line_n
+                    self.has_line_breaks = True
 
                 is_after_caesura = False
                 previous_sibling = child.getprevious()
@@ -263,7 +265,10 @@ class HtmlConverter:
                 if not in_lg:
                     self.pending_breaks += 1
                 pb_a = etree.Element("a", {"class": "pb-label rich-text", "data-page": self.current_page, "target": "_blank"})
-                pb_a.text = f'(p.{self.current_page})'
+                if self.page_label != "p":
+                    pb_a.text = f'(p.{self.current_page})'
+                else:
+                    pb_a.text = f'({self.page_label}.{self.current_page}, {self.line_label}.1)' if not self.no_line_numbers else f'({self.page_label}.{self.current_page})'
                 self.pending_label = pb_a
             elif child.tag == 'choice':
                 corr_span = etree.SubElement(html_node, "span", {"class": "correction"})
@@ -355,11 +360,12 @@ class HtmlConverter:
         self.current_page = page_part
         self.current_line = line_part
 
-        if self.drama:
-            # Non-page-start locations: silently update state only.
+        if self.page_label != "p":
+            # Custom editorial coordinates: the n attribute is not the PDF page system.
+            # Non-section-starts: silently update state only — no h2, no inline label.
             if len(n_parts) == 2 and line_part != "1":
                 return
-            # Page-start (line_part == "1"): emit h2 with custom labels.
+            # Section start (line_part == "1"): emit h2 with custom labels.
             # Do NOT create an inline label — any pending (p.X) from a preceding
             # <pb> element is preserved and will be flushed by the first text content.
             self.pending_breaks = 0
@@ -714,7 +720,10 @@ class HtmlConverter:
                     self.current_page = element.get("n")
                     self.current_line = "1"
                     pb_a = etree.Element("a", {"class": "pb-label rich-text", "data-page": self.current_page, "target": "_blank"})
-                    pb_a.text = f'(p.{self.current_page})'
+                    if self.page_label != "p":
+                        pb_a.text = f'(p.{self.current_page})'
+                    else:
+                        pb_a.text = f'({self.page_label}.{self.current_page}, {self.line_label}.1)' if not self.no_line_numbers else f'({self.page_label}.{self.current_page})'
                     self.pending_label = pb_a
 
                 elif element.tag == "sp":
@@ -813,8 +822,8 @@ class HtmlConverter:
                         self.current_page = page_part
                         self.current_line = line_part
 
-                        if self.drama:
-                            # In drama mode the n coordinate is not the PDF page.
+                        if self.page_label != "p":
+                            # Custom editorial coords: n is not the PDF page system.
                             # Only emit h2 for section starts; never create inline labels.
                             if len(n_parts) != 2 or line_part == "1":
                                 self.pending_breaks = 0
@@ -874,8 +883,8 @@ class HtmlConverter:
                         self.current_page = page_part
                         self.current_line = line_part
 
-                        if self.drama:
-                            # In drama mode the n coordinate is not the PDF page.
+                        if self.page_label != "p":
+                            # Custom editorial coords: n is not the PDF page system.
                             # Only emit h2 for section starts; never create inline labels.
                             if len(n_parts) != 2 or line_part == "1":
                                 self.pending_breaks = 0
@@ -976,6 +985,7 @@ class HtmlConverter:
                 "metadata_entries": self.metadata_entries,
                 "has_verses": self.has_verses,
                 "has_location_markers": self.has_location_markers,
+                "has_line_breaks": self.has_line_breaks,
                 "no_line_numbers": self.no_line_numbers,
                 "drama": self.drama,
                 "has_chaya": has_chaya,
