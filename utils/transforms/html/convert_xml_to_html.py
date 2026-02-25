@@ -327,7 +327,11 @@ class HtmlConverter:
 
         Resets pending breaks/labels and updates current_page/line state.
         Used by both the main section loop and the <sp> handler.
+        Skips emission if the location is identical to the last emitted h2.
         """
+        if n_attr == getattr(self, '_last_emitted_location', None):
+            return
+        self._last_emitted_location = n_attr
         self.pending_breaks = 0
         self.pending_label = None
         self.has_location_markers = True
@@ -687,18 +691,20 @@ class HtmlConverter:
                     speech_div_plain = None  # plain container; reset at each location marker
                     first_rich_div = True    # speaker span emitted only on the first rich div
                     speaker_shown = False    # speaker name prepended only on first <p> (plain)
+                    last_sp_location = None  # dedup: skip h2 if location unchanged
 
                     for sp_child in element.iterchildren():
                         if sp_child.tag == "speaker":
                             continue
 
                         n_attr = sp_child.get("n")
-                        if n_attr and ',' in n_attr:
+                        if n_attr and ',' in n_attr and n_attr != last_sp_location:
                             # Location marker: emit <h2> and reset speech containers
                             # so the content following the marker starts a fresh div.
                             speech_div = None
                             speech_div_plain = None
                             self._emit_location_h2(content_div, n_attr)
+                            last_sp_location = n_attr
 
                         # Lazily create speech containers (or re-create after a reset).
                         if not self.only_plain and speech_div is None:

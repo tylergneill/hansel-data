@@ -832,12 +832,22 @@ class TeiTextBuilder:
             s.current_sp = None
 
     def _open_location_for_sp(self) -> None:
-        """Open a bare <p> inside the current <sp> (no xml:id or n attr)."""
+        """Open a <p> inside the current <sp>.
+
+        If current_loc_label is set (a [x,y] marker just preceded this
+        speaker), stamp the location onto the <p> so the HTML converter
+        can emit an <h2>.
+        """
         s = self.state
         self._flush_verse_group_buffer()
         self._close_p()
         self._close_lg()
-        s.current_p = etree.SubElement(s.current_sp, "p")
+        attrs: dict[str, str] = {}
+        if s.current_loc_label is not None and ',' in s.current_loc_label:
+            attrs["n"] = s.current_loc_label
+            attrs[f"{{{_XML_NS}}}id"] = self._next_loc_xml_id()
+            # DO NOT clear current_loc_label — verses in this speech still need it
+        s.current_p = etree.SubElement(s.current_sp, "p", attrs)
         s.last_tail_text_sink = None
         s.prev_line_hyphen = False
 
