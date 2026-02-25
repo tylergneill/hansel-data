@@ -1003,7 +1003,7 @@
         <sp who="puruṣaḥ">
           <speaker>puruṣaḥ</speaker>
           <p n="2,107" xml:id="p2_l107">
-            <seg type="prakrit" xml:lang="pra-Latn">ahake ukkaladesādo āado mhi | tattha sāalatīlasaṇṇivese pulisottamasaggidaṃ devadāadaṇam | tassiṃ madamāṇehiṃ bhaṭṭakehiṃ mahālāasaāsaṃ pesido mhi | ((vilokya)) esā vālāṇasī | edaṃ lāaulam | jāva ppavisāmi | ((praviśya)) eso bhaṭṭako, cavvākeṇa satthaṃ kiṃvi mantaanto ciṭṭhadi | bhodu uvasappāmi ṇam | ((upsṛtya)) jedu, jedu, bhaṭṭako! edaṃ pattaṃ ṇilūpañjadu bhaṭṭako |<seg type="chāyā" xml:lang="san-Latn">aham utkaladeśād āgato 'smi | tatra sāgaratīrasanniveśe puruṣottamaśabditaṃ devatāyatanam | tasmin madamānābhyāṃ bhaṭṭārakābhyāṃ mahārājasakāśaṃ preṣito 'smi | eṣā vārāṇasī | etad rājakulam | yāvat praviśāmi | eṣa bhaṭṭārakaś cārvākeṇa sārdhaṃ kimapi mantrayaṃs tiṣṭhati | bhavatūpasarpāmy enam | jayatu jayatu bhaṭṭāṛakaḥ | idaṃ patraṃ nirūpayata bhaṭṭārakaḥ |</seg>
+            <seg type="prakrit" xml:lang="pra-Latn">ahake ukkaladesādo āado mhi | tattha sāalatīlasaṇṇivese pulisottamasaggidaṃ devadāadaṇam | tassiṃ madamāṇehiṃ bhaṭṭakehiṃ mahālāasaāsaṃ pesido mhi | <stage>vilokya</stage> esā vālāṇasī | edaṃ lāaulam | jāva ppavisāmi | <stage>praviśya</stage> eso bhaṭṭako, cavvākeṇa satthaṃ kiṃvi mantaanto ciṭṭhadi | bhodu uvasappāmi ṇam | <stage>upsṛtya</stage> jedu, jedu, bhaṭṭako! edaṃ pattaṃ ṇilūpañjadu bhaṭṭako |<seg type="chāyā" xml:lang="san-Latn">aham utkaladeśād āgato 'smi | tatra sāgaratīrasanniveśe puruṣottamaśabditaṃ devatāyatanam | tasmin madamānābhyāṃ bhaṭṭārakābhyāṃ mahārājasakāśaṃ preṣito 'smi | eṣā vārāṇasī | etad rājakulam | yāvat praviśāmi | eṣa bhaṭṭārakaś cārvākeṇa sārdhaṃ kimapi mantrayaṃs tiṣṭhati | bhavatūpasarpāmy enam | jayatu jayatu bhaṭṭāṛakaḥ | idaṃ patraṃ nirūpayata bhaṭṭārakaḥ |</seg>
             </seg>
             <stage>iti patram arpayati</stage>
           </p>
@@ -1502,7 +1502,7 @@
         <sp who="digambaraḥ">
           <speaker>digambaraḥ</speaker>
           <p n="3,26" xml:id="p3_l26">
-            <seg type="prakrit" xml:lang="pra-Latn">ṇamo aluhantāṇam, aluhantāṇam! ṇavaduvālagharamajjhe appā divavva palittae | ese jiṇavalabhāsido palamattho mokkhasukkado dhammo! ((iti parikrāmati | ākāśe |)) le le sāvaā! suṇāha, suṇāha!<seg type="chāyā" xml:lang="san-Latn">namo 'rhadbhyo, 'rhadbhyaḥ! navadvāragṛhamadhye ātmā dīpa iva pradīptaḥ | eṣa jinavarabhāṣitaḥ paramārtho dharmo mokṣasaukhyadaḥ! re re śrāvakāḥ! śṛṇuta, śrṇuta!</seg>
+            <seg type="prakrit" xml:lang="pra-Latn">ṇamo aluhantāṇam, aluhantāṇam! ṇavaduvālagharamajjhe appā divavva palittae | ese jiṇavalabhāsido palamattho mokkhasukkado dhammo! <stage>iti parikrāmati | ākāśe |</stage> le le sāvaā! suṇāha, suṇāha!<seg type="chāyā" xml:lang="san-Latn">namo 'rhadbhyo, 'rhadbhyaḥ! navadvāragṛhamadhye ātmā dīpa iva pradīptaḥ | eṣa jinavarabhāṣitaḥ paramārtho dharmo mokṣasaukhyadaḥ! re re śrāvakāḥ! śṛṇuta, śrṇuta!</seg>
             </seg>
           </p>
           <lg xml:id="p3_l26_2" n="3,26">
@@ -1774,7 +1774,7 @@
         <sp who="kṣapaṇakaḥ">
           <speaker>kṣapaṇakaḥ</speaker>
           <p n="3,78" xml:id="p3_l78">
-            <seg type="prakrit" xml:lang="pra-Latn">ale! ko eso kāvālaṃ vadaṃ dhāledi puliso | tāe ṇaṃ pucchissam | ((upasṛtya |)) alele, kāvālia! ṇalātthimuṇḍadhāi!, kīliso tuha śokkho kīliso tuha mokkho?<seg type="chāyā" xml:lang="san-Latn">are! ka eṣa kāpālaṃ vrataṃ dhārayati puruṣaḥ | tad enaṃ pṛcchāmi | are, kāpālika! narāsthimuṇḍadhārin! kīdṛśaṃ tava saukhyaṃ? kīdṛśas tava mokṣaḥ?</seg>
+            <seg type="prakrit" xml:lang="pra-Latn">ale! ko eso kāvālaṃ vadaṃ dhāledi puliso | tāe ṇaṃ pucchissam | <stage>upasṛtya |</stage> alele, kāvālia! ṇalātthimuṇḍadhāi!, kīliso tuha śokkho kīliso tuha mokkho?<seg type="chāyā" xml:lang="san-Latn">are! ka eṣa kāpālaṃ vrataṃ dhārayati puruṣaḥ | tad enaṃ pṛcchāmi | are, kāpālika! narāsthimuṇḍadhārin! kīdṛśaṃ tava saukhyaṃ? kīdṛśas tava mokṣaḥ?</seg>
             </seg>
           </p>
         </sp>
@@ -1951,7 +1951,7 @@
           <speaker>kṣapaṇakaḥ</speaker>
           <p n="3,111" xml:id="p3_l111">
             <stage>saromāñcam</stage>
-            <seg type="prakrit" xml:lang="pra-Latn">aho arihanta! aho arihanta! kāvālinīe phalasasuhaṃ! aï, sundali! dedu! dedu! dāva puṇo aṅkapāliṃ! ((svagatam)) are, mahanto khu indiaviālo saṃvutto! tā kiṃ ettha juttaṃ? bhodu | picchiāe ḍhakissam |<seg type="chāyā" xml:lang="san-Latn">aho arhanta! aho arhanta! kāpālinyāḥ sparśasukham | aye, sundari! dadātu! dadātu! tāvat punar aṅkapālim! are, mahān khalv indriyavikāra saṃvṛtttaḥ! tasmād kim atra yuktam? bhavatu | picchikayā sthagayiṣye |</seg>
+            <seg type="prakrit" xml:lang="pra-Latn">aho arihanta! aho arihanta! kāvālinīe phalasasuhaṃ! aï, sundali! dedu! dedu! dāva puṇo aṅkapāliṃ! <stage>svagatam</stage> are, mahanto khu indiaviālo saṃvutto! tā kiṃ ettha juttaṃ? bhodu | picchiāe ḍhakissam |<seg type="chāyā" xml:lang="san-Latn">aho arhanta! aho arhanta! kāpālinyāḥ sparśasukham | aye, sundari! dadātu! dadātu! tāvat punar aṅkapālim! are, mahān khalv indriyavikāra saṃvṛtttaḥ! tasmād kim atra yuktam? bhavatu | picchikayā sthagayiṣye |</seg>
             </seg>
             <stage>tathā kṛtvā</stage>
             <pb n="47"/></p>
@@ -2088,7 +2088,7 @@
         <sp who="kṣapaṇakaḥ">
           <speaker>kṣapaṇakaḥ</speaker>
           <p n="3,136" xml:id="p3_l136">
-            <seg type="prakrit" xml:lang="pra-Latn">ale kāpālia, ((vimṛśya)) ahava ācālia, ācālialāa, kulācālia |<seg type="chāyā" xml:lang="san-Latn">are kāpālika, athavā ācārya, ācāryarāja, kulācārya |</seg>
+            <seg type="prakrit" xml:lang="pra-Latn">ale kāpālia, <stage>vimṛśya</stage> ahava ācālia, ācālialāa, kulācālia |<seg type="chāyā" xml:lang="san-Latn">are kāpālika, athavā ācārya, ācāryarāja, kulācārya |</seg>
             </seg>
           </p>
         </sp>
@@ -2258,7 +2258,7 @@
           <speaker>maitrī</speaker>
           <p n="4,6" xml:id="p4_l6">
             <stage>svagatam</stage>
-            <seg type="prakrit" xml:lang="pra-Latn">ae! esā me piasahī bhaasambhāntahiaā, kalidakampataralehiṃ aṅgehiṃ kiṃ vi mantaantī | saṃmuhāadaṃ vi maṃ ṇa lakkhedi! ālavissaṃ dāva | ((prakāśam)) piasahi, saddhe! kisa tumaṃ uttāviahiaā maṃ vi ṇa āloesi?<seg type="chāyā" xml:lang="san-Latn">aye! eṣā me priyasakhī bhayasambhrāntahṛdayākalitakampataralair aṅgaiḥ kiṃ api mantrayantī saṃmukhāgatām api māṃ na lakṣayatī! ālapiṣye tāvat | priyasakhi, śraddhe! kasmāt tvam uttāpitahṛdayā mām api nālokayasi?</seg>
+            <seg type="prakrit" xml:lang="pra-Latn">ae! esā me piasahī bhaasambhāntahiaā, kalidakampataralehiṃ aṅgehiṃ kiṃ vi mantaantī | saṃmuhāadaṃ vi maṃ ṇa lakkhedi! ālavissaṃ dāva | <stage>prakāśam</stage> piasahi, saddhe! kisa tumaṃ uttāviahiaā maṃ vi ṇa āloesi?<seg type="chāyā" xml:lang="san-Latn">aye! eṣā me priyasakhī bhayasambhrāntahṛdayākalitakampataralair aṅgaiḥ kiṃ api mantrayantī saṃmukhāgatām api māṃ na lakṣayatī! ālapiṣye tāvat | priyasakhi, śraddhe! kasmāt tvam uttāpitahṛdayā mām api nālokayasi?</seg>
             </seg>
           </p>
         </sp>
@@ -2427,7 +2427,7 @@
         <sp who="pratīhārī">
           <speaker>pratīhārī</speaker>
           <p n="4,46" xml:id="p4_l46">
-            <seg type="prakrit" xml:lang="pra-Latn">ido ido edu, mahābhāo! ((ity ubhau parikrāmataḥ |)) eso mahārāo ciṭṭhadi | tā uvasappadu bhavam |<seg type="chāyā" xml:lang="san-Latn">ita ita etu, mahābhāgaḥ! eṣa mahārājas tiṣṭhati | tad upasarpatu bhavān |</seg>
+            <seg type="prakrit" xml:lang="pra-Latn">ido ido edu, mahābhāo! <stage>ity ubhau parikrāmataḥ |</stage> eso mahārāo ciṭṭhadi | tā uvasappadu bhavam |<seg type="chāyā" xml:lang="san-Latn">ita ita etu, mahābhāgaḥ! eṣa mahārājas tiṣṭhati | tad upasarpatu bhavān |</seg>
             </seg>
           </p>
         </sp>

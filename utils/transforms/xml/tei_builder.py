@@ -538,7 +538,7 @@ class TeiTextBuilder:
         s = self.state
         seg = etree.Element("seg", {"type": "prakrit"})
         seg.set(f"{{{_XML_NS}}}lang", "pra-Latn")
-        seg.text = match.group(1)
+        self._set_text_with_embedded_stages(seg, match.group(1))
         if match.group(2):
             # Inline chāyā on the same line: ˹prakrit˼(chāyā)
             chaya = etree.SubElement(seg, "seg", {"type": "chāyā"})
@@ -549,6 +549,21 @@ class TeiTextBuilder:
             s.awaiting_chaya = True
             s.chaya_prakrit_seg = seg
         self._add_inline_element(seg)
+
+    def _set_text_with_embedded_stages(self, parent: etree._Element, text: str):
+        """Split text on embedded ((stage directions)) and create <stage> sub-elements."""
+        parts = STAGE_DIRECTION_RE.split(text)
+        # split yields: [before, captured_group, between, captured_group, ..., after]
+        if len(parts) == 1:
+            # No stage directions found
+            parent.text = text
+            return
+        parent.text = parts[0] or None
+        for i in range(1, len(parts), 2):
+            stage = etree.SubElement(parent, "stage")
+            stage.text = parts[i]
+            if i + 1 < len(parts) and parts[i + 1]:
+                stage.tail = parts[i + 1]
 
     def _add_inline_element(self, el: etree._Element):
         s = self.state

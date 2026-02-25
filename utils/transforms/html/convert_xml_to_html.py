@@ -305,7 +305,17 @@ class HtmlConverter:
                 self.process_children(child, unclear_span, treat_as_plain, in_lg=in_lg)
             elif child.tag == 'stage':
                 stage_span = etree.SubElement(html_node, "span", {"class": "stage-direction"})
+                stage_span.text = "("
                 self.process_children(child, stage_span, treat_as_plain, in_lg=in_lg)
+                self.append_text(stage_span, ")", treat_as_plain=treat_as_plain)
+                # Ensure a space after the closing paren when followed by content.
+                # The XML parser's remove_blank_text=True strips whitespace-only tails,
+                # so we must inject a space when the tail is missing or abuts the next word.
+                if child.getnext() is not None or (child.tail and not child.tail.startswith(' ')):
+                    if not child.tail:
+                        child.tail = ' '
+                    elif not child.tail.startswith(' '):
+                        child.tail = ' ' + child.tail
             elif child.tag == 'seg':
                 seg_type = child.get('type', '')
                 if seg_type == 'chāyā':
@@ -738,7 +748,9 @@ class HtmlConverter:
                         elif sp_child.tag == "stage":
                             if not self.only_plain:
                                 stage_span = etree.SubElement(speech_div, "span", {"class": "stage-direction"})
+                                stage_span.text = "("
                                 self.process_children(sp_child, stage_span, treat_as_plain=False, in_lg=False)
+                                self.append_text(stage_span, ")", treat_as_plain=False)
                             p_plain = etree.SubElement(speech_div_plain, "p")
                             stage_text = self.get_plain_text_recursive(sp_child)
                             self.append_text(p_plain, f"(({stage_text}))", treat_as_plain=True)
@@ -748,7 +760,9 @@ class HtmlConverter:
                     if not self.only_plain:
                         p_rich = etree.SubElement(content_div, "p", {"class": "rich-text"})
                         stage_span = etree.SubElement(p_rich, "span", {"class": "stage-direction"})
+                        stage_span.text = "("
                         self.process_children(element, stage_span, treat_as_plain=False, in_lg=False)
+                        self.append_text(stage_span, ")", treat_as_plain=False)
                     p_plain = etree.SubElement(content_div, "p", {"class": "plain-text"})
                     stage_text = self.get_plain_text_recursive(element)
                     self.append_text(p_plain, f"(({stage_text}))", treat_as_plain=True)
