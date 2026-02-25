@@ -305,8 +305,8 @@
         </sp>
         <sp who="kāmaḥ">
           <speaker>kāmaḥ</speaker>
-          <p n="1,50" xml:id="p1_l50">priye,_ </p>
-          <lg xml:id="p1_l50_2" n="1,50">
+          <lg xml:id="p1_l50" n="1,50">
+            <head>priye,</head>
             <l>ekāmiṣaprabhavam eva mahīpatīnām<caesura/>ujjṛmbhate jagati vairam iti prasiddham |</l>
             <l>pṛthvīnimittam abhavat kurupāṇḍavānāṃ<caesura/>tīvras tathā hi bhuvanakṣayakṛdvirodhaḥ ||</l>
           </lg>
@@ -458,8 +458,8 @@
         </sp>
         <sp who="rājā">
           <speaker>rājā</speaker>
-          <p n="1,85" xml:id="p1_l85">paśya —_ </p>
-          <lg xml:id="p1_l85_2" n="1,85">
+          <lg xml:id="p1_l85" n="1,85">
+            <head>paśya —</head>
             <l>asāv ahaṅkāraparair durātmabhir<caesura/>nibadhya taiḥ pāpaśaṭhair madādibhiḥ, |</l>
             <l>ciraṃ cidānandamayo nirañjano<caesura/>jagatpatir dīnadaśām anīyata ||</l>
           </lg>
@@ -474,8 +474,8 @@
         </sp>
         <sp who="rājā">
           <speaker>rājā</speaker>
-          <p n="1,89" xml:id="p1_l89">priye,_ </p>
-          <lg xml:id="p1_l89_2" n="1,89">
+          <lg xml:id="p1_l89" n="1,89">
+            <head>priye,</head>
             <l>satatadhṛtir apy uccaiḥ śānto 'py avāptamahodayo<caesura/>'py adhigatanayo 'py antaḥsvaccho 'py udīritadhīr api, |</l>
             <l>tyajati sahajaṃ dhairyaṃ strībhiḥ pratāritamānasaḥ.<caesura/>svam api yad ayaṃ māyāsaṅgāt pumān iti vismṛtaḥ? ||</l>
           </lg>
@@ -575,8 +575,8 @@
         </sp>
         <sp who="rājā">
           <speaker>rājā</speaker>
-          <p n="1,110" xml:id="p1_l110">priye —_ </p>
-          <lg xml:id="p1_l110_2" n="1,110">
+          <lg xml:id="p1_l110" n="1,110">
+            <head>priye —</head>
             <l>māninyāś ciraviprayogajanitāsūyākulāyā bhavec<caesura/>chāntyāder anukūlanād upaniṣaddevyā mayā saṃgamaḥ, |</l>
             <l>tūṣṇīṃ ced viṣayānapāsya bhavatī tiṣṭhen muhūrtaṃ tato<caesura/>jāgratsvapnasuṣuptidhāmavirahāt prāptaḥ prabodhodayaḥ ||</l>
           </lg>
@@ -1124,8 +1124,8 @@
         </sp>
         <sp who="lobhaḥ">
           <speaker>lobhaḥ</speaker>
-          <p n="2,134" xml:id="p2_l134">priye, śrūyatām —_ </p>
-          <lg xml:id="p2_l134_2" n="2,134">
+          <lg xml:id="p2_l134" n="2,134">
+            <head>priye, śrūyatām —</head>
             <l>kṣetragrāmavanādripattanapuradvīpakṣamāṇḍala<caesura/>pratyāśāyatasūtrabaddhamanasāṃ labdhādhikaṃ dhyāyatāṃ, |</l>
             <l>tṛṣṇe devi, yadi prasīdasi, tanoṣy aṅgāni tuṅgāni cet,<caesura/>tad bhoḥ prāṇabhṛtāṃ kutaḥ śamakathā brahmāṇḍalakṣair api? ||</l>
           </lg>
@@ -1297,8 +1297,8 @@
         </sp>
         <sp who="mahāmohaḥ">
           <speaker>mahāmohaḥ</speaker>
-          <p n="2,165" xml:id="p2_l165">priye —_ </p>
-          <lg xml:id="p2_l165_2" n="2,165">
+          <lg xml:id="p2_l165" n="2,165">
+            <head>priye —</head>
             <l>dalitakucanakhāṅkam aṅkapālīṃ<caesura/>racaya mamāṅkam upetya pīvaroru |</l>
             <l>anuhara hariṇākṣi śaṅkarārdha<caesura/>sthitahimaśailasutāvilāsalakṣmīm ||</l>
           </lg>
@@ -1324,8 +1324,8 @@
         </sp>
         <sp who="mahāmohaḥ">
           <speaker>mahāmohaḥ</speaker>
-          <p n="2,171" xml:id="p2_l171">priye —_ </p>
-          <lg xml:id="p2_l171_2" n="2,171">
+          <lg xml:id="p2_l171" n="2,171">
+            <head>priye —</head>
             <l>smaryate sā hi, vāmoru! cyutā yā hṛdayād bahiḥ; |</l>
             <l>maccittabhittau, bhavatī, sālabhañjīva rājate ||</l>
           </lg>
@@ -2293,8 +2293,8 @@
         </sp>
         <sp who="śraddhā">
           <speaker>śraddhā</speaker>
-          <p n="4,13" xml:id="p4_l13">śṛṇu —_ </p>
-          <lg xml:id="p4_l13_2" n="4,13">
+          <lg xml:id="p4_l13" n="4,13">
+            <head>śṛṇu —</head>
             <l>śyenāvapātam avapatya padadvaye mām<caesura/>ādāya dharmam apareṇa kareṇa ghorā |</l>
             <l>vegena sā gaganam utpatitā nakhāgra<caesura/>koṭisphuratpiśitapiṇḍayugeva gṛdhrī ||</l>
           </lg>
@@ -2471,18 +2471,18 @@
         </sp>
         <sp who="vastuvicāraḥ">
           <speaker>vastuvicāraḥ</speaker>
-          <p n="4,56" xml:id="p4_l56">api ca —_ </p>
-          <lg xml:id="p4_l56_2" n="4,56">
+          <lg xml:id="p4_l56" n="4,56">
+            <head>api ca —</head>
             <l>vipulapulināḥ kallolinyo nirantaranirjharī<caesura/>masṛṇitaśilāḥ śailāḥ sāndradrumā vanarājayaḥ, |</l>
             <l>yadi śamagiro vaiyāsikyo budhaiś ca samāgamaḥ —<caesura/>kva piśitavasāmayyo nāryas? tadā kva ca manmathaḥ? ||</l>
           </lg>
           <p>nārīti nāma prathamam astraṃ kāmasya | tena tasyāṃ jitāyāṃ, tatsahāyāḥ sarva eva viphalārambhā bhaṅgam āsādayiṣyanti | tathā hi — <pb n="61"/></p>
-          <lg xml:id="p4_l56_3" n="4,56">
+          <lg xml:id="p4_l56_2" n="4,56">
             <l>candraś candanam indudhāmadhavalā rātryo dvirephāvalī<caesura/>jhaṅkāronmukharā vilāsavipinopāntā vasantodayaḥ, |</l>
             <l>mandradhvānaghanodayāś ca divasā mandāḥ kadambānilāḥ —<caesura/>śṛṅgārapramukhāś ca kāmasuhṛdo nāryāṃ jitāyāṃ jitāḥ ||</l>
           </lg>
           <p>tad alam ativilambena | ādiśatu svāmī | </p>
-          <lg xml:id="p4_l56_4" n="4,56">
+          <lg xml:id="p4_l56_3" n="4,56">
             <l>so 'haṃ prakīrṇaiḥ parito vicāraiḥ<caesura/>śarair ivonmathya balaṃ pareṣām, |</l>
             <l>sainyaṃ kurūṇām iva sindhurājaṃ<caesura/>gāṇḍīvadhanveva nihanmi kāmam ||</l>
           </lg>
@@ -2800,12 +2800,12 @@
         </sp>
         <sp who="śāntiḥ">
           <speaker>śāntiḥ</speaker>
-          <p n="5,12" xml:id="p5_l12">kim atra vicintyate? nanu bhagavatī cet kṛtānugrahā, tan niyatam eva rājño vivekasya vijaya | iti jānāmi! </p>
+          <p n="5,12" xml:id="p5_l12">kim atra vicintyate? nanu bhagavatī cet kṛtānugrahā, tan niyatam eva rājño vivekasya vijaya | iti jānāmi! <pb n="73"/></p>
         </sp>
         <sp who="viṣṇubhaktiḥ">
           <speaker>viṣṇubhaktiḥ</speaker>
-          <p n="5,13" xml:id="p5_l13">vatse —_ <pb n="73"/></p>
-          <lg xml:id="p5_l13_2" n="5,13">
+          <lg xml:id="p5_l13" n="5,13">
+            <head>vatse —</head>
             <l>yady apy abhyudayaḥ prāyaḥ pramāṇād avadhāryata, |</l>
             <l>kāmaṃ tathāpi suhṛdām aniṣṭāśaṅki mānasam ||</l>
           </lg>
@@ -2889,25 +2889,25 @@
         </sp>
         <sp who="śraddhā">
           <speaker>śraddhā</speaker>
-          <p n="5,33" xml:id="p5_l33_2">tad anantaraṃ ca —_ </p>
-          <lg xml:id="p5_l33_3" n="5,33">
+          <lg xml:id="p5_l33_2" n="5,33">
+            <head>tad anantaraṃ ca —</head>
             <l>sāṃkhyanyāyakaṇādabhāṣitamahābhāṣyādiśāstrair vṛtā,<caesura/>sphūrjannyāyasahasrabāhunivahair uddyotayantī diśaḥ, |</l>
             <l>mīmāṃsā samarotsukāvirabhavad dharmendukāntānanā,<caesura/>vāgdevyāḥ puratas trayītriṇayanā kātyāyanīvāparā ||</l>
           </lg>
         </sp>
         <sp who="śāntiḥ">
           <speaker>śāntiḥ</speaker>
-          <p n="5,36" xml:id="p5_l36">aye! kathaṃ punaḥ svabhāvapratidvandvinām āgamānāṃ tarkāṇāṃ ca, samavāyaḥ saṃpannaḥ? </p>
+          <p n="5,36" xml:id="p5_l36">aye! kathaṃ punaḥ svabhāvapratidvandvinām āgamānāṃ tarkāṇāṃ ca, samavāyaḥ saṃpannaḥ? <pb n="76"/></p>
         </sp>
         <sp who="śraddhā">
           <speaker>śraddhā</speaker>
-          <p n="5,37" xml:id="p5_l37">putri —_ <pb n="76"/></p>
-          <lg xml:id="p5_l37_2" n="5,37">
+          <lg xml:id="p5_l37" n="5,37">
+            <head>putri —</head>
             <l>samānānvayajātānāṃ, parasparavirodhinām, |</l>
             <l>paraiḥ pratyabhibhūtānāṃ, prasūte saṅgatiḥ śriyam ||</l>
           </lg>
           <p>tena vedaprasūtānāṃ teṣām avāntaravirodhe 'pi, vedasaṃrakṣaṇāya nāstikapakṣapratikṣepaṇāya, śāstrāṇāṃ sāhityam eva | āgamānāṃ tu tattvaṃ vicārayatām avirodha eva | tathā hi — </p>
-          <lg xml:id="p5_l37_3" n="5,37">
+          <lg xml:id="p5_l37_2" n="5,37">
             <l>jyotiḥ śāntam anantam advayam ajaṃ, tattadguṇonmīlanād,<caesura/>brahmety, acyuta ity, umāpatir iti, prastūyate nāikadhā |</l>
             <l>tais tair eva sadāgamaiḥ, śrutisakhair, nānāpathaprasthitair,<caesura/>gamyo 'sau jagadīśvaro, jalanidhir vārāṃ pravāhair iva ||</l>
           </lg>
@@ -3321,12 +3321,12 @@
         </sp>
         <sp who="śāntiḥ">
           <speaker>śāntiḥ</speaker>
-          <p n="6,16" xml:id="p6_l16">yady evaṃ, kutas tarhīdanīṃ rājakulasya sthitiḥ? </p>
+          <p n="6,16" xml:id="p6_l16">yady evaṃ, kutas tarhīdanīṃ rājakulasya sthitiḥ? <pb n="91"/></p>
         </sp>
         <sp who="śraddhā">
           <speaker>śraddhā</speaker>
-          <p n="6,17" xml:id="p6_l17">śṛṇu, vatse —_ <pb n="91"/></p>
-          <lg xml:id="p6_l17_2" n="6,17">
+          <lg xml:id="p6_l17" n="6,17">
+            <head>śṛṇu, vatse —</head>
             <l>nityānityavicāraṇā praṇayinī, vairāgyam ekaṃ suhṛt,<caesura/>sanmitrāṇi yamādayaḥ, śamadamaprāyāḥ sakhāyo matāḥ, |</l>
             <l>maitryādyāḥ paricārikāḥ, sahacarī nityaṃ mumukṣā, balād<caesura/>ucchedyā ripavaś ca — mohamamatāsaṃkalpasaṅgādayaḥ ||</l>
           </lg>
@@ -3553,8 +3553,8 @@
         </sp>
         <sp who="upaniṣat">
           <speaker>upaniṣat</speaker>
-          <p n="6,76" xml:id="p6_l76">svāmin —_ </p>
-          <lg xml:id="p6_l76_2" n="6,76">
+          <lg xml:id="p6_l76" n="6,76">
+            <head>svāmin —</head>
             <l>nītāny amūni maṭhacatvaraśūnyadevā<caesura/>gāreṣu mūrkhamukharaiḥ saha vāsarāṇi ||</l>
           </lg>
         </sp>
@@ -3576,8 +3576,8 @@
         </sp>
         <sp who="upaniṣat">
           <speaker>upaniṣat</speaker>
-          <p n="6,83" xml:id="p6_l83">tataḥ, kadā cit —_ </p>
-          <lg xml:id="p6_l83_2" n="6,83">
+          <lg xml:id="p6_l83" n="6,83">
+            <head>tataḥ, kadā cit —</head>
             <l>kṛṣṇājināgnisamidājyajuhūsruvādi<caesura/>pātrais tatheṣṭipaśusomamukhair makhaiś ca, |</l>
             <l>dṛṣṭā mayā parivṛtākhilakarmakāṇḍa<caesura/>vyādiṣṭapaddhatir athādhvani yajñavidyā ||</l>
           </lg>
@@ -3791,8 +3791,8 @@
         </sp>
         <sp who="upaniṣat">
           <speaker>upaniṣat</speaker>
-          <p n="6,138" xml:id="p6_l138">evam etat | tathā hi —_ </p>
-          <lg xml:id="p6_l138_2" n="6,138">
+          <lg xml:id="p6_l138" n="6,138">
+            <head>evam etat | tathā hi —</head>
             <l>asau tvadanyo na sanātanaḥ pumān,<caesura/>bhavān na devāt puruṣottamāt paraḥ |</l>
             <l>sa eva bhinnas tadanādimāyayā,<caesura/>dvidheva bimbaṃ salile vivasvataḥ ||</l>
           </lg>
@@ -3816,8 +3816,8 @@
         </sp>
         <sp who="vivekaḥ">
           <speaker>vivekaḥ</speaker>
-          <p n="6,144" xml:id="p6_l144">ayam ucyate —_ </p>
-          <lg xml:id="p6_l144_2" n="6,144">
+          <lg xml:id="p6_l144" n="6,144">
+            <head>ayam ucyate —</head>
             <l>eṣo 'smīti vivicya, netipadataś cittena sārdhaṃ krte,<caesura/>tattvānāṃ vilaye cidātmani parijñāte tvamarthe punaḥ, |</l>
             <l>śrutvā tat tvam asīti, bādhitabhavadhvāntaṃ, tad ātmaprabhaṃ,<caesura/>śāntaṃ jyotir anantam antaruditānandaṃ samuddyotate ||</l>
           </lg>

@@ -202,10 +202,18 @@ class TeiTextBuilder:
                 trailing_text = speaker_match.group(2).strip()
                 self._open_sp(speaker_name)
                 if trailing_text:
-                    # Open a <p> inside the <sp> for the trailing dialogue text
-                    self._open_location_for_sp()
-                    self._process_content_with_midline_elements(trailing_text, "prose", raw_line_for_hyphen_check=line)
-                    self._finalize_physical_line(line)
+                    # Check if trailing text is a pending head (e.g. "priye —_")
+                    pending_head_match = PENDING_HEAD_RE.search(trailing_text)
+                    if pending_head_match:
+                        head_text = pending_head_match.group(1).strip()
+                        head_elem = etree.Element("head")
+                        head_elem.text = head_text
+                        s.pending_head_elem = head_elem
+                    else:
+                        # Open a <p> inside the <sp> for the trailing dialogue text
+                        self._open_location_for_sp()
+                        self._process_content_with_midline_elements(trailing_text, "prose", raw_line_for_hyphen_check=line)
+                        self._finalize_physical_line(line)
                 return
 
         # verse starter on its own line (e.g. "uktaṃ ca |_")
