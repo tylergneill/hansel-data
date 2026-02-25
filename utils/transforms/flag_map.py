@@ -6,8 +6,11 @@ flag_map = {
     "kRSNamizra_prabodhacandrodaya": '--drama',
 }
 
-# Maps text stem → (page_label, line_label) to override the default "p." / "l." location display.
+# Maps text stem → (page_label, line_label) to override how editorial coordinates are displayed.
 # E.g. ("ch", "u") renders [3,24] as "ch.3, u.24" instead of "p.3, l.24".
-location_labels_map = {
+# When labels differ from the default "p"/"l", the coordinate system is treated as independent
+# of PDF page numbering: <pb> links always use plain "p.N" and location markers never create
+# inline page links.
+editorial_coord_labels_map = {
     "kRSNamizra_prabodhacandrodaya": ("ch", "u"),
 }

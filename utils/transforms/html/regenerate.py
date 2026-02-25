@@ -6,7 +6,7 @@ import sys
 
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
 sys.path.append(str(PROJECT_ROOT))
-from utils.transforms.flag_map import flag_map, location_labels_map
+from utils.transforms.flag_map import flag_map, editorial_coord_labels_map
 
 XML_DIR = os.path.join(PROJECT_ROOT, "texts/project_editions/xml")
 HTML_PLAIN_DIR = os.path.join(PROJECT_ROOT, "texts/transforms/html/plain")
@@ -34,7 +34,7 @@ def regenerate_html(xml_dir, plain_dir, rich_dir, standalone=False):
         flags = flag_map.get(stem, "")
         if "--drama" in flags:
             command.append("--drama")
-        labels = location_labels_map.get(stem)
+        labels = editorial_coord_labels_map.get(stem)
         if labels:
             command.extend(["--page-label", labels[0], "--line-label", labels[1]])
 
@@ -55,7 +55,7 @@ def regenerate_html(xml_dir, plain_dir, rich_dir, standalone=False):
             command.append("--drama")
         if standalone:
             command.append("--standalone")
-        labels = location_labels_map.get(stem)
+        labels = editorial_coord_labels_map.get(stem)
         if labels:
             command.extend(["--page-label", labels[0], "--line-label", labels[1]])
 

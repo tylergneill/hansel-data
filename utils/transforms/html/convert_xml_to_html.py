@@ -32,11 +32,11 @@ class HtmlConverter:
         self.pending_breaks = 0
         self.pdf_page_mapping = None
         self.has_verses = False
-        self.has_location_markers = False
+        self.has_editorial_coords = False
         self.has_line_breaks = False
         self.current_verse = None
         self.current_verse_part = None
-        self.current_location_id = None
+        self.current_coord_id = None
 
     # --- Content Processing Functions ---
     def append_text(self, element, text, strip_leading_whitespace=False, treat_as_plain=True):
@@ -278,9 +278,9 @@ class HtmlConverter:
                 corr_text = ''.join(corr.itertext()) if corr is not None else ''
                 if not self.only_plain:
                     if self.current_verse is not None:
-                        entry = {'sic': sic_text, 'corr': corr_text, 'verse': self.current_verse, 'verse_part': self.current_verse_part, 'location_id': self.current_location_id}
+                        entry = {'sic': sic_text, 'corr': corr_text, 'verse': self.current_verse, 'verse_part': self.current_verse_part, 'coord_id': self.current_coord_id}
                     else:
-                        entry = {'sic': sic_text, 'corr': corr_text, 'page': self.current_page, 'line': self.current_line, 'location_id': self.current_location_id}
+                        entry = {'sic': sic_text, 'corr': corr_text, 'page': self.current_page, 'line': self.current_line, 'coord_id': self.current_coord_id}
                     self.corrections_data.append(entry)
                 ante = etree.SubElement(corr_span, "i", {"class": "ante-correction", "title": f"pre-correction (post-: {corr_text})"})
                 if sic is not None:
@@ -293,9 +293,9 @@ class HtmlConverter:
                 text = ''.join(child.itertext())
                 if not self.only_plain:
                     if self.current_verse is not None:
-                        entry = {'sic': text if child.tag == 'del' else '', 'corr': text if child.tag == 'supplied' else '', 'verse': self.current_verse, 'verse_part': self.current_verse_part, 'location_id': self.current_location_id}
+                        entry = {'sic': text if child.tag == 'del' else '', 'corr': text if child.tag == 'supplied' else '', 'verse': self.current_verse, 'verse_part': self.current_verse_part, 'coord_id': self.current_coord_id}
                     else:
-                        entry = {'sic': text if child.tag == 'del' else '', 'corr': text if child.tag == 'supplied' else '', 'page': self.current_page, 'line': self.current_line, 'location_id': self.current_location_id}
+                        entry = {'sic': text if child.tag == 'del' else '', 'corr': text if child.tag == 'supplied' else '', 'page': self.current_page, 'line': self.current_line, 'coord_id': self.current_coord_id}
                     self.corrections_data.append(entry)
                 if child.tag == 'del':
                     ante = etree.SubElement(corr_span, "i", {"class": "ante-correction", "title": "deletion"})
@@ -340,20 +340,21 @@ class HtmlConverter:
                 should_strip = (child.tag in ['lb', 'pb']) and not treat_as_plain
                 self.append_text(html_node, child.tail, strip_leading_whitespace=should_strip, treat_as_plain=treat_as_plain)
 
-    def _emit_location_h2(self, content_div, n_attr):
-        """Emit a location-marker <h2> to content_div for the given n attribute value.
+    def _emit_editorial_coord_h2(self, content_div, n_attr):
+        """Emit an editorial-coordinate <h2> to content_div for the given n attribute value.
 
         Resets pending breaks/labels and updates current_page/line state.
         Used by the <sp> handler (drama mode).
         Skips emission if the location is identical to the last emitted h2.
 
-        In drama mode the n="x,y" coordinate system is independent of PDF pages,
-        so this method never creates inline labels — <pb> elements handle those.
-        H2 headings are only emitted for section starts (line_part == "1").
+        For custom coordinate systems (page_label != "p"), the n="x,y" coordinate
+        is independent of PDF pages: every unique coordinate gets an h2 (hidden by
+        default, shown via the Location Info toggle), and no inline labels are
+        created — <pb> elements handle those.
         """
-        if n_attr == getattr(self, '_last_emitted_location', None):
+        if n_attr == getattr(self, '_last_emitted_coord', None):
             return
-        self._last_emitted_location = n_attr
+        self._last_emitted_coord = n_attr
         n_parts = n_attr.split(',')
         page_part = n_parts[0].strip()
         line_part = n_parts[1].strip() if len(n_parts) > 1 else "1"
@@ -362,16 +363,14 @@ class HtmlConverter:
 
         if self.page_label != "p":
             # Custom editorial coordinates: the n attribute is not the PDF page system.
-            # Non-section-starts: silently update state only — no h2, no inline label.
-            if len(n_parts) == 2 and line_part != "1":
-                return
-            # Section start (line_part == "1"): emit h2 with custom labels.
-            # Do NOT create an inline label — any pending (p.X) from a preceding
-            # <pb> element is preserved and will be flushed by the first text content.
+            # Emit an h2 for every unique coordinate — hidden by default, revealed by
+            # the Location Info toggle.  Never create an inline label; any pending
+            # (p.X) from a preceding <pb> element is preserved and will be flushed
+            # by the first text content.
             self.pending_breaks = 0
-            self.has_location_markers = True
-            self.current_location_id = n_attr.replace(',', '_').replace(' ', '')
-            h2 = etree.SubElement(content_div, "h2", {"class": "location-marker rich-text", "id": self.current_location_id})
+            self.has_editorial_coords = True
+            self.current_coord_id = n_attr.replace(',', '_').replace(' ', '')
+            h2 = etree.SubElement(content_div, "h2", {"class": "editorial-coord rich-text", "id": self.current_coord_id})
             if len(n_parts) == 2:
                 h2.text = f"{self.page_label}.{page_part}, {self.line_label}.{line_part}"
             elif len(n_parts) == 1:
@@ -383,9 +382,9 @@ class HtmlConverter:
         # Non-drama: original behaviour — h2 plus an inline label.
         self.pending_breaks = 0
         self.pending_label = None
-        self.has_location_markers = True
-        self.current_location_id = n_attr.replace(',', '_').replace(' ', '')
-        h2 = etree.SubElement(content_div, "h2", {"class": "location-marker rich-text", "id": self.current_location_id})
+        self.has_editorial_coords = True
+        self.current_coord_id = n_attr.replace(',', '_').replace(' ', '')
+        h2 = etree.SubElement(content_div, "h2", {"class": "editorial-coord rich-text", "id": self.current_coord_id})
         if len(n_parts) == 2:
             h2.text = f"{self.page_label}.{page_part}, {self.line_label}.{line_part}"
         elif len(n_parts) == 1:
@@ -483,11 +482,11 @@ class HtmlConverter:
         # Rich pass for condensed verse format: emit ul/li verse structure
         verse_n = lg_element.get("n")
         self.current_verse = verse_n
-        self.current_location_id = f"v{verse_n.replace('.', '-')}" if verse_n else None
+        self.current_coord_id = f"v{verse_n.replace('.', '-')}" if verse_n else None
 
         verse_li = etree.SubElement(container, "li", {"class": "verse rich-text"})
-        if self.current_location_id:
-            verse_li.set("id", self.current_location_id)
+        if self.current_coord_id:
+            verse_li.set("id", self.current_coord_id)
         padas_ul = etree.SubElement(verse_li, "ul", {"class": "padas"})
 
         children_of_lg = list(lg_element.iterchildren())
@@ -692,7 +691,7 @@ class HtmlConverter:
         # 3. generate content_div HTML fragment (= main content processing loop)
         content_div = etree.Element("div", id="content")
         if not self.only_plain:
-            content_div.set('class', 'hide-location-markers')
+            content_div.set('class', 'hide-editorial-coords')
 
         self.current_page, self.current_line = '', '1'  # TODO: investigate whether necessary to reset like this
         for section in root.xpath('//body/div[@n]'):
@@ -729,7 +728,7 @@ class HtmlConverter:
                 elif element.tag == "sp":
                     # Drama: speech container.
                     # Rich and plain passes are unified into one loop so that
-                    # location-marker <h2> elements can be interleaved at
+                    # editorial-coord <h2> elements can be interleaved at
                     # content_div level between speech containers.
                     speaker_el = element.find("speaker")
                     speaker_name = (speaker_el.text or "") if speaker_el is not None else ""
@@ -750,7 +749,7 @@ class HtmlConverter:
                             # so the content following the marker starts a fresh div.
                             speech_div = None
                             speech_div_plain = None
-                            self._emit_location_h2(content_div, n_attr)
+                            self._emit_editorial_coord_h2(content_div, n_attr)
                             last_sp_location = n_attr
 
                         # Lazily create speech containers (or re-create after a reset).
@@ -827,9 +826,9 @@ class HtmlConverter:
                             # Only emit h2 for section starts; never create inline labels.
                             if len(n_parts) != 2 or line_part == "1":
                                 self.pending_breaks = 0
-                                self.has_location_markers = True
-                                self.current_location_id = n_attr.replace(',', '_').replace(' ', '')
-                                h2 = etree.SubElement(content_div, "h2", {"class": "location-marker rich-text", "id": self.current_location_id})
+                                self.has_editorial_coords = True
+                                self.current_coord_id = n_attr.replace(',', '_').replace(' ', '')
+                                h2 = etree.SubElement(content_div, "h2", {"class": "editorial-coord rich-text", "id": self.current_coord_id})
                                 if len(n_parts) == 2:
                                     h2.text = f"{self.page_label}.{page_part}, {self.line_label}.{line_part}"
                                 elif len(n_parts) == 1:
@@ -840,9 +839,9 @@ class HtmlConverter:
                             # Non-drama: clear pending state and create h2 + inline label.
                             self.pending_breaks = 0
                             self.pending_label = None
-                            self.has_location_markers = True
-                            self.current_location_id = n_attr.replace(',', '_').replace(' ', '')
-                            h2 = etree.SubElement(content_div, "h2", {"class": "location-marker rich-text", "id": self.current_location_id})
+                            self.has_editorial_coords = True
+                            self.current_coord_id = n_attr.replace(',', '_').replace(' ', '')
+                            h2 = etree.SubElement(content_div, "h2", {"class": "editorial-coord rich-text", "id": self.current_coord_id})
                             if len(n_parts) == 2:
                                 h2.text = f"{self.page_label}.{page_part}, {self.line_label}.{line_part}"
                             elif len(n_parts) == 1:
@@ -888,10 +887,10 @@ class HtmlConverter:
                             # Only emit h2 for section starts; never create inline labels.
                             if len(n_parts) != 2 or line_part == "1":
                                 self.pending_breaks = 0
-                                self.has_location_markers = True
-                                self.current_location_id = n_attr.replace(',', '_').replace(' ', '')
+                                self.has_editorial_coords = True
+                                self.current_coord_id = n_attr.replace(',', '_').replace(' ', '')
                                 current_verses_ul = None
-                                h2 = etree.SubElement(content_div, "h2", {"class": "location-marker rich-text", "id": self.current_location_id})
+                                h2 = etree.SubElement(content_div, "h2", {"class": "editorial-coord rich-text", "id": self.current_coord_id})
                                 if len(n_parts) == 2:
                                     h2.text = f"{self.page_label}.{page_part}, {self.line_label}.{line_part}"
                                 elif len(n_parts) == 1:
@@ -902,10 +901,10 @@ class HtmlConverter:
                             # Non-drama: clear pending state and create h2 + inline label.
                             self.pending_breaks = 0
                             self.pending_label = None
-                            self.has_location_markers = True
-                            self.current_location_id = n_attr.replace(',', '_').replace(' ', '')
+                            self.has_editorial_coords = True
+                            self.current_coord_id = n_attr.replace(',', '_').replace(' ', '')
                             current_verses_ul = None
-                            h2 = etree.SubElement(content_div, "h2", {"class": "location-marker rich-text", "id": self.current_location_id})
+                            h2 = etree.SubElement(content_div, "h2", {"class": "editorial-coord rich-text", "id": self.current_coord_id})
                             if len(n_parts) == 2:
                                 h2.text = f"{self.page_label}.{page_part}, {self.line_label}.{line_part}"
                             elif len(n_parts) == 1:
@@ -984,7 +983,7 @@ class HtmlConverter:
                 "toc": self.toc_data,
                 "metadata_entries": self.metadata_entries,
                 "has_verses": self.has_verses,
-                "has_location_markers": self.has_location_markers,
+                "has_editorial_coords": self.has_editorial_coords,
                 "has_line_breaks": self.has_line_breaks,
                 "no_line_numbers": self.no_line_numbers,
                 "drama": self.drama,
@@ -1013,8 +1012,8 @@ if __name__ == "__main__":
     parser.add_argument("--plain", action="store_true", help="Generate a plain HTML version without rich features.")
     parser.add_argument("--standalone", action="store_true", help="Generate a browser-viewable HTML file for development.")
     parser.add_argument("--drama", action="store_true", help="Drama mode: handle speakers, stage directions, and chāyās.")
-    parser.add_argument("--page-label", default="p", help="Label used for the first coordinate of a location marker (default: p).")
-    parser.add_argument("--line-label", default="l", help="Label used for the second coordinate of a location marker (default: l).")
+    parser.add_argument("--page-label", default="p", help="Label used for the first part of an editorial coordinate (default: p).")
+    parser.add_argument("--line-label", default="l", help="Label used for the second part of an editorial coordinate (default: l).")
     args = parser.parse_args()
 
     converter = HtmlConverter(

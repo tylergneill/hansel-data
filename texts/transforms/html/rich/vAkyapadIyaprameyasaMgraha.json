@@ -330,167 +330,167 @@
                     "corr": "-",
                     "page": "20",
                     "line": "10",
-                    "location_id": "19_17"
+                    "coord_id": "19_17"
                 },
                 {
                     "sic": "",
                     "corr": "-",
                     "page": "21",
                     "line": "1",
-                    "location_id": "19_17"
+                    "coord_id": "19_17"
                 },
                 {
                     "sic": "-",
                     "corr": "",
                     "page": "21",
                     "line": "20",
-                    "location_id": "19_17"
+                    "coord_id": "19_17"
                 },
                 {
                     "sic": "dhy",
                     "corr": "dhi",
                     "page": "30",
                     "line": "29",
-                    "location_id": "29_17"
+                    "coord_id": "29_17"
                 },
                 {
                     "sic": "",
                     "corr": " ",
                     "page": "31",
                     "line": "5",
-                    "location_id": "31_2"
+                    "coord_id": "31_2"
                 },
                 {
                     "sic": "",
                     "corr": " ",
                     "page": "36",
                     "line": "7",
-                    "location_id": "35_21"
+                    "coord_id": "35_21"
                 },
                 {
                     "sic": "",
                     "corr": " ",
                     "page": "38",
                     "line": "22",
-                    "location_id": "37_9"
+                    "coord_id": "37_9"
                 },
                 {
                     "sic": "",
                     "corr": " ",
                     "page": "39",
                     "line": "11",
-                    "location_id": "38_27"
+                    "coord_id": "38_27"
                 },
                 {
                     "sic": "",
                     "corr": " ",
                     "page": "39",
                     "line": "12",
-                    "location_id": "38_27"
+                    "coord_id": "38_27"
                 },
                 {
                     "sic": "",
                     "corr": " ",
                     "page": "41",
                     "line": "17",
-                    "location_id": "41_7"
+                    "coord_id": "41_7"
                 },
                 {
                     "sic": " ",
                     "corr": "",
                     "page": "43",
                     "line": "1",
-                    "location_id": "42_14"
+                    "coord_id": "42_14"
                 },
                 {
                     "sic": "",
                     "corr": " ",
                     "page": "48",
                     "line": "5",
-                    "location_id": "48_5"
+                    "coord_id": "48_5"
                 },
                 {
                     "sic": " ",
                     "corr": "",
                     "page": "49",
                     "line": "12",
-                    "location_id": "49_9"
+                    "coord_id": "49_9"
                 },
                 {
                     "sic": "",
                     "corr": " ",
                     "page": "57",
                     "line": "7",
-                    "location_id": "55_5"
+                    "coord_id": "55_5"
                 },
                 {
                     "sic": "",
                     "corr": " ",
                     "page": "57",
                     "line": "11",
-                    "location_id": "57_10"
+                    "coord_id": "57_10"
                 },
                 {
                     "sic": "-",
                     "corr": "",
                     "page": "57",
                     "line": "13",
-                    "location_id": "57_12"
+                    "coord_id": "57_12"
                 },
                 {
                     "sic": "",
                     "corr": " ",
                     "page": "59",
                     "line": "18",
-                    "location_id": "58_11"
+                    "coord_id": "58_11"
                 },
                 {
                     "sic": "",
                     "corr": " ",
                     "page": "61",
                     "line": "12",
-                    "location_id": "60_13"
+                    "coord_id": "60_13"
                 },
                 {
                     "sic": "",
                     "corr": " ",
                     "page": "64",
                     "line": "15",
-                    "location_id": "63_18"
+                    "coord_id": "63_18"
                 },
                 {
                     "sic": "",
                     "corr": " ",
                     "page": "64",
                     "line": "20",
-                    "location_id": "63_18"
+                    "coord_id": "63_18"
                 },
                 {
                     "sic": "",
                     "corr": " ",
                     "page": "65",
                     "line": "4",
-                    "location_id": "65_3"
+                    "coord_id": "65_3"
                 },
                 {
                     "sic": "",
                     "corr": " ",
                     "page": "66",
                     "line": "12",
-                    "location_id": "66_7"
+                    "coord_id": "66_7"
                 },
                 {
                     "sic": "",
                     "corr": " ",
                     "page": "68",
                     "line": "3",
-                    "location_id": "67_10"
+                    "coord_id": "67_10"
                 }
             ]
         }
     ],
     "has_verses": true,
-    "has_location_markers": true,
+    "has_editorial_coords": true,
     "has_line_breaks": true,
     "no_line_numbers": false,
     "drama": false,

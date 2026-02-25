@@ -18,7 +18,7 @@ n_attr = sp_child.get("n")
 if n_attr and ',' in n_attr and n_attr != last_sp_location:
     speech_div = None
     speech_div_plain = None
-    self._emit_location_h2(content_div, n_attr)
+    self._emit_editorial_coord_h2(content_div, n_attr)
     last_sp_location = n_attr
 ```
 
@@ -86,5 +86,5 @@ speeches get their location attribute.
 ## What the HTML structure will look like after both fixes
 
 For each `[x,y]` in the plaintext (one per speaker change, one per stage direction,
-one per mid-speech location jump), there will be exactly one `<h2 class="location-marker">`.
+one per mid-speech location jump), there will be exactly one `<h2 class="editorial-coord">`.
 Consecutive verses at the same location (e.g. two `<lg n="1,16">`) produce only one h2.
