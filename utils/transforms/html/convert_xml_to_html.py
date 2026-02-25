@@ -263,7 +263,7 @@ class HtmlConverter:
                 if not in_lg:
                     self.pending_breaks += 1
                 pb_a = etree.Element("a", {"class": "pb-label rich-text", "data-page": self.current_page, "target": "_blank"})
-                pb_a.text = f'({self.page_label}.{self.current_page}, {self.line_label}.1)' if not self.no_line_numbers else f'({self.page_label}.{self.current_page})'
+                pb_a.text = f'(p.{self.current_page})'
                 self.pending_label = pb_a
             elif child.tag == 'choice':
                 corr_span = etree.SubElement(html_node, "span", {"class": "correction"})
@@ -304,6 +304,9 @@ class HtmlConverter:
                 unclear_span = etree.SubElement(html_node, "span", {"class": "unclear", "title": "unclear"})
                 self.process_children(child, unclear_span, treat_as_plain, in_lg=in_lg)
             elif child.tag == 'stage':
+                if not treat_as_plain and self.pending_label is not None:
+                    html_node.append(self.pending_label)
+                    self.pending_label = None
                 stage_span = etree.SubElement(html_node, "span", {"class": "stage-direction"})
                 stage_span.text = "("
                 self.process_children(child, stage_span, treat_as_plain, in_lg=in_lg)
@@ -336,22 +339,47 @@ class HtmlConverter:
         """Emit a location-marker <h2> to content_div for the given n attribute value.
 
         Resets pending breaks/labels and updates current_page/line state.
-        Used by both the main section loop and the <sp> handler.
+        Used by the <sp> handler (drama mode).
         Skips emission if the location is identical to the last emitted h2.
+
+        In drama mode the n="x,y" coordinate system is independent of PDF pages,
+        so this method never creates inline labels — <pb> elements handle those.
+        H2 headings are only emitted for section starts (line_part == "1").
         """
         if n_attr == getattr(self, '_last_emitted_location', None):
             return
         self._last_emitted_location = n_attr
-        self.pending_breaks = 0
-        self.pending_label = None
-        self.has_location_markers = True
-        self.current_location_id = n_attr.replace(',', '_').replace(' ', '')
-        h2 = etree.SubElement(content_div, "h2", {"class": "location-marker rich-text", "id": self.current_location_id})
         n_parts = n_attr.split(',')
         page_part = n_parts[0].strip()
         line_part = n_parts[1].strip() if len(n_parts) > 1 else "1"
         self.current_page = page_part
         self.current_line = line_part
+
+        if self.drama:
+            # Non-page-start locations: silently update state only.
+            if len(n_parts) == 2 and line_part != "1":
+                return
+            # Page-start (line_part == "1"): emit h2 with custom labels.
+            # Do NOT create an inline label — any pending (p.X) from a preceding
+            # <pb> element is preserved and will be flushed by the first text content.
+            self.pending_breaks = 0
+            self.has_location_markers = True
+            self.current_location_id = n_attr.replace(',', '_').replace(' ', '')
+            h2 = etree.SubElement(content_div, "h2", {"class": "location-marker rich-text", "id": self.current_location_id})
+            if len(n_parts) == 2:
+                h2.text = f"{self.page_label}.{page_part}, {self.line_label}.{line_part}"
+            elif len(n_parts) == 1:
+                h2.text = f"{self.page_label}.{page_part}"
+            else:
+                h2.text = n_attr
+            return
+
+        # Non-drama: original behaviour — h2 plus an inline label.
+        self.pending_breaks = 0
+        self.pending_label = None
+        self.has_location_markers = True
+        self.current_location_id = n_attr.replace(',', '_').replace(' ', '')
+        h2 = etree.SubElement(content_div, "h2", {"class": "location-marker rich-text", "id": self.current_location_id})
         if len(n_parts) == 2:
             h2.text = f"{self.page_label}.{page_part}, {self.line_label}.{line_part}"
         elif len(n_parts) == 1:
@@ -686,7 +714,7 @@ class HtmlConverter:
                     self.current_page = element.get("n")
                     self.current_line = "1"
                     pb_a = etree.Element("a", {"class": "pb-label rich-text", "data-page": self.current_page, "target": "_blank"})
-                    pb_a.text = f'({self.page_label}.{self.current_page}, {self.line_label}.1)' if not self.no_line_numbers else f'({self.page_label}.{self.current_page})'
+                    pb_a.text = f'(p.{self.current_page})'
                     self.pending_label = pb_a
 
                 elif element.tag == "sp":
@@ -747,6 +775,9 @@ class HtmlConverter:
                                 self.process_lg_content(sp_child, speech_div_plain, treat_as_plain=True)
                         elif sp_child.tag == "stage":
                             if not self.only_plain:
+                                if self.pending_label is not None:
+                                    speech_div.append(self.pending_label)
+                                    self.pending_label = None
                                 stage_span = etree.SubElement(speech_div, "span", {"class": "stage-direction"})
                                 stage_span.text = "("
                                 self.process_children(sp_child, stage_span, treat_as_plain=False, in_lg=False)
@@ -759,6 +790,9 @@ class HtmlConverter:
                     # Top-level stage direction (outside <sp>)
                     if not self.only_plain:
                         p_rich = etree.SubElement(content_div, "p", {"class": "rich-text"})
+                        if self.pending_label is not None:
+                            p_rich.append(self.pending_label)
+                            self.pending_label = None
                         stage_span = etree.SubElement(p_rich, "span", {"class": "stage-direction"})
                         stage_span.text = "("
                         self.process_children(element, stage_span, treat_as_plain=False, in_lg=False)
@@ -773,39 +807,47 @@ class HtmlConverter:
                     self.current_verse_part = None
                     n_attr = element.get("n")
                     if n_attr:
-                        # Clear pending breaks/labels from the previous element's trailing <lb>/<pb>,
-                        # since the location marker <h2> replaces their visual function.
-                        self.pending_breaks = 0
-                        self.pending_label = None
-                        self.has_location_markers = True
-                        self.current_location_id = n_attr.replace(',', '_').replace(' ', '')
-                        h2 = etree.SubElement(content_div, "h2", {"class": "location-marker rich-text", "id": self.current_location_id})
                         n_parts = n_attr.split(',')
                         page_part = n_parts[0].strip()
                         line_part = n_parts[1].strip() if len(n_parts) > 1 else "1"
-
                         self.current_page = page_part
                         self.current_line = line_part
 
-                        if len(n_parts) == 2:
-                            h2.text = f"{self.page_label}.{page_part}, {self.line_label}.{line_part}"
-                        elif len(n_parts) == 1:
-                            h2.text = f"{self.page_label}.{page_part}"
+                        if self.drama:
+                            # In drama mode the n coordinate is not the PDF page.
+                            # Only emit h2 for section starts; never create inline labels.
+                            if len(n_parts) != 2 or line_part == "1":
+                                self.pending_breaks = 0
+                                self.has_location_markers = True
+                                self.current_location_id = n_attr.replace(',', '_').replace(' ', '')
+                                h2 = etree.SubElement(content_div, "h2", {"class": "location-marker rich-text", "id": self.current_location_id})
+                                if len(n_parts) == 2:
+                                    h2.text = f"{self.page_label}.{page_part}, {self.line_label}.{line_part}"
+                                elif len(n_parts) == 1:
+                                    h2.text = f"{self.page_label}.{page_part}"
+                                else:
+                                    h2.text = n_attr
                         else:
-                            h2.text = n_attr
-
-                        # Create pending inline label for the first line of the <p>,
-                        # so it gets an inline location marker like subsequent lines.
-                        # Use <a> (pb-label) when at line 1 so the PDF link works,
-                        # otherwise use <span> (lb-label).
-                        if len(n_parts) == 2:
-                            if line_part == "1":
-                                label = etree.Element("a", {"class": "pb-label rich-text", "data-page": page_part, "target": "_blank"})
-                                label.text = f'({self.page_label}.{page_part}, {self.line_label}.1)'
+                            # Non-drama: clear pending state and create h2 + inline label.
+                            self.pending_breaks = 0
+                            self.pending_label = None
+                            self.has_location_markers = True
+                            self.current_location_id = n_attr.replace(',', '_').replace(' ', '')
+                            h2 = etree.SubElement(content_div, "h2", {"class": "location-marker rich-text", "id": self.current_location_id})
+                            if len(n_parts) == 2:
+                                h2.text = f"{self.page_label}.{page_part}, {self.line_label}.{line_part}"
+                            elif len(n_parts) == 1:
+                                h2.text = f"{self.page_label}.{page_part}"
                             else:
-                                label = etree.Element("span", {"class": "lb-label rich-text", "data-line": line_part})
-                                label.text = f'({self.page_label}.{page_part}, {self.line_label}.{line_part})'
-                            self.pending_label = label
+                                h2.text = n_attr
+                            if len(n_parts) == 2:
+                                if line_part == "1":
+                                    label = etree.Element("a", {"class": "pb-label rich-text", "data-page": page_part, "target": "_blank"})
+                                    label.text = f'({self.page_label}.{page_part}, {self.line_label}.1)'
+                                else:
+                                    label = etree.Element("span", {"class": "lb-label rich-text", "data-line": line_part})
+                                    label.text = f'({self.page_label}.{page_part}, {self.line_label}.{line_part})'
+                                self.pending_label = label
 
                     if not self.only_plain:
                         self.process_children(element, etree.SubElement(content_div, "p", {"class": "rich-text"}), treat_as_plain=False, in_lg=False)
@@ -826,41 +868,49 @@ class HtmlConverter:
                         if ',' not in n_attr:
                             raise ValueError(f"Standard-format <lg> has non-page,line n attribute: n=\"{n_attr}\". Use condensed verse format for verse-numbered lgs.")
 
-                        # Clear pending breaks/labels from the previous element's trailing <lb>/<pb>,
-                        # since the location marker <h2> replaces their visual function.
-                        self.pending_breaks = 0
-                        self.pending_label = None
-                        self.has_location_markers = True
-                        self.current_location_id = n_attr.replace(',', '_').replace(' ', '')
-                        # Break the current verses_ul so a new one is created after this h2
-                        current_verses_ul = None
-                        h2 = etree.SubElement(content_div, "h2", {"class": "location-marker rich-text", "id": self.current_location_id})
                         n_parts = n_attr.split(',')
                         page_part = n_parts[0].strip()
                         line_part = n_parts[1].strip() if len(n_parts) > 1 else "1"
-
                         self.current_page = page_part
                         self.current_line = line_part
 
-                        if len(n_parts) == 2:
-                            h2.text = f"{self.page_label}.{page_part}, {self.line_label}.{line_part}"
-                        elif len(n_parts) == 1:
-                            h2.text = f"{self.page_label}.{page_part}"
+                        if self.drama:
+                            # In drama mode the n coordinate is not the PDF page.
+                            # Only emit h2 for section starts; never create inline labels.
+                            if len(n_parts) != 2 or line_part == "1":
+                                self.pending_breaks = 0
+                                self.has_location_markers = True
+                                self.current_location_id = n_attr.replace(',', '_').replace(' ', '')
+                                current_verses_ul = None
+                                h2 = etree.SubElement(content_div, "h2", {"class": "location-marker rich-text", "id": self.current_location_id})
+                                if len(n_parts) == 2:
+                                    h2.text = f"{self.page_label}.{page_part}, {self.line_label}.{line_part}"
+                                elif len(n_parts) == 1:
+                                    h2.text = f"{self.page_label}.{page_part}"
+                                else:
+                                    h2.text = n_attr
                         else:
-                            h2.text = n_attr
-
-                        # Create pending inline label for the first line of the <lg>,
-                        # so it gets an inline location marker like subsequent lines.
-                        # Use <a> (pb-label) when at line 1 so the PDF link works,
-                        # otherwise use <span> (lb-label).
-                        if len(n_parts) == 2:
-                            if line_part == "1":
-                                label = etree.Element("a", {"class": "pb-label rich-text", "data-page": page_part, "target": "_blank"})
-                                label.text = f'({self.page_label}.{page_part}, {self.line_label}.1)'
+                            # Non-drama: clear pending state and create h2 + inline label.
+                            self.pending_breaks = 0
+                            self.pending_label = None
+                            self.has_location_markers = True
+                            self.current_location_id = n_attr.replace(',', '_').replace(' ', '')
+                            current_verses_ul = None
+                            h2 = etree.SubElement(content_div, "h2", {"class": "location-marker rich-text", "id": self.current_location_id})
+                            if len(n_parts) == 2:
+                                h2.text = f"{self.page_label}.{page_part}, {self.line_label}.{line_part}"
+                            elif len(n_parts) == 1:
+                                h2.text = f"{self.page_label}.{page_part}"
                             else:
-                                label = etree.Element("span", {"class": "lb-label rich-text", "data-line": line_part})
-                                label.text = f'({self.page_label}.{page_part}, {self.line_label}.{line_part})'
-                            self.pending_label = label
+                                h2.text = n_attr
+                            if len(n_parts) == 2:
+                                if line_part == "1":
+                                    label = etree.Element("a", {"class": "pb-label rich-text", "data-page": page_part, "target": "_blank"})
+                                    label.text = f'({self.page_label}.{page_part}, {self.line_label}.1)'
+                                else:
+                                    label = etree.Element("span", {"class": "lb-label rich-text", "data-line": line_part})
+                                    label.text = f'({self.page_label}.{page_part}, {self.line_label}.{line_part})'
+                                self.pending_label = label
 
                     # Rich pass: wrap in <ul class="verses"> for verse-styling CSS
                     if not self.only_plain:
