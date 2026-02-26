@@ -615,6 +615,7 @@ class HtmlConverter:
                 
                 # Prefix miscellaneous links to point to /static/data/
                 html_content = html_content.replace('href="miscellaneous/', 'href="/static/data/miscellaneous/')
+                html_content = html_content.replace('href="/miscellaneous/', 'href="/static/data/miscellaneous/')
 
                 parsed_md_body = fromstring(html_content)
 
@@ -686,6 +687,10 @@ class HtmlConverter:
                         "url": pdf_link_url,
                         "offsets": pdf_offsets
                     }
+
+                # Remove PDF Page Offset from displayed metadata (internal use only)
+                if pdf_offset_entry:
+                    self.metadata_entries.remove(pdf_offset_entry)
 
 
         # 3. generate content_div HTML fragment (= main content processing loop)

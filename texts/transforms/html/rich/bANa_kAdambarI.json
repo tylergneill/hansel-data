@@ -57,12 +57,6 @@
         },
         {
             "type": "field",
-            "label": "PDF Page Offset",
-            "inline_text": null,
-            "content_html": "<ul>\n<li>1 → 12</li>\n</ul>\n"
-        },
-        {
-            "type": "field",
             "label": "Extent",
             "inline_text": null,
             "content_html": "<ul>\n<li>The complete work is extant.</li>\n<li>The edition contains a complete text.</li>\n<li>The text fills 368 pages in the edition, with no other intervening material.</li>\n</ul>\n"

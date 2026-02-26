@@ -392,12 +392,6 @@
         },
         {
             "type": "field",
-            "label": "PDF Page Offset",
-            "inline_text": null,
-            "content_html": "<ul>\n<li>319 → 4</li>\n</ul>\n"
-        },
-        {
-            "type": "field",
             "label": "Extent",
             "inline_text": null,
             "content_html": "<ul>\n<li>The complete work is nearly extant except for a few small lacunae.</li>\n<li>The edition contains a complete text of the known work.</li>\n<li>The text fills 66 pages in the edition (pp. 319–384), with no other intervening material.</li>\n</ul>\n"

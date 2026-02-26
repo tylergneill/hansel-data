@@ -172,12 +172,6 @@
         },
         {
             "type": "field",
-            "label": "PDF Page Offset",
-            "inline_text": null,
-            "content_html": "<ul>\n<li>3 → 29</li>\n<li>232 → 257</li>\n<li>381 → 405</li>\n<li>446 → 468</li>\n<li>495 → 516</li>\n<li>607 → 627</li>\n</ul>\n"
-        },
-        {
-            "type": "field",
             "label": "Extent",
             "inline_text": null,
             "content_html": "<ul>\n<li>The complete work is extant.</li>\n<li>The edition contains a complete text.</li>\n<li>The text consist of about 3,350 verses (mostly anuṣṭubh).</li>\n<li>The text is spread out over 664 pages in the edition, interspersed with commentary and occasional footnotes.</li>\n</ul>\n"
