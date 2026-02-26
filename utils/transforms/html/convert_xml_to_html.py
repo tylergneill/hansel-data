@@ -990,6 +990,7 @@ class HtmlConverter:
                 "has_verses": self.has_verses,
                 "has_editorial_coords": self.has_editorial_coords,
                 "has_line_breaks": self.has_line_breaks,
+                "has_corrections": bool(self.corrections_data),
                 "no_line_numbers": self.no_line_numbers,
                 "drama": self.drama,
                 "has_chaya": has_chaya,

@@ -181,6 +181,7 @@
     "has_verses": true,
     "has_editorial_coords": true,
     "has_line_breaks": false,
+    "has_corrections": false,
     "no_line_numbers": true,
     "drama": true,
     "has_chaya": true,

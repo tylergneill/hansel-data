@@ -492,6 +492,7 @@
     "has_verses": true,
     "has_editorial_coords": true,
     "has_line_breaks": true,
+    "has_corrections": true,
     "no_line_numbers": false,
     "drama": false,
     "has_chaya": false,
