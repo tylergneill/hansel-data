@@ -24,7 +24,7 @@ Kapstein 2026
 - Title: Text of Kṛṣṇa Miśra's Prabodhacandrodaya (कृष्णमिश्र प्रबोधचन्द्रोदय) as edited by Matthew Kapstein
 - Place: Archive.org
 - Year: 2026
-- Note: Differences from the text printed in Clay are primarily: more standard IAST representation without Clay sandhi-and-compound notations, and chāyā placed adjacent to corresponding Prakrit.
+- Note: Differences from the text printed in Clay are primarily (1) more standard IAST representation without Clay sandhi-and-compound notations, and (2) chāyā placed adjacent to corresponding Prakrit.
 
 # Edition PDFs
 
@@ -53,7 +53,7 @@ Play in six acts, with a prologue (prastāvanā), three interludes (viṣkambhak
 | 5   | 71–88   | praveśaka (pp. 71–78)                        |
 | 6   | 89–112  | praveśaka (pp. 89–94)                        |
 
-Location markers are adapted from the Clay Sanskrit Library (CSL) edition, which marks every fifth textual unit with a numerical reference in the format {chapter}.{unit}. A “unit” may consist of a single paragraph, a single verse, a stage direction, or the designation of a structural device.
+Location markers are adapted from the Clay Sanskrit Library (CSL) edition, which marks every fifth textual unit with a numerical reference in the format {act}.{unit}. A “unit” may consist of a single paragraph, a single verse, a stage direction, or the designation of a structural device.
 
 In the present text, identifiers of this form are assigned to the beginning of each character’s speech, regardless of how many prose or metrical elements it contains, as well as to selected stage directions and structural devices.
 
