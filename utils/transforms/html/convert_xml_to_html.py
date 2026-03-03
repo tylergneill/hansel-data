@@ -762,8 +762,13 @@ class HtmlConverter:
                     speaker_el = element.find("speaker")
                     speaker_name = (speaker_el.text or "") if speaker_el is not None else ""
 
-                    speech_div = None       # rich container; reset at each location marker
+                    speech_div = None        # rich container; reset at each location marker
                     speech_div_plain = None  # plain container; reset at each location marker
+                    verses_ul = None         # <ul class="verses"> inside speech_div; <li class="verse">
+                                             # elements from process_lg_content must sit inside a <ul>,
+                                             # not directly in speech_div (which is a <div>).
+                                             # Reset alongside speech_div and whenever a non-lg child
+                                             # (p, stage) interrupts a run of verses.
                     first_rich_div = True    # speaker span emitted only on the first rich div
                     speaker_shown = False    # speaker name prepended only on first <p> (plain)
                     last_sp_location = None  # dedup: skip h2 if location unchanged
@@ -778,6 +783,7 @@ class HtmlConverter:
                             # so the content following the marker starts a fresh div.
                             speech_div = None
                             speech_div_plain = None
+                            verses_ul = None
                             self._emit_editorial_coord_h2(content_div, n_attr)
                             last_sp_location = n_attr
 
@@ -791,6 +797,7 @@ class HtmlConverter:
                             speech_div_plain = etree.SubElement(content_div, "div", {"class": "speech plain-text"})
 
                         if sp_child.tag == "p":
+                            verses_ul = None
                             if not self.only_plain:
                                 self.process_children(sp_child, etree.SubElement(speech_div, "p"), treat_as_plain=False, in_lg=False)
                             p_plain = etree.SubElement(speech_div_plain, "p")
@@ -800,17 +807,20 @@ class HtmlConverter:
                             self.process_children(sp_child, p_plain, treat_as_plain=True, in_lg=False)
                         elif sp_child.tag == "lg":
                             if not self.only_plain:
+                                if verses_ul is None:
+                                    verses_ul = etree.SubElement(speech_div, "ul", {"class": "verses"})
                                 if sp_child.get('type') == 'group':
                                     for lg_child in sp_child.findall("lg"):
-                                        self.process_lg_content(lg_child, speech_div, treat_as_plain=False)
+                                        self.process_lg_content(lg_child, verses_ul, treat_as_plain=False)
                                 else:
-                                    self.process_lg_content(sp_child, speech_div, treat_as_plain=False)
+                                    self.process_lg_content(sp_child, verses_ul, treat_as_plain=False)
                             if sp_child.get('type') == 'group':
                                 for lg_child in sp_child.findall("lg"):
                                     self.process_lg_content(lg_child, speech_div_plain, treat_as_plain=True)
                             else:
                                 self.process_lg_content(sp_child, speech_div_plain, treat_as_plain=True)
                         elif sp_child.tag == "stage":
+                            verses_ul = None
                             if not self.only_plain:
                                 if self.pending_label is not None:
                                     speech_div.append(self.pending_label)
