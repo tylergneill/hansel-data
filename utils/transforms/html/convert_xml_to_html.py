@@ -16,6 +16,18 @@ def _is_condensed_lg(lg_element):
 
 
 class HtmlConverter:
+    """Convert TEI XML to HTML.
+
+    ``drama`` and ``page_label``/``line_label`` are independent axes:
+    - ``drama=True`` enables speech/stage-direction/Prakrit rendering (<sp>, <speaker>, etc.).
+      It says nothing about the coordinate system.
+    - ``page_label``/``line_label`` control how editorial coordinates are *displayed*.
+      When both equal the defaults ("p"/"l") the coordinate values in n="page,line" are
+      treated as physical PDF-page/line references and pb-labels get hyperlinks.
+      When either differs from the default (e.g. "ch"/"u" for a drama with act/unit coords),
+      the coordinate system is treated as editorially defined and independent of PDF pages.
+    A drama text that uses [page,line] coordinates will have drama=True and default labels.
+    """
     def __init__(self, no_line_numbers=False, only_plain=False, standalone=False, drama=False, page_label="p", line_label="l"):
         self.no_line_numbers = no_line_numbers
         self.only_plain = only_plain
@@ -367,6 +379,13 @@ class HtmlConverter:
             # the Location Info toggle.  Never create an inline label; any pending
             # (p.X) from a preceding <pb> element is preserved and will be flushed
             # by the first text content.
+            # TODO (line-by-line + drama, custom coord system): pending_label is intentionally
+            # preserved here so that a <pb>-generated label survives across a coord-h3 boundary.
+            # But in line-by-line mode an <lb>-generated pending_label at the end of speech
+            # content can also survive here, and it will be flushed into the new speech_div
+            # (created after speech_div = None in the <sp> loop) rather than the old one.
+            # Fix requires distinguishing the label's source (<pb> vs <lb>) — e.g. a flag
+            # self.pending_label_from_pb — so only <pb> labels are preserved across resets.
             self.pending_breaks = 0
             self.has_editorial_coords = True
             self.current_coord_id = n_attr.replace(',', '_').replace(' ', '')
@@ -456,6 +475,11 @@ class HtmlConverter:
                     if child.tag == 'l':
                         self._render_l_as_spans(child, div_elem, False, in_lg=True)
                     elif child.tag == 'lg' and child.get('type') == 'chāyā':
+                        # Flush any pending lb-label into the Prakrit verse before opening
+                        # the chāyā div; otherwise it would leak into the chāyā content.
+                        if self.pending_label is not None:
+                            div_elem.append(self.pending_label)
+                            self.pending_label = None
                         chaya_div = etree.SubElement(div_elem, "div", {"class": "chaya"})
                         for sub_child in child:
                             if sub_child.tag == 'l':

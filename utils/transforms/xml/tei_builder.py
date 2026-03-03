@@ -72,6 +72,11 @@ def make_xml_id(label: str) -> str:
 @dataclass
 class TextBuildState:
     line_by_line: bool = False
+    # drama controls structural parsing only: <sp>/<speaker>, stage directions, Prakrit/chāyā.
+    # It is independent of the coordinate system. A drama text can use [page,line] coordinates
+    # (in which case line_by_line works normally) or a custom editorial coord system (e.g. [act,unit])
+    # configured separately in flag_map.editorial_coord_labels_map. Never infer the coordinate
+    # system from this flag.
     drama: bool = False
 
     # DOM pointers
@@ -372,6 +377,12 @@ class TeiTextBuilder:
                 chaya.text = m.group(1)
                 s.awaiting_chaya = False
                 s.chaya_prakrit_seg = None
+                # TODO (line-by-line + drama): this line is consumed without emitting an <lb>.
+                # For the current use-case (Prabodhacandrodaya), chāyās are pulled from endnotes
+                # and do not correspond to a physical line in the edition, so skipping <lb> is
+                # correct. But a text where the chāyā appears inline on the page WOULD need an
+                # <lb> here. When that case arises, a plaintext marker (or a text-level flag)
+                # will be needed to distinguish the two situations before this can be fixed.
                 return True
 
         # --- Verse chāyā start: tab + ( ---
