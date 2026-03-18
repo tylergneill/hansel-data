@@ -6,10 +6,18 @@ from tei_builder import TeiTextBuilder
 from conversion_utils import add_shared_argparse_args, get_root, ns, write_xml_file
 
 
-def build_tei_text(src: Path, line_by_line: bool = False, drama: bool = False) -> etree._Element:
+def load_chaya_list(chaya_path: Path) -> list[str]:
+    """Parse a companion chāyā file: double-newline-separated entries."""
+    text = chaya_path.read_text(encoding="utf-8")
+    entries = [e.strip() for e in text.split("\n\n") if e.strip()]
+    return entries
+
+
+def build_tei_text(src: Path, line_by_line: bool = False, drama: bool = False, chaya_path: Path = None) -> etree._Element:
     text = src.read_text(encoding="utf-8")
     lines = text.splitlines()
-    builder = TeiTextBuilder(line_by_line=line_by_line, drama=drama)
+    chaya_list = load_chaya_list(chaya_path) if chaya_path else []
+    builder = TeiTextBuilder(line_by_line=line_by_line, drama=drama, chaya_list=chaya_list)
     return builder.build(lines)
 
 
@@ -27,6 +35,10 @@ def configure_cli(parser: argparse.ArgumentParser):
         "--drama", action="store_true",
         help="Drama mode: handle speakers, stage directions, and Prakrit chāyās"
     )
+    parser.add_argument(
+        "--chaya", type=Path, default=None,
+        help="Path to companion chāyā file (double-newline-separated Sanskrit entries)"
+    )
 
 
 def cli():
@@ -43,7 +55,7 @@ def cli():
         root.remove(old_text_element)
 
     # create and insert new text
-    new_text_element = build_tei_text(args.src, line_by_line=args.line_by_line, drama=args.drama)
+    new_text_element = build_tei_text(args.src, line_by_line=args.line_by_line, drama=args.drama, chaya_path=args.chaya)
     if new_text_element is not None:
         root.append(new_text_element)  # whether teiHeader exists or not, ensures text comes after
 

@@ -125,14 +125,23 @@ class TextBuildState:
     chaya_inner_lg: Optional[etree._Element] = None     # the <lg type="chāyā"> being built
     in_prakrit_verse: bool = False                      # True while inside ˹...˼ verse markers
 
+    # external chāyā list (new companion-file format): consumed sequentially
+    chaya_list: list = field(default_factory=list)
+    chaya_index: int = 0
+
+    # open-prakrit state: accumulates lines when ˹ and ˼ span multiple input lines
+    in_open_prakrit: bool = False
+    open_prakrit_lines: list = field(default_factory=list)
+
 # ----------------------------
 # Builder class
 # ----------------------------
 class TeiTextBuilder:
-    def __init__(self, line_by_line: bool = False, drama: bool = False):
+    def __init__(self, line_by_line: bool = False, drama: bool = False, chaya_list: list = None):
         self.state = TextBuildState(
             line_by_line=line_by_line,
             drama=drama,
+            chaya_list=chaya_list or [],
         )
         self.state.text = etree.SubElement(self.state.root, "text")
         self.state.body = etree.SubElement(self.state.text, "body")
@@ -150,6 +159,25 @@ class TeiTextBuilder:
         if not line.strip():
             return
         s = self.state
+
+        # OPEN-PRAKRIT ACCUMULATION — drama mode: ˹...˼ spanning multiple lines
+        if s.drama and s.in_open_prakrit:
+            if '˼' in line:
+                # Closing line: join accumulated lines and re-dispatch as a single line
+                s.open_prakrit_lines.append(line)
+                joined = ' '.join(s.open_prakrit_lines)
+                s.in_open_prakrit = False
+                s.open_prakrit_lines = []
+                self._handle_line(joined)
+            else:
+                s.open_prakrit_lines.append(line.rstrip('-').rstrip())
+            return
+
+        if s.drama and '˹' in line and '˼' not in line:
+            # Opening of a multi-line Prakrit span — begin accumulation
+            s.in_open_prakrit = True
+            s.open_prakrit_lines = [line.rstrip('-').rstrip()]
+            return
 
         # CHĀYĀ DISPATCH — intercept lines when awaiting chāyā after ˹...˼
         if s.awaiting_chaya:
@@ -268,6 +296,17 @@ class TeiTextBuilder:
             self._open_location_for_sp()
             self._process_content_with_midline_elements(line, "prose", raw_line_for_hyphen_check=line)
             self._finalize_physical_line(line)
+            return
+
+        # drama: stage direction / prose outside any <sp> or location (e.g. top-of-text)
+        if s.drama:
+            p = etree.SubElement(s.current_div, "p")
+            s.current_p = p
+            s.last_tail_text_sink = None
+            s.prev_line_hyphen = False
+            self._process_content_with_midline_elements(line, "prose", raw_line_for_hyphen_check=line)
+            self._finalize_physical_line(line)
+            self._close_p()
             return
 
         # shouldn't reach this
@@ -511,10 +550,20 @@ class TeiTextBuilder:
 
         if is_verse_close:
             if has_prakrit_close:
-                # Prakrit verse just closed — store the lg for chāyā attachment
-                s.awaiting_chaya = True
-                s.chaya_target_lg = working_lg
                 s.in_prakrit_verse = False
+                if s.chaya_list:
+                    # Companion-file mode: attach chāyā immediately from list
+                    chaya_text = s.chaya_list[s.chaya_index] if s.chaya_index < len(s.chaya_list) else None
+                    s.chaya_index += 1
+                    if chaya_text is not None:
+                        inner_lg = etree.SubElement(working_lg, "lg", {"type": "chāyā"})
+                        inner_lg.set(f"{{{_XML_NS}}}lang", "san-Latn")
+                        l_el = etree.SubElement(inner_lg, "l")
+                        l_el.text = chaya_text
+                else:
+                    # Legacy inline format — expect chāyā on next lines
+                    s.awaiting_chaya = True
+                    s.chaya_target_lg = working_lg
             if target_lg_override is None:
                 if s.current_lg is not None:
                     s.verse_group_buffer.append(s.current_lg)
@@ -558,31 +607,67 @@ class TeiTextBuilder:
         seg = etree.Element("seg", {"type": "prakrit"})
         seg.set(f"{{{_XML_NS}}}lang", "pra-Latn")
         self._set_text_with_embedded_stages(seg, match.group(1))
-        if match.group(2):
-            # Inline chāyā on the same line: ˹prakrit˼(chāyā)
+        # Determine chāyā text: prefer companion-file list, then inline, then next-line
+        chaya_text = None
+        if s.chaya_list:
+            if s.chaya_index < len(s.chaya_list):
+                chaya_text = s.chaya_list[s.chaya_index]
+            s.chaya_index += 1
+        elif match.group(2):
+            chaya_text = match.group(2)
+        if chaya_text is not None:
             chaya = etree.SubElement(seg, "seg", {"type": "chāyā"})
             chaya.set(f"{{{_XML_NS}}}lang", "san-Latn")
-            chaya.text = match.group(2)
-        else:
-            # No inline chāyā — expect it on the next line
+            chaya.text = chaya_text
+        elif not s.chaya_list:
+            # No companion list — expect chāyā on the next line (legacy inline format)
             s.awaiting_chaya = True
             s.chaya_prakrit_seg = seg
         self._add_inline_element(seg)
 
     def _set_text_with_embedded_stages(self, parent: etree._Element, text: str):
-        """Split text on embedded ((stage directions)) and create <stage> sub-elements."""
-        parts = STAGE_DIRECTION_RE.split(text)
-        # split yields: [before, captured_group, between, captured_group, ..., after]
-        if len(parts) == 1:
-            # No stage directions found
-            parent.text = text
-            return
-        parent.text = parts[0] or None
-        for i in range(1, len(parts), 2):
-            stage = etree.SubElement(parent, "stage")
-            stage.text = parts[i]
-            if i + 1 < len(parts) and parts[i + 1]:
-                stage.tail = parts[i + 1]
+        """Append text into parent, creating <stage> and <pb> sub-elements as encountered."""
+        # Collect all inline markers sorted by position
+        matches = []
+        for m in STAGE_DIRECTION_RE.finditer(text):
+            matches.append(('stage', m))
+        for m in MID_LINE_PAGE_RE.finditer(text):
+            matches.append(('pb', m))
+        matches.sort(key=lambda x: x[1].start())
+
+        last_end = 0
+        last_el = None
+        for kind, m in matches:
+            pre = text[last_end:m.start()]
+            if last_el is None:
+                parent.text = (parent.text or '') + pre
+            else:
+                last_el.tail = (last_el.tail or '') + pre
+
+            if kind == 'stage':
+                el = etree.SubElement(parent, "stage")
+                el.text = m.group(1)
+            else:  # pb
+                page, line_no = m.group(1), m.group(2)
+                attrs = {"n": page}
+                el = etree.SubElement(parent, "pb", attrs)
+                # update lb_count if line number given
+                if line_no:
+                    try:
+                        self.state.lb_count = int(line_no) - 1
+                    except ValueError:
+                        pass
+                else:
+                    self.state.explicit_page = page
+
+            last_el = el
+            last_end = m.end()
+
+        tail = text[last_end:]
+        if last_el is None:
+            parent.text = (parent.text or '') + tail
+        else:
+            last_el.tail = (last_el.tail or '') + tail
 
     def _add_inline_element(self, el: etree._Element):
         s = self.state
