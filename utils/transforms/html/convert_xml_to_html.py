@@ -124,12 +124,19 @@ class HtmlConverter:
                 text += ' (' + ' '.join(chaya_lines) + ')'
             elif child.tag == 'stage':
                 text += '(' + self.get_plain_text_recursive(child) + ')'
-                # Ensure a space after closing ) when inline content follows
-                if not (child.tail and child.tail.startswith(' ')):
-                    tail_has_content = bool(child.tail and child.tail.strip())
+                # Ensure a space after closing ) when inline content follows.
+                # Note: the rich-HTML path may have mutated child.tail to ' ' (space-only),
+                # which is dropped by the tail check at the bottom of this loop — so we
+                # must handle the space here rather than relying on that tail append.
+                tail = child.tail or ''
+                if tail.startswith(' '):
+                    text += ' '
+                elif tail.strip():
+                    pass  # tail has real content; space already present or not needed
+                else:
+                    # No tail or non-space-prefixed tail: add space if something follows
                     next_sibling = child.getnext()
-                    next_has_content = next_sibling is not None and next_sibling.tag not in ('lb', 'pb', 'milestone')
-                    if tail_has_content or next_has_content:
+                    if next_sibling is not None and next_sibling.tag not in ('lb', 'pb', 'milestone'):
                         text += ' '
             elif child.tag == 'seg':
                 seg_type = child.get('type', '')
