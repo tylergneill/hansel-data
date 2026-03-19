@@ -596,8 +596,10 @@ class HtmlConverter:
         text_base_name = Path(xml_path).stem
 
         # 2. generate JSON sidecar (TOC + Metadata for rich HTML)
+        div_sections = root.xpath('//body/div[@n]')
+        has_named_sections = any(d.get('n') for d in div_sections)
         if not self.only_plain:
-            for div_section in root.xpath('//body/div[@n]'):
+            for div_section in (div_sections if has_named_sections else []):
                 section_name = div_section.get('n')
                 start_page = 'N/A'
                 if self.no_line_numbers:
@@ -725,8 +727,9 @@ class HtmlConverter:
         self.current_page, self.current_line = '', '1'  # TODO: investigate whether necessary to reset like this
         for section in root.xpath('//body/div[@n]'):
             section_name = section.get('n')
-            h1 = etree.SubElement(content_div, "h1", id=section_name.replace(" ", "_"))
-            h1.text = f"§ {section_name}"
+            if section_name:
+                h1 = etree.SubElement(content_div, "h1", id=section_name.replace(" ", "_"))
+                h1.text = f"§ {section_name}"
 
             # Collect lg elements for this section to wrap in a <ul class="verses">
             # We use a "current verses_ul" that gets created on first lg and closed on non-lg
@@ -1019,6 +1022,7 @@ class HtmlConverter:
             has_chaya = bool(root.xpath('//seg[@type="chāyā"]') or root.xpath('//lg[@type="chāyā"]'))
             document_context = {
                 "title": text_base_name,
+                "has_toc": has_named_sections,
                 "toc": self.toc_data,
                 "metadata_entries": self.metadata_entries,
                 "has_verses": self.has_verses,

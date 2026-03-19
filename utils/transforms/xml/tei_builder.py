@@ -152,7 +152,15 @@ class TeiTextBuilder:
             self._handle_line(raw.rstrip("\n"))
         self._close_sp()
         self._flush_verse_group_buffer()
-        return self.state.text
+        # If no {section} markers were encountered, all content went directly into <body>.
+        # Wrap it in a single unlabeled <div n=""> so the HTML converter's section loop works.
+        s = self.state
+        if s.current_div is s.body and len(s.body):
+            div = etree.Element("div", {"n": ""})
+            for child in list(s.body):
+                div.append(child)
+            s.body.append(div)
+        return s.text
 
     # ---- per-line handler ----
     def _handle_line(self, line: str) -> None:
