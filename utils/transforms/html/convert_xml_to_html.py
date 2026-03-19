@@ -123,11 +123,27 @@ class HtmlConverter:
                         chaya_lines.append(self.get_plain_text_recursive(sub_child))
                 text += ' (' + ' '.join(chaya_lines) + ')'
             elif child.tag == 'stage':
-                text += '((' + self.get_plain_text_recursive(child) + '))'
+                text += '(' + self.get_plain_text_recursive(child) + ')'
+                # Ensure a space after closing ) when inline content follows
+                if not (child.tail and child.tail.startswith(' ')):
+                    tail_has_content = bool(child.tail and child.tail.strip())
+                    next_sibling = child.getnext()
+                    next_has_content = next_sibling is not None and next_sibling.tag not in ('lb', 'pb', 'milestone')
+                    if tail_has_content or next_has_content:
+                        text += ' '
             elif child.tag == 'seg':
                 seg_type = child.get('type', '')
                 if seg_type == 'prakrit':
                     prakrit_text = child.text or ''
+                    for grandchild in child:
+                        if grandchild.tag == 'seg' and grandchild.get('type') == 'chāyā':
+                            continue
+                        if grandchild.tag == 'stage':
+                            prakrit_text += '(' + self.get_plain_text_recursive(grandchild) + ')'
+                        else:
+                            prakrit_text += self.get_plain_text_recursive(grandchild)
+                        if grandchild.tail:
+                            prakrit_text += grandchild.tail
                     chaya_el = child.find('seg[@type="chāyā"]')
                     chaya_text = self.get_plain_text_recursive(chaya_el) if chaya_el is not None else ''
                     text += prakrit_text + ' (' + chaya_text + ')'
@@ -137,7 +153,7 @@ class HtmlConverter:
                     text += self.get_plain_text_recursive(child)
             else:
                 text += self.get_plain_text_recursive(child)
-            if child.tail:
+            if child.tail and child.tail.strip():
                 text += child.tail
         return text
 
@@ -834,7 +850,7 @@ class HtmlConverter:
                                 self.append_text(stage_span, ")", treat_as_plain=False)
                             p_plain = etree.SubElement(speech_div_plain, "p")
                             stage_text = self.get_plain_text_recursive(sp_child)
-                            self.append_text(p_plain, f"(({stage_text}))", treat_as_plain=True)
+                            self.append_text(p_plain, f"({stage_text})", treat_as_plain=True)
 
                 elif element.tag == "stage":
                     # Top-level stage direction (outside <sp>)
@@ -849,7 +865,7 @@ class HtmlConverter:
                         self.append_text(stage_span, ")", treat_as_plain=False)
                     p_plain = etree.SubElement(content_div, "p", {"class": "plain-text"})
                     stage_text = self.get_plain_text_recursive(element)
-                    self.append_text(p_plain, f"(({stage_text}))", treat_as_plain=True)
+                    self.append_text(p_plain, f"({stage_text})", treat_as_plain=True)
 
                 elif element.tag == "p":
                     current_verses_ul = None

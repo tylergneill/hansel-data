@@ -134,6 +134,21 @@ class TextBuildState:
     open_prakrit_lines: list = field(default_factory=list)
 
 # ----------------------------
+# ----------------------------
+# Module-level helpers
+# ----------------------------
+
+def _attach_chaya_lg(parent_lg: etree._Element, chaya_text: str) -> None:
+    """Attach an <lg type="chāyā"> to parent_lg, splitting chaya_text on newlines into separate <l> elements."""
+    inner_lg = etree.SubElement(parent_lg, "lg", {"type": "chāyā"})
+    inner_lg.set(f"{{{_XML_NS}}}lang", "san-Latn")
+    for line in chaya_text.splitlines():
+        line = line.strip()
+        if line:
+            l_el = etree.SubElement(inner_lg, "l")
+            l_el.text = line
+
+
 # Builder class
 # ----------------------------
 class TeiTextBuilder:
@@ -171,12 +186,28 @@ class TeiTextBuilder:
         # OPEN-PRAKRIT ACCUMULATION — drama mode: ˹...˼ spanning multiple lines
         if s.drama and s.in_open_prakrit:
             if '˼' in line:
-                # Closing line: join accumulated lines and re-dispatch as a single line
+                # Closing line: collect and dispatch
                 s.open_prakrit_lines.append(line)
-                joined = ' '.join(s.open_prakrit_lines)
+                lines = s.open_prakrit_lines
                 s.in_open_prakrit = False
                 s.open_prakrit_lines = []
-                self._handle_line(joined)
+                # If all lines are tab-prefixed verse lines, dispatch individually
+                # (joining would collapse multiple pādas into one <l>)
+                if all(l.startswith('\t') for l in lines):
+                    lines[0] = lines[0].replace('˹', '', 1)
+                    lines[-1] = lines[-1].replace('˼', '', 1)
+                    for verse_line in lines:
+                        self._handle_line(verse_line)
+                    # ˼ was stripped, so the chāyā attachment in _handle_verse_line never ran.
+                    # Attach it now to the just-buffered verse <lg>.
+                    if s.chaya_list and s.verse_group_buffer:
+                        working_lg = s.verse_group_buffer[-1]
+                        chaya_text = s.chaya_list[s.chaya_index] if s.chaya_index < len(s.chaya_list) else None
+                        s.chaya_index += 1
+                        if chaya_text is not None:
+                            _attach_chaya_lg(working_lg, chaya_text)
+                else:
+                    self._handle_line(' '.join(lines))
             else:
                 s.open_prakrit_lines.append(line.rstrip('-').rstrip())
             return
@@ -564,10 +595,7 @@ class TeiTextBuilder:
                     chaya_text = s.chaya_list[s.chaya_index] if s.chaya_index < len(s.chaya_list) else None
                     s.chaya_index += 1
                     if chaya_text is not None:
-                        inner_lg = etree.SubElement(working_lg, "lg", {"type": "chāyā"})
-                        inner_lg.set(f"{{{_XML_NS}}}lang", "san-Latn")
-                        l_el = etree.SubElement(inner_lg, "l")
-                        l_el.text = chaya_text
+                        _attach_chaya_lg(working_lg, chaya_text)
                 else:
                     # Legacy inline format — expect chāyā on next lines
                     s.awaiting_chaya = True
