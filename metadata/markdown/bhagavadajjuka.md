@@ -30,7 +30,7 @@ Steiner and Straube 2006
 
 # File Size (KB)
 
-139
+33
 
 # Structure
 
