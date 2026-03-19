@@ -177,12 +177,88 @@
             "label": "Metadata Last Updated",
             "inline_text": "2026-02-25",
             "content_html": ""
+        },
+        {
+            "type": "corrections",
+            "count": 10,
+            "rows": [
+                {
+                    "sic": "kti",
+                    "corr": "ktī",
+                    "page": "1",
+                    "line": "1",
+                    "coord_id": "1_1"
+                },
+                {
+                    "sic": "rū",
+                    "corr": "ru",
+                    "page": "17",
+                    "line": "1",
+                    "coord_id": "2_23"
+                },
+                {
+                    "sic": "ḥma",
+                    "corr": "hma",
+                    "page": "2",
+                    "line": "39",
+                    "coord_id": "2_39"
+                },
+                {
+                    "sic": "nte",
+                    "corr": "ntu",
+                    "page": "2",
+                    "line": "113",
+                    "coord_id": "2_113"
+                },
+                {
+                    "sic": "",
+                    "corr": "ma",
+                    "page": "2",
+                    "line": "134",
+                    "coord_id": "2_134"
+                },
+                {
+                    "sic": "tī",
+                    "corr": "ti",
+                    "page": "3",
+                    "line": "2",
+                    "coord_id": "3_2"
+                },
+                {
+                    "sic": "vpra",
+                    "corr": "pra",
+                    "page": "5",
+                    "line": "69",
+                    "coord_id": "5_69"
+                },
+                {
+                    "sic": "h",
+                    "corr": "ḥ",
+                    "page": "83",
+                    "line": "1",
+                    "coord_id": "5_85"
+                },
+                {
+                    "sic": "h",
+                    "corr": "ḥ",
+                    "page": "5",
+                    "line": "105",
+                    "coord_id": "5_105"
+                },
+                {
+                    "sic": "h",
+                    "corr": "ḥ",
+                    "page": "106",
+                    "line": "1",
+                    "coord_id": "6_127"
+                }
+            ]
         }
     ],
     "has_verses": true,
     "has_editorial_coords": true,
     "has_line_breaks": false,
-    "has_corrections": false,
+    "has_corrections": true,
     "no_line_numbers": true,
     "drama": true,
     "has_chaya": true,
