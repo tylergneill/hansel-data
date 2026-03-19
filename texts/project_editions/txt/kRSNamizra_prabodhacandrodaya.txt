@@ -1164,8 +1164,6 @@ mithyādṛṣṭiḥ — ˹eddahamettae visae alaṃ bhaṭṭiṇo ahiṇivese
 
 	˹visaāṇandavimukke mokkhe dosāṇa daṃsaantīe , |
 	uvaṇisaā hi virattā jhatti karijjaï mae saddhā ||˼
-	(viṣayānandavimukte mokṣe doṣān darśayantyā |
-	upaniṣadā hi viraktā jhaṭiti krīyate mayā śraddhā ||)
 
 <33>
 
@@ -1301,15 +1299,11 @@ digambaraḥ — ˹ṇamo aluhantāṇam, aluhantāṇam! ṇavaduvālagharamajj
 
 	˹malamaapuggalapiṇḍe saalajalehiṃ vi kelisī suddhī? |
 	appā vimalasahāvo lisipalicalaṇehi jāṇavvo ||˼
-	(malamayapudgalapiṇḍe sakalajalair api kīdṛśī śuddhiḥ? |
-	ātmā vimalasvabhāva ṛṣiparicaraṇair jñātavyaḥ ||)
 
 ˹kiṃ bhaṇāha, kelisaṃ lisipalicalaṇaṃ ti? taṃ suṇāha!˼(kiṃ bhaṇatha, kīdṛśam ṛṣiparicaraṇam iti? tac chṛṇuta!)
 
 	˹dūle calaṇapaṇāmo, kidasakkālaṃ ca bhoaṇam miṭṭham, |
 	issāmalaṃ ṇa kajjaṃ, lisiṇaṃ dālaṃ lamantāṇam ||˼
-	(dūre caraṇapraṇāmaḥ, kṛtasatkāraṃ ca bhojanaṃ mṛṣṭam, |
-	īrṣyāmalaṃ na kāryam, ṛṣīṇāṃ dārān ramamāṇānām ||)
 
 ((nepathyābhimukham avalokya)) ˹saddhe, ido dāva˼(śraddhe, itas tāvat |)
 
@@ -1612,10 +1606,6 @@ karuṇā — ˹sahi, pekkha! rajasas sudā saddhā | sā esā —˼(sakhi, paś
 	ṇaratthimālākidacālubhūsaṇā, |
 	ṇiambapīṇatthaṇabhālamanthalā,
 	vihādi puṇṇendumuhī vilāsiṇī ||˼
-	(viphullanīlotpalalolalocanā,
-	narāsthimālākṛtacārubhūṣaṇā, |
-	nitambapīnastanabhāramantharā,
-	vibhāti pūrṇendumukhī vilāsinī ||)
 
 [3,103]
 
@@ -1656,8 +1646,6 @@ kṣapaṇakaḥ — ((saromāñcam)) ˹aho arihanta! aho arihanta! kāvālinīe
 
 	˹ayi! pīṇaghaṇatthaṇasohiṇi! palitatthakulaṅgaviloalloaṇe! |
 	jaï lamasi kāvāliṇi, tā kiṃ kalissadi sāvakī? ||˼
-	(ayi pīnaghanastanaśobhini! paritrastakuraṅgavilolalocane! |
-	yadi ramase kāpālini, tat kiṃ kariṣyati śrāvakī? ||)
 
 <47>
 
@@ -1825,8 +1813,6 @@ kṣapaṇakaḥ — ((gāthāṃ gaṇayitvā |))
 
 	˹ṇatthi jale, ṇatthi vaṇe, ṇatthi gilibilesu, ṇatthi pāāle, |
 	sā viṇṇubhattisahidā ṇivasadi hiae mahappāṇam ||˼
-	(nāsti jale, nāsti vane, nāsti giribileṣu, nāsti pātāle, |
-	sā viṣṇubhaktisahitā nivasati hṛdaye mahātmanām ||)
 
 [3,153]
 
@@ -1846,8 +1832,6 @@ kṣapaṇakaḥ — ((punar gaṇayitvā))
 
 	˹ṇatthi jale, ṇatthi vaṇe, ṇatthi gilibilesu, ṇatthi pāāle, |
 	sā viṇṇubhattisahido vattaï hiae mahappāṇam ||˼
-	(nāsti jale, nāsti vane, nāsti giribileṣu, nāsti pātāle, |
-	sa viṣṇubhaktisahito vartate hṛdaye mahātmanām ||)
 
 [3,158]
 
@@ -1966,7 +1950,7 @@ maitrī — ˹diṭṭhiā miī via saddūlamuhādo pabbhaṭṭā saddhā kkhem
 
 [4,22]
 
-maitrī — ˹amhe vi catasso baïṇīo viṇṇubhattīe āṇāe viveasiddhikālaṇaṃ mahappāṇam hiae vaṭṭamha |˼(vayam api catasro bhaginyo viṣṇubhakter ājñayā vivekasiddhikāraṇaṃ mahātmanāṃ hṛdaye vartāmahe |) ((saṃskṛtam āśritya |)) te hi —
+maitrī — ˹amhe vi catasso baïṇīo viṇṇubhattīe āṇāe viveasiddhikālaṇaṃ mahappāṇam hiae vaṭṭamha |˼ ((saṃskṛtam āśritya |)) te hi —
 
 	dhyāyanti māṃ sukhini, duḥkhini cānukampāṃ,
 <56>
