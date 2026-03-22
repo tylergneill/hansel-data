@@ -132,6 +132,8 @@ class TextBuildState:
     # open-prakrit state: accumulates lines when ˹ and ˼ span multiple input lines
     in_open_prakrit: bool = False
     open_prakrit_lines: list = field(default_factory=list)
+    # When line_by_line, holds break flags (True=hyphenated) for each inter-line boundary
+    open_prakrit_lb_breaks: Optional[list] = None
 
 # ----------------------------
 # ----------------------------
@@ -207,15 +209,46 @@ class TeiTextBuilder:
                         if chaya_text is not None:
                             _attach_chaya_lg(working_lg, chaya_text)
                 else:
-                    self._handle_line(' '.join(lines))
+                    if s.line_by_line:
+                        # Preserve line-break info: join with '\n', carrying hyphen flags.
+                        # _set_text_with_embedded_stages will emit <lb> for each '\n'.
+                        joined_parts = []
+                        line_breaks = []  # True = break="no" (hyphenated), False = normal
+                        for i, src_line in enumerate(lines):
+                            is_hyphen = bool(HYPHEN_EOL_RE.search(src_line))
+                            cleaned = src_line.rstrip('-').rstrip()
+                            joined_parts.append(cleaned)
+                            if i < len(lines) - 1:
+                                line_breaks.append(is_hyphen)
+                        s.open_prakrit_lb_breaks = line_breaks
+                        joined = '\n'.join(joined_parts)
+                        # SPEAKER_RE uses $ which won't cross \n; match on first line only,
+                        # then dispatch full joined content as the trailing prose/prakrit text.
+                        first_line = joined_parts[0]
+                        speaker_match = SPEAKER_RE.match(first_line)
+                        if speaker_match:
+                            speaker_name = speaker_match.group(1)
+                            trailing_in_first = speaker_match.group(2)
+                            self._open_sp(speaker_name)
+                            # Build full trailing text: first-line remainder + rest of lines
+                            rest_lines = [trailing_in_first] + joined_parts[1:]
+                            full_trailing = '\n'.join(rest_lines)
+                            self._open_location_for_sp()
+                            self._process_content_with_midline_elements(full_trailing, "prose", raw_line_for_hyphen_check=lines[-1])
+                            self._finalize_physical_line(lines[-1])
+                        else:
+                            self._handle_line(joined)
+                        s.open_prakrit_lb_breaks = None
+                    else:
+                        self._handle_line(' '.join(lines))
             else:
-                s.open_prakrit_lines.append(line.rstrip('-').rstrip())
+                s.open_prakrit_lines.append(line)
             return
 
         if s.drama and '˹' in line and '˼' not in line:
             # Opening of a multi-line Prakrit span — begin accumulation
             s.in_open_prakrit = True
-            s.open_prakrit_lines = [line.rstrip('-').rstrip()]
+            s.open_prakrit_lines = [line]
             return
 
         # CHĀYĀ DISPATCH — intercept lines when awaiting chāyā after ˹...˼
@@ -662,15 +695,20 @@ class TeiTextBuilder:
         self._add_inline_element(seg)
 
     def _set_text_with_embedded_stages(self, parent: etree._Element, text: str):
-        """Append text into parent, creating <stage> and <pb> sub-elements as encountered."""
+        """Append text into parent, creating <stage>, <pb>, and (when line_by_line) <lb> sub-elements."""
+        s = self.state
         # Collect all inline markers sorted by position
         matches = []
         for m in STAGE_DIRECTION_RE.finditer(text):
             matches.append(('stage', m))
         for m in MID_LINE_PAGE_RE.finditer(text):
             matches.append(('pb', m))
+        # '\n' sentinels are line-break markers inserted by the open-prakrit accumulator
+        for m in re.finditer(r'\n', text):
+            matches.append(('lb', m))
         matches.sort(key=lambda x: x[1].start())
 
+        lb_break_idx = 0  # index into open_prakrit_lb_breaks
         last_end = 0
         last_el = None
         for kind, m in matches:
@@ -683,18 +721,26 @@ class TeiTextBuilder:
             if kind == 'stage':
                 el = etree.SubElement(parent, "stage")
                 el.text = m.group(1)
-            else:  # pb
+            elif kind == 'pb':
                 page, line_no = m.group(1), m.group(2)
                 attrs = {"n": page}
                 el = etree.SubElement(parent, "pb", attrs)
                 # update lb_count if line number given
                 if line_no:
                     try:
-                        self.state.lb_count = int(line_no) - 1
+                        s.lb_count = int(line_no) - 1
                     except ValueError:
                         pass
                 else:
-                    self.state.explicit_page = page
+                    s.explicit_page = page
+            else:  # lb
+                s.lb_count += 1
+                attrs = {"n": str(s.lb_count)}
+                lb_breaks = s.open_prakrit_lb_breaks
+                if lb_breaks and lb_break_idx < len(lb_breaks) and lb_breaks[lb_break_idx]:
+                    attrs["break"] = "no"
+                lb_break_idx += 1
+                el = etree.SubElement(parent, "lb", attrs)
 
             last_el = el
             last_end = m.end()

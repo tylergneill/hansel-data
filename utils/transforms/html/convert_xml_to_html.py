@@ -147,6 +147,11 @@ class HtmlConverter:
                             continue
                         if grandchild.tag == 'stage':
                             prakrit_text += '(' + self.get_plain_text_recursive(grandchild) + ')'
+                        elif grandchild.tag == 'lb':
+                            # Non-hyphenated lb needs a space before its tail in plain text
+                            if grandchild.get('break') != 'no' and grandchild.tail:
+                                if not prakrit_text.endswith(' '):
+                                    prakrit_text += ' '
                         else:
                             prakrit_text += self.get_plain_text_recursive(grandchild)
                         if grandchild.tail:
@@ -298,7 +303,9 @@ class HtmlConverter:
                 self.current_page = child.get("n")
                 self.current_line = "1"
                 if not in_lg:
-                    self.pending_breaks += 1
+                    # A <pb> immediately following an <lb> should produce one break,
+                    # not two — reset before incrementing.
+                    self.pending_breaks = max(self.pending_breaks, 1)
                 pb_a = etree.Element("a", {"class": "pb-label rich-text", "data-page": self.current_page, "target": "_blank"})
                 if self.page_label != "p":
                     pb_a.text = f'(p.{self.current_page})'
@@ -344,9 +351,13 @@ class HtmlConverter:
                 unclear_span = etree.SubElement(html_node, "span", {"class": "unclear", "title": "unclear"})
                 self.process_children(child, unclear_span, treat_as_plain, in_lg=in_lg)
             elif child.tag == 'stage':
-                if not treat_as_plain and self.pending_label is not None:
-                    html_node.append(self.pending_label)
-                    self.pending_label = None
+                if not treat_as_plain:
+                    for _ in range(self.pending_breaks):
+                        etree.SubElement(html_node, "br", {"class": "lb-br rich-text"})
+                    self.pending_breaks = 0
+                    if self.pending_label is not None:
+                        html_node.append(self.pending_label)
+                        self.pending_label = None
                 stage_span = etree.SubElement(html_node, "span", {"class": "stage-direction"})
                 stage_span.text = "("
                 self.process_children(child, stage_span, treat_as_plain, in_lg=in_lg)
@@ -833,6 +844,11 @@ class HtmlConverter:
                             self.process_children(sp_child, p_plain, treat_as_plain=True, in_lg=False)
                         elif sp_child.tag == "lg":
                             if not self.only_plain:
+                                # A trailing <lb> from the preceding <p> must not bleed into
+                                # the first verse span as an orphan <br>. Drop the break count;
+                                # the pending_label (lb-label) is kept so it appears on the
+                                # first verse line.
+                                self.pending_breaks = 0
                                 if verses_ul is None:
                                     verses_ul = etree.SubElement(speech_div, "ul", {"class": "verses"})
                                 if sp_child.get('type') == 'group':
@@ -848,6 +864,9 @@ class HtmlConverter:
                         elif sp_child.tag == "stage":
                             verses_ul = None
                             if not self.only_plain:
+                                for _ in range(self.pending_breaks):
+                                    etree.SubElement(speech_div, "br", {"class": "lb-br rich-text"})
+                                self.pending_breaks = 0
                                 if self.pending_label is not None:
                                     speech_div.append(self.pending_label)
                                     self.pending_label = None
@@ -987,6 +1006,7 @@ class HtmlConverter:
 
                     # Rich pass: wrap in <ul class="verses"> for verse-styling CSS
                     if not self.only_plain:
+                        self.pending_breaks = 0
                         if current_verses_ul is None:
                             current_verses_ul = etree.SubElement(content_div, "ul", {"class": "verses rich-text"})
                         if element.get('type') == 'group':
