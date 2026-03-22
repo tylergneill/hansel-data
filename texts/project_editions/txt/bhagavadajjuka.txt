@@ -1,5 +1,7 @@
 <8>
 
+[8,1]
+
 ((nāndyante tataḥ praviśati sūtradhāraḥ |))
 
 [8,2]
@@ -73,10 +75,14 @@ sūtradhāraḥ — ((śrutvā |))
 
 	yogeśvaraṃ dvijavṛṣaṃ śiṣya ivemaṃ parivrājam || 2 ||
 
+[10,14]
+
 ((niṣkrāntau)) ||
 āmukham ||
 
 <12>
+
+[12,1]
 
 ((tataḥ praviśati parivrājakaḥ |))
 
@@ -92,6 +98,8 @@ sadṛśam asya tamovṛtasya | kutaḥ |
 
 tasmād anaparāddhaḥ khalv ayaṃ tapasvī | punar api samāhvānaṃ kariṣye | śāṇḍilya
 śāṇḍilya |
+
+[12,10]
 
 ((tataḥ praviśati śāṇḍilyaḥ |))
 
@@ -334,6 +342,8 @@ pavisāmi |˼
 parivrājakaḥ — bāḍham |
 
 <22>
+
+[22,1]
 
 ((praviśataḥ |))
 
@@ -582,6 +592,8 @@ parivrājakaḥ — chidyatām eṣā kathā |
 	jñānena sattvaṃ samupāśraya tvaṃ
 	dehātmanātmānam avekṣya kṛtsnam || 17 ||
 
+[28,31]
+
 ((tataḥ praviśati gaṇikā ceṭyau ca |))
 
 [28,32]
@@ -631,6 +643,8 @@ uvavisia ekkaṃ vatthuaṃ gāadu ajjuā |˼
 [32,8]
 
 gaṇikā — ˹evvaṃ hodu |˼
+
+[32,9]
 
 ((ubhe upaviśya gāyati |))
 
@@ -694,6 +708,8 @@ parivrājakaḥ — eṣa na vyavaharāmi |
 
 śāṇḍilyaḥ — ˹dāṇiṃ paṇḍido si |˼
 
+[34,11]
+
 ((tataḥ praviśati yamapuruṣaḥ |))
 
 [34,12]
@@ -742,6 +758,8 @@ syāḥ prāṇān harāmi | ((tathā kurvan |)) ayam idānīm |
 	kṣipraṃ nayāmi yamasādanam eva bālām || 23 ||
 
 <38>
+
+[38,1]
 
 ((gaṇikā pallavāpacayaṃ karoti |))
 
@@ -1008,6 +1026,8 @@ gaṇikā — ehi vatsa | adhīṣva tāvat |
 bho bhaavaṃ | ai | mudo bhaavo | hā vāālaa | hā adijoavittaa |
 hā uvajjhāa | hā | evvaṃ bahu jāṇanto vi maranti |˼
 
+[46,7]
+
 ((praviśya mātā ceṭī ca |))
 
 [46,8]
@@ -1054,6 +1074,8 @@ mātā — ˹gaccha sigghaṃ | vejjaṃ āṇehi |˼
 
 ceṭī — ˹atte | taha | ((niṣkrāntā |))˼
 
+[46,19]
+
 ((tataḥ praviśati rāmilakaś ceṭī ca |))
 
 [46,20]
@@ -1094,6 +1116,8 @@ rāmilakaḥ — evam |_
 
 	vyaktam asyā gataṃ cetas tataḥ śūnye tapasvinī |
 	śarīre 'nyena kenāpi sattvayuktena dharṣitā || 29 ||
+
+[48,15]
 
 ((praviśya vaidyaś ceṭī ca |))
 
@@ -1141,6 +1165,8 @@ rāmilakaḥ — kriyatāṃ yatnaḥ | na khalv akṛtajñā vayam |
 [50,8]
 
 vaidyaḥ — ˹sundaraguliaṃ vālavejjaṃ āṇemi | ((niṣkrāntaḥ |))˼
+
+[50,9]
 
 ((tataḥ praviśati yamapuruṣaḥ |))
 
@@ -1397,6 +1423,8 @@ parivrājakaḥ — mahatī khalu kathā | āvāse kathayiṣyāmi | ((diśo vil
 	mūṣāmukhastha iva taptasuvarṇarāśiḥ |
 	yasya prabhābhir anurañjita meghavṛndam
 	ālakṣyate dahanagarbham ivāntarikṣam || 36 ||
+
+[58,14]
 
 ((niṣkrāntau)) ||
 bhagavadajjukaṃ nāma prahasanaṃ samāptam ||
