@@ -62,7 +62,7 @@ Personal files of R. Steiner and M. Straube.
 
 # Source File License
 
-??
+CC BY-NC-SA 4.0
 
 # HANSEL License
 
@@ -77,7 +77,7 @@ CC BY-NC-SA 4.0
 
 # Digitization Notes
 
-- (Jan ? – Dec 2025) Christian Ferstl: Manually prepared transcript of edition, modified punctuation, added inter-word spacing, added Sanskrit chāyās from ...(?)
+- (Jan ? – Dec 2025) Christian Ferstl: Manually prepared transcript of edition, modified punctuation, added some (not all) inter-word spacing, added Sanskrit chāyās from ...(?)
 - (Jan 2026) Roland Steiner: Submitted plaintext file of edition with identical text to that printed in 2006. 
 - (Jan–Mar 2026) Tyler Neill: Processed for HANSEL.
 
@@ -99,8 +99,8 @@ Roman-like (ity evam, not ityevam)
 
 # Text Last Updated
 
-2026-03-19
+2026-03-22
 
 # Metadata Last Updated 
 
-2026-03-19
+2026-03-22

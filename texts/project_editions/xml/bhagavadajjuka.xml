@@ -52,7 +52,7 @@
             <p>HANSEL assumes no responsibility for unauthorised use that infringes rights.</p>
           </licence>
         </availability>
-        <date when="2026-03-19" from="2026" to="2026">March 19, 2026</date>
+        <date when="2026-03-22" from="2026" to="2026">March 22, 2026</date>
       </publicationStmt>
       <notesStmt>
         <note>Bhagavadajjukam (“The Holy Man and the Harlot”) is a one-act Sanskrit farce (prahasana), traditionally associated with Bodhāyana and preserved in a South Indian manuscript tradition, perhaps composed in the 6th or 7th century CE. It is a mixed Sanskrit–Prakrit drama in which an ascetic, his pupil, and a courtesan (ajjukā) become entangled in a comic confusion of souls and bodies. The satire targets notions of religious discipline, intellectual discourse, and bodily identity.
@@ -123,7 +123,7 @@ In the Straube–Steiner edition, the work is presented as one whose transmitted
       </editorialDecl>
     </encodingDesc>
     <revisionDesc>
-      <change when="Jan ? – Dec 2025" who="Christian Ferstl">Manually prepared transcript of edition, modified punctuation, added inter-word spacing, added Sanskrit chāyās from ...(?)</change>
+      <change when="Jan ? – Dec 2025" who="Christian Ferstl">Manually prepared transcript of edition, modified punctuation, added some (not all) inter-word spacing, added Sanskrit chāyās from ...(?)</change>
       <change when="Jan 2026" who="Roland Steiner">Submitted plaintext file of edition with identical text to that printed in 2006.</change>
       <change when="Jan–Mar 2026" who="Tyler Neill" ana="#hansel-contributor">Processed for HANSEL.</change>
     </revisionDesc>

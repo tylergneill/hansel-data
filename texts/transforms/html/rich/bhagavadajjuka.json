@@ -78,7 +78,7 @@
         {
             "type": "field",
             "label": "Source File License",
-            "inline_text": "??",
+            "inline_text": "CC BY-NC-SA 4.0",
             "content_html": ""
         },
         {
@@ -97,7 +97,7 @@
             "type": "field",
             "label": "Digitization Notes",
             "inline_text": null,
-            "content_html": "<ul>\n<li>(Jan ? – Dec 2025) Christian Ferstl: Manually prepared transcript of edition, modified punctuation, added inter-word spacing, added Sanskrit chāyās from ...(?)</li>\n<li>(Jan 2026) Roland Steiner: Submitted plaintext file of edition with identical text to that printed in 2006. </li>\n<li>(Jan–Mar 2026) Tyler Neill: Processed for HANSEL.</li>\n</ul>\n"
+            "content_html": "<ul>\n<li>(Jan ? – Dec 2025) Christian Ferstl: Manually prepared transcript of edition, modified punctuation, added some (not all) inter-word spacing, added Sanskrit chāyās from ...(?)</li>\n<li>(Jan 2026) Roland Steiner: Submitted plaintext file of edition with identical text to that printed in 2006. </li>\n<li>(Jan–Mar 2026) Tyler Neill: Processed for HANSEL.</li>\n</ul>\n"
         },
         {
             "type": "field",
@@ -126,13 +126,13 @@
         {
             "type": "field",
             "label": "Text Last Updated",
-            "inline_text": "2026-03-19",
+            "inline_text": "2026-03-22",
             "content_html": ""
         },
         {
             "type": "field",
             "label": "Metadata Last Updated",
-            "inline_text": "2026-03-19",
+            "inline_text": "2026-03-22",
             "content_html": ""
         },
         {

@@ -410,7 +410,7 @@
       "Italian, F. Belloni-Filippi, 1931/1959, “L’asceta trasmutato in etera di Bodhāyana”."
     ],
     "Source Collection": "Personal files of R. Steiner and M. Straube.",
-    "Source File License": "??",
+    "Source File License": "CC BY-NC-SA 4.0",
     "HANSEL License": "CC BY-NC-SA 4.0",
     "Contributors": [
       "Roland Steiner",
@@ -419,7 +419,7 @@
       "Tyler Neill"
     ],
     "Digitization Notes": [
-      "(Jan ? – Dec 2025) Christian Ferstl: Manually prepared transcript of edition, modified punctuation, added inter-word spacing, added Sanskrit chāyās from ...(?)",
+      "(Jan ? – Dec 2025) Christian Ferstl: Manually prepared transcript of edition, modified punctuation, added some (not all) inter-word spacing, added Sanskrit chāyās from ...(?)",
       "(Jan 2026) Roland Steiner: Submitted plaintext file of edition with identical text to that printed in 2006. ",
       "(Jan–Mar 2026) Tyler Neill: Processed for HANSEL."
     ],
@@ -427,13 +427,13 @@
     "Text Type": "Drama",
     "Word Division Style": "Roman-like (ity evam, not ityevam)",
     "Original Submission Last Updated": "2026-01-28",
-    "Text Last Updated": "2026-03-19",
-    "Metadata Last Updated": "2026-03-19",
+    "Text Last Updated": "2026-03-22",
+    "Metadata Last Updated": "2026-03-22",
     "PDF Page Offset": [
       "1 → 1"
     ],
     "Filename": "bhagavadajjuka",
     "Original Submission Filetype": ".txt"
   },
-  "version": "2026-03-19"
+  "version": "2026-03-22"
 }
