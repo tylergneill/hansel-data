@@ -1,0 +1,175 @@
+{
+    "title": "bhagavadajjuka",
+    "has_toc": false,
+    "toc": [],
+    "metadata_entries": [
+        {
+            "type": "field",
+            "label": "Title",
+            "inline_text": "Bhagavadajjuka",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Pandit Work ID",
+            "inline_text": "108127",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Edition Short",
+            "inline_text": "Steiner and Straube 2006",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Edition",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>Editors: Roland Steiner, Martin Straube</li>\n<li>Title: Die Heiligen-Hetäre: Eine indische Yoga-Komödie</li>\n<li>Place: Munich</li>\n<li>Publisher: P. Kirchheim Verlag</li>\n<li>Year: 2006</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Edition PDFs",
+            "inline_text": null,
+            "content_html": "<ul>\n<li><a href=\"https://archive.org/details/...\">on Archive</a></li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Extent",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>The complete work is extant.</li>\n<li>The edition document contains a complete text.</li>\n<li>The text fills 26 pages (evens between 8–58) in the edition, with no intervening material.</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "File Size (KB)",
+            "inline_text": "33",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Structure",
+            "inline_text": null,
+            "content_html": "<p>Play in one act, with a prologue (āmukha).</p>\n<p>Location markers (page,line) designate the start of each speech block, stage direction, or designation of a structural device.</p>\n"
+        },
+        {
+            "type": "field",
+            "label": "Work Description",
+            "inline_text": null,
+            "content_html": "<p>Bhagavadajjukam (“The Holy Man and the Harlot”) is a one-act Sanskrit farce (prahasana), traditionally associated with Bodhāyana and preserved in a South Indian manuscript tradition, perhaps composed in the 6th or 7th century CE. It is a mixed Sanskrit–Prakrit drama in which an ascetic, his pupil, and a courtesan (ajjukā) become entangled in a comic confusion of souls and bodies. The satire targets notions of religious discipline, intellectual discourse, and bodily identity.</p>\n<p>In the Straube–Steiner edition, the work is presented as one whose transmitted form required substantial editorial intervention, building on the important edition of Achan (1925) but going further through comparison with other editions (Banerji-Śāstrī, Prabhākaraśāstrī) and through numerous normalizations of orthography, punctuation, and Prakrit dialectical form.</p>\n"
+        },
+        {
+            "type": "field",
+            "label": "Genres",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>Nāṭaka</li>\n<li>Prahasana</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Translations",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>German, M. Straube &amp; R. Steiner (eds.), plus U. Roesler, J. Soni, and L. Soni, 2006, “Die Heiligen-Hetäre”</li>\n<li>English, M. Lockwood and A. Vishnu Bhat, 1994, “Bhagavadajjuka prahasana: A Philosophical Farce by King Mahendravikramavarma Pallava”, <a href=\"https://www.academia.edu/12366085/Metatheater_and_Sanskrit_Drama_Part_II\">on Academia</a></li>\n<li>English, J. A. B. van Buitenen, 1971, “The Hermit and the Harlot”</li>\n<li>Italian, F. Belloni-Filippi, 1931/1959, “L’asceta trasmutato in etera di Bodhāyana”.</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Source Collection",
+            "inline_text": "Personal files of R. Steiner and M. Straube.",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Source File License",
+            "inline_text": "CC BY-NC-SA 4.0",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "HANSEL License",
+            "inline_text": "CC BY-NC-SA 4.0",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Contributors",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>Roland Steiner</li>\n<li>Martin Straube</li>\n<li>Christian Ferstl</li>\n<li>Tyler Neill</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Digitization Notes",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>(Jan ? – Dec 2025) Christian Ferstl: Manually prepared transcript of edition, modified punctuation, added some (not all) inter-word spacing, added Sanskrit chāyās from ...(?)</li>\n<li>(Jan 2026) Roland Steiner: Submitted plaintext file of edition with identical text to that printed in 2006. </li>\n<li>(Jan–Mar 2026) Tyler Neill: Processed for HANSEL.</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "File Creation Method",
+            "inline_text": "I (T. Neill) produced this HANSEL edition by first manually converting R. Steiner's and M. Straube's submitted plain-text file by adding basic structural markup (tabbed verses, stage directions, Prakrit). I then did the same for Christian Ferstl's manual transcript, which contained inter-word spacing (hyphenation within compounds was removed), Sanskrit chāyās, and a few corrections of typos. Finally, I re-OCRed the PDF to recover line-break information, then merged this information into the structured transcript. (Finally, I added structural markup for HANSEL and gave the text a full proofread, during which I checked word separation...)",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Text Type",
+            "inline_text": "Drama",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Word Division Style",
+            "inline_text": "Roman-like (ity evam, not ityevam)",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Original Submission Last Updated",
+            "inline_text": "2026-01-28",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Text Last Updated",
+            "inline_text": "2026-03-22",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Metadata Last Updated",
+            "inline_text": "2026-03-22",
+            "content_html": ""
+        },
+        {
+            "type": "corrections",
+            "count": 2,
+            "rows": [
+                {
+                    "sic": "ṣṭa",
+                    "corr": "ṣṭha",
+                    "page": "32",
+                    "line": "11",
+                    "coord_id": "32_9"
+                },
+                {
+                    "sic": "dhai",
+                    "corr": "ghai",
+                    "page": "36",
+                    "line": "3",
+                    "coord_id": "34_12"
+                }
+            ]
+        }
+    ],
+    "has_verses": true,
+    "has_editorial_coords": true,
+    "has_line_breaks": true,
+    "has_corrections": true,
+    "no_line_numbers": false,
+    "drama": true,
+    "has_chaya": true,
+    "pdf_page_mapping": {
+        "url": "https://archive.org/details/...",
+        "offsets": [
+            [
+                1,
+                1
+            ]
+        ]
+    }
+}
