@@ -501,7 +501,15 @@ class HtmlConverter:
                 for child in lg_element.iterchildren():
                     if child.tag == 'head' and child.text:
                         head_p = etree.SubElement(container, "li", {"class": "lg-head rich-text"})
-                        head_p.text = child.text
+                        # If a pending label exists, the head is on the same line as the
+                        # verse start; consume the label here so it doesn't appear on the
+                        # first verse line (which would be wrong — the head used that line).
+                        if self.pending_label is not None:
+                            self.pending_label.tail = child.text
+                            head_p.append(self.pending_label)
+                            self.pending_label = None
+                        else:
+                            head_p.text = child.text
                 # Wrap verse lines in li.verse so verse-styling CSS can target it
                 verse_li = etree.SubElement(container, "li", {"class": "verse rich-text"})
                 div_elem = etree.SubElement(verse_li, "div", {"class": "lg"})
