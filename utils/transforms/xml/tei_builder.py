@@ -38,8 +38,13 @@ CLOSE_L_RE = re.compile(r"\|\|?(?:[ \n]|$)")
 HYPHEN_EOL_RE = re.compile(r"-\s*$")  # tweak later if you need fancy hyphens
 MID_LINE_PAGE_RE = re.compile(r"<(\d+)(?:,(\d+))?>")
 COMBINED_VERSE_END_RE = re.compile(f"{VERSE_MARKER_RE.pattern}|{VERSE_BACK_BOUNDARY_RE.pattern}")
+# Drama-specific regexes
+SPEAKER_RE = re.compile(r"^(\S+) — (.*)$")
+STAGE_DIRECTION_RE = re.compile(r"\(\(([^)]+)\)\)")
+PRAKRIT_RE = re.compile(r"˹([^˼]+)˼(?:\s*\(([^)]+)\))?")
+
 CHAR_FOR_PENDING_HEAD = "_"
-PENDING_HEAD_RE = re.compile(f"^(.*\|)\s*{re.escape(CHAR_FOR_PENDING_HEAD)}$")
+PENDING_HEAD_RE = re.compile(f"^(.*[\|—,])\s*{re.escape(CHAR_FOR_PENDING_HEAD)}$")
 PENDING_BACK_RE = re.compile(f"^{re.escape(CHAR_FOR_PENDING_HEAD)}(.*)$")
 
 # ----------------------------
@@ -67,6 +72,12 @@ def make_xml_id(label: str) -> str:
 @dataclass
 class TextBuildState:
     line_by_line: bool = False
+    # drama controls structural parsing only: <sp>/<speaker>, stage directions, Prakrit/chāyā.
+    # It is independent of the coordinate system. A drama text can use [page,line] coordinates
+    # (in which case line_by_line works normally) or a custom editorial coord system (e.g. [act,unit])
+    # configured separately in flag_map.editorial_coord_labels_map. Never infer the coordinate
+    # system from this flag.
+    drama: bool = False
 
     # DOM pointers
     root: etree._Element = field(default_factory=lambda: etree.Element(
@@ -89,7 +100,8 @@ class TextBuildState:
     # bookkeeping for multi-line under same location
     current_loc_label: Optional[str] = None  # e.g., "1.1ab"
     current_loc_base: Optional[str] = None  # e.g., "1.1"
-    current_loc_xml_id: Optional[str] = None
+    current_loc_xml_id_base: Optional[str] = None  # base for generating unique IDs
+    current_loc_id_counter: int = 0  # incremented for each element needing an ID
     last_emitted_lb: Optional[etree._Element] = None
 
     # text sink: most recent inline element (e.g., <lb/>) whose tail should
@@ -102,13 +114,51 @@ class TextBuildState:
     # verse head buffer
     pending_head_elem: Optional[etree._Element] = None
 
+    # drama state
+    current_sp: Optional[etree._Element] = None
+
+    # chāyā state (multi-line Prakrit/chāyā support)
+    awaiting_chaya: bool = False
+    chaya_prakrit_seg: Optional[etree._Element] = None  # prose: <seg type="prakrit"> to nest chāyā inside
+    chaya_target_lg: Optional[etree._Element] = None    # verse: the <lg> to attach chāyā <lg> to
+    in_chaya_verse: bool = False                        # True while processing chāyā verse lines
+    chaya_inner_lg: Optional[etree._Element] = None     # the <lg type="chāyā"> being built
+    in_prakrit_verse: bool = False                      # True while inside ˹...˼ verse markers
+
+    # external chāyā list (new companion-file format): consumed sequentially
+    chaya_list: list = field(default_factory=list)
+    chaya_index: int = 0
+
+    # open-prakrit state: accumulates lines when ˹ and ˼ span multiple input lines
+    in_open_prakrit: bool = False
+    open_prakrit_lines: list = field(default_factory=list)
+    # When line_by_line, holds break flags (True=hyphenated) for each inter-line boundary
+    open_prakrit_lb_breaks: Optional[list] = None
+
 # ----------------------------
+# ----------------------------
+# Module-level helpers
+# ----------------------------
+
+def _attach_chaya_lg(parent_lg: etree._Element, chaya_text: str) -> None:
+    """Attach an <lg type="chāyā"> to parent_lg, splitting chaya_text on newlines into separate <l> elements."""
+    inner_lg = etree.SubElement(parent_lg, "lg", {"type": "chāyā"})
+    inner_lg.set(f"{{{_XML_NS}}}lang", "san-Latn")
+    for line in chaya_text.splitlines():
+        line = line.strip()
+        if line:
+            l_el = etree.SubElement(inner_lg, "l")
+            l_el.text = line
+
+
 # Builder class
 # ----------------------------
 class TeiTextBuilder:
-    def __init__(self, line_by_line: bool = False):
+    def __init__(self, line_by_line: bool = False, drama: bool = False, chaya_list: list = None):
         self.state = TextBuildState(
-            line_by_line=line_by_line
+            line_by_line=line_by_line,
+            drama=drama,
+            chaya_list=chaya_list or [],
         )
         self.state.text = etree.SubElement(self.state.root, "text")
         self.state.body = etree.SubElement(self.state.text, "body")
@@ -117,14 +167,94 @@ class TeiTextBuilder:
     def build(self, lines: list[str]) -> etree._Element:
         for raw in lines:
             self._handle_line(raw.rstrip("\n"))
+        self._close_sp()
         self._flush_verse_group_buffer()
-        return self.state.text
+        # If no {section} markers were encountered, all content went directly into <body>.
+        # Wrap it in a single unlabeled <div n=""> so the HTML converter's section loop works.
+        s = self.state
+        if s.current_div is s.body and len(s.body):
+            div = etree.Element("div", {"n": ""})
+            for child in list(s.body):
+                div.append(child)
+            s.body.append(div)
+        return s.text
 
     # ---- per-line handler ----
     def _handle_line(self, line: str) -> None:
         if not line.strip():
             return
         s = self.state
+
+        # OPEN-PRAKRIT ACCUMULATION — drama mode: ˹...˼ spanning multiple lines
+        if s.drama and s.in_open_prakrit:
+            if '˼' in line:
+                # Closing line: collect and dispatch
+                s.open_prakrit_lines.append(line)
+                lines = s.open_prakrit_lines
+                s.in_open_prakrit = False
+                s.open_prakrit_lines = []
+                # If all lines are tab-prefixed verse lines, dispatch individually
+                # (joining would collapse multiple pādas into one <l>)
+                if all(l.startswith('\t') for l in lines):
+                    lines[0] = lines[0].replace('˹', '', 1)
+                    lines[-1] = lines[-1].replace('˼', '', 1)
+                    for verse_line in lines:
+                        self._handle_line(verse_line)
+                    # ˼ was stripped, so the chāyā attachment in _handle_verse_line never ran.
+                    # Attach it now to the just-buffered verse <lg>.
+                    if s.chaya_list and s.verse_group_buffer:
+                        working_lg = s.verse_group_buffer[-1]
+                        chaya_text = s.chaya_list[s.chaya_index] if s.chaya_index < len(s.chaya_list) else None
+                        s.chaya_index += 1
+                        if chaya_text is not None:
+                            _attach_chaya_lg(working_lg, chaya_text)
+                else:
+                    if s.line_by_line:
+                        # Preserve line-break info: join with '\n', carrying hyphen flags.
+                        # _set_text_with_embedded_stages will emit <lb> for each '\n'.
+                        joined_parts = []
+                        line_breaks = []  # True = break="no" (hyphenated), False = normal
+                        for i, src_line in enumerate(lines):
+                            is_hyphen = bool(HYPHEN_EOL_RE.search(src_line))
+                            cleaned = src_line.rstrip('-').rstrip()
+                            joined_parts.append(cleaned)
+                            if i < len(lines) - 1:
+                                line_breaks.append(is_hyphen)
+                        s.open_prakrit_lb_breaks = line_breaks
+                        joined = '\n'.join(joined_parts)
+                        # SPEAKER_RE uses $ which won't cross \n; match on first line only,
+                        # then dispatch full joined content as the trailing prose/prakrit text.
+                        first_line = joined_parts[0]
+                        speaker_match = SPEAKER_RE.match(first_line)
+                        if speaker_match:
+                            speaker_name = speaker_match.group(1)
+                            trailing_in_first = speaker_match.group(2)
+                            self._open_sp(speaker_name)
+                            # Build full trailing text: first-line remainder + rest of lines
+                            rest_lines = [trailing_in_first] + joined_parts[1:]
+                            full_trailing = '\n'.join(rest_lines)
+                            self._open_location_for_sp()
+                            self._process_content_with_midline_elements(full_trailing, "prose", raw_line_for_hyphen_check=lines[-1])
+                            self._finalize_physical_line(lines[-1])
+                        else:
+                            self._handle_line(joined)
+                        s.open_prakrit_lb_breaks = None
+                    else:
+                        self._handle_line(' '.join(lines))
+            else:
+                s.open_prakrit_lines.append(line)
+            return
+
+        if s.drama and '˹' in line and '˼' not in line:
+            # Opening of a multi-line Prakrit span — begin accumulation
+            s.in_open_prakrit = True
+            s.open_prakrit_lines = [line]
+            return
+
+        # CHĀYĀ DISPATCH — intercept lines when awaiting chāyā after ˹...˼
+        if s.awaiting_chaya:
+            if self._handle_chaya_line(line):
+                return
 
         # HANDLE STRUCTURE-ONLY LINES
 
@@ -169,6 +299,28 @@ class TeiTextBuilder:
 
         # HANDLE LINES WITH CONTENT (AND MAYBE ALSO STRUCTURE)
 
+        # Drama: speaker line
+        if s.drama:
+            speaker_match = SPEAKER_RE.match(line)
+            if speaker_match:
+                speaker_name = speaker_match.group(1)
+                trailing_text = speaker_match.group(2).strip()
+                self._open_sp(speaker_name)
+                if trailing_text:
+                    # Check if trailing text is a pending head (e.g. "priye —_")
+                    pending_head_match = PENDING_HEAD_RE.search(trailing_text)
+                    if pending_head_match:
+                        head_text = pending_head_match.group(1).strip()
+                        head_elem = etree.Element("head")
+                        head_elem.text = head_text
+                        s.pending_head_elem = head_elem
+                    else:
+                        # Open a <p> inside the <sp> for the trailing dialogue text
+                        self._open_location_for_sp()
+                        self._process_content_with_midline_elements(trailing_text, "prose", raw_line_for_hyphen_check=line)
+                        self._finalize_physical_line(line)
+                return
+
         # verse starter on its own line (e.g. "uktaṃ ca |_")
         pending_head_match = PENDING_HEAD_RE.search(line)
         if pending_head_match:
@@ -198,6 +350,35 @@ class TeiTextBuilder:
         if s.current_p is not None:
             self._process_content_with_midline_elements(line, "prose", raw_line_for_hyphen_check=line)
             self._finalize_physical_line(line)
+            return
+
+        # prose continuation after verse within a location block
+        if s.current_loc_label is not None:
+            self._flush_verse_group_buffer()
+            p = etree.SubElement(self._get_sp_or_div(), "p")
+            s.current_p = p
+            s.last_tail_text_sink = None
+            s.prev_line_hyphen = False
+            self._process_content_with_midline_elements(line, "prose", raw_line_for_hyphen_check=line)
+            self._finalize_physical_line(line)
+            return
+
+        # drama: free prose inside an <sp> without a location marker
+        if s.drama and s.current_sp is not None:
+            self._open_location_for_sp()
+            self._process_content_with_midline_elements(line, "prose", raw_line_for_hyphen_check=line)
+            self._finalize_physical_line(line)
+            return
+
+        # drama: stage direction / prose outside any <sp> or location (e.g. top-of-text)
+        if s.drama:
+            p = etree.SubElement(s.current_div, "p")
+            s.current_p = p
+            s.last_tail_text_sink = None
+            s.prev_line_hyphen = False
+            self._process_content_with_midline_elements(line, "prose", raw_line_for_hyphen_check=line)
+            self._finalize_physical_line(line)
+            self._close_p()
             return
 
         # shouldn't reach this
@@ -293,19 +474,106 @@ class TeiTextBuilder:
 
         self._process_content_with_midline_elements(rest, "verse", rest)
 
-    def _handle_verse_line(self, line: str) -> None:
+    def _handle_chaya_line(self, line: str) -> bool:
+        """Handle a line when awaiting_chaya is True. Returns True if the line was consumed."""
         s = self.state
+        stripped = line.strip()
+
+        # --- Prose chāyā (single line): entire line is (...) ---
+        if s.chaya_prakrit_seg is not None and not s.in_chaya_verse:
+            m = re.match(r'^\((.+)\)$', stripped)
+            if m:
+                chaya = etree.SubElement(s.chaya_prakrit_seg, "seg", {"type": "chāyā"})
+                chaya.set(f"{{{_XML_NS}}}lang", "san-Latn")
+                chaya.text = m.group(1)
+                s.awaiting_chaya = False
+                s.chaya_prakrit_seg = None
+                # TODO (line-by-line + drama): this line is consumed without emitting an <lb>.
+                # For the current use-case (Prabodhacandrodaya), chāyās are pulled from endnotes
+                # and do not correspond to a physical line in the edition, so skipping <lb> is
+                # correct. But a text where the chāyā appears inline on the page WOULD need an
+                # <lb> here. When that case arises, a plaintext marker (or a text-level flag)
+                # will be needed to distinguish the two situations before this can be fixed.
+                return True
+
+        # --- Verse chāyā start: tab + ( ---
+        if s.chaya_target_lg is not None and not s.in_chaya_verse:
+            m = re.match(r'^\t\((.*)$', line)
+            if m:
+                inner_lg = etree.SubElement(s.chaya_target_lg, "lg", {"type": "chāyā"})
+                inner_lg.set(f"{{{_XML_NS}}}lang", "san-Latn")
+                s.chaya_inner_lg = inner_lg
+                s.in_chaya_verse = True
+                # Process the rest as a verse line (strip the leading '(')
+                reconstructed = '\t' + m.group(1)
+                # Check if this single line also closes with )
+                if reconstructed.rstrip().endswith(')'):
+                    reconstructed = reconstructed.rstrip()[:-1]
+                    s.current_l = None
+                    self._handle_verse_line(reconstructed, target_lg_override=inner_lg)
+                    self._finalize_physical_line(line)
+                    # Close chāyā state
+                    s.awaiting_chaya = False
+                    s.chaya_target_lg = None
+                    s.chaya_inner_lg = None
+                    s.in_chaya_verse = False
+                else:
+                    s.current_l = None
+                    self._handle_verse_line(reconstructed, target_lg_override=inner_lg)
+                    self._finalize_physical_line(line)
+                return True
+
+        # --- Verse chāyā continuation / end ---
+        if s.in_chaya_verse and s.chaya_inner_lg is not None:
+            # Check if line ends with ) — signals end of chāyā verse
+            content = line
+            is_end = False
+            if content.rstrip().endswith(')'):
+                content = content.rstrip()[:-1]
+                is_end = True
+
+            self._handle_verse_line(content, target_lg_override=s.chaya_inner_lg)
+            self._finalize_physical_line(line)
+
+            if is_end:
+                s.awaiting_chaya = False
+                s.chaya_target_lg = None
+                s.chaya_inner_lg = None
+                s.in_chaya_verse = False
+            return True
+
+        return False
+
+    def _handle_verse_line(self, line: str, target_lg_override: Optional[etree._Element] = None) -> None:
+        s = self.state
+
+        # Detect and strip Prakrit verse markers ˹ and ˼
+        has_prakrit_open = '˹' in line
+        has_prakrit_close = '˼' in line
+        if has_prakrit_open:
+            line = line.replace('˹', '')
+            s.in_prakrit_verse = True
+        if has_prakrit_close:
+            line = line.replace('˼', '')
+
         self._close_p()
 
         pre_tab, after_tab = line.split("\t", 1)
         pre_tab = pre_tab.rstrip()
 
-        if pre_tab.strip() and s.current_lg is not None:
-            s.verse_group_buffer.append(s.current_lg)
+        # Determine the lg to operate on
+        if target_lg_override is not None:
+            working_lg = target_lg_override
+        else:
+            working_lg = s.current_lg
+
+        if pre_tab.strip() and working_lg is not None and target_lg_override is None:
+            s.verse_group_buffer.append(working_lg)
             s.current_lg = None
+            working_lg = None
             s.current_l = None
 
-        if s.current_lg is None:
+        if working_lg is None:
             lg = etree.Element("lg")
             if s.pending_head_elem is not None:
                 lg.append(s.pending_head_elem)
@@ -313,12 +581,17 @@ class TeiTextBuilder:
             if pre_tab.strip():
                 self._append_child_text(lg, "head", pre_tab)
                 pre_tab = ""
-            s.current_lg = lg
+            working_lg = lg
+            if target_lg_override is None:
+                s.current_lg = lg
 
         if s.current_l is None:
             if pre_tab.strip():
-                self._append_child_text(s.current_lg, "head", pre_tab)
-            s.current_l = etree.SubElement(s.current_lg, "l")
+                self._append_child_text(working_lg, "head", pre_tab)
+            l_attrs = {}
+            if s.in_prakrit_verse:
+                l_attrs[f"{{{_XML_NS}}}lang"] = "pra-Latn"
+            s.current_l = etree.SubElement(working_lg, "l", l_attrs)
             s.last_tail_text_sink = None
 
         verse_payload = after_tab
@@ -337,7 +610,7 @@ class TeiTextBuilder:
 
         if back_text and back_text.strip():
             milestone_to_move = s.last_tail_text_sink
-            back_el = self._append_child_text(s.current_lg, "back", back_text)
+            back_el = self._append_child_text(working_lg, "back", back_text)
             if (
                     milestone_to_move is not None
                     and milestone_to_move.tag in ('lb', 'pb')
@@ -348,9 +621,22 @@ class TeiTextBuilder:
                     back_el.append(milestone_to_move)
 
         if is_verse_close:
-            if s.current_lg is not None:
-                s.verse_group_buffer.append(s.current_lg)
-            s.current_lg = None
+            if has_prakrit_close:
+                s.in_prakrit_verse = False
+                if s.chaya_list:
+                    # Companion-file mode: attach chāyā immediately from list
+                    chaya_text = s.chaya_list[s.chaya_index] if s.chaya_index < len(s.chaya_list) else None
+                    s.chaya_index += 1
+                    if chaya_text is not None:
+                        _attach_chaya_lg(working_lg, chaya_text)
+                else:
+                    # Legacy inline format — expect chāyā on next lines
+                    s.awaiting_chaya = True
+                    s.chaya_target_lg = working_lg
+            if target_lg_override is None:
+                if s.current_lg is not None:
+                    s.verse_group_buffer.append(s.current_lg)
+                s.current_lg = None
             s.current_l = None
 
     def _emit_pb_from_match(self, match: re.Match):
@@ -380,6 +666,91 @@ class TeiTextBuilder:
         unclear.text = match.group(1)
         self._add_inline_element(unclear)
 
+    def _emit_stage_direction(self, match: re.Match):
+        stage = etree.Element("stage")
+        stage.text = match.group(1)
+        self._add_inline_element(stage)
+
+    def _emit_prakrit(self, match: re.Match):
+        s = self.state
+        seg = etree.Element("seg", {"type": "prakrit"})
+        seg.set(f"{{{_XML_NS}}}lang", "pra-Latn")
+        self._set_text_with_embedded_stages(seg, match.group(1))
+        # Determine chāyā text: prefer companion-file list, then inline, then next-line
+        chaya_text = None
+        if s.chaya_list:
+            if s.chaya_index < len(s.chaya_list):
+                chaya_text = s.chaya_list[s.chaya_index]
+            s.chaya_index += 1
+        elif match.group(2):
+            chaya_text = match.group(2)
+        if chaya_text is not None:
+            chaya = etree.SubElement(seg, "seg", {"type": "chāyā"})
+            chaya.set(f"{{{_XML_NS}}}lang", "san-Latn")
+            chaya.text = chaya_text
+        elif not s.chaya_list:
+            # No companion list — expect chāyā on the next line (legacy inline format)
+            s.awaiting_chaya = True
+            s.chaya_prakrit_seg = seg
+        self._add_inline_element(seg)
+
+    def _set_text_with_embedded_stages(self, parent: etree._Element, text: str):
+        """Append text into parent, creating <stage>, <pb>, and (when line_by_line) <lb> sub-elements."""
+        s = self.state
+        # Collect all inline markers sorted by position
+        matches = []
+        for m in STAGE_DIRECTION_RE.finditer(text):
+            matches.append(('stage', m))
+        for m in MID_LINE_PAGE_RE.finditer(text):
+            matches.append(('pb', m))
+        # '\n' sentinels are line-break markers inserted by the open-prakrit accumulator
+        for m in re.finditer(r'\n', text):
+            matches.append(('lb', m))
+        matches.sort(key=lambda x: x[1].start())
+
+        lb_break_idx = 0  # index into open_prakrit_lb_breaks
+        last_end = 0
+        last_el = None
+        for kind, m in matches:
+            pre = text[last_end:m.start()]
+            if last_el is None:
+                parent.text = (parent.text or '') + pre
+            else:
+                last_el.tail = (last_el.tail or '') + pre
+
+            if kind == 'stage':
+                el = etree.SubElement(parent, "stage")
+                el.text = m.group(1)
+            elif kind == 'pb':
+                page, line_no = m.group(1), m.group(2)
+                attrs = {"n": page}
+                el = etree.SubElement(parent, "pb", attrs)
+                # update lb_count if line number given
+                if line_no:
+                    try:
+                        s.lb_count = int(line_no) - 1
+                    except ValueError:
+                        pass
+                else:
+                    s.explicit_page = page
+            else:  # lb
+                s.lb_count += 1
+                attrs = {"n": str(s.lb_count)}
+                lb_breaks = s.open_prakrit_lb_breaks
+                if lb_breaks and lb_break_idx < len(lb_breaks) and lb_breaks[lb_break_idx]:
+                    attrs["break"] = "no"
+                lb_break_idx += 1
+                el = etree.SubElement(parent, "lb", attrs)
+
+            last_el = el
+            last_end = m.end()
+
+        tail = text[last_end:]
+        if last_el is None:
+            parent.text = (parent.text or '') + tail
+        else:
+            last_el.tail = (last_el.tail or '') + tail
+
     def _add_inline_element(self, el: etree._Element):
         s = self.state
         sink = s.last_tail_text_sink
@@ -403,6 +774,12 @@ class TeiTextBuilder:
             (SUPPLIED_RE, self._emit_supplied),
             (UNCLEAR_RE, self._emit_unclear),
         ]
+
+        if s.drama:
+            markers.extend([
+                (STAGE_DIRECTION_RE, self._emit_stage_direction),
+                (PRAKRIT_RE, self._emit_prakrit),
+            ])
         
         all_matches = []
         for marker_re, handler in markers:
@@ -468,13 +845,15 @@ class TeiTextBuilder:
 
     def _open_div(self, label: str) -> None:
         s = self.state
+        self._close_sp()
         self._flush_verse_group_buffer()
         self._close_p()
         self._close_lg()
         div = etree.SubElement(s.body, "div", {"n": label})
         s.current_div = div
         s.current_loc_label = None
-        s.current_loc_xml_id = None
+        s.current_loc_xml_id_base = None
+        s.current_loc_id_counter = 0
 
     def _get_container(self):
         s = self.state
@@ -537,7 +916,8 @@ class TeiTextBuilder:
         self._close_p()
         self._close_lg()
         s.current_loc_label = label
-        s.current_loc_xml_id = make_xml_id(label)
+        s.current_loc_xml_id_base = make_xml_id(label)
+        s.current_loc_id_counter = 0
         if "," in label:
             try:
                 _page, line_no = map(str.strip, label.split(",", 1))
@@ -545,7 +925,7 @@ class TeiTextBuilder:
             except (ValueError, IndexError):
                 pass
         s.current_p = etree.SubElement(
-            s.current_div, "p", {f"{{{_XML_NS}}}id": s.current_loc_xml_id, "n": label}
+            self._get_sp_or_div(), "p", {f"{{{_XML_NS}}}id": self._next_loc_xml_id(), "n": label}
         )
         s.last_tail_text_sink = None # Set to None so first append goes to .text
         s.prev_line_hyphen = False # Reset for new paragraph
@@ -609,6 +989,9 @@ class TeiTextBuilder:
                 parent = s.current_p.getparent()
                 if parent is not None:
                     parent.remove(s.current_p)
+                    # reclaim the xml:id that was assigned to this empty <p>
+                    if s.current_loc_id_counter > 0:
+                        s.current_loc_id_counter -= 1
             s.current_p = None
 
     def _close_lg(self) -> None:
@@ -617,6 +1000,57 @@ class TeiTextBuilder:
         if s.current_lg is not None:
             s.current_lg = None
             s.current_l = None
+
+    def _get_sp_or_div(self) -> etree._Element:
+        s = self.state
+        return s.current_sp if s.current_sp is not None else s.current_div
+
+    def _next_loc_xml_id(self) -> str:
+        """Return a unique xml:id for the current location, incrementing the counter."""
+        s = self.state
+        s.current_loc_id_counter += 1
+        if s.current_loc_id_counter == 1:
+            return s.current_loc_xml_id_base
+        return f"{s.current_loc_xml_id_base}_{s.current_loc_id_counter}"
+
+    def _open_sp(self, speaker_name: str) -> None:
+        s = self.state
+        self._flush_verse_group_buffer()
+        self._close_p()
+        self._close_lg()
+        self._close_sp()
+        sp = etree.SubElement(s.current_div, "sp", {"who": speaker_name})
+        speaker_el = etree.SubElement(sp, "speaker")
+        speaker_el.text = speaker_name
+        s.current_sp = sp
+
+    def _close_sp(self) -> None:
+        s = self.state
+        if s.current_sp is not None:
+            self._flush_verse_group_buffer()
+            self._close_p()
+            self._close_lg()
+            s.current_sp = None
+
+    def _open_location_for_sp(self) -> None:
+        """Open a <p> inside the current <sp>.
+
+        If current_loc_label is set (a [x,y] marker just preceded this
+        speaker), stamp the location onto the <p> so the HTML converter
+        can emit an <h2>.
+        """
+        s = self.state
+        self._flush_verse_group_buffer()
+        self._close_p()
+        self._close_lg()
+        attrs: dict[str, str] = {}
+        if s.current_loc_label is not None and ',' in s.current_loc_label:
+            attrs["n"] = s.current_loc_label
+            attrs[f"{{{_XML_NS}}}id"] = self._next_loc_xml_id()
+            # DO NOT clear current_loc_label — verses in this speech still need it
+        s.current_p = etree.SubElement(s.current_sp, "p", attrs)
+        s.last_tail_text_sink = None
+        s.prev_line_hyphen = False
 
     def _flush_verse_group_buffer(self):
         s = self.state
@@ -628,21 +1062,24 @@ class TeiTextBuilder:
         if not s.verse_group_buffer:
             return
 
+        container = self._get_sp_or_div()
+        loc_label = s.current_loc_label
         if len(s.verse_group_buffer) > 1:
             # Create a parent lg and move the children
-            parent_lg = etree.SubElement(s.current_div, "lg", {
-                "type": "group",
-                "n": s.current_loc_label,
-                f"{{{_XML_NS}}}id": s.current_loc_xml_id
-            })
+            attrs = {"type": "group"}
+            if loc_label is not None:
+                attrs["n"] = loc_label
+                attrs[f"{{{_XML_NS}}}id"] = self._next_loc_xml_id()
+            parent_lg = etree.SubElement(container, "lg", attrs)
             for child_lg in s.verse_group_buffer:
                 parent_lg.append(child_lg)
         else:
             # Just add the single lg
             single_lg = s.verse_group_buffer[0]
-            single_lg.set(f"{{{_XML_NS}}}id", s.current_loc_xml_id)
-            single_lg.set("n", s.current_loc_label)
-            s.current_div.append(single_lg)
+            if loc_label is not None:
+                single_lg.set(f"{{{_XML_NS}}}id", self._next_loc_xml_id())
+                single_lg.set("n", loc_label)
+            container.append(single_lg)
 
         s.verse_group_buffer.clear()
 

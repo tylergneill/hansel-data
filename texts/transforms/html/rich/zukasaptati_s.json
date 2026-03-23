@@ -1,5 +1,6 @@
 {
     "title": "zukasaptati_s",
+    "has_toc": true,
     "toc": [
         {
             "name": "1",
@@ -385,12 +386,6 @@
         },
         {
             "type": "field",
-            "label": "PDF Page Offset",
-            "inline_text": null,
-            "content_html": "<ul>\n<li>1 → 19</li>\n</ul>\n"
-        },
-        {
-            "type": "field",
             "label": "Extent",
             "inline_text": null,
             "content_html": "<ul>\n<li>The complete work is nearly extant except for a few small lacunae.</li>\n<li>The edition contains a complete text of the known work.</li>\n<li>The text fills 206 pages in the edition, with roughly half of each page dedicated to variant readings.</li>\n</ul>\n"
@@ -499,8 +494,12 @@
         }
     ],
     "has_verses": true,
-    "has_location_markers": true,
+    "has_editorial_coords": true,
+    "has_line_breaks": true,
+    "has_corrections": false,
     "no_line_numbers": false,
+    "drama": false,
+    "has_chaya": false,
     "pdf_page_mapping": {
         "url": "https://archive.org/details/dli.ministry.08828/page/n9/mode/2up",
         "offsets": [

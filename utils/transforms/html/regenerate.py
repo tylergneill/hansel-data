@@ -6,7 +6,7 @@ import sys
 
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
 sys.path.append(str(PROJECT_ROOT))
-from utils.transforms.flag_map import flag_map
+from utils.transforms.flag_map import flag_map, editorial_coord_labels_map
 
 XML_DIR = os.path.join(PROJECT_ROOT, "texts/project_editions/xml")
 HTML_PLAIN_DIR = os.path.join(PROJECT_ROOT, "texts/transforms/html/plain")
@@ -25,10 +25,18 @@ def regenerate_html(xml_dir, plain_dir, rich_dir, standalone=False):
 
     # Pass 1: Generate all plain files
     for filename in xml_files:
+        stem = Path(filename).stem
         xml_path = os.path.join(xml_dir, filename)
         plain_html_path = os.path.join(plain_dir, filename.replace(".xml", ".html"))
 
         command = ["python", CONVERSION_SCRIPT, xml_path, plain_html_path, "--plain"]
+
+        flags = flag_map.get(stem, "")
+        if "--drama" in flags:
+            command.append("--drama")
+        labels = editorial_coord_labels_map.get(stem)
+        if labels:
+            command.extend(["--page-label", labels[0], "--line-label", labels[1]])
 
         subprocess.run(command)
 
@@ -37,14 +45,19 @@ def regenerate_html(xml_dir, plain_dir, rich_dir, standalone=False):
         stem = Path(filename).stem
         xml_path = os.path.join(xml_dir, filename)
         rich_html_path = os.path.join(rich_dir, filename.replace(".xml", ".html"))
-        
+
         command = ["python", CONVERSION_SCRIPT, xml_path, rich_html_path]
-        
+
         flags = flag_map.get(stem, "")
         if "--line-by-line" not in flags:
             command.append("--no-line-numbers")
+        if "--drama" in flags:
+            command.append("--drama")
         if standalone:
             command.append("--standalone")
+        labels = editorial_coord_labels_map.get(stem)
+        if labels:
+            command.extend(["--page-label", labels[0], "--line-label", labels[1]])
 
         subprocess.run(command)
 

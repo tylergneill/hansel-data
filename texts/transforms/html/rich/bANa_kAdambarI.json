@@ -1,5 +1,6 @@
 {
     "title": "bANa_kAdambarI",
+    "has_toc": true,
     "toc": [
         {
             "name": "pūrvabhāga",
@@ -54,12 +55,6 @@
             "label": "Edition PDFs",
             "inline_text": null,
             "content_html": "<ul>\n<li><a href=\"https://archive.org/details/kadambari01bana/page/n7/mode/2up\">1885 on Archive</a></li>\n<li><a href=\"https://babel.hathitrust.org/cgi/pt?id=hvd.32044092178649&amp;seq=7\">1885 on HathiTrust</a></li>\n<li><a href=\"https://archive.org/details/in.ernet.dli.2015.383504\">1889 on Archive</a></li>\n<li><a href=\"https://babel.hathitrust.org/cgi/pt?id=uc1.b4023759&amp;seq=5\">1889 on HathiTrust</a></li>\n<li><a href=\"https://play.google.com/books/reader?id=tbMIAAAAQAAJ&amp;pg=GBS.PP8\">1883 on Google Books</a></li>\n</ul>\n"
-        },
-        {
-            "type": "field",
-            "label": "PDF Page Offset",
-            "inline_text": null,
-            "content_html": "<ul>\n<li>1 → 12</li>\n</ul>\n"
         },
         {
             "type": "field",
@@ -178,112 +173,116 @@
                     "corr": "cihnāni",
                     "page": "72",
                     "line": "19",
-                    "location_id": "72_3"
+                    "coord_id": "72_3"
                 },
                 {
                     "sic": "",
                     "corr": "-",
                     "page": "79",
                     "line": "16",
-                    "location_id": "78_14"
+                    "coord_id": "78_14"
                 },
                 {
                     "sic": "-",
                     "corr": "",
                     "page": "112",
                     "line": "9",
-                    "location_id": "112_5"
+                    "coord_id": "112_5"
                 },
                 {
                     "sic": "",
                     "corr": " ",
                     "page": "181",
                     "line": "17",
-                    "location_id": "181_9"
+                    "coord_id": "181_9"
                 },
                 {
                     "sic": " ",
                     "corr": "",
                     "page": "194",
                     "line": "5",
-                    "location_id": "192_10"
+                    "coord_id": "192_10"
                 },
                 {
                     "sic": "na",
                     "corr": "ṇa",
                     "page": "206",
                     "line": "20",
-                    "location_id": "206_16"
+                    "coord_id": "206_16"
                 },
                 {
                     "sic": "dukhaḥ",
                     "corr": "duḥkha",
                     "page": "214",
                     "line": "10",
-                    "location_id": "212_7"
+                    "coord_id": "212_7"
                 },
                 {
                     "sic": "",
                     "corr": " ",
                     "page": "220",
                     "line": "12",
-                    "location_id": "220_6"
+                    "coord_id": "220_6"
                 },
                 {
                     "sic": "dṛṣṭayā",
                     "corr": "dṛṣṭyā",
                     "page": "220",
                     "line": "13",
-                    "location_id": "220_6"
+                    "coord_id": "220_6"
                 },
                 {
                     "sic": "māla",
                     "corr": "mālā",
                     "page": "225",
                     "line": "11",
-                    "location_id": "224_13"
+                    "coord_id": "224_13"
                 },
                 {
                     "sic": "nya",
                     "corr": "jña",
                     "page": "231",
                     "line": "10",
-                    "location_id": "230_15"
+                    "coord_id": "230_15"
                 },
                 {
                     "sic": "",
                     "corr": " ",
                     "page": "284",
                     "line": "18",
-                    "location_id": "284_18"
+                    "coord_id": "284_18"
                 },
                 {
                     "sic": "ndā",
                     "corr": "ndrā",
                     "page": "314",
                     "line": "15",
-                    "location_id": "314_12"
+                    "coord_id": "314_12"
                 },
                 {
                     "sic": "ttha",
                     "corr": "thya",
                     "page": "330",
                     "line": "1",
-                    "location_id": "328_13"
+                    "coord_id": "328_13"
                 },
                 {
                     "sic": "ṃ",
                     "corr": "",
                     "page": "338",
                     "line": "8",
-                    "location_id": "336_23"
+                    "coord_id": "336_23"
                 }
             ]
         }
     ],
     "has_verses": true,
-    "has_location_markers": true,
+    "has_editorial_coords": true,
+    "has_line_breaks": true,
+    "has_corrections": true,
     "no_line_numbers": false,
+    "drama": false,
+    "has_chaya": false,
     "pdf_page_mapping": {
         "url": "https://archive.org/details/kadambari01bana/page/n7/mode/2up",
         "offsets": [
