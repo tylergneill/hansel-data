@@ -55,8 +55,7 @@
         <date when="2026-03-22" from="2026" to="2026">March 22, 2026</date>
       </publicationStmt>
       <notesStmt>
-        <note>Bhagavadajjukam (“The Holy Man and the Harlot”) is a one-act Sanskrit farce (prahasana), traditionally associated with Bodhāyana and preserved in a South Indian manuscript tradition, perhaps composed in the 6th or 7th century CE. It is a mixed Sanskrit–Prakrit drama in which an ascetic, his pupil, and a courtesan (ajjukā) become entangled in a comic confusion of souls and bodies. The satire targets notions of religious discipline, intellectual discourse, and bodily identity.
-In the Straube–Steiner edition, the work is presented as one whose transmitted form required substantial editorial intervention, building on the important edition of Achan (1925) but going further through comparison with other editions (Banerji-Śāstrī, Prabhākaraśāstrī) and through numerous normalizations of orthography, punctuation, and Prakrit dialectical form.</note>
+        <note/>
       </notesStmt>
       <sourceDesc>
         <bibl>
@@ -77,7 +76,9 @@ In the Straube–Steiner edition, the work is presented as one whose transmitted
     </fileDesc>
     <encodingDesc>
       <editorialDecl>
-        <p id="file-creation-method">I (T. Neill) produced this HANSEL edition by first manually converting R. Steiner's and M. Straube's submitted plain-text file by adding basic structural markup (tabbed verses, stage directions, Prakrit). I then did the same for Christian Ferstl's manual transcript, which contained inter-word spacing (hyphenation within compounds was removed), Sanskrit chāyās, and a few corrections of typos. Finally, I re-OCRed the PDF to recover line-break information, then merged this information into the structured transcript. (Finally, I added structural markup for HANSEL and gave the text a full proofread, during which I checked word separation...)</p>
+        <p id="file-creation-method">I (T. Neill) produced this HANSEL edition by first manually converting R. Steiner's and M. Straube's submitted plain-text file by adding basic structural markup (tabbed verses, stage directions, Prakrit). I then did the same for Christian Ferstl's manual transcript, which contained partial inter-word spacing (hyphenation within compounds was removed), Sanskrit chāyās (supplied/adapted from Achan 1925), and a few corrections of typos. Next, I re-OCRed the PDF to recover line-break information, then merged this information into the structured transcript. Finally, I added structural markup for HANSEL and gave the text a full proofread, during which I checked word separation...)
+For technical reasons, in cases where a line started with a combination stage direction and speaker identification, I have inverted the order to place the latter first and the former second (e.g. “praviśya vidūṣakaḥ |” becomes “vidūṣakaḥ — ((praviśya))”.)
+Similarly, I have rendered the "nepathye" stage direction as speaker identification</p>
         <p id="transliteration">
           The source edition is printed in Devanāgarī; the electronic text uses lossless IAST transliteration.
           IAST differs slightly from ISO 15919; conversion can be achieved via:
@@ -123,7 +124,7 @@ In the Straube–Steiner edition, the work is presented as one whose transmitted
       </editorialDecl>
     </encodingDesc>
     <revisionDesc>
-      <change when="Jan ? – Dec 2025" who="Christian Ferstl">Manually prepared transcript of edition, modified punctuation, added some (not all) inter-word spacing, added Sanskrit chāyās from ...(?)</change>
+      <change when="Dec 2025 – Jan 2026" who="Christian Ferstl">Manually prepared transcript of edition, modified punctuation, added some (not all) inter-word spacing, added Sanskrit chāyās from Achan 1925.</change>
       <change when="Jan 2026" who="Roland Steiner">Submitted plaintext file of edition with identical text to that printed in 2006.</change>
       <change when="Jan–Mar 2026" who="Tyler Neill" ana="#hansel-contributor">Processed for HANSEL.</change>
     </revisionDesc>
@@ -212,7 +213,8 @@ In the Straube–Steiner edition, the work is presented as one whose transmitted
             <l>yogeśvaraṃ dvijavṛṣaṃ śiṣya ivemaṃ parivrājam || 2 ||<lb n="14"/></l>
           </lg>
           <p xml:id="p10_l14" n="10,14">
-            <stage>niṣkrāntau</stage> || <lb n="15"/> āmukham ||  <pb n="12"/></p>
+            <stage>niṣkrāntau</stage>
+            <lb n="15"/> || āmukham ||  <pb n="12"/></p>
           <p xml:id="p12_l1" n="12,1">
             <stage>tataḥ praviśati parivrājakaḥ |</stage>
             <lb n="2"/></p>
@@ -232,47 +234,47 @@ In the Straube–Steiner edition, the work is presented as one whose transmitted
         <sp who="śāṇḍilyaḥ">
           <speaker>śāṇḍilyaḥ</speaker>
           <p n="12,11" xml:id="p12_l11">
-            <seg type="prakrit" xml:lang="pra-Latn">bho | puṭhamaṃ evva ahaṃ karaḍuasesasamiddhe ṇirakkharappakkhitta<lb n="12" break="no"/>jīhe kaṇṭhappasattajaṇṇovavīde bamhaṇṇamattaparituṭṭhe kule pasūdo | tado<lb n="13"/>dudīaṃ amhāṇaṃ gehe asaṇaṇāseṇa bubhukkhido pādarasaṇaloheṇa sakkia<lb n="14" break="no"/>samaṇaaṃ pavvajido mhi | tado tahiṃ dāsīe vuttāṇaṃ ekkakālabhattattaṇeṇa<lb n="15"/>bubhukkhido taṃ pi visajjia cīvaraṃ chindia pattaṃ patolia chattamattaṃ<lb n="16"/><pb n="14"/> gaṇhia ṇiggado mhi | tado tidīaṃ imassa duṭṭhācayyassa bhaṇḍabhāragaddabho<lb n="17"/>saṃvutto | tā adūragadaṃ bhaavantaṃ sambhāvemi | kahiṃ ṇu khu gado bhaavo |<lb n="18"/>ā | eso duṭṭhaliṅgī pādarasaṇaloheṇa eāī bhikkhaṃ āhiṇḍiduṃ puvvaṃ<lb n="19"/>gado tti takkemi | <stage>parikramya dṛṣṭvā |</stage> eso khu bhaavo | <stage>upagamya |</stage> marisedu<lb n="20"/>marisedu bhaavo |<seg type="chāyā" xml:lang="san-Latn">bhoḥ | prathamam evāhaṃ karaṭakaśeṣasamṛddhe nirakṣaraprakṣiptajihve kaṇṭhaprasaktayajñopavīte brāhmaṇyamātraparituṣṭe kule prasūtaḥ | tato dvitīyam asmākaṃ gehe 'śananāśena bubhukṣitaḥ prātaraśanalobhena śākyaśramaṇakaṃ pravrajito 'smi | tatas tasmin dāsyāḥ putrāṇāṃ ekakālabhaktatvena bubhukṣitas tam api visṛjya cīvaraṃ chittvā pātraṃ pratolya chatramātraṃ gṛhītvā nirgato 'smi | tatas tṛtīyam asya duṣṭācāryasya bhāṇḍabhāragardabhaḥ saṃvṛttaḥ | tad adūragataṃ bhagavantaṃ saṃbhāvayāmi | kutra nu khalu gato bhagavān | ā | eṣa duṣṭaliṅgī prātaraśanalobhenaikākī bhikṣām āhiṇḍituṃ pūrvaṃ gata iti tarkayāmi | eṣa khalu bhagavān | mṛṣyatāṃ mṛṣyatāṃ bhagavān |</seg>
+            <seg type="prakrit" xml:lang="pra-Latn">bho | puṭhamaṃ evva ahaṃ karaḍuasesasamiddhe ṇirakkharappakkhitta<lb n="12" break="no"/>jīhe kaṇṭhappasattajaṇṇovavīde bamhaṇṇamattaparituṭṭhe kule pasūdo | tado<lb n="13"/>dudīaṃ amhāṇaṃ gehe asaṇaṇāseṇa bubhukkhido pādarasaṇaloheṇa sakkia<lb n="14" break="no"/>samaṇaaṃ pavvajido mhi | tado tahiṃ dāsīe vuttāṇaṃ ekkakālabhattattaṇeṇa<lb n="15"/>bubhukkhido taṃ pi visajjia cīvaraṃ chindia pattaṃ patolia chattamattaṃ<lb n="16"/><pb n="14"/><lb n="17"/>gaṇhia ṇiggado mhi | tado tidīaṃ imassa duṭṭhācayyassa bhaṇḍabhāragaddabho<lb n="18"/>saṃvutto | tā adūragadaṃ bhaavantaṃ sambhāvemi | kahiṃ ṇu khu gado bhaavo |<lb n="19"/>ā | eso duṭṭhaliṅgī pādarasaṇaloheṇa eāī bhikkhaṃ āhiṇḍiduṃ puvvaṃ<lb n="20"/>gado tti takkemi | <stage>parikramya dṛṣṭvā |</stage> eso khu bhaavo | <stage>upagamya |</stage> marisedu<lb n="21"/>marisedu bhaavo |<seg type="chāyā" xml:lang="san-Latn">bhoḥ | prathamam evāhaṃ karaṭakaśeṣasamṛddhe nirakṣaraprakṣiptajihve kaṇṭhaprasaktayajñopavīte brāhmaṇyamātraparituṣṭe kule prasūtaḥ | tato dvitīyam asmākaṃ gehe 'śananāśena bubhukṣitaḥ prātaraśanalobhena śākyaśramaṇakaṃ pravrajito 'smi | tatas tasmin dāsyāḥ putrāṇāṃ ekakālabhaktatvena bubhukṣitas tam api visṛjya cīvaraṃ chittvā pātraṃ pratolya chatramātraṃ gṛhītvā nirgato 'smi | tatas tṛtīyam asya duṣṭācāryasya bhāṇḍabhāragardabhaḥ saṃvṛttaḥ | tad adūragataṃ bhagavantaṃ saṃbhāvayāmi | kutra nu khalu gato bhagavān | ā | eṣa duṣṭaliṅgī prātaraśanalobhenaikākī bhikṣām āhiṇḍituṃ pūrvaṃ gata iti tarkayāmi | eṣa khalu bhagavān | mṛṣyatāṃ mṛṣyatāṃ bhagavān |</seg>
             </seg>
-            <lb n="21"/></p>
+            <lb n="22"/></p>
         </sp>
         <sp who="parivrājakaḥ">
           <speaker>parivrājakaḥ</speaker>
-          <p n="12,21" xml:id="p12_l21">śāṇḍilya | na bhetavyaṃ na bhetavyam | <lb n="22"/></p>
+          <p n="14,6" xml:id="p14_l6">śāṇḍilya | na bhetavyaṃ na bhetavyam | <lb n="7"/></p>
         </sp>
         <sp who="śāṇḍilyaḥ">
           <speaker>śāṇḍilyaḥ</speaker>
-          <p n="12,22" xml:id="p12_l22">
-            <seg type="prakrit" xml:lang="pra-Latn">bho bhaavaṃ | imassiṃ jīvaloe ṇiccocchavavisese suhappahāṇe<lb n="23"/>keṇa vihiṇā bhikkhaṃ āhiṇḍadi bhaavo |<seg type="chāyā" xml:lang="san-Latn">bhoḥ bhagavan | asmiñ jīvaloke nityotsavaviśeṣe sukhapradhāne kena vidhinā bhikṣām āhiṇḍate bhagavān |</seg>
+          <p n="14,7" xml:id="p14_l7">
+            <seg type="prakrit" xml:lang="pra-Latn">bho bhaavaṃ | imassiṃ jīvaloe ṇiccocchavavisese suhappahāṇe<lb n="8"/>keṇa vihiṇā bhikkhaṃ āhiṇḍadi bhaavo |<seg type="chāyā" xml:lang="san-Latn">bhoḥ bhagavan | asmiñ jīvaloke nityotsavaviśeṣe sukhapradhāne kena vidhinā bhikṣām āhiṇḍate bhagavān |</seg>
             </seg>
-            <lb n="24"/></p>
+            <lb n="9"/></p>
         </sp>
         <sp who="parivrājakaḥ">
           <speaker>parivrājakaḥ</speaker>
-          <lg xml:id="p12_l24" n="12,24">
+          <lg xml:id="p14_l9" n="14,9">
             <head>śṛṇu |</head>
-            <l>amānakāmaḥ sahitavyadharṣaṇaḥ<caesura/><lb n="25"/> kṛśāj janād bhaikṣakṛtātmadhāraṇaḥ |<lb n="26"/></l>
-            <l>carāmi doṣavyasanottaraṃ jagad<caesura/><lb n="27"/> dhradaṃ bahugrāham ivāpramādavān || 4 ||<lb n="28"/></l>
+            <l>amānakāmaḥ sahitavyadharṣaṇaḥ<caesura/><lb n="10"/> kṛśāj janād bhaikṣakṛtātmadhāraṇaḥ |<lb n="11"/></l>
+            <l>carāmi doṣavyasanottaraṃ jagad<caesura/><lb n="12"/> dhradaṃ bahugrāham ivāpramādavān || 4 ||<lb n="13"/></l>
           </lg>
         </sp>
         <sp who="śāṇḍilyaḥ">
           <speaker>śāṇḍilyaḥ</speaker>
-          <p n="12,29" xml:id="p12_l29">
+          <p n="14,14" xml:id="p14_l14">
             <seg type="prakrit" xml:lang="pra-Latn">bho bhaavaṃ |<seg type="chāyā" xml:lang="san-Latn">bhoḥ bhagavan |</seg>
             </seg>
-            <lb n="30"/></p>
-          <lg xml:id="p12_l29_2" n="12,29">
-            <l>ṇa māmao atthi ṇa bhāduo vā<caesura/><lb n="31"/> pidā kudo me bhaavappasādo |<lb n="32"/></l>
-            <l>ekko ahaṃ aṇṇahadattaṇeṇa<caesura/><lb n="33"/> jaṭṭhiṃ paviṭṭho ṇa khu dhammalohā || 5 ||<lb n="34"/></l>
+            <lb n="15"/></p>
+          <lg xml:id="p14_l14_2" n="14,14">
+            <l>ṇa māmao atthi ṇa bhāduo vā<caesura/><lb n="16"/> pidā kudo me bhaavappasādo |<lb n="17"/></l>
+            <l>ekko ahaṃ aṇṇahadattaṇeṇa<caesura/><lb n="18"/> jaṭṭhiṃ paviṭṭho ṇa khu dhammalohā || 5 ||<lb n="19"/></l>
           </lg>
         </sp>
         <sp who="parivrājakaḥ">
           <speaker>parivrājakaḥ</speaker>
-          <p n="12,34" xml:id="p12_l34">śāṇḍilya | kim etat | <lb n="35"/></p>
+          <p n="14,19" xml:id="p14_l19">śāṇḍilya | kim etat | <lb n="20"/></p>
         </sp>
         <sp who="śāṇḍilyaḥ">
           <speaker>śāṇḍilyaḥ</speaker>
-          <p n="12,35" xml:id="p12_l35">
+          <p n="14,20" xml:id="p14_l20">
             <seg type="prakrit" xml:lang="pra-Latn">ṇaṃ bhūdattho aliaṃ bandhaaṃ ti bhaavo bhaṇādi |<seg type="chāyā" xml:lang="san-Latn">nanu bhūtārtho 'līkaṃ bandhakam iti bhagavān bhaṇati |</seg>
             </seg>
             <pb n="16"/></p>
@@ -428,83 +430,83 @@ In the Straube–Steiner edition, the work is presented as one whose transmitted
         <sp who="śāṇḍilyaḥ">
           <speaker>śāṇḍilyaḥ</speaker>
           <p n="18,20" xml:id="p18_l20">
-            <seg type="prakrit" xml:lang="pra-Latn">jo ajaro amaro acchejjo abhejjo so attā ṇāma | jo hasadi<lb n="21"/><pb n="20"/> hāsedi saadi bhuñjadi vilaaṃ ca gacchadi so kammattā ṇāma |<seg type="chāyā" xml:lang="san-Latn">yo 'jaro 'maro 'cchedyo 'bhedyaḥ sa ātmā nāma | yo hasati hāsayati śete bhuṅkte vilayaṃ ca gacchati sa karmātmā nāma |</seg>
+            <seg type="prakrit" xml:lang="pra-Latn">jo ajaro amaro acchejjo abhejjo so attā ṇāma | jo hasadi<lb n="21"/><pb n="20"/><lb n="22"/>hāsedi saadi bhuñjadi vilaaṃ ca gacchadi so kammattā ṇāma |<seg type="chāyā" xml:lang="san-Latn">yo 'jaro 'maro 'cchedyo 'bhedyaḥ sa ātmā nāma | yo hasati hāsayati śete bhuṅkte vilayaṃ ca gacchati sa karmātmā nāma |</seg>
+            </seg>
+            <lb n="23"/></p>
+        </sp>
+        <sp who="parivrājakaḥ">
+          <speaker>parivrājakaḥ</speaker>
+          <p n="20,2" xml:id="p20_l2">yathā grāhyaṃ tathā gṛhītam | <lb n="3"/></p>
+        </sp>
+        <sp who="śāṇḍilyaḥ">
+          <speaker>śāṇḍilyaḥ</speaker>
+          <p n="20,3" xml:id="p20_l3">
+            <seg type="prakrit" xml:lang="pra-Latn">ā | avehi | abhiggahido si |<seg type="chāyā" xml:lang="san-Latn">ā | apehi/avehi | abhigṛhīto 'si |</seg>
+            </seg>
+            <lb n="4"/></p>
+        </sp>
+        <sp who="parivrājakaḥ">
+          <speaker>parivrājakaḥ</speaker>
+          <p n="20,4" xml:id="p20_l4">katham iva | <lb n="5"/></p>
+        </sp>
+        <sp who="śāṇḍilyaḥ">
+          <speaker>śāṇḍilyaḥ</speaker>
+          <p n="20,5" xml:id="p20_l5">
+            <seg type="prakrit" xml:lang="pra-Latn">ṇaṃ so evva dāṇi eso | ṇahi sarīraṃ viṇā atthi kimpi |<seg type="chāyā" xml:lang="san-Latn">nanu sa evedānīm eṣaḥ | na hi śarīraṃ vināsti kim api |</seg>
+            </seg>
+            <lb n="6"/></p>
+        </sp>
+        <sp who="parivrājakaḥ">
+          <speaker>parivrājakaḥ</speaker>
+          <p n="20,6" xml:id="p20_l6">laukikam abhihitam | yataś ca bhedam upagatānāṃ sattvānāṃ sthānāni <lb n="7"/> śrūyante | ata evaṃ brūmaḥ |  <lb n="8"/></p>
+        </sp>
+        <sp who="śāṇḍilyaḥ">
+          <speaker>śāṇḍilyaḥ</speaker>
+          <p n="20,8" xml:id="p20_l8">
+            <seg type="prakrit" xml:lang="pra-Latn">savvaṃ dāva ciṭṭhadu | tuvaṃ dāva ko |<seg type="chāyā" xml:lang="san-Latn">sarvaṃ tāvat tiṣṭhatu | tvaṃ tāvat kaḥ |</seg>
+            </seg>
+            <lb n="9"/></p>
+        </sp>
+        <sp who="parivrājakaḥ">
+          <speaker>parivrājakaḥ</speaker>
+          <lg xml:id="p20_l9" n="20,9">
+            <head>śṛṇu |</head>
+            <l>khapavanasalilānāṃ tejasaś caikadeśād<caesura/><lb n="10"/> upacitacalamūrtiḥ pārthivadravyarāśiḥ |<lb n="11"/></l>
+            <l>śravaṇanayanajihvānāsikāsparśavedī<caesura/><lb n="12"/> nara iti kṛtasañjñaḥ ko 'py ahaṃ prāṇidharmā || 9 ||<lb n="13"/></l>
+          </lg>
+        </sp>
+        <sp who="śāṇḍilyaḥ">
+          <speaker>śāṇḍilyaḥ</speaker>
+          <p n="20,14" xml:id="p20_l14">
+            <seg type="prakrit" xml:lang="pra-Latn">hā hā | ettiamatteṇa attāṇaṃ pi ṇa āṇādi | kiṃ puṇa<lb n="15"/>attāṇaṃ | bho bhaavaṃ | idaṃ uyyāṇaṃ |<seg type="chāyā" xml:lang="san-Latn">hā hā | etāvanmātreṇa ātmānam api na jānāti | kiṃ punar ātmānam | bho bhagavan | idam udyānam |</seg>
+            </seg>
+            <lb n="16"/></p>
+        </sp>
+        <sp who="parivrājakaḥ">
+          <speaker>parivrājakaḥ</speaker>
+          <p n="20,16" xml:id="p20_l16">praviśāgrataḥ | viviktaśaraṇāraṇyapratiśrayā vayam | <lb n="17"/></p>
+        </sp>
+        <sp who="śāṇḍilyaḥ">
+          <speaker>śāṇḍilyaḥ</speaker>
+          <p n="20,17" xml:id="p20_l17">
+            <seg type="prakrit" xml:lang="pra-Latn">bhaavaṃ evva purado pavisadu | ahaṃ piṭṭhado pavisāmi |<seg type="chāyā" xml:lang="san-Latn">bhagavān eva purataḥ praviśatu | ahaṃ pṛṣṭhataḥ praviśāmi |</seg>
+            </seg>
+            <lb n="18"/></p>
+        </sp>
+        <sp who="parivrājakaḥ">
+          <speaker>parivrājakaḥ</speaker>
+          <p n="20,18" xml:id="p20_l18">kim artham | <lb n="19"/></p>
+        </sp>
+        <sp who="śāṇḍilyaḥ">
+          <speaker>śāṇḍilyaḥ</speaker>
+          <p n="20,19" xml:id="p20_l19">
+            <seg type="prakrit" xml:lang="pra-Latn">† polāaṇīe † mama mādāe sudaṃ asoapallavantalaṇiluddho<lb n="20"/>vaggho paḍivasadi tti | tā bhaavaṃ evva purado pavisadu | ahaṃ piṭṭhado<lb n="21"/>pavisāmi |<seg type="chāyā" xml:lang="san-Latn">paurāṇikyā mama mātuḥ śrutam aśokapallavāntaraniruddho vyāghraḥ prativasatīti | tad bhagavān eva purataḥ praviśatu | ahaṃ pṛṣṭhataḥ praviśāmi |</seg>
             </seg>
             <lb n="22"/></p>
         </sp>
         <sp who="parivrājakaḥ">
           <speaker>parivrājakaḥ</speaker>
-          <p n="18,22" xml:id="p18_l22">yathā grāhyaṃ tathā gṛhītam | <lb n="23"/></p>
-        </sp>
-        <sp who="śāṇḍilyaḥ">
-          <speaker>śāṇḍilyaḥ</speaker>
-          <p n="18,23" xml:id="p18_l23">
-            <seg type="prakrit" xml:lang="pra-Latn">ā | avehi | abhiggahido si |<seg type="chāyā" xml:lang="san-Latn">ā | apehi/avehi | abhigṛhīto 'si |</seg>
-            </seg>
-            <lb n="24"/></p>
-        </sp>
-        <sp who="parivrājakaḥ">
-          <speaker>parivrājakaḥ</speaker>
-          <p n="18,24" xml:id="p18_l24">katham iva | <lb n="25"/></p>
-        </sp>
-        <sp who="śāṇḍilyaḥ">
-          <speaker>śāṇḍilyaḥ</speaker>
-          <p n="18,25" xml:id="p18_l25">
-            <seg type="prakrit" xml:lang="pra-Latn">ṇaṃ so evva dāṇi eso | ṇahi sarīraṃ viṇā atthi kimpi |<seg type="chāyā" xml:lang="san-Latn">nanu sa evedānīm eṣaḥ | na hi śarīraṃ vināsti kim api |</seg>
-            </seg>
-            <lb n="26"/></p>
-        </sp>
-        <sp who="parivrājakaḥ">
-          <speaker>parivrājakaḥ</speaker>
-          <p n="18,26" xml:id="p18_l26">laukikam abhihitam | yataś ca bhedam upagatānāṃ sattvānāṃ sthānāni <lb n="27"/> śrūyante | ata evaṃ brūmaḥ |  <lb n="28"/></p>
-        </sp>
-        <sp who="śāṇḍilyaḥ">
-          <speaker>śāṇḍilyaḥ</speaker>
-          <p n="18,28" xml:id="p18_l28">
-            <seg type="prakrit" xml:lang="pra-Latn">savvaṃ dāva ciṭṭhadu | tuvaṃ dāva ko |<seg type="chāyā" xml:lang="san-Latn">sarvaṃ tāvat tiṣṭhatu | tvaṃ tāvat kaḥ |</seg>
-            </seg>
-            <lb n="29"/></p>
-        </sp>
-        <sp who="parivrājakaḥ">
-          <speaker>parivrājakaḥ</speaker>
-          <lg xml:id="p18_l29" n="18,29">
-            <head>śṛṇu |</head>
-            <l>khapavanasalilānāṃ tejasaś caikadeśād<caesura/><lb n="30"/> upacitacalamūrtiḥ pārthivadravyarāśiḥ |<lb n="31"/></l>
-            <l>śravaṇanayanajihvānāsikāsparśavedī<caesura/><lb n="32"/> nara iti kṛtasañjñaḥ ko 'py ahaṃ prāṇidharmā || 9 ||<lb n="33"/></l>
-          </lg>
-        </sp>
-        <sp who="śāṇḍilyaḥ">
-          <speaker>śāṇḍilyaḥ</speaker>
-          <p n="18,34" xml:id="p18_l34">
-            <seg type="prakrit" xml:lang="pra-Latn">hā hā | ettiamatteṇa attāṇaṃ pi ṇa āṇādi | kiṃ puṇa<lb n="35"/>attāṇaṃ | bho bhaavaṃ | idaṃ uyyāṇaṃ |<seg type="chāyā" xml:lang="san-Latn">hā hā | etāvanmātreṇa ātmānam api na jānāti | kiṃ punar ātmānam | bho bhagavan | idam udyānam |</seg>
-            </seg>
-            <lb n="36"/></p>
-        </sp>
-        <sp who="parivrājakaḥ">
-          <speaker>parivrājakaḥ</speaker>
-          <p n="18,36" xml:id="p18_l36">praviśāgrataḥ | viviktaśaraṇāraṇyapratiśrayā vayam | <lb n="37"/></p>
-        </sp>
-        <sp who="śāṇḍilyaḥ">
-          <speaker>śāṇḍilyaḥ</speaker>
-          <p n="18,37" xml:id="p18_l37">
-            <seg type="prakrit" xml:lang="pra-Latn">bhaavaṃ evva purado pavisadu | ahaṃ piṭṭhado pavisāmi |<seg type="chāyā" xml:lang="san-Latn">bhagavān eva purataḥ praviśatu | ahaṃ pṛṣṭhataḥ praviśāmi |</seg>
-            </seg>
-            <lb n="38"/></p>
-        </sp>
-        <sp who="parivrājakaḥ">
-          <speaker>parivrājakaḥ</speaker>
-          <p n="18,38" xml:id="p18_l38">kim artham | <lb n="39"/></p>
-        </sp>
-        <sp who="śāṇḍilyaḥ">
-          <speaker>śāṇḍilyaḥ</speaker>
-          <p n="18,39" xml:id="p18_l39">
-            <seg type="prakrit" xml:lang="pra-Latn">† polāaṇīe † mama mādāe sudaṃ asoapallavantalaṇiluddho<lb n="40"/>vaggho paḍivasadi tti | tā bhaavaṃ evva purado pavisadu | ahaṃ piṭṭhado<lb n="41"/>pavisāmi |<seg type="chāyā" xml:lang="san-Latn">paurāṇikyā mama mātuḥ śrutam aśokapallavāntaraniruddho vyāghraḥ prativasatīti | tad bhagavān eva purataḥ praviśatu | ahaṃ pṛṣṭhataḥ praviśāmi |</seg>
-            </seg>
-            <lb n="42"/></p>
-        </sp>
-        <sp who="parivrājakaḥ">
-          <speaker>parivrājakaḥ</speaker>
-          <p n="18,42" xml:id="p18_l42">bāḍham | <pb n="22"/></p>
+          <p n="20,22" xml:id="p20_l22">bāḍham | <pb n="22"/></p>
           <p xml:id="p22_l1" n="22,1">
             <stage>praviśataḥ |</stage>
             <lb n="2"/></p>
@@ -767,67 +769,67 @@ In the Straube–Steiner edition, the work is presented as one whose transmitted
         <sp who="śāṇḍilyaḥ">
           <speaker>śāṇḍilyaḥ</speaker>
           <p n="28,16" xml:id="p28_l16">
-            <seg type="prakrit" xml:lang="pra-Latn">bubhukkhāe odaṇagadāe cintāe aññaṃ cintidaṃ aññaṃ mantidaṃ |<lb n="17"/>dāṇiṃ suṇādu bhaavo | pāṇādipādādo veramaṇī sikkhāpadaṃ | adiṇṇādā<lb n="18" break="no"/>ṇādo veramaṇī sikkhāpadaṃ | abbamhacayyādo veramaṇī sikkhāpadaṃ | mudhā<lb n="19" break="no"/><pb n="30"/>vādādo veramaṇī sikkhāpadaṃ | viālabhoaṇādo veramaṇī sikkhāpadaṃ |<lb n="20"/>amhāṇaṃ buddhaṃ dhammaṃ saṅghaṃ saraṇaṃ gacchāmi |<seg type="chāyā" xml:lang="san-Latn">bubhukṣayā odanagatayā cintayā anyac cintitaṃ anyan mantritam | idānīṃ śṛṇotu bhagavān | prāṇātipātād viramaṇaṃ śikṣāpadam | adattādānād  ... abrahmacaryād … mudhāvādād … vikālabhojanād  ... asmākaṃ buddhaṃ dharmaṃ saṅghaṃ śaraṇaṃ gacchāmi |</seg>
+            <seg type="prakrit" xml:lang="pra-Latn">bubhukkhāe odaṇagadāe cintāe aññaṃ cintidaṃ aññaṃ mantidaṃ |<lb n="17"/>dāṇiṃ suṇādu bhaavo | pāṇādipādādo veramaṇī sikkhāpadaṃ | adiṇṇādā<lb n="18" break="no"/>ṇādo veramaṇī sikkhāpadaṃ | abbamhacayyādo veramaṇī sikkhāpadaṃ | mudhā<lb n="19" break="no"/><pb n="30"/><lb n="20"/>vādādo veramaṇī sikkhāpadaṃ | viālabhoaṇādo veramaṇī sikkhāpadaṃ |<lb n="21"/>amhāṇaṃ buddhaṃ dhammaṃ saṅghaṃ saraṇaṃ gacchāmi |<seg type="chāyā" xml:lang="san-Latn">bubhukṣayā odanagatayā cintayā anyac cintitaṃ anyan mantritam | idānīṃ śṛṇotu bhagavān | prāṇātipātād viramaṇaṃ śikṣāpadam | adattādānād  ... abrahmacaryād … mudhāvādād … vikālabhojanād  ... asmākaṃ buddhaṃ dharmaṃ saṅghaṃ śaraṇaṃ gacchāmi |</seg>
             </seg>
-            <lb n="21"/></p>
+            <lb n="22"/></p>
         </sp>
         <sp who="parivrājakaḥ">
           <speaker>parivrājakaḥ</speaker>
-          <p n="28,21" xml:id="p28_l21">śāṇḍilya | svasamayam atikramya parasamayaṃ vaktuṃ nārhati bhavān | <lb n="22"/></p>
-          <lg xml:id="p28_l21_2" n="28,21">
-            <l>tamas tyaktvā rajo jitvā sattvasthaḥ susamāhitaḥ |<lb n="23"/></l>
-            <l>dhyātu śīghraṃ bhavān dhyānam etaj jñānaprayojanam || 16 ||<lb n="24"/></l>
+          <p n="30,3" xml:id="p30_l3">śāṇḍilya | svasamayam atikramya parasamayaṃ vaktuṃ nārhati bhavān | <lb n="4"/></p>
+          <lg xml:id="p30_l3_2" n="30,3">
+            <l>tamas tyaktvā rajo jitvā sattvasthaḥ susamāhitaḥ |<lb n="5"/></l>
+            <l>dhyātu śīghraṃ bhavān dhyānam etaj jñānaprayojanam || 16 ||<lb n="6"/></l>
           </lg>
         </sp>
         <sp who="śāṇḍilyaḥ">
           <speaker>śāṇḍilyaḥ</speaker>
-          <p n="28,24" xml:id="p28_l24">
-            <seg type="prakrit" xml:lang="pra-Latn">bhaavo susamāhido joaṃ cintedu | ahaṃ susamāhido odaṇaṃ<lb n="25"/>cintemi |<seg type="chāyā" xml:lang="san-Latn">bhagavān susamāhito yogaṃ cintayatu | ahaṃ susamāhita odanaṃ cintayāmi |</seg>
+          <p n="30,6" xml:id="p30_l6">
+            <seg type="prakrit" xml:lang="pra-Latn">bhaavo susamāhido joaṃ cintedu | ahaṃ susamāhido odaṇaṃ<lb n="7"/>cintemi |<seg type="chāyā" xml:lang="san-Latn">bhagavān susamāhito yogaṃ cintayatu | ahaṃ susamāhita odanaṃ cintayāmi |</seg>
             </seg>
-            <lb n="26"/></p>
+            <lb n="8"/></p>
         </sp>
         <sp who="parivrājakaḥ">
           <speaker>parivrājakaḥ</speaker>
-          <p n="28,26" xml:id="p28_l26">chidyatām eṣā kathā | <lb n="27"/></p>
-          <lg xml:id="p28_l26_2" n="28,26">
-            <l>sarvaṃ jagat saṅkṣipa dehabandhe<caesura/><lb n="28"/> yathendriyāṇy ātmani yojayitvā |<lb n="29"/></l>
-            <l>jñānena sattvaṃ samupāśraya tvaṃ<caesura/><lb n="30"/> dehātmanātmānam avekṣya kṛtsnam || 17 ||<lb n="31"/></l>
+          <p n="30,8" xml:id="p30_l8">chidyatām eṣā kathā | <lb n="9"/></p>
+          <lg xml:id="p30_l8_2" n="30,8">
+            <l>sarvaṃ jagat saṅkṣipa dehabandhe<caesura/><lb n="10"/> yathendriyāṇy ātmani yojayitvā |<lb n="11"/></l>
+            <l>jñānena sattvaṃ samupāśraya tvaṃ<caesura/><lb n="12"/> dehātmanātmānam avekṣya kṛtsnam || 17 ||<lb n="13"/></l>
           </lg>
-          <p xml:id="p28_l31" n="28,31">
+          <p xml:id="p30_l13" n="30,13">
             <stage>tataḥ praviśati gaṇikā ceṭyau ca |</stage>
-            <lb n="32"/></p>
+            <lb n="14"/></p>
         </sp>
         <sp who="gaṇikā">
           <speaker>gaṇikā</speaker>
-          <p n="28,32" xml:id="p28_l32">
+          <p n="30,14" xml:id="p30_l14">
             <seg type="prakrit" xml:lang="pra-Latn">hañje mahuarie mahuarie | kahiṃ kahiṃ rāmilao |<seg type="chāyā" xml:lang="san-Latn">hañje madhukarike madhukarike | kutra kutra rāmilakaḥ |</seg>
             </seg>
-            <lb n="33"/></p>
+            <lb n="15"/></p>
         </sp>
         <sp who="ceṭī">
           <speaker>ceṭī</speaker>
-          <p n="28,33" xml:id="p28_l33">
+          <p n="30,15" xml:id="p30_l15">
             <seg type="prakrit" xml:lang="pra-Latn">ajjue | aaṃ āachāmi tti bhaṇia ṇaaraṃ evva paviṭṭho āvutto |<seg type="chāyā" xml:lang="san-Latn">ajjuke | aham āgacchāmīti bhaṇitvā nagaram eva praviṣṭa āvuttaḥ |</seg>
             </seg>
-            <lb n="34"/></p>
+            <lb n="16"/></p>
         </sp>
         <sp who="gaṇikā">
           <speaker>gaṇikā</speaker>
-          <p n="28,34" xml:id="p28_l34">
+          <p n="30,16" xml:id="p30_l16">
             <seg type="prakrit" xml:lang="pra-Latn">hañje | kiṃ ṇu khu bhave |<seg type="chāyā" xml:lang="san-Latn">hañje | kiṃ nu khalu bhavet |</seg>
             </seg>
-            <lb n="35"/></p>
+            <lb n="17"/></p>
         </sp>
         <sp who="ceṭī">
           <speaker>ceṭī</speaker>
-          <p n="28,35" xml:id="p28_l35">
+          <p n="30,17" xml:id="p30_l17">
             <seg type="prakrit" xml:lang="pra-Latn">kiṃ aññaṃ goṭṭhiṃ tuvāreduṃ |<seg type="chāyā" xml:lang="san-Latn">kim anyad goṣṭhīṃ tvarayitum |</seg>
             </seg>
-            <lb n="36"/></p>
+            <lb n="18"/></p>
         </sp>
         <sp who="gaṇikā">
           <speaker>gaṇikā</speaker>
-          <p n="28,36" xml:id="p28_l36">
+          <p n="30,18" xml:id="p30_l18">
             <seg type="prakrit" xml:lang="pra-Latn">dāṇiṃ pi ṇa payyattā goṭṭhī |<seg type="chāyā" xml:lang="san-Latn">idānīm api na paryāptā goṣṭhī |</seg>
             </seg>
             <pb n="32"/></p>
@@ -975,7 +977,7 @@ In the Straube–Steiner edition, the work is presented as one whose transmitted
             <lg>
               <head>eṣa bhoḥ |</head>
               <l>bhūtāni yo harati karmahatāni loke<caesura/><lb n="13"/> yaḥ prāṇināṃ sukṛtaduṣkṛtakarmasākṣī |<lb n="14"/></l>
-              <l>ukto 'smi tena śamanena yamena dehe<caesura/><lb n="15"/> prāṇān prajāvadhividhau viniyojayemi || 20 ||<pb n="36"/></l>
+              <l>ukto 'smi tena śamanena yamena dehe<caesura/><lb n="15"/> prāṇān prajāvadhividhau viniyojayeti || 20 ||<pb n="36"/></l>
             </lg>
             <lg>
               <head>tasmāt |<lb n="2"/></head>
@@ -1205,7 +1207,7 @@ In the Straube–Steiner edition, the work is presented as one whose transmitted
         </sp>
         <sp who="parivrājakaḥ">
           <speaker>parivrājakaḥ</speaker>
-          <p n="42,5" xml:id="p42_l5">durlabhasneho 'pi bhūyo 'rthayogāt snihyatīti yuktam | kutaḥ | <lb n="6"/></p>
+          <p n="42,5" xml:id="p42_l5">durlabhasneho 'pi bhūyo'rthayogāt snihyatīti yuktam | kutaḥ | <lb n="6"/></p>
           <lg xml:id="p42_l5_2" n="42,5">
             <l>ye nirmamā mokṣam anuprapannāḥ<caesura/><lb n="7"/> śāstropadiṣṭena pathā prayānti |<lb n="8"/></l>
             <l>teṣām api prītiparāṅmukhānāṃ<caesura/><lb n="9"/> guṇeṣv apekṣāṃ hṛdayaṃ karoti || 26 ||<lb n="10"/></l>
@@ -1600,7 +1602,7 @@ In the Straube–Steiner edition, the work is presented as one whose transmitted
             <l>āścaryaṃ paramaṃ loke bhuvi pūrvaṃ na dṛśyate || 31 ||<lb n="17"/></l>
           </lg>
           <p>
-            <stage>sarvato vilokya |</stage> aye | atrabhavān yogī parivrājakaḥ krīḍati | kim idānīṃ <lb n="18"/> kariṣye | bhavatu dṛṣṭam | asyā gaṇikāyā ātmānaṃ parivrājakaśarīre  <pb n="52"/>  nyasyāvasite karmaṇi yathāsthānaṃ yojayiṣyāmi | <stage>tathā kṛtvā |</stage>
+            <stage>sarvato vilokya |</stage> aye | atrabhavān yogī parivrājakaḥ krīḍati | kim idānīṃ <lb n="18"/> kariṣye | bhavatu dṛṣṭam | asyā gaṇikāyā ātmānaṃ parivrājakaśarīre  <pb n="52"/> nyasyāvasite karmaṇi yathāsthānaṃ yojayiṣyāmi | <stage>tathā kṛtvā |</stage>
             <lb n="2"/></p>
           <lg xml:id="p50_l10_4" n="50,10">
             <l>ete vipraśarīre 'smin strīprāṇā viniyojitāḥ |<lb n="3"/></l>
@@ -1612,100 +1614,100 @@ In the Straube–Steiner edition, the work is presented as one whose transmitted
         </sp>
         <sp who="parivrājakaḥ">
           <speaker>parivrājakaḥ</speaker>
-          <p n="50,23" xml:id="p50_l23">
+          <p n="52,5" xml:id="p52_l5">
             <stage>utthāya |</stage>
             <seg type="prakrit" xml:lang="pra-Latn">parahudie parahudie |<seg type="chāyā" xml:lang="san-Latn">parabhṛtike parabhṛtike |</seg>
             </seg>
-            <lb n="24"/></p>
+            <lb n="6"/></p>
         </sp>
         <sp who="śāṇḍilyaḥ">
           <speaker>śāṇḍilyaḥ</speaker>
-          <p n="50,24" xml:id="p50_l24">
-            <seg type="prakrit" xml:lang="pra-Latn">avihā | paccāadappāṇo khu bhaavo | ā | takkemi dukkha<lb n="25" break="no"/>bhāiṇo ṇa maranti tti |<seg type="chāyā" xml:lang="san-Latn">avidhā | pratyāgataprāṇaḥ khalu bhagavān | ā | tarkayāmi duḥkhabhāgino na mriyanta iti |</seg>
+          <p n="52,6" xml:id="p52_l6">
+            <seg type="prakrit" xml:lang="pra-Latn">avihā | paccāadappāṇo khu bhaavo | ā | takkemi dukkha<lb n="7" break="no"/>bhāiṇo ṇa maranti tti |<seg type="chāyā" xml:lang="san-Latn">avidhā | pratyāgataprāṇaḥ khalu bhagavān | ā | tarkayāmi duḥkhabhāgino na mriyanta iti |</seg>
             </seg>
-            <lb n="26"/></p>
+            <lb n="8"/></p>
         </sp>
         <sp who="parivrājakaḥ">
           <speaker>parivrājakaḥ</speaker>
-          <p n="50,26" xml:id="p50_l26">
+          <p n="52,8" xml:id="p52_l8">
             <seg type="prakrit" xml:lang="pra-Latn">kahiṃ kahiṃ rāmilao |<seg type="chāyā" xml:lang="san-Latn">kutra kutra rāmilakaḥ |</seg>
             </seg>
-            <lb n="27"/></p>
+            <lb n="9"/></p>
         </sp>
         <sp who="rāmilakaḥ">
           <speaker>rāmilakaḥ</speaker>
-          <p n="50,27" xml:id="p50_l27">bhagavan | ayam asmi | <lb n="28"/></p>
+          <p n="52,9" xml:id="p52_l9">bhagavan | ayam asmi | <lb n="10"/></p>
         </sp>
         <sp who="śāṇḍilyaḥ">
           <speaker>śāṇḍilyaḥ</speaker>
-          <p n="50,28" xml:id="p50_l28">
-            <seg type="prakrit" xml:lang="pra-Latn">bhaavaṃ | kiṃ edaṃ | kuṇḍiaggahaṇoidaṃ vāmahatthaṃ saṅkhavalaa<lb n="29" break="no"/>pūridaṃ via me paḍibhādi |<seg type="chāyā" xml:lang="san-Latn">bhagavan | kim etat | kuṇḍikāgrahaṇocito vāmahastaḥ śaṅkhavalayapūrita iva me pratibhāti |</seg>
+          <p n="52,10" xml:id="p52_l10">
+            <seg type="prakrit" xml:lang="pra-Latn">bhaavaṃ | kiṃ edaṃ | kuṇḍiaggahaṇoidaṃ vāmahatthaṃ saṅkhavalaa<lb n="11" break="no"/>pūridaṃ via me paḍibhādi |<seg type="chāyā" xml:lang="san-Latn">bhagavan | kim etat | kuṇḍikāgrahaṇocito vāmahastaḥ śaṅkhavalayapūrita iva me pratibhāti |</seg>
             </seg>
-            <lb n="30"/></p>
+            <lb n="12"/></p>
         </sp>
         <sp who="parivrājakaḥ">
           <speaker>parivrājakaḥ</speaker>
-          <p n="50,30" xml:id="p50_l30">
+          <p n="52,12" xml:id="p52_l12">
             <seg type="prakrit" xml:lang="pra-Latn">rāmilaa | āliṅgehi maṃ |<seg type="chāyā" xml:lang="san-Latn">rāmilaka | āliṅga mām |</seg>
             </seg>
-            <lb n="31"/></p>
+            <lb n="13"/></p>
         </sp>
         <sp who="śāṇḍilyaḥ">
           <speaker>śāṇḍilyaḥ</speaker>
-          <p n="50,31" xml:id="p50_l31">
+          <p n="52,13" xml:id="p52_l13">
             <seg type="prakrit" xml:lang="pra-Latn">kiṃsuaṃ āliṅgehi |<seg type="chāyā" xml:lang="san-Latn">kiṃśukam āliṅga |</seg>
             </seg>
-            <lb n="32"/></p>
+            <lb n="14"/></p>
         </sp>
         <sp who="parivrājakaḥ">
           <speaker>parivrājakaḥ</speaker>
-          <p n="50,32" xml:id="p50_l32">
+          <p n="52,14" xml:id="p52_l14">
             <seg type="prakrit" xml:lang="pra-Latn">rāmilaa | mattā khu ahaṃ |<seg type="chāyā" xml:lang="san-Latn">rāmilaka | mattā khalv aham |</seg>
             </seg>
-            <lb n="33"/></p>
+            <lb n="15"/></p>
         </sp>
         <sp who="śāṇḍilyaḥ">
           <speaker>śāṇḍilyaḥ</speaker>
-          <p n="50,33" xml:id="p50_l33">
+          <p n="52,15" xml:id="p52_l15">
             <seg type="prakrit" xml:lang="pra-Latn">ṇahi ṇahi | ummatto khu tuvaṃ |<seg type="chāyā" xml:lang="san-Latn">nahi nahi | unmattaḥ khalu tvam |</seg>
             </seg>
-            <lb n="34"/></p>
+            <lb n="16"/></p>
         </sp>
         <sp who="rāmilakaḥ">
           <speaker>rāmilakaḥ</speaker>
-          <p n="50,34" xml:id="p50_l34">bhagavan | āśramaviruddhaḥ khalv ayam ālāpaḥ | <lb n="35"/></p>
+          <p n="52,16" xml:id="p52_l16">bhagavan | āśramaviruddhaḥ khalv ayam ālāpaḥ | <lb n="17"/></p>
         </sp>
         <sp who="parivrājakaḥ">
           <speaker>parivrājakaḥ</speaker>
-          <p n="50,35" xml:id="p50_l35">
+          <p n="52,17" xml:id="p52_l17">
             <seg type="prakrit" xml:lang="pra-Latn">suraṃ pibāmi |<seg type="chāyā" xml:lang="san-Latn">surāṃ pibāmi |</seg>
             </seg>
-            <lb n="36"/></p>
+            <lb n="18"/></p>
         </sp>
         <sp who="śāṇḍilyaḥ">
           <speaker>śāṇḍilyaḥ</speaker>
-          <p n="50,36" xml:id="p50_l36">
-            <seg type="prakrit" xml:lang="pra-Latn">visaṃ piba | bhodu | parihāsappamāṇaṃ jāṇissaṃ | ṇeva bhaavo<lb n="37"/>ṇeva ajjuā | bhaavadajjuaṃ ṇāma saṃvuttaṃ |<seg type="chāyā" xml:lang="san-Latn">viṣaṃ piba | bhavatu, parihāsapramāṇaṃ jñāsyāmi | naiva bhagavān, naivājjukā | bhagavadajjukaṃ nāma saṃvṛttam |</seg>
+          <p n="52,18" xml:id="p52_l18">
+            <seg type="prakrit" xml:lang="pra-Latn">visaṃ piba | bhodu | parihāsappamāṇaṃ jāṇissaṃ | ṇeva bhaavo<lb n="19"/>ṇeva ajjuā | bhaavadajjuaṃ ṇāma saṃvuttaṃ |<seg type="chāyā" xml:lang="san-Latn">viṣaṃ piba | bhavatu, parihāsapramāṇaṃ jñāsyāmi | naiva bhagavān, naivājjukā | bhagavadajjukaṃ nāma saṃvṛttam |</seg>
             </seg>
-            <lb n="38"/></p>
+            <lb n="20"/></p>
         </sp>
         <sp who="parivrājakaḥ">
           <speaker>parivrājakaḥ</speaker>
-          <p n="50,38" xml:id="p50_l38">
+          <p n="52,20" xml:id="p52_l20">
             <seg type="prakrit" xml:lang="pra-Latn">parahudie parahudie | āliṅgehi maṃ |<seg type="chāyā" xml:lang="san-Latn">parabhṛtike parabhṛtike | āliṅga mām |</seg>
             </seg>
-            <lb n="39"/></p>
+            <lb n="21"/></p>
         </sp>
         <sp who="ceṭī">
           <speaker>ceṭī</speaker>
-          <p n="50,39" xml:id="p50_l39">
+          <p n="52,21" xml:id="p52_l21">
             <seg type="prakrit" xml:lang="pra-Latn">apehi |<seg type="chāyā" xml:lang="san-Latn">apehi |</seg>
             </seg>
-            <lb n="40"/></p>
+            <lb n="22"/></p>
         </sp>
         <sp who="mātā">
           <speaker>mātā</speaker>
-          <p n="50,40" xml:id="p50_l40">
+          <p n="52,22" xml:id="p52_l22">
             <seg type="prakrit" xml:lang="pra-Latn">jāde vasantaseṇe |<seg type="chāyā" xml:lang="san-Latn">putri vasantasene |</seg>
             </seg>
             <pb n="54"/></p>
@@ -1905,7 +1907,9 @@ In the Straube–Steiner edition, the work is presented as one whose transmitted
         </sp>
         <sp who="rāmilakaḥ">
           <speaker>rāmilakaḥ</speaker>
-          <p n="58,6" xml:id="p58_l6">priye vasantasene | ita itaḥ | <lb n="7"/><stage>niṣkrāntā gaṇikā mātā rāmilakaś ceṭyau ca |</stage>
+          <p n="58,6" xml:id="p58_l6">priye vasantasene | ita itaḥ | <lb n="7"/></p>
+          <p xml:id="p58_l7" n="58,7">
+            <stage>niṣkrāntā gaṇikā mātā rāmilakaś ceṭyau ca |</stage>
             <lb n="8"/></p>
         </sp>
         <sp who="śāṇḍilyaḥ">
@@ -1917,13 +1921,15 @@ In the Straube–Steiner edition, the work is presented as one whose transmitted
         </sp>
         <sp who="parivrājakaḥ">
           <speaker>parivrājakaḥ</speaker>
-          <p n="58,9" xml:id="p58_l9">mahatī khalu kathā | āvāse kathayiṣyāmi | <stage>diśo vilokya |</stage> gato divasaḥ | samprati hi <lb n="10"/></p>
+          <p n="58,9" xml:id="p58_l9">mahatī khalu kathā | āvāse kathayiṣyāmi | <stage>diśo vilokya |</stage>
+            <lb n="10"/> gato divasaḥ | samprati hi  <lb n="11"/></p>
           <lg xml:id="p58_l9_2" n="58,9">
-            <l>astaṃ gato hi dinakṛdgaganāntalambī<caesura/><lb n="11"/> mūṣāmukhastha iva taptasuvarṇarāśiḥ |<lb n="12"/></l>
-            <l>yasya prabhābhir anurañjita meghavṛndam<caesura/><lb n="13"/> ālakṣyate dahanagarbham ivāntarikṣam || 36 ||<lb n="14"/></l>
+            <l>astaṃ gato hi dinakṛdgaganāntalambī<caesura/><lb n="12"/> mūṣāmukhastha iva taptasuvarṇarāśiḥ |<lb n="13"/></l>
+            <l>yasya prabhābhir anurañjitameghavṛndam<caesura/><lb n="14"/> ālakṣyate dahanagarbham ivāntarikṣam || 36 ||<lb n="15"/></l>
           </lg>
-          <p xml:id="p58_l14" n="58,14">
-            <stage>niṣkrāntau</stage> || <lb n="15"/> bhagavadajjukaṃ nāma prahasanaṃ samāptam ||  <lb n="16"/></p>
+          <p xml:id="p58_l15" n="58,15">
+            <stage>niṣkrāntau</stage>
+            <lb n="16"/> || bhagavadajjukaṃ nāma prahasanaṃ samāptam ||  <lb n="17"/></p>
         </sp>
       </div>
     </body>
