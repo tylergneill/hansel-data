@@ -20,7 +20,7 @@ Steiner & Straube 2006
 
 # Edition PDFs
 
-- [on Archive](https://archive.org/details/...)
+- [on Archive](https://archive.org/details/bhagavadajjuka_2006_edition_only/page/n7/mode/2up)
 
 # Extent
 
@@ -94,6 +94,10 @@ Drama
 # Word Division Style
 
 Roman-like (ity evam, not ityevam)
+
+# Additional Notes
+
+- R. Steiner's philological commentary on the 2006 edition and translation is highly recommended. Find it [here on the publisher's website](http://www.kirchheimverlag.de/SteinerRoland_PhilologischeUntersuchungenBhagavadajjuka_2010.pdf).
 
 # Original Submission Last Updated
 
