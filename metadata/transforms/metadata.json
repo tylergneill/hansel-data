@@ -334,7 +334,7 @@
       "Year: 2006"
     ],
     "Edition PDFs": [
-      "[on Archive](https://archive.org/details/...)"
+      "[on Archive](https://archive.org/details/bhagavadajjuka_2006_text/page/n7/mode/2up)"
     ],
     "Extent": [
       "The complete work is extant.",
@@ -371,6 +371,9 @@
     "File Creation Method": "I (T. Neill) produced this HANSEL edition by first manually converting R. Steiner's and M. Straube's submitted plain-text file by adding basic structural markup (tabbed verses, stage directions, Prakrit). I then did the same for Christian Ferstl's manual transcript, which contained partial inter-word spacing (hyphenation within compounds was removed), Sanskrit chāyās (supplied/adapted from Achan 1925), and a few corrections of typos. Next, I re-OCRed the PDF to recover line-break information, then merged this information into the structured transcript. Finally, I added structural markup for HANSEL and gave the text a full proofread, during which I checked word separation...)  For technical reasons, in cases where a line started with a combination stage direction and speaker identification, I have inverted the order to place the latter first and the former second (e.g. “praviśya vidūṣakaḥ |” becomes “vidūṣakaḥ — ((praviśya))”.) Similarly, I have rendered the \"nepathye\" stage direction as speaker identification",
     "Text Type": "Drama",
     "Word Division Style": "Roman-like (ity evam, not ityevam)",
+    "Additional Notes": [
+      "R. Steiner's philological commentary on the 2006 edition and translation is highly recommended. Find it [here on the publisher's website](http://www.kirchheimverlag.de/SteinerRoland_PhilologischeUntersuchungenBhagavadajjuka_2010.pdf)."
+    ],
     "Original Submission Last Updated": "2026-01-28",
     "Text Last Updated": "2026-03-22",
     "Metadata Last Updated": "2026-03-22",

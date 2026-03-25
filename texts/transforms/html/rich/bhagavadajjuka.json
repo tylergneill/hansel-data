@@ -31,7 +31,7 @@
             "type": "field",
             "label": "Edition PDFs",
             "inline_text": null,
-            "content_html": "<ul>\n<li><a href=\"https://archive.org/details/...\">on Archive</a></li>\n</ul>\n"
+            "content_html": "<ul>\n<li><a href=\"https://archive.org/details/bhagavadajjuka_2006_text/page/n7/mode/2up\">on Archive</a></li>\n</ul>\n"
         },
         {
             "type": "field",
@@ -119,6 +119,12 @@
         },
         {
             "type": "field",
+            "label": "Additional Notes",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>R. Steiner's philological commentary on the 2006 edition and translation is highly recommended. Find it <a href=\"http://www.kirchheimverlag.de/SteinerRoland_PhilologischeUntersuchungenBhagavadajjuka_2010.pdf\">here on the publisher's website</a>.</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
             "label": "Original Submission Last Updated",
             "inline_text": "2026-01-28",
             "content_html": ""
@@ -164,7 +170,7 @@
     "drama": true,
     "has_chaya": true,
     "pdf_page_mapping": {
-        "url": "https://archive.org/details/...",
+        "url": "https://archive.org/details/bhagavadajjuka_2006_text/page/n7/mode/2up",
         "offsets": [
             [
                 1,
