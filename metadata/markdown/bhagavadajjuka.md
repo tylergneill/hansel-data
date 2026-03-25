@@ -20,7 +20,7 @@ Steiner & Straube 2006
 
 # Edition PDFs
 
-- [on Archive](https://archive.org/details/bhagavadajjuka_2006_edition_only/page/n7/mode/2up)
+- [on Archive](https://archive.org/details/bhagavadajjuka_2006_text/page/n7/mode/2up)
 
 # Extent
 
