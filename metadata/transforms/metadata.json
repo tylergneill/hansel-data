@@ -336,6 +336,9 @@
     "Edition PDFs": [
       "[on Archive](https://archive.org/details/bhagavadajjuka_2006_text/page/n7/mode/2up)"
     ],
+    "PDF Page Offset": [
+      "8 → 3"
+    ],
     "Extent": [
       "The complete work is extant.",
       "The edition document contains a complete text.",
@@ -377,9 +380,6 @@
     "Original Submission Last Updated": "2026-01-28",
     "Text Last Updated": "2026-03-22",
     "Metadata Last Updated": "2026-03-22",
-    "PDF Page Offset": [
-      "1 → 1"
-    ],
     "Filename": "bhagavadajjuka",
     "Original Submission Filetype": ".txt"
   },

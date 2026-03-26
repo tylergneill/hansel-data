@@ -22,6 +22,10 @@ Steiner & Straube 2006
 
 - [on Archive](https://archive.org/details/bhagavadajjuka_2006_text/page/n7/mode/2up)
 
+# PDF Page Offset
+
+-  8 → 3
+
 # Extent
 
 - The complete work is extant.
