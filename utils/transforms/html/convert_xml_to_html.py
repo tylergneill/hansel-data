@@ -930,7 +930,6 @@ class HtmlConverter:
                         else:
                             # Non-drama: clear pending state and create h2 + inline label.
                             self.pending_breaks = 0
-                            self.pending_label = None
                             self.has_editorial_coords = True
                             self.current_coord_id = n_attr.replace(',', '_').replace(' ', '')
                             h2 = etree.SubElement(content_div, "h3", {"class": "editorial-coord rich-text", "id": self.current_coord_id})
@@ -941,13 +940,22 @@ class HtmlConverter:
                             else:
                                 h2.text = n_attr
                             if len(n_parts) == 2:
-                                if line_part == "1":
+                                pending_is_pb_for_same_page = (
+                                    self.pending_label is not None
+                                    and self.pending_label.get("data-page") == page_part
+                                )
+                                if pending_is_pb_for_same_page:
+                                    # A <pb> already set a page-link label for this page; update
+                                    # its text to reflect the actual first line rather than clearing it.
+                                    self.pending_label.text = f'({self.page_label}.{page_part}, {self.line_label}.{line_part})' if not self.no_line_numbers else f'({self.page_label}.{page_part})'
+                                elif line_part == "1":
                                     label = etree.Element("a", {"class": "pb-label rich-text", "data-page": page_part, "target": "_blank"})
                                     label.text = f'({self.page_label}.{page_part}, {self.line_label}.1)'
+                                    self.pending_label = label
                                 else:
                                     label = etree.Element("span", {"class": "lb-label rich-text", "data-line": line_part})
                                     label.text = f'({self.page_label}.{page_part}, {self.line_label}.{line_part})'
-                                self.pending_label = label
+                                    self.pending_label = label
 
                     if not self.only_plain:
                         self.process_children(element, etree.SubElement(content_div, "p", {"class": "rich-text"}), treat_as_plain=False, in_lg=False)
@@ -992,7 +1000,6 @@ class HtmlConverter:
                         else:
                             # Non-drama: clear pending state and create h2 + inline label.
                             self.pending_breaks = 0
-                            self.pending_label = None
                             self.has_editorial_coords = True
                             self.current_coord_id = n_attr.replace(',', '_').replace(' ', '')
                             current_verses_ul = None
