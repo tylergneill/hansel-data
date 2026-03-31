@@ -319,7 +319,6 @@ class HtmlConverter:
                     pb_a.text = f'(p.{self.current_page})'
                 else:
                     pb_a.text = f'({self.page_label}.{self.current_page}, {self.line_label}.1)' if not self.no_line_numbers else f'({self.page_label}.{self.current_page})'
-                self._append_ext_link_icon(pb_a)
                 self.pending_label = pb_a
             elif child.tag == 'choice':
                 corr_span = etree.SubElement(html_node, "span", {"class": "correction"})
@@ -457,7 +456,6 @@ class HtmlConverter:
             if line_part == "1":
                 label = etree.Element("a", {"class": "pb-label rich-text", "data-page": page_part, "target": "_blank"})
                 label.text = f'({self.page_label}.{page_part}, {self.line_label}.1)'
-                self._append_ext_link_icon(label)
             else:
                 label = etree.Element("span", {"class": "lb-label rich-text", "data-line": line_part})
                 label.text = f'({self.page_label}.{page_part}, {self.line_label}.{line_part})'
@@ -807,7 +805,6 @@ class HtmlConverter:
                         pb_a.text = f'(p.{self.current_page})'
                     else:
                         pb_a.text = f'({self.page_label}.{self.current_page}, {self.line_label}.1)' if not self.no_line_numbers else f'({self.page_label}.{self.current_page})'
-                    self._append_ext_link_icon(pb_a)
                     self.pending_label = pb_a
 
                 elif element.tag == "sp":
@@ -1026,7 +1023,6 @@ class HtmlConverter:
                                 if line_part == "1":
                                     label = etree.Element("a", {"class": "pb-label rich-text", "data-page": page_part, "target": "_blank"})
                                     label.text = f'({self.page_label}.{page_part}, {self.line_label}.1)'
-                                    self._append_ext_link_icon(label)
                                 else:
                                     label = etree.Element("span", {"class": "lb-label rich-text", "data-line": line_part})
                                     label.text = f'({self.page_label}.{page_part}, {self.line_label}.{line_part})'
