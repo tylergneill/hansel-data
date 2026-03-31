@@ -50,14 +50,6 @@ class HtmlConverter:
         self.current_verse_part = None
         self.current_coord_id = None
 
-    EXT_LINK_SVG = '<svg class="ext-link-icon" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 9 L9 1 M5 1 L9 1 L9 5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>'
-
-    @staticmethod
-    def _append_ext_link_icon(element):
-        """Appends the external-link SVG icon as a child of element."""
-        svg = etree.fromstring(HtmlConverter.EXT_LINK_SVG)
-        element.append(svg)
-
     # --- Content Processing Functions ---
     def append_text(self, element, text, strip_leading_whitespace=False, treat_as_plain=True):
         """Appends text to an lxml element, handling children correctly.
@@ -959,7 +951,6 @@ class HtmlConverter:
                                 elif line_part == "1":
                                     label = etree.Element("a", {"class": "pb-label rich-text", "data-page": page_part, "target": "_blank"})
                                     label.text = f'({self.page_label}.{page_part}, {self.line_label}.1)'
-                                    self._append_ext_link_icon(label)
                                     self.pending_label = label
                                 else:
                                     label = etree.Element("span", {"class": "lb-label rich-text", "data-line": line_part})
