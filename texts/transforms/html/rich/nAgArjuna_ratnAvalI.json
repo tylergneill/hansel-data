@@ -1,0 +1,287 @@
+{
+    "title": "nAgArjuna_ratnAvalI",
+    "has_toc": true,
+    "toc": [
+        {
+            "name": "1 abhyudayanaiḥśreyasopāya",
+            "page": "53",
+            "id": "1_abhyudayanaiḥśreyasopāya"
+        },
+        {
+            "name": "2 miśraka",
+            "page": "96",
+            "id": "2_miśraka"
+        },
+        {
+            "name": "3 bodhisaṃbhārasamāsa",
+            "page": "140",
+            "id": "3_bodhisaṃbhārasamāsa"
+        },
+        {
+            "name": "4 rājavṛttopadeśa",
+            "page": "183",
+            "id": "4_rājavṛttopadeśa"
+        },
+        {
+            "name": "5 pañcama = *bodhisattvācāra",
+            "page": "229",
+            "id": "5_pañcama_=_*bodhisattvācāra"
+        }
+    ],
+    "metadata_entries": [
+        {
+            "type": "field",
+            "label": "Title",
+            "inline_text": "Ratnāvalī",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Pandit Work ID",
+            "inline_text": "88081",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Author",
+            "inline_text": "Nāgārjuna",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Pandit Author IDs",
+            "inline_text": "85097",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Edition Short",
+            "inline_text": "Phur Tsham 2024",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Edition",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>Editor: Phur Tsham [普仓, Pǔcāng]</li>\n<li>Title: Ratnāvalī: Critical Edition of the Sanskrit Manuscript from Xizang [梵文写本《宝鬘论颂》校勘与研究]</li>\n<li>Place: Lhasa</li>\n<li>Publisher: Tibet Tibetan Ancient Books Publishing House [西藏藏文古籍出版社]</li>\n<li>Year: 2024</li>\n<li>Series: Palm-Leaf Scripture Special Text Excavation Series [贝叶经特殊文本专项挖掘系列丛书]</li>\n<li>Series Part: 3</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Edition PDFs",
+            "inline_text": null,
+            "content_html": "<ul>\n<li><a href=\"https://archive.org/details/nagarjuna-ratnavali-phur-tsham-2024/page/n2/mode/2up\">on Archive</a></li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Extent",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>The complete work is extant.</li>\n<li>The edition contains a complete text.</li>\n<li>The text consist of 504 verses, 503 of which are normal two-line anuṣṭubh.</li>\n<li>The text is spread out over 223 pages in the edition, interspersed with verse-by-verse Chinese and Tibetan collation, plus many footnotes.</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "File Size (KB)",
+            "inline_text": "68",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Structure",
+            "inline_text": null,
+            "content_html": "<table>\n<thead>\n<tr>\n<th>#</th>\n<th>Pariccheda</th>\n<th>Phurtstham edition</th>\n<th>Dunne-McClintock 2024 transl.</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>1</td>\n<td>Abhyudayanaiḥśreyasopāya</td>\n<td>65</td>\n<td>77</td>\n</tr>\n<tr>\n<td>2</td>\n<td>Miśraka</td>\n<td>108</td>\n<td>93</td>\n</tr>\n<tr>\n<td>3</td>\n<td>Bodhisaṃbhārasamāsa</td>\n<td>152</td>\n<td>109</td>\n</tr>\n<tr>\n<td>4</td>\n<td>Rājavṛttopadeśa</td>\n<td>195</td>\n<td>125</td>\n</tr>\n<tr>\n<td>5</td>\n<td>\"Pañcama\" (*Bodhisattvācāra)</td>\n<td>241</td>\n<td>141</td>\n</tr>\n</tbody>\n</table>\n"
+        },
+        {
+            "type": "field",
+            "label": "Work Description",
+            "inline_text": "Ratnāvalī (“Precious Garland”) is a five-chapter work traditionally attributed to Nāgārjuna, composed in 500 didactic verses addressed to a king. It combines ethical instruction, political counsel, and the Madhyamaka analysis of emptiness, presenting Buddhist practice as concerned both with worldly welfare (abhyudaya) and with ultimate liberation (naiḥśreyasa). The opening sections distinguish these two aims, while later portions develop explicitly bodhisattva-oriented commitments and sustained reflections on the conduct and responsibilities of rulership. Rather than functioning as a purely technical treatise on emptiness, the text brings philosophical insight and practical governance into deliberate conversation, grounding compassion, generosity, and nonviolence in the recognition that self, power, and kingdom lack intrinsic existence. Long transmitted through Tibetan and Chinese translations (including the Indian commentary of Ajitamitra), the work has recently acquired renewed textual interest with the surfacing of a complete Sanskrit manuscript in Tibet. That manuscript forms the basis of the present edition and the electronic text made available here. Thorough peer review of the edition and the underlying manuscript are still a desideratum.",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Genres",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>Darśana</li>\n<li>Bauddha</li>\n<li>Madhyamaka</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Editions",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>partial, by G. Tucci, in JRAS, <a href=\"http://prajnaquest.fr/downloads/BookofDzyan/Sanskrit%20Buddhist%20Texts/ratnavali_1934-1936_partial.pdf\">on Prajnaquest</a></li>\n<li>partial, by S. Dietz, <a href=\"https://list.indology.info/pipermail/indology/attachments/20201122/5d0bfe4a/attachment.pdf?utm_source=chatgpt.com\">on Indology</a></li>\n<li>partial, by M. Hahn, in Indica et Tibetica, <a href=\"http://prajnaquest.fr/downloads/BookofDzyan/Sanskrit%20Buddhist%20Texts/ratnavali_1982_partial.pdf\">on Prajnaquest</a></li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Translations",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>English, J. Hopkins, 1998/2007, <a href=\"https://archive.org/details/nagarjunanagarjunaspreciousgarlandbuddhistadviceforlivingandliberationjefferyhopkins_931_k\">on Archive</a></li>\n<li>English, S. McClintock &amp; J. Dunne Hopkins, 2024, <a href=\"https://archive.org/details/nagarjunanagarjunaspreciousgarlandbuddhistadviceforlivingandliberationjefferyhopkins_931_k/\">on Archive</a></li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Source License",
+            "inline_text": "© Author. Used by permission.",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Source Collection",
+            "inline_text": null,
+            "content_html": "<p>Personal Academia.edu page of editor Phur Tsham (<a href=\"https://www.academia.edu/143251441/_宝鬘论颂_终_\">here</a>).</p>\n"
+        },
+        {
+            "type": "field",
+            "label": "HANSEL License",
+            "inline_text": "CC BY-NC-SA 4.0",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Contributors",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>Phur Tsham</li>\n<li>Tyler Neill</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Digitization Notes",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>(2024–2025) Phur Tsham: Published book, posted on Academia.edu.</li>\n<li>(Jan–Feb 2026) Tyler Neill: Extracted text from PDF, processed for HANSEL.</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "File Creation Method",
+            "inline_text": "I (Tyler Neill) produced this HANSEL edition by copying embedded text from the posted PDF, then processing to remove extraneous material, followed by thorough proofreading and structuring for HANSEL. The text should be fully in line with the edition.",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Additional Files",
+            "inline_text": null,
+            "content_html": "<ul>\n<li><a href=\"/static/data/miscellaneous/nAgArjuna_ratnAvalI_intermediate_text.txt\">Intermediate files</a>: containing folio numbers and editorial markup</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Additional Notes",
+            "inline_text": null,
+            "content_html": "<ul>\n<li><a href=\"https://docs.google.com/spreadsheets/d/1DF3GWOVCOzvi5_GK-Xs5VF6mop-DaEc2gM9vDlz-Mnc/edit?usp=sharing\">Metrical suggestions</a>: unmetrical stanzas and suggestions for improvement (T. Neill)</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Text Type",
+            "inline_text": "Numbered verse",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Word Division Style",
+            "inline_text": "Roman-like (ity evam, not ityevam)",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Original Submission Last Updated",
+            "inline_text": "2026-02-16",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Text Last Updated",
+            "inline_text": "2026-02-02",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Metadata Last Updated",
+            "inline_text": "2026-02-16",
+            "content_html": ""
+        },
+        {
+            "type": "corrections",
+            "count": 10,
+            "rows": [
+                {
+                    "sic": "t",
+                    "corr": "ṭ",
+                    "verse": "1.44",
+                    "verse_part": "ab",
+                    "coord_id": "v1-44"
+                },
+                {
+                    "sic": "m",
+                    "corr": "ṃ",
+                    "verse": "2.74",
+                    "verse_part": "cd",
+                    "coord_id": "v2-74"
+                },
+                {
+                    "sic": " ",
+                    "corr": "",
+                    "verse": "2.77",
+                    "verse_part": "ab",
+                    "coord_id": "v2-77"
+                },
+                {
+                    "sic": "",
+                    "corr": " ",
+                    "page": "139",
+                    "line": "4",
+                    "coord_id": "139_4"
+                },
+                {
+                    "sic": "n",
+                    "corr": " u |",
+                    "verse": "3.26",
+                    "verse_part": "ab",
+                    "coord_id": "v3-26"
+                },
+                {
+                    "sic": "",
+                    "corr": "|",
+                    "verse": "3.76",
+                    "verse_part": "ab",
+                    "coord_id": "v3-76"
+                },
+                {
+                    "sic": "",
+                    "corr": " ",
+                    "page": "182",
+                    "line": "13",
+                    "coord_id": "182_13"
+                },
+                {
+                    "sic": "",
+                    "corr": " ",
+                    "verse": "4.5",
+                    "verse_part": "ab",
+                    "coord_id": "v4-5"
+                },
+                {
+                    "sic": "h",
+                    "corr": "ḥ",
+                    "verse": "4.55",
+                    "verse_part": "cd",
+                    "coord_id": "v4-55"
+                },
+                {
+                    "sic": "",
+                    "corr": " ",
+                    "verse": "5.69",
+                    "verse_part": "ab",
+                    "coord_id": "v5-69"
+                }
+            ]
+        }
+    ],
+    "has_verses": true,
+    "has_editorial_coords": true,
+    "has_line_breaks": false,
+    "has_corrections": true,
+    "no_line_numbers": true,
+    "drama": false,
+    "has_chaya": false,
+    "pdf_page_mapping": {
+        "url": "https://archive.org/details/nagarjuna-ratnavali-phur-tsham-2024/page/n2/mode/2up",
+        "offsets": [
+            [
+                1,
+                12
+            ]
+        ]
+    }
+}

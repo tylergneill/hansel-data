@@ -50,6 +50,14 @@ class HtmlConverter:
         self.current_verse_part = None
         self.current_coord_id = None
 
+    EXT_LINK_SVG = '<svg class="ext-link-icon" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 9 L9 1 M5 1 L9 1 L9 5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+
+    @staticmethod
+    def _append_ext_link_icon(element):
+        """Appends the external-link SVG icon as a child of element."""
+        svg = etree.fromstring(HtmlConverter.EXT_LINK_SVG)
+        element.append(svg)
+
     # --- Content Processing Functions ---
     def append_text(self, element, text, strip_leading_whitespace=False, treat_as_plain=True):
         """Appends text to an lxml element, handling children correctly.
@@ -311,6 +319,7 @@ class HtmlConverter:
                     pb_a.text = f'(p.{self.current_page})'
                 else:
                     pb_a.text = f'({self.page_label}.{self.current_page}, {self.line_label}.1)' if not self.no_line_numbers else f'({self.page_label}.{self.current_page})'
+                self._append_ext_link_icon(pb_a)
                 self.pending_label = pb_a
             elif child.tag == 'choice':
                 corr_span = etree.SubElement(html_node, "span", {"class": "correction"})
@@ -448,6 +457,7 @@ class HtmlConverter:
             if line_part == "1":
                 label = etree.Element("a", {"class": "pb-label rich-text", "data-page": page_part, "target": "_blank"})
                 label.text = f'({self.page_label}.{page_part}, {self.line_label}.1)'
+                self._append_ext_link_icon(label)
             else:
                 label = etree.Element("span", {"class": "lb-label rich-text", "data-line": line_part})
                 label.text = f'({self.page_label}.{page_part}, {self.line_label}.{line_part})'
@@ -797,6 +807,7 @@ class HtmlConverter:
                         pb_a.text = f'(p.{self.current_page})'
                     else:
                         pb_a.text = f'({self.page_label}.{self.current_page}, {self.line_label}.1)' if not self.no_line_numbers else f'({self.page_label}.{self.current_page})'
+                    self._append_ext_link_icon(pb_a)
                     self.pending_label = pb_a
 
                 elif element.tag == "sp":
@@ -930,7 +941,6 @@ class HtmlConverter:
                         else:
                             # Non-drama: clear pending state and create h2 + inline label.
                             self.pending_breaks = 0
-                            self.pending_label = None
                             self.has_editorial_coords = True
                             self.current_coord_id = n_attr.replace(',', '_').replace(' ', '')
                             h2 = etree.SubElement(content_div, "h3", {"class": "editorial-coord rich-text", "id": self.current_coord_id})
@@ -941,13 +951,23 @@ class HtmlConverter:
                             else:
                                 h2.text = n_attr
                             if len(n_parts) == 2:
-                                if line_part == "1":
+                                pending_is_pb_for_same_page = (
+                                    self.pending_label is not None
+                                    and self.pending_label.get("data-page") == page_part
+                                )
+                                if pending_is_pb_for_same_page:
+                                    # A <pb> already set a page-link label for this page; update
+                                    # its text to reflect the actual first line rather than clearing it.
+                                    self.pending_label.text = f'({self.page_label}.{page_part}, {self.line_label}.{line_part})' if not self.no_line_numbers else f'({self.page_label}.{page_part})'
+                                elif line_part == "1":
                                     label = etree.Element("a", {"class": "pb-label rich-text", "data-page": page_part, "target": "_blank"})
                                     label.text = f'({self.page_label}.{page_part}, {self.line_label}.1)'
+                                    self._append_ext_link_icon(label)
+                                    self.pending_label = label
                                 else:
                                     label = etree.Element("span", {"class": "lb-label rich-text", "data-line": line_part})
                                     label.text = f'({self.page_label}.{page_part}, {self.line_label}.{line_part})'
-                                self.pending_label = label
+                                    self.pending_label = label
 
                     if not self.only_plain:
                         self.process_children(element, etree.SubElement(content_div, "p", {"class": "rich-text"}), treat_as_plain=False, in_lg=False)
@@ -992,7 +1012,6 @@ class HtmlConverter:
                         else:
                             # Non-drama: clear pending state and create h2 + inline label.
                             self.pending_breaks = 0
-                            self.pending_label = None
                             self.has_editorial_coords = True
                             self.current_coord_id = n_attr.replace(',', '_').replace(' ', '')
                             current_verses_ul = None
@@ -1007,6 +1026,7 @@ class HtmlConverter:
                                 if line_part == "1":
                                     label = etree.Element("a", {"class": "pb-label rich-text", "data-page": page_part, "target": "_blank"})
                                     label.text = f'({self.page_label}.{page_part}, {self.line_label}.1)'
+                                    self._append_ext_link_icon(label)
                                 else:
                                     label = etree.Element("span", {"class": "lb-label rich-text", "data-line": line_part})
                                     label.text = f'({self.page_label}.{page_part}, {self.line_label}.{line_part})'
