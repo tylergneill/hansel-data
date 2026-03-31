@@ -30,11 +30,11 @@ Phur Tsham 2024
 
 # Edition PDFs
 
-- [on Archive](https://archive.org/details/nagarjuna-ratnavali-phur-tsham-2024)
+- [on Archive](https://archive.org/details/nagarjuna-ratnavali-phur-tsham-2024/page/n2/mode/2up)
 
 # PDF Page Offset
 
-- 1 → 1
+- 1 → 12
 
 # Extent
 
@@ -106,10 +106,11 @@ I (Tyler Neill) produced this HANSEL edition by copying embedded text from the p
 
 # Additional Files
 
-- [Metrical suggestions](/static/data/miscellaneous/nAgArjuna_ratnAvalI_metrical_suggestions.pdf): full bracket information from edition, including mid-line hyphens
+- [Intermediate files](/static/data/miscellaneous/nAgArjuna_ratnAvalI_intermediate_text.txt): containing folio numbers and editorial markup
 
+# Additional Notes
 
-
+- [Metrical suggestions](https://docs.google.com/spreadsheets/d/1DF3GWOVCOzvi5_GK-Xs5VF6mop-DaEc2gM9vDlz-Mnc/edit?usp=sharing): unmetrical stanzas and suggestions for improvement (T. Neill)
 
 # Text Type
 
