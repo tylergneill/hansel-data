@@ -19,7 +19,7 @@
         <authority>HANSEL: Human-Accessible NLP-ready Sanskrit E-text Library</authority>
         <availability status="restricted">
           <licence>
-            <p>Copyright 2025 Tyler Neill.</p>
+            <p>Copyright 2026 Tyler Neill.</p>
             <p>
               <ref target="https://creativecommons.org/licenses/by-nc-sa/4.0/" type="licence">
       Distributed by <ref target="https://hansel-library.info" type="url">HANSEL</ref>
@@ -45,7 +45,7 @@
             <p>HANSEL assumes no responsibility for unauthorised use that infringes rights.</p>
           </licence>
         </availability>
-        <date when="2025-12-17" from="2025" to="2025">December 17, 2025</date>
+        <date when="2026-03-31" from="2025" to="2025">March 31, 2026</date>
       </publicationStmt>
       <notesStmt>
         <note>Ślokavārttika is one of the foundational texts of classical Indian philosophy, especially for understanding how Sanskrit intellectuals argued about knowledge, language, and authority. In it, Kumārila argues that Vedic language is a reliable means for knowing what human beings ought to do, not because of the intention of any human or divine author, but because of stable, conventional relations inherent in language itself. Though formally a commentary on parts of Jaimini’s Mīmāṃsāsūtra, the work functions less as explanation than as intertextual polemic, sharpening debates with Buddhists, Naiyāyikas, and rival Mīmāṃsakas in tightly compressed verse. For getting started with this notoriously difficult text, the most reliable English-language resources are the Stanford Encyclopedia of Philosophy articles on Mīmāṃsā and Testimony (śabda), together with John Taber’s essays on Kumārila and svataḥ prāmāṇya.</note>
@@ -10947,7 +10947,7 @@
         </lg>
         <lg n="6.165" xml:id="v6_165">
           <l n="ab">dṛṣṭau saviturekatve 'py ato 'naikāntiko bhavet |</l>
-          <l n="cd">paśyanty eke ca yaddeśāv udayās tamayau raveḥ ||</l>
+          <l n="cd">paśyanty eke ca yaddeśāv udayāstamayau raveḥ ||</l>
         </lg>
         <lg n="6.166" xml:id="v6_166">
           <l n="ab">tāvatyevābhimanyante parastāt tannivāsinaḥ |</l>

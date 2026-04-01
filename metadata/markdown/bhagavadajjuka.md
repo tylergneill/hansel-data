@@ -57,9 +57,10 @@ The Straube–Steiner edition builds on the important edition of Achan (1925), g
 
 # Translations
 
-- German, M. Straube & R. Steiner (eds.), plus U. Roesler, J. Soni, and L. Soni, 2006, “Die Heiligen-Hetäre” ([publication webpage](http://www.kirchheimverlag.de/belletristik/die%20heiligen-hetaere.htm))
-- English, M. Lockwood and A. Vishnu Bhat, 1994, “Bhagavadajjuka prahasana: A Philosophical Farce by King Mahendravikramavarma Pallava”, [on Academia](https://www.academia.edu/12366085/Metatheater_and_Sanskrit_Drama_Part_II)
-- English, J. A. B. van Buitenen, 1971, “The Hermit and the Harlot”
+- German, M. Straube & R. Steiner (eds.), plus U. Roesler, J. Soni, and L. Soni, 2006, “Die Heiligen-Hetäre”, see [publication webpage](http://www.kirchheimverlag.de/belletristik/die%20heiligen-hetaere.htm)
+- Dutch, H. Tieken & G. Schokker, 1991, „De heilige en et hoertje“, in [Vorstelijke Humor, on Brill](https://brill.com/display/title/3134?lang=en&srsltid=AfmBOorQDKJ9E8knO9r86P59bzvB8Be_vXUpu1xUjajVP6zeqqlnMmOT)
+- (less recommended) English, M. Lockwood and A. Vishnu Bhat, 1994, “Bhagavadajjuka prahasana: A Philosophical Farce by King Mahendravikramavarma Pallava”, [on Academia](https://www.academia.edu/12366085/Metatheater_and_Sanskrit_Drama_Part_II)
+- (less recommended)  English, J. A. B. van Buitenen, 1971, “The Hermit and the Harlot”
 - Italian, F. Belloni-Filippi, 1931/1959, “L’asceta trasmutato in etera di Bodhāyana”
 
 # Source Collection
@@ -116,4 +117,4 @@ Roman-like (ity evam, not ityevam)
 
 # Metadata Last Updated 
 
-2026-03-30
+2026-03-31
