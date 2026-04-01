@@ -331,7 +331,7 @@ parivrājakaḥ — praviśāgrataḥ | viviktaśaraṇāraṇyapratiśrayā vay
 
 [20,18]
 
-parivrājakaḥ — kim artham |
+parivrājakaḥ — kimartham |
 
 [20,19]
 
@@ -463,7 +463,7 @@ parivrājakaḥ — āgaccha vatsa | adhīṣva tāvat |
 
 [26,1]
 
-parivrājakaḥ — kim artham |
+parivrājakaḥ — kimartham |
 
 [26,2]
 
@@ -881,7 +881,7 @@ parivrājakaḥ — chandataḥ |
 
 [42,1]
 
-parivrājakaḥ — kim artham |
+parivrājakaḥ — kimartham |
 
 [42,2]
 
