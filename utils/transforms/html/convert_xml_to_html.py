@@ -517,11 +517,13 @@ class HtmlConverter:
                     if child.tag == 'l':
                         self._render_l_as_spans(child, div_elem, False, in_lg=True)
                     elif child.tag == 'lg' and child.get('type') == 'chāyā':
-                        # Flush any pending lb-label into the Prakrit verse before opening
-                        # the chāyā div; otherwise it would leak into the chāyā content.
-                        if self.pending_label is not None:
-                            div_elem.append(self.pending_label)
-                            self.pending_label = None
+                        # Drop any pending lb-label before opening the chāyā div.
+                        # A trailing <lb> at the end of the last Prakrit <l> marks the
+                        # start of the *next* physical line; it should not appear inside
+                        # the verse structure.  The matching coordinate on the following
+                        # <sp> element will create the correct inline label via
+                        # _emit_editorial_coord_h2.
+                        self.pending_label = None
                         chaya_div = etree.SubElement(div_elem, "div", {"class": "chaya"})
                         for sub_child in child:
                             if sub_child.tag == 'l':
