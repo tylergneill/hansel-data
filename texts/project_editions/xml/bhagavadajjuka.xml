@@ -266,6 +266,12 @@ Similarly, I have rendered the "nepathye" stage direction as speaker identificat
           <lg xml:id="p14_l14_2" n="14,14">
             <l>ṇa māmao atthi ṇa bhāduo vā<caesura/><lb n="16"/> pidā kudo me bhaavappasādo |<lb n="17"/></l>
             <l>ekko ahaṃ aṇṇahadattaṇeṇa<caesura/><lb n="18"/> jaṭṭhiṃ paviṭṭho ṇa khu dhammalohā || 5 ||<lb n="19"/></l>
+            <lg type="chāyā" xml:lang="san-Latn">
+              <l>na māmako 'sti na bhṛātṛko vā</l>
+              <l>pitā kuto me bhagavatprasādaḥ |</l>
+              <l>eko 'ham annahatatvena</l>
+              <l>yaṣṭiṃ praviṣṭo na khalu dharmalobhāt || 5 ||</l>
+            </lg>
           </lg>
         </sp>
         <sp who="parivrājakaḥ">
@@ -495,7 +501,7 @@ Similarly, I have rendered the "nepathye" stage direction as speaker identificat
         </sp>
         <sp who="parivrājakaḥ">
           <speaker>parivrājakaḥ</speaker>
-          <p n="20,18" xml:id="p20_l18">kim artham | <lb n="19"/></p>
+          <p n="20,18" xml:id="p20_l18">kimartham | <lb n="19"/></p>
         </sp>
         <sp who="śāṇḍilyaḥ">
           <speaker>śāṇḍilyaḥ</speaker>
@@ -646,7 +652,7 @@ Similarly, I have rendered the "nepathye" stage direction as speaker identificat
         </sp>
         <sp who="parivrājakaḥ">
           <speaker>parivrājakaḥ</speaker>
-          <p n="26,1" xml:id="p26_l1">kim artham | <lb n="2"/></p>
+          <p n="26,1" xml:id="p26_l1">kimartham | <lb n="2"/></p>
         </sp>
         <sp who="śāṇḍilyaḥ">
           <speaker>śāṇḍilyaḥ</speaker>
@@ -1185,7 +1191,7 @@ Similarly, I have rendered the "nepathye" stage direction as speaker identificat
         </sp>
         <sp who="parivrājakaḥ">
           <speaker>parivrājakaḥ</speaker>
-          <p n="42,1" xml:id="p42_l1">kim artham | <lb n="2"/></p>
+          <p n="42,1" xml:id="p42_l1">kimartham | <lb n="2"/></p>
         </sp>
         <sp who="śāṇḍilyaḥ">
           <speaker>śāṇḍilyaḥ</speaker>
