@@ -1619,7 +1619,7 @@
 [5,3.32ab]	pratyakṣādeś ca viṣayo bāhya evāvatiṣṭhate |
 [5,3.32cd]	tanniṣedhakṛtas tasya tair bhavet pakṣabādhanam ||
 [5,3.33ab]	suniścayena caiteṣāṃ bādhakapratyayād ṛte |
-[5,3.33cd]	pramāṇābhāsatā nāstīty etasmāt katyate balam ||
+[5,3.33cd]	pramāṇābhāsatā nāstīty etasmāt kathyate balam ||
 [5,3.34ab]	duṣṭajñānagṛhītārthapratiṣedho hi yujyate |
 [5,3.34cd]	gṛhītamātrabādhe tu svapakṣo 'pi na sidhyati ||
 [5,3.35ab]	agrāhyatvāc ca bhedena viśeṣaṇaviśeṣyayoḥ |
