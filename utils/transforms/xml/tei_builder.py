@@ -808,7 +808,8 @@ class TeiTextBuilder:
             last_match_end = match.end()
 
         post_text = content[last_match_end:]
-        post_text = HYPHEN_EOL_RE.sub("", post_text)
+        if s.line_by_line:
+            post_text = HYPHEN_EOL_RE.sub("", post_text)
         self._append(post_text)
 
         if mode == "prose":
