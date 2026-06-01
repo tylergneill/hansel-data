@@ -41,7 +41,7 @@ COMBINED_VERSE_END_RE = re.compile(f"{VERSE_MARKER_RE.pattern}|{VERSE_BACK_BOUND
 # Drama-specific regexes
 SPEAKER_RE = re.compile(r"^(\S+) — (.*)$")
 STAGE_DIRECTION_RE = re.compile(r"\(\(([^)]+)\)\)")
-PRAKRIT_RE = re.compile(r"˹([^˼]+)˼(?:\s*\(([^)]+)\))?")
+PRAKRIT_RE = re.compile(r"˹([^˼]+)˼(?:\s*\((?!\()([^)]+)\))?")
 
 CHAR_FOR_PENDING_HEAD = "_"
 PENDING_HEAD_RE = re.compile(f"^(.*[\|—,])\s*{re.escape(CHAR_FOR_PENDING_HEAD)}$")
