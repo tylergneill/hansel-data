@@ -212,6 +212,7 @@ class HtmlConverter:
         first_l = etree.Element("l")
         second_l = etree.Element("l")
         first_l.text = l_element.text
+        before_caesura = True
 
         for child in l_element:
             if child.tag == 'caesura':
