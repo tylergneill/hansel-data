@@ -889,10 +889,14 @@ class TeiTextBuilder:
                 lb_parent.remove(s.last_emitted_lb)
         elif not s.line_by_line:
             # Fallback for when no <lb> are emitted.
-            # Try to find the last <l> or <p> in the current div and append there.
-            last_elem_list = s.current_div.xpath('(.//l | .//p)[last()]')
-            if last_elem_list:
-                container = last_elem_list[0]
+            # If we're mid-verse, current_l is the right target even if it hasn't
+            # been appended to the DOM yet (verse group is buffered until flush).
+            if s.current_l is not None:
+                container = s.current_l
+            else:
+                last_elem_list = s.current_div.xpath('(.//l | .//p)[last()]')
+                if last_elem_list:
+                    container = last_elem_list[0]
 
         pb = etree.SubElement(container, "pb", attrs)
         s.last_emitted_lb = None
