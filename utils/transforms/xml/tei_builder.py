@@ -107,6 +107,7 @@ class TextBuildState:
     # text sink: most recent inline element (e.g., <lb/>) whose tail should
     # receive following prose text on the same physical line
     last_tail_text_sink: Optional[etree._Element] = None
+    suppress_join_space: bool = False  # skip the pb/lb join-space for mid-line markers
 
     # verse group buffer
     verse_group_buffer: list[etree._Element] = field(default_factory=list)
@@ -419,9 +420,10 @@ class TeiTextBuilder:
                 return
 
         prefix = ""
-        if use_tail and not s.prev_line_hyphen:
+        if use_tail and not s.prev_line_hyphen and not s.suppress_join_space:
             if sink_el.tag in ('lb', 'pb'):
                 prefix = " "
+        s.suppress_join_space = False
 
         if use_tail:
             sink_el.tail = (sink_el.tail or "") + prefix + text
@@ -802,9 +804,10 @@ class TeiTextBuilder:
             
             pre_text = content[last_match_end:match.start()]
             self._append(pre_text)
-            
+
             handler(match)
-            
+            s.suppress_join_space = True
+
             last_match_end = match.end()
 
         post_text = content[last_match_end:]

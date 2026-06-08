@@ -288,18 +288,6 @@ class HtmlConverter:
             elif child.tag == 'pb':
                 if child.get("break") == "no":
                     etree.SubElement(html_node, "span", {"class": "hyphen"}).text = "-"
-                else:
-                    # Ensure a space precedes a non-hyphenated break.
-                    if len(html_node) > 0:
-                        last_elem = html_node[-1]
-                        if last_elem.tail:
-                            if not last_elem.tail.endswith(' '):
-                                last_elem.tail += ' '
-                        else:
-                            last_elem.tail = ' '
-                    elif html_node.text:
-                        if not html_node.text.endswith(' '):
-                            html_node.text += ' '
 
                 self.current_page = child.get("n")
                 self.current_line = "1"
