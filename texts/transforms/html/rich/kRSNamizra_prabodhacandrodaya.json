@@ -68,7 +68,7 @@
             "type": "field",
             "label": "Edition",
             "inline_text": null,
-            "content_html": "<ul>\n<li>Editor: Matthew Kapstein</li>\n<li>Title: Text of Kṛṣṇa Miśra's Prabodhacandrodaya (कृष्णमिश्र प्रबोधचन्द्रोदय) as edited by Matthew Kapstein</li>\n<li>Place: Archive.org</li>\n<li>Year: 2026</li>\n<li>Note: Differences from the text printed in Clay are primarily (1) more standard IAST representation without Clay sandhi-and-compound notations, and (2) chāyā placed adjacent to corresponding Prakrit.</li>\n</ul>\n"
+            "content_html": "<ul>\n<li>Editor: Matthew Kapstein</li>\n<li>Title: Text of Kṛṣṇa Miśra's Prabodhacandrodaya (कृष्णमिश्र प्रबोधचन्द्रोदय) as edited by Matthew Kapstein</li>\n<li>Place: Archive.org</li>\n<li>Year: 2026</li>\n<li>Note: Differences from the text printed in Clay are (1) more standard IAST representation without Clay sandhi-and-compound notations, (2) chāyā placed adjacent to corresponding Prakrit, and (3) numerous corrected readings.</li>\n</ul>\n"
         },
         {
             "type": "field",
@@ -85,7 +85,7 @@
         {
             "type": "field",
             "label": "File Size (KB)",
-            "inline_text": "139",
+            "inline_text": "140",
             "content_html": ""
         },
         {
@@ -140,13 +140,19 @@
             "type": "field",
             "label": "Digitization Notes",
             "inline_text": null,
-            "content_html": "<ul>\n<li>(200?–2009) Matthew Kapstein: Edited text based primarily on 1936 Trivandrum edition (see CSL vol. intro p. liii) plus some more material not found in the Kerala recension and sourced from other editions. Formatted as Word document.</li>\n<li>(Feb 2026) Tyler Neill: Processed for HANSEL.</li>\n</ul>\n"
+            "content_html": "<ul>\n<li>(2000s) Matthew Kapstein: Edited text based primarily on 1936 Trivandrum edition (see CSL vol. intro p. liii) plus some more material not found in the Kerala recension and sourced from other editions. Formatted as Word document.</li>\n<li>(May 2026) M. Kapstein: Submitted more corrections.</li>\n<li>(Feb–June 2026) Tyler Neill: Processed for HANSEL.</li>\n</ul>\n"
         },
         {
             "type": "field",
             "label": "File Creation Method",
-            "inline_text": "I (T. Neill) produced this HANSEL edition by manually converting M. Kapstein's submitted Word file into plain text, standardizing some punctuation, and adding structural markup for HANSEL. The text may still contain errors and needs a final proofread.",
+            "inline_text": "I (T. Neill) produced this HANSEL edition by manually converting M. Kapstein's submitted Word files into plain text, standardizing some punctuation, and adding structural markup for HANSEL. The text has been recently proofread by M. Kapstein.",
             "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Additional Files",
+            "inline_text": null,
+            "content_html": "<ul>\n<li><a href=\"/static/data/miscellaneous/kRSNamizra_prabodhacandrodaya_extra_submission.docx\">More corrections</a>: subsequently submitted by M. Kapstein</li>\n</ul>\n"
         },
         {
             "type": "field",
@@ -169,13 +175,13 @@
         {
             "type": "field",
             "label": "Text Last Updated",
-            "inline_text": "2026-06-05",
+            "inline_text": "2026-06-08",
             "content_html": ""
         },
         {
             "type": "field",
             "label": "Metadata Last Updated",
-            "inline_text": "2026-04-06",
+            "inline_text": "2026-06-08",
             "content_html": ""
         },
         {
