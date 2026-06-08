@@ -24,7 +24,7 @@ Kapstein 2026
 - Title: Text of Kṛṣṇa Miśra's Prabodhacandrodaya (कृष्णमिश्र प्रबोधचन्द्रोदय) as edited by Matthew Kapstein
 - Place: Archive.org
 - Year: 2026
-- Note: Differences from the text printed in Clay are primarily (1) more standard IAST representation without Clay sandhi-and-compound notations, and (2) chāyā placed adjacent to corresponding Prakrit.
+- Note: Differences from the text printed in Clay are (1) more standard IAST representation without Clay sandhi-and-compound notations, (2) chāyā placed adjacent to corresponding Prakrit, and (3) numerous corrected readings.
 
 # Edition PDFs
 
@@ -38,7 +38,7 @@ Kapstein 2026
 
 # File Size (KB)
 
-139
+140
 
 # Structure
 
@@ -92,12 +92,17 @@ CC BY-NC-SA 4.0
 
 # Digitization Notes
 
-- (200?–2009) Matthew Kapstein: Edited text based primarily on 1936 Trivandrum edition (see CSL vol. intro p. liii) plus some more material not found in the Kerala recension and sourced from other editions. Formatted as Word document.
-- (Feb 2026) Tyler Neill: Processed for HANSEL.
+- (2000s) Matthew Kapstein: Edited text based primarily on 1936 Trivandrum edition (see CSL vol. intro p. liii) plus some more material not found in the Kerala recension and sourced from other editions. Formatted as Word document.
+- (May 2026) M. Kapstein: Submitted more corrections.
+- (Feb–June 2026) Tyler Neill: Processed for HANSEL.
 
 # File Creation Method
 
-I (T. Neill) produced this HANSEL edition by manually converting M. Kapstein's submitted Word file into plain text, standardizing some punctuation, and adding structural markup for HANSEL. The text may still contain errors and needs a final proofread.
+I (T. Neill) produced this HANSEL edition by manually converting M. Kapstein's submitted Word files into plain text, standardizing some punctuation, and adding structural markup for HANSEL. The text has been recently proofread by M. Kapstein.
+
+# Additional Files
+
+- [More corrections](/static/data/miscellaneous/kRSNamizra_prabodhacandrodaya_extra_submission.docx): subsequently submitted by M. Kapstein
 
 # Text Type
 
@@ -113,8 +118,8 @@ Roman-like (ity evam, not ityevam)
 
 # Text Last Updated
 
-2026-06-05
+2026-06-08
 
 # Metadata Last Updated 
 
-2026-04-06
+2026-06-08
