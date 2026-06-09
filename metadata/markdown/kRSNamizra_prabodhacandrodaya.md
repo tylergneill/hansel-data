@@ -28,7 +28,9 @@ Kapstein 2026
 
 # Edition PDFs
 
-- [on Archive](https://archive.org/details/kapstein_prabodhacandrodaya_text_2026_01_16/page/n0/mode/2up)
+- [M. Kapstein's text on Archive](https://archive.org/details/kapstein_prabodhacandrodaya_text_2026_01_16/page/n0/mode/2up)
+- [Trivandrum 1936 on Archive](https://archive.org/details/in.ernet.dli.2015.281085/page/n1/mode/2up)
+- [Nirnay Sagar 1935 on Archive](https://archive.org/details/PrabodhacandrodayaOfKrsnamisra1935)
 
 # Extent
 
