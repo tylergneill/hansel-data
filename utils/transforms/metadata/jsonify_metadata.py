@@ -99,7 +99,9 @@ def parse_additional_files(file_list):
                 if lower_url.endswith('.txt'): filetype = '.txt'
                 elif lower_url.endswith('.xml'): filetype = '.xml'
                 elif lower_url.endswith('.html'): filetype = '.html'
+                elif lower_url.endswith('.docx'): filetype = '.docx'
                 elif lower_url.endswith('.doc'): filetype = '.doc'
+                elif lower_url.endswith('.pdf'): filetype = '.pdf'
                 
                 parsed_files.append({
                     'text': text, 
