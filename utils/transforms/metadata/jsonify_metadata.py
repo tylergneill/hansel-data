@@ -14,8 +14,8 @@ import re
 import sys
 from pathlib import Path
 
-
 from skrutable.transliteration import Transliterator
+from validate_metadata import validate_record
 T = Transliterator(from_scheme="HK", to_scheme="IAST")   # HK → IAST
 
 _heading = re.compile(r'^# (.+)')
@@ -122,10 +122,18 @@ def main(folder: str):
     version = version_content.splitlines()[0].split('"')[1]
 
     consolidated = {}
+    all_warnings = []
     for md in metadata_markdown_in_dir.glob('*.md'):
         record = parse_markdown(md)
         translit_key = T.transliterate(md.stem)
         consolidated[translit_key] = record
+        all_warnings.extend(validate_record(md.name, record))
+
+    if all_warnings:
+        print("Metadata validation errors:")
+        for w in all_warnings:
+            print(f"  ERROR: {w}")
+        sys.exit(1)
 
     for k, record in consolidated.items():
 
