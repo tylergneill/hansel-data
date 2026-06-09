@@ -45,7 +45,7 @@
             <p>HANSEL assumes no responsibility for unauthorised use that infringes rights.</p>
           </licence>
         </availability>
-        <date when="2026-06-08" from="2026" to="2026">June 08, 2026</date>
+        <date when="2026-06-09" from="2026" to="2026">June 09, 2026</date>
       </publicationStmt>
       <notesStmt>
         <note/>
@@ -2753,7 +2753,13 @@
         </sp>
         <sp who="rājā">
           <speaker>rājā</speaker>
-          <p n="4,127" xml:id="p4_l127">evam etat! tad bhavatu | svābhīṣṭasiddhaye bhagavantaṃ namasyāmaḥ | <stage>rathād avatīrya praviśyāvalokya ca |</stage> jaya, jaya, bhagavan! amaracayacamūcakracūḍamaṇiśreṇinīrājitopāntapādadvayāmbhoja! rājannakhadyotakirmīritasvarṇapīṭha! sphuraddvaitavibhrāntisantānasantāpasantaptavandārusaṃsāranidrāpahāraikadakṣa! kṣamāmaṇḍaloddhārasaṃhārasaṃghaṭṭasaṃghṛṣṭadaṃṣṭrāgrakoṭisphuracchailacakra! kramākrāntalokatraya! prabalabhujabaloddhūtagovardhanacchatranivāritākhaṇḍalodyojitākāṇḍacaṇḍāmbuvāhātivarṣatrasadgokulatrāṇavismāpitāśeṣaviśvaprabho! vibudharipuvadhūvargasīmantasindūrasandhyāmayūkhacchaṭonmārjanoddāmadhāmādhipa! trastadaityendravakṣastaṭīpāṭanākuṇṭhabhāsvannakhaśreṇipāṇidvayasrastavistāriraktārṇavāmagnalokatraya! tribhuvanaripukaiṭabhoddaṇḍakaṇṭhāsthikūṭasphuṭonmārjitodāttacakrasphurajjyotirulkāśatoḍḍāmaroddaṇḍa! khaṇḍenducūḍapriya! prauḍhadordaṇḍavibhrāntamanthācalakṣubdhadugdhāmbudhiprotthitaśrībhujāvallarīsaṃśleṣasaṃkrāntapīnastanābhogapatrāvalīlāñchitoraḥsthala! sthūlamuktāphalottārahāraprabhāmaṇḍalaprasphuratkaṇṭha! vaikuṇṭha! bhaktasya lokasya saṃsāramohacchidaṃ dehi bodhodayaṃ deva! tubhyaṃ namaḥ! <stage>nirgamanaṃ nāṭayitvā vilokya ca |</stage> sādhur, ayam evāsmākaṃ nivāsocito deśaḥ | tad atraiva skandhāvāraṃ niveśayāmaḥ | </p>
+          <p n="4,127" xml:id="p4_l127">evam etat! tad bhavatu | svābhīṣṭasiddhaye bhagavantaṃ namasyāmaḥ | <stage>rathād avatīrya praviśyāvalokya ca |</stage> jaya, jaya, bhagavan! </p>
+          <lg xml:id="p4_l127_2" n="4,127">
+            <l>amaracayacamūcakracūḍamaṇiśreṇinīrājitopāntapādadvayāmbhoja! rājannakhadyotakirmīritasvarṇapīṭha! sphuraddvaitavibhrāntisantānasantāpasantaptavandārusaṃsāranidrāpahāraikadakṣa!kṣamāmaṇḍaloddhārasaṃhārasaṃghaṭṭasaṃghṛṣṭadaṃṣṭrāgrakoṭisphuracchailacakra! kramākrāntalokatraya!<caesura/>prabalabhujabaloddhūtagovardhanacchatranivāritākhaṇḍalodyojitākāṇḍacaṇḍāmbuvāhātivarṣatrasadgokulatrāṇavismāpitāśeṣaviśvaprabho! |</l>
+            <l>vibudharipuvadhūvargasīmantasindūrasandhyāmayūkhacchaṭonmārjanoddāmadhāmādhipa! trastadaityendravakṣastaṭīpāṭanākuṇṭhabhāsvannakhaśreṇipāṇidvayasrastavistāriraktārṇavāmagnalokatraya!<caesura/>tribhuvanaripukaiṭabhoddaṇḍakaṇṭhāsthikūṭasphuṭonmārjitodāttacakrasphurajjyotirulkāśatoḍḍāmaroddaṇḍa! khaṇḍenducūḍapriya! prauḍhadordaṇḍavibhrāntamanthācalakṣubdhadugdhāmbudhiprotthitaśrībhujāvallarīsaṃśleṣasaṃkrāntapīnastanābhogapatrāvalīlāñchitoraḥsthala! sthūlamuktāphalottārahāraprabhāmaṇḍalaprasphuratkaṇṭha! vaikuṇṭha! bhaktasya lokasya saṃsāramohacchidaṃ dehi bodhodayaṃ deva! tubhyaṃ namaḥ! || 4.32 ||</l>
+          </lg>
+          <p>
+            <stage>nirgamanaṃ nāṭayitvā vilokya ca |</stage> sādhur, ayam evāsmākaṃ nivāsocito deśaḥ | tad atraiva skandhāvāraṃ niveśayāmaḥ | </p>
           <p xml:id="p4_l130" n="4,130">
             <stage>iti niṣkrāntau</stage> iti śrīkṛṣṇamiśraviracite prabodhacandrodayanāmni nāṭake vivekodyogo nāma caturtho 'ṅkaḥ | </p>
         </sp>
