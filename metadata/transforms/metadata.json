@@ -150,7 +150,8 @@
     "Edition PDFs": [
       "[M. Kapstein's text on Archive](https://archive.org/details/kapstein_prabodhacandrodaya_text_2026_01_16/page/n0/mode/2up)",
       "[Trivandrum 1936 on Archive](https://archive.org/details/in.ernet.dli.2015.281085/page/n1/mode/2up)",
-      "[Nirnay Sagar 1935 on Archive](https://archive.org/details/PrabodhacandrodayaOfKrsnamisra1935)"
+      "[Nirnay Sagar 1935 on Archive](https://archive.org/details/PrabodhacandrodayaOfKrsnamisra1935)",
+      "[Brockhaus 1835 editio princeps on Archive](https://archive.org/details/bub_gb_o5xc1sEGshwC)"
     ],
     "Extent": [
       "The complete work is extant.",
@@ -192,8 +193,8 @@
     "Text Type": "Drama",
     "Word Division Style": "Roman-like (ity evam, not ityevam)",
     "Original Submission Last Updated": "2026-02-13",
-    "Text Last Updated": "2026-06-09",
-    "Metadata Last Updated": "2026-06-08",
+    "Text Last Updated": "2026-06-10",
+    "Metadata Last Updated": "2026-06-10",
     "PDF Page Offset": [
       "1 → 1"
     ],
@@ -527,5 +528,5 @@
     "Filename": "bhagavadajjuka",
     "Original Submission Filetype": ".txt"
   },
-  "version": "2026-06-09"
+  "version": "2026-06-10"
 }

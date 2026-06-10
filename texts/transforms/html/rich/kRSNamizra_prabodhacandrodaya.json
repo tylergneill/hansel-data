@@ -74,7 +74,7 @@
             "type": "field",
             "label": "Edition PDFs",
             "inline_text": null,
-            "content_html": "<ul>\n<li><a href=\"https://archive.org/details/kapstein_prabodhacandrodaya_text_2026_01_16/page/n0/mode/2up\">M. Kapstein's text on Archive</a></li>\n<li><a href=\"https://archive.org/details/in.ernet.dli.2015.281085/page/n1/mode/2up\">Trivandrum 1936 on Archive</a></li>\n<li><a href=\"https://archive.org/details/PrabodhacandrodayaOfKrsnamisra1935\">Nirnay Sagar 1935 on Archive</a></li>\n</ul>\n"
+            "content_html": "<ul>\n<li><a href=\"https://archive.org/details/kapstein_prabodhacandrodaya_text_2026_01_16/page/n0/mode/2up\">M. Kapstein's text on Archive</a></li>\n<li><a href=\"https://archive.org/details/in.ernet.dli.2015.281085/page/n1/mode/2up\">Trivandrum 1936 on Archive</a></li>\n<li><a href=\"https://archive.org/details/PrabodhacandrodayaOfKrsnamisra1935\">Nirnay Sagar 1935 on Archive</a></li>\n<li><a href=\"https://archive.org/details/bub_gb_o5xc1sEGshwC\">Brockhaus 1835 editio princeps on Archive</a></li>\n</ul>\n"
         },
         {
             "type": "field",
@@ -175,13 +175,13 @@
         {
             "type": "field",
             "label": "Text Last Updated",
-            "inline_text": "2026-06-09",
+            "inline_text": "2026-06-10",
             "content_html": ""
         },
         {
             "type": "field",
             "label": "Metadata Last Updated",
-            "inline_text": "2026-06-08",
+            "inline_text": "2026-06-10",
             "content_html": ""
         },
         {
