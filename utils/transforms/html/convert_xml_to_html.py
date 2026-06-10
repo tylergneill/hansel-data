@@ -212,6 +212,7 @@ class HtmlConverter:
         first_l = etree.Element("l")
         second_l = etree.Element("l")
         first_l.text = l_element.text
+        before_caesura = True
 
         for child in l_element:
             if child.tag == 'caesura':
@@ -287,18 +288,6 @@ class HtmlConverter:
             elif child.tag == 'pb':
                 if child.get("break") == "no":
                     etree.SubElement(html_node, "span", {"class": "hyphen"}).text = "-"
-                else:
-                    # Ensure a space precedes a non-hyphenated break.
-                    if len(html_node) > 0:
-                        last_elem = html_node[-1]
-                        if last_elem.tail:
-                            if not last_elem.tail.endswith(' '):
-                                last_elem.tail += ' '
-                        else:
-                            last_elem.tail = ' '
-                    elif html_node.text:
-                        if not html_node.text.endswith(' '):
-                            html_node.text += ' '
 
                 self.current_page = child.get("n")
                 self.current_line = "1"
@@ -823,14 +812,22 @@ class HtmlConverter:
                             continue
 
                         n_attr = sp_child.get("n")
-                        if n_attr and ',' in n_attr and n_attr != last_sp_location:
-                            # Location marker: emit <h2> and reset speech containers
-                            # so the content following the marker starts a fresh div.
-                            speech_div = None
-                            speech_div_plain = None
-                            verses_ul = None
-                            self._emit_editorial_coord_h2(content_div, n_attr)
-                            last_sp_location = n_attr
+                        if n_attr and ',' in n_attr:
+                            if n_attr != last_sp_location:
+                                # Location marker: emit <h2> and reset speech containers
+                                # so the content following the marker starts a fresh div.
+                                speech_div = None
+                                speech_div_plain = None
+                                verses_ul = None
+                                self._emit_editorial_coord_h2(content_div, n_attr)
+                                last_sp_location = n_attr
+                            elif self.page_label != "p":
+                                # Same location, custom editorial coords: no new h2, but restore
+                                # current_page/line from the n attribute. A <pb> inside the
+                                # preceding sibling may have clobbered them with a PDF page number.
+                                n_parts = n_attr.split(',')
+                                self.current_page = n_parts[0].strip()
+                                self.current_line = n_parts[1].strip() if len(n_parts) > 1 else "1"
 
                         # Lazily create speech containers (or re-create after a reset).
                         if not self.only_plain and speech_div is None:
@@ -1100,6 +1097,10 @@ class HtmlConverter:
                 document_context["has_chaya"] = True
             if self.pdf_page_mapping:
                 document_context["pdf_page_mapping"] = self.pdf_page_mapping
+            if self.page_label != "p":
+                document_context["page_label"] = self.page_label
+            if self.line_label != "l":
+                document_context["line_label"] = self.line_label
 
             json_path = Path(html_path).with_suffix('.json')
             with open(json_path, "w", encoding='utf-8') as f:

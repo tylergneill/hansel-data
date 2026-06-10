@@ -21,7 +21,7 @@ Steiner & Straube 2006
 
 # Edition PDFs
 
-- Edited text + editorial notes [on Archive](https://archive.org/details/bhagavadajjuka_2006_text)
+- [Edited text + editorial notes on Archive](https://archive.org/details/bhagavadajjuka_2006_text)
 - Achan 1925 (main basis for re-edition) [on Archive](https://archive.org/details/bhagavadajjukiya-achan-1925)
 
 # PDF Page Offset

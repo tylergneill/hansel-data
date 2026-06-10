@@ -14,8 +14,8 @@ import re
 import sys
 from pathlib import Path
 
-
 from skrutable.transliteration import Transliterator
+from validate_metadata import validate_record
 T = Transliterator(from_scheme="HK", to_scheme="IAST")   # HK → IAST
 
 _heading = re.compile(r'^# (.+)')
@@ -99,7 +99,9 @@ def parse_additional_files(file_list):
                 if lower_url.endswith('.txt'): filetype = '.txt'
                 elif lower_url.endswith('.xml'): filetype = '.xml'
                 elif lower_url.endswith('.html'): filetype = '.html'
+                elif lower_url.endswith('.docx'): filetype = '.docx'
                 elif lower_url.endswith('.doc'): filetype = '.doc'
+                elif lower_url.endswith('.pdf'): filetype = '.pdf'
                 
                 parsed_files.append({
                     'text': text, 
@@ -122,10 +124,18 @@ def main(folder: str):
     version = version_content.splitlines()[0].split('"')[1]
 
     consolidated = {}
+    all_warnings = []
     for md in metadata_markdown_in_dir.glob('*.md'):
         record = parse_markdown(md)
         translit_key = T.transliterate(md.stem)
         consolidated[translit_key] = record
+        all_warnings.extend(validate_record(md.name, record))
+
+    if all_warnings:
+        print("Metadata validation errors:")
+        for w in all_warnings:
+            print(f"  ERROR: {w}")
+        sys.exit(1)
 
     for k, record in consolidated.items():
 
