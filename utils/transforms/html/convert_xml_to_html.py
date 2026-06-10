@@ -1089,6 +1089,10 @@ class HtmlConverter:
                 document_context["has_chaya"] = True
             if self.pdf_page_mapping:
                 document_context["pdf_page_mapping"] = self.pdf_page_mapping
+            if self.page_label != "p":
+                document_context["page_label"] = self.page_label
+            if self.line_label != "l":
+                document_context["line_label"] = self.line_label
 
             json_path = Path(html_path).with_suffix('.json')
             with open(json_path, "w", encoding='utf-8') as f:
