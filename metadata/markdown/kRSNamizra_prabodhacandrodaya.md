@@ -31,6 +31,7 @@ Kapstein 2026
 - [M. Kapstein's text on Archive](https://archive.org/details/kapstein_prabodhacandrodaya_text_2026_01_16/page/n0/mode/2up)
 - [Trivandrum 1936 on Archive](https://archive.org/details/in.ernet.dli.2015.281085/page/n1/mode/2up)
 - [Nirnay Sagar 1935 on Archive](https://archive.org/details/PrabodhacandrodayaOfKrsnamisra1935)
+- [Brockhaus 1835 editio princeps on Archive](https://archive.org/details/bub_gb_o5xc1sEGshwC)
 
 # Extent
 
@@ -120,8 +121,8 @@ Roman-like (ity evam, not ityevam)
 
 # Text Last Updated
 
-2026-06-09
+2026-06-10
 
 # Metadata Last Updated 
 
-2026-06-08
+2026-06-10
