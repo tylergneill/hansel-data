@@ -1,0 +1,189 @@
+{
+    "title": "bhAskarabhaTTa_unmattarAghava",
+    "has_toc": true,
+    "toc": [
+        {
+            "name": "nāndī",
+            "page": "1",
+            "id": "nāndī"
+        },
+        {
+            "name": "prastāvanā",
+            "page": "1",
+            "id": "prastāvanā"
+        },
+        {
+            "name": "prathamo'ṅkaḥ",
+            "page": "3",
+            "id": "prathamo'ṅkaḥ"
+        }
+    ],
+    "metadata_entries": [
+        {
+            "type": "field",
+            "label": "Title",
+            "inline_text": "Unmattarāghava",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Pandit Work ID",
+            "inline_text": "...",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Author",
+            "inline_text": "Bhāskara Bhaṭṭa",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Pandit Author ID",
+            "inline_text": "...",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Edition Short",
+            "inline_text": "Durgāprasād and Parab 1899",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Edition",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>Editors: Paṇḍita Durgāprasāda and Kāśinātha Pāṇḍuraṅga Paraba</li>\n<li>Title: The Unmatta-Râghava of Bhâskara Bhatta</li>\n<li>Place: Mumbai</li>\n<li>Publisher: Nirnaya Sagar Press</li>\n<li>Series: Kāvyamālā</li>\n<li>Series Part: 17</li>\n<li>Year: 1889</li>\n<li>OCLC Number: 66308108</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Edition PDFs",
+            "inline_text": null,
+            "content_html": "<ul>\n<li><a href=\"https://archive.org/details/unmatta-raghava-of-bhaskara-1300s-ad-text/page/n0/mode/2up\">Durgāprasād and Parab 1889 on Archive</a></li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Extent",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>The complete work is extant.</li>\n<li>The edition document contains a complete text.</li>\n<li>The text fills 16 pages in the edition, with intervening footnotes (mostly chāyā).</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "File Size (KB)",
+            "inline_text": "25",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Structure",
+            "inline_text": null,
+            "content_html": "<p>Play in one act, with a prologue (prastāvanā).</p>\n<p>Location markers (page,line) designate the start of each speech block or centered stage direction.</p>\n"
+        },
+        {
+            "type": "field",
+            "label": "Work Description",
+            "inline_text": "Rāma Beside Himself (Unmattarāghava) is a one-act Sanskrit drama by the 14th-century poet Bhāskara that reimagines the famous golden deer episode of Vālmīki’s Rāmāyaṇa as an intensely lyrical study of madness (unmāda) occasioned by love in separation. In the traditional narrative, the demon Mārīca disguises himself as a golden deer in order to draw Rāma away and enable Rāvaṇa to abduct Sītā; Bhāskara’s play, however, omits both Mārīca and the abduction. Instead, it builds upon a tradition of depicting madness born from separation, beginning with Rāma’s response to Sītā’s abduction in the “Forest Book” of the Rāmāyaṇa and powerfully reshaped in Kālidāsa’s How Urvaśī Was Won (Vikramorvaśīya). Written in a mixture of Sanskrit and Prakrit, and alternating prose dialogue with densely imagistic verses composed in more than a dozen meters, the play begins with a formal benediction and prologue before turning to its forest plot: Sītā wanders into an unfamiliar part of the woods to gather flowers and is mysteriously changed into a doe by the lingering force of an old curse. When Rāma returns from the hunt and learns that she has disappeared, grief overwhelms him, and, accompanied by Lakṣmaṇa, he searches the forest in a state of delirious longing, recalling Sītā upon finding her footprints, sensing her presence in flowers and vines, addressing breezes and bees as possible messengers, and mistaking flowering trees for bandits carrying off her jewels. At last, the seer Agastya appears with Sītā and explains the curse, bringing the play to a gentle resolution through reunion, blessing, and a closing benediction for the welfare of the world. The drama’s central movement is thus not outward action but Rāma’s deteriorating mental state, in which understanding and delusion, perception and memory, erotic longing and poetic imagination blur together in a poignant depiction of the dominant aesthetic mood of love-in-separation (vipralambhaśṛṅgārarasa).",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Genres",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>Nāṭaka</li>\n<li>Prekṣaṇaka</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Source Collection",
+            "inline_text": "Personal files of T. Richard.",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Source File License",
+            "inline_text": "CC BY-NC-SA 4.0",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "HANSEL License",
+            "inline_text": "CC BY-NC-SA 4.0",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Contributors",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>Tyler Richard</li>\n<li>Tyler Neill</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Digitization Notes",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>(March – June 2026) T. Richard: Manually transcribed the edition and formatted as a Google Doc.</li>\n<li>(June 2026) T. Neill: Exported Google Doc as Word doc and processed for HANSEL.</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "File Creation Method",
+            "inline_text": null,
+            "content_html": "<p>I (T. Neill) produced this HANSEL edition. I first manually extracted T. Richard's submitted Word document to plain-text, then added basic structural markup (page breaks, tabbed verses, marking of stage directions and Prakrit). Next, I re-OCRed the PDF (Cloud Vision and Sarvam Vision auto-harmonized with Gemini 2.5 Flash) to recover line-break information, then merged this information into the structured transcript. Finally, I interviewed T. Richard for much of the metadata (the Work Description is entirely his) and ingested the data into HANSEL. T. Richard and I then proofread the text (both Prakrit and Sanskrit, including chāyā) together in a collegial read-through over coffee, during which we added word separation.</p>\n<p>As in other HANSEL drama texts so far, I have artificially rendered the \"nepathye\" stage directions as speaker identification.</p>\n"
+        },
+        {
+            "type": "field",
+            "label": "Text Type",
+            "inline_text": "Drama",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Word Division Style",
+            "inline_text": "Devanāgarī-like (ityevam, not ity evam)",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Additional Files",
+            "inline_text": null,
+            "content_html": "<ul>\n<li><a href=\"/static/data/miscellaneous/bhAskarabhaTTa_unmattarAghava_improvements.docx\">List of suggested improvements</a> (7)  based on Hamburg Ms.</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Additional Notes",
+            "inline_text": null,
+            "content_html": "<ul>\n<li>The print edition is based on a single manuscript sourced from Palamaneri, Tamil Nadu by someone named Subrahmaṇya Śāstrī.</li>\n<li>T. Richard has prepared an English translation for eventual print publication.</li>\n<li>Numerous scholars place Bhāskara Bhaṭṭa in the 14th century since he mentions a festival honoring the lotus-feet of Vidyāraṇya, the Advaita philosopher and political advisor who flourished during the 14th century.</li>\n<li>Bhāskara Bhaṭṭa is also said to have advised both Bukka(ṇa) I and Harihara II, who are respectively the grandfather and father of the Virūpākṣa Rāya I who wrote the other Unmattarāghava.</li>\n</ul>\n"
+        },
+        {
+            "type": "field",
+            "label": "Original Submission Last Updated",
+            "inline_text": "2026-06-22",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Text Last Updated",
+            "inline_text": "2026-06-22",
+            "content_html": ""
+        },
+        {
+            "type": "field",
+            "label": "Metadata Last Updated",
+            "inline_text": "2026-06-25",
+            "content_html": ""
+        }
+    ],
+    "has_verses": true,
+    "has_editorial_coords": true,
+    "has_line_breaks": true,
+    "has_corrections": false,
+    "no_line_numbers": false,
+    "drama": true,
+    "has_chaya": true,
+    "pdf_page_mapping": {
+        "url": "https://archive.org/details/unmatta-raghava-of-bhaskara-1300s-ad-text/page/n0/mode/2up",
+        "offsets": [
+            [
+                1,
+                1
+            ]
+        ]
+    }
+}
