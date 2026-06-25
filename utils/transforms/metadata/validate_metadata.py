@@ -19,6 +19,8 @@ def _check_edition_pdfs(filename, record):
     first = items[0]
     if not first:
         return warnings
+    if first.startswith("No "):
+        return warnings  # intentional signal that no PDF is available
     if not first.startswith("["):
         warnings.append(
             f"{filename}: Edition PDFs first item does not start with '[' "
