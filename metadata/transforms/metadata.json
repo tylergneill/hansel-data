@@ -148,7 +148,6 @@
       "Note: Differences from the text printed in Clay are (1) more standard IAST representation without Clay sandhi-and-compound notations, (2) chāyā placed adjacent to corresponding Prakrit, and (3) numerous corrected readings."
     ],
     "Edition PDFs": [
-      "[M. Kapstein's text on Archive](https://archive.org/details/kapstein_prabodhacandrodaya_text_2026_01_16/page/n0/mode/2up)",
       "[Trivandrum 1936 on Archive](https://archive.org/details/in.ernet.dli.2015.281085)",
       "[Nirnay Sagar 1935 on Archive](https://archive.org/details/PrabodhacandrodayaOfKrsnamisra1935)",
       "[Brockhaus 1835 editio princeps on Archive](https://archive.org/details/bub_gb_o5xc1sEGshwC)"
@@ -182,14 +181,6 @@
       "(Feb–June 2026) Tyler Neill: Processed for HANSEL."
     ],
     "File Creation Method": "I (T. Neill) produced this HANSEL edition by manually converting M. Kapstein's submitted Word files into plain text, standardizing some punctuation, and adding structural markup for HANSEL. The text has been recently proofread by M. Kapstein.",
-    "Additional Files": [
-      {
-        "text": "More corrections",
-        "url": "/static/data/miscellaneous/kRSNamizra_prabodhacandrodaya_extra_submission.docx",
-        "description": "subsequently submitted by M. Kapstein",
-        "filetype": ".docx"
-      }
-    ],
     "Text Type": "Drama",
     "Word Division Style": "Roman-like (ity evam, not ityevam)",
     "Original Submission Last Updated": "2026-02-13",
@@ -198,8 +189,7 @@
     "PDF Page Offset": [
       "1 → 1"
     ],
-    "Filename": "kRSNamizra_prabodhacandrodaya",
-    "Original Submission Filetype": ".doc"
+    "Filename": "kRSNamizra_prabodhacandrodaya"
   },
   "śukasaptati_s": {
     "Title": "Śukasaptati, “Textus Simplicior”",
