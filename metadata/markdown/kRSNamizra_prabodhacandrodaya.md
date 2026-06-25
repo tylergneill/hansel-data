@@ -29,7 +29,7 @@ Kapstein 2009
 
 # Edition PDFs
 
-- No PDF of the [in Clay Sanskrit Library](https://claysanskritlibrary.org/volumes/the-rise-of-wisdom-moon/) can be shared at this time.
+- No PDF of the [Clay Sanskrit Library volume](https://claysanskritlibrary.org/volumes/the-rise-of-wisdom-moon/) can be shared at this time.
 - [Trivandrum 1936 on Archive](https://archive.org/details/in.ernet.dli.2015.281085)
 - [Nirnay Sagar 1935 on Archive](https://archive.org/details/PrabodhacandrodayaOfKrsnamisra1935)
 - [Brockhaus 1835 editio princeps on Archive](https://archive.org/details/bub_gb_o5xc1sEGshwC)
