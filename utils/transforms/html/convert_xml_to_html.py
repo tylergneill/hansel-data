@@ -714,9 +714,12 @@ class HtmlConverter:
                 edition_pdfs_entry = next((entry for entry in self.metadata_entries if entry['label'] == 'Edition PDFs'), None)
                 if edition_pdfs_entry and edition_pdfs_entry['content_html']:
                     html_fragment = fromstring(edition_pdfs_entry['content_html'])
-                    link = html_fragment.find('.//a')
-                    if link is not None and 'href' in link.attrib:
-                        pdf_link_url = link.get('href')
+                    first_li = html_fragment.find('.//li')
+                    first_li_text = (first_li.text_content() if first_li is not None else '').strip()
+                    if not first_li_text.startswith('No '):
+                        link = html_fragment.find('.//a')
+                        if link is not None and 'href' in link.attrib:
+                            pdf_link_url = link.get('href')
 
                 pdf_offset_entry = next((entry for entry in self.metadata_entries if entry['label'] == 'PDF Page Offset'), None)
                 if pdf_offset_entry and pdf_offset_entry['content_html']:

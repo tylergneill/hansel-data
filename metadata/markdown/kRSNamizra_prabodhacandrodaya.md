@@ -16,19 +16,20 @@ Kṛṣṇa Miśra
 
 # Edition Short
 
-Kapstein 2026
+Kapstein 2009
 
 # Edition
 
 - Editor: Matthew Kapstein
-- Title: Text of Kṛṣṇa Miśra's Prabodhacandrodaya (कृष्णमिश्र प्रबोधचन्द्रोदय) as edited by Matthew Kapstein
-- Place: Archive.org
-- Year: 2026
+- Title: The Rise of Wisdom Moon
+- Place: New York
+- Publisher: New York University Press & JCC Foundation
+- Year: 2009
 - Note: Differences from the text printed in Clay are (1) more standard IAST representation without Clay sandhi-and-compound notations, (2) chāyā placed adjacent to corresponding Prakrit, and (3) numerous corrected readings.
 
 # Edition PDFs
 
-- [M. Kapstein's text on Archive](https://archive.org/details/kapstein_prabodhacandrodaya_text_2026_01_16/page/n0/mode/2up)
+- No PDF of the [Clay Sanskrit Library volume](https://claysanskritlibrary.org/volumes/the-rise-of-wisdom-moon/) can be shared at this time.
 - [Trivandrum 1936 on Archive](https://archive.org/details/in.ernet.dli.2015.281085)
 - [Nirnay Sagar 1935 on Archive](https://archive.org/details/PrabodhacandrodayaOfKrsnamisra1935)
 - [Brockhaus 1835 editio princeps on Archive](https://archive.org/details/bub_gb_o5xc1sEGshwC)
@@ -36,8 +37,8 @@ Kapstein 2026
 # Extent
 
 - The complete work is extant.
-- The edition document contains a complete text.
-- The text fills 112 pages in the generously spaced document, plus another twelve for chāyās.
+- The edition contains a complete text.
+- The text is found on the 128 even pages out of CSL edition pp. 1–279 (odd pages have facing-page translation, and 21 pages are mere structural separators). Plus there are another 9 pages for Sanskrit chāyās, pp. 281–289. 
 
 # File Size (KB)
 
@@ -78,7 +79,7 @@ Plot: After Puruṣa and Illusion (Māyā) produce a son, Mind (Citta), Puruṣa
 
 # Source Collection
 
-Personal collection of Matthew Kapstein.
+Personal collection of M. Kapstein.
 
 # Source File License
 
@@ -95,17 +96,13 @@ CC BY-NC-SA 4.0
 
 # Digitization Notes
 
-- (2000s) Matthew Kapstein: Edited text based primarily on 1936 Trivandrum edition (see CSL vol. intro p. liii) plus some more material not found in the Kerala recension and sourced from other editions. Formatted as Word document.
+- (2000s) M. Kapstein: Edited text based primarily on 1936 Trivandrum edition (see CSL vol. intro p. liii) plus some more material not found in the Kerala recension and sourced from other editions. Formatted as Word document.
 - (May 2026) M. Kapstein: Submitted more corrections.
-- (Feb–June 2026) Tyler Neill: Processed for HANSEL.
+- (Feb–June 2026) T. Neill: Processed for HANSEL.
 
 # File Creation Method
 
 I (T. Neill) produced this HANSEL edition by manually converting M. Kapstein's submitted Word files into plain text, standardizing some punctuation, and adding structural markup for HANSEL. The text has been recently proofread by M. Kapstein.
-
-# Additional Files
-
-- [More corrections](/static/data/miscellaneous/kRSNamizra_prabodhacandrodaya_extra_submission.docx): subsequently submitted by M. Kapstein
 
 # Text Type
 
@@ -125,4 +122,4 @@ Roman-like (ity evam, not ityevam)
 
 # Metadata Last Updated 
 
-2026-06-10
+2026-06-25

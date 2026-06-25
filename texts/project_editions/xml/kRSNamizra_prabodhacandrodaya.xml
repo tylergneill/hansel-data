@@ -45,19 +45,19 @@
             <p>HANSEL assumes no responsibility for unauthorised use that infringes rights.</p>
           </licence>
         </availability>
-        <date when="2026-06-10" from="2026" to="2026">June 10, 2026</date>
+        <date when="2026-06-25" from="2026" to="2026">June 25, 2026</date>
       </publicationStmt>
       <notesStmt>
         <note/>
       </notesStmt>
       <sourceDesc>
         <bibl>
-          <title>Text of Kṛṣṇa Miśra's Prabodhacandrodaya (कृष्णमिश्र प्रबोधचन्द्रोदय) as edited by Matthew Kapstein</title>
+          <title>The Rise of Wisdom Moon</title>
           <editor>Matthew Kapstein</editor>
           <imprint>
-            <publisher/>
-            <pubPlace>Archive.org</pubPlace>
-            <date>2026</date>
+            <publisher>New York University Press &amp; JCC Foundation</publisher>
+            <pubPlace>New York</pubPlace>
+            <date>2009</date>
           </imprint>
         </bibl>
         <series>
@@ -115,9 +115,9 @@
       </editorialDecl>
     </encodingDesc>
     <revisionDesc>
-      <change when="2000s" who="Matthew Kapstein">Edited text based primarily on 1936 Trivandrum edition (see CSL vol. intro p. liii) plus some more material not found in the Kerala recension and sourced from other editions. Formatted as Word document.</change>
+      <change when="2000s" who="M. Kapstein">Edited text based primarily on 1936 Trivandrum edition (see CSL vol. intro p. liii) plus some more material not found in the Kerala recension and sourced from other editions. Formatted as Word document.</change>
       <change when="May 2026" who="M. Kapstein">Submitted more corrections.</change>
-      <change when="Feb–June 2026" who="Tyler Neill" ana="#hansel-contributor">Processed for HANSEL.</change>
+      <change when="Feb–June 2026" who="T. Neill" ana="#hansel-contributor">Processed for HANSEL.</change>
     </revisionDesc>
   </teiHeader>
   <text>

@@ -61,26 +61,26 @@
         {
             "type": "field",
             "label": "Edition Short",
-            "inline_text": "Kapstein 2026",
+            "inline_text": "Kapstein 2009",
             "content_html": ""
         },
         {
             "type": "field",
             "label": "Edition",
             "inline_text": null,
-            "content_html": "<ul>\n<li>Editor: Matthew Kapstein</li>\n<li>Title: Text of Kṛṣṇa Miśra's Prabodhacandrodaya (कृष्णमिश्र प्रबोधचन्द्रोदय) as edited by Matthew Kapstein</li>\n<li>Place: Archive.org</li>\n<li>Year: 2026</li>\n<li>Note: Differences from the text printed in Clay are (1) more standard IAST representation without Clay sandhi-and-compound notations, (2) chāyā placed adjacent to corresponding Prakrit, and (3) numerous corrected readings.</li>\n</ul>\n"
+            "content_html": "<ul>\n<li>Editor: Matthew Kapstein</li>\n<li>Title: The Rise of Wisdom Moon</li>\n<li>Place: New York</li>\n<li>Publisher: New York University Press &amp; JCC Foundation</li>\n<li>Year: 2009</li>\n<li>Note: Differences from the text printed in Clay are (1) more standard IAST representation without Clay sandhi-and-compound notations, (2) chāyā placed adjacent to corresponding Prakrit, and (3) numerous corrected readings.</li>\n</ul>\n"
         },
         {
             "type": "field",
             "label": "Edition PDFs",
             "inline_text": null,
-            "content_html": "<ul>\n<li><a href=\"https://archive.org/details/kapstein_prabodhacandrodaya_text_2026_01_16/page/n0/mode/2up\">M. Kapstein's text on Archive</a></li>\n<li><a href=\"https://archive.org/details/in.ernet.dli.2015.281085\">Trivandrum 1936 on Archive</a></li>\n<li><a href=\"https://archive.org/details/PrabodhacandrodayaOfKrsnamisra1935\">Nirnay Sagar 1935 on Archive</a></li>\n<li><a href=\"https://archive.org/details/bub_gb_o5xc1sEGshwC\">Brockhaus 1835 editio princeps on Archive</a></li>\n</ul>\n"
+            "content_html": "<ul>\n<li>No PDF of the <a href=\"https://claysanskritlibrary.org/volumes/the-rise-of-wisdom-moon/\">Clay Sanskrit Library volume</a> can be shared at this time.</li>\n<li><a href=\"https://archive.org/details/in.ernet.dli.2015.281085\">Trivandrum 1936 on Archive</a></li>\n<li><a href=\"https://archive.org/details/PrabodhacandrodayaOfKrsnamisra1935\">Nirnay Sagar 1935 on Archive</a></li>\n<li><a href=\"https://archive.org/details/bub_gb_o5xc1sEGshwC\">Brockhaus 1835 editio princeps on Archive</a></li>\n</ul>\n"
         },
         {
             "type": "field",
             "label": "Extent",
             "inline_text": null,
-            "content_html": "<ul>\n<li>The complete work is extant.</li>\n<li>The edition document contains a complete text.</li>\n<li>The text fills 112 pages in the generously spaced document, plus another twelve for chāyās.</li>\n</ul>\n"
+            "content_html": "<ul>\n<li>The complete work is extant.</li>\n<li>The edition contains a complete text.</li>\n<li>The text is found on the 128 even pages out of CSL edition pp. 1–279 (odd pages have facing-page translation, and 21 pages are mere structural separators). Plus there are another 9 pages for Sanskrit chāyās, pp. 281–289. </li>\n</ul>\n"
         },
         {
             "type": "field",
@@ -115,7 +115,7 @@
         {
             "type": "field",
             "label": "Source Collection",
-            "inline_text": "Personal collection of Matthew Kapstein.",
+            "inline_text": "Personal collection of M. Kapstein.",
             "content_html": ""
         },
         {
@@ -140,19 +140,13 @@
             "type": "field",
             "label": "Digitization Notes",
             "inline_text": null,
-            "content_html": "<ul>\n<li>(2000s) Matthew Kapstein: Edited text based primarily on 1936 Trivandrum edition (see CSL vol. intro p. liii) plus some more material not found in the Kerala recension and sourced from other editions. Formatted as Word document.</li>\n<li>(May 2026) M. Kapstein: Submitted more corrections.</li>\n<li>(Feb–June 2026) Tyler Neill: Processed for HANSEL.</li>\n</ul>\n"
+            "content_html": "<ul>\n<li>(2000s) M. Kapstein: Edited text based primarily on 1936 Trivandrum edition (see CSL vol. intro p. liii) plus some more material not found in the Kerala recension and sourced from other editions. Formatted as Word document.</li>\n<li>(May 2026) M. Kapstein: Submitted more corrections.</li>\n<li>(Feb–June 2026) T. Neill: Processed for HANSEL.</li>\n</ul>\n"
         },
         {
             "type": "field",
             "label": "File Creation Method",
             "inline_text": "I (T. Neill) produced this HANSEL edition by manually converting M. Kapstein's submitted Word files into plain text, standardizing some punctuation, and adding structural markup for HANSEL. The text has been recently proofread by M. Kapstein.",
             "content_html": ""
-        },
-        {
-            "type": "field",
-            "label": "Additional Files",
-            "inline_text": null,
-            "content_html": "<ul>\n<li><a href=\"/static/data/miscellaneous/kRSNamizra_prabodhacandrodaya_extra_submission.docx\">More corrections</a>: subsequently submitted by M. Kapstein</li>\n</ul>\n"
         },
         {
             "type": "field",
@@ -181,7 +175,7 @@
         {
             "type": "field",
             "label": "Metadata Last Updated",
-            "inline_text": "2026-06-10",
+            "inline_text": "2026-06-25",
             "content_html": ""
         },
         {
@@ -268,15 +262,6 @@
     "no_line_numbers": true,
     "drama": true,
     "has_chaya": true,
-    "pdf_page_mapping": {
-        "url": "https://archive.org/details/kapstein_prabodhacandrodaya_text_2026_01_16/page/n0/mode/2up",
-        "offsets": [
-            [
-                1,
-                1
-            ]
-        ]
-    },
     "page_label": "ch",
     "line_label": "u"
 }

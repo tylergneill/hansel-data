@@ -143,7 +143,9 @@ def main(folder: str):
         consolidated[k]['File Size (KB)'] = float(consolidated[k]['File Size (KB)'])
 
         # detect and store original file type
-        consolidated[k]['Original Submission Filetype'] = get_file_extension(consolidated[k]['Filename'])
+        ext = get_file_extension(consolidated[k]['Filename'])
+        if ext is not None:
+            consolidated[k]['Original Submission Filetype'] = ext
         
         # parse additional files
         if 'Additional Files' in consolidated[k]:
