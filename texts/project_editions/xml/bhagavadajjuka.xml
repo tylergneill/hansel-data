@@ -1868,10 +1868,8 @@ Similarly, I have rendered the "nepathye" stage direction as speaker identificat
         <sp who="gaṇikā">
           <speaker>gaṇikā</speaker>
           <p n="56,20" xml:id="p56_l20">chandataḥ | <lb n="21"/></p>
-        </sp>
-        <sp who="yamapuruṣaḥ">
-          <speaker>yamapuruṣaḥ</speaker>
-          <p n="56,21" xml:id="p56_l21">yathāsvaṃ jīvavinimayaṃ kṛtvā svakāryam anutiṣṭhāmi | ((tathā kṛtvā <lb n="22"/> niṣkrāntaḥ |))  <pb n="58"/></p>
+          <p xml:id="p56_l21" n="56,21">yamapuruṣaḥ — yathāsvaṃ jīvavinimayaṃ kṛtvā svakāryam anutiṣṭhāmi | <stage>tathā kṛtvā<lb n="22"/>niṣkrāntaḥ |</stage>
+            <pb n="58"/></p>
         </sp>
         <sp who="parivrājakaḥ">
           <speaker>parivrājakaḥ</speaker>

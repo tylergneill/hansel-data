@@ -3,11 +3,6 @@
     "has_toc": true,
     "toc": [
         {
-            "name": "nāndī",
-            "page": "1",
-            "id": "nāndī"
-        },
-        {
             "name": "prastāvanā",
             "page": "1",
             "id": "prastāvanā"
@@ -28,7 +23,7 @@
         {
             "type": "field",
             "label": "Pandit Work ID",
-            "inline_text": "...",
+            "inline_text": "116956",
             "content_html": ""
         },
         {
@@ -40,7 +35,7 @@
         {
             "type": "field",
             "label": "Pandit Author ID",
-            "inline_text": "...",
+            "inline_text": "116958",
             "content_html": ""
         },
         {
@@ -149,7 +144,7 @@
             "type": "field",
             "label": "Additional Notes",
             "inline_text": null,
-            "content_html": "<ul>\n<li>The print edition is based on a single manuscript sourced from Palamaneri, Tamil Nadu by someone named Subrahmaṇya Śāstrī.</li>\n<li>T. Richard has prepared an English translation for eventual print publication.</li>\n<li>Numerous scholars place Bhāskara Bhaṭṭa in the 14th century since he mentions a festival honoring the lotus-feet of Vidyāraṇya, the Advaita philosopher and political advisor who flourished during the 14th century.</li>\n<li>Bhāskara Bhaṭṭa is also said to have advised both Bukka(ṇa) I and Harihara II, who are respectively the grandfather and father of the Virūpākṣa Rāya I who wrote the other Unmattarāghava.</li>\n</ul>\n"
+            "content_html": "<ul>\n<li>The print edition is based on a single manuscript sourced from Palamaneri, Tamil Nadu by someone named Subrahmaṇya Śāstrī.</li>\n<li>T. Richard has prepared an English translation for eventual print publication.</li>\n<li>Numerous scholars place Bhāskara Bhaṭṭa in the 14th century since he mentions a festival honoring the lotus-feet of Vidyāraṇya, the Advaita philosopher and political advisor who flourished during the 14th century. This Vidyāraṇya is also said to have advised both Bukka(ṇa) I and Harihara II, who are respectively the grandfather and father of the Virūpākṣa Rāya I who wrote the other Unmattarāghava.</li>\n</ul>\n"
         },
         {
             "type": "field",
@@ -168,12 +163,25 @@
             "label": "Metadata Last Updated",
             "inline_text": "2026-06-25",
             "content_html": ""
+        },
+        {
+            "type": "corrections",
+            "count": 1,
+            "rows": [
+                {
+                    "sic": "nana",
+                    "corr": "",
+                    "page": "10",
+                    "line": "14",
+                    "coord_id": "10_11"
+                }
+            ]
         }
     ],
     "has_verses": true,
     "has_editorial_coords": true,
     "has_line_breaks": true,
-    "has_corrections": false,
+    "has_corrections": true,
     "no_line_numbers": false,
     "drama": true,
     "has_chaya": true,

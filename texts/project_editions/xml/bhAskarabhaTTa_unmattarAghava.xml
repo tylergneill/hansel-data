@@ -122,8 +122,11 @@ As in other HANSEL drama texts so far, I have artificially rendered the "nepathy
   </teiHeader>
   <text>
     <body>
-      <div n="nāndī">
-        <pb n="1"/><p xml:id="p1_l1" n="1,1">śrīmadbhāskarakaviviracitam <lb n="2"/> unmattarāghavam |  <lb n="3"/></p>
+      <div n="prastāvanā">
+        <pb n="1"/><p xml:id="p1_l1" n="1,1">
+          <milestone n="śrīmadbhāskarakaviviracitam"/>
+          <milestone n="unmattarāghavam |"/>
+        </p>
         <lg xml:id="p1_l1_2" n="1,1">
           <l>kalā cāndrī śaṃbhoḥ praṇayakalahaprāpitaruṣaḥ<caesura/><lb n="4"/> praṇāme pārvatyāḥ padakamalalākṣāparicitā |<lb n="5"/></l>
           <l>śriyai bhūyādasyāḥ vadanaśaśinaḥ kopakaluṣā<caesura/><lb n="6" break="no"/>tprasādenāruṇyaṃ vinimayavaśeneva dadhatī || 1 ||<lb n="7"/></l>
@@ -131,8 +134,6 @@ As in other HANSEL drama texts so far, I have artificially rendered the "nepathy
         <p>
           <stage>nāndyante</stage>
           <lb n="8"/></p>
-      </div>
-      <div n="prastāvanā">
         <sp who="sūtradhāraḥ">
           <speaker>sūtradhāraḥ</speaker>
           <p n="1,8" xml:id="p1_l8">
@@ -286,10 +287,8 @@ As in other HANSEL drama texts so far, I have artificially rendered the "nepathy
         <sp who="madhukarikā">
           <speaker>madhukarikā</speaker>
           <p n="4,10" xml:id="p4_l10">
-            <seg type="prakrit" xml:lang="pra-Latn">imiṇā sahaāradaṇḍena mañjariṃ tāḍia maarandapāṇa<lb n="11" break="no"/>ṇiccalaṃ bhamariṃ uṭṭhāvemi | <stage>tathā kṛtvā |</stage> amhahe | mañjarīe uṭṭhidāe tāe<lb n="12"/>sahaarīe saṃgado imo mahuaro māhavīmaṇḍavaṃ ahiruhia mahurasaṃ pi<lb n="13" break="no"/>banto suhaṃ vaṭṭai | <stage>vanāntaraṃ vilokya sāvegam |</stage> kahiṃ gadā jāṇaī | <stage>puna
-rvilokya |</stage>
-              <lb n="14" break="no"/>rvilokya |)) amhahe | ṇa kassiṃ vi dīsai | <stage>vanāntaraṃ praviśya sarvatrānviṣyantī |</stage>
-              <lb n="15"/>amhahe | iaṃ maṇoharākidī kā vi hariṇī siṇiddhāe diṭṭhie maṃ pekkhia<lb n="16"/>ṇissarantehiṃ ṇaaṇasalilehiṃ sahīsiṇehaṃ sūaadi | maha hiaaṃ vi<lb n="17"/>edassiṃ ciraparicidaṃ via vissaddhaṃ hodi | ahavā imāe jaṇaṇantarasa<lb n="18" break="no"/>hīe hodavvam | <stage>iti sasaṃbhramaṃ paribhramantī savimarśam |</stage> ettha mahesiṇo a<lb n="19" break="no"/>ssamappahāvādo duṭṭhamiāṇaṃ saṃcāro ṇatthi | tā kahiṃ patthidā jāṇaitti me<lb n="20"/>accariaṃ hodi | <stage>niḥśvasya |</stage> mandabhāiṇī ahaṃ khu | miaāvāvārādo ṇi<lb n="21" break="no"/><pb n="5"/><lb n="22"/>uttassa rāmabhaddassa kahaṃ kahaissam | rāmabhaddo vi suṇia kīrisaṃ avattha<lb n="23" break="no"/>ntaraṃ aṇuhavissaditti vevai me hiaam |<seg type="chāyā" xml:lang="san-Latn">anena sahakāradaṇḍena mañjarīṃ tāḍayitvā makarandapānaniścalāṃ bhramarīmutthāpayāmi | āścaryam | mañjaryā utthitayā tayā sahacaryā saṃgato'yaṃ madhukaro mādhavīmaṇḍapamadhiruhya madhurasaṃ pibansukhaṃ vartate | kutra gatā jānakī | āścaryam | na kutrāpi dṛśyate | āścaryam | iyaṃ manoharākṛtiḥ kāpi hariṇī snigdhayā dṛṣṭyā māṃ dṛṣṭvā niḥsaradbhirnayanasalilaiḥ sakhīsnehaṃ sūcayati | mama hṛdayamapyetasyāṃ ciraparicitamiva visrabdhaṃ bhavati | athavānayā jananāntarasakhyā bhavitavyam | atra maharṣerāśramaprabhāvādduṣṭamṛgāṇāṃ saṃcāro nāsti | tasmātkutra prasthitā jānakīti ma āścaryaṃ bhavati | mandabhāginyahaṃ khalu | mṛgayāvyāpārānnivṛttasya rāmabhadrasya kathaṃ kathayiṣye | rāmabhadro'pi śrutvā kīdṛśamavasthāntaramanubhaviṣyatīti vepate me hṛdayam |</seg>
+            <seg type="prakrit" xml:lang="pra-Latn">imiṇā sahaāradaṇḍena mañjariṃ tāḍia maarandapāṇa<lb n="11" break="no"/>ṇiccalaṃ bhamariṃ uṭṭhāvemi | <stage>tathā kṛtvā |</stage> amhahe | mañjarīe uṭṭhidāe tāe<lb n="12"/>sahaarīe saṃgado imo mahuaro māhavīmaṇḍavaṃ ahiruhia mahurasaṃ pi<lb n="13" break="no"/>banto suhaṃ vaṭṭai | <stage>vanāntaraṃ vilokya sāvegam |</stage> kahiṃ gadā jāṇaī | <stage>puna<lb n="14" break="no"/>rvilokya |</stage> amhahe | ṇa kassiṃ vi dīsai | <stage>vanāntaraṃ praviśya sarvatrānviṣyantī |</stage>
+              <lb n="15" break="no"/>amhahe | iaṃ maṇoharākidī kā vi hariṇī siṇiddhāe diṭṭhie maṃ pekkhia<lb n="16"/>ṇissarantehiṃ ṇaaṇasalilehiṃ sahīsiṇehaṃ sūaadi | maha hiaaṃ vi<lb n="17"/>edassiṃ ciraparicidaṃ via vissaddhaṃ hodi | ahavā imāe jaṇaṇantarasa<lb n="18"/>hīe hodavvam | <stage>iti sasaṃbhramaṃ paribhramantī savimarśam |</stage> ettha mahesiṇo a<lb n="19" break="no"/>ssamappahāvādo duṭṭhamiāṇaṃ saṃcāro ṇatthi | tā kahiṃ patthidā jāṇaitti me<lb n="20" break="no"/>accariaṃ hodi | <stage>niḥśvasya |</stage> mandabhāiṇī ahaṃ khu | miaāvāvārādo ṇi<lb n="21"/><pb n="5"/><lb n="22" break="no"/>uttassa rāmabhaddassa kahaṃ kahaissam | rāmabhaddo vi suṇia kīrisaṃ avattha<lb n="23"/>ntaraṃ aṇuhavissaditti vevai me hiaam |<seg type="chāyā" xml:lang="san-Latn">anena sahakāradaṇḍena mañjarīṃ tāḍayitvā makarandapānaniścalāṃ bhramarīmutthāpayāmi | āścaryam | mañjaryā utthitayā tayā sahacaryā saṃgato'yaṃ madhukaro mādhavīmaṇḍapamadhiruhya madhurasaṃ pibansukhaṃ vartate | kutra gatā jānakī | āścaryam | na kutrāpi dṛśyate | āścaryam | iyaṃ manoharākṛtiḥ kāpi hariṇī snigdhayā dṛṣṭyā māṃ dṛṣṭvā niḥsaradbhirnayanasalilaiḥ sakhīsnehaṃ sūcayati | mama hṛdayamapyetasyāṃ ciraparicitamiva visrabdhaṃ bhavati | athavānayā jananāntarasakhyā bhavitavyam | atra maharṣerāśramaprabhāvādduṣṭamṛgāṇāṃ saṃcāro nāsti | tasmātkutra prasthitā jānakīti ma āścaryaṃ bhavati | mandabhāginyahaṃ khalu | mṛgayāvyāpārānnivṛttasya rāmabhadrasya kathaṃ kathayiṣye | rāmabhadro'pi śrutvā kīdṛśamavasthāntaramanubhaviṣyatīti vepate me hṛdayam |</seg>
             </seg>
             <lb n="24"/><stage>nepathye kalakalaḥ |</stage>
             <lb n="25"/></p>
@@ -472,10 +471,8 @@ rvilokya |</stage>
           <p>
             <stage>iti tatrasthitāṃ pādamudrāṃ praṇamati |</stage>
             <lb n="20"/></p>
-        </sp>
-        <sp who="lakṣmaṇaḥ">
-          <speaker>lakṣmaṇaḥ</speaker>
-          <p n="8,20" xml:id="p8_l20">kaṣṭamāryasyonmādadaśā vartate | ārya, na jānakī | ((iti <lb n="21"/> mūrdhānamunnamayati |))  <lb n="22"/></p>
+          <p xml:id="p8_l20" n="8,20">lakṣmaṇaḥ — kaṣṭamāryasyonmādadaśā vartate | ārya, na jānakī | <stage>iti<lb n="21"/>mūrdhānamunnamayati |</stage>
+            <lb n="22"/></p>
         </sp>
         <sp who="rāmaḥ">
           <speaker>rāmaḥ</speaker>
@@ -559,7 +556,7 @@ rvilokya |</stage>
           <p n="10,11" xml:id="p10_l11">aye, priyālāpa iva śrūyate nākṛtistu dṛśyate | ataḥ <lb n="12"/> prārthayāmi |  <lb n="13"/></p>
           <lg xml:id="p10_l11_2" n="10,11">
             <l>cetasaḥ sapadi jīvanauṣadhaṃ netrayoramṛtavartikāñjanam |<lb n="14"/></l>
-            <l>manmathajvaramahārasāyanaṃ darśayasva dayite tavākṛti(nana))m || 26 ||<lb n="15"/></l>
+            <l>manmathajvaramahārasāyanaṃ darśayasva dayite tavākṛti<del>nana</del>m || 26 ||<lb n="15"/></l>
           </lg>
           <p>
             <stage>kṣaṇamātraṃ tūṣṇīṃ sthitvā |</stage> ayi jānaki, kimityaudāsīnyaṃ bhajasi | <lb n="16"/></p>
@@ -606,7 +603,8 @@ rvilokya |</stage>
         </sp>
         <sp who="rāmaḥ">
           <speaker>rāmaḥ</speaker>
-          <p n="11,8" xml:id="p11_l8">bho bhoścorāḥ, tiṣṭhata | mamāgrataḥ kuto gamyate | idānīmeva <lb n="9"/> dhanurāropyaikenaiva sāyakena sarvānvaḥ pātayāmi | ((iti sāṭopaṃ parikramya  <lb n="10"/> dhanurāropayati |))  <lb n="11"/></p>
+          <p n="11,8" xml:id="p11_l8">bho bhoścorāḥ, tiṣṭhata | mamāgrataḥ kuto gamyate | idānīmeva <lb n="9"/> dhanurāropyaikenaiva sāyakena sarvānvaḥ pātayāmi | <stage>iti sāṭopaṃ parikramya<lb n="10"/>dhanurāropayati |</stage>
+            <lb n="11"/></p>
         </sp>
         <sp who="lakṣmaṇaḥ">
           <speaker>lakṣmaṇaḥ</speaker>
@@ -898,7 +896,10 @@ rvilokya |</stage>
         </sp>
         <sp who="madhukarikā">
           <speaker>madhukarikā</speaker>
-          <p n="15,19" xml:id="p15_l19">amhahe, adiṇiṭṭhuradā tāvasāṇam | <lb n="20"/></p>
+          <p n="15,19" xml:id="p15_l19">
+            <seg type="prakrit" xml:lang="pra-Latn">amhahe, adiṇiṭṭhuradā tāvasāṇam |<seg type="chāyā" xml:lang="san-Latn">aho, atiniṣṭhuratā tāpasānām |</seg>
+            </seg>
+            <lb n="20"/></p>
         </sp>
         <sp who="lakṣmaṇaḥ">
           <speaker>lakṣmaṇaḥ</speaker>
@@ -930,7 +931,7 @@ rvilokya |</stage>
           <speaker>madhukarikā</speaker>
           <p n="16,6" xml:id="p16_l6">
             <stage>svagatam |</stage>
-            <seg type="prakrit" xml:lang="pra-Latn">tassiṃ evva samuvadiṭṭhāe hariṇīe hoda<lb n="7" break="no"/>vvam |<seg type="chāyā" xml:lang="san-Latn">aho, atiniṣṭhuratā tāpasānām |</seg>
+            <seg type="prakrit" xml:lang="pra-Latn">tassiṃ evva samuvadiṭṭhāe hariṇīe hoda<lb n="7" break="no"/>vvam |<seg type="chāyā" xml:lang="san-Latn">tasminneva samupasthitayā hariṇyā bhavitavyam |</seg>
             </seg>
             <lb n="8"/></p>
         </sp>
