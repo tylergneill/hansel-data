@@ -131,13 +131,15 @@ As in other HANSEL drama texts so far, I have artificially rendered the "nepathy
           <l>kalā cāndrī śaṃbhoḥ praṇayakalahaprāpitaruṣaḥ<caesura/><lb n="4"/> praṇāme pārvatyāḥ padakamalalākṣāparicitā |<lb n="5"/></l>
           <l>śriyai bhūyādasyāḥ vadanaśaśinaḥ kopakaluṣā<caesura/><lb n="6" break="no"/>tprasādenāruṇyaṃ vinimayavaśeneva dadhatī || 1 ||<lb n="7"/></l>
         </lg>
-        <p>
+        <p xml:id="p1_l7" n="1,7">
           <stage>nāndyante</stage>
           <lb n="8"/></p>
         <sp who="sūtradhāraḥ">
           <speaker>sūtradhāraḥ</speaker>
           <p n="1,8" xml:id="p1_l8">
-            <stage>nepathyābhimukhamavalokya |</stage> ārye, itastāvat | <lb n="9"/><stage>praviśya</stage>
+            <stage>nepathyābhimukhamavalokya |</stage> ārye, itastāvat | <lb n="9"/></p>
+          <p xml:id="p1_l9" n="1,9">
+            <stage>praviśya</stage>
             <lb n="10"/></p>
         </sp>
         <sp who="naṭī">
@@ -208,7 +210,7 @@ As in other HANSEL drama texts so far, I have artificially rendered the "nepathy
             <l>manoharāṇāmapi mañjarīṇāṃ vihāya jālāni viśeṣalipsuḥ |<lb n="22"/></l>
             <l>latāntarāṇyeti madhuvratāliḥ sītā yatheyaṃ kusumeṣu lobhāt || 6 ||<lb n="23"/></l>
           </lg>
-          <p>
+          <p xml:id="p2_l23" n="2,23">
             <stage>iti niṣkrāntau |</stage>
             <lb n="24"/> prastāvanā |  <pb n="3"/></p>
         </sp>
@@ -243,7 +245,9 @@ As in other HANSEL drama texts so far, I have artificially rendered the "nepathy
           <p n="3,11" xml:id="p3_l11">
             <seg type="prakrit" xml:lang="pra-Latn">savvajaṇasāhāraṇāiṃ kkhu vaṇaladāiṃ phalapupphamūlāiṃ ṇaīja<lb n="12" break="no"/>lāiṃ a | ado kiṃṇimittaṃ jo ko vi kuppadi | <stage>puṣpabhājanaṃ vilokya |</stage> a<lb n="13" break="no"/>jjauttassa devvaccaṇopajuttāiṃ kusumāiṃ pajjattāiṃ | ido puraṭṭhide kāṇaṇantare<lb n="14"/>maṇoharāiṃ kusumāiṃ ahigeṇhia uḍaaṃ gacchamho |<seg type="chāyā" xml:lang="san-Latn">sarvajanasādhāraṇāni khalu vanalatāḥ phalapuṣpamūlāni nadījalāni ca | ataḥ kiṃnimittaṃ yaḥ ko'pi kupyati | āryaputrasya devārcanopayuktāni kusumāni paryāptāni | itaḥ puraḥsthite kānanāntare manoharāṇi kusumānyabhigṛhyoṭajaṃ gacchāvaḥ |</seg>
             </seg>
-            <lb n="15"/><stage>ityubhe prasthite |</stage>
+            <lb n="15"/></p>
+          <p xml:id="p3_l15" n="3,15">
+            <stage>ityubhe prasthite |</stage>
             <pb n="4"/></p>
         </sp>
         <sp who="sītā">
@@ -290,22 +294,26 @@ As in other HANSEL drama texts so far, I have artificially rendered the "nepathy
             <seg type="prakrit" xml:lang="pra-Latn">imiṇā sahaāradaṇḍena mañjariṃ tāḍia maarandapāṇa<lb n="11" break="no"/>ṇiccalaṃ bhamariṃ uṭṭhāvemi | <stage>tathā kṛtvā |</stage> amhahe | mañjarīe uṭṭhidāe tāe<lb n="12"/>sahaarīe saṃgado imo mahuaro māhavīmaṇḍavaṃ ahiruhia mahurasaṃ pi<lb n="13" break="no"/>banto suhaṃ vaṭṭai | <stage>vanāntaraṃ vilokya sāvegam |</stage> kahiṃ gadā jāṇaī | <stage>puna<lb n="14" break="no"/>rvilokya |</stage> amhahe | ṇa kassiṃ vi dīsai | <stage>vanāntaraṃ praviśya sarvatrānviṣyantī |</stage>
               <lb n="15" break="no"/>amhahe | iaṃ maṇoharākidī kā vi hariṇī siṇiddhāe diṭṭhie maṃ pekkhia<lb n="16"/>ṇissarantehiṃ ṇaaṇasalilehiṃ sahīsiṇehaṃ sūaadi | maha hiaaṃ vi<lb n="17"/>edassiṃ ciraparicidaṃ via vissaddhaṃ hodi | ahavā imāe jaṇaṇantarasa<lb n="18"/>hīe hodavvam | <stage>iti sasaṃbhramaṃ paribhramantī savimarśam |</stage> ettha mahesiṇo a<lb n="19" break="no"/>ssamappahāvādo duṭṭhamiāṇaṃ saṃcāro ṇatthi | tā kahiṃ patthidā jāṇaitti me<lb n="20" break="no"/>accariaṃ hodi | <stage>niḥśvasya |</stage> mandabhāiṇī ahaṃ khu | miaāvāvārādo ṇi<lb n="21"/><pb n="5"/><lb n="22" break="no"/>uttassa rāmabhaddassa kahaṃ kahaissam | rāmabhaddo vi suṇia kīrisaṃ avattha<lb n="23"/>ntaraṃ aṇuhavissaditti vevai me hiaam |<seg type="chāyā" xml:lang="san-Latn">anena sahakāradaṇḍena mañjarīṃ tāḍayitvā makarandapānaniścalāṃ bhramarīmutthāpayāmi | āścaryam | mañjaryā utthitayā tayā sahacaryā saṃgato'yaṃ madhukaro mādhavīmaṇḍapamadhiruhya madhurasaṃ pibansukhaṃ vartate | kutra gatā jānakī | āścaryam | na kutrāpi dṛśyate | āścaryam | iyaṃ manoharākṛtiḥ kāpi hariṇī snigdhayā dṛṣṭyā māṃ dṛṣṭvā niḥsaradbhirnayanasalilaiḥ sakhīsnehaṃ sūcayati | mama hṛdayamapyetasyāṃ ciraparicitamiva visrabdhaṃ bhavati | athavānayā jananāntarasakhyā bhavitavyam | atra maharṣerāśramaprabhāvādduṣṭamṛgāṇāṃ saṃcāro nāsti | tasmātkutra prasthitā jānakīti ma āścaryaṃ bhavati | mandabhāginyahaṃ khalu | mṛgayāvyāpārānnivṛttasya rāmabhadrasya kathaṃ kathayiṣye | rāmabhadro'pi śrutvā kīdṛśamavasthāntaramanubhaviṣyatīti vepate me hṛdayam |</seg>
             </seg>
-            <lb n="24"/><stage>nepathye kalakalaḥ |</stage>
-            <lb n="25"/></p>
+            <lb n="24"/></p>
+          <p xml:id="p5_l3" n="5,3">
+            <stage>nepathye kalakalaḥ |</stage>
+            <lb n="4"/></p>
         </sp>
         <sp who="madhukarikā">
           <speaker>madhukarikā</speaker>
           <p n="5,4" xml:id="p5_l4">
             <seg type="prakrit" xml:lang="pra-Latn">ido tado vi saṃbhamantā tāvasajaṇā dīsanti | ado<lb n="5"/>rāmabhaddo vi āacchaditti takkemi |<seg type="chāyā" xml:lang="san-Latn">itastato 'pi saṃbhramantastāpasajanā dṛśyante | ato rāmabhadro'pyāgacchatīti tarkayāmi |</seg>
             </seg>
-            <lb n="6"/><stage>punarnepathye |</stage>
+            <lb n="6"/></p>
+          <p xml:id="p5_l6" n="5,6">
+            <stage>punarnepathye |</stage>
             <lb n="7"/></p>
-          <lg xml:id="p5_l4_2" n="5,4">
+          <lg xml:id="p5_l6_2" n="5,6">
             <l>saṃmṛjyantāṃ padavyaḥ karadhṛtakalaśāvarjitaistoyapūraiḥ<caesura/><lb n="8"/> sicyantāmāsamantādaviralamabhitaḥ kīrṇapuṣpāḥ kriyantām |<lb n="9"/></l>
             <l>jīvagrāhaṃ gṛhītvā kanakamṛgamasau jānakīprītihetoḥ<caesura/><lb n="10"/> saṃprāptaḥ kānanāntātsamadhikamahimā satvaraṃ rāmabhadraḥ || 7 ||<lb n="11"/></l>
           </lg>
           <p>ayaṃ hi <lb n="12"/></p>
-          <lg xml:id="p5_l4_3" n="5,4">
+          <lg xml:id="p5_l6_3" n="5,6">
             <l>pratipadamupayāntaṃ lakṣmaṇaṃ vīkṣya kiṃci<caesura/><lb n="13" break="no"/>dvalitanayanakoṇenādarādbhāṣamāṇaḥ |<lb n="14"/></l>
             <l>śramajalalasadāsyaḥ śobhate cāpadaṇḍaṃ<caesura/><lb n="15"/> śithilitaguṇabandhaṃ skandhadeśe dadhānaḥ || 8 ||<pb n="6"/></l>
           </lg>
@@ -317,7 +325,9 @@ As in other HANSEL drama texts so far, I have artificially rendered the "nepathy
             <seg type="prakrit" xml:lang="pra-Latn">ae, kaṇaamiaṃ geṇhia antiattheṇa<lb n="2"/>lakkhaṇeṇa kiṃ vi mantaanto rāmabhaddo evva āacchadi | ahaṃ se maggaṃ<lb n="3"/>pariharia ciṭṭhāmi |<seg type="chāyā" xml:lang="san-Latn">aye, kanakamṛgaṃ gṛhītvāntikasthena lakṣmaṇena kimapi mantrayanrāmabhadra evāgacchati | ahamasya mārgaṃ parihṛtya tiṣṭhāmi |</seg>
             </seg>
             <stage>tathā karoti |</stage>
-            <lb n="4"/><stage>tataḥ praviśati yathānirdiṣṭaḥ salakṣmaṇo rāmaḥ |</stage>
+            <lb n="4"/></p>
+          <p xml:id="p6_l4" n="6,4">
+            <stage>tataḥ praviśati yathānirdiṣṭaḥ salakṣmaṇo rāmaḥ |</stage>
             <lb n="5"/></p>
         </sp>
         <sp who="rāmaḥ">
@@ -433,7 +443,9 @@ As in other HANSEL drama texts so far, I have artificially rendered the "nepathy
         </sp>
         <sp who="lakṣmaṇaḥ">
           <speaker>lakṣmaṇaḥ</speaker>
-          <p n="8,4" xml:id="p8_l4">ita itaḥ | <lb n="5"/><stage>ubhau parikramya vanaṃ praviśataḥ |</stage>
+          <p n="8,4" xml:id="p8_l4">ita itaḥ | <lb n="5"/></p>
+          <p xml:id="p8_l5" n="8,5">
+            <stage>ubhau parikramya vanaṃ praviśataḥ |</stage>
             <lb n="6"/></p>
         </sp>
         <sp who="lakṣmaṇaḥ">
@@ -448,27 +460,27 @@ As in other HANSEL drama texts so far, I have artificially rendered the "nepathy
             <l>sa evāṅgulivinyāsaḥ sa eva caraṇakramaḥ |<lb n="9"/></l>
             <l>tadevālpapradeśatvaṃ saiva vikṣepacāturī || 13 ||<lb n="10"/></l>
           </lg>
-          <p>
+          <p xml:id="p8_l10" n="8,10">
             <stage>niḥśvasya |</stage>
             <lb n="11"/></p>
-          <lg xml:id="p8_l7_3" n="8,7">
+          <lg xml:id="p8_l10_2" n="8,10">
             <l>praṇatātpraṇayāparādhakāle śiraso me patitaiḥ prasūnajālaiḥ |<lb n="12"/></l>
             <l>kṛtapūjanayormṛgekṣaṇāyāḥ padayoratra vilokayāmi mudrām || 14 ||<lb n="13"/></l>
           </lg>
-          <p>
+          <p xml:id="p8_l13" n="8,13">
             <stage>padasaraṇimanusaran | vilokya |</stage>
             <lb n="14"/></p>
-          <lg xml:id="p8_l7_4" n="8,7">
+          <lg xml:id="p8_l13_2" n="8,13">
             <l>aśrubinducayamañjanāñcitaṃ muñcatī praṇayakopanirgatam |<lb n="15"/></l>
             <l>pāṭalaṃ vinamitaṃ mukhāmbujaṃ bibhratīyamiha dṛśyate priyā || 15 ||<lb n="16"/></l>
           </lg>
-          <p>
+          <p xml:id="p8_l16" n="8,16">
             <stage>upasṛtya |</stage> priye, prasīda prasīda | <lb n="17"/></p>
-          <lg xml:id="p8_l7_5" n="8,7">
+          <lg xml:id="p8_l16_2" n="8,16">
             <l>ayi muñca ruṣaṃ tava prasannaṃ jitapūrṇendu mukhāravindamastu |<lb n="18"/></l>
             <l>praṇatiṃ kalayannahaṃ tvadīyāṃ padalākṣāṃ paripālayāmi mūrdhnā || 16 ||<lb n="19"/></l>
           </lg>
-          <p>
+          <p xml:id="p8_l19" n="8,19">
             <stage>iti tatrasthitāṃ pādamudrāṃ praṇamati |</stage>
             <lb n="20"/></p>
           <p xml:id="p8_l20" n="8,20">lakṣmaṇaḥ — kaṣṭamāryasyonmādadaśā vartate | ārya, na jānakī | <stage>iti<lb n="21"/>mūrdhānamunnamayati |</stage>
@@ -494,12 +506,14 @@ As in other HANSEL drama texts so far, I have artificially rendered the "nepathy
             <l>tvāmāgateyaṃ padapaṅktirasyāḥ prayaccha me padmini padmavaktrām |<lb n="5"/></l>
             <l>na cettadīyāṃ caraṇābjamudrāṃ pradarśayānyatra vinirgatāṃ me || 18 ||<lb n="6"/></l>
           </lg>
-          <p>
+          <p xml:id="p9_l6" n="9,6">
             <stage>vibhāvya |</stage> iyamapi calitakamalamukhasaṃjñayā padapaddhatimitaḥ prayātāmāve<lb n="7" break="no"/>dayati | <lb n="8"/></p>
         </sp>
         <sp who="lakṣmaṇaḥ">
           <speaker>lakṣmaṇaḥ</speaker>
-          <p n="9,8" xml:id="p9_l8">itaḥ sahakāravāṭikāmupagatā pādamudrā | <lb n="9"/><stage>ubhau cūtavāṭikāmupasarataḥ |</stage>
+          <p n="9,8" xml:id="p9_l8">itaḥ sahakāravāṭikāmupagatā pādamudrā | <lb n="9"/></p>
+          <p xml:id="p9_l9" n="9,9">
+            <stage>ubhau cūtavāṭikāmupasarataḥ |</stage>
             <lb n="10"/></p>
         </sp>
         <sp who="lakṣmaṇaḥ">
@@ -524,24 +538,24 @@ As in other HANSEL drama texts so far, I have artificially rendered the "nepathy
             <l>aṅgaṃ yadi priyāyāḥ spṛṣṭaṃ bhavatā śirīṣasukumāram |<lb n="20"/></l>
             <l>tarhyāliṅga mamāṅgānyapasara tūrṇaṃ na cetpavana || 21 ||<lb n="21"/></l>
           </lg>
-          <p>
+          <p xml:id="p9_l21" n="9,21">
             <stage>vibhāvya |</stage> bhavatu, preyasīmeva pṛcchāmi | <lb n="22"/></p>
-          <lg xml:id="p9_l15_4" n="9,15">
+          <lg xml:id="p9_l21_2" n="9,21">
             <l>jagatprāṇa mama prāṇakāntā kāntārasīmani |<lb n="23"/></l>
             <l>bhramatā bhavatā dṛṣṭā kiṃ sā haṃsalasadgatiḥ || 22 ||<lb n="24"/></l>
           </lg>
           <p>aye, priyāyā nisargasurabhiṇā mukhamārutena tiraskṛtatayā vairamanusmaraṃ<lb n="25" break="no"/>stūṣṇīmupayāsi | <lb n="26"/></p>
-          <lg xml:id="p9_l15_5" n="9,15">
+          <lg xml:id="p9_l21_3" n="9,21">
             <l>mākandapālīmakarandapūre madhuvratā majjanamācarantaḥ |<lb n="27"/></l>
             <l>mānāpanodāya manasvinīnāṃ mānobhavaṃ mantramudīrayanti || 23 ||<pb n="10"/></l>
           </lg>
           <p>api ca | <lb n="2"/></p>
-          <lg xml:id="p9_l15_6" n="9,15">
+          <lg xml:id="p9_l21_4" n="9,21">
             <l>mākandavṛndamakarandajaleṣu magnā<caesura/><lb n="3"/> dhṛtvā ca paṅkajarajāṃsi madhuvratāliḥ |<lb n="4"/></l>
             <l>mānāpanodanaphalāya manasvinīnāṃ<caesura/><lb n="5"/> mantrānudīrayati manmathadevatākān || 24 ||<lb n="6"/></l>
           </lg>
           <p>kiṃ [ca] nirantaramadhurasāsvādamattānāmamīṣāṃ vacanamapramāṇameva | ataḥ <lb n="7"/> priyāgatirna praṣṭavyā | <stage>padāntaramabhinīya karṇaṃ dattvā |</stage> vatsa, <lb n="8"/></p>
-          <lg xml:id="p9_l15_7" n="9,15">
+          <lg xml:id="p9_l21_5" n="9,21">
             <l>sarojanetrā sahakāravīthyāṃ navapravālāntaritā priyā me |<lb n="9"/></l>
             <l>avyaktavarṇaṃ kimapi bruvāṇā samutsukaṃ me hṛdayaṃ tanoti || 25 ||<lb n="10"/></l>
           </lg>
@@ -558,13 +572,13 @@ As in other HANSEL drama texts so far, I have artificially rendered the "nepathy
             <l>cetasaḥ sapadi jīvanauṣadhaṃ netrayoramṛtavartikāñjanam |<lb n="14"/></l>
             <l>manmathajvaramahārasāyanaṃ darśayasva dayite tavākṛti<del>nana</del>m || 26 ||<lb n="15"/></l>
           </lg>
-          <p>
+          <p xml:id="p10_l15" n="10,15">
             <stage>kṣaṇamātraṃ tūṣṇīṃ sthitvā |</stage> ayi jānaki, kimityaudāsīnyaṃ bhajasi | <lb n="16"/></p>
-          <lg xml:id="p10_l11_3" n="10,11">
+          <lg xml:id="p10_l15_2" n="10,15">
             <l>āgatya tūrṇamasitotpalaramyanetre<caesura/><lb n="17"/> kaṇṭhaṃ badhāna mama te bhujavallarībhyām |<lb n="18"/></l>
             <l>paścādupetya nibhṛtaṃ padamarpayantī<caesura/><lb n="19"/> yadvā pidhehi nayane karapallavābhyām || 27 ||<lb n="20"/></l>
           </lg>
-          <p>
+          <p xml:id="p10_l20" n="10,20">
             <stage>iti nayane nimīlya tiṣṭhati |</stage>
             <lb n="21"/></p>
         </sp>
@@ -584,7 +598,9 @@ As in other HANSEL drama texts so far, I have artificially rendered the "nepathy
         <sp who="rāmaḥ">
           <speaker>rāmaḥ</speaker>
           <p n="10,25" xml:id="p10_l25">
-            <stage>netre nimīlya punaḥ karṇaṃ dattvā |</stage> sa evedānīṃ śrutavīṇāravasya ḍha<lb n="26" break="no"/>kkādhvaniriva kaṭhoratāṃ bhajati | <pb n="11"/><stage>lakṣmaṇo'nyato darśayati |</stage>
+            <stage>netre nimīlya punaḥ karṇaṃ dattvā |</stage> sa evedānīṃ śrutavīṇāravasya ḍha<lb n="26" break="no"/>kkādhvaniriva kaṭhoratāṃ bhajati | <pb n="11"/></p>
+          <p xml:id="p11_l1" n="11,1">
+            <stage>lakṣmaṇo'nyato darśayati |</stage>
             <lb n="2"/></p>
         </sp>
         <sp who="rāmaḥ">
@@ -681,9 +697,9 @@ As in other HANSEL drama texts so far, I have artificially rendered the "nepathy
             <l>kusumastabakānatā vilolāṃ dadhatī pallavasaṃpadaṃ manojñām |<lb n="14"/></l>
             <l>makarandalihāṃ madhuvratānāṃ kalajhaṃkārakarambitā lateyam || 33 ||<lb n="15"/></l>
           </lg>
-          <p>
+          <p xml:id="p12_l15" n="12,15">
             <stage>punarvilokya |</stage> vatsa, asyāmeva latāyāṃ puṣpāṇyavacitavatī jānakīti <lb n="16"/> tarkayāmi | tathā hi |  <lb n="17"/></p>
-          <lg xml:id="p12_l11_3" n="12,11">
+          <lg xml:id="p12_l15_2" n="12,15">
             <l>avacitakusumāni tayā kevalavṛntāvaśeṣitānyadhunā |<lb n="18"/></l>
             <l>patitāḥ pallavabhaṅgā lakṣyante tata itaścāmī || 34 ||<lb n="19"/></l>
           </lg>
@@ -708,7 +724,7 @@ As in other HANSEL drama texts so far, I have artificially rendered the "nepathy
             <l>āyatekṣaṇamarālakuntalaṃ pakvabimbaphalapāṭalādharam |<lb n="2"/></l>
             <l>mañjubhāṣiṇi mamākṣigocaraṃ kalpate tava kadā mukhāmbujam || 35 ||<lb n="3"/></l>
           </lg>
-          <p>
+          <p xml:id="p13_l3" n="13,3">
             <stage>parito'valokya |</stage> aye, priyāyāḥ kiṃcidapi vastu na lakṣyate | kenāhaṃ <lb n="4"/> hṛdayamavalambe |  <lb n="5"/></p>
         </sp>
         <sp who="lakṣmaṇaḥ">
@@ -725,16 +741,16 @@ As in other HANSEL drama texts so far, I have artificially rendered the "nepathy
             <l>mama hṛdayamidaṃ cirāya kiṃcidvigalitatāparujaṃ vitanvadetat |<lb n="9"/></l>
             <l>kathamapi karapallavātpriyāyā maṇivalayaṃ patitaṃ mayādya labdham || 36 ||<lb n="10"/></l>
           </lg>
-          <p>
+          <p xml:id="p13_l10" n="13,10">
             <stage>hṛdaye nikṣipan |</stage>
             <lb n="11"/></p>
-          <lg xml:id="p13_l7_3" n="13,7">
+          <lg xml:id="p13_l10_2" n="13,10">
             <l>etatpurā mama galaṃ paripīḍya gāḍhaṃ<caesura/><lb n="12"/> cchinnaṃ vyadhatta bahuśaḥ parirambhaṇeṣu |<lb n="13"/></l>
             <l>bimbādharaṃ mayi rasātpibati priyāyāḥ<caesura/><lb n="14"/> kolāhalaṃ ca kṛtavatkaradhūnaneṣu || 37 ||<lb n="15"/></l>
           </lg>
-          <p>
+          <p xml:id="p13_l15" n="13,15">
             <stage>niḥśvasya |</stage> vatsa, kva jānakīṃ paśyāmaḥ | kutra vanāntaḥ punaranviṣyāmaḥ | <lb n="16"/> keṣu vā nikuñjeṣu punarvilokayāmaḥ | hanta, sarvathā nirāśāḥ smaḥ |  <lb n="17"/></p>
-          <lg xml:id="p13_l7_4" n="13,7">
+          <lg xml:id="p13_l15_2" n="13,15">
             <l>diśo vilokayāmyadya jvālāparivṛtā iva |<lb n="18"/></l>
             <l>bāḍhaṃ jagadidaṃ manye hyadya me priyayā vinā || 38 ||<lb n="19"/></l>
           </lg>
@@ -789,14 +805,16 @@ As in other HANSEL drama texts so far, I have artificially rendered the "nepathy
           <lg xml:id="p14_l11_2" n="14,11">
             <l>	dayite kutrāsi hā jānaki || 39 ||<lb n="13"/></l>
           </lg>
-          <p>
+          <p xml:id="p14_l13" n="14,13">
             <stage>nepathye |</stage>
             <lb n="14"/> vatse, mā bhaiṣīḥ |  <lb n="15"/></p>
         </sp>
         <sp who="lakṣmaṇaḥ">
           <speaker>lakṣmaṇaḥ</speaker>
           <p n="14,15" xml:id="p14_l15">
-            <stage>karṇaṃ dattvā saharṣaṃ vibhāvya |</stage> ārya, madhukarikāsametāṃ jānakīṃ <lb n="16"/> samāśvāsayankumbhasaṃbhavo maharṣirita evābhivartate |  <lb n="17"/><stage>tataḥ praviśati yathānirdiṣṭaḥ kumbhasaṃbhavaḥ |</stage>
+            <stage>karṇaṃ dattvā saharṣaṃ vibhāvya |</stage> ārya, madhukarikāsametāṃ jānakīṃ <lb n="16"/> samāśvāsayankumbhasaṃbhavo maharṣirita evābhivartate |  <lb n="17"/></p>
+          <p xml:id="p14_l17" n="14,17">
+            <stage>tataḥ praviśati yathānirdiṣṭaḥ kumbhasaṃbhavaḥ |</stage>
             <lb n="18"/></p>
         </sp>
         <sp who="agastyaḥ">
