@@ -169,6 +169,50 @@ class HtmlConverter:
                 text += child.tail
         return text
 
+    def _render_l_as_li(self, l_element, target_ul, treat_as_plain):
+        """Render an <l> element as a single <li>, with caesura becoming a hidden <br class="lb-br">.
+
+        Used for the rich non-condensed verse path so that paragraph mode shows one line
+        per <l> (2 lines for a 4-pāda verse) while line-by-line mode splits at the caesura.
+        """
+        li = etree.SubElement(target_ul, "li")
+        caesura = l_element.find('caesura')
+        if caesura is None:
+            self.process_children(l_element, li, treat_as_plain, in_lg=True)
+            return
+
+        # Split at <caesura/>: build two synthetic <l> wrappers
+        first_l = etree.Element("l")
+        second_l = etree.Element("l")
+        first_l.text = l_element.text
+        before_caesura = True
+
+        for child in l_element:
+            if child.tag == 'caesura':
+                before_caesura = False
+                if child.tail:
+                    second_l.text = child.tail
+                continue
+            child_copy = copy.deepcopy(child)
+            if before_caesura:
+                first_l.append(child_copy)
+            else:
+                second_l.append(child_copy)
+
+        # If the first child of second_l is <lb break="no">, the hyphen belongs at
+        # the end of first_l; promote its tail to second_l.text.
+        if len(second_l) > 0 and second_l[0].tag == 'lb' and second_l[0].get('break') == 'no':
+            lb_node = second_l[0]
+            tail = lb_node.tail or ''
+            lb_node.tail = None
+            second_l.remove(lb_node)
+            second_l.text = (second_l.text or '') + tail
+            first_l.append(lb_node)
+
+        self.process_children(first_l, li, treat_as_plain, in_lg=True)
+        etree.SubElement(li, "br", {"class": "lb-br rich-text"})
+        self.process_children(second_l, li, treat_as_plain, in_lg=True)
+
     def _render_l_as_spans(self, l_element, target_div, treat_as_plain, in_lg):
         """Render an <l> element as one or more <span> elements.
 
@@ -227,6 +271,17 @@ class HtmlConverter:
             else:
                 child_copy = copy.deepcopy(child)
                 second_l.append(child_copy)
+
+        # If the first child of second_l is a hyphenated <lb break="no">, the hyphen
+        # belongs at the end of first_l. Move the lb (without its tail) to first_l,
+        # and promote its tail to second_l.text so the word continuation stays in second_l.
+        if len(second_l) > 0 and second_l[0].tag == 'lb' and second_l[0].get('break') == 'no':
+            lb_node = second_l[0]
+            tail = lb_node.tail or ''
+            lb_node.tail = None
+            second_l.remove(lb_node)
+            second_l.text = (second_l.text or '') + tail
+            first_l.append(lb_node)
 
         first_span = etree.SubElement(target_div, "span")
         self.process_children(first_l, first_span, treat_as_plain, in_lg=in_lg)
@@ -510,29 +565,29 @@ class HtmlConverter:
                             self.pending_label = None
                         else:
                             head_p.text = child.text
-                # Wrap verse lines in li.verse so verse-styling CSS can target it
+                # Wrap verse lines in li.verse > ul.padas > li (one li per <l>)
                 verse_li = etree.SubElement(container, "li", {"class": "verse rich-text"})
-                div_elem = etree.SubElement(verse_li, "div", {"class": "lg"})
+                padas_ul = etree.SubElement(verse_li, "ul", {"class": "padas"})
                 for child in lg_element.iterchildren():
                     if child.tag == 'l':
-                        self._render_l_as_spans(child, div_elem, False, in_lg=True)
+                        self._render_l_as_li(child, padas_ul, False)
                     elif child.tag == 'lg' and child.get('type') == 'chāyā':
                         # Drop any pending lb-label before the chāyā div. A trailing <lb>
                         # on the last Prakrit <l> marks the start of the next physical line
                         # (already shown in the editorial-coord h3), not content inside this verse.
                         self.pending_label = None
-                        chaya_div = etree.SubElement(div_elem, "div", {"class": "chaya"})
+                        chaya_div = etree.SubElement(verse_li, "div", {"class": "chaya"})
                         for sub_child in child:
                             if sub_child.tag == 'l':
                                 self._render_l_as_spans(sub_child, chaya_div, False, in_lg=True)
                     elif child.tag == 'back':
-                        if len(div_elem) > 0:
-                            self.process_children(child, div_elem[-1], False, in_lg=True)
+                        if len(padas_ul) > 0:
+                            self.process_children(child, padas_ul[-1], False, in_lg=True)
                         else:
-                            p_tag = etree.SubElement(div_elem, "p")
+                            p_tag = etree.SubElement(verse_li, "p")
                             self.process_children(child, p_tag, False, in_lg=True)
                     elif child.tag == 'milestone':
-                        milestone_span = etree.SubElement(div_elem, "span", {"class": "milestone"})
+                        milestone_span = etree.SubElement(verse_li, "span", {"class": "milestone"})
                         milestone_span.text = f'{child.get("n")}'
             return
 
