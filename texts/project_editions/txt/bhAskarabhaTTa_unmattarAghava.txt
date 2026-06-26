@@ -12,11 +12,15 @@
 	śriyai bhūyādasyāḥ vadanaśaśinaḥ kopakaluṣā-
 	tprasādenāruṇyaṃ vinimayavaśeneva dadhatī || 1 ||
 
+[1,7]
+
 ((nāndyante))
 
 [1,8]
 
 sūtradhāraḥ — ((nepathyābhimukhamavalokya |)) ārye, itastāvat |
+
+[1,9]
 
 ((praviśya))
 
@@ -79,6 +83,8 @@ sūtradhāraḥ — sādhu gītam | ((anyato'valokya |)) ārye, itaḥ paśya |
 	manoharāṇāmapi mañjarīṇāṃ vihāya jālāni viśeṣalipsuḥ |
 	latāntarāṇyeti madhuvratāliḥ sītā yatheyaṃ kusumeṣu lobhāt || 6 ||
 
+[2,23]
+
 ((iti niṣkrāntau |))
 
 prastāvanā |
@@ -115,6 +121,8 @@ sītā — ˹savvajaṇasāhāraṇāiṃ kkhu vaṇaladāiṃ phalapupphamūlā
 lāiṃ a | ado kiṃṇimittaṃ jo ko vi kuppadi | ((puṣpabhājanaṃ vilokya |)) a-
 jjauttassa devvaccaṇopajuttāiṃ kusumāiṃ pajjattāiṃ | ido puraṭṭhide kāṇaṇantare
 maṇoharāiṃ kusumāiṃ ahigeṇhia uḍaaṃ gacchamho |˼
+
+[3,15]
 
 ((ityubhe prasthite |))
 
@@ -163,12 +171,16 @@ accariaṃ hodi | ((niḥśvasya |)) mandabhāiṇī ahaṃ khu | miaāvāvārā
 uttassa rāmabhaddassa kahaṃ kahaissam | rāmabhaddo vi suṇia kīrisaṃ avattha-
 ntaraṃ aṇuhavissaditti vevai me hiaam |˼
 
+[5,3]
+
 ((nepathye kalakalaḥ |))
 
 [5,4]
 
 madhukarikā — ˹ido tado vi saṃbhamantā tāvasajaṇā dīsanti | ado
 rāmabhaddo vi āacchaditti takkemi |˼
+
+[5,6]
 
 ((punarnepathye |))
 
@@ -192,6 +204,8 @@ ayaṃ hi
 madhukarikā — ((sasaṃbhramam |)) ˹ae, kaṇaamiaṃ geṇhia antiattheṇa
 lakkhaṇeṇa kiṃ vi mantaanto rāmabhaddo evva āacchadi | ahaṃ se maggaṃ
 pariharia ciṭṭhāmi |˼ ((tathā karoti |))
+
+[6,4]
 
 ((tataḥ praviśati yathānirdiṣṭaḥ salakṣmaṇo rāmaḥ |))
 
@@ -304,6 +318,8 @@ tathāpi pratipādaya |
 
 lakṣmaṇaḥ — ita itaḥ |
 
+[8,5]
+
 ((ubhau parikramya vanaṃ praviśataḥ |))
 
 [8,6]
@@ -317,20 +333,28 @@ rāmaḥ — ((vilokya |)) nūnamiyaṃ priyāyāścaraṇasaraṇiḥ | tathā 
 	sa evāṅgulivinyāsaḥ sa eva caraṇakramaḥ |
 	tadevālpapradeśatvaṃ saiva vikṣepacāturī || 13 ||
 
+[8,10]
+
 ((niḥśvasya |))
 
 	praṇatātpraṇayāparādhakāle śiraso me patitaiḥ prasūnajālaiḥ |
 	kṛtapūjanayormṛgekṣaṇāyāḥ padayoratra vilokayāmi mudrām || 14 ||
+
+[8,13]
 
 ((padasaraṇimanusaran | vilokya |))
 
 	aśrubinducayamañjanāñcitaṃ muñcatī praṇayakopanirgatam |
 	pāṭalaṃ vinamitaṃ mukhāmbujaṃ bibhratīyamiha dṛśyate priyā || 15 ||
 
+[8,16]
+
 ((upasṛtya |)) priye, prasīda prasīda |
 
 	ayi muñca ruṣaṃ tava prasannaṃ jitapūrṇendu mukhāravindamastu |
 	praṇatiṃ kalayannahaṃ tvadīyāṃ padalākṣāṃ paripālayāmi mūrdhnā || 16 ||
+
+[8,19]
 
 ((iti tatrasthitāṃ pādamudrāṃ praṇamati |))
 
@@ -361,12 +385,16 @@ rāmaḥ — bhavatu | etāmeva pṛcchāmi |
 	tvāmāgateyaṃ padapaṅktirasyāḥ prayaccha me padmini padmavaktrām |
 	na cettadīyāṃ caraṇābjamudrāṃ pradarśayānyatra vinirgatāṃ me || 18 ||
 
+[9,6]
+
 ((vibhāvya |)) iyamapi calitakamalamukhasaṃjñayā padapaddhatimitaḥ prayātāmāve-
 dayati |
 
 [9,8]
 
 lakṣmaṇaḥ — itaḥ sahakāravāṭikāmupagatā pādamudrā |
+
+[9,9]
 
 ((ubhau cūtavāṭikāmupasarataḥ |))
 
@@ -390,6 +418,8 @@ tathā hi |
 
 	aṅgaṃ yadi priyāyāḥ spṛṣṭaṃ bhavatā śirīṣasukumāram |
 	tarhyāliṅga mamāṅgānyapasara tūrṇaṃ na cetpavana || 21 ||
+
+[9,21]
 
 ((vibhāvya |)) bhavatu, preyasīmeva pṛcchāmi |
 
@@ -429,12 +459,16 @@ prārthayāmi |
 	cetasaḥ sapadi jīvanauṣadhaṃ netrayoramṛtavartikāñjanam |
 	manmathajvaramahārasāyanaṃ darśayasva dayite tavākṛti≤nana≥m || 26 ||
 
+[10,15]
+
 ((kṣaṇamātraṃ tūṣṇīṃ sthitvā |)) ayi jānaki, kimityaudāsīnyaṃ bhajasi |
 
 	āgatya tūrṇamasitotpalaramyanetre
 	kaṇṭhaṃ badhāna mama te bhujavallarībhyām |
 	paścādupetya nibhṛtaṃ padamarpayantī
 	yadvā pidhehi nayane karapallavābhyām || 27 ||
+
+[10,20]
 
 ((iti nayane nimīlya tiṣṭhati |))
 
@@ -457,6 +491,8 @@ rāmaḥ — ((netre nimīlya punaḥ karṇaṃ dattvā |)) sa evedānīṃ śr
 kkādhvaniriva kaṭhoratāṃ bhajati |
 
 <11>
+
+[11,1]
 
 ((lakṣmaṇo'nyato darśayati |))
 
@@ -554,6 +590,8 @@ aho me mohaḥ |
 	kusumastabakānatā vilolāṃ dadhatī pallavasaṃpadaṃ manojñām |
 	makarandalihāṃ madhuvratānāṃ kalajhaṃkārakarambitā lateyam || 33 ||
 
+[12,15]
+
 ((punarvilokya |)) vatsa, asyāmeva latāyāṃ puṣpāṇyavacitavatī jānakīti
 tarkayāmi | tathā hi |
 
@@ -585,6 +623,8 @@ rāmaḥ — hanta, nirāśāḥ smaḥ | aye jānaki,
 	āyatekṣaṇamarālakuntalaṃ pakvabimbaphalapāṭalādharam |
 	mañjubhāṣiṇi mamākṣigocaraṃ kalpate tava kadā mukhāmbujam || 35 ||
 
+[13,3]
+
 ((parito'valokya |)) aye, priyāyāḥ kiṃcidapi vastu na lakṣyate | kenāhaṃ
 hṛdayamavalambe |
 
@@ -600,12 +640,16 @@ rāmaḥ — ((gṛhītvā saharṣam |))
 	mama hṛdayamidaṃ cirāya kiṃcidvigalitatāparujaṃ vitanvadetat |
 	kathamapi karapallavātpriyāyā maṇivalayaṃ patitaṃ mayādya labdham || 36 ||
 
+[13,10]
+
 ((hṛdaye nikṣipan |))
 
 	etatpurā mama galaṃ paripīḍya gāḍhaṃ
 	cchinnaṃ vyadhatta bahuśaḥ parirambhaṇeṣu |
 	bimbādharaṃ mayi rasātpibati priyāyāḥ
 	kolāhalaṃ ca kṛtavatkaradhūnaneṣu || 37 ||
+
+[13,15]
 
 ((niḥśvasya |)) vatsa, kva jānakīṃ paśyāmaḥ | kutra vanāntaḥ punaranviṣyāmaḥ |
 keṣu vā nikuñjeṣu punarvilokayāmaḥ | hanta, sarvathā nirāśāḥ smaḥ |
@@ -686,6 +730,8 @@ rāmaḥ —
 
 		dayite kutrāsi hā jānaki || 39 ||
 
+[14,13]
+
 ((nepathye |))
 
 vatse, mā bhaiṣīḥ |
@@ -694,6 +740,8 @@ vatse, mā bhaiṣīḥ |
 
 lakṣmaṇaḥ — ((karṇaṃ dattvā saharṣaṃ vibhāvya |)) ārya, madhukarikāsametāṃ jānakīṃ
 samāśvāsayankumbhasaṃbhavo maharṣirita evābhivartate |
+
+[14,17]
 
 ((tataḥ praviśati yathānirdiṣṭaḥ kumbhasaṃbhavaḥ |))
 
