@@ -517,11 +517,10 @@ class HtmlConverter:
                     if child.tag == 'l':
                         self._render_l_as_spans(child, div_elem, False, in_lg=True)
                     elif child.tag == 'lg' and child.get('type') == 'chāyā':
-                        # Flush any pending lb-label into the Prakrit verse before opening
-                        # the chāyā div; otherwise it would leak into the chāyā content.
-                        if self.pending_label is not None:
-                            div_elem.append(self.pending_label)
-                            self.pending_label = None
+                        # Drop any pending lb-label before the chāyā div. A trailing <lb>
+                        # on the last Prakrit <l> marks the start of the next physical line
+                        # (already shown in the editorial-coord h3), not content inside this verse.
+                        self.pending_label = None
                         chaya_div = etree.SubElement(div_elem, "div", {"class": "chaya"})
                         for sub_child in child:
                             if sub_child.tag == 'l':
@@ -882,8 +881,13 @@ class HtmlConverter:
                                 # A trailing <lb> from the preceding <p> must not bleed into
                                 # the first verse span as an orphan <br>. Drop the break count;
                                 # the pending_label (lb-label) is kept so it appears on the
-                                # first verse line.
+                                # first verse line. A <pb>-generated label belongs on the speech_div
+                                # before the verse, not inside the verse itself.
                                 self.pending_breaks = 0
+                                if (self.pending_label is not None
+                                        and 'pb-label' in (self.pending_label.get('class') or '')):
+                                    speech_div.append(self.pending_label)
+                                    self.pending_label = None
                                 if verses_ul is None:
                                     verses_ul = etree.SubElement(speech_div, "ul", {"class": "verses"})
                                 if sp_child.get('type') == 'group':
