@@ -102,8 +102,7 @@ Devanāgarī-like (ityevam, not ity evam)
 
 - The print edition is based on a single manuscript sourced from Palamaneri, Tamil Nadu by someone named Subrahmaṇya Śāstrī.
 - T. Richard has prepared an English translation for eventual print publication.
-- Numerous scholars place Bhāskara Bhaṭṭa in the 14th century since he mentions a festival honoring the lotus-feet of Vidyāraṇya, the Advaita philosopher and political advisor who flourished during the 14th century.
-- Bhāskara Bhaṭṭa is also said to have advised both Bukka(ṇa) I and Harihara II, who are respectively the grandfather and father of the Virūpākṣa Rāya I who wrote the other Unmattarāghava.
+- Numerous scholars place Bhāskara Bhaṭṭa in the 14th century since he mentions a festival honoring the lotus-feet of Vidyāraṇya, the Advaita philosopher and political advisor who flourished during the 14th century. This Vidyāraṇya is also said to have advised both Bukka(ṇa) I and Harihara II, who are respectively the grandfather and father of the Virūpākṣa Rāya I who wrote the other Unmattarāghava.
 
 # Original Submission Last Updated
 
