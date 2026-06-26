@@ -136,6 +136,10 @@ class TextBuildState:
     # When line_by_line, holds break flags (True=hyphenated) for each inter-line boundary
     open_prakrit_lb_breaks: Optional[list] = None
 
+    # open-stage state: accumulates lines when (( )) spans multiple input lines
+    in_open_stage: bool = False
+    open_stage_lines: list = field(default_factory=list)
+
 # ----------------------------
 # ----------------------------
 # Module-level helpers
@@ -185,6 +189,36 @@ class TeiTextBuilder:
         if not line.strip():
             return
         s = self.state
+
+        # OPEN-STAGE ACCUMULATION — (( )) spanning multiple lines
+        if s.in_open_stage:
+            if '))' in line:
+                # Splice continuation lines into the opening line so STAGE_DIRECTION_RE can
+                # match the full (( )) span.  Use \n as an intra-stage line-break sentinel so
+                # _emit_stage_direction can insert <lb> elements at the right positions.
+                close_pos = line.index('))') + 2
+                stage_tail = line[close_pos:]          # text after )) on closing line
+                stage_frag = line[:close_pos].strip()  # closing fragment incl. ))
+                first_line = s.open_stage_lines[0]
+                middle_lines = s.open_stage_lines[1:]
+                # Build spliced line: join with \n so stage text preserves line boundaries
+                all_stage_parts = middle_lines + [stage_frag]
+                continuation = '\n'.join(l.strip() for l in all_stage_parts)
+                spliced = first_line + '\n' + continuation
+                s.in_open_stage = False
+                s.open_stage_lines = []
+                self._handle_line(spliced)
+                # If there was text after )) on the closing line, dispatch it as its own line.
+                if stage_tail.strip():
+                    self._handle_line(stage_tail.strip())
+            else:
+                s.open_stage_lines.append(line)
+            return
+
+        if not s.in_open_prakrit and '((' in line and '))' not in line:
+            s.in_open_stage = True
+            s.open_stage_lines = [line]
+            return
 
         # OPEN-PRAKRIT ACCUMULATION — drama mode: ˹...˼ spanning multiple lines
         if s.drama and s.in_open_prakrit:
@@ -669,8 +703,24 @@ class TeiTextBuilder:
         self._add_inline_element(unclear)
 
     def _emit_stage_direction(self, match: re.Match):
+        s = self.state
         stage = etree.Element("stage")
-        stage.text = match.group(1)
+        inner = match.group(1)
+        if s.line_by_line and '\n' in inner:
+            # Multi-line stage direction: emit <lb> at each \n sentinel.
+            # A part ending with '-' means a hyphenated break: strip the hyphen, set break="no".
+            parts = inner.split('\n')
+            stage.text = HYPHEN_EOL_RE.sub("", parts[0])
+            for i, part in enumerate(parts[1:], start=1):
+                s.lb_count += 1
+                attrs = {"n": str(s.lb_count)}
+                if HYPHEN_EOL_RE.search(parts[i - 1]):
+                    attrs["break"] = "no"
+                lb = etree.SubElement(stage, "lb", attrs)
+                s.last_emitted_lb = lb
+                lb.tail = HYPHEN_EOL_RE.sub("", part)
+        else:
+            stage.text = inner
         self._add_inline_element(stage)
 
     def _emit_prakrit(self, match: re.Match):
@@ -714,6 +764,8 @@ class TeiTextBuilder:
         last_end = 0
         last_el = None
         for kind, m in matches:
+            if m.start() < last_end:
+                continue  # skip matches consumed inside a prior span (e.g. \n inside a stage)
             pre = text[last_end:m.start()]
             if last_el is None:
                 parent.text = (parent.text or '') + pre
@@ -722,7 +774,27 @@ class TeiTextBuilder:
 
             if kind == 'stage':
                 el = etree.SubElement(parent, "stage")
-                el.text = m.group(1)
+                inner = m.group(1)
+                if '\n' in inner:
+                    # \n sentinels inside stage content: emit <lb> elements within the stage.
+                    # Use open_prakrit_lb_breaks for break="no" detection (hyphens were already
+                    # stripped by the Prakrit accumulator before joining with \n).
+                    parts = inner.split('\n')
+                    el.text = parts[0]
+                    lb_breaks = s.open_prakrit_lb_breaks
+                    # Offset into lb_breaks: count \n sentinels before this stage match start
+                    stage_lb_offset = text[:m.start()].count('\n')
+                    for i, part in enumerate(parts[1:], start=1):
+                        s.lb_count += 1
+                        lb_attrs = {"n": str(s.lb_count)}
+                        break_idx = stage_lb_offset + (i - 1)
+                        if lb_breaks and break_idx < len(lb_breaks) and lb_breaks[break_idx]:
+                            lb_attrs["break"] = "no"
+                        inner_lb = etree.SubElement(el, "lb", lb_attrs)
+                        s.last_emitted_lb = inner_lb
+                        inner_lb.tail = part
+                else:
+                    el.text = inner
             elif kind == 'pb':
                 page, line_no = m.group(1), m.group(2)
                 attrs = {"n": page}
