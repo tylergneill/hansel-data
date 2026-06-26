@@ -351,6 +351,17 @@ class HtmlConverter:
                 stage_span.text = "("
                 self.process_children(child, stage_span, treat_as_plain, in_lg=in_lg)
                 self.append_text(stage_span, ")", treat_as_plain=treat_as_plain)
+                if not treat_as_plain:
+                    next_sib = child.getnext()
+                    prev_sib = child.getprevious()
+                    # Stage on its own line: no preceding siblings in the XML source,
+                    # no text before it in the parent, followed by <lb> — emit a visible
+                    # <br> so following content doesn't run on.
+                    xml_parent = child.getparent()
+                    if (next_sib is not None and next_sib.tag == 'lb'
+                            and prev_sib is None
+                            and not (xml_parent is not None and (xml_parent.text or '').strip())):
+                        etree.SubElement(html_node, "br")
                 # Ensure a space after the closing paren when followed by content.
                 # The XML parser's remove_blank_text=True strips whitespace-only tails,
                 # so we must inject a space when the tail is missing or abuts the next word.
@@ -849,7 +860,23 @@ class HtmlConverter:
                             if speaker_name and not speaker_shown:
                                 self.append_text(p_plain, f"{speaker_name} \u2014 ", treat_as_plain=True)
                                 speaker_shown = True
-                            self.process_children(sp_child, p_plain, treat_as_plain=True, in_lg=False)
+                            # If a stage direction is alone on its first physical line, emit a <br>
+                            # between it and the following content so they don't run together.
+                            first_child = next(iter(sp_child), None)
+                            if (first_child is not None and first_child.tag == 'stage'
+                                    and not (sp_child.text or '').strip()
+                                    and first_child.getnext() is not None
+                                    and first_child.getnext().tag == 'lb'):
+                                self.append_text(p_plain, '(' + self.get_plain_text_recursive(first_child) + ')', treat_as_plain=True)
+                                etree.SubElement(p_plain, "br")
+                                # process remaining content after the stage's lb
+                                lb = first_child.getnext()
+                                remaining = (lb.tail or '').strip()
+                                for sib in lb.itersiblings():
+                                    remaining += self.get_plain_text_recursive(sib) + (sib.tail or '')
+                                self.append_text(p_plain, remaining, treat_as_plain=True)
+                            else:
+                                self.process_children(sp_child, p_plain, treat_as_plain=True, in_lg=False)
                         elif sp_child.tag == "lg":
                             if not self.only_plain:
                                 # A trailing <lb> from the preceding <p> must not bleed into
