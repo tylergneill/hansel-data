@@ -577,9 +577,10 @@ class HtmlConverter:
                         # (already shown in the editorial-coord h3), not content inside this verse.
                         self.pending_label = None
                         chaya_div = etree.SubElement(verse_li, "div", {"class": "chaya"})
+                        chaya_ul = etree.SubElement(chaya_div, "ul", {"class": "padas"})
                         for sub_child in child:
                             if sub_child.tag == 'l':
-                                self._render_l_as_spans(sub_child, chaya_div, False, in_lg=True)
+                                self._render_l_as_li(sub_child, chaya_ul, False)
                     elif child.tag == 'back':
                         if len(padas_ul) > 0:
                             self.process_children(child, padas_ul[-1], False, in_lg=True)
