@@ -105,7 +105,7 @@ diṇṇadiṭṭhī gacchasi |˼
 [3,4]
 
 sītā — ˹halā mahuarie, ido vi puraṭṭhide kāṇaṇantare maṇoharāiṃ
-kusumāiṃ dīsandi | tā ahilāseṇa gacchami |˼
+kusumāiṃ dīsandi | tā ahilāseṇa gacchāmi |˼
 
 [3,6]
 
@@ -259,7 +259,7 @@ lakṣmaṇaḥ — devatārcanākusumānyavacetavyānyeva |
 
 [7,2]
 
-rāmaḥ — ((svagatam |)) kimataḥ paraṃ kathayiṣyatīti kampate me cetaḥ |
+rāmaḥ — ((svagatam |)) kimataḥparaṃ kathayiṣyatīti kampate me cetaḥ |
 ((prakāśam |)) tatastataḥ |
 
 [7,4]
@@ -457,7 +457,7 @@ rāmaḥ — aye, priyālāpa iva śrūyate nākṛtistu dṛśyate | ataḥ
 prārthayāmi |
 
 	cetasaḥ sapadi jīvanauṣadhaṃ netrayoramṛtavartikāñjanam |
-	manmathajvaramahārasāyanaṃ darśayasva dayite tavākṛti≤nana≥m || 26 ||
+	manmathajvaramahārasāyanaṃ darśayasva dayite tavākṛti≤(nana)≥m || 26 ||
 
 [10,15]
 
@@ -563,7 +563,7 @@ lakṣmaṇaḥ — aho, ciramunmādo vartate |
 [12,2]
 
 rāmaḥ — aye jānaki, etāvantaṃ kālaṃ kutra gatāsi | ((karṇaṃ dattvā |)) kiṃ
-bravīṣi — “āryaputrasya premaparīkṣārthaṃ kvacillatākuñje nigūḍhāsmi” iti |
+bravīṣi — ‘āryaputrasya premaparīkṣārthaṃ kvacillatākuñje nigūḍhāsmi’ iti |
 
 [12,4]
 
@@ -831,9 +831,9 @@ rāmaḥ — hanta, mahānpramādaḥ |
 
 [15,16]
 
-agastyaḥ — tataḥ paramabhiṣekāyāgacchannayaṃ durvāsāstāmavalokya “aye
+agastyaḥ — tataḥ paramabhiṣekāyāgacchannayaṃ durvāsāstāmavalokya ‘aye
 hariṇi, yato'smaddevatārcanocitāni kusumānyavacinoṣi, tatastvannāmasadṛ-
-śīmevākṛtimehi” iti śaśāpa | tadānīmeva parityajya vanamidamantarhitaśca |
+śīmevākṛtimehi’ iti śaśāpa | tadānīmeva parityajya vanamidamantarhitaśca |
 
 [15,19]
 
@@ -847,7 +847,7 @@ lakṣmaṇaḥ — kathamasyāstaduparamo jātaḥ |
 
 agastyaḥ — tato hariṇībhūtāṃ hariṇīmādāyāsmadantikaṃ prāptābhirati-
 karuṇamākrandantībhirapsarobhirabhyarthitena mayā kṛpāvaśenābhimantritā dūrvā-
-muṣṭirarpitā | tasminvane nāsyāḥ pratyāsattirāsīt | ((?))
+muṣṭirarpitā | tasminvane nāsyāḥ pratyāsattirāsīt | (?)
 
 [15,24]
 
