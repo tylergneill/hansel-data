@@ -310,9 +310,19 @@ class HtmlConverter:
             self.append_text(html_node, xml_node.text, treat_as_plain=treat_as_plain)
         for child in xml_node:
             if child.tag == 'lb':
+                previous_sibling = child.getprevious()
+
+                # A hyphenated <pb> may immediately precede this <lb> (the <lb> that
+                # would have carried break="no" was merged into the <pb> by the XML
+                # builder, e.g. a page turn mid-word in a Prakrit span). In that case
+                # this <lb> is not itself a word-break — the hyphen was already handled
+                # by the <pb> — so don't also treat it as a non-hyphenated break needing a space.
+                pb_hyphen_before = (previous_sibling is not None and previous_sibling.tag == 'pb'
+                                     and previous_sibling.get("break") == "no")
+
                 if child.get("break") == "no":
                     etree.SubElement(html_node, "span", {"class": "hyphen"}).text = "-"
-                else:
+                elif not pb_hyphen_before:
                     # Ensure a space precedes a non-hyphenated break.
                     if len(html_node) > 0:
                         last_elem = html_node[-1]
@@ -331,15 +341,24 @@ class HtmlConverter:
                     self.has_line_breaks = True
 
                 is_after_caesura = False
-                previous_sibling = child.getprevious()
                 if previous_sibling is not None and previous_sibling.tag == 'caesura':
                     is_after_caesura = True
 
-                if not in_lg or is_after_caesura:
-                    self.pending_breaks += 1
-                lb_span = etree.Element("span", {"class": "lb-label rich-text", "data-line": line_n})
-                lb_span.text = f'({self.page_label}.{self.current_page}, {self.line_label}.{line_n})'
-                self.pending_label = lb_span
+                # An <lb> immediately following a <pb> (no text between) marks the same
+                # position the <pb>'s own label already announces — e.g. a page break
+                # landing mid-span in a multi-line Prakrit speech. Keep the pb-label
+                # (with its page link) rather than clobbering it with a redundant lb-label,
+                # and don't double-count the break.
+                pb_immediately_before = (previous_sibling is not None and previous_sibling.tag == 'pb'
+                                          and self.pending_label is not None
+                                          and 'pb-label' in (self.pending_label.get('class') or ''))
+
+                if not pb_immediately_before:
+                    if not in_lg or is_after_caesura:
+                        self.pending_breaks += 1
+                    lb_span = etree.Element("span", {"class": "lb-label rich-text", "data-line": line_n})
+                    lb_span.text = f'({self.page_label}.{self.current_page}, {self.line_label}.{line_n})'
+                    self.pending_label = lb_span
             elif child.tag == 'pb':
                 if child.get("break") == "no":
                     etree.SubElement(html_node, "span", {"class": "hyphen"}).text = "-"

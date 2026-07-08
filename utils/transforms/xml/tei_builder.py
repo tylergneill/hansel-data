@@ -779,17 +779,18 @@ class TeiTextBuilder:
                     # \n sentinels inside stage content: emit <lb> elements within the stage.
                     # Use open_prakrit_lb_breaks for break="no" detection (hyphens were already
                     # stripped by the Prakrit accumulator before joining with \n).
+                    # These \n's are consumed here (never seen by the outer 'lb' branch, since
+                    # they fall inside this match's span), so lb_break_idx must advance in step
+                    # with lb_breaks, or every subsequent <lb> outside the stage reads the wrong slot.
                     parts = inner.split('\n')
                     el.text = parts[0]
                     lb_breaks = s.open_prakrit_lb_breaks
-                    # Offset into lb_breaks: count \n sentinels before this stage match start
-                    stage_lb_offset = text[:m.start()].count('\n')
-                    for i, part in enumerate(parts[1:], start=1):
+                    for part in parts[1:]:
                         s.lb_count += 1
                         lb_attrs = {"n": str(s.lb_count)}
-                        break_idx = stage_lb_offset + (i - 1)
-                        if lb_breaks and break_idx < len(lb_breaks) and lb_breaks[break_idx]:
+                        if lb_breaks and lb_break_idx < len(lb_breaks) and lb_breaks[lb_break_idx]:
                             lb_attrs["break"] = "no"
+                        lb_break_idx += 1
                         inner_lb = etree.SubElement(el, "lb", lb_attrs)
                         s.last_emitted_lb = inner_lb
                         inner_lb.tail = part
@@ -798,8 +799,19 @@ class TeiTextBuilder:
             elif kind == 'pb':
                 page, line_no = m.group(1), m.group(2)
                 attrs = {"n": page}
+                # If a hyphenated <lb> immediately precedes this <pb> (no text between,
+                # e.g. a page turn mid-word in a Prakrit span), merge them: carry the
+                # break="no" flag onto the <pb> and drop the redundant <lb>, mirroring
+                # _emit_pb's behavior for top-level page breaks. Otherwise the hyphen
+                # flag is stranded on an <lb> the HTML converter treats as a separate,
+                # non-hyphenated break, and injects a spurious space.
+                if last_el is not None and last_el.tag == 'lb' and not pre and last_el.get("break") == "no":
+                    attrs["break"] = "no"
+                    parent.remove(last_el)
                 el = etree.SubElement(parent, "pb", attrs)
-                # update lb_count if line number given
+                # Restart line count on the new page, from the explicit line
+                # number if given, else from 1. lb_count is pre-incremented by
+                # the next 'lb'/_emit_lb, so store one less than the target n.
                 if line_no:
                     try:
                         s.lb_count = int(line_no) - 1
@@ -807,6 +819,7 @@ class TeiTextBuilder:
                         pass
                 else:
                     s.explicit_page = page
+                    s.lb_count = 0
             else:  # lb
                 s.lb_count += 1
                 attrs = {"n": str(s.lb_count)}
