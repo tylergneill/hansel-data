@@ -986,14 +986,10 @@ class HtmlConverter:
                             if not self.only_plain:
                                 # A trailing <lb> from the preceding <p> must not bleed into
                                 # the first verse span as an orphan <br>. Drop the break count;
-                                # the pending_label (lb-label) is kept so it appears on the
-                                # first verse line. A <pb>-generated label belongs on the speech_div
-                                # before the verse, not inside the verse itself.
+                                # the pending_label (pb- or lb-label) is kept so it appears on
+                                # the first verse line, inside the shaded verse box, rather
+                                # than as a sibling before it.
                                 self.pending_breaks = 0
-                                if (self.pending_label is not None
-                                        and 'pb-label' in (self.pending_label.get('class') or '')):
-                                    speech_div.append(self.pending_label)
-                                    self.pending_label = None
                                 if verses_ul is None:
                                     verses_ul = etree.SubElement(speech_div, "ul", {"class": "verses"})
                                 if sp_child.get('type') == 'group':
