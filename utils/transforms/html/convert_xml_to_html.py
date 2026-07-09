@@ -463,7 +463,13 @@ class HtmlConverter:
                 # Ensure a space after the closing paren when followed by content.
                 # The XML parser's remove_blank_text=True strips whitespace-only tails,
                 # so we must inject a space when the tail is missing or abuts the next word.
-                if child.getnext() is not None or (child.tail and not child.tail.startswith(' ')):
+                # A mid-line stage direction (non-empty tail = dialogue follows on the same
+                # line) gets two NBSPs instead of a plain space, to set it off visually.
+                if child.tail and child.tail.strip():
+                    sep = '  '
+                    stripped = child.tail.lstrip(' ')
+                    child.tail = sep + stripped
+                elif child.getnext() is not None or (child.tail and not child.tail.startswith(' ')):
                     if not child.tail:
                         child.tail = ' '
                     elif not child.tail.startswith(' '):
