@@ -951,10 +951,29 @@ class HtmlConverter:
                         if not self.only_plain and speech_div is None:
                             speech_div = etree.SubElement(content_div, "div", {"class": "speech rich-text"})
                             if speaker_name and first_rich_div:
+                                # A page break pending from before this <sp> still needs to be
+                                # shown, on its own line, ahead of the speaker attribution —
+                                # unlike a plain line marker, which is suppressed for a bare cue.
+                                if (self.pending_label is not None
+                                        and 'pb-label' in (self.pending_label.get('class') or '')):
+                                    pb_p = etree.SubElement(speech_div, "p")
+                                    pb_p.append(self.pending_label)
+                                    self.pending_label = None
                                 etree.SubElement(speech_div, "span", {"class": "speaker"}).text = speaker_name
                             first_rich_div = False
                         if speech_div_plain is None:
                             speech_div_plain = etree.SubElement(content_div, "div", {"class": "speech plain-text"})
+
+                        if sp_child.tag == "lb" and sp_child.getparent() is element:
+                            # Bare speaker cue ("name —") occupying its own physical line
+                            # (tei_builder.py emits this <lb> as a direct child of <sp> so the
+                            # line is still counted). Advance the line counter but suppress the
+                            # label entirely — the cue's own line isn't worth announcing.
+                            line_n = sp_child.get("n")
+                            if line_n:
+                                self.current_line = line_n
+                            self.pending_label = None
+                            continue
 
                         if sp_child.tag == "p":
                             verses_ul = None
@@ -997,6 +1016,10 @@ class HtmlConverter:
                                         self.process_lg_content(lg_child, verses_ul, treat_as_plain=False)
                                 else:
                                     self.process_lg_content(sp_child, verses_ul, treat_as_plain=False)
+                            if speaker_name and not speaker_shown:
+                                p_plain = etree.SubElement(speech_div_plain, "p")
+                                self.append_text(p_plain, f"{speaker_name} — ", treat_as_plain=True)
+                                speaker_shown = True
                             if sp_child.get('type') == 'group':
                                 for lg_child in sp_child.findall("lg"):
                                     self.process_lg_content(lg_child, speech_div_plain, treat_as_plain=True)

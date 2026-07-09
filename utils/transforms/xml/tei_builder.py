@@ -46,7 +46,7 @@ HYPHEN_EOL_RE = re.compile(r"-\s*$")  # tweak later if you need fancy hyphens
 MID_LINE_PAGE_RE = re.compile(r"<(\d+)(?:,(\d+))?>")
 COMBINED_VERSE_END_RE = re.compile(f"{VERSE_MARKER_RE.pattern}|{VERSE_BACK_BOUNDARY_RE.pattern}")
 # Drama-specific regexes
-SPEAKER_RE = re.compile(r"^(\S+) — (.*)$")
+SPEAKER_RE = re.compile(r"^(\S+) —\s*(.*)$")
 STAGE_DIRECTION_RE = re.compile(r"\(\(([^)]+)\)\)")
 PRAKRIT_RE = re.compile(r"˹([^˼]+)˼(?:\s*\((?!\()([^)]+)\))?")
 
@@ -348,6 +348,13 @@ class TeiTextBuilder:
                 speaker_name = speaker_match.group(1)
                 trailing_text = speaker_match.group(2).strip()
                 self._open_sp(speaker_name)
+                if not trailing_text:
+                    # Bare cue ("name —") occupies its own physical line, with no
+                    # dialogue <p> to hold an <lb>. Emit one directly on <sp> so the
+                    # line is still counted (mirrors the with-dialogue path below,
+                    # which emits its own trailing <lb> at the end of the <p>).
+                    self._emit_lb(s.current_sp, line)
+                    self._finalize_physical_line(line)
                 if trailing_text:
                     # Check if trailing text is a pending head (e.g. "priye —_")
                     pending_head_match = PENDING_HEAD_RE.search(trailing_text)
