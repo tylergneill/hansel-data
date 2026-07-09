@@ -28,13 +28,20 @@ VERSE_NUM_RE = re.compile(r"^\s*([0-9]+(?:[.,][0-9]+)*)\s*([a-z]{1,4})?\s*$", re
 PAGE_RE = re.compile(r"^<(\d+)>$")  # <page>
 PAGE_LINE_RE = re.compile(r"^<(\d+),(\d+)>$")  # <page,line>
 ADDITIONAL_STRUCTURE_NOTE_RE = re.compile(r"^<[^\n>]+>$")  # other <...>
-VERSE_MARKER_RE = re.compile(r"\|\| ([^|]{1,20}) \|\|(?: |$)")
+# Verse-final marker (double danda): ASCII "||" or the real Unicode double danda "॥".
+# Verse-medial marker (single danda): ASCII "|" or the real Unicode danda "।".
+# Texts may use either convention (older ones ASCII, newer ones real dandas), so all
+# danda-sensitive regexes below must accept both.
+_DOUBLE_DANDA = r"(?:\|\||॥)"
+_SINGLE_OR_DOUBLE_DANDA = r"(?:\|\|?|[।॥])"
+_NOT_DANDA = r"[^|।॥]"
+VERSE_MARKER_RE = re.compile(_DOUBLE_DANDA + r" (" + _NOT_DANDA + r"{1,20}) " + _DOUBLE_DANDA + r"(?: |$)")
 CHOICE_RE = re.compile(r"≤([^≥]*)≥«([^»]*)»")
 DEL_RE = re.compile(r"≤([^≥]*)≥")
 SUPPLIED_RE = re.compile(r"«([^»]*)»")
 UNCLEAR_RE = re.compile(r"¿([^¿]*)¿")
-VERSE_BACK_BOUNDARY_RE = re.compile(r"\|\|(?![^|]{1,20} \|\|)")
-CLOSE_L_RE = re.compile(r"\|\|?(?:[ \n]|$)")
+VERSE_BACK_BOUNDARY_RE = re.compile(_DOUBLE_DANDA + r"(?!" + _NOT_DANDA + r"{1,20} " + _DOUBLE_DANDA + r")")
+CLOSE_L_RE = re.compile(_SINGLE_OR_DOUBLE_DANDA + r"(?:[ \n]|$)")
 HYPHEN_EOL_RE = re.compile(r"-\s*$")  # tweak later if you need fancy hyphens
 MID_LINE_PAGE_RE = re.compile(r"<(\d+)(?:,(\d+))?>")
 COMBINED_VERSE_END_RE = re.compile(f"{VERSE_MARKER_RE.pattern}|{VERSE_BACK_BOUNDARY_RE.pattern}")

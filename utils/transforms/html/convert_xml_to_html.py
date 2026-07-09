@@ -181,14 +181,19 @@ class HtmlConverter:
             self.process_children(l_element, li, treat_as_plain, in_lg=True)
             return
 
-        # Split at <caesura/>: build two synthetic <l> wrappers
+        # Split at the first <caesura/> only: build two synthetic <l> wrappers.
+        # A 4-pāda verse has 3 caesuras (after pādas 1, 2, 3); only the first is a
+        # split point here — the rest must survive as ordinary children of second_l
+        # so process_children's is_after_caesura check still finds them and emits a
+        # <br> before pādas 3 and 4 (in_lg mode only breaks lines right after a
+        # <caesura> sibling).
         first_l = etree.Element("l")
         second_l = etree.Element("l")
         first_l.text = l_element.text
         before_caesura = True
 
         for child in l_element:
-            if child.tag == 'caesura':
+            if child.tag == 'caesura' and before_caesura:
                 before_caesura = False
                 if child.tail:
                     second_l.text = child.tail
@@ -236,7 +241,7 @@ class HtmlConverter:
             first_span.text = l_element.text
 
         for child in l_element:
-            if child.tag == 'caesura':
+            if child.tag == 'caesura' and before_caesura:
                 before_caesura = False
                 if child.tail:
                     second_span.text = child.tail
@@ -259,7 +264,7 @@ class HtmlConverter:
         before_caesura = True
 
         for child in l_element:
-            if child.tag == 'caesura':
+            if child.tag == 'caesura' and before_caesura:
                 before_caesura = False
                 # caesura.tail becomes second_l.text (or prepend)
                 if child.tail:
