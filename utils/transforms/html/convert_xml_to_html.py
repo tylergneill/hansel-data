@@ -15,6 +15,23 @@ def _is_condensed_lg(lg_element):
     return False
 
 
+def _is_milestone_only_p(p_element):
+    """Check if a <p> element contains no real text, only <milestone>/<lb>/<pb> children.
+
+    Such a <p> exists purely to carry a coordinate <n> attribute for a milestone
+    (e.g. title lines before the play proper begins), so it should not produce
+    an empty <p> or its own location marker in the HTML output.
+    """
+    if p_element.text and p_element.text.strip():
+        return False
+    for child in p_element:
+        if child.tag not in ('milestone', 'lb', 'pb'):
+            return False
+        if child.tail and child.tail.strip():
+            return False
+    return True
+
+
 class HtmlConverter:
     """Convert TEI XML to HTML.
 
@@ -1013,6 +1030,13 @@ class HtmlConverter:
                     self.append_text(p_plain, f"({stage_text})", treat_as_plain=True)
 
                 elif element.tag == "p":
+                    if _is_milestone_only_p(element):
+                        # A <p> that carries only <milestone>/<lb>/<pb> children (no real
+                        # text) exists purely to attach a coordinate to a milestone (e.g.
+                        # title lines before the play proper begins). Its milestones are
+                        # already invisible in HTML output, so don't emit an empty <p> or
+                        # a location marker for it either.
+                        continue
                     current_verses_ul = None
                     self.current_verse = None
                     self.current_verse_part = None
