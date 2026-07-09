@@ -456,6 +456,7 @@ class HtmlConverter:
                     xml_parent = child.getparent()
                     if (next_sib is not None and next_sib.tag == 'lb'
                             and prev_sib is None
+                            and not (child.tail and child.tail.strip())
                             and not (xml_parent is not None and (xml_parent.text or '').strip())):
                         etree.SubElement(html_node, "br")
                 # Ensure a space after the closing paren when followed by content.
@@ -961,6 +962,7 @@ class HtmlConverter:
                             first_child = next(iter(sp_child), None)
                             if (first_child is not None and first_child.tag == 'stage'
                                     and not (sp_child.text or '').strip()
+                                    and not (first_child.tail and first_child.tail.strip())
                                     and first_child.getnext() is not None
                                     and first_child.getnext().tag == 'lb'):
                                 self.append_text(p_plain, '(' + self.get_plain_text_recursive(first_child) + ')', treat_as_plain=True)
