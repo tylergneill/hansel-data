@@ -459,6 +459,7 @@ class HtmlConverter:
                             and not (child.tail and child.tail.strip())
                             and not (xml_parent is not None and (xml_parent.text or '').strip())):
                         etree.SubElement(html_node, "br")
+                        etree.SubElement(html_node, "br")
                 # Ensure a space after the closing paren when followed by content.
                 # The XML parser's remove_blank_text=True strips whitespace-only tails,
                 # so we must inject a space when the tail is missing or abuts the next word.
