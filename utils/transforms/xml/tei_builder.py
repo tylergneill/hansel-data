@@ -140,6 +140,8 @@ class TextBuildState:
     # open-prakrit state: accumulates lines when ˹ and ˼ span multiple input lines
     in_open_prakrit: bool = False
     open_prakrit_lines: list = field(default_factory=list)
+    # at_block_start captured when the span opened (accumulated lines aren't block starts)
+    open_prakrit_at_block_start: bool = False
     # When line_by_line, holds break flags (True=hyphenated) for each inter-line boundary
     open_prakrit_lb_breaks: Optional[list] = None
 
@@ -154,6 +156,15 @@ class TextBuildState:
     # line (verse or prose) emits a leading <lb> of its own to carry the
     # now-correct line number for its own first physical line.
     pending_bare_cue_lb: bool = False
+
+    # True at the very start of the text and immediately after a blank source
+    # line. Speaker cues ("name — ...") only ever open a new <sp> at the start
+    # of a block — a mid-paragraph line that happens to start with "word — "
+    # (e.g. dialogue wrapping onto a new physical line) must NOT be mistaken
+    # for a new speaker turn. Cleared once a genuine top-level physical line
+    # is consumed; untouched by recursive _handle_line() calls that just
+    # redispatch already-accumulated content (those never start a new block).
+    at_block_start: bool = True
 
 # ----------------------------
 # ----------------------------
@@ -202,8 +213,15 @@ class TeiTextBuilder:
     # ---- per-line handler ----
     def _handle_line(self, line: str) -> None:
         if not line.strip():
+            self.state.at_block_start = True
             return
         s = self.state
+        # Consumed once per genuine physical line: only true for the first line
+        # dispatched after a blank source line (or at the very start of the text).
+        # Recursive re-dispatches below (spliced/accumulated content) run with this
+        # already False, since they never follow a fresh blank-line gap.
+        at_block_start = s.at_block_start
+        s.at_block_start = False
 
         # OPEN-STAGE ACCUMULATION — (( )) spanning multiple lines
         if s.in_open_stage:
@@ -222,6 +240,7 @@ class TeiTextBuilder:
                 spliced = first_line + '\n' + continuation
                 s.in_open_stage = False
                 s.open_stage_lines = []
+                s.at_block_start = at_block_start
                 self._handle_line(spliced)
                 # If there was text after )) on the closing line, dispatch it as its own line.
                 if stage_tail.strip():
@@ -236,7 +255,7 @@ class TeiTextBuilder:
             # the cue ends up spliced together with the continuation line behind an
             # embedded \n, where SPEAKER_RE (anchored with ^...$, no re.DOTALL) can
             # no longer match it once the (( )) span finally closes.
-            if s.drama:
+            if s.drama and at_block_start:
                 speaker_match = SPEAKER_RE.match(line)
                 if speaker_match:
                     speaker_name = speaker_match.group(1)
@@ -290,7 +309,7 @@ class TeiTextBuilder:
                         # SPEAKER_RE uses $ which won't cross \n; match on first line only,
                         # then dispatch full joined content as the trailing prose/prakrit text.
                         first_line = joined_parts[0]
-                        speaker_match = SPEAKER_RE.match(first_line)
+                        speaker_match = SPEAKER_RE.match(first_line) if s.open_prakrit_at_block_start else None
                         if speaker_match:
                             speaker_name = speaker_match.group(1)
                             trailing_in_first = speaker_match.group(2)
@@ -314,6 +333,7 @@ class TeiTextBuilder:
             # Opening of a multi-line Prakrit span — begin accumulation
             s.in_open_prakrit = True
             s.open_prakrit_lines = [line]
+            s.open_prakrit_at_block_start = at_block_start
             return
 
         # CHĀYĀ DISPATCH — intercept lines when awaiting chāyā after ˹...˼
@@ -364,8 +384,9 @@ class TeiTextBuilder:
 
         # HANDLE LINES WITH CONTENT (AND MAYBE ALSO STRUCTURE)
 
-        # Drama: speaker line
-        if s.drama:
+        # Drama: speaker line (only ever opens at the start of a new block, i.e.
+        # immediately after a blank source line — never mid-paragraph)
+        if s.drama and at_block_start:
             speaker_match = SPEAKER_RE.match(line)
             if speaker_match:
                 speaker_name = speaker_match.group(1)
