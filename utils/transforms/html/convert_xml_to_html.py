@@ -952,9 +952,13 @@ class HtmlConverter:
                             speech_div = etree.SubElement(content_div, "div", {"class": "speech rich-text"})
                             if speaker_name and first_rich_div:
                                 # A page break pending from before this <sp> still needs to be
-                                # shown, on its own line, ahead of the speaker attribution —
-                                # unlike a plain line marker, which is suppressed for a bare cue.
-                                if (self.pending_label is not None
+                                # shown, on its own line, ahead of the speaker attribution — but
+                                # only when there's no <p> for it to land inside inline (the normal
+                                # path, via process_children's own <pb> handling). That's the case
+                                # for a bare cue ("name —") going straight into a <lg> verse, which
+                                # has no <p> at all.
+                                if (sp_child.tag != "p"
+                                        and self.pending_label is not None
                                         and 'pb-label' in (self.pending_label.get('class') or '')):
                                     pb_p = etree.SubElement(speech_div, "p")
                                     pb_p.append(self.pending_label)
@@ -963,17 +967,6 @@ class HtmlConverter:
                             first_rich_div = False
                         if speech_div_plain is None:
                             speech_div_plain = etree.SubElement(content_div, "div", {"class": "speech plain-text"})
-
-                        if sp_child.tag == "lb" and sp_child.getparent() is element:
-                            # Bare speaker cue ("name —") occupying its own physical line
-                            # (tei_builder.py emits this <lb> as a direct child of <sp> so the
-                            # line is still counted). Advance the line counter but suppress the
-                            # label entirely — the cue's own line isn't worth announcing.
-                            line_n = sp_child.get("n")
-                            if line_n:
-                                self.current_line = line_n
-                            self.pending_label = None
-                            continue
 
                         if sp_child.tag == "p":
                             verses_ul = None

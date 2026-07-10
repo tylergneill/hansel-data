@@ -428,9 +428,12 @@ As in other HANSEL drama texts so far, I have artificially rendered the "nepathy
               <seg type="chāyā" xml:lang="san-Latn">tathā ।</seg>
             </seg>
             <lb n="21"/></p>
-          <p xml:id="p7_l21" n="7,21">rāmaḥ — <lb n="22"/></p>
-          <lg xml:id="p7_l21_2" n="7,21">
-            <l>prāṇapriyāṃ prāptavatīṃ kaṭhorāmakīrtitavyāṃ padavīmakāṇḍe ।<lb n="23"/></l>
+        </sp>
+        <sp who="rāmaḥ">
+          <speaker>rāmaḥ</speaker>
+          <lg xml:id="p7_l21" n="7,21">
+            <l>
+              <lb n="22"/>prāṇapriyāṃ prāptavatīṃ kaṭhorāmakīrtitavyāṃ padavīmakāṇḍe ।<lb n="23"/></l>
             <l>trailokyalāvaṇyalalāmabhūtāṃ hā jānakīṃ kutra vilokayāmi ॥ 12 ॥<pb n="8"/></l>
           </lg>
         </sp>
@@ -632,9 +635,12 @@ As in other HANSEL drama texts so far, I have artificially rendered the "nepathy
           <speaker>rāmaḥ</speaker>
           <p n="11,12" xml:id="p11_l12">vatsa, muñca muñca bāṇaṃ saṃdhāsyāmi । amī punaratraiva nirbhayā ni<lb n="13" break="no"/>ścalamāsate । <stage>iti tūṇīramukhādbāṇamuddhartumicchati ।</stage>
             <lb n="14"/></p>
-          <p xml:id="p11_l14" n="11,14">lakṣmaṇaḥ — <lb n="15"/></p>
-          <lg xml:id="p11_l14_2" n="11,14">
-            <l>niṣaṅgānnirgate bāṇe pareṣāṃ prāṇanirgamaḥ ।<lb n="16"/></l>
+        </sp>
+        <sp who="lakṣmaṇaḥ">
+          <speaker>lakṣmaṇaḥ</speaker>
+          <lg xml:id="p11_l14" n="11,14">
+            <l>
+              <lb n="15"/>niṣaṅgānnirgate bāṇe pareṣāṃ prāṇanirgamaḥ ।<lb n="16"/></l>
             <l>tadeva jñāyate deva saṃdhānaṃ kiṃprayojanam ॥ 29 ॥<lb n="17"/></l>
           </lg>
           <p>ataḥ śarasaṃdhānaṃ vihāya vibhāvayatvāryaḥ, nātra corāḥ । <lb n="18"/></p>
@@ -766,45 +772,75 @@ As in other HANSEL drama texts so far, I have artificially rendered the "nepathy
           <lg xml:id="p13_l20_2" n="13,20">
             <l>vatsā yāhi gṛhaṃ vrajāma<caesura/><lb n="22"/></l>
           </lg>
-          <p xml:id="p13_l22" n="13,22">lakṣmaṇaḥ — <lb n="23"/></p>
-          <lg xml:id="p13_l22_2" n="13,22">
-            <l>	kimidaṃ gehaṃ<caesura/><lb n="24"/></l>
+        </sp>
+        <sp who="lakṣmaṇaḥ">
+          <speaker>lakṣmaṇaḥ</speaker>
+          <lg xml:id="p13_l22" n="13,22">
+            <l>
+              <lb n="23"/>	kimidaṃ gehaṃ<caesura/><lb n="24"/></l>
           </lg>
-          <p xml:id="p13_l24" n="13,24">rāmaḥ — <lb n="25"/></p>
-          <lg xml:id="p13_l24_2" n="13,24">
-            <l>		kutaḥ<caesura/><lb n="26"/></l>
+        </sp>
+        <sp who="rāmaḥ">
+          <speaker>rāmaḥ</speaker>
+          <lg xml:id="p13_l24" n="13,24">
+            <l>
+              <lb n="25"/>		kutaḥ<caesura/><lb n="26"/></l>
           </lg>
-          <p xml:id="p13_l26" n="13,26">lakṣmaṇaḥ — <lb n="27"/></p>
-          <lg xml:id="p13_l26_2" n="13,26">
-            <l>			kānane<caesura/><lb n="28"/> vatsyāmaḥ<caesura/><lb n="29"/></l>
+        </sp>
+        <sp who="lakṣmaṇaḥ">
+          <speaker>lakṣmaṇaḥ</speaker>
+          <lg xml:id="p13_l26" n="13,26">
+            <l>
+              <lb n="27"/>			kānane<caesura/><lb n="28"/> vatsyāmaḥ<caesura/><lb n="29"/></l>
           </lg>
-          <p xml:id="p13_l29" n="13,29">rāmaḥ — <lb n="30"/></p>
-          <lg xml:id="p13_l29_2" n="13,29">
-            <l>	kathamāgatā vanabhuvaṃ<caesura/><pb n="14"/></l>
+        </sp>
+        <sp who="rāmaḥ">
+          <speaker>rāmaḥ</speaker>
+          <lg xml:id="p13_l29" n="13,29">
+            <l>
+              <lb n="30"/>	kathamāgatā vanabhuvaṃ<caesura/><pb n="14"/></l>
           </lg>
-          <p xml:id="p14_l1" n="14,1">lakṣmaṇaḥ — <lb n="2"/></p>
-          <lg xml:id="p14_l1_2" n="14,1">
-            <l>		tātājñayā yantritāḥ ।<lb n="3"/></l>
+        </sp>
+        <sp who="lakṣmaṇaḥ">
+          <speaker>lakṣmaṇaḥ</speaker>
+          <lg xml:id="p14_l1" n="14,1">
+            <l>
+              <lb n="2"/>		tātājñayā yantritāḥ ।<lb n="3"/></l>
           </lg>
-          <p xml:id="p14_l3" n="14,3">rāmaḥ — <lb n="4"/></p>
-          <lg xml:id="p14_l3_2" n="14,3">
-            <l>āyātāḥ kati vā vayaṃ kathaya me<caesura/><lb n="5"/></l>
+        </sp>
+        <sp who="rāmaḥ">
+          <speaker>rāmaḥ</speaker>
+          <lg xml:id="p14_l3" n="14,3">
+            <l>
+              <lb n="4"/>āyātāḥ kati vā vayaṃ kathaya me<caesura/><lb n="5"/></l>
           </lg>
-          <p xml:id="p14_l5" n="14,5">lakṣmaṇaḥ — <lb n="6"/></p>
-          <lg xml:id="p14_l5_2" n="14,5">
-            <l>	deva trayaḥ<caesura/><lb n="7"/></l>
+        </sp>
+        <sp who="lakṣmaṇaḥ">
+          <speaker>lakṣmaṇaḥ</speaker>
+          <lg xml:id="p14_l5" n="14,5">
+            <l>
+              <lb n="6"/>	deva trayaḥ<caesura/><lb n="7"/></l>
           </lg>
-          <p xml:id="p14_l7" n="14,7">rāmaḥ — <lb n="8"/></p>
-          <lg xml:id="p14_l7_2" n="14,7">
-            <l>		ke ca te<caesura/><lb n="9"/></l>
+        </sp>
+        <sp who="rāmaḥ">
+          <speaker>rāmaḥ</speaker>
+          <lg xml:id="p14_l7" n="14,7">
+            <l>
+              <lb n="8"/>		ke ca te<caesura/><lb n="9"/></l>
           </lg>
-          <p xml:id="p14_l9" n="14,9">lakṣmaṇaḥ — <lb n="10"/></p>
-          <lg xml:id="p14_l9_2" n="14,9">
-            <l>tvaṃ cāhaṃ janakātmajā ca<caesura/><lb n="11"/></l>
+        </sp>
+        <sp who="lakṣmaṇaḥ">
+          <speaker>lakṣmaṇaḥ</speaker>
+          <lg xml:id="p14_l9" n="14,9">
+            <l>
+              <lb n="10"/>tvaṃ cāhaṃ janakātmajā ca<caesura/><lb n="11"/></l>
           </lg>
-          <p xml:id="p14_l11" n="14,11">rāmaḥ — <lb n="12"/></p>
-          <lg xml:id="p14_l11_2" n="14,11">
-            <l>	dayite kutrāsi hā jānaki ॥ 39 ॥<lb n="13"/></l>
+        </sp>
+        <sp who="rāmaḥ">
+          <speaker>rāmaḥ</speaker>
+          <lg xml:id="p14_l11" n="14,11">
+            <l>
+              <lb n="12"/>	dayite kutrāsi hā jānaki ॥ 39 ॥<lb n="13"/></l>
           </lg>
           <p xml:id="p14_l13" n="14,13">
             <stage>nepathye ।</stage>
@@ -956,9 +992,12 @@ As in other HANSEL drama texts so far, I have artificially rendered the "nepathy
         <sp who="agastyaḥ">
           <speaker>agastyaḥ</speaker>
           <p n="16,8" xml:id="p16_l8">ahamekākinīmasmadāśrame tiṣṭhantīmitastataḥ plavamānā<lb n="9" break="no"/>madṛṣṭapūrvāṃ hariṇīṃ samādhinā jānakīṃ niścitya tatkṣaṇameva śāpānmocayi<lb n="10" break="no"/>tvā bhavadantikamanaiṣam । <lb n="11"/></p>
-          <p xml:id="p16_l11" n="16,11">rāmaḥ — <lb n="12"/></p>
-          <lg xml:id="p16_l11_2" n="16,11">
-            <l>paropakāraśīlatvaṃ paraduḥkhāsahiṣṇutā ।<lb n="13"/></l>
+        </sp>
+        <sp who="rāmaḥ">
+          <speaker>rāmaḥ</speaker>
+          <lg xml:id="p16_l11" n="16,11">
+            <l>
+              <lb n="12"/>paropakāraśīlatvaṃ paraduḥkhāsahiṣṇutā ।<lb n="13"/></l>
             <l>dayāparatvaṃ dākṣiṇyaṃ satāṃ svābhāvikā guṇāḥ ॥ 41 ॥<lb n="14"/></l>
           </lg>
         </sp>

@@ -135,12 +135,15 @@ Similarly, I have rendered the "nepathye" stage direction as speaker identificat
         <pb n="8"/><p xml:id="p8_l1" n="8,1">
           <stage>nāndyante tataḥ praviśati sūtradhāraḥ |</stage>
           <lb n="2"/></p>
-        <p xml:id="p8_l2" n="8,2">sūtradhāraḥ — <lb n="3"/></p>
-        <lg xml:id="p8_l2_2" n="8,2">
-          <l>tvāṃ pātu lakṣaṇāḍhyaḥ suravaramukuṭendracārumaṇighṛṣṭaḥ |<lb n="4"/></l>
-          <l>rāvaṇanamitāṅguṣṭho rudrasya sadārcitaḥ pādaḥ || 1 ||<lb n="5"/></l>
-        </lg>
-        <p>idam asmadīyaṃ gṛham | yāvat praviśāmi | <stage>praviśya |</stage> vidūṣaka vidūṣaka | <lb n="6"/></p>
+        <sp who="sūtradhāraḥ">
+          <speaker>sūtradhāraḥ</speaker>
+          <lg xml:id="p8_l2" n="8,2">
+            <l>
+              <lb n="3"/>tvāṃ pātu lakṣaṇāḍhyaḥ suravaramukuṭendracārumaṇighṛṣṭaḥ |<lb n="4"/></l>
+            <l>rāvaṇanamitāṅguṣṭho rudrasya sadārcitaḥ pādaḥ || 1 ||<lb n="5"/></l>
+          </lg>
+          <p>idam asmadīyaṃ gṛham | yāvat praviśāmi | <stage>praviśya |</stage> vidūṣaka vidūṣaka | <lb n="6"/></p>
+        </sp>
         <sp who="vidūṣakaḥ">
           <speaker>vidūṣakaḥ</speaker>
           <p n="8,6" xml:id="p8_l6">
@@ -1482,15 +1485,18 @@ Similarly, I have rendered the "nepathye" stage direction as speaker identificat
             <seg type="prakrit" xml:lang="pra-Latn">edu edu āvutto | āvuttaṃ apekkhantī santappadi ajjuā |<seg type="chāyā" xml:lang="san-Latn">etv etv āvuttaḥ | āvutam apaśyantī saṃtapyaty ajjukā |</seg>
             </seg>
             <pb n="48"/></p>
-          <p xml:id="p48_l1" n="48,1">rāmilakaḥ — <lb n="2"/></p>
-          <lg xml:id="p48_l1_2" n="48,1">
-            <l>icchāmi tāvad asyāḥ kalamadhuravaco mukhaṃ viśālākṣyāḥ |<lb n="3"/></l>
+        </sp>
+        <sp who="rāmilakaḥ">
+          <speaker>rāmilakaḥ</speaker>
+          <lg xml:id="p48_l1" n="48,1">
+            <l>
+              <lb n="2"/>icchāmi tāvad asyāḥ kalamadhuravaco mukhaṃ viśālākṣyāḥ |<lb n="3"/></l>
             <l>madhupavrato 'bhipātuṃ vikasitam iva komalaṃ kamalam || 27 ||<lb n="4"/></l>
           </lg>
           <p>
             <stage>upetya |</stage> kathaṃ māṃ dṛṣṭvā parāvṛttamukhī sthitā | <stage>vastrānte gṛhṇan |</stage>
             <lb n="5"/></p>
-          <lg xml:id="p48_l1_3" n="48,1">
+          <lg xml:id="p48_l1_2" n="48,1">
             <l>etan nivartaya sugātri mukhāravindam<caesura/><lb n="6"/> īṣattaraṅgaparivṛttam ivāravindam |<lb n="7"/></l>
             <l>prīṇāti nāma tava vaktram asarvadṛṣṭam<caesura/><lb n="8"/> alpālpapītam iva pāṇipuṭena toyam || 28 ||<lb n="9"/></l>
           </lg>

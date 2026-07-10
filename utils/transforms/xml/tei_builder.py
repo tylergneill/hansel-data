@@ -147,6 +147,14 @@ class TextBuildState:
     in_open_stage: bool = False
     open_stage_lines: list = field(default_factory=list)
 
+    # True after a bare speaker cue ("name —" alone on its own physical line):
+    # that line must still be counted (lb_count already bumped), but the label
+    # it would carry ("n=" on the following <p>/<lg>) must stay put, since it's
+    # anchored to the source [page,line] marker. So instead the *next* content
+    # line (verse or prose) emits a leading <lb> of its own to carry the
+    # now-correct line number for its own first physical line.
+    pending_bare_cue_lb: bool = False
+
 # ----------------------------
 # ----------------------------
 # Module-level helpers
@@ -349,15 +357,25 @@ class TeiTextBuilder:
                 trailing_text = speaker_match.group(2).strip()
                 self._open_sp(speaker_name)
                 if not trailing_text:
-                    # Bare cue ("name —") occupies its own physical line, with no
-                    # dialogue <p> to hold an <lb>. Emit one directly on <sp> so the
-                    # line is still counted (mirrors the with-dialogue path below,
-                    # which emits its own trailing <lb> at the end of the <p>).
-                    self._emit_lb(s.current_sp, line)
+                    # Bare cue ("name —") occupies its own physical line, already
+                    # correctly counted by current_loc_label/lb_count (set when the
+                    # preceding [page,line] marker was opened). The block heading
+                    # (e.g. "7,21") is anchored to that marker and must NOT move.
+                    # But the line the cue itself sits on still needs to end somehow
+                    # so the NEXT line (verse/prose) gets counted as a new physical
+                    # line — flag it so the next content emits its own leading <lb>
+                    # (see pending_bare_cue_lb). No XML element is emitted for the
+                    # cue's own line itself.
+                    s.pending_bare_cue_lb = True
                     self._finalize_physical_line(line)
                 if trailing_text:
-                    # Check if trailing text is a pending head (e.g. "priye —_")
-                    pending_head_match = PENDING_HEAD_RE.search(trailing_text)
+                    # Check if trailing text is a pending head (e.g. "priye —_").
+                    # When trailing_text is exactly "_", the punctuation
+                    # PENDING_HEAD_RE needs right before it is the speaker's own
+                    # em dash, which SPEAKER_RE already consumed out of
+                    # trailing_text — so match against the full line instead.
+                    pending_head_match = (PENDING_HEAD_RE.search(line) if trailing_text == CHAR_FOR_PENDING_HEAD
+                                           else PENDING_HEAD_RE.search(trailing_text))
                     if pending_head_match:
                         head_text = pending_head_match.group(1).strip()
                         head_elem = etree.Element("head")
@@ -434,6 +452,7 @@ class TeiTextBuilder:
         raise Exception(f"end of _handle_line reached: {line}")
 
     # ---- helpers ----
+
     def _emit_lb(self, container: etree._Element, raw_line: str = "") -> etree._Element:
         s = self.state
         s.lb_count += 1
@@ -643,6 +662,11 @@ class TeiTextBuilder:
                 l_attrs[f"{{{_XML_NS}}}lang"] = "pra-Latn"
             s.current_l = etree.SubElement(working_lg, "l", l_attrs)
             s.last_tail_text_sink = None
+            if s.pending_bare_cue_lb:
+                lb = self._emit_lb(s.current_l)
+                s.last_tail_text_sink = lb
+                s.suppress_join_space = True  # leading <lb>, no preceding word to space from
+                s.pending_bare_cue_lb = False
 
         verse_payload = after_tab
         back_text = ""
@@ -1157,6 +1181,11 @@ class TeiTextBuilder:
             # DO NOT clear current_loc_label — verses in this speech still need it
         s.current_p = etree.SubElement(s.current_sp, "p", attrs)
         s.last_tail_text_sink = None
+        if s.pending_bare_cue_lb:
+            lb = self._emit_lb(s.current_p)
+            s.last_tail_text_sink = lb
+            s.suppress_join_space = True  # leading <lb>, no preceding word to space from
+            s.pending_bare_cue_lb = False
         s.prev_line_hyphen = False
 
     def _flush_verse_group_buffer(self):
