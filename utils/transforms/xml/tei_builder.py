@@ -231,6 +231,21 @@ class TeiTextBuilder:
             return
 
         if not s.in_open_prakrit and '((' in line and '))' not in line:
+            # A leading speaker cue ("name — ...") must open its <sp> now, before
+            # the line is swallowed into stage-direction accumulation — otherwise
+            # the cue ends up spliced together with the continuation line behind an
+            # embedded \n, where SPEAKER_RE (anchored with ^...$, no re.DOTALL) can
+            # no longer match it once the (( )) span finally closes.
+            if s.drama:
+                speaker_match = SPEAKER_RE.match(line)
+                if speaker_match:
+                    speaker_name = speaker_match.group(1)
+                    trailing_text = speaker_match.group(2)
+                    self._open_sp(speaker_name)
+                    self._open_location_for_sp()
+                    s.in_open_stage = True
+                    s.open_stage_lines = [trailing_text]
+                    return
             s.in_open_stage = True
             s.open_stage_lines = [line]
             return
