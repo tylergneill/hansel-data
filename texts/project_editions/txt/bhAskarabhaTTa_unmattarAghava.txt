@@ -101,7 +101,7 @@ prastāvanā ।
 
 [3,2]
 
-sakhī — ˹halā jāṇai, aggado evva kusumāiṃ dīsandi । kiṃ aṇṇado
+sakhī — ˹halā jāṇaï, aggado evva kusumāiṃ dīsandi । kiṃ aṇṇado
 diṇṇadiṭṭhī gacchasi ।˼
 
 [3,4]
@@ -111,9 +111,9 @@ kusumāiṃ dīsandi । tā ahilāseṇa gacchāmi ।˼
 
 [3,6]
 
-madhukarikā — ˹halā jāṇai, dāṇiṃ vi amhāṇaṃ aparicido padeso ।
+madhukarikā — ˹halā jāṇaï, dāṇiṃ vi amhāṇaṃ aparicido padeso ।
 kāṇaṇesu sāvāṇuggahasamatthā isiṇo ciṭṭhanti । ado jassiṃ kassiṃ vi
-assame kusumesu gahidesu jo ko vi kuppai । rāmabhaddo vi tuha piaṃ kāduṃ
+assame kusumesu gahidesu jo ko vi kuppaï । rāmabhaddo vi tuha piaṃ kāduṃ
 kaṇaamia geṇhia miaāvāvārādo dāṇiṃ evva ṇivaṭṭissadi । tā
 ettiehiṃ kusumehiṃ ṇivattemo ।˼
 
@@ -121,7 +121,7 @@ ettiehiṃ kusumehiṃ ṇivattemo ।˼
 
 sītā — ˹savvajaṇasāhāraṇāiṃ kkhu vaṇaladāiṃ phalapupphamūlāiṃ ṇaīja-
 lāiṃ a । ado kiṃṇimittaṃ jo ko vi kuppadi । ((puṣpabhājanaṃ vilokya ।)) a-
-jjauttassa devvaccaṇopajuttāiṃ kusumāiṃ pajjattāiṃ । ido puraṭṭhide kāṇaṇantare
+jjaüttassa devvaccaṇopajuttāiṃ kusumāiṃ pajjattāiṃ । ido puraṭṭhide kāṇaṇantare
 maṇoharāiṃ kusumāiṃ ahigeṇhia uḍaaṃ gacchamho ।˼
 
 [3,15]
@@ -133,7 +133,7 @@ maṇoharāiṃ kusumāiṃ ahigeṇhia uḍaaṃ gacchamho ।˼
 [4,1]
 
 sītā — ((sadṛṣṭikṣepam ।)) ˹halā, ido bhamaro kiṃṇimittaṃ saṃbhamanto desu
-desu ladāviḍavesu kusumakoḍaresu āluṭhanto paribbhamai ।˼
+desu ladāviḍavesu kusumakoḍaresu āluṭhanto paribbhamaï ।˼
 
 [4,3]
 
@@ -159,19 +159,19 @@ sītā — ˹mahuarie, saṃjojehi ṇam ।˼
 madhukarikā — ˹imiṇā sahaāradaṇḍena mañjariṃ tāḍia maarandapāṇa-
 ṇiccalaṃ bhamariṃ uṭṭhāvemi । ((tathā kṛtvā ।)) amhahe । mañjarīe uṭṭhidāe tāe
 sahaarīe saṃgado imo mahuaro māhavīmaṇḍavaṃ ahiruhia mahurasaṃ pi-
-banto suhaṃ vaṭṭai । ((vanāntaraṃ vilokya sāvegam ।)) kahiṃ gadā jāṇaī । ((puna-
-rvilokya ।)) amhahe । ṇa kassiṃ vi dīsai । ((vanāntaraṃ praviśya sarvatrānviṣyantī ।))
+banto suhaṃ vaṭṭaï । ((vanāntaraṃ vilokya sāvegam ।)) kahiṃ gadā jāṇaī । ((puna-
+rvilokya ।)) amhahe । ṇa kassiṃ vi dīsaï । ((vanāntaraṃ praviśya sarvatrānviṣyantī ।))
 amhahe । iaṃ maṇoharākidī kā vi hariṇī siṇiddhāe diṭṭhie maṃ pekkhia
 ṇissarantehiṃ ṇaaṇasalilehiṃ sahīsiṇehaṃ sūaadi । maha hiaaṃ vi
 edassiṃ ciraparicidaṃ via vissaddhaṃ hodi । ahavā imāe jaṇaṇantarasa-
 hīe hodavvam । ((iti sasaṃbhramaṃ paribhramantī savimarśam ।)) ettha mahesiṇo a-
-ssamappahāvādo duṭṭhamiāṇaṃ saṃcāro ṇatthi । tā kahiṃ patthidā jāṇaitti me
+ssamappahāvādo duṭṭhamiāṇaṃ saṃcāro ṇatthi । tā kahiṃ patthidā jāṇaïtti me
 accariaṃ hodi । ((niḥśvasya ।)) mandabhāiṇī ahaṃ khu । miaāvāvārādo ṇi-
 
 <5>
 
-uttassa rāmabhaddassa kahaṃ kahaissam । rāmabhaddo vi suṇia kīrisaṃ avattha-
-ntaraṃ aṇuhavissaditti vevai me hiaam ।˼
+uttassa rāmabhaddassa kahaṃ kahaïssam । rāmabhaddo vi suṇia kīrisaṃ avattha-
+ntaraṃ aṇuhavissaditti vevaï me hiaam ।˼
 
 [5,3]
 
@@ -755,7 +755,7 @@ agastyaḥ — vatse, mā bhaiṣīḥ । ayamiha tvāmanviṣyannāste salak�
 [14,20]
 
 sītā — ((rāmaṃ vilokya lajjāṃ nāṭayantī svagatam ।)) ˹edehiṃ viloaṇehiṃ
-ajjautto diṭṭho tti aho me bhāaheam ।˼
+ajjaütto diṭṭho tti aho me bhāaheam ।˼
 
 [14,22]
 
@@ -775,7 +775,7 @@ agastyaḥ — vatsa, ciraṃ jīva ।
 
 [14,26]
 
-sītā — ˹jedu jedu ajjautto ।˼
+sītā — ˹jedu jedu ajjaütto ।˼
 
 [14,27]
 
