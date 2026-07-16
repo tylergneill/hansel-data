@@ -140,12 +140,31 @@ class TextBuildState:
     # open-prakrit state: accumulates lines when ˹ and ˼ span multiple input lines
     in_open_prakrit: bool = False
     open_prakrit_lines: list = field(default_factory=list)
+    # at_block_start captured when the span opened (accumulated lines aren't block starts)
+    open_prakrit_at_block_start: bool = False
     # When line_by_line, holds break flags (True=hyphenated) for each inter-line boundary
     open_prakrit_lb_breaks: Optional[list] = None
 
     # open-stage state: accumulates lines when (( )) spans multiple input lines
     in_open_stage: bool = False
     open_stage_lines: list = field(default_factory=list)
+
+    # True after a bare speaker cue ("name —" alone on its own physical line):
+    # that line must still be counted (lb_count already bumped), but the label
+    # it would carry ("n=" on the following <p>/<lg>) must stay put, since it's
+    # anchored to the source [page,line] marker. So instead the *next* content
+    # line (verse or prose) emits a leading <lb> of its own to carry the
+    # now-correct line number for its own first physical line.
+    pending_bare_cue_lb: bool = False
+
+    # True at the very start of the text and immediately after a blank source
+    # line. Speaker cues ("name — ...") only ever open a new <sp> at the start
+    # of a block — a mid-paragraph line that happens to start with "word — "
+    # (e.g. dialogue wrapping onto a new physical line) must NOT be mistaken
+    # for a new speaker turn. Cleared once a genuine top-level physical line
+    # is consumed; untouched by recursive _handle_line() calls that just
+    # redispatch already-accumulated content (those never start a new block).
+    at_block_start: bool = True
 
 # ----------------------------
 # ----------------------------
@@ -194,8 +213,15 @@ class TeiTextBuilder:
     # ---- per-line handler ----
     def _handle_line(self, line: str) -> None:
         if not line.strip():
+            self.state.at_block_start = True
             return
         s = self.state
+        # Consumed once per genuine physical line: only true for the first line
+        # dispatched after a blank source line (or at the very start of the text).
+        # Recursive re-dispatches below (spliced/accumulated content) run with this
+        # already False, since they never follow a fresh blank-line gap.
+        at_block_start = s.at_block_start
+        s.at_block_start = False
 
         # OPEN-STAGE ACCUMULATION — (( )) spanning multiple lines
         if s.in_open_stage:
@@ -214,6 +240,7 @@ class TeiTextBuilder:
                 spliced = first_line + '\n' + continuation
                 s.in_open_stage = False
                 s.open_stage_lines = []
+                s.at_block_start = at_block_start
                 self._handle_line(spliced)
                 # If there was text after )) on the closing line, dispatch it as its own line.
                 if stage_tail.strip():
@@ -223,6 +250,21 @@ class TeiTextBuilder:
             return
 
         if not s.in_open_prakrit and '((' in line and '))' not in line:
+            # A leading speaker cue ("name — ...") must open its <sp> now, before
+            # the line is swallowed into stage-direction accumulation — otherwise
+            # the cue ends up spliced together with the continuation line behind an
+            # embedded \n, where SPEAKER_RE (anchored with ^...$, no re.DOTALL) can
+            # no longer match it once the (( )) span finally closes.
+            if s.drama and at_block_start:
+                speaker_match = SPEAKER_RE.match(line)
+                if speaker_match:
+                    speaker_name = speaker_match.group(1)
+                    trailing_text = speaker_match.group(2)
+                    self._open_sp(speaker_name)
+                    self._open_location_for_sp()
+                    s.in_open_stage = True
+                    s.open_stage_lines = [trailing_text]
+                    return
             s.in_open_stage = True
             s.open_stage_lines = [line]
             return
@@ -267,7 +309,7 @@ class TeiTextBuilder:
                         # SPEAKER_RE uses $ which won't cross \n; match on first line only,
                         # then dispatch full joined content as the trailing prose/prakrit text.
                         first_line = joined_parts[0]
-                        speaker_match = SPEAKER_RE.match(first_line)
+                        speaker_match = SPEAKER_RE.match(first_line) if s.open_prakrit_at_block_start else None
                         if speaker_match:
                             speaker_name = speaker_match.group(1)
                             trailing_in_first = speaker_match.group(2)
@@ -291,6 +333,7 @@ class TeiTextBuilder:
             # Opening of a multi-line Prakrit span — begin accumulation
             s.in_open_prakrit = True
             s.open_prakrit_lines = [line]
+            s.open_prakrit_at_block_start = at_block_start
             return
 
         # CHĀYĀ DISPATCH — intercept lines when awaiting chāyā after ˹...˼
@@ -341,23 +384,34 @@ class TeiTextBuilder:
 
         # HANDLE LINES WITH CONTENT (AND MAYBE ALSO STRUCTURE)
 
-        # Drama: speaker line
-        if s.drama:
+        # Drama: speaker line (only ever opens at the start of a new block, i.e.
+        # immediately after a blank source line — never mid-paragraph)
+        if s.drama and at_block_start:
             speaker_match = SPEAKER_RE.match(line)
             if speaker_match:
                 speaker_name = speaker_match.group(1)
                 trailing_text = speaker_match.group(2).strip()
                 self._open_sp(speaker_name)
                 if not trailing_text:
-                    # Bare cue ("name —") occupies its own physical line, with no
-                    # dialogue <p> to hold an <lb>. Emit one directly on <sp> so the
-                    # line is still counted (mirrors the with-dialogue path below,
-                    # which emits its own trailing <lb> at the end of the <p>).
-                    self._emit_lb(s.current_sp, line)
+                    # Bare cue ("name —") occupies its own physical line, already
+                    # correctly counted by current_loc_label/lb_count (set when the
+                    # preceding [page,line] marker was opened). The block heading
+                    # (e.g. "7,21") is anchored to that marker and must NOT move.
+                    # But the line the cue itself sits on still needs to end somehow
+                    # so the NEXT line (verse/prose) gets counted as a new physical
+                    # line — flag it so the next content emits its own leading <lb>
+                    # (see pending_bare_cue_lb). No XML element is emitted for the
+                    # cue's own line itself.
+                    s.pending_bare_cue_lb = True
                     self._finalize_physical_line(line)
                 if trailing_text:
-                    # Check if trailing text is a pending head (e.g. "priye —_")
-                    pending_head_match = PENDING_HEAD_RE.search(trailing_text)
+                    # Check if trailing text is a pending head (e.g. "priye —_").
+                    # When trailing_text is exactly "_", the punctuation
+                    # PENDING_HEAD_RE needs right before it is the speaker's own
+                    # em dash, which SPEAKER_RE already consumed out of
+                    # trailing_text — so match against the full line instead.
+                    pending_head_match = (PENDING_HEAD_RE.search(line) if trailing_text == CHAR_FOR_PENDING_HEAD
+                                           else PENDING_HEAD_RE.search(trailing_text))
                     if pending_head_match:
                         head_text = pending_head_match.group(1).strip()
                         head_elem = etree.Element("head")
@@ -434,6 +488,7 @@ class TeiTextBuilder:
         raise Exception(f"end of _handle_line reached: {line}")
 
     # ---- helpers ----
+
     def _emit_lb(self, container: etree._Element, raw_line: str = "") -> etree._Element:
         s = self.state
         s.lb_count += 1
@@ -643,6 +698,11 @@ class TeiTextBuilder:
                 l_attrs[f"{{{_XML_NS}}}lang"] = "pra-Latn"
             s.current_l = etree.SubElement(working_lg, "l", l_attrs)
             s.last_tail_text_sink = None
+            if s.pending_bare_cue_lb:
+                lb = self._emit_lb(s.current_l)
+                s.last_tail_text_sink = lb
+                s.suppress_join_space = True  # leading <lb>, no preceding word to space from
+                s.pending_bare_cue_lb = False
 
         verse_payload = after_tab
         back_text = ""
@@ -1157,6 +1217,11 @@ class TeiTextBuilder:
             # DO NOT clear current_loc_label — verses in this speech still need it
         s.current_p = etree.SubElement(s.current_sp, "p", attrs)
         s.last_tail_text_sink = None
+        if s.pending_bare_cue_lb:
+            lb = self._emit_lb(s.current_p)
+            s.last_tail_text_sink = lb
+            s.suppress_join_space = True  # leading <lb>, no preceding word to space from
+            s.pending_bare_cue_lb = False
         s.prev_line_hyphen = False
 
     def _flush_verse_group_buffer(self):

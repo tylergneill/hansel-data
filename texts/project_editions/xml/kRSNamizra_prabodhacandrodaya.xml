@@ -2507,14 +2507,17 @@
             </seg>
             <stage>iti niṣkramya kṣamayā saha praviśati</stage>
           </p>
-          <p xml:id="p4_l66" n="4,66">kṣamā — <pb n="62"/></p>
-          <lg xml:id="p4_l66_2" n="4,66">
-            <l>krodhāndhakāravikaṭabhrukuṭītaraṅga-<caesura/>bhīmasya sāndhyakiraṇāruṇaghoradṛṣṭeḥ |</l>
+        </sp>
+        <sp who="kṣamā">
+          <speaker>kṣamā</speaker>
+          <lg xml:id="p4_l66" n="4,66">
+            <l>
+              <caesura/>bhīmasya sāndhyakiraṇāruṇaghoradṛṣṭeḥ |<pb n="62"/></l>
             <l>niṣkampanirmalagabhīrapayodhidhīrā<caesura/>dhīrāḥ parasya parivādagiraḥ kṣamante || 4.16 ||</l>
           </lg>
           <p>
             <stage>saślāgham ātmānaṃ nirvarṇya</stage> aho! aham... </p>
-          <lg xml:id="p4_l66_3" n="4,66">
+          <lg xml:id="p4_l66_2" n="4,66">
             <l>klamo na vācāṃ, śiraso na śūlaṃ,<caesura/>na cittatāpo, na tanor vimardaḥ |</l>
             <l>na cāpi hiṃsādir anarthayogaḥ,<caesura/>ślāghyā paraṃ krodhajaye 'ham ekā || 4.17 ||</l>
           </lg>
@@ -2620,6 +2623,9 @@
               <l>anutpādaḥ śreyān kim u kathaya pathyo 'tha vilayo?<caesura/>vināśo labdhasya vyathayatitarāṃ; na tv anudayaḥ || 4.23 ||</l>
             </lg>
           </lg>
+        </sp>
+        <sp who="kiñca">
+          <speaker>kiñca</speaker>
           <lg xml:id="p4_l94" n="4,94">
             <head>kiñca —</head>
             <l>mṛtyur nṛtyati mūrdhni, śaśvad uragī ghorā jarārūpiṇī<caesura/>tvām eṣā grasate, parigrahamayair gṛdhrair jagad grasyate |</l>
@@ -3869,9 +3875,12 @@
           <p xml:id="p6_l154" n="6,154">
             <stage>tataḥ praviśati prabodhacandraḥ |</stage>
           </p>
-          <p xml:id="p6_l155" n="6,155">prabodhacandraḥ — </p>
-          <lg xml:id="p6_l155_2" n="6,155">
-            <l>kiṃ vāptaṃ? kim apohitaṃ? kim uditaṃ? kiṃ vā samutsāritaṃ?<caesura/>syūtaṃ kiṃ nu? vilāyitaṃ nu? kim idaṃ? kiñcin na vā kiñcana? |</l>
+        </sp>
+        <sp who="prabodhacandraḥ">
+          <speaker>prabodhacandraḥ</speaker>
+          <lg xml:id="p6_l155" n="6,155">
+            <l>
+              <caesura/>syūtaṃ kiṃ nu? vilāyitaṃ nu? kim idaṃ? kiñcin na vā kiñcana? |<pb n="110"/> unmathya, ko 'py ajani bodhatuṣāraraśmiḥ |</l>
             <l>yasminn abhyudite vitarkapadavīṃ naivaṃ samārohati<caesura/>trailokyaṃ sahajaprakāśadalitaṃ so 'haṃ prabodhodayaḥ || 6.30 ||</l>
           </lg>
           <p>
@@ -3890,7 +3899,7 @@
           <p n="6,159" xml:id="p6_l159">
             <stage>āliṅgya sānandam</stage> aho! vighaṭitatimirapaṭalaṃ saṃjātam! tathā hi — </p>
           <lg xml:id="p6_l159_2" n="6,159">
-            <l>mohāndhakāram avadhūya, vikalpanidrām<caesura/><pb n="110"/> unmathya, ko 'py ajani bodhatuṣāraraśmiḥ |</l>
+            <l>mohāndhakāram avadhūya, vikalpanidrām<caesura/></l>
             <l>śraddhāvivekamatiśāntiyamādi yena<caesura/>viśvātmakaḥ sphurati — viṣṇur ahaṃ sa eṣaḥ || 6.31 ||</l>
           </lg>
           <p>sarvathā kṛtakṛtyo 'smi bhagavatyā viṣṇubhakteḥ prasādāt | so 'ham idānīm — </p>

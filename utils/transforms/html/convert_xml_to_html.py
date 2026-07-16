@@ -459,7 +459,13 @@ class HtmlConverter:
                             and not (child.tail and child.tail.strip())
                             and not (xml_parent is not None and (xml_parent.text or '').strip())):
                         etree.SubElement(html_node, "br")
-                        etree.SubElement(html_node, "br")
+                        # A second <br> makes a visible blank-line gap, needed when more
+                        # content follows in the same flow. But if this <lb> is the <p>'s
+                        # last child, the <p> ends here and whatever follows is a new
+                        # <h3> location heading — its own CSS margin already supplies a
+                        # gap, so a second <br> on top of it would double up the spacing.
+                        if next_sib.getnext() is not None:
+                            etree.SubElement(html_node, "br")
                 # Ensure a space after the closing paren when followed by content.
                 # The XML parser's remove_blank_text=True strips whitespace-only tails,
                 # so we must inject a space when the tail is missing or abuts the next word.
@@ -952,9 +958,13 @@ class HtmlConverter:
                             speech_div = etree.SubElement(content_div, "div", {"class": "speech rich-text"})
                             if speaker_name and first_rich_div:
                                 # A page break pending from before this <sp> still needs to be
-                                # shown, on its own line, ahead of the speaker attribution —
-                                # unlike a plain line marker, which is suppressed for a bare cue.
-                                if (self.pending_label is not None
+                                # shown, on its own line, ahead of the speaker attribution — but
+                                # only when there's no <p> for it to land inside inline (the normal
+                                # path, via process_children's own <pb> handling). That's the case
+                                # for a bare cue ("name —") going straight into a <lg> verse, which
+                                # has no <p> at all.
+                                if (sp_child.tag != "p"
+                                        and self.pending_label is not None
                                         and 'pb-label' in (self.pending_label.get('class') or '')):
                                     pb_p = etree.SubElement(speech_div, "p")
                                     pb_p.append(self.pending_label)
@@ -963,17 +973,6 @@ class HtmlConverter:
                             first_rich_div = False
                         if speech_div_plain is None:
                             speech_div_plain = etree.SubElement(content_div, "div", {"class": "speech plain-text"})
-
-                        if sp_child.tag == "lb" and sp_child.getparent() is element:
-                            # Bare speaker cue ("name —") occupying its own physical line
-                            # (tei_builder.py emits this <lb> as a direct child of <sp> so the
-                            # line is still counted). Advance the line counter but suppress the
-                            # label entirely — the cue's own line isn't worth announcing.
-                            line_n = sp_child.get("n")
-                            if line_n:
-                                self.current_line = line_n
-                            self.pending_label = None
-                            continue
 
                         if sp_child.tag == "p":
                             verses_ul = None
@@ -1174,13 +1173,22 @@ class HtmlConverter:
                             else:
                                 h2.text = n_attr
                             if len(n_parts) == 2:
-                                if line_part == "1":
+                                pending_is_pb_for_same_page = (
+                                    self.pending_label is not None
+                                    and self.pending_label.get("data-page") == page_part
+                                )
+                                if pending_is_pb_for_same_page:
+                                    # A <pb> already set a page-link label for this page; update
+                                    # its text to reflect the actual first line rather than clearing it.
+                                    self.pending_label.text = f'({self.page_label}.{page_part}, {self.line_label}.{line_part})' if not self.no_line_numbers else f'({self.page_label}.{page_part})'
+                                elif line_part == "1":
                                     label = etree.Element("a", {"class": "pb-label rich-text", "data-page": page_part, "target": "_blank"})
                                     label.text = f'({self.page_label}.{page_part}, {self.line_label}.1)'
+                                    self.pending_label = label
                                 else:
                                     label = etree.Element("span", {"class": "lb-label rich-text", "data-line": line_part})
                                     label.text = f'({self.page_label}.{page_part}, {self.line_label}.{line_part})'
-                                self.pending_label = label
+                                    self.pending_label = label
 
                     # Rich pass: wrap in <ul class="verses"> for verse-styling CSS
                     if not self.only_plain:
