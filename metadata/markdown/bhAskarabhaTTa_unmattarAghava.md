@@ -77,14 +77,12 @@ CC BY-NC-SA 4.0
 
 # Digitization Notes
 
-- (March – June 2026) T. Richard: Manually transcribed the edition and formatted as a Google Doc.
-- (June 2026) T. Neill: Exported Google Doc as Word doc and processed for HANSEL.
+- (March – July 2026) T. Richard: Manually transcribed the edition and formatted as a Google Doc. Justified improvements in separate List of Improvements doc.
+- (June — July 2026) T. Neill: Exported Google Doc tabs as Word docs and processed for HANSEL.
 
 # File Creation Method
 
-I (T. Neill) produced this HANSEL edition. I first manually extracted T. Richard's submitted Word document to plain-text, then added basic structural markup (page breaks, tabbed verses, marking of stage directions and Prakrit). Next, I re-OCRed the PDF (Cloud Vision and Sarvam Vision auto-harmonized with Gemini 2.5 Flash) to recover line-break information, then merged this information into the structured transcript. Finally, I interviewed T. Richard for much of the metadata (the Work Description is entirely his) and ingested the data into HANSEL. T. Richard and I then proofread the text (both Prakrit and Sanskrit, including chāyā) together in a collegial read-through over coffee, during which we added word separation.
-
-As in other HANSEL drama texts so far, I have artificially rendered the "nepathye" stage directions as speaker identification.
+I (T. Neill) produced this HANSEL edition. I first manually extracted T. Richard's submitted Word document to plain-text, then added basic structural markup (page breaks, tabbed verses, marking of stage directions and Prakrit). Next, I re-OCRed the PDF (Cloud Vision and Sarvam Vision auto-harmonized with Gemini 2.5 Flash) to recover line-break information, then merged this information into the structured transcript. Finally, I interviewed T. Richard for much of the metadata (the Work Description is entirely his) and ingested the data into HANSEL. T. Richard and I then reviewed presentation features over the course of several in-person sessions.
 
 # Text Type
 
@@ -96,13 +94,13 @@ Devanāgarī-like (ityevam, not ity evam)
 
 # Additional Files
 
-- [List of suggested improvements](/static/data/miscellaneous/bhAskarabhaTTa_unmattarAghava_improvements.docx) (7)  based on Hamburg Ms.
+- [List of six suggested improvements](/static/data/miscellaneous/bhAskarabhaTTa_unmattarAghava_improvements.docx) based on Hamburg Ms.
 
 # Additional Notes
 
 - The print edition is based on a single manuscript sourced from Palamaneri, Tamil Nadu by someone named Subrahmaṇya Śāstrī.
 - T. Richard has prepared an English translation for eventual print publication.
-- Numerous scholars place Bhāskara Bhaṭṭa in the 14th century since he mentions a festival honoring the lotus-feet of Vidyāraṇya, the Advaita philosopher and political advisor who flourished during the 14th century. This Vidyāraṇya is also said to have advised both Bukka(ṇa) I and Harihara II, who are respectively the grandfather and father of the Virūpākṣa Rāya I who wrote the other Unmattarāghava.
+- Numerous scholars place Bhāskara Bhaṭṭa in the 14th century since he mentions a festival honoring the lotus-feet of Vidyāraṇya, the Advaita philosopher and political advisor who flourished during the 14th century. This Vidyāraṇya is also said to have advised both Bukka(ṇa) I and Harihara II, who are respectively the grandfather and father of the Virūpākṣa Rāya I (regnal years 1404–1405) who wrote another one-act play called Unmattarāghava.
 
 # Original Submission Last Updated
 
@@ -110,8 +108,8 @@ Devanāgarī-like (ityevam, not ity evam)
 
 # Text Last Updated
 
-2026-06-26
+2026-07-16
 
 # Metadata Last Updated 
 
-2026-06-26
+2026-07-16
