@@ -149,6 +149,12 @@ class TextBuildState:
     in_open_stage: bool = False
     open_stage_lines: list = field(default_factory=list)
 
+    # open-choice state: accumulates lines when ≤sic≥«corr» spans multiple
+    # input lines (e.g. a hyphenated word-break falls inside the sic text)
+    in_open_choice: bool = False
+    open_choice_lines: list = field(default_factory=list)
+    open_choice_at_block_start: bool = False
+
     # True after a bare speaker cue ("name —" alone on its own physical line):
     # that line must still be counted (lb_count already bumped), but the label
     # it would carry ("n=" on the following <p>/<lg>) must stay put, since it's
@@ -222,6 +228,32 @@ class TeiTextBuilder:
         # already False, since they never follow a fresh blank-line gap.
         at_block_start = s.at_block_start
         s.at_block_start = False
+
+        # OPEN-CHOICE ACCUMULATION — ≤sic≥«corr» spanning multiple lines (e.g. a
+        # hyphenated word-break falls inside the sic text)
+        if s.in_open_choice:
+            if '≥' in line and '«' in line:
+                # Splice continuation lines into the opening line so CHOICE_RE can
+                # match the full ≤...≥«...» span. Use \n as an intra-sic line-break
+                # sentinel so _emit_choice can insert an <lb> at the right position.
+                first_line = s.open_choice_lines[0]
+                middle_lines = s.open_choice_lines[1:]
+                continuation = '\n'.join([*middle_lines, line])
+                spliced = first_line + '\n' + continuation
+                s.in_open_choice = False
+                s.open_choice_lines = []
+                s.at_block_start = s.open_choice_at_block_start
+                self._handle_line(spliced)
+            else:
+                s.open_choice_lines.append(line)
+            return
+
+        if '≤' in line and line.rindex('≤') > (line.rfind('≥') if '≥' in line else -1):
+            # Opening of a multi-line choice span — begin accumulation
+            s.in_open_choice = True
+            s.open_choice_lines = [line]
+            s.open_choice_at_block_start = at_block_start
+            return
 
         # OPEN-STAGE ACCUMULATION — (( )) spanning multiple lines
         if s.in_open_stage:
@@ -763,17 +795,36 @@ class TeiTextBuilder:
         page, line_num = match.groups()
         self._emit_pb(page, line_num)
 
+    def _fill_with_lb_sentinels(self, el: etree._Element, inner: str):
+        """Set el.text from `inner`, splitting on \\n sentinels (inserted by the
+        open-choice accumulator) into <lb> sub-elements, mirroring
+        _emit_stage_direction's handling of multi-line spans."""
+        s = self.state
+        if s.line_by_line and '\n' in inner:
+            parts = inner.split('\n')
+            el.text = HYPHEN_EOL_RE.sub("", parts[0])
+            for i, part in enumerate(parts[1:], start=1):
+                s.lb_count += 1
+                attrs = {"n": str(s.lb_count)}
+                if HYPHEN_EOL_RE.search(parts[i - 1]):
+                    attrs["break"] = "no"
+                lb = etree.SubElement(el, "lb", attrs)
+                s.last_emitted_lb = lb
+                lb.tail = HYPHEN_EOL_RE.sub("", part)
+        else:
+            el.text = inner.replace('\n', '')
+
     def _emit_choice(self, match: re.Match):
         choice = etree.Element("choice")
         sic = etree.SubElement(choice, "sic")
-        sic.text = match.group(1)
+        self._fill_with_lb_sentinels(sic, match.group(1))
         corr = etree.SubElement(choice, "corr")
         corr.text = match.group(2)
         self._add_inline_element(choice)
 
     def _emit_del(self, match: re.Match):
         del_el = etree.Element("del")
-        del_el.text = match.group(1)
+        self._fill_with_lb_sentinels(del_el, match.group(1))
         self._add_inline_element(del_el)
 
     def _emit_supplied(self, match: re.Match):
