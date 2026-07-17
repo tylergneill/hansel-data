@@ -28,6 +28,12 @@ h1, h2, h3, h4, h5, h6 {
 .show-line-breaks .hyphen { display: inline; }
 .show-line-breaks .lb-br, .show-line-breaks .pb-br { display: block; }
 
+/* Staggered dialogue verse: fragment offsets (set inline as custom properties)
+   differ by display mode — paragraph mode stacks fragments per half-verse,
+   line mode per physical print line. */
+.padas > li { text-indent: var(--stagger-para, 0); }
+.show-line-breaks .padas > li { text-indent: var(--stagger-lines, 0); }
+
 #content.hide-location-markers .location-marker {
     display: none;
 }

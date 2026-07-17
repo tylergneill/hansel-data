@@ -666,6 +666,14 @@ class TeiTextBuilder:
         pre_tab, after_tab = line.split("\t", 1)
         pre_tab = pre_tab.rstrip()
 
+        # Staggered dialogue verse: a fragment printed further right than the
+        # previous speaker's fragment is marked with extra leading tabs. Record
+        # the total tab count as rend="indent(N)" on the <l> (pure tab-indented
+        # lines only) instead of letting the extra tabs leak into the verse text.
+        is_pure_tab_line = not pre_tab.strip()
+        tab_indent = 1 + len(after_tab) - len(after_tab.lstrip("\t"))
+        after_tab = after_tab.lstrip("\t")
+
         # Determine the lg to operate on
         if target_lg_override is not None:
             working_lg = target_lg_override
@@ -694,6 +702,8 @@ class TeiTextBuilder:
             if pre_tab.strip():
                 self._append_child_text(working_lg, "head", pre_tab)
             l_attrs = {}
+            if is_pure_tab_line and tab_indent > 1:
+                l_attrs["rend"] = f"indent({tab_indent})"
             if s.in_prakrit_verse:
                 l_attrs[f"{{{_XML_NS}}}lang"] = "pra-Latn"
             s.current_l = etree.SubElement(working_lg, "l", l_attrs)

@@ -2,9 +2,16 @@ from lxml import etree
 import argparse
 import copy
 import json
+import re
 from pathlib import Path
 import markdown
 from lxml.html import fromstring
+from skrutable.scansion import Scanner
+
+# Width of one akṣara in CSS "ch" units, used to offset staggered dialogue
+# verse fragments (rend="indent(N)") to roughly where the previous fragment
+# ended in print. Tuned by eye against IAST text in the rich viewer.
+STAGGER_CH_PER_AKSARA = 2.75
 
 
 def _is_condensed_lg(lg_element):
@@ -66,6 +73,10 @@ class HtmlConverter:
         self.current_verse = None
         self.current_verse_part = None
         self.current_coord_id = None
+        self.stagger_run_counts = []  # line mode: akṣara counts of prior fragments on the current print line
+        self.stagger_since_half = []  # paragraph mode: akṣara counts since the last half-/full-verse boundary
+        self.stagger_verse_active = False  # a staggered verse (some fragment carried rend) is in progress
+        self._scanner = None  # lazy skrutable Scanner, created on first staggered verse
 
     # --- Content Processing Functions ---
     def append_text(self, element, text, strip_leading_whitespace=False, treat_as_plain=True):
@@ -185,6 +196,79 @@ class HtmlConverter:
             if child.tail and child.tail.strip():
                 text += child.tail
         return text
+
+    def _count_aksaras(self, text):
+        """Count akṣaras (syllables) in IAST text via skrutable's scansion."""
+        if not text.strip():
+            return 0
+        if self._scanner is None:
+            self._scanner = Scanner()
+        verse = self._scanner.scan(text, from_scheme="IAST")
+        return sum(1 for s in verse.text_syllabified.replace("\n", " ").split(" ") if s)
+
+    def _l_caesura_segments(self, l_element):
+        """Plain-text segments of an <l>, split at <caesura/> (i.e. per physical print line)."""
+        segments = ['']
+        if l_element.text:
+            segments[-1] += l_element.text
+        for child in l_element:
+            if child.tag == 'caesura':
+                segments.append('')
+            elif child.tag not in ('lb', 'pb'):
+                segments[-1] += self.get_plain_text_recursive(child)
+            if child.tail:
+                segments[-1] += child.tail
+        return [seg for seg in segments if seg.strip()]
+
+    def _stagger_offsets_aksaras(self, l_element):
+        """Track stagger runs across <l> elements; return this fragment's offsets.
+
+        A verse split across speaker turns and printed progressively further right
+        ("staggered dialogue verse") carries rend="indent(N)" on each shifted <l>
+        (N = leading tab count in the plaintext source). The offset a fragment
+        needs depends on the display mode, so two are returned, as a
+        (paragraph_mode, line_mode) tuple of akṣara counts:
+
+        - Line mode shows one line per physical print line, so fragments stack
+          per print line: N == (fragments already on the line) + 1 continues the
+          line and offsets this fragment past those fragments' akṣaras; anything
+          else starts a new line at offset 0. A fragment that wraps (internal
+          <caesura/>) restarts the line at its last wrapped part, which begins
+          back at the left margin in print.
+        - Paragraph mode shows one line per half-verse, so fragments stack —
+          print wraps and margin returns notwithstanding — until a half-/full-
+          verse boundary (fragment ending in ।/॥). Offsets apply from the first
+          rend-carrying fragment until the verse closes with ॥.
+        """
+        m = re.fullmatch(r'indent\((\d+)\)', l_element.get('rend') or '')
+        indent_n = int(m.group(1)) if m else 1
+        segments = self._l_caesura_segments(l_element)
+        counts = [self._count_aksaras(seg) for seg in segments]
+
+        # line mode
+        if indent_n > 1 and indent_n == len(self.stagger_run_counts) + 1:
+            offset_lines = sum(self.stagger_run_counts)
+        else:
+            offset_lines = 0
+            self.stagger_run_counts = []
+        if len(counts) > 1:
+            self.stagger_run_counts = [counts[-1]]
+        else:
+            self.stagger_run_counts.append(counts[0] if counts else 0)
+
+        # paragraph mode
+        if indent_n > 1:
+            self.stagger_verse_active = True
+        offset_para = sum(self.stagger_since_half) if self.stagger_verse_active else 0
+        self.stagger_since_half.append(sum(counts))
+        text = ' '.join(segments).rstrip()
+        if '॥' in text:
+            self.stagger_since_half = []
+            self.stagger_verse_active = False
+        elif text.endswith('।'):
+            self.stagger_since_half = []
+
+        return offset_para, offset_lines
 
     def _render_l_as_li(self, l_element, target_ul, treat_as_plain):
         """Render an <l> element as a single <li>, with caesura becoming a hidden <br class="lb-br">.
@@ -625,7 +709,18 @@ class HtmlConverter:
                 padas_ul = etree.SubElement(verse_li, "ul", {"class": "padas"})
                 for child in lg_element.iterchildren():
                     if child.tag == 'l':
+                        offset_para, offset_lines = self._stagger_offsets_aksaras(child)
                         self._render_l_as_li(child, padas_ul, False)
+                        # Mode-scoped CSS applies these as text-indent, which
+                        # shifts only the fragment's first displayed line — a
+                        # wrapped continuation stays at the left margin.
+                        styles = []
+                        if offset_para:
+                            styles.append(f'--stagger-para: {offset_para * STAGGER_CH_PER_AKSARA:g}ch')
+                        if offset_lines:
+                            styles.append(f'--stagger-lines: {offset_lines * STAGGER_CH_PER_AKSARA:g}ch')
+                        if styles:
+                            padas_ul[-1].set('style', '; '.join(styles))
                     elif child.tag == 'lg' and child.get('type') == 'chāyā':
                         # Drop any pending lb-label before the chāyā div. A trailing <lb>
                         # on the last Prakrit <l> marks the start of the next physical line

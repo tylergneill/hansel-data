@@ -38,6 +38,8 @@ class XMLToPlaintext:
         self._in_prakrit_seg = False
         # tracks whether the current sp has already emitted "Who — " on the line
         self._sp_header_emitted = False
+        # verse-line tabs held back until a leading <lb> has started the line
+        self._pending_l_tabs = ""
 
     def convert(self, xml_path: Path) -> str:
         if not xml_path.exists():
@@ -60,7 +62,9 @@ class XMLToPlaintext:
         while self.lines and not self.lines[0]:
             self.lines.pop(0)
 
-        return "\n".join(re.sub(r"\t\s+", "\t", l.rstrip()) for l in self.lines)
+        # collapse stray spaces after tab indentation ("\s" would also swallow
+        # the extra tabs of staggered dialogue verse, so match spaces only)
+        return "\n".join(re.sub(r"\t +", "\t", l.rstrip()) for l in self.lines)
 
     def _append(self, text: str):
         self.lines[-1] += text
@@ -164,7 +168,18 @@ class XMLToPlaintext:
                 full_label = (self.current_lg_base_n or '') + (el.get('n') or '')
                 self._append(f"[{full_label}]\t")
             else:
-                self._append("\t")
+                # rend="indent(N)" marks a staggered dialogue verse fragment
+                # whose source line had N leading tabs
+                m = re.fullmatch(r'indent\((\d+)\)', el.get('rend') or '')
+                tabs = "\t" * (int(m.group(1)) if m else 1)
+                first_child = el[0] if len(el) else None
+                if (not (el.text and el.text.strip()) and first_child is not None
+                        and etree.QName(first_child.tag).localname == 'lb'):
+                    # bare-cue <l>: the leading <lb> starts the physical line, so
+                    # hold the tabs until it fires lest they strand on the cue's line
+                    self._pending_l_tabs = tabs
+                else:
+                    self._append(tabs)
         elif tag == 'pb':
             if not self.in_condensed_lg or el.tail is None:
                 self._start_new_line()
@@ -182,6 +197,9 @@ class XMLToPlaintext:
                 self._start_new_line()
             else:
                 self._append(" ")
+            if self._pending_l_tabs:
+                self._append(self._pending_l_tabs)
+                self._pending_l_tabs = ""
         elif tag == 'milestone':
             self._start_new_line()
             self._append(el.get('n'))

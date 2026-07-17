@@ -124,6 +124,37 @@ Needs to:
 
 ## Status
 
-Plan only — no code changes made yet. Next step when resumed: implement
-step 1 (tei_builder.py tab-count → rend attribute) first, verify XML output
-on bhAskarabhaTTa_unmattarAghava.txt verse 39, then implement step 2.
+Implemented (2026-07-16):
+
+1. `tei_builder.py` `_handle_verse_line`: counts all leading tabs, strips them
+   from the payload, and records `rend="indent(N)"` (N = total tab count) on
+   the new `<l>` for pure tab-indented lines with N ≥ 2. Plain single-tab
+   verse lines are unchanged (no `rend`), so only the 8 staggered fragments
+   of verse 39 differ in the regenerated XML.
+2. `convert_xml_to_html.py`: `_stagger_offsets_aksaras` computes TWO offsets
+   per `<l>`, one per display mode, counting akṣaras via
+   `skrutable.scansion.Scanner`:
+   - line mode (`.show-line-breaks`): fragments stack per physical print
+     line — rend N == fragments-so-far + 1 continues, else reset; a wrapped
+     fragment (internal `<caesura/>`, e.g. "kānane / vatsyāmaḥ") restarts
+     the run at its last wrapped part (back at the print margin).
+   - paragraph mode (default): each `<l>` displays as one line, so print
+     wraps/margin returns don't exist — fragments stack until a half-/full-
+     verse boundary (fragment ending ।/॥), from the first rend-carrying
+     fragment until the verse closes with ॥. This also catches rend-less
+     mid-verse fragments like "tvaṃ cāhaṃ janakātmajā ca" (a print-line
+     start that still needs a paragraph-mode indent).
+   The offsets are emitted as inline CSS custom properties on the pāda `<li>`
+   (`--stagger-para` / `--stagger-lines`); mode-scoped rules in
+   `rich_content_style.css` (both the hansel-app `static/web/css` copy and
+   the standalone `assets/css` copy in this repo) apply them as
+   `text-indent`, which shifts only the first displayed line. Unit:
+   `STAGGER_CH_PER_AKSARA = 2.75` (ch per akṣara, ~average IAST syllable
+   width; tune by eye against the scan). Verified against KM 13–14: both
+   half-verse ladders close at 38 akṣaras (2 × 19, śārdūlavikrīḍita).
+   Plain-text HTML and condensed/chāyā paths are untouched.
+3. Afterthought (xml→txt, known to be otherwise stale): `<l rend="indent(N)">`
+   re-emits N tabs, deferred past a leading bare-cue `<lb>` so they don't
+   strand on the cue's line (this also restores the previously-lost single
+   tab of ordinary bare-cue verse lines); the final `\t\s+` → `\t` cleanup
+   was narrowed to `\t +` so it no longer swallows the extra tabs.
