@@ -442,11 +442,12 @@
     ],
     "Additional Notes": [
       "The print edition is based on a single manuscript sourced from Palamaneri, Tamil Nadu by someone named Subrahmaṇya Śāstrī.",
+      "The alternate manuscript witness \"SUB Hamburg Cod. Palmbl. I 81 (35.3081)\", in Telugu script, used for the above-mentioned List of Improvements is [available in full online](https://katalogplus.sub.uni-hamburg.de/vufind/Record/1919962719?sid=61962355). ",
       "T. Richard has prepared an English translation for eventual print publication.",
       "Numerous scholars place Bhāskara Bhaṭṭa in the 14th century since he mentions a festival honoring the lotus-feet of Vidyāraṇya, the Advaita philosopher and political advisor who flourished during the 14th century. This Vidyāraṇya is also said to have advised both Bukka(ṇa) I and Harihara II, who are respectively the grandfather and father of the Virūpākṣa Rāya I (regnal years 1404–1405) who wrote another one-act play called Unmattarāghava."
     ],
     "Original Submission Last Updated": "2026-06-22",
-    "Text Last Updated": "2026-07-16",
+    "Text Last Updated": "2026-07-17",
     "Metadata Last Updated": "2026-07-16",
     "PDF Page Offset": [
       "1 → 1"
@@ -587,5 +588,5 @@
     "Filename": "bhagavadajjuka",
     "Original Submission Filetype": ".txt"
   },
-  "version": "2026-07-16"
+  "version": "2026-07-17"
 }

@@ -45,7 +45,7 @@
             <p>HANSEL assumes no responsibility for unauthorised use that infringes rights.</p>
           </licence>
         </availability>
-        <date when="2026-07-16" from="2026" to="2026">July 16, 2026</date>
+        <date when="2026-07-17" from="2026" to="2026">July 17, 2026</date>
       </publicationStmt>
       <notesStmt>
         <note/>
@@ -314,7 +314,10 @@
           </lg>
           <p>ayaṃ hi <lb n="12"/></p>
           <lg xml:id="p5_l6_3" n="5,6">
-            <l>pratipadamupayāntaṃ lakṣmaṇaṃ vīkṣya kiṃci<caesura/><lb n="13" break="no"/>dvalitanayanakoṇenādarādbhāṣamāṇaḥ ।<lb n="14"/></l>
+            <l>pratipada<choice>
+                <sic>mupa</sic>
+                <corr>manu</corr>
+              </choice>yāntaṃ lakṣmaṇaṃ vīkṣya kiṃci<caesura/><lb n="13" break="no"/>dvalitanayanakoṇenādarādbhāṣamāṇaḥ ।<lb n="14"/></l>
             <l>śramajalalasadāsyaḥ śobhate cāpadaṇḍaṃ<caesura/><lb n="15"/> śithilitaguṇabandhaṃ skandhadeśe dadhānaḥ ॥ 8 ॥<pb n="6"/></l>
           </lg>
         </sp>
@@ -596,10 +599,10 @@
         <sp who="rāmaḥ">
           <speaker>rāmaḥ</speaker>
           <p n="10,22" xml:id="p10_l22">priye, kimiti vilambase । ubhayoḥ pakṣayorekataramācara । <lb n="23"/></p>
-        </sp>
-        <sp who="lakṣmaṇaḥ">
-          <speaker>lakṣmaṇaḥ</speaker>
-          <p n="10,23" xml:id="p10_l23">ārya, eṣa kokilālāpaḥ śrūyate । nātra jānakī sā<lb n="24" break="no"/>jvalati (?) । <lb n="25"/></p>
+          <p xml:id="p10_l23" n="10,23">lakṣmaṇaḥ — ārya, eṣa kokilālāpaḥ śrūyate । nātra jānakī <choice>
+              <sic>sā<lb n="24" break="no"/>jvalati (?)</sic>
+              <corr>sañjalpati</corr>
+            </choice> । <lb n="25"/></p>
         </sp>
         <sp who="rāmaḥ">
           <speaker>rāmaḥ</speaker>
@@ -762,7 +765,8 @@
         </sp>
         <sp who="lakṣmaṇaḥ">
           <speaker>lakṣmaṇaḥ</speaker>
-          <p n="13,19" xml:id="p13_l19">aho, kaṣṭamāryasyeyaṃ daśā vartate । <lb n="20"/></p>
+          <p n="13,19" xml:id="p13_l19">
+            <stage>svagatam ।</stage> aho, kaṣṭamāryasyeyaṃ daśā vartate । <lb n="20"/></p>
         </sp>
         <sp who="rāmaḥ">
           <speaker>rāmaḥ</speaker>
@@ -866,7 +870,8 @@
         </sp>
         <sp who="rāmaḥ">
           <speaker>rāmaḥ</speaker>
-          <p n="14,22" xml:id="p14_l22">bhagavan, abhivādaye । <lb n="23"/></p>
+          <p n="14,22" xml:id="p14_l22">
+            <stage>upasṛtya ।</stage> bhagavan, abhivādaye । <lb n="23"/></p>
         </sp>
         <sp who="agastyaḥ">
           <speaker>agastyaḥ</speaker>
@@ -902,10 +907,8 @@
         <sp who="lakṣmaṇaḥ">
           <speaker>lakṣmaṇaḥ</speaker>
           <p n="15,3" xml:id="p15_l3">ārya, evametat । <stage>agastyaṃ prati ।</stage> bhagavan, atra latāmaṇḍape <lb n="4"/> muhūrtamāsanaparigrahaḥ kriyatām ।  <lb n="5"/></p>
-        </sp>
-        <sp who="sarve">
-          <speaker>sarve</speaker>
-          <p n="15,5" xml:id="p15_l5">tathā । <stage>ityupaviśanti ।</stage>
+          <p xml:id="p15_l5" n="15,5">
+            <stage>tatheti sarve upaviśanti ।</stage>
             <lb n="6"/></p>
         </sp>
         <sp who="lakṣmaṇaḥ">
@@ -960,7 +963,11 @@
         </sp>
         <sp who="agastyaḥ">
           <speaker>agastyaḥ</speaker>
-          <p n="15,21" xml:id="p15_l21">tato hariṇībhūtāṃ hariṇīmādāyāsmadantikaṃ prāptābhirati<lb n="22" break="no"/>karuṇamākrandantībhirapsarobhirabhyarthitena mayā kṛpāvaśenābhimantritā dūrvā<lb n="23" break="no"/>muṣṭirarpitā । tasminvane nāsyāḥ pratyāsattirāsīt । (?) <lb n="24"/></p>
+          <p n="15,21" xml:id="p15_l21">tato hariṇībhūtāṃ hariṇīmādāyāsmadantikaṃ prāptābhirati<lb n="22" break="no"/>karuṇamākrandantībhirapsarobhirabhyarthitena mayā kṛpāvaśenābhimantritā dūrvā<lb n="23" break="no"/>muṣṭirarpitā । tasminvane <choice>
+              <sic>nāsyāḥ</sic>
+              <corr>cāsyāḥ</corr>
+            </choice> pratyāsattirāsīt ।<del> (?)</del>
+            <lb n="24"/></p>
         </sp>
         <sp who="rāmaḥ">
           <speaker>rāmaḥ</speaker>

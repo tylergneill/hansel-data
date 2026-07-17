@@ -144,7 +144,7 @@
             "type": "field",
             "label": "Additional Notes",
             "inline_text": null,
-            "content_html": "<ul>\n<li>The print edition is based on a single manuscript sourced from Palamaneri, Tamil Nadu by someone named Subrahmaṇya Śāstrī.</li>\n<li>T. Richard has prepared an English translation for eventual print publication.</li>\n<li>Numerous scholars place Bhāskara Bhaṭṭa in the 14th century since he mentions a festival honoring the lotus-feet of Vidyāraṇya, the Advaita philosopher and political advisor who flourished during the 14th century. This Vidyāraṇya is also said to have advised both Bukka(ṇa) I and Harihara II, who are respectively the grandfather and father of the Virūpākṣa Rāya I (regnal years 1404–1405) who wrote another one-act play called Unmattarāghava.</li>\n</ul>\n"
+            "content_html": "<ul>\n<li>The print edition is based on a single manuscript sourced from Palamaneri, Tamil Nadu by someone named Subrahmaṇya Śāstrī.</li>\n<li>The alternate manuscript witness \"SUB Hamburg Cod. Palmbl. I 81 (35.3081)\", in Telugu script, used for the above-mentioned List of Improvements is <a href=\"https://katalogplus.sub.uni-hamburg.de/vufind/Record/1919962719?sid=61962355\">available in full online</a>. </li>\n<li>T. Richard has prepared an English translation for eventual print publication.</li>\n<li>Numerous scholars place Bhāskara Bhaṭṭa in the 14th century since he mentions a festival honoring the lotus-feet of Vidyāraṇya, the Advaita philosopher and political advisor who flourished during the 14th century. This Vidyāraṇya is also said to have advised both Bukka(ṇa) I and Harihara II, who are respectively the grandfather and father of the Virūpākṣa Rāya I (regnal years 1404–1405) who wrote another one-act play called Unmattarāghava.</li>\n</ul>\n"
         },
         {
             "type": "field",
@@ -155,7 +155,7 @@
         {
             "type": "field",
             "label": "Text Last Updated",
-            "inline_text": "2026-07-16",
+            "inline_text": "2026-07-17",
             "content_html": ""
         },
         {
@@ -166,14 +166,42 @@
         },
         {
             "type": "corrections",
-            "count": 1,
+            "count": 5,
             "rows": [
+                {
+                    "sic": "mupa",
+                    "corr": "manu",
+                    "page": "5",
+                    "line": "12",
+                    "coord_id": "5_6"
+                },
                 {
                     "sic": "(nana)",
                     "corr": "",
                     "page": "10",
                     "line": "14",
                     "coord_id": "10_11"
+                },
+                {
+                    "sic": "sājvalati (?)",
+                    "corr": "sañjalpati",
+                    "page": "10",
+                    "line": "23",
+                    "coord_id": "10_23"
+                },
+                {
+                    "sic": "nāsyāḥ",
+                    "corr": "cāsyāḥ",
+                    "page": "15",
+                    "line": "23",
+                    "coord_id": "15_21"
+                },
+                {
+                    "sic": " (?)",
+                    "corr": "",
+                    "page": "15",
+                    "line": "23",
+                    "coord_id": "15_21"
                 }
             ]
         }
