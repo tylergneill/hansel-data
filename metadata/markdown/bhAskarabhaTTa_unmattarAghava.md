@@ -26,12 +26,12 @@ Durgāprasād and Parab 1899
 - Publisher: Nirnaya Sagar Press
 - Series: Kāvyamālā
 - Series Part: 17
-- Year: 1889
+- Year: 1899
 - OCLC Number: 66308108
 
 # Edition PDFs
 
-- [Durgāprasād and Parab 1889 on Archive](https://archive.org/details/unmatta-raghava-of-bhaskara-1300s-ad-text/page/n0/mode/2up)
+- [Durgāprasād and Parab 1899 on Archive](https://archive.org/details/unmatta-raghava-of-bhaskara-1300s-ad-text/page/n0/mode/2up)
 
 # Extent
 
