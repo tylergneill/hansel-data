@@ -47,6 +47,10 @@ MID_LINE_PAGE_RE = re.compile(r"<(\d+)(?:,(\d+))?>")
 COMBINED_VERSE_END_RE = re.compile(f"{VERSE_MARKER_RE.pattern}|{VERSE_BACK_BOUNDARY_RE.pattern}")
 # Drama-specific regexes
 SPEAKER_RE = re.compile(r"^(\S+) —\s*(.*)$")
+# Staggered dialogue verse fragment sharing a physical line with the speaker cue,
+# e.g. "lakṣmaṇaḥ —\t\tkimidaṃ gehaṃ" — tabs right after the cue's em dash signal
+# verse content (same indent convention as a pure-tab verse line) rather than prose.
+STAGGERED_VERSE_CUE_RE = re.compile(r"^(\S+ —)(\t+)(.*)$")
 STAGE_DIRECTION_RE = re.compile(r"\(\(([^)]+)\)\)")
 PRAKRIT_RE = re.compile(r"˹([^˼]+)˼(?:\s*\((?!\()([^)]+)\))?")
 
@@ -419,6 +423,20 @@ class TeiTextBuilder:
         # Drama: speaker line (only ever opens at the start of a new block, i.e.
         # immediately after a blank source line — never mid-paragraph)
         if s.drama and at_block_start:
+            staggered_match = STAGGERED_VERSE_CUE_RE.match(line)
+            if staggered_match:
+                # Speaker cue sharing a physical line with a staggered verse
+                # fragment (tabs right after the cue's em dash). Route into the
+                # verse handler as a synthetic pure-tab line so it's modeled the
+                # same as a stand-alone tab-indented verse line, instead of the
+                # tabs being silently absorbed as prose whitespace.
+                speaker_name = staggered_match.group(1)[:-2]  # strip trailing " —"
+                tabs, verse_text = staggered_match.group(2), staggered_match.group(3)
+                self._open_sp(speaker_name)
+                self._handle_verse_line(tabs + verse_text)
+                self._finalize_physical_line(line)
+                return
+
             speaker_match = SPEAKER_RE.match(line)
             if speaker_match:
                 speaker_name = speaker_match.group(1)
