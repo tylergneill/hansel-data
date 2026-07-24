@@ -114,12 +114,12 @@
             "type": "field",
             "label": "Digitization Notes",
             "inline_text": null,
-            "content_html": "<ul>\n<li>(March – July 2026) T. Richard: Manually transcribed the edition and formatted as a Google Doc. Justified improvements in separate List of Improvements doc.</li>\n<li>(June — July 2026) T. Neill: Exported Google Doc tabs as Word docs and processed for HANSEL.</li>\n</ul>\n"
+            "content_html": "<ul>\n<li>(March – July 2026) T. Richard: Manually transcribed the edition and formatted as a Google Doc. Justified textual improvements in separate doc.</li>\n<li>(June — July 2026) T. Neill: Exported Google Doc tabs as Word docs and processed for HANSEL.</li>\n</ul>\n"
         },
         {
             "type": "field",
             "label": "File Creation Method",
-            "inline_text": "I (T. Neill) produced this HANSEL edition. I first manually extracted T. Richard's submitted Word document to plain-text, then added basic structural markup (page breaks, tabbed verses, marking of stage directions and Prakrit). Next, I re-OCRed the PDF (Cloud Vision and Sarvam Vision auto-harmonized with Gemini 2.5 Flash) to recover line-break information, then merged this information into the structured transcript. Finally, I interviewed T. Richard for much of the metadata (the Work Description is entirely his) and ingested the data into HANSEL. T. Richard and I then reviewed presentation features over the course of several in-person sessions.",
+            "inline_text": "I (T. Neill) produced this HANSEL edition. I first manually extracted T. Richard's submitted Word document to plain-text, then added basic structural markup (page breaks, tabbed verses, marking of stage directions and Prakrit). Next, I re-OCRed the PDF (Cloud Vision and Sarvam Vision auto-harmonized with Gemini 2.5 Flash) to recover line-break information, then merged this information into the structured transcript. Finally, I interviewed T. Richard for much of the metadata (the Work Description is entirely his) and ingested the data into HANSEL. T. Richard and I then proofread and reviewed presentation features together (shoutout to Filter Kaapi in Brooklyn!)",
             "content_html": ""
         },
         {
@@ -138,7 +138,7 @@
             "type": "field",
             "label": "Additional Files",
             "inline_text": null,
-            "content_html": "<ul>\n<li><a href=\"/static/data/miscellaneous/bhAskarabhaTTa_unmattarAghava_improvements.docx\">List of six suggested improvements</a> based on Hamburg Ms.</li>\n</ul>\n"
+            "content_html": "<ul>\n<li><a href=\"/static/data/miscellaneous/bhAskarabhaTTa_unmattarAghava_improvements.docx\">Textual improvements</a> based on Hamburg Ms.</li>\n</ul>\n"
         },
         {
             "type": "field",
@@ -155,13 +155,13 @@
         {
             "type": "field",
             "label": "Text Last Updated",
-            "inline_text": "2026-07-17",
+            "inline_text": "2026-07-24",
             "content_html": ""
         },
         {
             "type": "field",
             "label": "Metadata Last Updated",
-            "inline_text": "2026-07-16",
+            "inline_text": "2026-07-24",
             "content_html": ""
         },
         {
