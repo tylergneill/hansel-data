@@ -48,13 +48,13 @@
             "type": "field",
             "label": "Edition",
             "inline_text": null,
-            "content_html": "<ul>\n<li>Editors: Paṇḍita Durgāprasāda and Kāśinātha Pāṇḍuraṅga Paraba</li>\n<li>Title: The Unmatta-Râghava of Bhâskara Bhatta</li>\n<li>Place: Mumbai</li>\n<li>Publisher: Nirnaya Sagar Press</li>\n<li>Series: Kāvyamālā</li>\n<li>Series Part: 17</li>\n<li>Year: 1889</li>\n<li>OCLC Number: 66308108</li>\n</ul>\n"
+            "content_html": "<ul>\n<li>Editors: Paṇḍita Durgāprasāda and Kāśinātha Pāṇḍuraṅga Paraba</li>\n<li>Title: The Unmatta-Râghava of Bhâskara Bhatta</li>\n<li>Place: Mumbai</li>\n<li>Publisher: Nirnaya Sagar Press</li>\n<li>Series: Kāvyamālā</li>\n<li>Series Part: 17</li>\n<li>Year: 1899</li>\n<li>OCLC Number: 66308108</li>\n</ul>\n"
         },
         {
             "type": "field",
             "label": "Edition PDFs",
             "inline_text": null,
-            "content_html": "<ul>\n<li><a href=\"https://archive.org/details/unmatta-raghava-of-bhaskara-1300s-ad-text/page/n0/mode/2up\">Durgāprasād and Parab 1889 on Archive</a></li>\n</ul>\n"
+            "content_html": "<ul>\n<li><a href=\"https://archive.org/details/unmatta-raghava-of-bhaskara-1300s-ad-text/page/n0/mode/2up\">Durgāprasād and Parab 1899 on Archive</a></li>\n</ul>\n"
         },
         {
             "type": "field",

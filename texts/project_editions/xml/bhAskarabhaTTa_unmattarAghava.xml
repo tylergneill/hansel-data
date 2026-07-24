@@ -57,7 +57,7 @@
           <imprint>
             <publisher>Nirnaya Sagar Press</publisher>
             <pubPlace>Mumbai</pubPlace>
-            <date>1889</date>
+            <date>1899</date>
           </imprint>
         </bibl>
         <series>
@@ -123,6 +123,7 @@
     <body>
       <div n="prastāvanā">
         <pb n="1"/><p xml:id="p1_l1" n="1,1">
+          <milestone n="kāvyamālā"/>
           <milestone n="śrīmadbhāskarakaviviracitam"/>
           <milestone n="unmattarāghavam ।"/>
         </p>
@@ -778,123 +779,115 @@
         <sp who="lakṣmaṇaḥ">
           <speaker>lakṣmaṇaḥ</speaker>
           <lg xml:id="p13_l22" n="13,22">
-            <l rend="indent(2)">
-              <lb n="23"/>kimidaṃ gehaṃ<caesura/><lb n="24"/></l>
+            <l rend="indent(2)">kimidaṃ gehaṃ<caesura/><lb n="23"/></l>
           </lg>
         </sp>
         <sp who="rāmaḥ">
           <speaker>rāmaḥ</speaker>
-          <lg xml:id="p13_l24" n="13,24">
-            <l rend="indent(3)">
-              <lb n="25"/>kutaḥ<caesura/><lb n="26"/></l>
+          <lg xml:id="p13_l23" n="13,23">
+            <l rend="indent(3)">kutaḥ<caesura/><lb n="24"/></l>
           </lg>
         </sp>
         <sp who="lakṣmaṇaḥ">
           <speaker>lakṣmaṇaḥ</speaker>
-          <lg xml:id="p13_l26" n="13,26">
-            <l rend="indent(4)">
-              <lb n="27"/>kānane<caesura/><lb n="28"/> vatsyāmaḥ<caesura/><lb n="29"/></l>
+          <lg xml:id="p13_l24" n="13,24">
+            <l rend="indent(4)">kānane<caesura/><lb n="25"/> vatsyāmaḥ<caesura/><lb n="26"/></l>
           </lg>
         </sp>
         <sp who="rāmaḥ">
           <speaker>rāmaḥ</speaker>
-          <lg xml:id="p13_l29" n="13,29">
-            <l rend="indent(2)">
-              <lb n="30"/>kathamāgatā vanabhuvaṃ<caesura/><pb n="14"/></l>
+          <lg xml:id="p13_l26" n="13,26">
+            <l rend="indent(2)">kathamāgatā vanabhuvaṃ<caesura/><pb n="14"/></l>
           </lg>
         </sp>
         <sp who="lakṣmaṇaḥ">
           <speaker>lakṣmaṇaḥ</speaker>
           <lg xml:id="p14_l1" n="14,1">
-            <l rend="indent(3)">
-              <lb n="2"/>tātājñayā yantritāḥ ।<lb n="3"/></l>
+            <l rend="indent(3)">tātājñayā yantritāḥ ।<lb n="2"/></l>
           </lg>
         </sp>
         <sp who="rāmaḥ">
           <speaker>rāmaḥ</speaker>
-          <lg xml:id="p14_l3" n="14,3">
+          <lg xml:id="p14_l2" n="14,2">
             <l>
-              <lb n="4"/>āyātāḥ kati vā vayaṃ kathaya me<caesura/><lb n="5"/></l>
+              <lb n="3"/>āyātāḥ kati vā vayaṃ kathaya me<caesura/><lb n="4"/></l>
           </lg>
         </sp>
         <sp who="lakṣmaṇaḥ">
           <speaker>lakṣmaṇaḥ</speaker>
+          <lg xml:id="p14_l4" n="14,4">
+            <l rend="indent(2)">deva trayaḥ<caesura/><lb n="5"/></l>
+          </lg>
+        </sp>
+        <sp who="rāmaḥ">
+          <speaker>rāmaḥ</speaker>
           <lg xml:id="p14_l5" n="14,5">
-            <l rend="indent(2)">
-              <lb n="6"/>deva trayaḥ<caesura/><lb n="7"/></l>
-          </lg>
-        </sp>
-        <sp who="rāmaḥ">
-          <speaker>rāmaḥ</speaker>
-          <lg xml:id="p14_l7" n="14,7">
-            <l rend="indent(3)">
-              <lb n="8"/>ke ca te<caesura/><lb n="9"/></l>
+            <l rend="indent(3)">ke ca te<caesura/><lb n="6"/></l>
           </lg>
         </sp>
         <sp who="lakṣmaṇaḥ">
           <speaker>lakṣmaṇaḥ</speaker>
-          <lg xml:id="p14_l9" n="14,9">
+          <lg xml:id="p14_l6" n="14,6">
             <l>
-              <lb n="10"/>tvaṃ cāhaṃ janakātmajā ca<caesura/><lb n="11"/></l>
+              <lb n="7"/>tvaṃ cāhaṃ janakātmajā ca<caesura/><lb n="8"/></l>
           </lg>
         </sp>
         <sp who="rāmaḥ">
           <speaker>rāmaḥ</speaker>
-          <lg xml:id="p14_l11" n="14,11">
-            <l rend="indent(2)">
-              <lb n="12"/>dayite kutrāsi hā jānaki ॥ 39 ॥<lb n="13"/></l>
+          <lg xml:id="p14_l8" n="14,8">
+            <l rend="indent(2)">dayite kutrāsi hā jānaki ॥ 39 ॥<lb n="9"/></l>
           </lg>
-          <p xml:id="p14_l13" n="14,13">
+          <p xml:id="p14_l9" n="14,9">
             <stage>nepathye ।</stage>
-            <lb n="14"/> vatse, mā bhaiṣīḥ ।  <lb n="15"/></p>
+            <lb n="10"/> vatse, mā bhaiṣīḥ ।  <lb n="11"/></p>
         </sp>
         <sp who="lakṣmaṇaḥ">
           <speaker>lakṣmaṇaḥ</speaker>
-          <p n="14,15" xml:id="p14_l15">
-            <stage>karṇaṃ dattvā saharṣaṃ vibhāvya ।</stage> ārya, madhukarikāsametāṃ jānakīṃ <lb n="16"/> samāśvāsayankumbhasaṃbhavo maharṣirita evābhivartate ।  <lb n="17"/></p>
-          <p xml:id="p14_l17" n="14,17">
+          <p n="14,11" xml:id="p14_l11">
+            <stage>karṇaṃ dattvā saharṣaṃ vibhāvya ।</stage> ārya, madhukarikāsametāṃ jānakīṃ <lb n="12"/> samāśvāsayankumbhasaṃbhavo maharṣirita evābhivartate ।  <lb n="13"/></p>
+          <p xml:id="p14_l13" n="14,13">
             <stage>tataḥ praviśati yathānirdiṣṭaḥ kumbhasaṃbhavaḥ ।</stage>
+            <lb n="14"/></p>
+        </sp>
+        <sp who="agastyaḥ">
+          <speaker>agastyaḥ</speaker>
+          <p n="14,14" xml:id="p14_l14">vatse, mā bhaiṣīḥ । ayamiha tvāmanviṣyannāste salakṣma<lb n="15" break="no"/>ṇo rāmabhadraḥ । <lb n="16"/></p>
+        </sp>
+        <sp who="sītā">
+          <speaker>sītā</speaker>
+          <p n="14,16" xml:id="p14_l16">
+            <stage>rāmaṃ vilokya lajjāṃ nāṭayantī svagatam ।</stage>
+            <seg type="prakrit" xml:lang="pra-Latn">edehiṃ viloaṇehiṃ<lb n="17"/>ajjaütto diṭṭho tti aho me bhāaheam ।<seg type="chāyā" xml:lang="san-Latn">etābhyāṃ vilocanābhyāmāryaputro dṛṣṭa ityaho me bhāgadheyam ।</seg>
+            </seg>
             <lb n="18"/></p>
         </sp>
-        <sp who="agastyaḥ">
-          <speaker>agastyaḥ</speaker>
-          <p n="14,18" xml:id="p14_l18">vatse, mā bhaiṣīḥ । ayamiha tvāmanviṣyannāste salakṣma<lb n="19" break="no"/>ṇo rāmabhadraḥ । <lb n="20"/></p>
-        </sp>
-        <sp who="sītā">
-          <speaker>sītā</speaker>
-          <p n="14,20" xml:id="p14_l20">
-            <stage>rāmaṃ vilokya lajjāṃ nāṭayantī svagatam ।</stage>
-            <seg type="prakrit" xml:lang="pra-Latn">edehiṃ viloaṇehiṃ<lb n="21"/>ajjaütto diṭṭho tti aho me bhāaheam ।<seg type="chāyā" xml:lang="san-Latn">etābhyāṃ vilocanābhyāmāryaputro dṛṣṭa ityaho me bhāgadheyam ।</seg>
-            </seg>
-            <lb n="22"/></p>
-        </sp>
         <sp who="rāmaḥ">
           <speaker>rāmaḥ</speaker>
-          <p n="14,22" xml:id="p14_l22">
-            <stage>upasṛtya ।</stage> bhagavan, abhivādaye । <lb n="23"/></p>
+          <p n="14,18" xml:id="p14_l18">
+            <stage>upasṛtya ।</stage> bhagavan, abhivādaye । <lb n="19"/></p>
         </sp>
         <sp who="agastyaḥ">
           <speaker>agastyaḥ</speaker>
-          <p n="14,23" xml:id="p14_l23">āyuṣmānedhi । <lb n="24"/></p>
+          <p n="14,19" xml:id="p14_l19">āyuṣmānedhi । <lb n="20"/></p>
         </sp>
         <sp who="lakṣmaṇaḥ">
           <speaker>lakṣmaṇaḥ</speaker>
-          <p n="14,24" xml:id="p14_l24">bhagavan, abhivādaye । <lb n="25"/></p>
+          <p n="14,20" xml:id="p14_l20">bhagavan, abhivādaye । <lb n="21"/></p>
         </sp>
         <sp who="agastyaḥ">
           <speaker>agastyaḥ</speaker>
-          <p n="14,25" xml:id="p14_l25">vatsa, ciraṃ jīva । <lb n="26"/></p>
+          <p n="14,21" xml:id="p14_l21">vatsa, ciraṃ jīva । <lb n="22"/></p>
         </sp>
         <sp who="sītā">
           <speaker>sītā</speaker>
-          <p n="14,26" xml:id="p14_l26">
+          <p n="14,22" xml:id="p14_l22">
             <seg type="prakrit" xml:lang="pra-Latn">jedu jedu ajjaütto ।<seg type="chāyā" xml:lang="san-Latn">jayatu jayatvāryaputraḥ ।</seg>
             </seg>
-            <lb n="27"/></p>
+            <lb n="23"/></p>
         </sp>
         <sp who="madhukarikā">
           <speaker>madhukarikā</speaker>
-          <p n="14,27" xml:id="p14_l27">
+          <p n="14,23" xml:id="p14_l23">
             <seg type="prakrit" xml:lang="pra-Latn">jedu jedu mahārāo ।<seg type="chāyā" xml:lang="san-Latn">jayatu jayatu mahārājaḥ ।</seg>
             </seg>
             <pb n="15"/></p>
