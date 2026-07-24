@@ -426,15 +426,15 @@
       "Tyler Neill"
     ],
     "Digitization Notes": [
-      "(March – July 2026) T. Richard: Manually transcribed the edition and formatted as a Google Doc. Justified improvements in separate List of Improvements doc.",
+      "(March – July 2026) T. Richard: Manually transcribed the edition and formatted as a Google Doc. Justified textual improvements in separate doc.",
       "(June — July 2026) T. Neill: Exported Google Doc tabs as Word docs and processed for HANSEL."
     ],
-    "File Creation Method": "I (T. Neill) produced this HANSEL edition. I first manually extracted T. Richard's submitted Word document to plain-text, then added basic structural markup (page breaks, tabbed verses, marking of stage directions and Prakrit). Next, I re-OCRed the PDF (Cloud Vision and Sarvam Vision auto-harmonized with Gemini 2.5 Flash) to recover line-break information, then merged this information into the structured transcript. Finally, I interviewed T. Richard for much of the metadata (the Work Description is entirely his) and ingested the data into HANSEL. T. Richard and I then reviewed presentation features over the course of several in-person sessions.",
+    "File Creation Method": "I (T. Neill) produced this HANSEL edition. I first manually extracted T. Richard's submitted Word document to plain-text, then added basic structural markup (page breaks, tabbed verses, marking of stage directions and Prakrit). Next, I re-OCRed the PDF (Cloud Vision and Sarvam Vision auto-harmonized with Gemini 2.5 Flash) to recover line-break information, then merged this information into the structured transcript. Finally, I interviewed T. Richard for much of the metadata (the Work Description is entirely his) and ingested the data into HANSEL. T. Richard and I then proofread and reviewed presentation features together (shoutout to Filter Kaapi in Brooklyn!)",
     "Text Type": "Drama",
     "Word Division Style": "Devanāgarī-like (ityevam, not ity evam)",
     "Additional Files": [
       {
-        "text": "List of six suggested improvements",
+        "text": "Textual improvements",
         "url": "/static/data/miscellaneous/bhAskarabhaTTa_unmattarAghava_improvements.docx",
         "description": "based on Hamburg Ms.",
         "filetype": ".docx"
@@ -447,8 +447,8 @@
       "Numerous scholars place Bhāskara Bhaṭṭa in the 14th century since he mentions a festival honoring the lotus-feet of Vidyāraṇya, the Advaita philosopher and political advisor who flourished during the 14th century. This Vidyāraṇya is also said to have advised both Bukka(ṇa) I and Harihara II, who are respectively the grandfather and father of the Virūpākṣa Rāya I (regnal years 1404–1405) who wrote another one-act play called Unmattarāghava."
     ],
     "Original Submission Last Updated": "2026-06-22",
-    "Text Last Updated": "2026-07-17",
-    "Metadata Last Updated": "2026-07-16",
+    "Text Last Updated": "2026-07-24",
+    "Metadata Last Updated": "2026-07-24",
     "PDF Page Offset": [
       "1 → 1"
     ],
@@ -588,5 +588,5 @@
     "Filename": "bhagavadajjuka",
     "Original Submission Filetype": ".txt"
   },
-  "version": "2026-07-17"
+  "version": "2026-07-24"
 }

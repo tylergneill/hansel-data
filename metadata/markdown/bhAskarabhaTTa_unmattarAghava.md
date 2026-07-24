@@ -77,12 +77,12 @@ CC BY-NC-SA 4.0
 
 # Digitization Notes
 
-- (March – July 2026) T. Richard: Manually transcribed the edition and formatted as a Google Doc. Justified improvements in separate List of Improvements doc.
+- (March – July 2026) T. Richard: Manually transcribed the edition and formatted as a Google Doc. Justified textual improvements in separate doc.
 - (June — July 2026) T. Neill: Exported Google Doc tabs as Word docs and processed for HANSEL.
 
 # File Creation Method
 
-I (T. Neill) produced this HANSEL edition. I first manually extracted T. Richard's submitted Word document to plain-text, then added basic structural markup (page breaks, tabbed verses, marking of stage directions and Prakrit). Next, I re-OCRed the PDF (Cloud Vision and Sarvam Vision auto-harmonized with Gemini 2.5 Flash) to recover line-break information, then merged this information into the structured transcript. Finally, I interviewed T. Richard for much of the metadata (the Work Description is entirely his) and ingested the data into HANSEL. T. Richard and I then reviewed presentation features over the course of several in-person sessions.
+I (T. Neill) produced this HANSEL edition. I first manually extracted T. Richard's submitted Word document to plain-text, then added basic structural markup (page breaks, tabbed verses, marking of stage directions and Prakrit). Next, I re-OCRed the PDF (Cloud Vision and Sarvam Vision auto-harmonized with Gemini 2.5 Flash) to recover line-break information, then merged this information into the structured transcript. Finally, I interviewed T. Richard for much of the metadata (the Work Description is entirely his) and ingested the data into HANSEL. T. Richard and I then proofread and reviewed presentation features together (shoutout to Filter Kaapi in Brooklyn!)
 
 # Text Type
 
@@ -94,7 +94,7 @@ Devanāgarī-like (ityevam, not ity evam)
 
 # Additional Files
 
-- [List of six suggested improvements](/static/data/miscellaneous/bhAskarabhaTTa_unmattarAghava_improvements.docx) based on Hamburg Ms.
+- [Textual improvements](/static/data/miscellaneous/bhAskarabhaTTa_unmattarAghava_improvements.docx) based on Hamburg Ms.
 
 # Additional Notes
 
@@ -109,8 +109,8 @@ Devanāgarī-like (ityevam, not ity evam)
 
 # Text Last Updated
 
-2026-07-17
+2026-07-24
 
 # Metadata Last Updated 
 
-2026-07-16
+2026-07-24

@@ -45,7 +45,7 @@
             <p>HANSEL assumes no responsibility for unauthorised use that infringes rights.</p>
           </licence>
         </availability>
-        <date when="2026-07-17" from="2026" to="2026">July 17, 2026</date>
+        <date when="2026-07-24" from="2026" to="2026">July 24, 2026</date>
       </publicationStmt>
       <notesStmt>
         <note/>
@@ -69,7 +69,7 @@
     </fileDesc>
     <encodingDesc>
       <editorialDecl>
-        <p id="file-creation-method">I (T. Neill) produced this HANSEL edition. I first manually extracted T. Richard's submitted Word document to plain-text, then added basic structural markup (page breaks, tabbed verses, marking of stage directions and Prakrit). Next, I re-OCRed the PDF (Cloud Vision and Sarvam Vision auto-harmonized with Gemini 2.5 Flash) to recover line-break information, then merged this information into the structured transcript. Finally, I interviewed T. Richard for much of the metadata (the Work Description is entirely his) and ingested the data into HANSEL. T. Richard and I then reviewed presentation features over the course of several in-person sessions.</p>
+        <p id="file-creation-method">I (T. Neill) produced this HANSEL edition. I first manually extracted T. Richard's submitted Word document to plain-text, then added basic structural markup (page breaks, tabbed verses, marking of stage directions and Prakrit). Next, I re-OCRed the PDF (Cloud Vision and Sarvam Vision auto-harmonized with Gemini 2.5 Flash) to recover line-break information, then merged this information into the structured transcript. Finally, I interviewed T. Richard for much of the metadata (the Work Description is entirely his) and ingested the data into HANSEL. T. Richard and I then proofread and reviewed presentation features together (shoutout to Filter Kaapi in Brooklyn!)</p>
         <p id="transliteration">
           The source edition is printed in Devanāgarī; the electronic text uses lossless IAST transliteration.
           IAST differs slightly from ISO 15919; conversion can be achieved via:
@@ -115,7 +115,7 @@
       </editorialDecl>
     </encodingDesc>
     <revisionDesc>
-      <change when="March – July 2026" who="T. Richard">Manually transcribed the edition and formatted as a Google Doc. Justified improvements in separate List of Improvements doc.</change>
+      <change when="March – July 2026" who="T. Richard">Manually transcribed the edition and formatted as a Google Doc. Justified textual improvements in separate doc.</change>
       <change when="June — July 2026" who="T. Neill" ana="#hansel-contributor">Exported Google Doc tabs as Word docs and processed for HANSEL.</change>
     </revisionDesc>
   </teiHeader>
