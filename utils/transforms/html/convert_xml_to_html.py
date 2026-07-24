@@ -2,9 +2,16 @@ from lxml import etree
 import argparse
 import copy
 import json
+import re
 from pathlib import Path
 import markdown
 from lxml.html import fromstring
+from skrutable.scansion import Scanner
+
+# Width of one akṣara in CSS "ch" units, used to offset staggered dialogue
+# verse fragments (rend="indent(N)") to roughly where the previous fragment
+# ended in print. Tuned by eye against IAST text in the rich viewer.
+STAGGER_CH_PER_AKSARA = 2.75
 
 
 def _is_condensed_lg(lg_element):
@@ -13,6 +20,23 @@ def _is_condensed_lg(lg_element):
         if child.tag == 'l' and child.get('n'):
             return True
     return False
+
+
+def _is_milestone_only_p(p_element):
+    """Check if a <p> element contains no real text, only <milestone>/<lb>/<pb> children.
+
+    Such a <p> exists purely to carry a coordinate <n> attribute for a milestone
+    (e.g. title lines before the play proper begins), so it should not produce
+    an empty <p> or its own location marker in the HTML output.
+    """
+    if p_element.text and p_element.text.strip():
+        return False
+    for child in p_element:
+        if child.tag not in ('milestone', 'lb', 'pb'):
+            return False
+        if child.tail and child.tail.strip():
+            return False
+    return True
 
 
 class HtmlConverter:
@@ -49,6 +73,10 @@ class HtmlConverter:
         self.current_verse = None
         self.current_verse_part = None
         self.current_coord_id = None
+        self.stagger_run_counts = []  # line mode: akṣara counts of prior fragments on the current print line
+        self.stagger_since_half = []  # paragraph mode: akṣara counts since the last half-/full-verse boundary
+        self.stagger_verse_active = False  # a staggered verse (some fragment carried rend) is in progress
+        self._scanner = None  # lazy skrutable Scanner, created on first staggered verse
 
     # --- Content Processing Functions ---
     def append_text(self, element, text, strip_leading_whitespace=False, treat_as_plain=True):
@@ -169,6 +197,128 @@ class HtmlConverter:
                 text += child.tail
         return text
 
+    def _count_aksaras(self, text):
+        """Count akṣaras (syllables) in IAST text via skrutable's scansion."""
+        if not text.strip():
+            return 0
+        if self._scanner is None:
+            self._scanner = Scanner()
+        verse = self._scanner.scan(text, from_scheme="IAST")
+        return sum(1 for s in verse.text_syllabified.replace("\n", " ").split(" ") if s)
+
+    def _l_caesura_segments(self, l_element):
+        """Plain-text segments of an <l>, split at <caesura/> (i.e. per physical print line)."""
+        segments = ['']
+        if l_element.text:
+            segments[-1] += l_element.text
+        for child in l_element:
+            if child.tag == 'caesura':
+                segments.append('')
+            elif child.tag not in ('lb', 'pb'):
+                segments[-1] += self.get_plain_text_recursive(child)
+            if child.tail:
+                segments[-1] += child.tail
+        return [seg for seg in segments if seg.strip()]
+
+    def _stagger_offsets_aksaras(self, l_element):
+        """Track stagger runs across <l> elements; return this fragment's offsets.
+
+        A verse split across speaker turns and printed progressively further right
+        ("staggered dialogue verse") carries rend="indent(N)" on each shifted <l>
+        (N = leading tab count in the plaintext source). The offset a fragment
+        needs depends on the display mode, so two are returned, as a
+        (paragraph_mode, line_mode) tuple of akṣara counts:
+
+        - Line mode shows one line per physical print line, so fragments stack
+          per print line: N == (fragments already on the line) + 1 continues the
+          line and offsets this fragment past those fragments' akṣaras; anything
+          else starts a new line at offset 0. A fragment that wraps (internal
+          <caesura/>) restarts the line at its last wrapped part, which begins
+          back at the left margin in print.
+        - Paragraph mode shows one line per half-verse, so fragments stack —
+          print wraps and margin returns notwithstanding — until a half-/full-
+          verse boundary (fragment ending in ।/॥). Offsets apply from the first
+          rend-carrying fragment until the verse closes with ॥.
+        """
+        m = re.fullmatch(r'indent\((\d+)\)', l_element.get('rend') or '')
+        indent_n = int(m.group(1)) if m else 1
+        segments = self._l_caesura_segments(l_element)
+        counts = [self._count_aksaras(seg) for seg in segments]
+
+        # line mode
+        if indent_n > 1 and indent_n == len(self.stagger_run_counts) + 1:
+            offset_lines = sum(self.stagger_run_counts)
+        else:
+            offset_lines = 0
+            self.stagger_run_counts = []
+        if len(counts) > 1:
+            self.stagger_run_counts = [counts[-1]]
+        else:
+            self.stagger_run_counts.append(counts[0] if counts else 0)
+
+        # paragraph mode
+        if indent_n > 1:
+            self.stagger_verse_active = True
+        offset_para = sum(self.stagger_since_half) if self.stagger_verse_active else 0
+        self.stagger_since_half.append(sum(counts))
+        text = ' '.join(segments).rstrip()
+        if '॥' in text:
+            self.stagger_since_half = []
+            self.stagger_verse_active = False
+        elif text.endswith('।'):
+            self.stagger_since_half = []
+
+        return offset_para, offset_lines
+
+    def _render_l_as_li(self, l_element, target_ul, treat_as_plain):
+        """Render an <l> element as a single <li>, with caesura becoming a hidden <br class="lb-br">.
+
+        Used for the rich non-condensed verse path so that paragraph mode shows one line
+        per <l> (2 lines for a 4-pāda verse) while line-by-line mode splits at the caesura.
+        """
+        li = etree.SubElement(target_ul, "li")
+        caesura = l_element.find('caesura')
+        if caesura is None:
+            self.process_children(l_element, li, treat_as_plain, in_lg=True)
+            return
+
+        # Split at the first <caesura/> only: build two synthetic <l> wrappers.
+        # A 4-pāda verse has 3 caesuras (after pādas 1, 2, 3); only the first is a
+        # split point here — the rest must survive as ordinary children of second_l
+        # so process_children's is_after_caesura check still finds them and emits a
+        # <br> before pādas 3 and 4 (in_lg mode only breaks lines right after a
+        # <caesura> sibling).
+        first_l = etree.Element("l")
+        second_l = etree.Element("l")
+        first_l.text = l_element.text
+        before_caesura = True
+
+        for child in l_element:
+            if child.tag == 'caesura' and before_caesura:
+                before_caesura = False
+                if child.tail:
+                    second_l.text = child.tail
+                continue
+            child_copy = copy.deepcopy(child)
+            if before_caesura:
+                first_l.append(child_copy)
+            else:
+                second_l.append(child_copy)
+
+        # If the first child of second_l is <lb break="no">, the hyphen belongs at
+        # the end of first_l; promote its tail to second_l.text.
+        if len(second_l) > 0 and second_l[0].tag == 'lb' and second_l[0].get('break') == 'no':
+            lb_node = second_l[0]
+            tail = lb_node.tail or ''
+            lb_node.tail = None
+            second_l.remove(lb_node)
+            second_l.text = (second_l.text or '') + tail
+            first_l.append(lb_node)
+
+        self.process_children(first_l, li, treat_as_plain, in_lg=True)
+        etree.SubElement(li, "br", {"class": "lb-br rich-text"})
+        self.process_children(second_l, li, treat_as_plain, in_lg=True)
+
     def _render_l_as_spans(self, l_element, target_div, treat_as_plain, in_lg):
         """Render an <l> element as one or more <span> elements.
 
@@ -192,7 +342,7 @@ class HtmlConverter:
             first_span.text = l_element.text
 
         for child in l_element:
-            if child.tag == 'caesura':
+            if child.tag == 'caesura' and before_caesura:
                 before_caesura = False
                 if child.tail:
                     second_span.text = child.tail
@@ -215,7 +365,7 @@ class HtmlConverter:
         before_caesura = True
 
         for child in l_element:
-            if child.tag == 'caesura':
+            if child.tag == 'caesura' and before_caesura:
                 before_caesura = False
                 # caesura.tail becomes second_l.text (or prepend)
                 if child.tail:
@@ -227,6 +377,17 @@ class HtmlConverter:
             else:
                 child_copy = copy.deepcopy(child)
                 second_l.append(child_copy)
+
+        # If the first child of second_l is a hyphenated <lb break="no">, the hyphen
+        # belongs at the end of first_l. Move the lb (without its tail) to first_l,
+        # and promote its tail to second_l.text so the word continuation stays in second_l.
+        if len(second_l) > 0 and second_l[0].tag == 'lb' and second_l[0].get('break') == 'no':
+            lb_node = second_l[0]
+            tail = lb_node.tail or ''
+            lb_node.tail = None
+            second_l.remove(lb_node)
+            second_l.text = (second_l.text or '') + tail
+            first_l.append(lb_node)
 
         first_span = etree.SubElement(target_div, "span")
         self.process_children(first_l, first_span, treat_as_plain, in_lg=in_lg)
@@ -255,9 +416,19 @@ class HtmlConverter:
             self.append_text(html_node, xml_node.text, treat_as_plain=treat_as_plain)
         for child in xml_node:
             if child.tag == 'lb':
+                previous_sibling = child.getprevious()
+
+                # A hyphenated <pb> may immediately precede this <lb> (the <lb> that
+                # would have carried break="no" was merged into the <pb> by the XML
+                # builder, e.g. a page turn mid-word in a Prakrit span). In that case
+                # this <lb> is not itself a word-break — the hyphen was already handled
+                # by the <pb> — so don't also treat it as a non-hyphenated break needing a space.
+                pb_hyphen_before = (previous_sibling is not None and previous_sibling.tag == 'pb'
+                                     and previous_sibling.get("break") == "no")
+
                 if child.get("break") == "no":
                     etree.SubElement(html_node, "span", {"class": "hyphen"}).text = "-"
-                else:
+                elif not pb_hyphen_before:
                     # Ensure a space precedes a non-hyphenated break.
                     if len(html_node) > 0:
                         last_elem = html_node[-1]
@@ -276,15 +447,24 @@ class HtmlConverter:
                     self.has_line_breaks = True
 
                 is_after_caesura = False
-                previous_sibling = child.getprevious()
                 if previous_sibling is not None and previous_sibling.tag == 'caesura':
                     is_after_caesura = True
 
-                if not in_lg or is_after_caesura:
-                    self.pending_breaks += 1
-                lb_span = etree.Element("span", {"class": "lb-label rich-text", "data-line": line_n})
-                lb_span.text = f'({self.page_label}.{self.current_page}, {self.line_label}.{line_n})'
-                self.pending_label = lb_span
+                # An <lb> immediately following a <pb> (no text between) marks the same
+                # position the <pb>'s own label already announces — e.g. a page break
+                # landing mid-span in a multi-line Prakrit speech. Keep the pb-label
+                # (with its page link) rather than clobbering it with a redundant lb-label,
+                # and don't double-count the break.
+                pb_immediately_before = (previous_sibling is not None and previous_sibling.tag == 'pb'
+                                          and self.pending_label is not None
+                                          and 'pb-label' in (self.pending_label.get('class') or ''))
+
+                if not pb_immediately_before:
+                    if not in_lg or is_after_caesura:
+                        self.pending_breaks += 1
+                    lb_span = etree.Element("span", {"class": "lb-label rich-text", "data-line": line_n})
+                    lb_span.text = f'({self.page_label}.{self.current_page}, {self.line_label}.{line_n})'
+                    self.pending_label = lb_span
             elif child.tag == 'pb':
                 if child.get("break") == "no":
                     etree.SubElement(html_node, "span", {"class": "hyphen"}).text = "-"
@@ -351,10 +531,35 @@ class HtmlConverter:
                 stage_span.text = "("
                 self.process_children(child, stage_span, treat_as_plain, in_lg=in_lg)
                 self.append_text(stage_span, ")", treat_as_plain=treat_as_plain)
+                if not treat_as_plain:
+                    next_sib = child.getnext()
+                    prev_sib = child.getprevious()
+                    # Stage on its own line: no preceding siblings in the XML source,
+                    # no text before it in the parent, followed by <lb> — emit a visible
+                    # <br> so following content doesn't run on.
+                    xml_parent = child.getparent()
+                    if (next_sib is not None and next_sib.tag == 'lb'
+                            and prev_sib is None
+                            and not (child.tail and child.tail.strip())
+                            and not (xml_parent is not None and (xml_parent.text or '').strip())):
+                        etree.SubElement(html_node, "br")
+                        # A second <br> makes a visible blank-line gap, needed when more
+                        # content follows in the same flow. But if this <lb> is the <p>'s
+                        # last child, the <p> ends here and whatever follows is a new
+                        # <h3> location heading — its own CSS margin already supplies a
+                        # gap, so a second <br> on top of it would double up the spacing.
+                        if next_sib.getnext() is not None:
+                            etree.SubElement(html_node, "br")
                 # Ensure a space after the closing paren when followed by content.
                 # The XML parser's remove_blank_text=True strips whitespace-only tails,
                 # so we must inject a space when the tail is missing or abuts the next word.
-                if child.getnext() is not None or (child.tail and not child.tail.startswith(' ')):
+                # A mid-line stage direction (non-empty tail = dialogue follows on the same
+                # line) gets two NBSPs instead of a plain space, to set it off visually.
+                if child.tail and child.tail.strip():
+                    sep = '  '
+                    stripped = child.tail.lstrip(' ')
+                    child.tail = sep + stripped
+                elif child.getnext() is not None or (child.tail and not child.tail.startswith(' ')):
                     if not child.tail:
                         child.tail = ' '
                     elif not child.tail.startswith(' '):
@@ -499,30 +704,41 @@ class HtmlConverter:
                             self.pending_label = None
                         else:
                             head_p.text = child.text
-                # Wrap verse lines in li.verse so verse-styling CSS can target it
+                # Wrap verse lines in li.verse > ul.padas > li (one li per <l>)
                 verse_li = etree.SubElement(container, "li", {"class": "verse rich-text"})
-                div_elem = etree.SubElement(verse_li, "div", {"class": "lg"})
+                padas_ul = etree.SubElement(verse_li, "ul", {"class": "padas"})
                 for child in lg_element.iterchildren():
                     if child.tag == 'l':
-                        self._render_l_as_spans(child, div_elem, False, in_lg=True)
+                        offset_para, offset_lines = self._stagger_offsets_aksaras(child)
+                        self._render_l_as_li(child, padas_ul, False)
+                        # Mode-scoped CSS applies these as text-indent, which
+                        # shifts only the fragment's first displayed line — a
+                        # wrapped continuation stays at the left margin.
+                        styles = []
+                        if offset_para:
+                            styles.append(f'--stagger-para: {offset_para * STAGGER_CH_PER_AKSARA:g}ch')
+                        if offset_lines:
+                            styles.append(f'--stagger-lines: {offset_lines * STAGGER_CH_PER_AKSARA:g}ch')
+                        if styles:
+                            padas_ul[-1].set('style', '; '.join(styles))
                     elif child.tag == 'lg' and child.get('type') == 'chāyā':
-                        # Flush any pending lb-label into the Prakrit verse before opening
-                        # the chāyā div; otherwise it would leak into the chāyā content.
-                        if self.pending_label is not None:
-                            div_elem.append(self.pending_label)
-                            self.pending_label = None
-                        chaya_div = etree.SubElement(div_elem, "div", {"class": "chaya"})
+                        # Drop any pending lb-label before the chāyā div. A trailing <lb>
+                        # on the last Prakrit <l> marks the start of the next physical line
+                        # (already shown in the editorial-coord h3), not content inside this verse.
+                        self.pending_label = None
+                        chaya_div = etree.SubElement(verse_li, "div", {"class": "chaya"})
+                        chaya_ul = etree.SubElement(chaya_div, "ul", {"class": "padas"})
                         for sub_child in child:
                             if sub_child.tag == 'l':
-                                self._render_l_as_spans(sub_child, chaya_div, False, in_lg=True)
+                                self._render_l_as_li(sub_child, chaya_ul, False)
                     elif child.tag == 'back':
-                        if len(div_elem) > 0:
-                            self.process_children(child, div_elem[-1], False, in_lg=True)
+                        if len(padas_ul) > 0:
+                            self.process_children(child, padas_ul[-1], False, in_lg=True)
                         else:
-                            p_tag = etree.SubElement(div_elem, "p")
+                            p_tag = etree.SubElement(verse_li, "p")
                             self.process_children(child, p_tag, False, in_lg=True)
                     elif child.tag == 'milestone':
-                        milestone_span = etree.SubElement(div_elem, "span", {"class": "milestone"})
+                        milestone_span = etree.SubElement(verse_li, "span", {"class": "milestone"})
                         milestone_span.text = f'{child.get("n")}'
             return
 
@@ -836,6 +1052,18 @@ class HtmlConverter:
                         if not self.only_plain and speech_div is None:
                             speech_div = etree.SubElement(content_div, "div", {"class": "speech rich-text"})
                             if speaker_name and first_rich_div:
+                                # A page break pending from before this <sp> still needs to be
+                                # shown, on its own line, ahead of the speaker attribution — but
+                                # only when there's no <p> for it to land inside inline (the normal
+                                # path, via process_children's own <pb> handling). That's the case
+                                # for a bare cue ("name —") going straight into a <lg> verse, which
+                                # has no <p> at all.
+                                if (sp_child.tag != "p"
+                                        and self.pending_label is not None
+                                        and 'pb-label' in (self.pending_label.get('class') or '')):
+                                    pb_p = etree.SubElement(speech_div, "p")
+                                    pb_p.append(self.pending_label)
+                                    self.pending_label = None
                                 etree.SubElement(speech_div, "span", {"class": "speaker"}).text = speaker_name
                             first_rich_div = False
                         if speech_div_plain is None:
@@ -849,13 +1077,31 @@ class HtmlConverter:
                             if speaker_name and not speaker_shown:
                                 self.append_text(p_plain, f"{speaker_name} \u2014 ", treat_as_plain=True)
                                 speaker_shown = True
-                            self.process_children(sp_child, p_plain, treat_as_plain=True, in_lg=False)
+                            # If a stage direction is alone on its first physical line, emit a <br>
+                            # between it and the following content so they don't run together.
+                            first_child = next(iter(sp_child), None)
+                            if (first_child is not None and first_child.tag == 'stage'
+                                    and not (sp_child.text or '').strip()
+                                    and not (first_child.tail and first_child.tail.strip())
+                                    and first_child.getnext() is not None
+                                    and first_child.getnext().tag == 'lb'):
+                                self.append_text(p_plain, '(' + self.get_plain_text_recursive(first_child) + ')', treat_as_plain=True)
+                                etree.SubElement(p_plain, "br")
+                                # process remaining content after the stage's lb
+                                lb = first_child.getnext()
+                                remaining = (lb.tail or '').strip()
+                                for sib in lb.itersiblings():
+                                    remaining += self.get_plain_text_recursive(sib) + (sib.tail or '')
+                                self.append_text(p_plain, remaining, treat_as_plain=True)
+                            else:
+                                self.process_children(sp_child, p_plain, treat_as_plain=True, in_lg=False)
                         elif sp_child.tag == "lg":
                             if not self.only_plain:
                                 # A trailing <lb> from the preceding <p> must not bleed into
                                 # the first verse span as an orphan <br>. Drop the break count;
-                                # the pending_label (lb-label) is kept so it appears on the
-                                # first verse line.
+                                # the pending_label (pb- or lb-label) is kept so it appears on
+                                # the first verse line, inside the shaded verse box, rather
+                                # than as a sibling before it.
                                 self.pending_breaks = 0
                                 if verses_ul is None:
                                     verses_ul = etree.SubElement(speech_div, "ul", {"class": "verses"})
@@ -864,6 +1110,10 @@ class HtmlConverter:
                                         self.process_lg_content(lg_child, verses_ul, treat_as_plain=False)
                                 else:
                                     self.process_lg_content(sp_child, verses_ul, treat_as_plain=False)
+                            if speaker_name and not speaker_shown:
+                                p_plain = etree.SubElement(speech_div_plain, "p")
+                                self.append_text(p_plain, f"{speaker_name} — ", treat_as_plain=True)
+                                speaker_shown = True
                             if sp_child.get('type') == 'group':
                                 for lg_child in sp_child.findall("lg"):
                                     self.process_lg_content(lg_child, speech_div_plain, treat_as_plain=True)
@@ -902,6 +1152,13 @@ class HtmlConverter:
                     self.append_text(p_plain, f"({stage_text})", treat_as_plain=True)
 
                 elif element.tag == "p":
+                    if _is_milestone_only_p(element):
+                        # A <p> that carries only <milestone>/<lb>/<pb> children (no real
+                        # text) exists purely to attach a coordinate to a milestone (e.g.
+                        # title lines before the play proper begins). Its milestones are
+                        # already invisible in HTML output, so don't emit an empty <p> or
+                        # a location marker for it either.
+                        continue
                     current_verses_ul = None
                     self.current_verse = None
                     self.current_verse_part = None
@@ -1011,13 +1268,22 @@ class HtmlConverter:
                             else:
                                 h2.text = n_attr
                             if len(n_parts) == 2:
-                                if line_part == "1":
+                                pending_is_pb_for_same_page = (
+                                    self.pending_label is not None
+                                    and self.pending_label.get("data-page") == page_part
+                                )
+                                if pending_is_pb_for_same_page:
+                                    # A <pb> already set a page-link label for this page; update
+                                    # its text to reflect the actual first line rather than clearing it.
+                                    self.pending_label.text = f'({self.page_label}.{page_part}, {self.line_label}.{line_part})' if not self.no_line_numbers else f'({self.page_label}.{page_part})'
+                                elif line_part == "1":
                                     label = etree.Element("a", {"class": "pb-label rich-text", "data-page": page_part, "target": "_blank"})
                                     label.text = f'({self.page_label}.{page_part}, {self.line_label}.1)'
+                                    self.pending_label = label
                                 else:
                                     label = etree.Element("span", {"class": "lb-label rich-text", "data-line": line_part})
                                     label.text = f'({self.page_label}.{page_part}, {self.line_label}.{line_part})'
-                                self.pending_label = label
+                                    self.pending_label = label
 
                     # Rich pass: wrap in <ul class="verses"> for verse-styling CSS
                     if not self.only_plain:

@@ -9,6 +9,7 @@ flag_map = {
     "zukasaptati_o": '--line-by-line --extra-space-after-location',
     "kRSNamizra_prabodhacandrodaya": '--drama --chaya',
     "bhagavadajjuka": '--drama --line-by-line --chaya',
+    "bhAskarabhaTTa_unmattarAghava": '--drama --line-by-line --chaya',
 }
 
 # Maps text stem → (page_label, line_label) to override how editorial coordinates are displayed.

@@ -65,7 +65,7 @@
         </p>
         <p id="word-division">{{WORD_DIVISION_STYLE}}</p>
         <p id="error-markup">
-          Corrections and uncertainties:
+          Improvements and uncertainties:
           <list>
             <item>Replacement: <choice><sic>before</sic><corr>after</corr></choice></item>
             <item>Deletion: <del/></item>

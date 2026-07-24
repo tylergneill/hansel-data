@@ -28,18 +28,29 @@ VERSE_NUM_RE = re.compile(r"^\s*([0-9]+(?:[.,][0-9]+)*)\s*([a-z]{1,4})?\s*$", re
 PAGE_RE = re.compile(r"^<(\d+)>$")  # <page>
 PAGE_LINE_RE = re.compile(r"^<(\d+),(\d+)>$")  # <page,line>
 ADDITIONAL_STRUCTURE_NOTE_RE = re.compile(r"^<[^\n>]+>$")  # other <...>
-VERSE_MARKER_RE = re.compile(r"\|\| ([^|]{1,20}) \|\|(?: |$)")
+# Verse-final marker (double danda): ASCII "||" or the real Unicode double danda "॥".
+# Verse-medial marker (single danda): ASCII "|" or the real Unicode danda "।".
+# Texts may use either convention (older ones ASCII, newer ones real dandas), so all
+# danda-sensitive regexes below must accept both.
+_DOUBLE_DANDA = r"(?:\|\||॥)"
+_SINGLE_OR_DOUBLE_DANDA = r"(?:\|\|?|[।॥])"
+_NOT_DANDA = r"[^|।॥]"
+VERSE_MARKER_RE = re.compile(_DOUBLE_DANDA + r" (" + _NOT_DANDA + r"{1,20}) " + _DOUBLE_DANDA + r"(?: |$)")
 CHOICE_RE = re.compile(r"≤([^≥]*)≥«([^»]*)»")
 DEL_RE = re.compile(r"≤([^≥]*)≥")
 SUPPLIED_RE = re.compile(r"«([^»]*)»")
 UNCLEAR_RE = re.compile(r"¿([^¿]*)¿")
-VERSE_BACK_BOUNDARY_RE = re.compile(r"\|\|(?![^|]{1,20} \|\|)")
-CLOSE_L_RE = re.compile(r"\|\|?(?:[ \n]|$)")
+VERSE_BACK_BOUNDARY_RE = re.compile(_DOUBLE_DANDA + r"(?!" + _NOT_DANDA + r"{1,20} " + _DOUBLE_DANDA + r")")
+CLOSE_L_RE = re.compile(_SINGLE_OR_DOUBLE_DANDA + r"(?:[ \n]|$)")
 HYPHEN_EOL_RE = re.compile(r"-\s*$")  # tweak later if you need fancy hyphens
 MID_LINE_PAGE_RE = re.compile(r"<(\d+)(?:,(\d+))?>")
 COMBINED_VERSE_END_RE = re.compile(f"{VERSE_MARKER_RE.pattern}|{VERSE_BACK_BOUNDARY_RE.pattern}")
 # Drama-specific regexes
-SPEAKER_RE = re.compile(r"^(\S+) — (.*)$")
+SPEAKER_RE = re.compile(r"^(\S+) —\s*(.*)$")
+# Staggered dialogue verse fragment sharing a physical line with the speaker cue,
+# e.g. "lakṣmaṇaḥ —\t\tkimidaṃ gehaṃ" — tabs right after the cue's em dash signal
+# verse content (same indent convention as a pure-tab verse line) rather than prose.
+STAGGERED_VERSE_CUE_RE = re.compile(r"^(\S+ —)(\t+)(.*)$")
 STAGE_DIRECTION_RE = re.compile(r"\(\(([^)]+)\)\)")
 PRAKRIT_RE = re.compile(r"˹([^˼]+)˼(?:\s*\((?!\()([^)]+)\))?")
 
@@ -133,8 +144,37 @@ class TextBuildState:
     # open-prakrit state: accumulates lines when ˹ and ˼ span multiple input lines
     in_open_prakrit: bool = False
     open_prakrit_lines: list = field(default_factory=list)
+    # at_block_start captured when the span opened (accumulated lines aren't block starts)
+    open_prakrit_at_block_start: bool = False
     # When line_by_line, holds break flags (True=hyphenated) for each inter-line boundary
     open_prakrit_lb_breaks: Optional[list] = None
+
+    # open-stage state: accumulates lines when (( )) spans multiple input lines
+    in_open_stage: bool = False
+    open_stage_lines: list = field(default_factory=list)
+
+    # open-choice state: accumulates lines when ≤sic≥«corr» spans multiple
+    # input lines (e.g. a hyphenated word-break falls inside the sic text)
+    in_open_choice: bool = False
+    open_choice_lines: list = field(default_factory=list)
+    open_choice_at_block_start: bool = False
+
+    # True after a bare speaker cue ("name —" alone on its own physical line):
+    # that line must still be counted (lb_count already bumped), but the label
+    # it would carry ("n=" on the following <p>/<lg>) must stay put, since it's
+    # anchored to the source [page,line] marker. So instead the *next* content
+    # line (verse or prose) emits a leading <lb> of its own to carry the
+    # now-correct line number for its own first physical line.
+    pending_bare_cue_lb: bool = False
+
+    # True at the very start of the text and immediately after a blank source
+    # line. Speaker cues ("name — ...") only ever open a new <sp> at the start
+    # of a block — a mid-paragraph line that happens to start with "word — "
+    # (e.g. dialogue wrapping onto a new physical line) must NOT be mistaken
+    # for a new speaker turn. Cleared once a genuine top-level physical line
+    # is consumed; untouched by recursive _handle_line() calls that just
+    # redispatch already-accumulated content (those never start a new block).
+    at_block_start: bool = True
 
 # ----------------------------
 # ----------------------------
@@ -183,8 +223,87 @@ class TeiTextBuilder:
     # ---- per-line handler ----
     def _handle_line(self, line: str) -> None:
         if not line.strip():
+            self.state.at_block_start = True
             return
         s = self.state
+        # Consumed once per genuine physical line: only true for the first line
+        # dispatched after a blank source line (or at the very start of the text).
+        # Recursive re-dispatches below (spliced/accumulated content) run with this
+        # already False, since they never follow a fresh blank-line gap.
+        at_block_start = s.at_block_start
+        s.at_block_start = False
+
+        # OPEN-CHOICE ACCUMULATION — ≤sic≥«corr» spanning multiple lines (e.g. a
+        # hyphenated word-break falls inside the sic text)
+        if s.in_open_choice:
+            if '≥' in line and '«' in line:
+                # Splice continuation lines into the opening line so CHOICE_RE can
+                # match the full ≤...≥«...» span. Use \n as an intra-sic line-break
+                # sentinel so _emit_choice can insert an <lb> at the right position.
+                first_line = s.open_choice_lines[0]
+                middle_lines = s.open_choice_lines[1:]
+                continuation = '\n'.join([*middle_lines, line])
+                spliced = first_line + '\n' + continuation
+                s.in_open_choice = False
+                s.open_choice_lines = []
+                s.at_block_start = s.open_choice_at_block_start
+                self._handle_line(spliced)
+            else:
+                s.open_choice_lines.append(line)
+            return
+
+        if '≤' in line and line.rindex('≤') > (line.rfind('≥') if '≥' in line else -1):
+            # Opening of a multi-line choice span — begin accumulation
+            s.in_open_choice = True
+            s.open_choice_lines = [line]
+            s.open_choice_at_block_start = at_block_start
+            return
+
+        # OPEN-STAGE ACCUMULATION — (( )) spanning multiple lines
+        if s.in_open_stage:
+            if '))' in line:
+                # Splice continuation lines into the opening line so STAGE_DIRECTION_RE can
+                # match the full (( )) span.  Use \n as an intra-stage line-break sentinel so
+                # _emit_stage_direction can insert <lb> elements at the right positions.
+                close_pos = line.index('))') + 2
+                stage_tail = line[close_pos:]          # text after )) on closing line
+                stage_frag = line[:close_pos].strip()  # closing fragment incl. ))
+                first_line = s.open_stage_lines[0]
+                middle_lines = s.open_stage_lines[1:]
+                # Build spliced line: join with \n so stage text preserves line boundaries
+                all_stage_parts = middle_lines + [stage_frag]
+                continuation = '\n'.join(l.strip() for l in all_stage_parts)
+                spliced = first_line + '\n' + continuation
+                s.in_open_stage = False
+                s.open_stage_lines = []
+                s.at_block_start = at_block_start
+                self._handle_line(spliced)
+                # If there was text after )) on the closing line, dispatch it as its own line.
+                if stage_tail.strip():
+                    self._handle_line(stage_tail.strip())
+            else:
+                s.open_stage_lines.append(line)
+            return
+
+        if not s.in_open_prakrit and '((' in line and '))' not in line:
+            # A leading speaker cue ("name — ...") must open its <sp> now, before
+            # the line is swallowed into stage-direction accumulation — otherwise
+            # the cue ends up spliced together with the continuation line behind an
+            # embedded \n, where SPEAKER_RE (anchored with ^...$, no re.DOTALL) can
+            # no longer match it once the (( )) span finally closes.
+            if s.drama and at_block_start:
+                speaker_match = SPEAKER_RE.match(line)
+                if speaker_match:
+                    speaker_name = speaker_match.group(1)
+                    trailing_text = speaker_match.group(2)
+                    self._open_sp(speaker_name)
+                    self._open_location_for_sp()
+                    s.in_open_stage = True
+                    s.open_stage_lines = [trailing_text]
+                    return
+            s.in_open_stage = True
+            s.open_stage_lines = [line]
+            return
 
         # OPEN-PRAKRIT ACCUMULATION — drama mode: ˹...˼ spanning multiple lines
         if s.drama and s.in_open_prakrit:
@@ -226,7 +345,7 @@ class TeiTextBuilder:
                         # SPEAKER_RE uses $ which won't cross \n; match on first line only,
                         # then dispatch full joined content as the trailing prose/prakrit text.
                         first_line = joined_parts[0]
-                        speaker_match = SPEAKER_RE.match(first_line)
+                        speaker_match = SPEAKER_RE.match(first_line) if s.open_prakrit_at_block_start else None
                         if speaker_match:
                             speaker_name = speaker_match.group(1)
                             trailing_in_first = speaker_match.group(2)
@@ -250,6 +369,7 @@ class TeiTextBuilder:
             # Opening of a multi-line Prakrit span — begin accumulation
             s.in_open_prakrit = True
             s.open_prakrit_lines = [line]
+            s.open_prakrit_at_block_start = at_block_start
             return
 
         # CHĀYĀ DISPATCH — intercept lines when awaiting chāyā after ˹...˼
@@ -300,16 +420,48 @@ class TeiTextBuilder:
 
         # HANDLE LINES WITH CONTENT (AND MAYBE ALSO STRUCTURE)
 
-        # Drama: speaker line
-        if s.drama:
+        # Drama: speaker line (only ever opens at the start of a new block, i.e.
+        # immediately after a blank source line — never mid-paragraph)
+        if s.drama and at_block_start:
+            staggered_match = STAGGERED_VERSE_CUE_RE.match(line)
+            if staggered_match:
+                # Speaker cue sharing a physical line with a staggered verse
+                # fragment (tabs right after the cue's em dash). Route into the
+                # verse handler as a synthetic pure-tab line so it's modeled the
+                # same as a stand-alone tab-indented verse line, instead of the
+                # tabs being silently absorbed as prose whitespace.
+                speaker_name = staggered_match.group(1)[:-2]  # strip trailing " —"
+                tabs, verse_text = staggered_match.group(2), staggered_match.group(3)
+                self._open_sp(speaker_name)
+                self._handle_verse_line(tabs + verse_text)
+                self._finalize_physical_line(line)
+                return
+
             speaker_match = SPEAKER_RE.match(line)
             if speaker_match:
                 speaker_name = speaker_match.group(1)
                 trailing_text = speaker_match.group(2).strip()
                 self._open_sp(speaker_name)
+                if not trailing_text:
+                    # Bare cue ("name —") occupies its own physical line, already
+                    # correctly counted by current_loc_label/lb_count (set when the
+                    # preceding [page,line] marker was opened). The block heading
+                    # (e.g. "7,21") is anchored to that marker and must NOT move.
+                    # But the line the cue itself sits on still needs to end somehow
+                    # so the NEXT line (verse/prose) gets counted as a new physical
+                    # line — flag it so the next content emits its own leading <lb>
+                    # (see pending_bare_cue_lb). No XML element is emitted for the
+                    # cue's own line itself.
+                    s.pending_bare_cue_lb = True
+                    self._finalize_physical_line(line)
                 if trailing_text:
-                    # Check if trailing text is a pending head (e.g. "priye —_")
-                    pending_head_match = PENDING_HEAD_RE.search(trailing_text)
+                    # Check if trailing text is a pending head (e.g. "priye —_").
+                    # When trailing_text is exactly "_", the punctuation
+                    # PENDING_HEAD_RE needs right before it is the speaker's own
+                    # em dash, which SPEAKER_RE already consumed out of
+                    # trailing_text — so match against the full line instead.
+                    pending_head_match = (PENDING_HEAD_RE.search(line) if trailing_text == CHAR_FOR_PENDING_HEAD
+                                           else PENDING_HEAD_RE.search(trailing_text))
                     if pending_head_match:
                         head_text = pending_head_match.group(1).strip()
                         head_elem = etree.Element("head")
@@ -386,6 +538,7 @@ class TeiTextBuilder:
         raise Exception(f"end of _handle_line reached: {line}")
 
     # ---- helpers ----
+
     def _emit_lb(self, container: etree._Element, raw_line: str = "") -> etree._Element:
         s = self.state
         s.lb_count += 1
@@ -563,6 +716,14 @@ class TeiTextBuilder:
         pre_tab, after_tab = line.split("\t", 1)
         pre_tab = pre_tab.rstrip()
 
+        # Staggered dialogue verse: a fragment printed further right than the
+        # previous speaker's fragment is marked with extra leading tabs. Record
+        # the total tab count as rend="indent(N)" on the <l> (pure tab-indented
+        # lines only) instead of letting the extra tabs leak into the verse text.
+        is_pure_tab_line = not pre_tab.strip()
+        tab_indent = 1 + len(after_tab) - len(after_tab.lstrip("\t"))
+        after_tab = after_tab.lstrip("\t")
+
         # Determine the lg to operate on
         if target_lg_override is not None:
             working_lg = target_lg_override
@@ -591,10 +752,17 @@ class TeiTextBuilder:
             if pre_tab.strip():
                 self._append_child_text(working_lg, "head", pre_tab)
             l_attrs = {}
+            if is_pure_tab_line and tab_indent > 1:
+                l_attrs["rend"] = f"indent({tab_indent})"
             if s.in_prakrit_verse:
                 l_attrs[f"{{{_XML_NS}}}lang"] = "pra-Latn"
             s.current_l = etree.SubElement(working_lg, "l", l_attrs)
             s.last_tail_text_sink = None
+            if s.pending_bare_cue_lb:
+                lb = self._emit_lb(s.current_l)
+                s.last_tail_text_sink = lb
+                s.suppress_join_space = True  # leading <lb>, no preceding word to space from
+                s.pending_bare_cue_lb = False
 
         verse_payload = after_tab
         back_text = ""
@@ -645,17 +813,36 @@ class TeiTextBuilder:
         page, line_num = match.groups()
         self._emit_pb(page, line_num)
 
+    def _fill_with_lb_sentinels(self, el: etree._Element, inner: str):
+        """Set el.text from `inner`, splitting on \\n sentinels (inserted by the
+        open-choice accumulator) into <lb> sub-elements, mirroring
+        _emit_stage_direction's handling of multi-line spans."""
+        s = self.state
+        if s.line_by_line and '\n' in inner:
+            parts = inner.split('\n')
+            el.text = HYPHEN_EOL_RE.sub("", parts[0])
+            for i, part in enumerate(parts[1:], start=1):
+                s.lb_count += 1
+                attrs = {"n": str(s.lb_count)}
+                if HYPHEN_EOL_RE.search(parts[i - 1]):
+                    attrs["break"] = "no"
+                lb = etree.SubElement(el, "lb", attrs)
+                s.last_emitted_lb = lb
+                lb.tail = HYPHEN_EOL_RE.sub("", part)
+        else:
+            el.text = inner.replace('\n', '')
+
     def _emit_choice(self, match: re.Match):
         choice = etree.Element("choice")
         sic = etree.SubElement(choice, "sic")
-        sic.text = match.group(1)
+        self._fill_with_lb_sentinels(sic, match.group(1))
         corr = etree.SubElement(choice, "corr")
         corr.text = match.group(2)
         self._add_inline_element(choice)
 
     def _emit_del(self, match: re.Match):
         del_el = etree.Element("del")
-        del_el.text = match.group(1)
+        self._fill_with_lb_sentinels(del_el, match.group(1))
         self._add_inline_element(del_el)
 
     def _emit_supplied(self, match: re.Match):
@@ -669,8 +856,24 @@ class TeiTextBuilder:
         self._add_inline_element(unclear)
 
     def _emit_stage_direction(self, match: re.Match):
+        s = self.state
         stage = etree.Element("stage")
-        stage.text = match.group(1)
+        inner = match.group(1)
+        if s.line_by_line and '\n' in inner:
+            # Multi-line stage direction: emit <lb> at each \n sentinel.
+            # A part ending with '-' means a hyphenated break: strip the hyphen, set break="no".
+            parts = inner.split('\n')
+            stage.text = HYPHEN_EOL_RE.sub("", parts[0])
+            for i, part in enumerate(parts[1:], start=1):
+                s.lb_count += 1
+                attrs = {"n": str(s.lb_count)}
+                if HYPHEN_EOL_RE.search(parts[i - 1]):
+                    attrs["break"] = "no"
+                lb = etree.SubElement(stage, "lb", attrs)
+                s.last_emitted_lb = lb
+                lb.tail = HYPHEN_EOL_RE.sub("", part)
+        else:
+            stage.text = inner
         self._add_inline_element(stage)
 
     def _emit_prakrit(self, match: re.Match):
@@ -714,6 +917,8 @@ class TeiTextBuilder:
         last_end = 0
         last_el = None
         for kind, m in matches:
+            if m.start() < last_end:
+                continue  # skip matches consumed inside a prior span (e.g. \n inside a stage)
             pre = text[last_end:m.start()]
             if last_el is None:
                 parent.text = (parent.text or '') + pre
@@ -722,12 +927,44 @@ class TeiTextBuilder:
 
             if kind == 'stage':
                 el = etree.SubElement(parent, "stage")
-                el.text = m.group(1)
+                inner = m.group(1)
+                if '\n' in inner:
+                    # \n sentinels inside stage content: emit <lb> elements within the stage.
+                    # Use open_prakrit_lb_breaks for break="no" detection (hyphens were already
+                    # stripped by the Prakrit accumulator before joining with \n).
+                    # These \n's are consumed here (never seen by the outer 'lb' branch, since
+                    # they fall inside this match's span), so lb_break_idx must advance in step
+                    # with lb_breaks, or every subsequent <lb> outside the stage reads the wrong slot.
+                    parts = inner.split('\n')
+                    el.text = parts[0]
+                    lb_breaks = s.open_prakrit_lb_breaks
+                    for part in parts[1:]:
+                        s.lb_count += 1
+                        lb_attrs = {"n": str(s.lb_count)}
+                        if lb_breaks and lb_break_idx < len(lb_breaks) and lb_breaks[lb_break_idx]:
+                            lb_attrs["break"] = "no"
+                        lb_break_idx += 1
+                        inner_lb = etree.SubElement(el, "lb", lb_attrs)
+                        s.last_emitted_lb = inner_lb
+                        inner_lb.tail = part
+                else:
+                    el.text = inner
             elif kind == 'pb':
                 page, line_no = m.group(1), m.group(2)
                 attrs = {"n": page}
+                # If a hyphenated <lb> immediately precedes this <pb> (no text between,
+                # e.g. a page turn mid-word in a Prakrit span), merge them: carry the
+                # break="no" flag onto the <pb> and drop the redundant <lb>, mirroring
+                # _emit_pb's behavior for top-level page breaks. Otherwise the hyphen
+                # flag is stranded on an <lb> the HTML converter treats as a separate,
+                # non-hyphenated break, and injects a spurious space.
+                if last_el is not None and last_el.tag == 'lb' and not pre and last_el.get("break") == "no":
+                    attrs["break"] = "no"
+                    parent.remove(last_el)
                 el = etree.SubElement(parent, "pb", attrs)
-                # update lb_count if line number given
+                # Restart line count on the new page, from the explicit line
+                # number if given, else from 1. lb_count is pre-incremented by
+                # the next 'lb'/_emit_lb, so store one less than the target n.
                 if line_no:
                     try:
                         s.lb_count = int(line_no) - 1
@@ -735,6 +972,7 @@ class TeiTextBuilder:
                         pass
                 else:
                     s.explicit_page = page
+                    s.lb_count = 0
             else:  # lb
                 s.lb_count += 1
                 attrs = {"n": str(s.lb_count)}
@@ -1058,6 +1296,11 @@ class TeiTextBuilder:
             # DO NOT clear current_loc_label — verses in this speech still need it
         s.current_p = etree.SubElement(s.current_sp, "p", attrs)
         s.last_tail_text_sink = None
+        if s.pending_bare_cue_lb:
+            lb = self._emit_lb(s.current_p)
+            s.last_tail_text_sink = lb
+            s.suppress_join_space = True  # leading <lb>, no preceding word to space from
+            s.pending_bare_cue_lb = False
         s.prev_line_hyphen = False
 
     def _flush_verse_group_buffer(self):
