@@ -99,6 +99,7 @@ CC BY-NC-SA 4.0
 - (2000s) M. Kapstein: Edited text based primarily on 1936 Trivandrum edition (see CSL vol. intro p. liii) plus some more material not found in the Kerala recension and sourced from other editions. Formatted as Word document.
 - (May 2026) M. Kapstein: Submitted more corrections.
 - (Feb–June 2026) T. Neill: Processed for HANSEL.
+- (July–Aug 2026) H. Isaacson and T. Neill: Fixed a few typos.
 
 # File Creation Method
 
@@ -118,8 +119,8 @@ Roman-like (ity evam, not ityevam)
 
 # Text Last Updated
 
-2026-06-10
+2026-08-03
 
 # Metadata Last Updated 
 
-2026-06-25
+2026-08-03

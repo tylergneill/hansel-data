@@ -87,6 +87,7 @@ CC BY-NC-SA 4.0
 - (Dec 2025 – Jan 2026) Christian Ferstl: Manually prepared transcript of edition, modified punctuation, added some (not all) inter-word spacing, added Sanskrit chāyās from Achan 1925.
 - (Jan 2026) Roland Steiner: Submitted plaintext file of edition with identical text to that printed in 2006.
 - (Jan–Mar 2026) Tyler Neill: Processed for HANSEL.
+- (Aug 2026) T. Neill: Fixed a few typos.
 
 # File Creation Method
 
@@ -113,8 +114,8 @@ Roman-like (ity evam, not ityevam)
 
 # Text Last Updated
 
-2026-03-22
+2026-08-03
 
 # Metadata Last Updated 
 
-2026-03-31
+2026-08-03

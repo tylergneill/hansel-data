@@ -140,7 +140,7 @@
             "type": "field",
             "label": "Digitization Notes",
             "inline_text": null,
-            "content_html": "<ul>\n<li>(2000s) M. Kapstein: Edited text based primarily on 1936 Trivandrum edition (see CSL vol. intro p. liii) plus some more material not found in the Kerala recension and sourced from other editions. Formatted as Word document.</li>\n<li>(May 2026) M. Kapstein: Submitted more corrections.</li>\n<li>(Feb–June 2026) T. Neill: Processed for HANSEL.</li>\n</ul>\n"
+            "content_html": "<ul>\n<li>(2000s) M. Kapstein: Edited text based primarily on 1936 Trivandrum edition (see CSL vol. intro p. liii) plus some more material not found in the Kerala recension and sourced from other editions. Formatted as Word document.</li>\n<li>(May 2026) M. Kapstein: Submitted more corrections.</li>\n<li>(Feb–June 2026) T. Neill: Processed for HANSEL.</li>\n<li>(July–Aug 2026) H. Isaacson and T. Neill: Fixed a few typos.</li>\n</ul>\n"
         },
         {
             "type": "field",
@@ -169,13 +169,13 @@
         {
             "type": "field",
             "label": "Text Last Updated",
-            "inline_text": "2026-06-10",
+            "inline_text": "2026-08-03",
             "content_html": ""
         },
         {
             "type": "field",
             "label": "Metadata Last Updated",
-            "inline_text": "2026-06-25",
+            "inline_text": "2026-08-03",
             "content_html": ""
         },
         {
