@@ -45,7 +45,7 @@
             <p>HANSEL assumes no responsibility for unauthorised use that infringes rights.</p>
           </licence>
         </availability>
-        <date when="2026-06-25" from="2026" to="2026">June 25, 2026</date>
+        <date when="2026-08-03" from="2026" to="2026">August 03, 2026</date>
       </publicationStmt>
       <notesStmt>
         <note/>
@@ -118,6 +118,7 @@
       <change when="2000s" who="M. Kapstein">Edited text based primarily on 1936 Trivandrum edition (see CSL vol. intro p. liii) plus some more material not found in the Kerala recension and sourced from other editions. Formatted as Word document.</change>
       <change when="May 2026" who="M. Kapstein">Submitted more corrections.</change>
       <change when="Feb–June 2026" who="T. Neill" ana="#hansel-contributor">Processed for HANSEL.</change>
+      <change when="July–Aug 2026" who="H. Isaacson and T. Neill">Fixed a few typos.</change>
     </revisionDesc>
   </teiHeader>
   <text>
@@ -254,7 +255,7 @@
           <p n="1,35" xml:id="p1_l35">priye, kutas tavedaṃ strīsvabhāvasulabhaṃ vivekād bhayam utpannam? paśya — <pb n="6"/></p>
           <lg type="group" n="1,35" xml:id="p1_l35_2">
             <lg>
-              <l>api yadi viśikhāḥ śarāsanaṃ vā kusumam ayaṃ sasurāsuraṃ tathāpi |</l>
+              <l>api yadi viśikhāḥ śarāsanaṃ vā kusumamayaṃ sasurāsuraṃ tathāpi |</l>
               <l>mama jagad akhilaṃ, varoru! nājñām idam atilaṅghya dhṛtiṃ muhūrtam eti || 1.13 ||</l>
             </lg>
             <lg>
@@ -267,7 +268,7 @@
         <sp who="ratiḥ">
           <speaker>ratiḥ</speaker>
           <p n="1,39" xml:id="p1_l39">
-            <seg type="prakrit" xml:lang="pra-Latn">ajjaütta evvaṃ edaṃ | taha vi mahāsahāasaṃpaṇṇo saṅgidavvo arādī | jado 'ssa jamaṇiamappamuhā amaccā mahābalā suṇīandi |<seg type="chāyā" xml:lang="san-Latn">āryaputra, evaṃ etat | tathāpi mahāsahāyasaṃpannaḥ śaṅkitavyo 'rātiḥ | yato 'sya yaminiyamapramukhā amātyā mahābalāḥ śrūyante |</seg>
+            <seg type="prakrit" xml:lang="pra-Latn">ajjaütta evvaṃ edaṃ | taha vi mahāsahāasaṃpaṇṇo saṅgidavvo arādī | jado 'ssa jamaṇiamappamuhā amaccā mahābalā suṇīandi |<seg type="chāyā" xml:lang="san-Latn">āryaputra, evaṃ etat | tathāpi mahāsahāyasaṃpannaḥ śaṅkitavyo 'rātiḥ | yato 'sya yamaniyamapramukhā amātyā mahābalāḥ śrūyante |</seg>
             </seg>
           </p>
         </sp>
@@ -413,7 +414,7 @@
         <sp who="ratiḥ">
           <speaker>ratiḥ</speaker>
           <p n="1,70" xml:id="p1_l70">
-            <seg type="prakrit" xml:lang="pra-Latn">kahaṃ puṇa appaṇo viṇāsakāriṇīe vijjāe uppattī tehiṃ duvviṇīdehiṃ silāhijjaï?<seg type="chāyā" xml:lang="san-Latn">katham punar ātmano vināśakāriṇyā vidyāyā utpattir tair durvinītaiḥ slāghyate?</seg>
+            <seg type="prakrit" xml:lang="pra-Latn">kahaṃ puṇa appaṇo viṇāsakāriṇīe vijjāe uppattī tehiṃ duvviṇīdehiṃ silāhijjaï?<seg type="chāyā" xml:lang="san-Latn">katham punar ātmano vināśakāriṇyā vidyāyā utpattir tair durvinītaiḥ ślāghyate?</seg>
             </seg>
           </p>
         </sp>
@@ -440,7 +441,7 @@
             <stage>samantād avalokya</stage> priye, ayam asmākaṃ kule jyāyān matyā devyā saha viveka ita evābhivartate | ya eṣaḥ — </p>
           <lg xml:id="p1_l76_2" n="1,76">
             <l>rāgādibhiḥ svarasacāribhir āttakāntir<caesura/><pb n="10"/> nirbhartsyamāna iva mānadhanaḥ kṛśāṅgaḥ |</l>
-            <l>matyā nitāntakaluṣīkṛtayā śaśaṅkaḥ<caesura/>kāntyeva sāndratuhināntarito vibhāti || 1.23 ||</l>
+            <l>matyā nitāntakaluṣīkṛtayā śaśāṅkaḥ<caesura/>kāntyeva sāndratuhināntarito vibhāti || 1.23 ||</l>
           </lg>
           <p>tan na yuktam ihāsmākam avasthātum | </p>
           <p xml:id="p1_l79" n="1,79">
@@ -473,7 +474,7 @@
         <sp who="matiḥ">
           <speaker>matiḥ</speaker>
           <p n="1,87" xml:id="p1_l87">
-            <seg type="prakrit" xml:lang="pra-Latn">ajjaütta, jado so sahaāṇandasundarasahāvo ṇiccappaāsapphurantasaalattihuaṇappaāro paramessaro suṇīadi | tā kahaṃ edehiṃ duvviaḍḍhehiṃ baṃdhia mahāmohasāare ṇikkhitto?<seg type="chāyā" xml:lang="san-Latn">āryaputra, yato 'sau sahajānandasundarasvabhāvo nityaprakāśasphuratsakalatribhuvanapracāraḥ parameśvaraḥ śrūyate | tasmāt katham etair dirvidagdhair bandhitvā mahāmohasāgare nikṣiptaḥ |</seg>
+            <seg type="prakrit" xml:lang="pra-Latn">ajjaütta, jado so sahaāṇandasundarasahāvo ṇiccappaāsapphurantasaalattihuaṇappaāro paramessaro suṇīadi | tā kahaṃ edehiṃ duvviaḍḍhehiṃ baṃdhia mahāmohasāare ṇikkhitto?<seg type="chāyā" xml:lang="san-Latn">āryaputra, yato 'sau sahajānandasundarasvabhāvo nityaprakāśasphuratsakalatribhuvanapracāraḥ parameśvaraḥ śrūyate | tasmāt katham etair durvidagdhair bandhitvā mahāmohasāgare nikṣiptaḥ |</seg>
             </seg>
             <pb n="11"/></p>
         </sp>
@@ -494,10 +495,10 @@
         </sp>
         <sp who="rājā">
           <speaker>rājā</speaker>
-          <p n="1,91" xml:id="p1_l91">priye, avicārasiddheyaṃ veśyāvilāsinīva māyā asato 'pi bhāvānupadarśayantī puruṣaṃ vañcayati | paśya — </p>
+          <p n="1,91" xml:id="p1_l91">priye, avicārasiddheyaṃ veśyāvilāsinīva māyā asato 'pi bhāvān upadarśayantī puruṣaṃ vañcayati | paśya — </p>
           <lg xml:id="p1_l91_2" n="1,91">
             <l>sphaṭikamaṇivad bhāsvān devaḥ pragāḍham anāryayā<caesura/>vikṛtim anayā nītaḥ kām apy asaṅgatavikriyaḥ |</l>
-            <l>na khalu tad upaśleṣād asya vyapaiti rucir manāk,<caesura/>prabhavati tathāpy eṣā puṃso vidhātum adhīratām || 1.26 ||</l>
+            <l>na khalu tadupaśleṣād asya vyapaiti rucir manāk,<caesura/>prabhavati tathāpy eṣā puṃso vidhātum adhīratām || 1.26 ||</l>
           </lg>
         </sp>
         <sp who="matiḥ">
@@ -535,7 +536,7 @@
           <speaker>matiḥ</speaker>
           <p n="1,100" xml:id="p1_l100">
             <stage>vicintya</stage>
-            <seg type="prakrit" xml:lang="pra-Latn">jārisī mādā putto vi tāriso jevva jādo |<seg type="chāyā" xml:lang="san-Latn">yādṛśī mātā putro 'pi tāḍṛśa eva jātaḥ |</seg>
+            <seg type="prakrit" xml:lang="pra-Latn">jārisī mādā putto vi tāriso jevva jādo |<seg type="chāyā" xml:lang="san-Latn">yādṛśī mātā putro 'pi tādṛśa eva jātaḥ |</seg>
             </seg>
           </p>
         </sp>
@@ -583,7 +584,7 @@
           <lg xml:id="p1_l108" n="1,108">
             <head>priye —</head>
             <l>māninyāś ciraviprayogajanitāsūyākulāyā bhavec<caesura/>chāntyāder anukūlanād upaniṣaddevyā mayā saṃgamaḥ |</l>
-            <l>tūṣṇīṃ ced viṣayānapāsya bhavatī tiṣṭhen muhūrtaṃ tato<caesura/>jāgratsvapnasuṣuptidhāmavirahāt prāptaḥ prabodhodayaḥ || 1.30 ||</l>
+            <l>tūṣṇīṃ ced viṣayān apāsya bhavatī tiṣṭhen muhūrtaṃ tato<caesura/>jāgratsvapnasuṣuptidhāmavirahāt prāptaḥ prabodhodayaḥ || 1.30 ||</l>
           </lg>
         </sp>
         <sp who="matiḥ">
@@ -1013,7 +1014,7 @@
         <sp who="puruṣaḥ">
           <speaker>puruṣaḥ</speaker>
           <p n="2,107" xml:id="p2_l107">
-            <seg type="prakrit" xml:lang="pra-Latn">ahake ukkaladesādo āado mhi | tattha sāalatīlasaṇṇivese pulisottamasaggidaṃ devadāadaṇam | tassiṃ madamāṇehiṃ bhaṭṭakehiṃ mahālāasaāsaṃ pesido mhi | <stage>vilokya</stage> esā vālāṇasī | edaṃ lāaulam | jāva ppavisāmi | <stage>praviśya</stage> eso bhaṭṭako, cavvākeṇa satthaṃ kiṃvi mantaanto ciṭṭhadi | bhodu uvasappāmi ṇam | <stage>upsṛtya</stage> jedu, jedu, bhaṭṭako! edaṃ pattaṃ ṇilūpañjadu bhaṭṭako |<seg type="chāyā" xml:lang="san-Latn">aham utkaladeśād āgato 'smi | tatra sāgaratīrasanniveśe puruṣottamaśabditaṃ devatāyatanam | tasmin madamānābhyāṃ bhaṭṭārakābhyāṃ mahārājasakāśaṃ preṣito 'smi | eṣā vārāṇasī | etad rājakulam | yāvat praviśāmi | eṣa bhaṭṭārakaś cārvākeṇa sārdhaṃ kimapi mantrayaṃs tiṣṭhati | bhavatūpasarpāmy enam | jayatu jayatu bhaṭṭāṛakaḥ | idaṃ patraṃ nirūpayatu bhaṭṭārakaḥ |</seg>
+            <seg type="prakrit" xml:lang="pra-Latn">ahake ukkaladesādo āado mhi | tattha sāalatīlasaṇṇivese pulisottamasaggidaṃ devadāadaṇam | tassiṃ madamāṇehiṃ bhaṭṭakehiṃ mahālāasaāsaṃ pesido mhi | <stage>vilokya</stage> esā vālāṇasī | edaṃ lāaulam | jāva ppavisāmi | <stage>praviśya</stage> eso bhaṭṭako, cavvākeṇa satthaṃ kiṃvi mantaanto ciṭṭhadi | bhodu uvasappāmi ṇam | <stage>upsṛtya</stage> jedu, jedu, bhaṭṭako! edaṃ pattaṃ ṇilūpañjadu bhaṭṭako |<seg type="chāyā" xml:lang="san-Latn">aham utkaladeśād āgato 'smi | tatra sāgaratīrasanniveśe puruṣottamaśabditaṃ devatāyatanam | tasmin madamānābhyāṃ bhaṭṭārakābhyāṃ mahārājasakāśaṃ preṣito 'smi | eṣā vārāṇasī | etad rājakulam | yāvat praviśāmi | eṣa bhaṭṭārakaś cārvākeṇa sārdhaṃ kimapi mantrayaṃs tiṣṭhati | bhavatūpasarpāmy enam | jayatu jayatu bhaṭṭārakaḥ | idaṃ patraṃ nirūpayatu bhaṭṭārakaḥ |</seg>
             </seg>
             <stage>iti patram arpayati</stage>
           </p>
@@ -1355,7 +1356,7 @@
         <sp who="mithyādṛṣṭiḥ">
           <speaker>mithyādṛṣṭiḥ</speaker>
           <p n="2,176" xml:id="p2_l176">
-            <seg type="prakrit" xml:lang="pra-Latn">eddahamettae visae alaṃ bhaṭṭiṇo ahiṇiveseṇa! vaaṇamatteṇa vva bhaṭṭiṇo dāsa vva savvo aṇṇāṃ karissadi | sā khu mae mitthā dhammo, mitthā mokkho, mitthā veamaggo, mitthā suhavigghaarāiṃ, mitthā satthappalavidāiṃ, mitthā saggaphalaṃ ti bhaṇiantī veamaggaṃ jevva parihalissadi, kiṃ uṇa uvaṇisadam | avi a —<seg type="chāyā" xml:lang="san-Latn">etāvanmātre viṣaye alaṃ bhartur abhiniveśena! vacanamātreṇaiva bhartur dāsa iva sarva ājñāṃ kariṣyati | sā khalu mayā mithyā dharmo mithyā mokṣō mithyā vedamārgo mithyā sukhavighnakarāṇi mithyā śāstrapralapitāni mithyā svargaphalam iti bhaṇyamāna vedamārgam eva parihariṣyati kiṃ punar upaniṣadam | api ca —</seg>
+            <seg type="prakrit" xml:lang="pra-Latn">eddahamettae visae alaṃ bhaṭṭiṇo ahiṇiveseṇa! vaaṇamatteṇa vva bhaṭṭiṇo dāsa vva savvo aṇṇāṃ karissadi | sā khu mae mitthā dhammo, mitthā mokkho, mitthā veamaggo, mitthā suhavigghaarāiṃ, mitthā satthappalavidāiṃ, mitthā saggaphalaṃ ti bhaṇiantī veamaggaṃ jevva parihalissadi, kiṃ uṇa uvaṇisadam | avi a —<seg type="chāyā" xml:lang="san-Latn">etāvanmātre viṣaye alaṃ bhartur abhiniveśena! vacanamātreṇaiva bhartur dāsa iva sarva ājñāṃ kariṣyati | sā khalu mayā mithyā dharmo mithyā mokṣo mithyā vedamārgo mithyā sukhavighnakarāṇi mithyā śāstrapralapitāni mithyā svargaphalam iti bhaṇyamāna vedamārgam eva parihariṣyati kiṃ punar upaniṣadam | api ca —</seg>
             </seg>
             <pb n="33"/></p>
           <lg xml:id="p2_l176_2" n="2,176">
@@ -1412,7 +1413,7 @@
           <speaker>karuṇā</speaker>
           <p n="3,7" xml:id="p3_l7">
             <stage>sāsram</stage>
-            <seg type="prakrit" xml:lang="pra-Latn">sahi, evvaṃ visamajjolaṇajjālāvalītikkhāiṃ akkharāiṃ jappantī savvahā viluttajīviaṃ maṃ karesi | tā pasīda muhuttaaṃ dhāredu jīviaṃ, piasahī | jāva ido tado puṇṇesu assamesu muṇiaṇasamāülesu bhāīrahītīresu suṇiuṇaṃ ṇirūvamha | sā kadāi vi mahāmohabhīdā kahaṃ vi pacchaṇṇaṃ ṇivasaï |<seg type="chāyā" xml:lang="san-Latn">sakhi, evaṃ viṣamajvalanajvālāvalītīkṣṇāny akṣarāṇi jalpantī sarvathā viluptajīvitāṃ māṃ karoṣi | tasmāt prasīda muhūrtaṃ dhārayatu jīvitaṃ, priyasakhī | yāvad itas tataḥ puṇyeṣv āśraṃeṣu munijanasamākuleṣu bhāgīrathītīreṣu sunipuṇaṃ nirūpayāvaḥ | sā kadācid api mahāmohabhītā katham api pracchannaṃ nivasati |</seg>
+            <seg type="prakrit" xml:lang="pra-Latn">sahi, evvaṃ visamajjolaṇajjālāvalītikkhāiṃ akkharāiṃ jappantī savvahā viluttajīviaṃ maṃ karesi | tā pasīda muhuttaaṃ dhāredu jīviaṃ, piasahī | jāva ido tado puṇṇesu assamesu muṇiaṇasamāülesu bhāīrahītīresu suṇiuṇaṃ ṇirūvamha | sā kadāi vi mahāmohabhīdā kahaṃ vi pacchaṇṇaṃ ṇivasaï |<seg type="chāyā" xml:lang="san-Latn">sakhi, evaṃ viṣamajvalanajvālāvalītīkṣṇāny akṣarāṇi jalpantī sarvathā viluptajīvitāṃ māṃ karoṣi | tasmāt prasīda muhūrtaṃ dhārayatu jīvitaṃ, priyasakhī | yāvad itas tataḥ puṇyeṣv āśrameṣu munijanasamākuleṣu bhāgīrathītīreṣu sunipuṇaṃ nirūpayāvaḥ | sā kadācid api mahāmohabhītā katham api pracchannaṃ nivasati |</seg>
             </seg>
             <pb n="35"/></p>
         </sp>
@@ -1802,7 +1803,7 @@
         <sp who="kṣapaṇakaḥ">
           <speaker>kṣapaṇakaḥ</speaker>
           <p n="3,83" xml:id="p3_l83">
-            <seg type="prakrit" xml:lang="pra-Latn">alihanta! alihanta! aho gholaṃ pāvaṃ! kāvālieṇa keṇa vi vippaladdho eva eso tti takkemi!<seg type="chāyā" xml:lang="san-Latn">arhan! arhan! aho ghoraṃ pāpaṃ! kāpālikena kenāpi vipralabdha evaiṣa tarkayāmi!</seg>
+            <seg type="prakrit" xml:lang="pra-Latn">alihanta! alihanta! aho gholaṃ pāvaṃ! kāvālieṇa keṇa vi vippaladdho eva eso tti takkemi!<seg type="chāyā" xml:lang="san-Latn">arhan! arhan! aho ghoraṃ pāpam! kāpālikena kenāpi vipralabdha evaiṣa tarkayāmi!</seg>
             </seg>
           </p>
         </sp>
@@ -1910,8 +1911,8 @@
             <l>viphullaṇīluppalalolaloaṇā,<caesura/>ṇaratthimālākidacālubhūsaṇā |</l>
             <l>ṇiambapīṇatthaṇabhālamanthalā,<caesura/>vihādi puṇṇendumuhī vilāsiṇī || 3.17 ||</l>
             <lg type="chāyā" xml:lang="san-Latn">
-              <l>viphullanīlotpalalolalocanā,narāsthimālākṛtacārubhūṣaṇā, |</l>
-              <l>nitambapīnastanabhāramantharā,vibhāti pūrṇendumukhī vilāsinī ||</l>
+              <l>viphullanīlotpalalolalocanā, narāsthimālākṛtacārubhūṣaṇā, |</l>
+              <l>nitambapīnastanabhāramantharā, vibhāti pūrṇendumukhī vilāsinī ||</l>
             </lg>
           </lg>
         </sp>
@@ -2334,7 +2335,7 @@
         <sp who="maitrī">
           <speaker>maitrī</speaker>
           <p n="4,20" xml:id="p4_l20">
-            <seg type="prakrit" xml:lang="pra-Latn">diṭṭhiā miī via saddūlamuhādo pabbhaṭṭā saddhā kkhemeṇa saṃjīviā piasahī! tado tado?<seg type="chāyā" xml:lang="san-Latn">diṣtyā mṛgīva śārdūlamukhāt prabhraṣṭā śraddhā kṣemeṇa sañjīvitā priyasakhī | tatas tataḥ?</seg>
+            <seg type="prakrit" xml:lang="pra-Latn">diṭṭhiā miī via saddūlamuhādo pabbhaṭṭā saddhā kkhemeṇa saṃjīviā piasahī! tado tado?<seg type="chāyā" xml:lang="san-Latn">diṣṭyā mṛgīva śārdūlamukhāt prabhraṣṭā śraddhā kṣemeṇa sañjīvitā priyasakhī | tatas tataḥ?</seg>
             </seg>
           </p>
         </sp>
@@ -2397,7 +2398,7 @@
         <sp who="pratīhārī">
           <speaker>pratīhārī</speaker>
           <p n="4,37" xml:id="p4_l37">
-            <seg type="prakrit" xml:lang="pra-Latn">jaṃ devo āṇavedi |<seg type="chāyā" xml:lang="san-Latn">jaṃ devo āṇavedi |</seg>
+            <seg type="prakrit" xml:lang="pra-Latn">jaṃ devo āṇavedi |<seg type="chāyā" xml:lang="san-Latn">yad deva ājñāpayati |</seg>
             </seg>
             <stage>iti niṣkramya vastuvicāreṇa saha praviśati |</stage>
           </p>

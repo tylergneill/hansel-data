@@ -311,7 +311,7 @@ rāmaḥ —
 
 [8,1]
 
-lakṣmaṇaḥ — kimeva khidyase । idaṃ vanaṃ praviśyānviṣyadbhirdṛśyate devī ।
+lakṣmaṇaḥ — kimevaṃ khidyase । idaṃ vanaṃ praviśyānviṣyadbhirdṛśyate devī ।
 
 [8,2]
 
@@ -669,7 +669,7 @@ lakṣmaṇaḥ — ((svagatam ।)) aho, kaṣṭamāryasyeyaṃ daśā vartate
 
 rāmaḥ — kimatrāsmahe ।
 
-	vatsā yāhi gṛhaṃ vrajāma
+	vatsā≤ ≥yāhi gṛhaṃ vrajāma
 
 [13,22]
 

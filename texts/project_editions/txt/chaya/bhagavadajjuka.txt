@@ -42,7 +42,7 @@ bho bhagavan | ka eṣa ātmā nāma | ko 'nyaḥ karmātmā nāma |
 
 yo 'jaro 'maro 'cchedyo 'bhedyaḥ sa ātmā nāma | yo hasati hāsayati śete bhuṅkte vilayaṃ ca gacchati sa karmātmā nāma |
 
-ā | apehi/avehi | abhigṛhīto 'si |
+ā | apehi | abhigṛhīto 'si |
 
 nanu sa evedānīm eṣaḥ | na hi śarīraṃ vināsti kim api |
 
@@ -82,7 +82,7 @@ adhīte kiṃ bhaviṣyati |
 
 bho bhagavan | apratyakṣe yathākāmaṃ mama buddhiṃ paribhūya bhaṇasi | śakyaṃ punar adṛṣṭe bhagavataḥ paragṛhāṇi praveṣṭum |
 
-mamābhipretaṃ śākyaśramaṇakānāṃ kāraṇāt susādhitāni saṅghaprayuktāni/pravṛttāni bhojanāny aśitum |
+mamābhipretaṃ śākyaśramaṇakānāṃ kāraṇāt susādhitāni saṅghaprayuktāni bhojanāny aśitum |
 
 etasya kāraṇāt tvaṃ muṇḍito 'si |
 
@@ -258,7 +258,7 @@ dharṣitā khalu mahāsarpeṇa khāditā bhavet |
 
 katham āryo jānāti |
 
-mahāntaṃ vikāraṃ karotīti | ānaya sarvārambhān, yāvad ārambhe viṣatantram | kuṇḍalakuṭilagāmini | maṇḍalaṃ praviśa maṇḍalam | vāsukiputra | tiṣṭha tiṣṭha | śū śū | yāvac chirāvedhaṃ kariṣyāṃi | kutra kuṭhārikā |
+mahāntaṃ vikāraṃ karotīti | ānaya sarvārambhān, yāvad ārambhe viṣatantram | kuṇḍalakuṭilagāmini | maṇḍalaṃ praviśa maṇḍalam | vāsukiputra | tiṣṭha tiṣṭha | śū śū | yāvac chirāvedhaṃ kariṣyāmi | kutra kuṭhārikā |
 
 ayi | pittam apy asti | ayaṃ te pittaṃ vātaṃ śleṣmāṇaṃ ca nāśayāmi |
 

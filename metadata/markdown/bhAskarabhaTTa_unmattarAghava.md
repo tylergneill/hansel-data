@@ -79,6 +79,7 @@ CC BY-NC-SA 4.0
 
 - (March – July 2026) T. Richard: Manually transcribed the edition and formatted as a Google Doc. Justified textual improvements in separate doc.
 - (June — July 2026) T. Neill: Exported Google Doc tabs as Word docs and processed for HANSEL.
+- (Aug 2026) H. Isaacson and T. Neill: Fixed a few typos.
 
 # File Creation Method
 
@@ -109,8 +110,8 @@ Devanāgarī-like (ityevam, not ity evam)
 
 # Text Last Updated
 
-2026-07-24
+2026-08-03
 
 # Metadata Last Updated 
 
-2026-07-24
+2026-08-03
