@@ -442,7 +442,7 @@
         </sp>
         <sp who="lakṣmaṇaḥ">
           <speaker>lakṣmaṇaḥ</speaker>
-          <p n="8,1" xml:id="p8_l1">kimeva khidyase । idaṃ vanaṃ praviśyānviṣyadbhirdṛśyate devī । <lb n="2"/></p>
+          <p n="8,1" xml:id="p8_l1">kimevaṃ khidyase । idaṃ vanaṃ praviśyānviṣyadbhirdṛśyate devī । <lb n="2"/></p>
         </sp>
         <sp who="rāmaḥ">
           <speaker>rāmaḥ</speaker>
@@ -773,7 +773,7 @@
           <speaker>rāmaḥ</speaker>
           <p n="13,20" xml:id="p13_l20">kimatrāsmahe । <lb n="21"/></p>
           <lg xml:id="p13_l20_2" n="13,20">
-            <l>vatsā yāhi gṛhaṃ vrajāma<caesura/><lb n="22"/></l>
+            <l>vatsā<del> </del>yāhi gṛhaṃ vrajāma<caesura/><lb n="22"/></l>
           </lg>
         </sp>
         <sp who="lakṣmaṇaḥ">

@@ -444,7 +444,7 @@ Similarly, I have rendered the "nepathye" stage direction as speaker identificat
         <sp who="śāṇḍilyaḥ">
           <speaker>śāṇḍilyaḥ</speaker>
           <p n="20,3" xml:id="p20_l3">
-            <seg type="prakrit" xml:lang="pra-Latn">ā | avehi | abhiggahido si |<seg type="chāyā" xml:lang="san-Latn">ā | apehi/avehi | abhigṛhīto 'si |</seg>
+            <seg type="prakrit" xml:lang="pra-Latn">ā | avehi | abhiggahido si |<seg type="chāyā" xml:lang="san-Latn">ā | apehi | abhigṛhīto 'si |</seg>
             </seg>
             <lb n="4"/></p>
         </sp>
@@ -687,7 +687,7 @@ Similarly, I have rendered the "nepathye" stage direction as speaker identificat
         <sp who="śāṇḍilyaḥ">
           <speaker>śāṇḍilyaḥ</speaker>
           <p n="26,12" xml:id="p26_l12">
-            <seg type="prakrit" xml:lang="pra-Latn">mama abhippedaṃ sakkiasamaṇaāṇaṃ kāraṇādo susādhidāṇi<lb n="13"/>saṅghappavuttāṇi bhoaṇāṇi aṇhiduṃ |<seg type="chāyā" xml:lang="san-Latn">mamābhipretaṃ śākyaśramaṇakānāṃ kāraṇāt susādhitāni saṅghaprayuktāni/pravṛttāni bhojanāny aśitum |</seg>
+            <seg type="prakrit" xml:lang="pra-Latn">mama abhippedaṃ sakkiasamaṇaāṇaṃ kāraṇādo susādhidāṇi<lb n="13"/>saṅghappavuttāṇi bhoaṇāṇi aṇhiduṃ |<seg type="chāyā" xml:lang="san-Latn">mamābhipretaṃ śākyaśramaṇakānāṃ kāraṇāt susādhitāni saṅghaprayuktāni bhojanāny aśitum |</seg>
             </seg>
             <lb n="14"/></p>
         </sp>
@@ -1565,7 +1565,7 @@ Similarly, I have rendered the "nepathye" stage direction as speaker identificat
         <sp who="vaidyaḥ">
           <speaker>vaidyaḥ</speaker>
           <p n="50,1" xml:id="p50_l1">
-            <seg type="prakrit" xml:lang="pra-Latn">mahantaṃ viāraṃ karedi tti | † āṇehi | savvārambhāṇi dāva āra<lb n="2" break="no"/>mbhissaṃ visatante † | <stage>upaviśya maṇḍalaṃ racayitvā |</stage> kuṇḍalakuḍilagāmiṇi |<lb n="3"/>maṇḍalaṃ pavisa maṇḍalaṃ | vāsuiputta | ciṭṭha ciṭṭha | śū śū | jāva sirāvehaṃ<lb n="4"/>karissaṃ | kahiṃ kuṭhāriā |<seg type="chāyā" xml:lang="san-Latn">mahāntaṃ vikāraṃ karotīti | ānaya sarvārambhān, yāvad ārambhe viṣatantram | kuṇḍalakuṭilagāmini | maṇḍalaṃ praviśa maṇḍalam | vāsukiputra | tiṣṭha tiṣṭha | śū śū | yāvac chirāvedhaṃ kariṣyāṃi | kutra kuṭhārikā |</seg>
+            <seg type="prakrit" xml:lang="pra-Latn">mahantaṃ viāraṃ karedi tti | † āṇehi | savvārambhāṇi dāva āra<lb n="2" break="no"/>mbhissaṃ visatante † | <stage>upaviśya maṇḍalaṃ racayitvā |</stage> kuṇḍalakuḍilagāmiṇi |<lb n="3"/>maṇḍalaṃ pavisa maṇḍalaṃ | vāsuiputta | ciṭṭha ciṭṭha | śū śū | jāva sirāvehaṃ<lb n="4"/>karissaṃ | kahiṃ kuṭhāriā |<seg type="chāyā" xml:lang="san-Latn">mahāntaṃ vikāraṃ karotīti | ānaya sarvārambhān, yāvad ārambhe viṣatantram | kuṇḍalakuṭilagāmini | maṇḍalaṃ praviśa maṇḍalam | vāsukiputra | tiṣṭha tiṣṭha | śū śū | yāvac chirāvedhaṃ kariṣyāmi | kutra kuṭhārikā |</seg>
             </seg>
             <lb n="5"/></p>
         </sp>
