@@ -7223,7 +7223,7 @@ rthasādhanānāṃ dharmārthakāmānāmekopi hi prāptaḥ | kimetattena kṛt
 
 [281,1]
 ityākṣiptacetāścintayaṃściramiva tasminneva tarutale sthitvā śū-
-nyahṛdayopi yathākriyamāṇaprasādasaṃmānasambhāvanāsaṃbhāvitaṃ visarjya sa-
+nyahṛdayopi yathākriyamāṇaprasādasaṃmānasaṃbhāvanāsaṃbhāvitaṃ visarjya sa-
 kalameva rājakamutthāya tatkṣaṇakṛtamuttambhitatuṅgataratoraṇābaddhacandana-
 mālamubhayapārśvasthāpitotpallavamukhapūrṇahemakalaśaṃ dvārātprabhṛti sikta-
 saṃmṛṣṭabhūmibhāgamantarbahiśca prakīrṇasurabhikusumaprakaramitastataḥ saṃcaratā
@@ -7231,8 +7231,8 @@ karmāntikalokena gṛhītavividhabhṛṅgāraṃ maṇicāmaratālavṛntaratn
 dyupakaraṇapāṇibhirvāravanitābhiścākīrṇa vitānatalavartinā madāmodādhi-
 vāsitadigānanena rājahastinā gandhamādanena sanāthīkṛtaikapārśvamapara-
 pārśvepi kalpitendrāyudhāvasthānamupavāhyakareṇukākrāntabāhyāṅgaṇamaśeṣa-
-dvārāvahitabahuvetrilokaṃ mahattvādgambhīratayānekasatvaśaraṇatayā ca ma-
-hājalanidhimanukurvāṇam | tathā hi savelāvanamiva yāmāvasthitāneka-
+dvārāvahitabahuvetrilokaṃ mahattvādgambhīratayānekasattvaśaraṇatayā ca ma-
+hājalanidhimanukurvāṇam | tathā hi | savelāvanamiva yāmāvasthitāneka-
 karighaṭāparikareṇāntaḥpraviṣṭamahāśailamiva gandhamādanena sakallolamiva
 saṃcaratsaṃbhrāntakarmāntikalokormiparaṃparābhiḥ sāvartamiva prāharikaja-
 namaṇḍalāvasthānaiḥ salakṣmīkamiva varāṅganābhiḥ saratnamiva mahāpuruṣaiḥ
@@ -7275,7 +7275,7 @@ jvalatsviva duḥsparśāsu bhūmiṣu niḥsaṃcāreṣu pathiṣu saṃkaṭa
 darodapītipuñjiteṣvadhvanyeṣu nāḍiṃdhamaśvāsātureṣu svanīḍāvasthāyiṣu
 <283>
 pattraratheṣu palvalāntarjalapraveśiteṣu mahiṣavṛndeṣvaravindadalaśakalaki-
-ñjalkavicchuritamicchāviloḍitotruṭitabisakāṇḍacchedadanturaṃ nipāna-
+ñjalkavicchuritamicchāviloḍitottruṭitabisakāṇḍacchedadanturaṃ nipāna-
 saraḥpaṅkamārohatsu kariyūtheṣu raktatāmarasakāntiṣu lalanākapolopā-
 nteṣu dalitamuktākṣodānukāriṇīṣu virājamānāsu dharmajalakaṇikāvalīṣu
 smaryamāṇāyāṃ jyotsnāyāṃ gṛhyamāṇeṣu tuṣāraguṇeṣu vāñchyamāne payo-
@@ -7286,9 +7286,9 @@ parikṣiptamantarālambitajalajambūpravālāhitāndhakāramāmuktakusumapalla-
 valatāvṛtākhilastambhasaṃcayamatanuharicandanacarcārdraṃ marakataśyāmapadmi-
 nīpalāśāstīrṇasamastabhūtalamāmodamānasarasasphuṭitāravindarāśidatta-
 prakaramākīrṇasarasabisakāṇḍamakāṇḍakalpitaprāvṛṭkālamitastatovarṣa-
-ntībhiḥ śaivalapravālamañjarībhirjaladevatābhiriva sadyaḥ snānārdraciku-
+ntībhiḥ śaivalapravālamañjarībhirjaladevatābhiriva sadyaḥ snātārdraciku-
 rahastābhirupagṛhītasurabhikomalajalārdrikābhiranāśyānacandanāṅgarāga-
-hāriṇībhirhāravalayamātrābharaṇābhiravataṃsitavālaśaivalapravālābhirmṛṇā-
+hāriṇībhirhāravalayamātrābharaṇābhiravataṃsitabālaśaivalapravālābhirmṛṇā-
 latālavṛntakarpūrapaṭavāsaharicandanacandrakāntamaṇidarpaṇādyupakaraṇapā-
 ṇibhirabahvībhirvārāṅganābhirupetaṃ paribhavasthānamiva nidāghasamayasya ni-
 dānamiva śītakālasya niveśamiva vārivāhānāṃ tiraskāramiva ravi-
@@ -7320,13 +7320,13 @@ yinīm |
 
 [284,18]
 atha dūrata eva prasṛtidvandvasaṃsthitaiśca puñjyamānaiśca« »puñjitaiścāba-
-ddhamaṇḍalaiścopaviṣṭaiḥ valitaiśca dattakatipayaśūnyapadaiśca nivartyamānai-
+ddhamaṇḍalaiścopaviṣṭairvalitaiśca dattakatipayaśūnyapadaiśca nivartyamānai-
 ścāgacchadbhiśconmukhaiścādhomukhaiścodbāṣpadṛṣṭibhiśca vivarṇadīnavadanaiśca ma-
 hākaṣṭaśabdamukharaiśca duḥkhādhikyāhitamaunaiśca munibhirapi mumukṣubhirapi
 vītarāgairapi niḥspṛhairapyudāsīnairapi durjanairapi snehaparavaśaiḥ pitṛbhi-
-riva suhṛdbhiriva snigdhabandhubhiriva ca nagarīnirgatairārtyā pṛcchayamānaṃ
+riva suhṛdbhiriva snigdhabandhubhiriva ca nagarīnirgatairārtyā pṛcchyamānaṃ
 <285>
-kathyamānaṃ ca vicāryamāṇaṃ cānubhāvyamānaṃ ca vaiśampāyanavṛttāntameva
+kathyamānaṃ ca vicāryamāṇaṃ cānubhāvyamānaṃ ca vaiśampāyanavṛtāntameva
 samantācchuśrāva |
 
 [285,3]
@@ -7339,7 +7339,7 @@ rājakuladvāri viśannevāryaśukanāsabhavanaṃ saha devyā vilāsavatyā
 gato rājeti śuśrāva | śrutvā ca nivartya tatraiva jagāma | gacchaṃśca
 samīpavartī hā vatsa vaiśampāyanādyāpi madaṅkalālanocito bāla
 evāsi kathaṃ tvamekākī vyālaśatasahasrabhīṣaṇe nirmānuṣe tasmiñśū-
-nyāraṇye sthitaḥ | kena te tatrāpi sarvasatvavyāghātakāriṇī śarīra-
+nyāraṇye sthitaḥ | kena te tatrāpi sarvasattvavyāghātakāriṇī śarīra-
 rakṣā kṛtā | kena vaiṣamyapratipanthinī śarīrasthitiḥ saṃpāditā | kena
 nidrāsukhadāyi śayanīyamupakalpitam | kastvayi bubhukṣite tṛṣite su-
 ṣupsati vā duḥkhitaḥ | mamotsaṅgamutsṛjya samānasukhaduḥkhā vadhūrapi
@@ -7347,10 +7347,10 @@ na putraka tvayopāttā | āgatamātrasyaiva te pitaramanujñāpyātyartha vadh�
 khamavalokayiṣyāmīti yanmayā cintitaṃ kevalaṃ tanme mandapuṇyāyā na
 saṃpannam | paraṃ tavāpi vadanadarśanaṃ durlabhaṃ bhūtam | vatsa yatra tevasthātuma-
 bhirucitaṃ nayasva tatraiva māmapi pitaraṃ vijñāpya | tvāmapaśyantī na jī-
-vāmi | tāta tvayāhaṃ śaiśavepi nāvamānitā | kutastaveyamekapada eve-
+vāmi tāta tvayāhaṃ śaiśavepi nāvamānitā | kutastaveyamekapada eve-
 dṛśī niṣṭhuratā jātā | ā janmanaḥ prabhṛti na dṛṣṭameva yasya kupitamā-
 nanaṃ tasya te kutoyamevaṃvidho mayyakasmādeva kopaḥ | yadevaṃ parityajya
-sthitosi | gatopyāgaccha śirasā prasādayāmi tvām | ¿koparosti¿ me |
+sthitosi | gatopyāgaccha śirasā prasādayāmi tvām | koparosti me |
 <286>
 deśāntaraparicayānmukto nāmāsmāsu snehaḥ | kṣaṇamapyanantaritadarśanasya
 candrāpīḍasyopari kathaṃ tavedṛśī niḥsnehatā jātā | tāta na bhadrakaṃ te
@@ -7370,7 +7370,7 @@ jaladharobhyadhāt | vatsa candrāpīḍa jānāmi te svajīvitādapi sama-
 bhyadhikāṃ bhrāturupari prītim | pīḍā ca sukhaikahetorvallabhajanādevā-
 saṃbhāvyā yā samutpadyate | tathaiva hi na kiṃcinna kriyate | tajjanmanaḥ
 snehasya vayasaḥ śīlasya śrutasya gurujanānuśāsanasya vinayādhānasya
-ca sarvasyaivānucitamimaṃ bhrātuḥ suhṛdaśca te vṛttāntamākarṇya tvadoṣamā-
+ca sarvasyaivānucitamimaṃ bhrātuḥ suhṛdaśca te vṛttāntamākarṇya tvaddoṣamā-
 śaṅkate me hṛdayam | ityevaṃ vādino narapatervacanamākṣipya yugapa-
 cchokāmarṣābhyāmandhakāritānanaḥ prāvṛḍārambha iva taḍillatāduṣprekṣyo
 visphūrjjitenaiva sphuritādhareṇa śukanāsobravīt |
@@ -7393,7 +7393,7 @@ votpadyanta evaṃvidhāḥ śarīrasaṃbhavā mahākṛmayaḥ sarvadoṣāśr
 vyādhayontarviṣā mahāvyālā vināśahetavo mahotpātā bhujaṃgavṛttayo
 mahāvātikā vakracāriṇo mahāgrahāstamomayāḥ pradoṣā malinātmakāḥ
 kulapāṃśavo niḥsnehāḥ khalā nirlajjāḥ kṣapaṇakā niḥsaṃjñāḥ paśavo-
-pi cākāṣṭhā dahanā nirguṇā jālinotīrthā jalāśayāḥ nirgauravāḥ
+pi cākāṣṭhā dahanā nirguṇā jālinotīrthā jalāśayā nirgauravāḥ
 kharaprakṛtayośivamūrtayo mahāvināyakādhiṣṭhitāḥ | ye sakalaṅkāḥ kṛ-
 pāṇā iva snehenaiva pāruṣyaṃ bhajante | malinasvabhāvāḥ karikapolā
 iva dānenaiva malinataratāmāpadyante | nirvartayo maṇipradīpā iva prasā-
@@ -7461,14 +7461,14 @@ balenaiva sahopacīyate madaḥ | dordvayenaiva saha sthūlatāmāpadyate dhī�
 dhyenaiva saha kārśyamupayāti śrutam | uruyugalenaiva sahopacīyate hṛda-
 yamavinayaiḥ | śmaśrubhireva sahojjṛmbhate malinatāheturmohaḥ | ākāreṇaiva
 sahāvirbhavanti hṛdayādvikārāḥ | tadyathā dhavalamapi sarāgaṃ sarvathā
-dīrghībhavadapi na dīrgha paśyati cakṣuḥ | anupahatepi na praviśati gurū-
+dīrghībhavadapi na dīrghaṃ paśyati cakṣuḥ | anupahatepi na praviśati gurū-
 padeśaḥ śrotre | strīrāgiṇyapi na vidyāntaraṃ vindati hṛdaye | sthai-
 ryamasthiraprakṛtau taralatāyām | parityājyeṣu vyasaneṣvāsaṅgaḥ |
 
 [290,9]
 vikārāṇāṃ ca kāraṇaṃ prāyaḥ sarasatā | sā ca sarvameva jalaprāyaṃ
 kurvāṇā varṣātivṛddhyaivopajāyate | api ca divaso doṣāgamāya doṣāga-
-monālokāyānālokosaddarśanārthamasadarśanamavivekāyāvivekosanmārgapra-
+monālokāyānālokosaddarśanārthamasaddarśanamavivekāyāvivekosanmārgapra-
 vṛttayesanmārgavṛttaṃ ca mohāndhaṃ ceto bhrāmyadavaśyameva skhalati |
 skhalite cetasi tallagnā patatyeva lajjā | trapāvaraṇaśūnye ca hṛdi
 praviśya padaṃ kurvankena vā nivārito durnivāraḥ sarvāvinayahetuḥ kusu-
@@ -7482,13 +7482,13 @@ mobhivṛddhiheturutsārito doṣābhiṣaṅgo dṛṣṭerupahantā | kiṃ v�
 tāmasati bahudarśitve | bahudarśitvaṃ ca tāvataḥ kālasyaivāsaṃbhavātkutaḥ |
 bhavatu prathame vayasi | yenānvayavyatirekābhyāṃ niścitya varjyatāṃ ma-
 <291>
-linatā | api ca pariṇāmepi puṇyavatāṃ keṣāṃcideva hi keśaiḥ
+linatā | api ca pariṇāmepi puṇyavatā«ṃ» keṣāṃcideva hi keśaiḥ
 saha dhavalimānamāpadyante caritāni | tanmohaviṣayamahāhau madavi-
 kāragandhamātaṅge durvilasitaikarājye ratinidrāvilāsaveśmani nava-
 rāgapallavodgamalīlāntaviśeṣaduścaritacakravartini tāruṇyāvatāre sarva-
 syaiva viṣamataraviṣayamārgapatitasya skhalitamāpatati | kimevamāryeṇa
 lālanīyasya pālanīyasya śiśujanasyoparyāveśo garīyāngṛhīto yadanu-
-citamapatyasnehasyākrośagarbhamevamuktam | svamāyamānānāmapi yadgurūṇāṃ
+citamapatyasnehasyākrośagarbhamevamuktam | svapnāyamānānāmapi yadgurūṇāṃ
 mukhebhyo niṣkrāmati śubhamaśubhaṃ vā śiśuṣu tadavaśyaṃ phalati | gu-
 ravo hi daivataṃ bālānām | yathaivāśiṣo gurujanavitīrṇā varatāmāpa-
 dyante tathaivākrośāḥ śāpatām | tadvaiśampāyanamuddiśya kopāveśādeva-
@@ -7537,14 +7537,14 @@ pratyavādīt | ārya mayā jñātameteṣveva divaseṣu saṃpūrṇamaṇḍa
 jyotsnāmiva karāvalambinīṃ vatsasya vadhūṃ drakṣyāmīti yāvadayamaparo-
 ntarhitāśāpatho jaladakāla iva pratyūhakārī vaiśampāyanavṛttānto vi-
 lomaprakṛtinā vidhātrāntarā pātitaḥ | yathā cāyuṣmatābhihitamevaitat |
-na tamanyaḥ śaknotyānetum | na ca tena vināyamatra sthātum | tadava-
+na tamanyaḥ śaknotyānetuṃ na ca tena vināyamatra sthātum | tadava-
 śyameva tāvannistaritavyo vyasanārṇavomunā potena | vaiśampāyanapratyā-
 nayanāya cāvaśyaṃ devyapi vilāsavatī visarjayiṣyatyevainamiti
-niścayo me | tadyātu | kiṃtvatidūraṃ vatsena gantavyam | tadgaṇakaiḥ
+niścayo me | tadyātu | kiṃ tvatidūraṃ vatsena gantavyam | tadgaṇakaiḥ
 sahādarādāryo divasaṃ lagnaṃ ca gamanāyāsya nirūpayatu saṃvidhānaṃ ca kā-
 rayatviti | etadabhidhāya śukanāsamudvāṣpalocanaściramiva candrāpī-
 ḍamālokyāhūya ca vinayāvanamramaṃsadeśe śirasi bāhvośca pāṇinā
-spṛśanādiśat | vatsa gaccha tvameva praviśyābhyantaraṃ manoramāsahi-
+spṛśannādiśat | vatsa gaccha tvameva praviśyābhyantaraṃ manoramāsahi-
 tāyā māturāvedayātmagamanavṛttāntam | ityādiśya candrāpīḍamātmanā
 śukanāsamādāya svabhavanamayāsīt | candrāpīḍastu tāmakliṣṭavarṇām
 kādambarīvaraṇasrajamiva gamanābhyanujñāṃ hṛdayenodvahanprahṛṣṭāntarātmāpya-
@@ -7554,7 +7554,7 @@ nadviguṇībhūtavaiśampāyanavirahaśokavihvalāṃ manoramāmāśvāsyāvād
 [293,17]
 amba samāśvasihi | vaiśampāyanānayanāya tātena me gamanamādi-
 ṣṭam | tatkatipayadivasāntaritaṃ vaiśampāyanānanadarśanotsukaṃ māmavika-
-lpaṃ visarjaya tvaṃ | sā tvevamabhihitā pratyuvāca | tāta kimātmaga-
+lpaṃ visarjaya tvam | sā tvevamabhihitā pratyuvāca | tāta kimātmaga-
 manavacasā māṃ samāśvāsayasi | kaḥ khalu me tvayi tasmiṃśca viśe-
 ṣaḥ | tadekadhā tamekaṃ na paśyāmi kaṭhinahṛdayam | tvayi punargate yadapi
 tasyādarśane jīvitapratibandhahetubhūtaṃ tvaddarśanaṃ tadapi dūrībhavati | tanna
@@ -7590,7 +7590,7 @@ vādeśaḥ | siddhaśca tanayavirahaviklavatayāryaśukanāsasya | tadatikrānt
 śvastanehani rātrāvitaḥ prasthātavyaṃ devena | ityāvedite taiḥ sādhu
 kṛtamiti muditacetāstānabhiṣṭutya dṛṣṭiviṣayavartinīmeva kādambarīṃ
 vaiśampāyanaṃ ca manyamānopraviṣṭāyāmeva pattralekhāyāṃ parāpatāmītyagrapra-
-dhāvitenāvadhārayañcetasā catuḥsamudrasārabhūtānindrāyudharayānugāmina-
+dhāvitenāvadhārayaṃścetasā catuḥsamudrasārabhūtānindrāyudharayānugāmina-
 sturaṃgamānagaṇeyānavagaṇitaturaṃgagamanakhedānutsāhino rājaputrāṃśca nirū-
 payannananyakarmā taṃ divasamekāṃ ca yāminīṃ kathaṃ kathamapyasthāt |
 
@@ -7626,14 +7626,14 @@ gamanamekākinaste samutprekṣyeti | na punarvaiśampāyanavṛttāntādātmana
 eva duḥkhitatayeti | na caivaṃvidhayā pīḍayā vaiśampāyanānayanāya gaccha-
 taste gamanaṃ nivārayituṃ pārayati vāṇī | hṛdayaṃ punarnecchatyeva tvadīyaṃ
 gamanam | tadīdṛśīṃ me pīḍāṃ vijñāya yathā purā sthitaṃ na tathā kvaci-
-dāsaṅgamāvadhyatidīrghakālamāyuṣmatā sthātavyam | asya cārthasya kṛte
+dāsaṅgamāvadhyātidīrghakālamāyuṣmatā sthātavyam | asya cārthasya kṛte
 sāñjalibandhena śirasābhyarthaye vatsam | ityādiśantīṃ svamātaraṃ
 sudūraṃ prasāritāvanamramūrtiścandrāpīḍo vyajijñapat | amba tadā
 digvijayaprasaṅgātsthitam | adhunā punarayameva kālakṣepo yāvatta-
 muddeśaṃ parāpatāmi | tatpunaścirāgamanakṛtā na bhāvanīyā manāgapi
 hṛdaye pīḍā tvayā | ityevaṃ vijñaptā candrāpīḍena saṃnirudhya
 bāṣpavegānkathaṃ kathamapi saṃstabhyātmānaṃ nirvartitagamanamaṅgalā galatā
-prasraveṇa siñcantī śirasi copāghrāya gāḍhaṃ suciramāliṅgaya gaccha-
+prasraveṇa siñcantī śirasi copāghrāya gāḍhaṃ suciramāliṅgya gaccha-
 dbhiriva prāṇaiḥ kṛcchrānmumoca taṃ mātā |
 
 [296,22]
