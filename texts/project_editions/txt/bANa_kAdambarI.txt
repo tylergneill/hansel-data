@@ -8603,13 +8603,13 @@ thaṃ kathamapi cetanāmāpādyamānāṃ parijanenārdhonmīlitalocanayugāmu�
 kālakamalinīmiva vilāsavatīmapaśyat | dṛṣṭvā ca sahasā pravṛttena
 netrāmbhasā mūrchāvaśeṣāpanayanāyeva siñcansamupaviśya pārśve spa-
 rśāmṛtavarṣiṇā kareṇa lalāṭe cakṣuṣi kapolayorurasi bāhvośca spṛśa-
-ñchanaiḥ śanairbāṣpagadgadamavādīt | devi yadi satyamevānyādṛśaṃ ki-
+ñśanaiḥ śanairbāṣpagadgadamavādīt | devi yadi satyamevānyādṛśaṃ ki-
 mapi vatsasya candrāpīḍasya tato na jīvyata eva | kimarthamayamātmā
 vatsasya kṛte sakalalokasādhāraṇenāmunā vaiklavyopagamena tucchatāṃ nī-
 yate | iyanti śubhānyupāttāni karmāṇi | kimaparaṃ kriyate | nādhika-
 sya bhājanaṃ sukhasya vayam | anupāttaṃ hi hṛdayatāḍanamapi kurvadbhirna
 labhyata evātrātmecchayā | vidhirnāmāparaḥ kopyatrāste | yattasmai ro-
-cate tatkaroti | nāsau kasyacidapyāyattaḥ | evaṃ ca parādhīnavṛttī
+cate tatkaroti | nāsau kasyacidapyāyattaḥ | evaṃ ca parādhīnavṛttau
 sarvasminna kiṃ vāsmābhirlabdham | vatsasyātidurlabho janmotsavaḥ saṃ-
 bhāvitaḥ | aṅkagatasya mukhamavalokitam | uttānaśayasyoccumbya cara-
 ṇāvuttamāṅge kṛtau | jānusaṃcāriṇo reṇudhūsaraśarīrasyāṅke lulataḥ
@@ -8624,7 +8624,7 @@ povane na gatam | sarvābhivāñchitaprāptistu mahataḥ puṇyarāśeḥ phala
 aparamapi kiṃ vṛttaṃ vatsasyaitadadyāpi na parisphuṭaṃ kenacideva kathi-
 tam | etāvattu mayāvyaktametadeva parijanātkathayataḥ karṇe kṛtam | yathā-
 smatprahitairlekhahāribhiḥ sahāparo vatsasya me bālasevakastvaritakanā-
-māyātaḥ | sa vetti sarva vṛttāntam | sopi tvayā na pṛṣṭa eveti | tattaṃ
+māyātaḥ | sa vetti sarvaṃ vṛttāntam | sopi tvayā na pṛṣṭa eveti | tattaṃ
 tu tāvatpṛcchāmaḥ | tato jīvitamaraṇayoranyataradaṅgīkariṣyāmaḥ |
 ityabhivadatyeva rājani parijanāntaritaṃ tvaritakamāhūya pratīhā-
 rastvaritakamārānmahītalaniveśitottamāṅgamālokayatu deva iti da-
@@ -8634,7 +8634,7 @@ rśitavān |
 rājā tu tathā tamālokya candrāpīḍasnehādehītyāhūya hastenotta-
 māṅge spṛṣṭvādiṣṭavān | bhadra kathaya kiṃ vṛttaṃ vatsasya yenāgamanāya
 mayā tanmātrāmātyena ca likhitepi nāyātaḥ | anāgamanakāraṇaṃ vā
-kiṃcinna pratilekhitavāniti | sa tvevamādiṣṭo rājñā gamanataḥ prabhṛti
+kiṃcinna pratilekhitavāniti sa tvevamādiṣṭo rājñā gamanataḥ prabhṛti
 yathāvṛttaṃ kathayitumārebhe | rājā tu candrāpīḍahṛdayasphuṭanavṛttāntaṃ
 yāvadākarṇyātikṣubhitaśokārṇavākrāntiviklavaḥ prasārya karamārtasvara-
 stvaritakamavādīt | bhadra virama saṃprati kathitaṃ tvayā kathanīyam |
@@ -8643,7 +8643,7 @@ tukam | kṛtārthībhūtā śrutiḥ | ānanditaṃ hṛdayam | utpannā prīti
 sukhaṃ sthitosmi | hā vatsa tvayaikākinā sphuṭato hṛdayasyānubhūtā
 vedanā | nirvyūḍhā tvayā vaiśampāyanasyopari prītiḥ | vayaṃ duḥkhabhā-
 gino nistriṃśāḥ karmacāṇḍālāḥ | yeṣāṃ tavāpi hṛdayasphuṭane nirvikāra-
-tvameva | devi vajrasāratopi kaṭhinataramevedamāvayorhadayam | yanna svayaṃ
+tvameva | devi vajrasāratopi kaṭhinataramevedamāvayorhṛdayam | yanna svayaṃ
 sahasradhā sphuṭati | na cāpi maraṇaduḥkhabhīravomī vatsamanugacchanti svayaṃ
 prāṇāḥ | taduttiṣṭha yāvadevātidūraṃ na prayātyekākī vatsastāvadevānu-
 <336>
@@ -8729,7 +8729,7 @@ vatsasya vadane saṃstambhamevātmano na śaknomi kartum | yatra ca mamā-
 yamīdṛśaḥ prakārastatra devyāḥ paribodhanaṃ dūrāpetameva | tadgamanādṛtenya
 upāya eva nāsti jīvitasaṃdhāraṇāya | ityevamavadhārayatvāryaḥ | i-
 tyuktavati tārāpīḍe cirāttanayapīḍayā tatpuraḥ parityajya lajjāṃ
-vilāsavatī kṛtāñjalirucairjagāda | āryaputra yadyevaṃ tathāpi kimaparaṃ
+vilāsavatī kṛtāñjaliruccairjagāda | āryaputra yadyevaṃ tathāpi kimaparaṃ
 vilambitena | nirgatā eva vayam | dīyatāṃ prayāṇam | uttāmyati me
 hṛdayaṃ vatsasya darśanāya | duḥkhāpanodārthaṃ sphuṭanamaṅgīkṛtamāsīt | tadapi
 saṃprati darśanakāṅkṣayā na rocata eva | jānāmi varaṃ dīrghakālamapi duḥ-
