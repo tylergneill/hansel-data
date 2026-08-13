@@ -44,12 +44,23 @@ Debugging bad splits:
   Every run saves an annotated copy of each split spread to the debug
   directory, named debug_NNN.jpg by source page number.
 
-  Each image shows the detected gutter as a solid red line, and (only
-  when it differs) the fixed --split-x fallback as a dashed blue line.
+  Each image shows the raw detected gutter as a solid red line — always
+  the unshifted detection, so it stays put from run to run. When a
+  --resplit override moves the cut off that position, the cut actually
+  taken is drawn as a solid blue line, labelled with its offset. With no
+  override in play the two coincide and only the red line appears, so a
+  lone red line always means "this is where the page was cut".
+
   Flip through the debug images to spot cuts that landed in text instead
   of the binding shadow — either the detector locked onto the wrong dark
   column (e.g. a table or image edge near the gutter), or it fell back
   to --split-x on a page that actually needed real detection.
+
+  Debug images are keyed by source page number alone, so a later
+  --only-page or --resplit run overwrites the image for the page it
+  touches. The debug file for a page therefore always reflects the most
+  recent run over that page — note that tmp/out.pdf does not, since
+  --only-page writes its PDF elsewhere.
 
   To iterate on one bad page without re-running the whole book, use
   --only-page (skips straight to that page; its one-page PDF goes to
@@ -187,22 +198,35 @@ def find_gutter(img: Image.Image, split_x: float, search_window: float,
     return darkest_x / w
 
 
-def save_debug_image(img: Image.Image, gutter_x: float, split_x: float,
-                      page_num: int, debug_dir: Path) -> None:
-    """Save a copy of the spread annotated with the detected gutter (red,
-    solid) and the fallback split_x (blue, dashed) for visual review."""
+def save_debug_image(img: Image.Image, detected_x: float, cut_x: float,
+                      offset_px: int | None, page_num: int,
+                      debug_dir: Path) -> None:
+    """
+    Save a copy of the spread annotated for visual review.
+
+    Red (solid) is always the raw detected gutter, unshifted — it marks what
+    detection alone found, so it stays put across runs and can be compared
+    against the binding shadow directly.
+
+    Blue (solid) is the cut actually taken, drawn only when a --resplit
+    override moved it off the detected position. With no override the two
+    coincide and only the red line is drawn, so a bare red line always means
+    "this is where the page was cut".
+    """
     annotated = img.convert("RGB")
     draw = ImageDraw.Draw(annotated)
     w, h = annotated.size
 
-    if abs(gutter_x - split_x) > 1e-9:
-        fx = round(w * split_x)
-        for y in range(0, h, 30):
-            draw.line([(fx, y), (fx, min(y + 15, h))], fill=(40, 130, 220), width=2)
+    dx = round(w * detected_x)
+    draw.line([(dx, 0), (dx, h)], fill=(220, 30, 30), width=2)
+    draw.text((dx + 6, 10), f"detected {detected_x:.4f}", fill=(220, 30, 30))
 
-    gx = round(w * gutter_x)
-    draw.line([(gx, 0), (gx, h)], fill=(220, 30, 30), width=2)
-    draw.text((gx + 6, 10), f"gutter {gutter_x:.4f}", fill=(220, 30, 30))
+    if abs(cut_x - detected_x) > 1e-9:
+        cx = round(w * cut_x)
+        draw.line([(cx, 0), (cx, h)], fill=(40, 130, 220), width=2)
+        shift = f"{offset_px:+d}px" if offset_px is not None else ""
+        draw.text((cx + 6, 28), f"cut {cut_x:.4f} {shift}".rstrip(),
+                  fill=(40, 130, 220))
 
     debug_dir.mkdir(parents=True, exist_ok=True)
     annotated.save(debug_dir / f"debug_{page_num:03d}.jpg", "JPEG", quality=85)
@@ -286,13 +310,15 @@ def process(input_path: Path, output_path: Path, split_x: float,
         ratio = pix.width / pix.height
 
         if ratio > spread_ratio:
-            gutter_x = find_gutter(img, split_x, search_window, min_contrast)
+            detected_x = find_gutter(img, split_x, search_window, min_contrast)
+            gutter_x = detected_x
             offset_px = (resplit_overrides or {}).get(i + 1)
             if offset_px is not None:
                 w = pix.width
                 gutter_x = min(max(gutter_x * w + offset_px, 0), w) / w
             if debug_dir is not None:
-                save_debug_image(img, gutter_x, split_x, i + 1, debug_dir)
+                save_debug_image(img, detected_x, gutter_x, offset_px,
+                                 i + 1, debug_dir)
             left, right = split_spread(img, gutter_x)
             halves_bytes = [_jpeg_bytes(left, quality), _jpeg_bytes(right, quality)]
             sizes = [left.size, right.size]
@@ -360,9 +386,11 @@ def parse_args() -> argparse.Namespace:
                         f"spread to split (default {DEFAULTS['spread_ratio']}).")
     p.add_argument("--debug-dir", type=Path, default=DEFAULT_DEBUG_DIR,
                    metavar="DIR",
-                   help="Save an annotated copy of every split spread (detected "
-                        "gutter in red, fallback split-x dashed in blue) to this "
-                        "directory, named debug_NNN.jpg by source page number. "
+                   help="Save an annotated copy of every split spread (raw "
+                        "detected gutter in red, and the actual cut in blue when "
+                        "a --resplit override moved it) to this directory, named "
+                        "debug_NNN.jpg by source page number; later runs over a "
+                        "page overwrite its image. "
                         f"Also writes a blank {MANIFEST_NAME} manifest there for "
                         f"--resplit, unless one already exists (default {DEFAULT_DEBUG_DIR}).")
     p.add_argument("--no-debug", action="store_true",
