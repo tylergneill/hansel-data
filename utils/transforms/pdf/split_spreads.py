@@ -8,105 +8,98 @@ needed) and splits every spread into two individual page images, then
 reassembles them into one output PDF with roughly twice the page count.
 
 Each page is rendered via PyMuPDF at its native resolution (matching the
-embedded image's own pixel dimensions, not an arbitrary fixed DPI) and in
-grayscale (matching the source), so the split halves are pixel-for-pixel
-the same data as the original, just cut in half. Re-encoded as JPEG with
-optimize=True at the same quality as the source, output filesize stays
-close to the input rather than ballooning.
-
-The gutter (binding shadow) doesn't sit at a fixed x-position across the
-whole book — it drifts spread to spread. So instead of cutting every
-spread at one fixed --split-x, each spread is searched independently in
-a window around --split-x for the darkest vertical column (the binding
-shadow), same technique as the old calibrate_split.py. If no clear dip
-is found in the window (e.g. a mostly-blank spread with no real shadow
-signal), --split-x is used as a fallback for that spread only.
+embedded image's own pixel dimensions, not an arbitrary fixed DPI), so
+the split halves are pixel-for-pixel the same data as the original, just
+cut in half.
 
 A small number of pages (<5) in the source are already single pages
 (portrait aspect ratio) rather than spreads — e.g. trailing
 corrigenda/appendix pages scanned individually. These are detected
 automatically by aspect ratio and passed through unsplit.
 
-The three commands:
-    python split_spreads.py -i scan_composite.pdf                  # full run
-    python split_spreads.py -i scan_composite.pdf --only-page 204   # one page
-    python split_spreads.py -i scan_composite.pdf --resplit         # corrections
+Where to cut: --detect or --fixed
+---------------------------------
+Every spread needs a cut position, and there are two ways to get one.
+Exactly one of these is required:
 
-  Everything is written to tmp/ next to this script (gitignored): the
-  split PDF to tmp/out.pdf, debug images and the correction manifest to
-  tmp/debug/. Those paths hold no matter which directory you run from.
-  Override with -o/--debug-dir, or pass --no-debug to skip debug output.
+  --detect
+      Search each spread independently for the darkest vertical column
+      (the binding shadow) and cut there. Use when the gutter drifts
+      spread to spread, which is the usual case for a hand-scanned book.
 
-  --only-page writes to tmp/out_only_page.pdf instead, so iterating on a
-  single spread never overwrites the full book from an earlier run.
+  --fixed FRAC
+      Cut every spread at the same fraction of width, e.g. --fixed
+      0.5173, skipping the search entirely. Use when the dark-band
+      assumption doesn't hold for a book but the scan is well-registered
+      — read a good starting value off any debug image's red-line label.
 
-Debugging bad splits:
-  Every run saves an annotated copy of each split spread to the debug
-  directory, named debug_NNN.jpg by source page number.
+Neither is expected to be right on every page. Both feed the same
+review-and-correct loop below, so the choice is just which baseline
+leaves you the fewest pages to fix by hand.
 
-  Each image shows the raw detected gutter as a solid red line — always
-  the unshifted detection, so it stays put from run to run. When a
-  --resplit override moves the cut off that position, the cut actually
-  taken is drawn as a solid blue line, labelled with its offset. With no
-  override in play the two coincide and only the red line appears, so a
+    python split_spreads.py -i scan_composite.pdf --detect
+    python split_spreads.py -i scan_composite.pdf --fixed 0.5173
+    python split_spreads.py -i scan_composite.pdf --fixed 0.5173 --only-page 204
+
+Everything is written to tmp/ next to this script (gitignored): the
+split PDF to tmp/out.pdf, debug images and the correction manifest to
+tmp/debug/. Those paths hold no matter which directory you run from.
+Override with -o/--debug-dir, or pass --no-debug to skip debug output.
+
+--only-page writes to tmp/out_only_page.pdf instead, so iterating on a
+single spread never overwrites the full book from an earlier run.
+
+Reviewing the cuts
+------------------
+Every run saves an annotated copy of each split spread to the debug
+directory, named debug_NNN.jpg by source page number.
+
+  Red (solid) is the cut position the mode produced for that page: the
+  detected column under --detect, or the fixed fraction under --fixed.
+
+  Blue (solid) is the cut actually taken, drawn only when an override
+  from overrides.csv shifted it off the red line, and labelled with the
+  shift. With no override the two coincide and only red is drawn, so a
   lone red line always means "this is where the page was cut".
 
-  Flip through the debug images to spot cuts that landed in text instead
-  of the binding shadow — either the detector locked onto the wrong dark
-  column (e.g. a table or image edge near the gutter), or it fell back
-  to --split-x on a page that actually needed real detection.
+Flip through the debug images to spot cuts that landed in text instead
+of the binding shadow, and correct those pages in overrides.csv.
 
-  Debug images are keyed by source page number alone, so a later
-  --only-page or --resplit run overwrites the image for the page it
-  touches. The debug file for a page therefore always reflects the most
-  recent run over that page — note that tmp/out.pdf does not, since
-  --only-page writes its PDF elsewhere.
+Debug images are keyed by source page number alone, so a later
+--only-page run overwrites the image for the page it touches. The debug
+file for a page therefore always reflects the most recent run over that
+page — note that tmp/out.pdf does not, since --only-page writes its PDF
+elsewhere.
 
-  To iterate on one bad page without re-running the whole book, use
-  --only-page (skips straight to that page; its one-page PDF goes to
-  tmp/out_only_page.pdf, since you only care about the debug image):
-    python split_spreads.py -i scan_composite.pdf --only-page 204
+Per-page corrections: overrides.csv
+-----------------------------------
+Each run drops a blank manifest at overrides.csv in the debug directory,
+pre-filled with one row per split page and no offsets, ready to edit. An
+existing overrides.csv is never overwritten, so corrections survive
+re-runs — delete it to regenerate a blank one.
 
-  If a page is consistently wrong, adjust --search-window (how far from
-  --split-x to look) or --min-contrast (how much darker the gutter must
-  be than the window average before it's trusted over the fallback),
-  then re-check with --only-page before committing to a full re-run.
-
-Persisting per-page corrections with --resplit:
-  Each run also drops a blank manifest at overrides.csv in the debug
-  directory, pre-filled with one row per split page and no offsets, ready
-  to edit. An existing overrides.csv is never overwritten, so your
-  corrections survive re-runs — delete it to regenerate a blank one.
-
-  Once you've spotted a bad cut in a debug image (the red line lands in
-  text instead of the binding shadow), record a correction in that CSV
-  manifest, one `page,offset_px` row per bad page (page = 1-indexed
-  source page number; offset_px = pixels to shift the cut, at that
-  page's native resolution, positive = right, negative = left):
+The manifest is always read when present and always applied; there is no
+flag to opt in. Record one `page,offset_px` row per bad page (page =
+1-indexed source page number; offset_px = pixels to shift the cut, at
+that page's native resolution, positive = right, negative = left):
 
     204,15
     186,-8
     133,
 
-  A blank offset (e.g. `133,`) records a page as reviewed with no
-  correction needed (offset 0) — distinct from a page simply absent
-  from the file (never reviewed).
+A blank offset (e.g. `133,`) records a page as reviewed with no
+correction needed (offset 0) — distinct from a page simply absent from
+the file (never reviewed).
 
-  Then pass it via --resplit, which with no argument reads overrides.csv
-  from the debug directory (give it a path to use a manifest elsewhere):
-    python split_spreads.py -i scan_composite.pdf --resplit
+Each offset is relative to that page's red line, i.e. to whatever the
+current mode produced for it. Offsets are not tied to the mode that was
+running when they were recorded, so switching between --detect and
+--fixed reinterprets them against the new baseline.
 
-  For any page listed, the offset is added (in pixel space) to whatever
-  gutter position would otherwise have been used (detected or
-  --split-x fallback) — detection still runs as normal everywhere else,
-  including on overridden pages themselves (the offset is a correction
-  on top of detection, not a replacement for it). --resplit works with
-  a full run or combined with --only-page to regenerate just one page:
+Iterate on one page with --only-page, then re-check its debug image
+before committing to a full re-run:
 
-    python split_spreads.py -i scan_composite.pdf --resplit --only-page 204
-
-  Re-check the new debug image for that page before committing to a
-  full re-run of the whole book.
+    python split_spreads.py -i scan_composite.pdf --fixed 0.5173 --only-page 204
 
 Dependencies:
   pip install pymupdf pillow
@@ -120,13 +113,23 @@ import pymupdf
 from PIL import Image, ImageDraw
 
 
-DEFAULTS = dict(
-    split_x=0.50,          # Gutter position as fraction of image width (fallback)
-    search_window=0.03,    # Search +/- this fraction of width around split_x for the gutter
-    min_contrast=6,        # Minimum brightness dip (0-255) vs window average to trust detection
-    quality=90,            # JPEG output quality for split halves
-    spread_ratio=1.2,      # width/height above this = spread (split); below = single page
-)
+# Internal tuning constants. These are not CLI flags: they shape how
+# --detect searches, and are not things a run is normally driven with.
+DETECT_CENTER = 0.50    # Center of the search band, as a fraction of width,
+                        # and the fallback when detection isn't confident.
+SEARCH_WINDOW = 0.03    # Search +/- this fraction of width around DETECT_CENTER.
+MIN_CONTRAST = 6        # Minimum brightness dip (0-255) below the search band's
+                        # average before the darkest column is trusted as a real
+                        # gutter. Guards against blank spreads, where some column
+                        # is always "darkest" by a fraction of a gray level of
+                        # scanner noise.
+SPREAD_RATIO = 1.2      # width/height above this = spread (split); below = single.
+
+# Interim encoding for the split halves. Pending a follow-up task to match
+# the source's format/colorspace/compression instead of forcing grayscale
+# JPEG — this script must never make pages harder to read, and file size is
+# explicitly not its concern.
+JPEG_QUALITY = 90
 
 # Gitignored scratch space next to this script. All generated files land here,
 # so the defaults work no matter which directory the script is invoked from.
@@ -139,14 +142,14 @@ DEFAULT_DEBUG_DIR = TMP_DIR / "debug"
 MANIFEST_NAME = "overrides.csv"
 
 
-def load_resplit_overrides(path: Path) -> dict[int, int]:
+def load_overrides(path: Path) -> dict[int, int]:
     """
-    Parse a --resplit manifest: one `page,offset_px` row per line (page =
-    1-indexed source page number, offset_px = pixel shift to apply to
-    that page's gutter, positive = right, negative = left). offset_px may
-    be left blank (e.g. `133,`) to record a page as reviewed with no
-    correction needed (offset 0), distinct from a page simply absent from
-    the file (never reviewed). Blank lines and # comments are skipped.
+    Parse the overrides manifest: one `page,offset_px` row per line (page =
+    1-indexed source page number, offset_px = pixel shift to apply to that
+    page's cut, positive = right, negative = left). offset_px may be left
+    blank (e.g. `133,`) to record a page as reviewed with no correction
+    needed (offset 0), distinct from a page simply absent from the file
+    (never reviewed). Blank lines and # comments are skipped.
     """
     overrides: dict[int, int] = {}
     for lineno, line in enumerate(path.read_text().splitlines(), start=1):
@@ -166,17 +169,16 @@ def load_resplit_overrides(path: Path) -> dict[int, int]:
     return overrides
 
 
-def find_gutter(img: Image.Image, split_x: float, search_window: float,
-                 min_contrast: float) -> float:
+def find_gutter(img: Image.Image) -> float:
     """
     Find the gutter (binding shadow) as the darkest vertical column within
-    +/- search_window of split_x. Falls back to split_x if the darkest
-    column isn't meaningfully darker than the window average (e.g. a
-    blank/near-blank spread with no real shadow to detect).
+    +/- SEARCH_WINDOW of DETECT_CENTER. Falls back to DETECT_CENTER if the
+    darkest column isn't meaningfully darker than the window average (e.g.
+    a blank/near-blank spread with no real shadow to detect).
     """
     w, h = img.size
-    x_start = max(0, round(w * (split_x - search_window)))
-    x_end = min(w, round(w * (split_x + search_window)))
+    x_start = max(0, round(w * (DETECT_CENTER - SEARCH_WINDOW)))
+    x_end = min(w, round(w * (DETECT_CENTER + SEARCH_WINDOW)))
 
     gray = img.convert("L") if img.mode != "L" else img
     # Downsample rows for speed — the gutter runs the full height, so a
@@ -193,35 +195,34 @@ def find_gutter(img: Image.Image, split_x: float, search_window: float,
     darkest_x, darkest_mean = min(col_means, key=lambda t: t[1])
     window_avg = sum(m for _, m in col_means) / len(col_means)
 
-    if window_avg - darkest_mean < min_contrast:
-        return split_x
+    if window_avg - darkest_mean < MIN_CONTRAST:
+        return DETECT_CENTER
     return darkest_x / w
 
 
-def save_debug_image(img: Image.Image, detected_x: float, cut_x: float,
+def save_debug_image(img: Image.Image, mode_x: float, cut_x: float,
                       offset_px: int | None, page_num: int,
                       debug_dir: Path) -> None:
     """
     Save a copy of the spread annotated for visual review.
 
-    Red (solid) is always the raw detected gutter, unshifted — it marks what
-    detection alone found, so it stays put across runs and can be compared
-    against the binding shadow directly.
+    Red (solid) is the cut position the mode produced for this page — the
+    detected column under --detect, or the fixed fraction under --fixed.
 
-    Blue (solid) is the cut actually taken, drawn only when a --resplit
-    override moved it off the detected position. With no override the two
-    coincide and only the red line is drawn, so a bare red line always means
-    "this is where the page was cut".
+    Blue (solid) is the cut actually taken, drawn only when an override
+    shifted it off the mode's position. With no override the two coincide
+    and only the red line is drawn, so a bare red line always means "this
+    is where the page was cut".
     """
     annotated = img.convert("RGB")
     draw = ImageDraw.Draw(annotated)
     w, h = annotated.size
 
-    dx = round(w * detected_x)
-    draw.line([(dx, 0), (dx, h)], fill=(220, 30, 30), width=2)
-    draw.text((dx + 6, 10), f"detected {detected_x:.4f}", fill=(220, 30, 30))
+    mx = round(w * mode_x)
+    draw.line([(mx, 0), (mx, h)], fill=(220, 30, 30), width=2)
+    draw.text((mx + 6, 10), f"split {mode_x:.4f}", fill=(220, 30, 30))
 
-    if abs(cut_x - detected_x) > 1e-9:
+    if abs(cut_x - mode_x) > 1e-9:
         cx = round(w * cut_x)
         draw.line([(cx, 0), (cx, h)], fill=(40, 130, 220), width=2)
         shift = f"{offset_px:+d}px" if offset_px is not None else ""
@@ -232,9 +233,9 @@ def save_debug_image(img: Image.Image, detected_x: float, cut_x: float,
     annotated.save(debug_dir / f"debug_{page_num:03d}.jpg", "JPEG", quality=85)
 
 
-def write_resplit_template(pages: list[int], debug_dir: Path) -> Path | None:
+def write_overrides_template(pages: list[int], debug_dir: Path) -> Path | None:
     """
-    Write a blank --resplit manifest alongside the debug images, one row per
+    Write a blank overrides manifest alongside the debug images, one row per
     split page with an empty offset (reviewed-pending). Returns the path, or
     None if the file already exists — an existing manifest holds hand-entered
     corrections and is never overwritten.
@@ -244,9 +245,10 @@ def write_resplit_template(pages: list[int], debug_dir: Path) -> Path | None:
         return None
 
     lines = [
-        "# --resplit manifest: set offset_px on any page whose cut is wrong,",
-        "# then re-run with --resplit pointing at this file.",
+        "# Per-page cut corrections, applied automatically on every run.",
+        "# Set offset_px on any page whose cut is wrong, then re-run.",
         "# offset_px = pixel shift at the page's native resolution,",
+        "# relative to that page's red line in the debug image;",
         "# positive = right, negative = left. A blank offset means",
         "# reviewed, no correction needed.",
         "# page,offset_px",
@@ -258,18 +260,18 @@ def write_resplit_template(pages: list[int], debug_dir: Path) -> Path | None:
     return path
 
 
-def split_spread(img: Image.Image, split_x: float) -> tuple[Image.Image, Image.Image]:
+def split_spread(img: Image.Image, cut_x: float) -> tuple[Image.Image, Image.Image]:
     """Split a two-page spread into left and right halves."""
     w, h = img.size
-    cut = round(w * split_x)
+    cut = round(w * cut_x)
     left = img.crop((0, 0, cut, h))
     right = img.crop((cut, 0, w, h))
     return left, right
 
 
-def _jpeg_bytes(img: Image.Image, quality: int) -> bytes:
+def _jpeg_bytes(img: Image.Image) -> bytes:
     buf = io.BytesIO()
-    img.save(buf, "JPEG", quality=quality, optimize=True)
+    img.save(buf, "JPEG", quality=JPEG_QUALITY, optimize=True)
     return buf.getvalue()
 
 
@@ -285,11 +287,13 @@ def native_scale(page: pymupdf.Page) -> float:
     return img_w / page.rect.width
 
 
-def process(input_path: Path, output_path: Path, split_x: float,
-            search_window: float, min_contrast: float,
-            quality: int, spread_ratio: float,
+def process(input_path: Path, output_path: Path, fixed_x: float | None,
             debug_dir: Path | None = None, only_page: int | None = None,
-            resplit_overrides: dict[int, int] | None = None) -> None:
+            overrides: dict[int, int] | None = None) -> None:
+    """
+    Split every spread in the input. fixed_x is the --fixed fraction, or
+    None to detect each spread's gutter independently (--detect).
+    """
     doc = pymupdf.open(str(input_path))
     n_pages = len(doc)
     print(f"Input: {input_path} ({n_pages} pages)")
@@ -309,26 +313,26 @@ def process(input_path: Path, output_path: Path, split_x: float,
 
         ratio = pix.width / pix.height
 
-        if ratio > spread_ratio:
-            detected_x = find_gutter(img, split_x, search_window, min_contrast)
-            gutter_x = detected_x
-            offset_px = (resplit_overrides or {}).get(i + 1)
+        if ratio > SPREAD_RATIO:
+            # The mode's cut for this page, before any per-page correction.
+            mode_x = find_gutter(img) if fixed_x is None else fixed_x
+            cut_x = mode_x
+            offset_px = (overrides or {}).get(i + 1)
             if offset_px is not None:
                 w = pix.width
-                gutter_x = min(max(gutter_x * w + offset_px, 0), w) / w
+                cut_x = min(max(cut_x * w + offset_px, 0), w) / w
             if debug_dir is not None:
-                save_debug_image(img, detected_x, gutter_x, offset_px,
-                                 i + 1, debug_dir)
-            left, right = split_spread(img, gutter_x)
-            halves_bytes = [_jpeg_bytes(left, quality), _jpeg_bytes(right, quality)]
+                save_debug_image(img, mode_x, cut_x, offset_px, i + 1, debug_dir)
+            left, right = split_spread(img, cut_x)
+            halves_bytes = [_jpeg_bytes(left), _jpeg_bytes(right)]
             sizes = [left.size, right.size]
             split_pages.append(i + 1)
         else:
-            halves_bytes = [_jpeg_bytes(img, quality)]
+            halves_bytes = [_jpeg_bytes(img)]
             sizes = [img.size]
             n_single += 1
             print(f"  page {i+1}/{n_pages}: treated as single page "
-                  f"(ratio {ratio:.3f} <= {spread_ratio})")
+                  f"(ratio {ratio:.3f} <= {SPREAD_RATIO})")
 
         for (hw, hh), jpeg_bytes in zip(sizes, halves_bytes):
             out_page = out_doc.new_page(width=hw, height=hh)
@@ -341,9 +345,9 @@ def process(input_path: Path, output_path: Path, split_x: float,
     doc.close()
 
     if debug_dir is not None and split_pages:
-        manifest = write_resplit_template(split_pages, debug_dir)
+        manifest = write_overrides_template(split_pages, debug_dir)
         if manifest is not None:
-            print(f"Wrote blank resplit manifest to {manifest}")
+            print(f"Wrote blank overrides manifest to {manifest}")
 
     print(f"\nSplit {len(split_pages)} spreads, passed through {n_single} single pages.")
     print(f"Writing {out_doc.page_count} pages to {output_path} ...")
@@ -364,55 +368,42 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--output", "-o", type=Path, default=None,
                    help=f"Path to write the split-page PDF (default {DEFAULT_OUTPUT}, "
                         f"or {DEFAULT_ONLY_PAGE_OUTPUT} with --only-page).")
-    p.add_argument("--split-x", type=float, default=DEFAULTS["split_x"],
-                   metavar="FRAC",
-                   help="Fallback/center gutter position as fraction of width "
-                        f"(default {DEFAULTS['split_x']}). Each spread's actual gutter "
-                        "is auto-detected near this value; this is only used verbatim "
-                        "when detection is not confident.")
-    p.add_argument("--search-window", type=float, default=DEFAULTS["search_window"],
-                   metavar="FRAC",
-                   help="Search +/- this fraction of width around --split-x for the "
-                        f"gutter on each spread (default {DEFAULTS['search_window']}).")
-    p.add_argument("--min-contrast", type=float, default=DEFAULTS["min_contrast"],
-                   metavar="N",
-                   help="Minimum brightness dip (0-255) required to trust the detected "
-                        f"gutter over the --split-x fallback (default {DEFAULTS['min_contrast']}).")
-    p.add_argument("--quality", type=int, default=DEFAULTS["quality"],
-                   help=f"JPEG output quality 1-95 for split halves (default {DEFAULTS['quality']}).")
-    p.add_argument("--spread-ratio", type=float, default=DEFAULTS["spread_ratio"],
-                   metavar="RATIO",
-                   help="Width/height ratio above which a page is treated as a "
-                        f"spread to split (default {DEFAULTS['spread_ratio']}).")
+
+    mode = p.add_mutually_exclusive_group(required=True)
+    mode.add_argument("--detect", action="store_true",
+                      help="Cut each spread at its own detected gutter (the darkest "
+                           "vertical column near the middle). Use when the binding "
+                           "shadow drifts from spread to spread.")
+    mode.add_argument("--fixed", type=float, default=None, metavar="FRAC",
+                      help="Cut every spread at this fixed fraction of width (e.g. "
+                           "0.5173), skipping detection. Use when the dark-band "
+                           "assumption doesn't hold but the scan is well-registered.")
+
     p.add_argument("--debug-dir", type=Path, default=DEFAULT_DEBUG_DIR,
                    metavar="DIR",
-                   help="Save an annotated copy of every split spread (raw "
-                        "detected gutter in red, and the actual cut in blue when "
-                        "a --resplit override moved it) to this directory, named "
-                        "debug_NNN.jpg by source page number; later runs over a "
-                        "page overwrite its image. "
-                        f"Also writes a blank {MANIFEST_NAME} manifest there for "
-                        f"--resplit, unless one already exists (default {DEFAULT_DEBUG_DIR}).")
+                   help="Save an annotated copy of every split spread (the mode's cut "
+                        "in red, and the actual cut in blue when an override moved it) "
+                        "to this directory, named debug_NNN.jpg by source page number; "
+                        "later runs over a page overwrite its image. Also writes a "
+                        f"blank {MANIFEST_NAME} there, unless one already exists "
+                        f"(default {DEFAULT_DEBUG_DIR}).")
     p.add_argument("--no-debug", action="store_true",
-                   help="Skip writing debug images and the resplit manifest.")
+                   help="Skip writing debug images and the overrides manifest.")
     p.add_argument("--only-page", type=int, default=None,
                    metavar="N",
                    help="Process only source page N (1-indexed) instead of the "
                         "whole document — useful for iterating on a single bad split.")
-    p.add_argument("--resplit", type=Path, nargs="?", const=Path(""), default=None,
-                   metavar="CSV",
-                   help="Apply per-page gutter corrections from a manifest of "
-                        "'page,offset_px' rows (page = 1-indexed source page "
-                        "number, offset_px = pixel shift at that page's native "
-                        "resolution, positive = right, negative = left). Listed "
-                        "pages get their detected/fallback gutter shifted by "
-                        "offset_px; all other pages are unaffected. Pass without "
-                        f"a path to use {MANIFEST_NAME} in the debug directory.")
     return p.parse_args()
 
 
 if __name__ == "__main__":
     args = parse_args()
+
+    if args.fixed is not None and not 0.0 < args.fixed < 1.0:
+        raise SystemExit(
+            f"--fixed must be a fraction of width strictly between 0 and 1 "
+            f"(e.g. 0.5173), got {args.fixed}"
+        )
 
     debug_dir = None if args.no_debug else args.debug_dir
 
@@ -421,28 +412,20 @@ if __name__ == "__main__":
         output_path = (DEFAULT_OUTPUT if args.only_page is None
                        else DEFAULT_ONLY_PAGE_OUTPUT)
 
-    resplit_path = args.resplit
-    if resplit_path == Path(""):
-        # Bare --resplit: use the manifest written alongside the debug images.
-        resplit_path = (debug_dir or args.debug_dir) / MANIFEST_NAME
-    if resplit_path is not None and not resplit_path.exists():
-        raise SystemExit(
-            f"--resplit manifest not found: {resplit_path}\n"
-            "Run once with debug output enabled to generate a blank one."
-        )
+    # The manifest is always applied when it exists — no opt-in flag. It
+    # lives alongside the debug images, so --no-debug leaves it unread too.
+    overrides = None
+    manifest_path = (debug_dir or args.debug_dir) / MANIFEST_NAME
+    if debug_dir is not None and manifest_path.exists():
+        overrides = load_overrides(manifest_path)
+        if overrides:
+            print(f"Applying {len(overrides)} page overrides from {manifest_path}")
 
-    resplit_overrides = (
-        load_resplit_overrides(resplit_path) if resplit_path is not None else None
-    )
     process(
         input_path=args.input,
         output_path=output_path,
-        split_x=args.split_x,
-        search_window=args.search_window,
-        min_contrast=args.min_contrast,
-        quality=args.quality,
-        spread_ratio=args.spread_ratio,
+        fixed_x=args.fixed,
         debug_dir=debug_dir,
         only_page=args.only_page,
-        resplit_overrides=resplit_overrides,
+        overrides=overrides,
     )
