@@ -7,10 +7,16 @@ two-page spread, left + right book side, already upright — no rotation
 needed) and splits every spread into two individual page images, then
 reassembles them into one output PDF with roughly twice the page count.
 
-Each page is rendered via PyMuPDF at its native resolution (matching the
-embedded image's own pixel dimensions, not an arbitrary fixed DPI), so
-the split halves are pixel-for-pixel the same data as the original, just
-cut in half.
+Each page's embedded image is pulled out of the PDF as-is rather than
+re-rendered, so the halves are pixel-for-pixel the same data as the
+original, just cut in half — same resolution, same colorspace. They are
+re-encoded in the source's own format, reusing its JPEG quantization
+tables and chroma subsampling where applicable, so the halves match the
+original's quality rather than approximating it.
+
+Splitting cannot avoid a re-encode (the halves are new images), but it
+must never make a page harder to read. Reducing file size is explicitly
+not this script's job.
 
 A small number of pages (<5) in the source are already single pages
 (portrait aspect ratio) rather than spreads — e.g. trailing
@@ -110,7 +116,7 @@ import io
 from pathlib import Path
 
 import pymupdf
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, JpegImagePlugin
 
 
 # Internal tuning constants. These are not CLI flags: they shape how
@@ -124,12 +130,6 @@ MIN_CONTRAST = 6        # Minimum brightness dip (0-255) below the search band's
                         # is always "darkest" by a fraction of a gray level of
                         # scanner noise.
 SPREAD_RATIO = 1.2      # width/height above this = spread (split); below = single.
-
-# Interim encoding for the split halves. Pending a follow-up task to match
-# the source's format/colorspace/compression instead of forcing grayscale
-# JPEG — this script must never make pages harder to read, and file size is
-# explicitly not its concern.
-JPEG_QUALITY = 90
 
 # Gitignored scratch space next to this script. All generated files land here,
 # so the defaults work no matter which directory the script is invoked from.
@@ -269,22 +269,47 @@ def split_spread(img: Image.Image, cut_x: float) -> tuple[Image.Image, Image.Ima
     return left, right
 
 
-def _jpeg_bytes(img: Image.Image) -> bytes:
-    buf = io.BytesIO()
-    img.save(buf, "JPEG", quality=JPEG_QUALITY, optimize=True)
-    return buf.getvalue()
-
-
-def native_scale(page: pymupdf.Page) -> float:
+def load_page_image(doc: pymupdf.Document, page: pymupdf.Page) -> tuple[Image.Image, dict]:
     """
-    Scale factor to render the page at the native pixel resolution of its
-    single embedded image, rather than an arbitrary fixed DPI.
+    Pull the page's single embedded image out of the PDF as-is, rather than
+    re-rendering the page to a pixmap. This preserves the source's own
+    colorspace and pixel data instead of forcing a conversion, and hands
+    back the encoding parameters needed to write the halves out the same
+    way they came in.
     """
     images = page.get_images(full=True)
     if len(images) != 1:
         raise ValueError(f"expected exactly 1 embedded image, found {len(images)}")
-    img_w = images[0][2]  # (xref, smask, width, height, ...)
-    return img_w / page.rect.width
+
+    extracted = doc.extract_image(images[0][0])
+    img = Image.open(io.BytesIO(extracted["image"]))
+    img.load()
+
+    # Carry the source's own JPEG quantization tables and chroma subsampling
+    # through to the halves, so re-encoding reproduces the original quality
+    # rather than approximating it with a quality number.
+    params: dict = {"format": img.format or extracted["ext"].upper()}
+    if params["format"] == "JPEG":
+        qtables = getattr(img, "quantization", None)
+        if qtables:
+            params["qtables"] = qtables
+            params["subsampling"] = JpegImagePlugin.get_sampling(img)
+    return img, params
+
+
+def _encoded_bytes(img: Image.Image, params: dict) -> bytes:
+    """Re-encode a half using the source image's own format and settings."""
+    fmt = params["format"]
+    kwargs = {k: v for k, v in params.items() if k != "format"}
+    buf = io.BytesIO()
+    try:
+        img.save(buf, fmt, **kwargs)
+    except (OSError, ValueError):
+        # A format/mode pair Pillow can't write back (or unusable qtables);
+        # fall back to lossless PNG rather than silently degrading quality.
+        buf = io.BytesIO()
+        img.save(buf, "PNG")
+    return buf.getvalue()
 
 
 def process(input_path: Path, output_path: Path, fixed_x: float | None,
@@ -306,12 +331,10 @@ def process(input_path: Path, output_path: Path, fixed_x: float | None,
 
     for i in page_range:
         page = doc[i]
-        scale = native_scale(page)
-        matrix = pymupdf.Matrix(scale, scale)
-        pix = page.get_pixmap(matrix=matrix, colorspace=pymupdf.csGRAY, alpha=False)
-        img = Image.frombytes("L", (pix.width, pix.height), pix.samples)
+        img, encode_params = load_page_image(doc, page)
+        img_w, img_h = img.size
 
-        ratio = pix.width / pix.height
+        ratio = img_w / img_h
 
         if ratio > SPREAD_RATIO:
             # The mode's cut for this page, before any per-page correction.
@@ -319,16 +342,16 @@ def process(input_path: Path, output_path: Path, fixed_x: float | None,
             cut_x = mode_x
             offset_px = (overrides or {}).get(i + 1)
             if offset_px is not None:
-                w = pix.width
-                cut_x = min(max(cut_x * w + offset_px, 0), w) / w
+                cut_x = min(max(cut_x * img_w + offset_px, 0), img_w) / img_w
             if debug_dir is not None:
                 save_debug_image(img, mode_x, cut_x, offset_px, i + 1, debug_dir)
             left, right = split_spread(img, cut_x)
-            halves_bytes = [_jpeg_bytes(left), _jpeg_bytes(right)]
+            halves_bytes = [_encoded_bytes(left, encode_params),
+                            _encoded_bytes(right, encode_params)]
             sizes = [left.size, right.size]
             split_pages.append(i + 1)
         else:
-            halves_bytes = [_jpeg_bytes(img)]
+            halves_bytes = [_encoded_bytes(img, encode_params)]
             sizes = [img.size]
             n_single += 1
             print(f"  page {i+1}/{n_pages}: treated as single page "
