@@ -33,6 +33,14 @@ Exactly one of these is required:
       (the binding shadow) and cut there. Use when the gutter drifts
       spread to spread, which is the usual case for a hand-scanned book.
 
+      The search covers a band around the middle of the page, not the
+      whole width. If a book's gutter falls outside that band the search
+      cannot report failure — it returns the band's own edge, which looks
+      like a confident answer and repeats on every page. A run that
+      produces the same cut everywhere under --detect is the signature of
+      this, and the run warns about it explicitly; widen SEARCH_WINDOW or
+      move DETECT_CENTER below if it fires.
+
   --fixed FRAC
       Cut every spread at the same fraction of width, e.g. --fixed
       0.5173, skipping the search entirely. Use when the dark-band
@@ -48,12 +56,14 @@ leaves you the fewest pages to fix by hand.
     python split_spreads.py -i scan_composite.pdf --fixed 0.5173 --only-page 204
 
 Everything is written to tmp/ next to this script (gitignored): the
-split PDF to tmp/out.pdf, debug images and the correction manifest to
-tmp/debug/. Those paths hold no matter which directory you run from.
-Override with -o/--debug-dir, or pass --no-debug to skip debug output.
+split PDF to tmp/split_result.pdf, debug images and the correction
+manifest to tmp/debug/. Those paths hold no matter which directory you
+run from. Override with -o/--debug-dir, or pass --no-debug to skip debug
+output.
 
---only-page writes to tmp/out_only_page.pdf instead, so iterating on a
-single spread never overwrites the full book from an earlier run.
+--only-page writes to tmp/split_result_only_page.pdf instead, so
+iterating on a single spread never overwrites the full book from an
+earlier run.
 
 Reviewing the cuts
 ------------------
@@ -74,8 +84,8 @@ of the binding shadow, and correct those pages in overrides.csv.
 Debug images are keyed by source page number alone, so a later
 --only-page run overwrites the image for the page it touches. The debug
 file for a page therefore always reflects the most recent run over that
-page — note that tmp/out.pdf does not, since --only-page writes its PDF
-elsewhere.
+page — note that tmp/split_result.pdf does not, since --only-page writes
+its PDF elsewhere.
 
 Per-page corrections: overrides.csv
 -----------------------------------
@@ -113,6 +123,7 @@ Dependencies:
 
 import argparse
 import io
+import sys
 from pathlib import Path
 
 import pymupdf
@@ -123,7 +134,17 @@ from PIL import Image, ImageDraw, JpegImagePlugin
 # --detect searches, and are not things a run is normally driven with.
 DETECT_CENTER = 0.50    # Center of the search band, as a fraction of width,
                         # and the fallback when detection isn't confident.
-SEARCH_WINDOW = 0.03    # Search +/- this fraction of width around DETECT_CENTER.
+SEARCH_WINDOW = 0.10    # Search +/- this fraction of width around DETECT_CENTER.
+                        # Wide enough to cover books whose gutter sits well off
+                        # centre: a band that stops short of the real gutter does
+                        # not fail, it returns its own edge column, which looks
+                        # like a confident answer and repeats across the whole
+                        # book. Widening is cheap -- the search is a few percent
+                        # of per-page cost, dominated by decode and re-encode --
+                        # so the band is sized for headroom rather than trimmed.
+EDGE_MARGIN = 2         # Columns. A result landing this close to the band edge is
+                        # treated as unconfident: the true minimum is most likely
+                        # outside the band, and the search merely saturated.
 MIN_CONTRAST = 6        # Minimum brightness dip (0-255) below the search band's
                         # average before the darkest column is trusted as a real
                         # gutter. Guards against blank spreads, where some column
@@ -134,10 +155,10 @@ SPREAD_RATIO = 1.2      # width/height above this = spread (split); below = sing
 # Gitignored scratch space next to this script. All generated files land here,
 # so the defaults work no matter which directory the script is invoked from.
 TMP_DIR = Path(__file__).resolve().parent / "tmp"
-DEFAULT_OUTPUT = TMP_DIR / "out.pdf"
+DEFAULT_OUTPUT = TMP_DIR / "split_result.pdf"
 # --only-page runs write elsewhere by default, so a one-page throwaway can
 # never overwrite the full book's output from an earlier run.
-DEFAULT_ONLY_PAGE_OUTPUT = TMP_DIR / "out_only_page.pdf"
+DEFAULT_ONLY_PAGE_OUTPUT = TMP_DIR / "split_result_only_page.pdf"
 DEFAULT_DEBUG_DIR = TMP_DIR / "debug"
 MANIFEST_NAME = "overrides.csv"
 
@@ -169,12 +190,51 @@ def load_overrides(path: Path) -> dict[int, int]:
     return overrides
 
 
-def find_gutter(img: Image.Image) -> float:
+def _summarize_pages(pages: list[int], limit: int = 12) -> str:
+    """
+    Render a page list compactly, collapsing runs ("4-19") and truncating
+    once it gets long — a warning naming 66 pages one by one is a warning
+    nobody reads.
+    """
+    if not pages:
+        return "none"
+    runs: list[tuple[int, int]] = []
+    start = prev = pages[0]
+    for p in pages[1:]:
+        if p == prev + 1:
+            prev = p
+            continue
+        runs.append((start, prev))
+        start = prev = p
+    runs.append((start, prev))
+
+    parts = [str(a) if a == b else f"{a}-{b}" for a, b in runs]
+    if len(parts) > limit:
+        return ", ".join(parts[:limit]) + f", ... (+{len(parts) - limit} more)"
+    return ", ".join(parts)
+
+
+def find_gutter(img: Image.Image) -> tuple[float, str | None]:
     """
     Find the gutter (binding shadow) as the darkest vertical column within
-    +/- SEARCH_WINDOW of DETECT_CENTER. Falls back to DETECT_CENTER if the
-    darkest column isn't meaningfully darker than the window average (e.g.
-    a blank/near-blank spread with no real shadow to detect).
+    +/- SEARCH_WINDOW of DETECT_CENTER.
+
+    Returns (cut_fraction, warning). The warning is None on a confident
+    detection, otherwise a string naming what went wrong; the fraction then
+    falls back to DETECT_CENTER. Two things can go wrong:
+
+    "no contrast"
+        The darkest column isn't meaningfully darker than the window average
+        (e.g. a blank/near-blank spread with no real shadow to detect).
+
+    "pinned to band edge"
+        The darkest column is at the very edge of the search band, which
+        means the true minimum is most likely outside it — the search
+        saturated rather than found anything. Left unreported this is the
+        more dangerous of the two, because the band edge is a perfectly
+        plausible-looking cut position that repeats identically across every
+        page, so a mis-centred band presents as a suspiciously fixed split
+        rather than as a failure.
     """
     w, h = img.size
     x_start = max(0, round(w * (DETECT_CENTER - SEARCH_WINDOW)))
@@ -196,8 +256,15 @@ def find_gutter(img: Image.Image) -> float:
     window_avg = sum(m for _, m in col_means) / len(col_means)
 
     if window_avg - darkest_mean < MIN_CONTRAST:
-        return DETECT_CENTER
-    return darkest_x / w
+        return DETECT_CENTER, "no contrast"
+
+    # Only meaningful when the band was not clipped by the image edge: a band
+    # running off the image legitimately has its minimum at the boundary.
+    if (x_start > 0 and darkest_x <= x_start + EDGE_MARGIN) or \
+       (x_end < w and darkest_x >= x_end - 1 - EDGE_MARGIN):
+        return darkest_x / w, "pinned to band edge"
+
+    return darkest_x / w, None
 
 
 def save_debug_image(img: Image.Image, mode_x: float, cut_x: float,
@@ -325,6 +392,7 @@ def process(input_path: Path, output_path: Path, fixed_x: float | None,
 
     out_doc = pymupdf.open()
     split_pages: list[int] = []
+    unconfident: dict[str, list[int]] = {}
     n_single = 0
 
     page_range = range(n_pages) if only_page is None else [only_page - 1]
@@ -338,7 +406,12 @@ def process(input_path: Path, output_path: Path, fixed_x: float | None,
 
         if ratio > SPREAD_RATIO:
             # The mode's cut for this page, before any per-page correction.
-            mode_x = find_gutter(img) if fixed_x is None else fixed_x
+            if fixed_x is None:
+                mode_x, warning = find_gutter(img)
+                if warning is not None:
+                    unconfident.setdefault(warning, []).append(i + 1)
+            else:
+                mode_x = fixed_x
             cut_x = mode_x
             offset_px = (overrides or {}).get(i + 1)
             if offset_px is not None:
@@ -373,6 +446,30 @@ def process(input_path: Path, output_path: Path, fixed_x: float | None,
             print(f"Wrote blank overrides manifest to {manifest}")
 
     print(f"\nSplit {len(split_pages)} spreads, passed through {n_single} single pages.")
+
+    # Detection that quietly returned something unusable is worse than
+    # detection that failed, so say so plainly and point at the knob to turn.
+    for reason, pages in sorted(unconfident.items()):
+        share = len(pages) / max(len(split_pages), 1)
+        print(f"\nWARNING: gutter detection was unconfident on "
+              f"{len(pages)}/{len(split_pages)} spreads ({reason}): "
+              f"{_summarize_pages(pages)}", file=sys.stderr)
+        if reason == "pinned to band edge":
+            print(f"  The darkest column sat at the edge of the "
+                  f"{DETECT_CENTER-SEARCH_WINDOW:.2f}-{DETECT_CENTER+SEARCH_WINDOW:.2f} "
+                  f"search band, so the real gutter is probably outside it and "
+                  f"these cuts are all landing in the same wrong place.",
+                  file=sys.stderr)
+            if share > 0.5:
+                print(f"  Most of the book is affected: widen SEARCH_WINDOW "
+                      f"(now {SEARCH_WINDOW}) or move DETECT_CENTER "
+                      f"(now {DETECT_CENTER}) in {Path(__file__).name}, or "
+                      f"switch to --fixed after reading a good fraction off a "
+                      f"debug image.", file=sys.stderr)
+        else:
+            print(f"  These spreads fell back to a cut at {DETECT_CENTER}.",
+                  file=sys.stderr)
+
     print(f"Writing {out_doc.page_count} pages to {output_path} ...")
     output_path.parent.mkdir(parents=True, exist_ok=True)
     out_doc.save(str(output_path))
