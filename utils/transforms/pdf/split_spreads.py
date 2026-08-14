@@ -23,6 +23,15 @@ A small number of pages (<5) in the source are already single pages
 corrigenda/appendix pages scanned individually. These are detected
 automatically by aspect ratio and passed through unsplit.
 
+That test assumes a spread is decisively wider than tall (SPREAD_RATIO).
+Some books break the assumption: tall pages cropped tight to the text
+leave a spread barely wider than square, below the threshold, and the
+whole book passes through unsplit. --force-all bypasses the test and
+splits every page. It is a per-book override, not a reason to lower
+SPREAD_RATIO — the threshold still earns its keep on books where a
+handful of genuine single pages need ruling out. Under --force-all
+those pages get split too, so check the output for any.
+
 Where to cut: --detect or --fixed
 ---------------------------------
 Every spread needs a cut position, and there are two ways to get one.
@@ -41,11 +50,16 @@ Exactly one of these is required:
       this, and the run warns about it explicitly; widen SEARCH_WINDOW or
       move DETECT_CENTER below if it fires.
 
-  --fixed FRAC
+  --fixed [FRAC]
       Cut every spread at the same fraction of width, e.g. --fixed
       0.5173, skipping the search entirely. Use when the dark-band
       assumption doesn't hold for a book but the scan is well-registered
       — read a good starting value off any debug image's red-line label.
+
+      Bare --fixed, with no value, cuts at FIXED_DEFAULT (0.50) — the
+      blind halfway cut, and a reasonable first look at a book with no
+      binding shadow to detect. Note this is a separate constant from
+      --detect's DETECT_CENTER, which happens to share its value.
 
 Neither is expected to be right on every page. Both feed the same
 review-and-correct loop below, so the choice is just which baseline
@@ -151,6 +165,14 @@ MIN_CONTRAST = 6        # Minimum brightness dip (0-255) below the search band's
                         # is always "darkest" by a fraction of a gray level of
                         # scanner noise.
 SPREAD_RATIO = 1.2      # width/height above this = spread (split); below = single.
+FIXED_DEFAULT = 0.50    # Cut fraction used by a bare --fixed (no value given).
+                        # Deliberately its own constant rather than a reference to
+                        # DETECT_CENTER: the two are equal by coincidence, not by
+                        # meaning. DETECT_CENTER centres a search band and is
+                        # retuned when a book's gutter sits off-centre; this is
+                        # just "halfway across", the sane blind cut. Tying them
+                        # together would silently move every bare --fixed cut the
+                        # next time the detector is retuned.
 
 # Gitignored scratch space next to this script. All generated files land here,
 # so the defaults work no matter which directory the script is invoked from.
@@ -381,10 +403,14 @@ def _encoded_bytes(img: Image.Image, params: dict) -> bytes:
 
 def process(input_path: Path, output_path: Path, fixed_x: float | None,
             debug_dir: Path | None = None, only_page: int | None = None,
-            overrides: dict[int, int] | None = None) -> None:
+            overrides: dict[int, int] | None = None,
+            force_all: bool = False) -> None:
     """
     Split every spread in the input. fixed_x is the --fixed fraction, or
     None to detect each spread's gutter independently (--detect).
+
+    force_all (--force-all) bypasses the SPREAD_RATIO test and splits every
+    page, for books whose spreads are too square to clear the threshold.
     """
     doc = pymupdf.open(str(input_path))
     n_pages = len(doc)
@@ -404,7 +430,7 @@ def process(input_path: Path, output_path: Path, fixed_x: float | None,
 
         ratio = img_w / img_h
 
-        if ratio > SPREAD_RATIO:
+        if force_all or ratio > SPREAD_RATIO:
             # The mode's cut for this page, before any per-page correction.
             if fixed_x is None:
                 mode_x, warning = find_gutter(img)
@@ -494,10 +520,12 @@ def parse_args() -> argparse.Namespace:
                       help="Cut each spread at its own detected gutter (the darkest "
                            "vertical column near the middle). Use when the binding "
                            "shadow drifts from spread to spread.")
-    mode.add_argument("--fixed", type=float, default=None, metavar="FRAC",
-                      help="Cut every spread at this fixed fraction of width (e.g. "
-                           "0.5173), skipping detection. Use when the dark-band "
-                           "assumption doesn't hold but the scan is well-registered.")
+    mode.add_argument("--fixed", type=float, nargs="?", default=None,
+                      const=FIXED_DEFAULT, metavar="FRAC",
+                      help=f"Cut every spread at this fixed fraction of width (e.g. "
+                           f"0.5173), skipping detection. Use when the dark-band "
+                           f"assumption doesn't hold but the scan is well-registered. "
+                           f"Bare --fixed with no value cuts at {FIXED_DEFAULT}.")
 
     p.add_argument("--debug-dir", type=Path, default=DEFAULT_DEBUG_DIR,
                    metavar="DIR",
@@ -509,6 +537,12 @@ def parse_args() -> argparse.Namespace:
                         f"(default {DEFAULT_DEBUG_DIR}).")
     p.add_argument("--no-debug", action="store_true",
                    help="Skip writing debug images and the overrides manifest.")
+    p.add_argument("--force-all", action="store_true",
+                   help=f"Split every page, bypassing the width/height > {SPREAD_RATIO} "
+                        f"test used to tell spreads from single pages. For books whose "
+                        f"spreads are too square to clear it (tall pages scanned tight, "
+                        f"so two side by side are barely wider than tall). Splits "
+                        f"genuine single pages too — check the output for any.")
     p.add_argument("--only-page", type=int, default=None,
                    metavar="N",
                    help="Process only source page N (1-indexed) instead of the "
@@ -548,4 +582,5 @@ if __name__ == "__main__":
         debug_dir=debug_dir,
         only_page=args.only_page,
         overrides=overrides,
+        force_all=args.force_all,
     )
