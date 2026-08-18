@@ -60,17 +60,19 @@ unsaved state. overrides.csv is rewritten in full on each edit, with
 its comment header and one row per split page preserved, so it stays
 the same file split_spreads.py expects and stays hand-editable.
 
-Only spreads appear. Pages the aspect-ratio test treats as single pages
-(SPREAD_RATIO in split_spreads.py) are skipped here, since they are
-passed through unsplit and have no cut to place.
+Every page appears, matching split_spreads.py, which splits every page
+rather than guessing which ones are spreads. Nothing is filtered out
+here: a page hidden from review would still be split, uncorrected and
+unseen.
 
 Scale and memory
 ----------------
-Spreads are decoded on demand, one per request, and sent to the browser
-downscaled to --preview-width (default 1600px) — enough to see the
-gutter, small enough to page through quickly. Dragging is recorded
-against the page's native resolution regardless, so offsets written here
-mean the same thing as offsets typed by hand.
+Pages are rendered on demand, one per request — the same render
+split_spreads.py cuts, so what is dragged here is what gets split — and
+sent to the browser downscaled to --preview-width (default 1600px):
+enough to see the gutter, small enough to page through quickly.
+Dragging is recorded against the page's native resolution regardless, so
+offsets written here mean the same thing as offsets typed by hand.
 
 Dependencies:
   pip install pymupdf pillow
@@ -91,7 +93,6 @@ from PIL import Image
 from split_spreads import (
     DEFAULT_DEBUG_DIR,
     MANIFEST_NAME,
-    SPREAD_RATIO,
     find_gutter,
     load_page_image,
 )
@@ -135,21 +136,21 @@ def read_manifest(path: Path) -> dict[int, int]:
 
 def build_page_index(doc: pymupdf.Document, fixed_x: float | None) -> list[dict]:
     """
-    Walk the document once and collect the spreads, recording for each the
-    baseline cut its mode produces. Single pages (portrait aspect ratio) are
-    left out — they are passed through unsplit and have no cut to place.
+    Walk the document once and collect every page, recording for each the
+    baseline cut its mode produces. Every page is included, matching
+    split_spreads.py: there is no aspect-ratio test deciding which pages are
+    spreads, so this tool must not filter either — a page hidden here would
+    still be split there, uncorrected and unseen.
 
     Done up front so the browser can show total page counts and jump around
-    freely. Only the gutter search runs here; the image bytes are decoded
-    again per request rather than held, so a 200-page book costs one page of
+    freely. Only the gutter search runs here; the pages are rendered again
+    per request rather than held, so a 200-page book costs one page of
     memory at a time.
     """
     pages: list[dict] = []
     for i in range(len(doc)):
         img, _ = load_page_image(doc, doc[i])
         w, h = img.size
-        if w / h <= SPREAD_RATIO:
-            continue
         if fixed_x is None:
             mode_x, warning = find_gutter(img)
         else:
@@ -580,10 +581,7 @@ def main() -> None:
     print("Indexing spreads ...")
     pages = build_page_index(doc, args.fixed)
     if not pages:
-        raise SystemExit(
-            f"No spreads found in {args.input} — every page is below the "
-            f"{SPREAD_RATIO} width/height threshold, so there is nothing to cut."
-        )
+        raise SystemExit(f"{args.input} has no pages to cut.")
 
     manifest_path = args.debug_dir / MANIFEST_NAME
     overrides = read_manifest(manifest_path) if manifest_path.exists() else {}
