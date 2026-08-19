@@ -104,10 +104,11 @@ CC BY-SA 4.0
 
 - (2022-02-01) Andrew Ollett: Initial OCR (using Google Cloud Vision, on 1885/9 edition — not 1883 as noted), some proofreading, XML markup for SARIT, uploaded to GitHub.
 - (2024–2025) Tyler Neill: Second OCR (using two models, on 1885 edition, merged with AI), manual reconciliation of differences relative to previous version, some more proofreading, markup for HANSEL.
+- (2026) Tyler Neill: Reorientation toward 1889 edition; third OCR (using Sarvam Vision, on 1889 edition), manual reconciliation of differences.
 
 # File Creation Method
 
-I (Tyler Neill) produced this HANSEL edition by first running a PDF of the 1885 edition through both Google Cloud Vision OCR (via Skrutable) and Gemini 2.0 Flash (via Dharmamitra). These two OCR outputs were then automatically harmonized using Gemini 2.5 Pro (via direct API and using a custom prompt). Finally, the harmonized OCR output was contrasted against the previous version by Andrew Ollett (which was in fact based on 1885/1889 as well) using Meld, and differences were reconciled individually with reference to the PDF. The text still needs a final proofread.
+I (Tyler Neill) produced this HANSEL edition by first running a PDF of the early 1885 edition (shares readings with 1883) through both Google Cloud Vision OCR (via Skrutable) and Gemini 2.0 Flash (via Dharmamitra). These two OCR outputs were then automatically harmonized using Gemini 2.5 Pro (via direct API and using a custom prompt). This harmonized OCR output was then contrasted (using Meld) against Andrew Ollett's SARIT version based on the 1883 edition, and differences were reconciled individually with reference to the PDF. A year later, I reoriented again to 1889, first OCRing that edition with Sarvam Vision, then manually reconciling differences with Meld again. The text still needs a final proofread.
 
 # Text Type
 
@@ -123,8 +124,8 @@ Devanāgarī-like (ityevam, not ity evam)
 
 # Text Last Updated
 
-2025-09-29
+2026-08-19
 
 # Metadata Last Updated 
 
-2025-11-28
+2026-08-19
