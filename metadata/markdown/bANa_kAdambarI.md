@@ -18,7 +18,7 @@ Kādambarī
 
 # Edition Short
 
-Peterson 1885
+Peterson 1889
 
 # Edition
 
@@ -28,15 +28,22 @@ Peterson 1885
 - Publisher: Government Central Book Depôt
 - Series: Bombay Sanskrit Series
 - Series Part: No. XXIV
-- Year: 1885
-- Note: Bombay Sanskrit Series No. XXIV was printed in three forms: 1883 (first edition), 1885 (revised edition), and 1889 (simple reset of 1885).
+- Year: 1889
+- Note: Bombay Sanskrit Series No. XXIV was printed in (at least!) five forms:
+  - 1883 = first edition, e.g., v.7 contains "viśaty adho"
+  - early 1885 = reset of first edition without front matter, the "1885" item found online
+  - (late 1885 = rare first printing of revised edition, e.g., v.7 contains "viśatv adho")
+  - 1889 = reset of revised edition, common online
+  - 1899/1900 = third edition, in two parts 
 
 # Edition PDFs
 
-- [1885 on Archive](https://archive.org/details/kadambari01bana/page/n7/mode/2up)
-- [1885 on HathiTrust](https://babel.hathitrust.org/cgi/pt?id=hvd.32044092178649&seq=7)
 - [1889 on Archive](https://archive.org/details/in.ernet.dli.2015.383504)
 - [1889 on HathiTrust](https://babel.hathitrust.org/cgi/pt?id=uc1.b4023759&seq=5)
+- [1900 part 1 (text) on Archive](https://archive.org/details/ksu.p2819.banaskadambaripa0000pete/mode/2up)
+- [1899 part 2 (intro/notes) on Archive](https://archive.org/details/india.history.resource.78130/page/n3/mode/2up)
+- [early 1885 on Archive](https://archive.org/details/kadambari01bana/page/n7/mode/2up)
+- [early 1885 on HathiTrust](https://babel.hathitrust.org/cgi/pt?id=hvd.32044092178649&seq=7)
 - [1883 on Google Books](https://play.google.com/books/reader?id=tbMIAAAAQAAJ&pg=GBS.PP8)
 
 # PDF Page Offset
