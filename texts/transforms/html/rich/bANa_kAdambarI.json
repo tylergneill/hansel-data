@@ -41,20 +41,20 @@
         {
             "type": "field",
             "label": "Edition Short",
-            "inline_text": "Peterson 1885",
+            "inline_text": "Peterson 1889",
             "content_html": ""
         },
         {
             "type": "field",
             "label": "Edition",
             "inline_text": null,
-            "content_html": "<ul>\n<li>Editor: Peterson, Peter</li>\n<li>Title: Kâdambarî</li>\n<li>Place: Bombay</li>\n<li>Publisher: Government Central Book Depôt</li>\n<li>Series: Bombay Sanskrit Series</li>\n<li>Series Part: No. XXIV</li>\n<li>Year: 1885</li>\n<li>Note: Bombay Sanskrit Series No. XXIV was printed in three forms: 1883 (first edition), 1885 (revised edition), and 1889 (simple reset of 1885).</li>\n</ul>\n"
+            "content_html": "<ul>\n<li>Editor: Peterson, Peter</li>\n<li>Title: Kâdambarî</li>\n<li>Place: Bombay</li>\n<li>Publisher: Government Central Book Depôt</li>\n<li>Series: Bombay Sanskrit Series</li>\n<li>Series Part: No. XXIV</li>\n<li>Year: 1889</li>\n<li>Note: Bombay Sanskrit Series No. XXIV was printed in four forms:<ul>\n<li>1883: 1st edition, e.g., v.7 contains \"viśaty adho\"</li>\n<li>1885: reset of 1st edition </li>\n<li>1889: 2nd revised edition, e.g., v.7 contains \"viśatv adho\"</li>\n<li>1900/1899: third edition in two vols (1900: vol 1, text; 1899: vol 2: intro and notes) </li>\n</ul>\n</li>\n</ul>\n"
         },
         {
             "type": "field",
             "label": "Edition PDFs",
             "inline_text": null,
-            "content_html": "<ul>\n<li><a href=\"https://archive.org/details/kadambari01bana/page/n7/mode/2up\">1885 on Archive</a></li>\n<li><a href=\"https://babel.hathitrust.org/cgi/pt?id=hvd.32044092178649&amp;seq=7\">1885 on HathiTrust</a></li>\n<li><a href=\"https://archive.org/details/in.ernet.dli.2015.383504\">1889 on Archive</a></li>\n<li><a href=\"https://babel.hathitrust.org/cgi/pt?id=uc1.b4023759&amp;seq=5\">1889 on HathiTrust</a></li>\n<li><a href=\"https://play.google.com/books/reader?id=tbMIAAAAQAAJ&amp;pg=GBS.PP8\">1883 on Google Books</a></li>\n</ul>\n"
+            "content_html": "<ul>\n<li><a href=\"https://archive.org/details/in.ernet.dli.2015.383504/page/n3/mode/2up\">1889 on Archive</a></li>\n<li><a href=\"https://babel.hathitrust.org/cgi/pt?id=uc1.b4023759&amp;seq=5\">1889 on HathiTrust</a></li>\n<li><a href=\"https://archive.org/details/ksu.p2819.banaskadambaripa0000pete/mode/2up\">1900 (text) on Archive</a></li>\n<li><a href=\"https://archive.org/details/india.history.resource.78130/page/n3/mode/2up\">1899 (intro/notes) on Archive</a></li>\n<li><a href=\"https://archive.org/details/kadambari01bana/page/n7/mode/2up\">1885 on Archive</a></li>\n<li><a href=\"https://babel.hathitrust.org/cgi/pt?id=hvd.32044092178649&amp;seq=7\">1885 on HathiTrust</a></li>\n<li><a href=\"https://play.google.com/books/reader?id=tbMIAAAAQAAJ&amp;pg=GBS.PP8\">1883 on Google Books</a></li>\n</ul>\n"
         },
         {
             "type": "field",
@@ -126,12 +126,12 @@
             "type": "field",
             "label": "Digitization Notes",
             "inline_text": null,
-            "content_html": "<ul>\n<li>(2022-02-01) Andrew Ollett: Initial OCR (using Google Cloud Vision, on 1885/9 edition — not 1883 as noted), some proofreading, XML markup for SARIT, uploaded to GitHub.</li>\n<li>(2024–2025) Tyler Neill: Second OCR (using two models, on 1885 edition, merged with AI), manual reconciliation of differences relative to previous version, some more proofreading, markup for HANSEL.</li>\n</ul>\n"
+            "content_html": "<ul>\n<li>(2022-02-01) Andrew Ollett: Initial OCR (using Google Cloud Vision, on 1883 edition), some proofreading, XML markup for SARIT, uploaded to GitHub.</li>\n<li>(2024–2025) Tyler Neill: Second OCR (using two models, on 1885 edition, merged with AI), manual reconciliation of differences relative to previous version, some more proofreading, markup for HANSEL.</li>\n<li>(2026) Tyler Neill: Reorientation toward 1889; third OCR (using Sarvam Vision, on 1889 edition), manual reconciliation of differences.</li>\n</ul>\n"
         },
         {
             "type": "field",
             "label": "File Creation Method",
-            "inline_text": "I (Tyler Neill) produced this HANSEL edition by first running a PDF of the 1885 edition through both Google Cloud Vision OCR (via Skrutable) and Gemini 2.0 Flash (via Dharmamitra). These two OCR outputs were then automatically harmonized using Gemini 2.5 Pro (via direct API and using a custom prompt). Finally, the harmonized OCR output was contrasted against the previous version by Andrew Ollett (which was in fact based on 1885/1889 as well) using Meld, and differences were reconciled individually with reference to the PDF. The text still needs a final proofread.",
+            "inline_text": "I (Tyler Neill) produced this HANSEL edition by first running a PDF of the early 1885 edition (shares readings with 1883) through both Google Cloud Vision OCR (via Skrutable) and Gemini 2.0 Flash (via Dharmamitra). These two OCR outputs were then automatically harmonized using Gemini 2.5 Pro (via direct API and using a custom prompt). This harmonized OCR output was then contrasted (using Meld) against Andrew Ollett's SARIT version based on the 1883 edition, and differences were reconciled individually with reference to the PDF. A year later, I reoriented again to 1889, first OCRing that edition with Sarvam Vision, then manually reconciling differences with Meld again. The text still needs a final proofread.",
             "content_html": ""
         },
         {
@@ -155,53 +155,95 @@
         {
             "type": "field",
             "label": "Text Last Updated",
-            "inline_text": "2025-09-29",
+            "inline_text": "2026-08-19",
             "content_html": ""
         },
         {
             "type": "field",
             "label": "Metadata Last Updated",
-            "inline_text": "2025-11-28",
+            "inline_text": "2026-08-20",
             "content_html": ""
         },
         {
             "type": "corrections",
-            "count": 15,
+            "count": 28,
             "rows": [
                 {
-                    "sic": "cinhāni",
-                    "corr": "cihnāni",
-                    "page": "72",
-                    "line": "19",
-                    "coord_id": "72_3"
+                    "sic": "ma",
+                    "corr": "mṛ",
+                    "page": "61",
+                    "line": "23",
+                    "coord_id": "61_20"
+                },
+                {
+                    "sic": "ṃ",
+                    "corr": "",
+                    "page": "71",
+                    "line": "14",
+                    "coord_id": "70_20"
+                },
+                {
+                    "sic": "ṭa",
+                    "corr": "ṭha",
+                    "page": "74",
+                    "line": "12",
+                    "coord_id": "73_13"
+                },
+                {
+                    "sic": "-",
+                    "corr": "ḥ",
+                    "page": "110",
+                    "line": "10",
+                    "coord_id": "110_7"
+                },
+                {
+                    "sic": "ḍu",
+                    "corr": "ṇḍu",
+                    "page": "115",
+                    "line": "7",
+                    "coord_id": "115_4"
+                },
+                {
+                    "sic": "ma",
+                    "corr": "tma",
+                    "page": "136",
+                    "line": "16",
+                    "coord_id": "136_6"
                 },
                 {
                     "sic": "",
                     "corr": "-",
-                    "page": "79",
+                    "page": "141",
+                    "line": "15",
+                    "coord_id": "141_9"
+                },
+                {
+                    "sic": "ṃ",
+                    "corr": "",
+                    "page": "141",
                     "line": "16",
-                    "coord_id": "78_14"
+                    "coord_id": "141_9"
                 },
                 {
-                    "sic": "-",
-                    "corr": "",
-                    "page": "112",
-                    "line": "9",
-                    "coord_id": "112_5"
+                    "sic": "ta",
+                    "corr": "na",
+                    "page": "161",
+                    "line": "21",
+                    "coord_id": "161_1"
                 },
                 {
-                    "sic": "",
-                    "corr": " ",
-                    "page": "181",
-                    "line": "17",
-                    "coord_id": "181_9"
+                    "sic": "si",
+                    "corr": "li",
+                    "page": "162",
+                    "line": "7",
+                    "coord_id": "162_6"
                 },
                 {
-                    "sic": " ",
-                    "corr": "",
-                    "page": "194",
-                    "line": "5",
-                    "coord_id": "192_10"
+                    "sic": "ṃ",
+                    "corr": "ṁ",
+                    "page": "188",
+                    "line": "15",
+                    "coord_id": "186_4"
                 },
                 {
                     "sic": "na",
@@ -211,11 +253,25 @@
                     "coord_id": "206_16"
                 },
                 {
-                    "sic": "dukhaḥ",
-                    "corr": "duḥkha",
-                    "page": "214",
+                    "sic": "sa",
+                    "corr": "ma",
+                    "page": "208",
+                    "line": "11",
+                    "coord_id": "208_4"
+                },
+                {
+                    "sic": "",
+                    "corr": "pa",
+                    "page": "213",
                     "line": "10",
                     "coord_id": "212_7"
+                },
+                {
+                    "sic": "bhi",
+                    "corr": "mi",
+                    "page": "219",
+                    "line": "23",
+                    "coord_id": "219_4"
                 },
                 {
                     "sic": "",
@@ -225,25 +281,46 @@
                     "coord_id": "220_6"
                 },
                 {
-                    "sic": "dṛṣṭayā",
-                    "corr": "dṛṣṭyā",
-                    "page": "220",
-                    "line": "13",
-                    "coord_id": "220_6"
+                    "sic": "la",
+                    "corr": "sa",
+                    "page": "228",
+                    "line": "19",
+                    "coord_id": "228_8"
                 },
                 {
-                    "sic": "māla",
-                    "corr": "mālā",
-                    "page": "225",
-                    "line": "11",
-                    "coord_id": "224_13"
+                    "sic": "",
+                    "corr": "ṃ",
+                    "page": "250",
+                    "line": "3",
+                    "coord_id": "249_17"
                 },
                 {
-                    "sic": "nya",
-                    "corr": "jña",
-                    "page": "231",
-                    "line": "10",
-                    "coord_id": "230_15"
+                    "sic": "mi",
+                    "corr": "mī",
+                    "page": "255",
+                    "line": "21",
+                    "coord_id": "255_21"
+                },
+                {
+                    "sic": "ṣṭhi",
+                    "corr": "ṣṭha",
+                    "page": "273",
+                    "line": "21",
+                    "coord_id": "273_9"
+                },
+                {
+                    "sic": "",
+                    "corr": " ",
+                    "page": "274",
+                    "line": "17",
+                    "coord_id": "274_3"
+                },
+                {
+                    "sic": "mū",
+                    "corr": "mu",
+                    "page": "279",
+                    "line": "4",
+                    "coord_id": "279_4"
                 },
                 {
                     "sic": "",
@@ -253,25 +330,39 @@
                     "coord_id": "284_18"
                 },
                 {
-                    "sic": "ndā",
-                    "corr": "ndrā",
-                    "page": "314",
-                    "line": "15",
-                    "coord_id": "314_12"
+                    "sic": "",
+                    "corr": "ṃ",
+                    "page": "291",
+                    "line": "1",
+                    "coord_id": "290_9"
                 },
                 {
-                    "sic": "ttha",
-                    "corr": "thya",
-                    "page": "330",
-                    "line": "1",
-                    "coord_id": "328_13"
+                    "sic": "pyu",
+                    "corr": "pya",
+                    "page": "301",
+                    "line": "4",
+                    "coord_id": "299_6"
+                },
+                {
+                    "sic": "",
+                    "corr": "va",
+                    "page": "301",
+                    "line": "18",
+                    "coord_id": "301_12"
                 },
                 {
                     "sic": "ṃ",
-                    "corr": "",
-                    "page": "338",
-                    "line": "8",
-                    "coord_id": "336_23"
+                    "corr": "ṁ",
+                    "page": "362",
+                    "line": "23",
+                    "coord_id": "362_18"
+                },
+                {
+                    "sic": "",
+                    "corr": "muhur",
+                    "page": "363",
+                    "line": "18",
+                    "coord_id": "363_9"
                 }
             ]
         }
@@ -284,11 +375,11 @@
     "drama": false,
     "has_chaya": false,
     "pdf_page_mapping": {
-        "url": "https://archive.org/details/kadambari01bana/page/n7/mode/2up",
+        "url": "https://archive.org/details/in.ernet.dli.2015.383504/page/n3/mode/2up",
         "offsets": [
             [
                 1,
-                12
+                4
             ]
         ]
     }

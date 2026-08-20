@@ -18,7 +18,7 @@ Kādambarī
 
 # Edition Short
 
-Peterson 1885
+Peterson 1889
 
 # Edition
 
@@ -28,20 +28,26 @@ Peterson 1885
 - Publisher: Government Central Book Depôt
 - Series: Bombay Sanskrit Series
 - Series Part: No. XXIV
-- Year: 1885
-- Note: Bombay Sanskrit Series No. XXIV was printed in three forms: 1883 (first edition), 1885 (revised edition), and 1889 (simple reset of 1885).
+- Year: 1889
+- Note: Bombay Sanskrit Series No. XXIV was printed in four forms:
+    - 1883: 1st edition, e.g., v.7 contains "viśaty adho"
+    - 1885: reset of 1st edition 
+    - 1889: 2nd revised edition, e.g., v.7 contains "viśatv adho"
+    - 1900/1899: third edition in two vols (1900: vol 1, text; 1899: vol 2: intro and notes) 
 
 # Edition PDFs
 
+- [1889 on Archive](https://archive.org/details/in.ernet.dli.2015.383504/page/n3/mode/2up)
+- [1889 on HathiTrust](https://babel.hathitrust.org/cgi/pt?id=uc1.b4023759&seq=5)
+- [1900 (text) on Archive](https://archive.org/details/ksu.p2819.banaskadambaripa0000pete/mode/2up)
+- [1899 (intro/notes) on Archive](https://archive.org/details/india.history.resource.78130/page/n3/mode/2up)
 - [1885 on Archive](https://archive.org/details/kadambari01bana/page/n7/mode/2up)
 - [1885 on HathiTrust](https://babel.hathitrust.org/cgi/pt?id=hvd.32044092178649&seq=7)
-- [1889 on Archive](https://archive.org/details/in.ernet.dli.2015.383504)
-- [1889 on HathiTrust](https://babel.hathitrust.org/cgi/pt?id=uc1.b4023759&seq=5)
 - [1883 on Google Books](https://play.google.com/books/reader?id=tbMIAAAAQAAJ&pg=GBS.PP8)
 
 # PDF Page Offset
 
-- 1 → 12
+- 1 → 4
 
 # Extent
 
@@ -95,12 +101,13 @@ CC BY-SA 4.0
 
 # Digitization Notes
 
-- (2022-02-01) Andrew Ollett: Initial OCR (using Google Cloud Vision, on 1885/9 edition — not 1883 as noted), some proofreading, XML markup for SARIT, uploaded to GitHub.
+- (2022-02-01) Andrew Ollett: Initial OCR (using Google Cloud Vision, on 1883 edition), some proofreading, XML markup for SARIT, uploaded to GitHub.
 - (2024–2025) Tyler Neill: Second OCR (using two models, on 1885 edition, merged with AI), manual reconciliation of differences relative to previous version, some more proofreading, markup for HANSEL.
+- (2026) Tyler Neill: Reorientation toward 1889; third OCR (using Sarvam Vision, on 1889 edition), manual reconciliation of differences.
 
 # File Creation Method
 
-I (Tyler Neill) produced this HANSEL edition by first running a PDF of the 1885 edition through both Google Cloud Vision OCR (via Skrutable) and Gemini 2.0 Flash (via Dharmamitra). These two OCR outputs were then automatically harmonized using Gemini 2.5 Pro (via direct API and using a custom prompt). Finally, the harmonized OCR output was contrasted against the previous version by Andrew Ollett (which was in fact based on 1885/1889 as well) using Meld, and differences were reconciled individually with reference to the PDF. The text still needs a final proofread.
+I (Tyler Neill) produced this HANSEL edition by first running a PDF of the early 1885 edition (shares readings with 1883) through both Google Cloud Vision OCR (via Skrutable) and Gemini 2.0 Flash (via Dharmamitra). These two OCR outputs were then automatically harmonized using Gemini 2.5 Pro (via direct API and using a custom prompt). This harmonized OCR output was then contrasted (using Meld) against Andrew Ollett's SARIT version based on the 1883 edition, and differences were reconciled individually with reference to the PDF. A year later, I reoriented again to 1889, first OCRing that edition with Sarvam Vision, then manually reconciling differences with Meld again. The text still needs a final proofread.
 
 # Text Type
 
@@ -116,8 +123,8 @@ Devanāgarī-like (ityevam, not ity evam)
 
 # Text Last Updated
 
-2025-09-29
+2026-08-19
 
 # Metadata Last Updated 
 
-2025-11-28
+2026-08-20
