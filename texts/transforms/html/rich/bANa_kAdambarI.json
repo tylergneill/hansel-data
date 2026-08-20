@@ -48,7 +48,7 @@
             "type": "field",
             "label": "Edition",
             "inline_text": null,
-            "content_html": "<ul>\n<li>Editor: Peterson, Peter</li>\n<li>Title: Kâdambarî</li>\n<li>Place: Bombay</li>\n<li>Publisher: Government Central Book Depôt</li>\n<li>Series: Bombay Sanskrit Series</li>\n<li>Series Part: No. XXIV</li>\n<li>Year: 1889</li>\n<li>Note: Bombay Sanskrit Series No. XXIV was printed in four forms:</li>\n<li>1883: 1st edition, e.g., v.7 contains \"viśaty adho\"</li>\n<li>1885: reset of 1st edition</li>\n<li>1889: 2nd revised edition, e.g., v.7 contains \"viśatv adho\"</li>\n<li>1900/1899: third edition in two vols (1900: vol 1, text; 1899: vol 2: intro and notes) </li>\n</ul>\n"
+            "content_html": "<ul>\n<li>Editor: Peterson, Peter</li>\n<li>Title: Kâdambarî</li>\n<li>Place: Bombay</li>\n<li>Publisher: Government Central Book Depôt</li>\n<li>Series: Bombay Sanskrit Series</li>\n<li>Series Part: No. XXIV</li>\n<li>Year: 1889</li>\n<li>Note: Bombay Sanskrit Series No. XXIV was printed in four forms:<ul>\n<li>1883: 1st edition, e.g., v.7 contains \"viśaty adho\"</li>\n<li>1885: reset of 1st edition </li>\n<li>1889: 2nd revised edition, e.g., v.7 contains \"viśatv adho\"</li>\n<li>1900/1899: third edition in two vols (1900: vol 1, text; 1899: vol 2: intro and notes) </li>\n</ul>\n</li>\n</ul>\n"
         },
         {
             "type": "field",

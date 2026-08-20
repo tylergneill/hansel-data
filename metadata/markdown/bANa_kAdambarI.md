@@ -30,10 +30,10 @@ Peterson 1889
 - Series Part: No. XXIV
 - Year: 1889
 - Note: Bombay Sanskrit Series No. XXIV was printed in four forms:
-  - 1883: 1st edition, e.g., v.7 contains "viśaty adho"
-  - 1885: reset of 1st edition
-  - 1889: 2nd revised edition, e.g., v.7 contains "viśatv adho"
-  - 1900/1899: third edition in two vols (1900: vol 1, text; 1899: vol 2: intro and notes) 
+    - 1883: 1st edition, e.g., v.7 contains "viśaty adho"
+    - 1885: reset of 1st edition 
+    - 1889: 2nd revised edition, e.g., v.7 contains "viśatv adho"
+    - 1900/1899: third edition in two vols (1900: vol 1, text; 1899: vol 2: intro and notes) 
 
 # Edition PDFs
 
