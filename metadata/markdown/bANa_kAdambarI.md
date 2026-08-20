@@ -37,7 +37,7 @@ Peterson 1889
 
 # Edition PDFs
 
-- [1889 on Archive](https://archive.org/details/in.ernet.dli.2015.383504)
+- [1889 on Archive](https://archive.org/details/in.ernet.dli.2015.383504/page/n3/mode/2up)
 - [1889 on HathiTrust](https://babel.hathitrust.org/cgi/pt?id=uc1.b4023759&seq=5)
 - [1900 (text) on Archive](https://archive.org/details/ksu.p2819.banaskadambaripa0000pete/mode/2up)
 - [1899 (intro/notes) on Archive](https://archive.org/details/india.history.resource.78130/page/n3/mode/2up)
@@ -47,7 +47,7 @@ Peterson 1889
 
 # PDF Page Offset
 
-- 1 → 12
+- 1 → 4
 
 # Extent
 
