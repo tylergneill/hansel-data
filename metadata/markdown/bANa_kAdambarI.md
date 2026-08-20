@@ -29,21 +29,20 @@ Peterson 1889
 - Series: Bombay Sanskrit Series
 - Series Part: No. XXIV
 - Year: 1889
-- Note: Bombay Sanskrit Series No. XXIV was printed in (at least!) five forms:
-  - 1883 = first edition, e.g., v.7 contains "viśaty adho"
-  - early 1885 = reset of first edition without front matter, the "1885" item found online
-  - (late 1885 = rare first printing of revised edition, e.g., v.7 contains "viśatv adho")
-  - 1889 = reset of revised edition, common online
-  - 1899/1900 = third edition, in two parts 
+- Note: Bombay Sanskrit Series No. XXIV was printed in four forms:
+  - 1883: 1st edition, e.g., v.7 contains "viśaty adho"
+  - 1885: reset of 1st edition
+  - 1889: 2nd revised edition, e.g., v.7 contains "viśatv adho"
+  - 1900/1899: third edition in two vols (1900: vol 1, text; 1899: vol 2: intro and notes) 
 
 # Edition PDFs
 
 - [1889 on Archive](https://archive.org/details/in.ernet.dli.2015.383504)
 - [1889 on HathiTrust](https://babel.hathitrust.org/cgi/pt?id=uc1.b4023759&seq=5)
-- [1900 part 1 (text) on Archive](https://archive.org/details/ksu.p2819.banaskadambaripa0000pete/mode/2up)
-- [1899 part 2 (intro/notes) on Archive](https://archive.org/details/india.history.resource.78130/page/n3/mode/2up)
-- [early 1885 on Archive](https://archive.org/details/kadambari01bana/page/n7/mode/2up)
-- [early 1885 on HathiTrust](https://babel.hathitrust.org/cgi/pt?id=hvd.32044092178649&seq=7)
+- [1900 (text) on Archive](https://archive.org/details/ksu.p2819.banaskadambaripa0000pete/mode/2up)
+- [1899 (intro/notes) on Archive](https://archive.org/details/india.history.resource.78130/page/n3/mode/2up)
+- [1885 on Archive](https://archive.org/details/kadambari01bana/page/n7/mode/2up)
+- [1885 on HathiTrust](https://babel.hathitrust.org/cgi/pt?id=hvd.32044092178649&seq=7)
 - [1883 on Google Books](https://play.google.com/books/reader?id=tbMIAAAAQAAJ&pg=GBS.PP8)
 
 # PDF Page Offset
@@ -102,9 +101,9 @@ CC BY-SA 4.0
 
 # Digitization Notes
 
-- (2022-02-01) Andrew Ollett: Initial OCR (using Google Cloud Vision, on 1885/9 edition — not 1883 as noted), some proofreading, XML markup for SARIT, uploaded to GitHub.
+- (2022-02-01) Andrew Ollett: Initial OCR (using Google Cloud Vision, on 1883 edition), some proofreading, XML markup for SARIT, uploaded to GitHub.
 - (2024–2025) Tyler Neill: Second OCR (using two models, on 1885 edition, merged with AI), manual reconciliation of differences relative to previous version, some more proofreading, markup for HANSEL.
-- (2026) Tyler Neill: Reorientation toward 1889 edition; third OCR (using Sarvam Vision, on 1889 edition), manual reconciliation of differences.
+- (2026) Tyler Neill: Reorientation toward 1889; third OCR (using Sarvam Vision, on 1889 edition), manual reconciliation of differences.
 
 # File Creation Method
 
