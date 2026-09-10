@@ -62,3 +62,8 @@ GEMINI.md
 *.xpr
 utils/validation/xml/oxygen_comparison/*.txt
 utils/validation/xml/oxygen_comparison/*.csv
+
+# Transform scratch space — all script output (debug images, test PDFs,
+# resplit manifests) goes in a tmp/ next to the script that makes it.
+utils/transforms/*/tmp/*
+!utils/transforms/*/tmp/.gitkeep
