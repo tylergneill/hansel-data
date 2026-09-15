@@ -136,8 +136,8 @@
           </lg>
         </lg>
         <p xml:id="p1_l9" n="1,9">
-          <stage>nāndyante</stage>
-          <lb n="10"/></p>
+          <milestone n="nāndyante"/>
+        </p>
       </div>
       <div n="prastāvanā">
         <sp who="sūtradhāraḥ">
@@ -252,10 +252,8 @@
             <lb n="18"/></p>
           <p xml:id="p3_l19" n="3,19">
             <stage>iti niṣkrāntau</stage>
-            <pb n="4"/></p>
-          <p xml:id="p3_l20" n="3,20">
             <milestone n="prastāvanā"/>
-          </p>
+            <pb n="4"/></p>
         </sp>
       </div>
       <div n="prathamo'ṅkaḥ">
@@ -1095,7 +1093,9 @@ utprekṣituṃ pratyūhaṃ kautūhalasya |</seg>
             <l>kāle varṣantu meghāḥ phalatu vasumatī bhadramastu prajānāṃ<caesura/><lb n="17"/> hṛdyāḥ svairaṃ kavīnāṃ khalahṛdayabhidaḥ santu vidyāvinodāḥ |<lb n="18"/></l>
             <l>ekāvāsaḥ kalānāṃ vitaraṇavibhavanyakkṛtāmartyaśākhī<caesura/><lb n="19"/> samrāḍ jāgartu dīrghaṃ hariharatanayaḥ śrīvirūpākṣabhūpaḥ || 97 ||<lb n="20"/></l>
           </lg>
-          <p xml:id="p26_l20" n="26,20">unmattarāghavaṃ nāma prekṣaṇakaṃ saṃpūrṇam || <lb n="21"/></p>
+          <p xml:id="p26_l20" n="26,20">
+            <milestone n="unmattarāghavaṃ nāma prekṣaṇakaṃ saṃpūrṇam ||"/>
+          </p>
         </sp>
       </div>
     </body>

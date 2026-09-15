@@ -18,7 +18,7 @@
 
 [1,9]
 
-((nāndyante))
+<nāndyante>
 
 {prastāvanā}
 
@@ -117,8 +117,6 @@ naṭī — ˹tā amho vi sajjīhavāmo aṇaṃtarakaraṇijjassa |˼
 [3,19]
 
 ((iti niṣkrāntau))
-
-[3,20]
 
 <prastāvanā>
 
@@ -1120,4 +1118,4 @@ tathāpīdamastu ((bharatavākyam)) —
 
 [26,20]
 
-unmattarāghavaṃ nāma prekṣaṇakaṃ saṃpūrṇam ||
+<unmattarāghavaṃ nāma prekṣaṇakaṃ saṃpūrṇam ||>

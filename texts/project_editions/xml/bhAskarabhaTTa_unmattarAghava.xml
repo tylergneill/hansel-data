@@ -122,7 +122,7 @@
   </teiHeader>
   <text>
     <body>
-      <div n="prastāvanā">
+      <div n="nāndī">
         <pb n="1"/><p xml:id="p1_l1" n="1,1">
           <milestone n="kāvyamālā"/>
           <milestone n="śrīmadbhāskarakaviviracitam unmattarāghavam ।"/>
@@ -132,8 +132,10 @@
           <l>śriyai bhūyādasyāḥ vadanaśaśinaḥ kopakaluṣā<caesura/><lb n="6" break="no"/>tprasādenāruṇyaṃ vinimayavaśeneva dadhatī ॥ 1 ॥<lb n="7"/></l>
         </lg>
         <p xml:id="p1_l7" n="1,7">
-          <stage>nāndyante</stage>
-          <lb n="8"/></p>
+          <milestone n="nāndyante"/>
+        </p>
+      </div>
+      <div n="prastāvanā">
         <sp who="sūtradhāraḥ">
           <speaker>sūtradhāraḥ</speaker>
           <p n="1,8" xml:id="p1_l8">
@@ -213,7 +215,8 @@
           </lg>
           <p xml:id="p2_l23" n="2,23">
             <stage>iti niṣkrāntau ।</stage>
-            <lb n="24"/> prastāvanā ।  <pb n="3"/></p>
+            <milestone n="prastāvanā ।"/>
+            <pb n="3"/></p>
         </sp>
       </div>
       <div n="prathamo'ṅkaḥ">
@@ -1022,7 +1025,9 @@
             <l>samayavihitavarṣaḥ sasyapūrṇāṃ dharitrīṃ<caesura/><lb n="24"/> janayatu jaladaughaḥ prerito vāsavena ।<lb n="25"/></l>
             <l>bhavajalanidhimadhye majjatāṃ mānavānāṃ<caesura/><lb n="26"/> bhavatu taraṇirūpā saṃgatiḥ sajjanānām ॥ 43 ॥<lb n="27"/></l>
           </lg>
-          <p xml:id="p16_l27" n="16,27">saṃpūrṇam । <lb n="28"/></p>
+          <p xml:id="p16_l27" n="16,27">
+            <milestone n="saṃpūrṇam ।"/>
+          </p>
         </sp>
       </div>
     </body>
