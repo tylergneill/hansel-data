@@ -32,6 +32,10 @@ Adyar 1946
 
 - [Adyar 1946 on Archive](https://archive.org/details/in.ernet.dli.2015.368713/page/n17/mode/2up)
 
+# PDF Page Offset
+
+- 1 → 17
+
 # Extent
 
 - The complete work is extant.
