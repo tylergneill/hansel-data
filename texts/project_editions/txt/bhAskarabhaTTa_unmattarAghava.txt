@@ -1,4 +1,4 @@
-{prastāvanā}
+{nāndī}
 
 <1>
 
@@ -18,7 +18,9 @@ unmattarāghavam ।>
 
 [1,7]
 
-((nāndyante))
+<nāndyante>
+
+{prastāvanā}
 
 [1,8]
 
@@ -91,7 +93,7 @@ sūtradhāraḥ — sādhu gītam । ((anyato'valokya ।)) ārye, itaḥ paśy
 
 ((iti niṣkrāntau ।))
 
-prastāvanā ।
+<prastāvanā ।>
 
 <3>
 
@@ -902,4 +904,4 @@ rāmaḥ — itaḥ paraṃ kiṃ priyamasti । tathāpīdamastu bharatavākyam
 
 [16,27]
 
-saṃpūrṇam ।
+<saṃpūrṇam ।>
