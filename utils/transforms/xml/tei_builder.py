@@ -27,7 +27,7 @@ LOCATION_VERSE_RE = re.compile(r"^\[([^\]]+?)\]\t*(.*)$")  # [label] +/- tabbed 
 VERSE_NUM_RE = re.compile(r"^\s*([0-9]+(?:[.,][0-9]+)*)\s*([a-z]{1,4})?\s*$", re.I)
 PAGE_RE = re.compile(r"^<(\d+)>$")  # <page>
 PAGE_LINE_RE = re.compile(r"^<(\d+),(\d+)>$")  # <page,line>
-ADDITIONAL_STRUCTURE_NOTE_RE = re.compile(r"^<[^\n>]+>$")  # other <...>
+ADDITIONAL_STRUCTURE_NOTE_RE = re.compile(r"^<[^>]+>$")  # other <...>, possibly wrapped over several source lines (\n sentinels)
 # Verse-final marker (double danda): ASCII "||" or the real Unicode double danda "॥".
 # Verse-medial marker (single danda): ASCII "|" or the real Unicode danda "।".
 # Texts may use either convention (older ones ASCII, newer ones real dandas), so all
@@ -159,6 +159,13 @@ class TextBuildState:
     open_choice_lines: list = field(default_factory=list)
     open_choice_at_block_start: bool = False
 
+    # open-note state: accumulates lines when a structural note <...> spans
+    # multiple input lines (e.g. a long title-page attribution wrapped to match
+    # the printed line breaks)
+    in_open_note: bool = False
+    open_note_lines: list = field(default_factory=list)
+    open_note_at_block_start: bool = False
+
     # True after a bare speaker cue ("name —" alone on its own physical line):
     # that line must still be counted (lb_count already bumped), but the label
     # it would carry ("n=" on the following <p>/<lg>) must stay put, since it's
@@ -257,6 +264,30 @@ class TeiTextBuilder:
             s.in_open_choice = True
             s.open_choice_lines = [line]
             s.open_choice_at_block_start = at_block_start
+            return
+
+        # OPEN-NOTE ACCUMULATION — a structural note <...> spanning multiple lines
+        if s.in_open_note:
+            if '>' in line:
+                # Splice continuation lines into the opening line so
+                # ADDITIONAL_STRUCTURE_NOTE_RE can match the full <...> span. Use
+                # \n as a line-break sentinel (as the choice/stage spans do) so the
+                # handler can tell how many physical lines the note consumed; the
+                # sentinels are collapsed to spaces before the label is stored.
+                spliced = '\n'.join([*s.open_note_lines, line])
+                s.in_open_note = False
+                s.open_note_lines = []
+                s.at_block_start = s.open_note_at_block_start
+                self._handle_line(spliced)
+            else:
+                s.open_note_lines.append(line)
+            return
+
+        if line.startswith('<') and '>' not in line:
+            # Opening of a multi-line structural note — begin accumulation
+            s.in_open_note = True
+            s.open_note_lines = [line]
+            s.open_note_at_block_start = at_block_start
             return
 
         # OPEN-STAGE ACCUMULATION — (( )) spanning multiple lines
@@ -399,7 +430,10 @@ class TeiTextBuilder:
         # 2b) Other structural note <...> to be counted as physical line
         additional_structure_note_match = ADDITIONAL_STRUCTURE_NOTE_RE.match(line)
         if additional_structure_note_match:
-            self._emit_milestone(additional_structure_note_match.group(0))
+            note = additional_structure_note_match.group(0)
+            # A wrapped note carries \n sentinels marking where the source broke;
+            # the label itself is stored as a single line.
+            self._emit_milestone(note.replace('\n', ' '), source_lines=note.count('\n') + 1)
             self._finalize_physical_line(line)
             return
 
@@ -1149,9 +1183,12 @@ class TeiTextBuilder:
         else:
             s.lb_count = 1
 
-    def _emit_milestone(self, label: str) -> None:
+    def _emit_milestone(self, label: str, source_lines: int = 1) -> None:
+        """Emit a <milestone>. ``source_lines`` is the number of physical source
+        lines the note occupied — more than one when a <...> span was wrapped and
+        spliced back together, so line numbering downstream stays in step."""
         s = self.state
-        s.lb_count += 1
+        s.lb_count += source_lines
         container = self._get_container()
         label = re.sub(r'[<>]', '', label)
         etree.SubElement(container, "milestone", {"n": label})
