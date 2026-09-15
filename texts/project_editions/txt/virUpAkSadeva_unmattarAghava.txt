@@ -4,8 +4,9 @@
 
 [1,1]
 
-<unmattarāghavaṃ nāma prekṣaṇakam
-virūpākṣadevakṛtam>
+<unmattarāghavaṃ nāma prekṣaṇakam virūpākṣadevakṛtam>
+
+[1,3]
 
 	herambāya namastasmai yadgaṇḍagṛhamedhinām |
 	madhuvratānāṃ saṃgītavaikharī bhavati trayī || 1 ||
