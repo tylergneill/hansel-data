@@ -59,7 +59,6 @@ def validate_structure(structured_content):
     # 1. Find all instances of each bracket type
     all_squares = re.findall(r'\[.*?\]', structured_content, re.DOTALL)
     all_curlies = re.findall(r'\{.*?\}', structured_content, re.DOTALL)
-    all_angles = re.findall(r'<.*?>', structured_content, re.DOTALL)
     # Strip stage directions ((...)) before round-bracket validation
     content_for_round_check = re.sub(r'\(\([^)]+\)\)', '', structured_content)
     all_rounds = re.findall(r'\(.*?\)', content_for_round_check, re.DOTALL)
@@ -81,11 +80,7 @@ def validate_structure(structured_content):
             errors.append(f"Invalid brackets [], <> found within group identifier: {c}")
 
     # Check <...>
-    for a in all_angles:
-        inner = a[1:-1]
-        if any(c in inner for c in '[]{}'):
-            valid = False
-            errors.append(f"Invalid brackets [], {{}} found within note: {a}")
+    # Notes may contain any content, including other bracket types.
 
     # Check (...)
     for r in all_rounds:
