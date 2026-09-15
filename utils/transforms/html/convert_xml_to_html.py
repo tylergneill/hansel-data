@@ -52,11 +52,12 @@ class HtmlConverter:
       the coordinate system is treated as editorially defined and independent of PDF pages.
     A drama text that uses [page,line] coordinates will have drama=True and default labels.
     """
-    def __init__(self, no_line_numbers=False, only_plain=False, standalone=False, drama=False, page_label="p", line_label="l"):
+    def __init__(self, no_line_numbers=False, only_plain=False, standalone=False, drama=False, page_label="p", line_label="l", hide_milestones=False):
         self.no_line_numbers = no_line_numbers
         self.only_plain = only_plain
         self.standalone = standalone
         self.drama = drama
+        self.hide_milestones = hide_milestones
         self.page_label = page_label
         self.line_label = line_label
         self.toc_data = []
@@ -519,6 +520,15 @@ class HtmlConverter:
             elif child.tag == 'unclear':
                 unclear_span = etree.SubElement(html_node, "span", {"class": "unclear", "title": "unclear"})
                 self.process_children(child, unclear_span, treat_as_plain, in_lg=in_lg)
+            elif child.tag == 'milestone':
+                # A milestone reached through the shared walker rather than one of the
+                # container loops — e.g. inside an <sp>, where a structural note follows
+                # a speech. Rendered here so it stays visible wherever it lands.
+                if not treat_as_plain and not self.hide_milestones:
+                    n_attr = child.get("n")
+                    if n_attr:
+                        etree.SubElement(html_node, "span", {"class": "milestone"}).text = n_attr
+
             elif child.tag == 'stage':
                 if not treat_as_plain:
                     for _ in range(self.pending_breaks):
@@ -579,6 +589,27 @@ class HtmlConverter:
             if child.tail:
                 should_strip = (child.tag in ['lb', 'pb']) and not treat_as_plain
                 self.append_text(html_node, child.tail, strip_leading_whitespace=should_strip, treat_as_plain=treat_as_plain)
+
+    def _emit_milestone_heading(self, milestone, content_div):
+        """Emit a <milestone> as an <h2> heading, advancing the physical line count.
+
+        Milestones reach here from two places: as a direct child of the section
+        <div>, and as the content of a milestone-only <p> (one that exists purely
+        to carry a coordinate). Both render identically — whether a location
+        marker happened to open a paragraph in the source is an encoding detail,
+        not a display distinction.
+        """
+        # Milestones occupy a physical line — counted even when hidden, so that
+        # suppressing them never shifts the line numbering of what follows.
+        self.current_line = str(int(self.current_line) + 1)
+        if self.pending_label is not None:
+            label_text = f'({self.page_label}.{self.current_page}, {self.line_label}.{self.current_line})' if not self.no_line_numbers else f'({self.page_label}.{self.current_page})'
+            self.pending_label.text = label_text
+        if self.hide_milestones:
+            return
+        n_attr = milestone.get("n")
+        if n_attr:
+            etree.SubElement(content_div, "h2", {"class": "milestone rich-text"}).text = n_attr
 
     def _emit_editorial_coord_h2(self, content_div, n_attr):
         """Emit an editorial-coordinate <h3> to content_div for the given n attribute value.
@@ -682,7 +713,7 @@ class HtmlConverter:
                         if sub_child.tag == 'l':
                             self._render_l_as_spans(sub_child, chaya_div, treat_as_plain, in_lg=(not treat_as_plain))
                 elif child.tag == 'milestone':
-                    if not treat_as_plain:
+                    if not treat_as_plain and not self.hide_milestones:
                         milestone_span = etree.SubElement(target_div, "span", {"class": "milestone"})
                         milestone_span.text = f'{child.get("n")}'
 
@@ -738,6 +769,8 @@ class HtmlConverter:
                             p_tag = etree.SubElement(verse_li, "p")
                             self.process_children(child, p_tag, False, in_lg=True)
                     elif child.tag == 'milestone':
+                        if self.hide_milestones:
+                            continue
                         milestone_span = etree.SubElement(verse_li, "span", {"class": "milestone"})
                         milestone_span.text = f'{child.get("n")}'
             return
@@ -819,6 +852,8 @@ class HtmlConverter:
                 if len(padas_ul) > 0:
                     self.process_children(child, padas_ul[-1], False, in_lg=True)
             elif child.tag == 'milestone':
+                if self.hide_milestones:
+                    continue
                 etree.SubElement(padas_ul, "br")
                 milestone_li = etree.SubElement(padas_ul, "li", {"class": "milestone-verse"})
                 milestone_li.text = f'{child.get("n")}'
@@ -988,14 +1023,7 @@ class HtmlConverter:
             for element in section.iterchildren():
                 if element.tag == "milestone":
                     current_verses_ul = None
-                    # Milestones occupy a physical line
-                    self.current_line = str(int(self.current_line) + 1)
-                    if self.pending_label is not None:
-                        label_text = f'({self.page_label}.{self.current_page}, {self.line_label}.{self.current_line})' if not self.no_line_numbers else f'({self.page_label}.{self.current_page})'
-                        self.pending_label.text = label_text
-                    n_attr = element.get("n")
-                    if n_attr:
-                        etree.SubElement(content_div, "h2", {"class": "milestone rich-text"}).text = n_attr
+                    self._emit_milestone_heading(element, content_div)
 
                 elif element.tag == "pb":
                     self.current_page = element.get("n")
@@ -1155,9 +1183,13 @@ class HtmlConverter:
                     if _is_milestone_only_p(element):
                         # A <p> that carries only <milestone>/<lb>/<pb> children (no real
                         # text) exists purely to attach a coordinate to a milestone (e.g.
-                        # title lines before the play proper begins). Its milestones are
-                        # already invisible in HTML output, so don't emit an empty <p> or
-                        # a location marker for it either.
+                        # title lines before the play proper begins). Don't emit the empty
+                        # <p> shell or a location marker for it — but do emit the
+                        # milestones themselves, exactly as if they had been direct
+                        # children of the section <div>.
+                        current_verses_ul = None
+                        for milestone in element.iter("milestone"):
+                            self._emit_milestone_heading(milestone, content_div)
                         continue
                     current_verses_ul = None
                     self.current_verse = None
@@ -1384,6 +1416,7 @@ if __name__ == "__main__":
     parser.add_argument("--plain", action="store_true", help="Generate a plain HTML version without rich features.")
     parser.add_argument("--standalone", action="store_true", help="Generate a browser-viewable HTML file for development.")
     parser.add_argument("--drama", action="store_true", help="Drama mode: handle speakers, stage directions, and chāyās.")
+    parser.add_argument("--hide-milestones", action="store_true", help="Suppress <milestone> structural notes in the output (e.g. running heads repeated from the printed page).")
     parser.add_argument("--page-label", default="p", help="Label used for the first part of an editorial coordinate (default: p).")
     parser.add_argument("--line-label", default="l", help="Label used for the second part of an editorial coordinate (default: l).")
     args = parser.parse_args()
@@ -1395,6 +1428,7 @@ if __name__ == "__main__":
         drama=args.drama,
         page_label=args.page_label,
         line_label=args.line_label,
+        hide_milestones=args.hide_milestones,
     )
     converter.convert_xml_to_html(args.xml_path, args.html_path)
 

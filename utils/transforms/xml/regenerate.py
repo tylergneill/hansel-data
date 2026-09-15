@@ -22,12 +22,16 @@ def run_conversion(script_name, in_dir, in_ext, out_dir, out_ext, flag_map, dire
         flags = flag_map.get(stem, '')
         command = ['python', str(script_name), str(in_path), str(out_path)]
         if flags:
+            # --hide-milestones is display-only (consumed by the HTML converter);
+            # neither converter in this file accepts it.
+            passthrough = [f for f in flags.split() if f != '--hide-milestones']
             if direction == 'xml':
-                # --chaya is a boolean flag in flag_map but takes a path arg in convert_plaintext_to_xml;
-                # strip it here and re-add with the resolved path below
-                command.extend(f for f in flags.split() if f != '--chaya')
+                # --chaya is a boolean flag in flag_map but takes a path arg in
+                # convert_plaintext_to_xml; strip it here and re-add with the
+                # resolved path below
+                command.extend(f for f in passthrough if f != '--chaya')
             else:
-                command.extend(flags.split())
+                command.extend(passthrough)
         if direction == 'xml' and '--chaya' in flags:
             chaya_path = in_dir / 'chaya' / f'{stem}.txt'
             if chaya_path.exists():

@@ -34,6 +34,8 @@ def regenerate_html(xml_dir, plain_dir, rich_dir, standalone=False):
         flags = flag_map.get(stem, "")
         if "--drama" in flags:
             command.append("--drama")
+        if "--hide-milestones" in flags:
+            command.append("--hide-milestones")
         labels = editorial_coord_labels_map.get(stem)
         if labels:
             command.extend(["--page-label", labels[0], "--line-label", labels[1]])
@@ -53,6 +55,8 @@ def regenerate_html(xml_dir, plain_dir, rich_dir, standalone=False):
             command.append("--no-line-numbers")
         if "--drama" in flags:
             command.append("--drama")
+        if "--hide-milestones" in flags:
+            command.append("--hide-milestones")
         if standalone:
             command.append("--standalone")
         labels = editorial_coord_labels_map.get(stem)
