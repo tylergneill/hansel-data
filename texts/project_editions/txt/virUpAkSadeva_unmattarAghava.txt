@@ -1,11 +1,11 @@
+{nāndī}
+
 <1>
 
 [1,1]
 
-unmattarāghavaṃ nāma prekṣaṇakam
-virūpākṣadevakṛtam
-
-{nāndī}
+<unmattarāghavaṃ nāma prekṣaṇakam
+virūpākṣadevakṛtam>
 
 	herambāya namastasmai yadgaṇḍagṛhamedhinām |
 	madhuvratānāṃ saṃgītavaikharī bhavati trayī || 1 ||
@@ -824,7 +824,7 @@ kṣaṇamātraṃ sthitvā))
 gatā jānakī’ iti | āvedayāmi tāvadbhūtārtham |
 
 	nīto'smi kenacidahaṃ kuhanāmṛgeṇa
-	dūraṃ punaḥ sapadi pañcavarṭī nivṛttaḥ |
+	dūraṃ punaḥ sapadi pañcava≤rṭī≥«ṭīṃ» nivṛttaḥ |
 	anveṣayannapi na tāmavalokayāmi
 	jīvāmi caiṣa kimataḥ paramasti kaṣṭam || 68 ||
 
