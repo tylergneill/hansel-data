@@ -1012,7 +1012,10 @@ utprekṣituṃ pratyūhaṃ kautūhalasya |</seg>
         </sp>
         <sp who="sītā">
           <speaker>sītā</speaker>
-          <p n="24,15" xml:id="p24_l15">jedu ayyautto | <lb n="16"/></p>
+          <p n="24,15" xml:id="p24_l15">
+            <seg type="prakrit" xml:lang="pra-Latn">jedu ayyautto |<seg type="chāyā" xml:lang="san-Latn">jayatvāryaputraḥ |</seg>
+            </seg>
+            <lb n="16"/></p>
         </sp>
         <sp who="rāmaḥ">
           <speaker>rāmaḥ</speaker>
@@ -1035,7 +1038,8 @@ utprekṣituṃ pratyūhaṃ kautūhalasya |</seg>
         <sp who="sītā">
           <speaker>sītā</speaker>
           <p n="25,6" xml:id="p25_l6">
-            <seg type="prakrit" xml:lang="pra-Latn">eso seuṇibandhādo puḍamaṃ eva samuddalaṃghaṇaṃ viraia laṃkāmuvaado<lb n="7"/>maṃ assāsidavaṃto haṇumaṃto |<seg type="chāyā" xml:lang="san-Latn">jayatvāryaputraḥ |</seg>
+            <seg type="prakrit" xml:lang="pra-Latn">eso seuṇibandhādo puḍamaṃ eva samuddalaṃghaṇaṃ viraia laṃkāmuvaado<lb n="7"/>maṃ assāsidavaṃto haṇumaṃto |<seg type="chāyā" xml:lang="san-Latn">eṣa setunibandhātprāgeva samudralaṅghanaṃ viracayya laṅkāmupagato māmā-
+śvāsitavān hanumān |</seg>
             </seg>
             <lb n="8"/></p>
         </sp>
@@ -1076,8 +1080,7 @@ utprekṣituṃ pratyūhaṃ kautūhalasya |</seg>
         <sp who="sītā">
           <speaker>sītā</speaker>
           <p n="26,8" xml:id="p26_l8">
-            <seg type="prakrit" xml:lang="pra-Latn">ayyautta kiṃ avaraṃ ahmāṇaṃ kumāralakkhaṇo piaṃ karedu |<seg type="chāyā" xml:lang="san-Latn">eṣa setunibandhātprāgeva samudralaṅghanaṃ viracayya laṅkāmupagato māmā-
-śvāsitavān hanumān |</seg>
+            <seg type="prakrit" xml:lang="pra-Latn">ayyautta kiṃ avaraṃ ahmāṇaṃ kumāralakkhaṇo piaṃ karedu |<seg type="chāyā" xml:lang="san-Latn">āryaputra kimaparamasmākaṃ kumāralakṣmaṇaḥ priyaṃ karotu |</seg>
             </seg>
             <lb n="9"/></p>
         </sp>
