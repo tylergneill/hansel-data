@@ -18,7 +18,7 @@
 
 [1,9]
 
-<nāndyante>
+<(nāndyante)>
 
 {prastāvanā}
 
@@ -490,9 +490,6 @@ kiṃtu,
 [11,19]
 
 athavā māturadarśanakleśavihvalo mayaivāśvāsanīyaḥ | ((anyato dṛṣṭvā))
-
-[11,20]
-
 eṣa khalu sītāsaṃvardhito mayūraśābaḥ |
 
 <12>
@@ -658,7 +655,7 @@ manye sāṃpratamavasaro mamābhiyogasya | yataḥ,
 [15,15]
 
 ((vibhāvya)) hanta māmapi kṛtapraṇayaprayatnaṃ na gaṇayatyeṣaḥ | kiṃ vā
-nidānamavinayasyāsya | ((vicintya)) ā jñātam ;
+nidānamavinayasyāsya | ((vicintya)) ā jñātam;
 
 	jitanayanakāntireṣa tṛṇacaraṇaḥ śaraṇatāṃ tayā nītaḥ |
 	saṃprati tu garvitaḥ syāt kathaṃ na tasyāmadṛśyāyām || 52 ||
@@ -720,9 +717,6 @@ praṣṭavya eva gatabahudeśāntaro'yaṃ mayā | ((upasṛtya))
 [17,3]
 
 ((vibhāvya)) svadārānveṣaṇaparo'yaṃ na paśyatyeva me kāntām |
-
-[17,4]
-
 ((puro'valokya)) iyaṃ hi godāvarī bhagavatī | ((niśvasya))
 
 	iha khalu tarumūle sā niṣaṇṇā natabhrū-
@@ -788,9 +782,6 @@ pṛcchāmi tāvadimam |
 
 ((vibhāvya)) ayamanākarṇitamadvacanaḥ priyāṃ kareṇumahimakarakiraṇatā-
 pāsahāṃ karaśīkarairāśvāsayati | anubhavatu tāvadayaṃ kāntānuvartanasukham |
-
-[18,19]
-
 ((anyato dṛṣṭvā)) aye ko'yamanekabhujaparighabhīṣaṇākāro rākṣasaḥ praṇayinīṃ
 me kalakaruṇākranditāṃ harati? ((iti niṣaṅgādbāṇamādāya vibhāvya ca)) hanta,
 sādṛśyādvipralabdho'smi | kutaḥ,
@@ -848,9 +839,10 @@ saraḥ | ((upasṛtya vibhāvya ca))
 [20,7]
 
 ((pārśvato dṛṣṭvā)) śakyamidānīṃ kiṃcidāśvasitum |
-nanu dṛśyata eva kaṇṭhanālādgalitā hāralatā saroruhākṣyāḥ |
 
-[20,9]
+[20,8]
+
+	nanu dṛśyata eva kaṇṭhanālādgalitā hāralatā saroruhākṣyāḥ |
 
 ((ādātumicchan, sanirvedam))
 
