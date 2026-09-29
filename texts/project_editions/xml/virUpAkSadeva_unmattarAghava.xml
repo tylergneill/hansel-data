@@ -45,7 +45,7 @@
             <p>HANSEL assumes no responsibility for unauthorised use that infringes rights.</p>
           </licence>
         </availability>
-        <date when="2026-09-15" from="2026" to="2026">September 15, 2026</date>
+        <date when="2026-09-29" from="2026" to="2026">September 29, 2026</date>
       </publicationStmt>
       <notesStmt>
         <note>Rāma Beside Himself (Unmattarāghava) is a one-act Sanskrit drama by the 15th-century Sangama king Virūpāḳsadeva that reimagines the famous golden deer episode of Vālmīki’s Rāmāyaṇa as an intensely lyrical study of madness (unmāda) occasioned by love in separation. In the traditional narrative, the demon Mārīca disguises himself as a golden deer in order to draw Rāma away and enable Rāvaṇa to abduct Sītā; Virūpāḳsadeva’s play...</note>
@@ -122,10 +122,7 @@
   <text>
     <body>
       <div n="nāndī">
-        <pb n="1"/><p xml:id="p1_l1" n="1,1">
-          <milestone n="unmattarāghavaṃ nāma prekṣaṇakam virūpākṣadevakṛtam"/>
-        </p>
-        <lg type="group" n="1,3" xml:id="p1_l3">
+        <pb n="1"/><lg type="group" n="1,3" xml:id="p1_l3">
           <lg>
             <l>herambāya namastasmai yadgaṇḍagṛhamedhinām |<lb n="4"/></l>
             <l>madhuvratānāṃ saṃgītavaikharī bhavati trayī || 1 ||<lb n="5"/></l>
@@ -135,11 +132,11 @@
             <l>dvaipāyanāmbudhivijṛmbhaṇacandrarekhā<caesura/><lb n="8"/> vāgdevatā vijayatāṃ kavikāmadhenuḥ || 2 ||<lb n="9"/></l>
           </lg>
         </lg>
-        <p xml:id="p1_l9" n="1,9">
-          <milestone n="nāndyante"/>
-        </p>
       </div>
       <div n="prastāvanā">
+        <p xml:id="p1_l9" n="1,9">
+          <milestone n="(nāndyante)"/>
+        </p>
         <sp who="sūtradhāraḥ">
           <speaker>sūtradhāraḥ</speaker>
           <p n="1,10" xml:id="p1_l10">
@@ -306,7 +303,10 @@ neṣyāmi |</seg>
           <speaker>lakṣmaṇaḥ</speaker>
           <p n="4,21" xml:id="p4_l21">ārye, naupayiko'yaṃ prayatnaḥ | <lb n="22"/></p>
           <lg xml:id="p4_l21_2" n="4,21">
-            <l>vayamapakṛtavanto yajjanasthānabhājā<caesura/><lb n="23" break="no"/>matikuṭilamatīnāṃ bhayasāṃ rākṣasānām |<pb n="5"/></l>
+            <l>vayamapakṛtavanto yajjanasthānabhājā<caesura/><lb n="23" break="no"/>matikuṭilamatīnāṃ <choice>
+                <sic>bha</sic>
+                <corr>bhū</corr>
+              </choice>asāṃ rākṣasānām |<pb n="5"/></l>
             <l>niyatamidamapi syādvañcanaṃ gūḍhaveṣo<caesura/><lb n="2"/> racayitumupayātaḥ ko'pi naktaṃcaro naḥ || 12 ||<lb n="3"/></l>
           </lg>
         </sp>
@@ -609,8 +609,7 @@ utprekṣituṃ pratyūhaṃ kautūhalasya |</seg>
             <l>kṣaṇamapi tayā rāmaḥ sāraṅgalocanayā vinā<caesura/><lb n="18"/> na hi nivasatyetanmanye tavāpi parisphuṭam || 35 ||<lb n="19"/></l>
           </lg>
           <p xml:id="p11_l19" n="11,19">athavā māturadarśanakleśavihvalo mayaivāśvāsanīyaḥ | <stage>anyato dṛṣṭvā</stage>
-            <lb n="20"/></p>
-          <p xml:id="p11_l20" n="11,20">eṣa khalu sītāsaṃvardhito mayūraśābaḥ | <pb n="12"/></p>
+            <lb n="20"/> eṣa khalu sītāsaṃvardhito mayūraśābaḥ |  <pb n="12"/></p>
           <p xml:id="p12_l1" n="12,1">
             <stage>upasṛtya</stage>
             <lb n="2"/></p>
@@ -739,7 +738,7 @@ utprekṣituṃ pratyūhaṃ kautūhalasya |</seg>
             <l>urasijayuge tuṅgaṃ madhye kṛśaṃ jaghane ghanaṃ<caesura/><lb n="14"/> kathaya vipine dṛṣṭaṃ sāraṅga kiṃ mama jīvitam || 51 ||<lb n="15"/></l>
           </lg>
           <p xml:id="p15_l15" n="15,15">
-            <stage>vibhāvya</stage> hanta māmapi kṛtapraṇayaprayatnaṃ na gaṇayatyeṣaḥ | kiṃ vā <lb n="16"/> nidānamavinayasyāsya | <stage>vicintya</stage> ā jñātam ; <lb n="17"/></p>
+            <stage>vibhāvya</stage> hanta māmapi kṛtapraṇayaprayatnaṃ na gaṇayatyeṣaḥ | kiṃ vā <lb n="16"/> nidānamavinayasyāsya | <stage>vicintya</stage> ā jñātam; <lb n="17"/></p>
           <lg xml:id="p15_l15_2" n="15,15">
             <l>jitanayanakāntireṣa tṛṇacaraṇaḥ śaraṇatāṃ tayā nītaḥ |<lb n="18"/></l>
             <l>saṃprati tu garvitaḥ syāt kathaṃ na tasyāmadṛśyāyām || 52 ||<lb n="19"/></l>
@@ -778,11 +777,9 @@ utprekṣituṃ pratyūhaṃ kautūhalasya |</seg>
             <l>api cañcarīka dṛṣṭā kācana saṃcāriṇī latikā || 57 ||<lb n="3"/></l>
           </lg>
           <p xml:id="p17_l3" n="17,3">
-            <stage>vibhāvya</stage> svadārānveṣaṇaparo'yaṃ na paśyatyeva me kāntām | <lb n="4"/></p>
-          <p xml:id="p17_l4" n="17,4">
-            <stage>puro'valokya</stage> iyaṃ hi godāvarī bhagavatī | <stage>niśvasya</stage>
+            <stage>vibhāvya</stage> svadārānveṣaṇaparo'yaṃ na paśyatyeva me kāntām | <lb n="4"/><stage>puro'valokya</stage> iyaṃ hi godāvarī bhagavatī | <stage>niśvasya</stage>
             <lb n="5"/></p>
-          <lg type="group" n="17,4" xml:id="p17_l4_2">
+          <lg type="group" n="17,3" xml:id="p17_l3_2">
             <lg>
               <l>iha khalu tarumūle sā niṣaṇṇā natabhrū<caesura/><lb n="6" break="no"/>riha suciramaraṃstopāntavānīrakuñje |<lb n="7"/></l>
               <l>iha khalu kalahaṃsaiḥ saikateṣu vyahārṣī<caesura/><lb n="8" break="no"/>diti niyatadṛśo me hanta śāntiḥ kadā nu || 58 ||<lb n="9"/></l>
@@ -823,10 +820,8 @@ utprekṣituṃ pratyūhaṃ kautūhalasya |</seg>
             <l>ūrū tvatkarakāṇḍabandhuratarau tvatkumbhakalpau kucau<caesura/><lb n="16"/> cārī caṅkramacāturīṃ ca sutanorūrīkarotyeva te || 64 ||<lb n="17"/></l>
           </lg>
           <p xml:id="p18_l17" n="18,17">
-            <stage>vibhāvya</stage> ayamanākarṇitamadvacanaḥ priyāṃ kareṇumahimakarakiraṇatā<lb n="18" break="no"/>pāsahāṃ karaśīkarairāśvāsayati | anubhavatu tāvadayaṃ kāntānuvartanasukham | <lb n="19"/></p>
-          <p xml:id="p18_l19" n="18,19">
-            <stage>anyato dṛṣṭvā</stage> aye ko'yamanekabhujaparighabhīṣaṇākāro rākṣasaḥ praṇayinīṃ <lb n="20"/> me kalakaruṇākranditāṃ harati? <stage>iti niṣaṅgādbāṇamādāya vibhāvya ca</stage> hanta, <lb n="21"/> sādṛśyādvipralabdho'smi | kutaḥ,  <pb n="19"/></p>
-          <lg xml:id="p18_l19_2" n="18,19">
+            <stage>vibhāvya</stage> ayamanākarṇitamadvacanaḥ priyāṃ kareṇumahimakarakiraṇatā<lb n="18" break="no"/>pāsahāṃ karaśīkarairāśvāsayati | anubhavatu tāvadayaṃ kāntānuvartanasukham | <lb n="19"/><stage>anyato dṛṣṭvā</stage> aye ko'yamanekabhujaparighabhīṣaṇākāro rākṣasaḥ praṇayinīṃ <lb n="20"/> me kalakaruṇākranditāṃ harati? <stage>iti niṣaṅgādbāṇamādāya vibhāvya ca</stage> hanta, <lb n="21"/> sādṛśyādvipralabdho'smi | kutaḥ,  <pb n="19"/></p>
+          <lg xml:id="p18_l17_2" n="18,17">
             <l>tāpiñcho ghananīla eṣa malinākāro na naktaṃcara<caesura/><lb n="2" break="no"/>stasyaite viṭapāḥ prakāmavikaṭā nābhogavanto bhujāḥ |<lb n="3"/></l>
             <l>tatreyaṃ navapallavā vanalatā nālaṃkṛtā jānakī<caesura/><lb n="4"/> kiṃcaitatkurarīrutaṃ sakaruṇaṃ dīnaṃ na tatkranditam || 65 ||<lb n="5"/></l>
           </lg>
@@ -869,11 +864,14 @@ utprekṣituṃ pratyūhaṃ kautūhalasya |</seg>
             <l>na mama vāmadṛśo rucirādharaṃ taralalocanamindusamānanam || 70 ||<lb n="7"/></l>
           </lg>
           <p xml:id="p20_l7" n="20,7">
-            <stage>pārśvato dṛṣṭvā</stage> śakyamidānīṃ kiṃcidāśvasitum | <lb n="8"/> nanu dṛśyata eva kaṇṭhanālādgalitā hāralatā saroruhākṣyāḥ |  <lb n="9"/></p>
-          <p xml:id="p20_l9" n="20,9">
+            <stage>pārśvato dṛṣṭvā</stage> śakyamidānīṃ kiṃcidāśvasitum | <lb n="8"/></p>
+          <lg xml:id="p20_l8" n="20,8">
+            <l>nanu dṛśyata eva kaṇṭhanālādgalitā hāralatā saroruhākṣyāḥ |<lb n="9"/></l>
+          </lg>
+          <p>
             <stage>ādātumicchan, sanirvedam</stage>
             <lb n="10"/></p>
-          <lg xml:id="p20_l9_2" n="20,9">
+          <lg xml:id="p20_l8_2" n="20,8">
             <l>śaradindumarīcikomaleyaṃ sarasā haṃsamukhacyutā mṛṇālī || 71 ||<lb n="11"/></l>
           </lg>
           <p xml:id="p20_l11" n="20,11">

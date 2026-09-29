@@ -160,7 +160,7 @@
         {
             "type": "field",
             "label": "Text Last Updated",
-            "inline_text": "2026-09-15",
+            "inline_text": "2026-09-29",
             "content_html": ""
         },
         {
@@ -171,8 +171,15 @@
         },
         {
             "type": "corrections",
-            "count": 4,
+            "count": 5,
             "rows": [
+                {
+                    "sic": "bha",
+                    "corr": "bhū",
+                    "page": "4",
+                    "line": "23",
+                    "coord_id": "4_21"
+                },
                 {
                     "sic": "",
                     "corr": "|",
