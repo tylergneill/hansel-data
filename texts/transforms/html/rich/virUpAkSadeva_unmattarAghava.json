@@ -46,14 +46,14 @@
         {
             "type": "field",
             "label": "Edition Short",
-            "inline_text": "Adyar 1946",
+            "inline_text": "Krishnamacharya 1946",
             "content_html": ""
         },
         {
             "type": "field",
             "label": "Edition",
             "inline_text": null,
-            "content_html": "<ul>\n<li>Editors: Vyākaraṇaśiromaṇi V. Krishnamacharya</li>\n<li>Title: Unmattarāghava by Virūpāḳsadeva</li>\n<li>Place: Chennai</li>\n<li>Publisher: The Adyar Library</li>\n<li>Series: The Adyar Library Series</li>\n<li>Series Part: 57</li>\n<li>Year: 1946</li>\n</ul>\n"
+            "content_html": "<ul>\n<li>Editors: Vyākaraṇaśiromaṇi V. Krishnamacharya</li>\n<li>Title: Unmattarāghava by Virūpāḳsadeva</li>\n<li>Place: Madras [Chennai]</li>\n<li>Publisher: The Adyar Library</li>\n<li>Series: The Adyar Library Series</li>\n<li>Series Part: 57</li>\n<li>Year: 1946</li>\n</ul>\n"
         },
         {
             "type": "field",
@@ -119,7 +119,7 @@
             "type": "field",
             "label": "Digitization Notes",
             "inline_text": null,
-            "content_html": "<ul>\n<li>(March? – September 2026) T. Richard: Manually transcribed the edition and formatted as a Google Doc. (( Justified textual improvements in separate doc. ?? ))</li>\n<li>(September 2026) T. Neill: Exported Google Doc tab ((s)) as Word doc ((s)) and processed for HANSEL.</li>\n</ul>\n"
+            "content_html": "<ul>\n<li>(March – September 2026) T. Richard: Manually transcribed the edition and formatted as a Google Doc. (( Justified textual improvements in separate doc. ?? ))</li>\n<li>(September 2026) T. Neill: Exported Google Doc tab ((s)) as Word doc ((s)) and processed for HANSEL.</li>\n</ul>\n"
         },
         {
             "type": "field",

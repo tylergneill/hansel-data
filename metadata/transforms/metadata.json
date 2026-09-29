@@ -462,11 +462,11 @@
     "Pandit Work ID": "116957",
     "Author": "Virūpākṣadeva",
     "Pandit Author ID": "116959",
-    "Edition Short": "Adyar 1946",
+    "Edition Short": "Krishnamacharya 1946",
     "Edition": [
       "Editors: Vyākaraṇaśiromaṇi V. Krishnamacharya",
       "Title: Unmattarāghava by Virūpāḳsadeva",
-      "Place: Chennai",
+      "Place: Madras \\[Chennai\\]",
       "Publisher: The Adyar Library",
       "Series: The Adyar Library Series",
       "Series Part: 57",
@@ -498,7 +498,7 @@
       "Tyler Neill"
     ],
     "Digitization Notes": [
-      "(March? – September 2026) T. Richard: Manually transcribed the edition and formatted as a Google Doc. (( Justified textual improvements in separate doc. ?? ))",
+      "(March – September 2026) T. Richard: Manually transcribed the edition and formatted as a Google Doc. (( Justified textual improvements in separate doc. ?? ))",
       "(September 2026) T. Neill: Exported Google Doc tab ((s)) as Word doc ((s)) and processed for HANSEL."
     ],
     "File Creation Method": "I (T. Neill) produced this HANSEL edition. I first manually extracted T. Richard's submitted Word document to plain-text, then added basic structural markup (page breaks, tabbed verses, marking of stage directions and Prakrit). Next, I re-OCRed the PDF (Cloud Vision and Sarvam Vision auto-harmonized with Gemini 2.5 Flash) to recover line-break information, then merged this information into the structured transcript. Finally, I interviewed T. Richard for much of the metadata (the Work Description is entirely his) and ingested the data into HANSEL. T. Richard and I then proofread and reviewed presentation features together (shoutout to Filter Kaapi in Brooklyn!)",

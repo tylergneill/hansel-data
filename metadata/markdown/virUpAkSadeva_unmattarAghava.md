@@ -16,13 +16,13 @@ Virūpākṣadeva
 
 # Edition Short
 
-Adyar 1946
+Krishnamacharya 1946
 
 # Edition
 
 - Editors: Vyākaraṇaśiromaṇi V. Krishnamacharya
 - Title: Unmattarāghava by Virūpāḳsadeva
-- Place: Chennai
+- Place: Madras \[Chennai\]
 - Publisher: The Adyar Library
 - Series: The Adyar Library Series
 - Series Part: 57
@@ -80,7 +80,7 @@ CC BY-NC-SA 4.0
 
 # Digitization Notes
 
-- (March? – September 2026) T. Richard: Manually transcribed the edition and formatted as a Google Doc. (( Justified textual improvements in separate doc. ?? ))
+- (March – September 2026) T. Richard: Manually transcribed the edition and formatted as a Google Doc. (( Justified textual improvements in separate doc. ?? ))
 - (September 2026) T. Neill: Exported Google Doc tab ((s)) as Word doc ((s)) and processed for HANSEL.
 
 # File Creation Method
