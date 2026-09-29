@@ -56,7 +56,7 @@
           <editor/>
           <imprint>
             <publisher>The Adyar Library</publisher>
-            <pubPlace>Chennai</pubPlace>
+            <pubPlace>Madras \[Chennai\]</pubPlace>
             <date>1946</date>
           </imprint>
         </bibl>
@@ -115,7 +115,7 @@
       </editorialDecl>
     </encodingDesc>
     <revisionDesc>
-      <change when="March? – September 2026" who="T. Richard">Manually transcribed the edition and formatted as a Google Doc. (( Justified textual improvements in separate doc. ?? ))</change>
+      <change when="March – September 2026" who="T. Richard">Manually transcribed the edition and formatted as a Google Doc. (( Justified textual improvements in separate doc. ?? ))</change>
       <change when="September 2026" who="T. Neill" ana="#hansel-contributor">Exported Google Doc tab ((s)) as Word doc ((s)) and processed for HANSEL.</change>
     </revisionDesc>
   </teiHeader>
