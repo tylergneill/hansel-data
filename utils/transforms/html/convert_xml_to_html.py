@@ -180,6 +180,12 @@ class HtmlConverter:
                             if grandchild.get('break') != 'no' and grandchild.tail:
                                 if not prakrit_text.endswith(' '):
                                     prakrit_text += ' '
+                        elif grandchild.tag == 'choice':
+                            corr = grandchild.find('corr')
+                            if corr is not None:
+                                prakrit_text += self.get_plain_text_recursive(corr)
+                        elif grandchild.tag == 'del':
+                            pass
                         else:
                             prakrit_text += self.get_plain_text_recursive(grandchild)
                         if grandchild.tail:

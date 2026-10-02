@@ -181,6 +181,62 @@ class TextBuildState:
 # Module-level helpers
 # ----------------------------
 
+# Editorial markup (≤sic≥«corr», ≤del≥, «supplied», ¿unclear¿) → TEI tag of the outer element.
+# CHOICE_RE comes first: on a shared start position, the longer ≤…≥«…» match must win over ≤…≥.
+EDITORIAL_MARKERS = (
+    (CHOICE_RE, "choice"),
+    (DEL_RE, "del"),
+    (SUPPLIED_RE, "supplied"),
+    (UNCLEAR_RE, "unclear"),
+)
+EDITORIAL_KINDS = {kind for _, kind in EDITORIAL_MARKERS}
+
+
+def _editorial_matches(text: str) -> list[tuple[str, re.Match]]:
+    """Non-overlapping editorial-markup matches in text, as (kind, match) in text order."""
+    candidates = [(kind, m) for marker_re, kind in EDITORIAL_MARKERS for m in marker_re.finditer(text)]
+    candidates.sort(key=lambda x: (x[1].start(), -x[1].end()))
+    matches, last_end = [], -1
+    for kind, m in candidates:
+        if m.start() >= last_end:
+            matches.append((kind, m))
+            last_end = m.end()
+    return matches
+
+
+def _build_editorial_element(parent: etree._Element, kind: str, m: re.Match, fill=None) -> etree._Element:
+    """Append the TEI element for one editorial-markup match to parent and return it.
+    `fill(el, text)` sets the text of <sic>/<del> (the parts that may span source lines);
+    by default it is set as-is."""
+    if fill is None:
+        def fill(el, text):
+            el.text = text
+    el = etree.SubElement(parent, kind)
+    if kind == "choice":
+        fill(etree.SubElement(el, "sic"), m.group(1))
+        etree.SubElement(el, "corr").text = m.group(2)
+    elif kind == "del":
+        fill(el, m.group(1))
+    else:
+        el.text = m.group(1)
+    return el
+
+
+def _append_text_with_editorial_markup(parent: etree._Element, text: str) -> None:
+    """Append text to the end of parent, converting editorial markup into TEI elements."""
+    last_el = parent[-1] if len(parent) else None
+    pos = 0
+    for kind, m in _editorial_matches(text) + [(None, None)]:
+        chunk = text[pos:m.start()] if m is not None else text[pos:]
+        if last_el is None:
+            parent.text = (parent.text or '') + chunk
+        else:
+            last_el.tail = (last_el.tail or '') + chunk
+        if m is not None:
+            last_el = _build_editorial_element(parent, kind, m)
+            pos = m.end()
+
+
 def _attach_chaya_lg(parent_lg: etree._Element, chaya_text: str) -> None:
     """Attach an <lg type="chāyā"> to parent_lg, splitting chaya_text on newlines into separate <l> elements."""
     inner_lg = etree.SubElement(parent_lg, "lg", {"type": "chāyā"})
@@ -189,7 +245,7 @@ def _attach_chaya_lg(parent_lg: etree._Element, chaya_text: str) -> None:
         line = line.strip()
         if line:
             l_el = etree.SubElement(inner_lg, "l")
-            l_el.text = line
+            _append_text_with_editorial_markup(l_el, line)
 
 
 # Builder class
@@ -640,7 +696,7 @@ class TeiTextBuilder:
             if m:
                 chaya = etree.SubElement(s.chaya_prakrit_seg, "seg", {"type": "chāyā"})
                 chaya.set(f"{{{_XML_NS}}}lang", "san-Latn")
-                chaya.text = m.group(1)
+                _append_text_with_editorial_markup(chaya, m.group(1))
                 s.awaiting_chaya = False
                 s.chaya_prakrit_seg = None
                 # TODO (line-by-line + drama): this line is consumed without emitting an <lb>.
@@ -892,7 +948,7 @@ class TeiTextBuilder:
         if chaya_text is not None:
             chaya = etree.SubElement(seg, "seg", {"type": "chāyā"})
             chaya.set(f"{{{_XML_NS}}}lang", "san-Latn")
-            chaya.text = chaya_text
+            _append_text_with_editorial_markup(chaya, chaya_text)
         elif not s.chaya_list:
             # No companion list — expect chāyā on the next line (legacy inline format)
             s.awaiting_chaya = True
@@ -900,7 +956,8 @@ class TeiTextBuilder:
         self._add_inline_element(seg)
 
     def _set_text_with_embedded_stages(self, parent: etree._Element, text: str):
-        """Append text into parent, creating <stage>, <pb>, and (when line_by_line) <lb> sub-elements."""
+        """Append text into parent, creating <stage>, <pb>, editorial-markup (<choice>, <del>,
+        <supplied>, <unclear>), and (when line_by_line) <lb> sub-elements."""
         s = self.state
         # Collect all inline markers sorted by position
         matches = []
@@ -908,12 +965,36 @@ class TeiTextBuilder:
             matches.append(('stage', m))
         for m in MID_LINE_PAGE_RE.finditer(text):
             matches.append(('pb', m))
+        matches.extend(_editorial_matches(text))
         # '\n' sentinels are line-break markers inserted by the open-prakrit accumulator
         for m in re.finditer(r'\n', text):
             matches.append(('lb', m))
-        matches.sort(key=lambda x: x[1].start())
+        # On a shared start position the longer span wins (e.g. ≤…≥«…» over ≤…≥)
+        matches.sort(key=lambda x: (x[1].start(), -x[1].end()))
 
         lb_break_idx = 0  # index into open_prakrit_lb_breaks
+
+        def fill_with_lbs(el: etree._Element, inner: str):
+            # \n sentinels inside a span's content (stage, sic, del): emit <lb> elements within it.
+            # Use open_prakrit_lb_breaks for break="no" detection (hyphens were already
+            # stripped by the Prakrit accumulator before joining with \n).
+            # These \n's are consumed here (never seen by the outer 'lb' branch, since
+            # they fall inside the span's match), so lb_break_idx must advance in step
+            # with lb_breaks, or every subsequent <lb> outside the span reads the wrong slot.
+            nonlocal lb_break_idx
+            parts = inner.split('\n')
+            el.text = parts[0]
+            lb_breaks = s.open_prakrit_lb_breaks
+            for part in parts[1:]:
+                s.lb_count += 1
+                lb_attrs = {"n": str(s.lb_count)}
+                if lb_breaks and lb_break_idx < len(lb_breaks) and lb_breaks[lb_break_idx]:
+                    lb_attrs["break"] = "no"
+                lb_break_idx += 1
+                inner_lb = etree.SubElement(el, "lb", lb_attrs)
+                s.last_emitted_lb = inner_lb
+                inner_lb.tail = part
+
         last_end = 0
         last_el = None
         for kind, m in matches:
@@ -927,28 +1008,9 @@ class TeiTextBuilder:
 
             if kind == 'stage':
                 el = etree.SubElement(parent, "stage")
-                inner = m.group(1)
-                if '\n' in inner:
-                    # \n sentinels inside stage content: emit <lb> elements within the stage.
-                    # Use open_prakrit_lb_breaks for break="no" detection (hyphens were already
-                    # stripped by the Prakrit accumulator before joining with \n).
-                    # These \n's are consumed here (never seen by the outer 'lb' branch, since
-                    # they fall inside this match's span), so lb_break_idx must advance in step
-                    # with lb_breaks, or every subsequent <lb> outside the stage reads the wrong slot.
-                    parts = inner.split('\n')
-                    el.text = parts[0]
-                    lb_breaks = s.open_prakrit_lb_breaks
-                    for part in parts[1:]:
-                        s.lb_count += 1
-                        lb_attrs = {"n": str(s.lb_count)}
-                        if lb_breaks and lb_break_idx < len(lb_breaks) and lb_breaks[lb_break_idx]:
-                            lb_attrs["break"] = "no"
-                        lb_break_idx += 1
-                        inner_lb = etree.SubElement(el, "lb", lb_attrs)
-                        s.last_emitted_lb = inner_lb
-                        inner_lb.tail = part
-                else:
-                    el.text = inner
+                fill_with_lbs(el, m.group(1))
+            elif kind in EDITORIAL_KINDS:
+                el = _build_editorial_element(parent, kind, m, fill=fill_with_lbs)
             elif kind == 'pb':
                 page, line_no = m.group(1), m.group(2)
                 attrs = {"n": page}
