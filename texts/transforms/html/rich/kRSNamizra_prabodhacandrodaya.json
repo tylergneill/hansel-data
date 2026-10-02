@@ -4,32 +4,32 @@
     "toc": [
         {
             "name": "1",
-            "page": "1",
+            "page": "4",
             "id": "1"
         },
         {
             "name": "2",
-            "page": "14",
+            "page": "46",
             "id": "2"
         },
         {
             "name": "3",
-            "page": "34",
+            "page": "100",
             "id": "3"
         },
         {
             "name": "4",
-            "page": "53",
+            "page": "142",
             "id": "4"
         },
         {
             "name": "5",
-            "page": "71",
+            "page": "186",
             "id": "5"
         },
         {
             "name": "6",
-            "page": "89",
+            "page": "230",
             "id": "6"
         }
     ],
@@ -180,42 +180,105 @@
         },
         {
             "type": "corrections",
-            "count": 10,
+            "count": 39,
             "rows": [
                 {
-                    "sic": "kti",
-                    "corr": "ktī",
-                    "page": "1",
+                    "sic": "ṇghā",
+                    "corr": "ṃghā",
+                    "page": "10",
                     "line": "1",
-                    "coord_id": "1_1"
+                    "coord_id": "1_15"
                 },
                 {
-                    "sic": "rū",
-                    "corr": "ru",
-                    "page": "2",
-                    "line": "23",
-                    "coord_id": "2_23"
+                    "sic": "tthidaṃ",
+                    "corr": "diaṃ",
+                    "page": "1",
+                    "line": "107",
+                    "coord_id": "1_107"
                 },
                 {
-                    "sic": "ḥma",
-                    "corr": "hma",
+                    "sic": "dhī",
+                    "corr": "dhi",
                     "page": "2",
-                    "line": "39",
-                    "coord_id": "2_39"
+                    "line": "8",
+                    "coord_id": "2_8"
                 },
                 {
-                    "sic": "nte",
-                    "corr": "ntu",
+                    "sic": "ea",
+                    "corr": "ae",
                     "page": "2",
-                    "line": "113",
-                    "coord_id": "2_113"
+                    "line": "76",
+                    "coord_id": "2_76"
+                },
+                {
+                    "sic": "dū",
+                    "corr": "du",
+                    "page": "2",
+                    "line": "107",
+                    "coord_id": "2_107"
+                },
+                {
+                    "sic": "ṛa",
+                    "corr": "ra",
+                    "page": "2",
+                    "line": "107",
+                    "coord_id": "2_107"
                 },
                 {
                     "sic": "",
-                    "corr": "ma",
+                    "corr": "ṃ",
                     "page": "2",
-                    "line": "134",
-                    "coord_id": "2_134"
+                    "line": "136",
+                    "coord_id": "2_136"
+                },
+                {
+                    "sic": " ",
+                    "corr": "",
+                    "page": "2",
+                    "line": "142",
+                    "coord_id": "2_142"
+                },
+                {
+                    "sic": "sphū",
+                    "corr": "sphu",
+                    "page": "2",
+                    "line": "142",
+                    "coord_id": "2_142"
+                },
+                {
+                    "sic": "karṣṭu",
+                    "corr": "kraṣṭu",
+                    "page": "2",
+                    "line": "148",
+                    "coord_id": "2_148"
+                },
+                {
+                    "sic": "pi",
+                    "corr": "ppi",
+                    "page": "2",
+                    "line": "153",
+                    "coord_id": "2_153"
+                },
+                {
+                    "sic": "ny a",
+                    "corr": "n a",
+                    "page": "2",
+                    "line": "156",
+                    "coord_id": "2_156"
+                },
+                {
+                    "sic": "ggvi",
+                    "corr": "ggavi",
+                    "page": "2",
+                    "line": "159",
+                    "coord_id": "2_159"
+                },
+                {
+                    "sic": "",
+                    "corr": "na",
+                    "page": "2",
+                    "line": "160",
+                    "coord_id": "2_160"
                 },
                 {
                     "sic": "tī",
@@ -225,11 +288,123 @@
                     "coord_id": "3_2"
                 },
                 {
-                    "sic": "vpra",
-                    "corr": "pra",
+                    "sic": "sattaī",
+                    "corr": "saccevva",
+                    "page": "3",
+                    "line": "10",
+                    "coord_id": "3_10"
+                },
+                {
+                    "sic": "sāttvikī",
+                    "corr": "satyeva",
+                    "page": "3",
+                    "line": "10",
+                    "coord_id": "3_10"
+                },
+                {
+                    "sic": "ḥpre",
+                    "corr": "ṣpre",
+                    "page": "3",
+                    "line": "18",
+                    "coord_id": "3_18"
+                },
+                {
+                    "sic": "ī",
+                    "corr": "i",
+                    "page": "3",
+                    "line": "79",
+                    "coord_id": "3_79"
+                },
+                {
+                    "sic": "iti",
+                    "corr": "",
+                    "page": "3",
+                    "line": "83",
+                    "coord_id": "3_83"
+                },
+                {
+                    "sic": "saukhya",
+                    "corr": "",
+                    "page": "3",
+                    "line": "95",
+                    "coord_id": "3_95"
+                },
+                {
+                    "sic": "sarāgī",
+                    "corr": "",
+                    "page": "3",
+                    "line": "99",
+                    "coord_id": "3_99"
+                },
+                {
+                    "sic": " ",
+                    "corr": "",
+                    "page": "3",
+                    "line": "146",
+                    "coord_id": "3_146"
+                },
+                {
+                    "sic": "prathamo vīro",
+                    "corr": "",
+                    "page": "154",
+                    "line": "1",
+                    "coord_id": "4_31"
+                },
+                {
+                    "sic": "da",
+                    "corr": "tra",
+                    "page": "154",
+                    "line": "1",
+                    "coord_id": "4_31"
+                },
+                {
+                    "sic": "ra",
+                    "corr": "rī",
+                    "page": "4",
+                    "line": "38",
+                    "coord_id": "4_38"
+                },
+                {
+                    "sic": "da",
+                    "corr": "tra",
+                    "page": "4",
+                    "line": "64",
+                    "coord_id": "4_64"
+                },
+                {
+                    "sic": "da",
+                    "corr": "tra",
+                    "page": "4",
+                    "line": "84",
+                    "coord_id": "4_84"
+                },
+                {
+                    "sic": "jnā",
+                    "corr": "jñā",
+                    "page": "4",
+                    "line": "85",
+                    "coord_id": "4_85"
+                },
+                {
+                    "sic": "ra",
+                    "corr": "rā",
+                    "page": "4",
+                    "line": "85",
+                    "coord_id": "4_85"
+                },
+                {
+                    "sic": " ",
+                    "corr": "",
                     "page": "5",
-                    "line": "69",
-                    "coord_id": "5_69"
+                    "line": "2",
+                    "coord_id": "5_2"
+                },
+                {
+                    "sic": "yasāi",
+                    "corr": "yāsai",
+                    "page": "5",
+                    "line": "79",
+                    "coord_id": "5_79"
                 },
                 {
                     "sic": "h",
@@ -246,11 +421,39 @@
                     "coord_id": "5_105"
                 },
                 {
+                    "sic": "lī",
+                    "corr": "li",
+                    "page": "6",
+                    "line": "26",
+                    "coord_id": "6_26"
+                },
+                {
                     "sic": "h",
                     "corr": "ḥ",
                     "page": "6",
                     "line": "127",
                     "coord_id": "6_127"
+                },
+                {
+                    "sic": "syav bhi",
+                    "corr": "sya bhi",
+                    "page": "6",
+                    "line": "140",
+                    "coord_id": "6_140"
+                },
+                {
+                    "sic": "thāpa",
+                    "corr": "thā āpa",
+                    "page": "6",
+                    "line": "148",
+                    "coord_id": "6_148"
+                },
+                {
+                    "sic": "...",
+                    "corr": "",
+                    "page": "6",
+                    "line": "167",
+                    "coord_id": "6_167"
                 }
             ]
         }

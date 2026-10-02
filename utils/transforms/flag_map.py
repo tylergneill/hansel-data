@@ -7,7 +7,7 @@ flag_map = {
     "vAkyapadIyaprameyasaMgraha": '--line-by-line --extra-space-after-location',
     "zukasaptati_s": '--line-by-line --extra-space-after-location',
     "zukasaptati_o": '--line-by-line --extra-space-after-location',
-    "kRSNamizra_prabodhacandrodaya": '--line-by-line --drama --chaya',
+    "kRSNamizra_prabodhacandrodaya": '--drama --chaya',
     "bhagavadajjuka": '--drama --line-by-line --chaya',
     "bhAskarabhaTTa_unmattarAghava": '--drama --line-by-line --chaya',
 }
