@@ -14,7 +14,7 @@ api ca —_
 	antarnāḍīniyamitamarullaṅghitabrahmarandhraṃ,
 	svānte śāntipraṇayini samunmīlad ānandasāndram |
 	pratyagjyotir jayati yaminaḥ spaṣṭalālāṭanetra-
-	vyājavya≤kti≥«ktī»kṛtam iva jagad vyāpi candrārdhamauleḥ || 1.2 ||
+	vyājavyaktīkṛtam iva jagad vyāpi candrārdhamauleḥ || 1.2 ||
 
 ((nāndyante tataḥ praviṣati sūtradhāraḥ |))
 
@@ -568,7 +568,7 @@ baṭuḥ — evam ārādhyapādā ājñāpayanti dūradeśād āgatasyāryasya 
 
 ahaṅkāraḥ — āḥ! katham asmākam api kulaśīlādikam idānīṃ parīkṣitavyam? śrūyatām!
 
-	gauḍaṃ rāṣṭram anuttamaṃ, ni≤rū≥«ru»pamā tatrāpi rāḍhāpurī,
+	gauḍaṃ rāṣṭram anuttamaṃ, nirupamā tatrāpi rāḍhāpurī,
 	bhūriśreṣṭhikanāma dhāma paramaṃ tatrottamo naḥ pitā |
 	tatputrāś ca mahākulā na viditāḥ kasyātra teṣām api,
 	prajñāśīlavivekadhairyavinayācārair ahaṃ cottamaḥ || 2.7 ||
@@ -636,7 +636,7 @@ dambhaḥ — brahman, yady apy evaṃ, tathāpy aviditāsmadvṛttānto bhavān
 
 [2,39]
 
-ahaṅkāraḥ — ((svagatam)) aho! dāmbhikasya brā≤ḥma≥«hma»ṇasyātyuktiḥ! ((vicintya)) athavā ... dambhasyaiva! bhavatv evaṃ tāvat! ((prakāśam)) āḥ, kim evaṃ garvāyase? ((sakrodham))
+ahaṅkāraḥ — ((svagatam)) aho! dāmbhikasya brāhmaṇasyātyuktiḥ! ((vicintya)) athavā ... dambhasyaiva! bhavatv evaṃ tāvat! ((prakāśam)) āḥ, kim evaṃ garvāyase? ((sakrodham))
 
 	are! ka iva vāsavaḥ? kathaya ko nu padmodbhavo?
 	vada prabhavabhūmayo jagati kā ṛṣīṇām api? |
@@ -948,7 +948,7 @@ mahāmohaḥ — ((sakrodham)) āḥ! kim evam atimugdhau śānter api bibhīta�
 	dhātā viśvavisṛṣṭimātranirato; devo 'pi gaurībhuja-
 	śleṣānandavighūrṇamānanayano dakṣādhvaradhvaṃsanaḥ |
 	daityāriḥ kamalākapolamakarīlekhāṅkitoraḥsthalaḥ
-	śete 'bdhāv. itareṣu ja≤nte≥«ntu»ṣu punaḥ kā nāma śānteḥ kathā? || 2.28 ||
+	śete 'bdhāv. itareṣu jantuṣu punaḥ kā nāma śānteḥ kathā? || 2.28 ||
 
 ((puruṣaṃ prati vadati)) jālma, gaccha! kāmaṃ satvaram upetyādeśam asmākaṃ pratipādaya yathā — “durāśayo dharma ity asmābhir avagatam | tad asmin muhūrtam api na viśvasitavyam | dṛḍhaṃ baddhvā dhārayitavya” iti |
 
@@ -1355,7 +1355,7 @@ digambaraḥ — ˹ṇamo aluhantāṇam, aluhantāṇam! ṇavaduvālagharamajj
 
 [3,31]
 
-((ubhe sabhayam ālokayataḥ | tataḥ pra≤vśa≥«viśa»ti tadanurūpaveṣā śraddhā))
+((ubhe sabhayam ālokayataḥ | tataḥ praviśati tadanurūpaveṣā śraddhā))
 
 [3,32]
 
@@ -2764,7 +2764,7 @@ saṅkalpaḥ — rājan, samāśvasihi! samāśvasihi!
 
 [5,69]
 
-manaḥ — ((samaśvasya)) alam asmākam ataḥ paraṃ jīvitena | saṃkalpa! citāṃ āracaya, yāvad anala≤vpra≥«pra»veśena śokānalaṃ nirvāpayāmi |
+manaḥ — ((samaśvasya)) alam asmākam ataḥ paraṃ jīvitena | saṃkalpa! citāṃ āracaya, yāvad analapraveśena śokānalaṃ nirvāpayāmi |
 
 [5,70]
 
