@@ -14,13 +14,15 @@ api ca —_
 	antarnāḍīniyamitamarullaṅghitabrahmarandhraṃ,
 	svānte śāntipraṇayini samunmīlad ānandasāndram |
 	pratyagjyotir jayati yaminaḥ spaṣṭalālāṭanetra-
-	vyājavyaktīkṛtam iva jagad vyāpi candrārdhamauleḥ || 1.2 ||
+	vyājavyaktīkṛtam iva jagadvyāpi candrārdhamauleḥ || 1.2 ||
 
-((nāndyante tataḥ praviṣati sūtradhāraḥ |))
+[1,4]
+
+((nāndyante tataḥ praviśati sūtradhāraḥ |))
 
 [1,5]
 
-sūtradhāraḥ — alam ativistareṇa! ādiṣṭo 'smi — sakalasāmantacakracūḍāmaṇimarīcimañjarīnīrājitacaraṇakamalena; balavadarinivahavakṣaḥsthalakavāṭapāṭanaprakaṭitanṛsiṃharūpeṇa; prabalataranarapatikulapralayamahārṇavanimagnamedinīsamuddharaṇopanītamahāvarāharūpeṇa; sakaladigvilāsinīkarṇapūrīkṛtakīrtilatāpallavena; samastāśāstamberamakarṇatālāsphālanabahalapavanasampātapravardhitapratāpānalena — śrīmatā gopalena, yathā khalv — “asya <6> sahajasuhṛdo rājñaḥ kīrtivarmadevasya digvijayavyāpārāntaritaparabrahmānandair asmābhiḥ samunmīlitavividhaviṣamaviṣayarasāsvādadūṣitā ivātivāhitā divasāḥ | idānīṃ tu kṛtakṛtyā vayam | yataḥ —
+sūtradhāraḥ — alam ativistareṇa! ādiṣṭo 'smi — sakalasāmantacakracūḍāmaṇimarīcimañjarīnīrājitacaraṇakamalena; balavadarinivahavakṣaḥsthalakavāṭapāṭanaprakaṭitanṛsiṃharūpeṇa; prabalataranarapatikulapralayamahārṇavanimagnamedinīsamuddharaṇopanītamahāvarāharūpeṇa; sakaladigvilāsinīkarṇapūrīkṛtakīrtilatāpallavena; samastāśāstamberamakarṇatālāsphālanabahalapavanasampātapravardhitapratāpānalena — śrīmatā gopālena, yathā khalv — “asya <6> sahajasuhṛdo rājñaḥ kīrtivarmadevasya digvijayavyāpārāntaritaparabrahmānandair asmābhiḥ samunmīlitavividhaviṣamaviṣayarasāsvādadūṣitā ivātivāhitā divasāḥ | idānīṃ tu kṛtakṛtyā vayam | yataḥ —
 
 	nītāḥ kṣayaṃ kṣitibhujo nṛpater vipakṣā;
 	rakṣāvatī kṣitir abhūt prathitair amātyaiḥ |
@@ -134,11 +136,11 @@ api ca —_
 	ramyaṃ harmyatalaṃ, navāḥ sunayanā, guñjaddvirephā latāḥ,
 	pronmīlannavamallikā, surabhayo vātāḥ, sacandrāḥ kṣapāḥ |
 	ity etāni jayanti hanta paritaḥ śastrāṇy amoghāni me,
-	tad bhoḥ kīdṛg asau vivekavibhavaḥ, kīdṛg prabodhodayaḥ? || 1.12 ||
+	tad bhoḥ kīdṛg asau vivekavibhavaḥ, kīdṛk prabodhodayaḥ? || 1.12 ||
 
 [1,34]
 
-ratiḥ — ˹ajjaütta! garuo kkhu mahāraamahāmohassa paḍivakkho viveo tti takkemi |˼
+ratiḥ — ˹ajjaütta! garuo kkhu mahārāamahāmohassa paḍivakkho viveo tti takkemi |˼
 
 [1,35]
 
@@ -220,7 +222,7 @@ ratiḥ — ˹sāntaṃ pāvaṃ sāntaṃ pāvaṃ | ajjaütta kiṃ edaṃ pā
 
 [1,54]
 
-kāmaḥ — priye, asty atra kiṃcin niguḍhaṃ bījam |
+kāmaḥ — priye, asty atra kiṃcin nigūḍhaṃ bījam |
 
 [1,55]
 
@@ -246,7 +248,7 @@ ratiḥ — ((sabhayam)) ˹haddhi! kadhaṃ uṇa amhāṇaṃ kule rakkhasi? tt
 
 [1,60]
 
-kāmaḥ — priye, na bhetavyaṃ, ne bhetavyaṃ | kiṃvadantīmātram etat |
+kāmaḥ — priye, na bhetavyaṃ, na bhetavyaṃ | kiṃvadantīmātram etat |
 
 [1,61]
 
@@ -280,7 +282,7 @@ kāmaḥ — ((sparśasukham abhinīya | svagatam |))
 
 [1,68]
 
-ratiḥ — ˹ajjaütta kiṃ tāe rakkhassīe uppattī amhāṇaṃ paḍivakkhāṇaṃ sammadā?˼
+ratiḥ — ˹ajjaütta kiṃ tāe rakkhasīe uppattī amhāṇaṃ paḍivakkhāṇaṃ sammadā?˼
 
 [1,69]
 
@@ -326,7 +328,7 @@ tan na yuktam ihāsmākam avasthātum |
 
 ((iti niṣkrāntau))
 
-viṣkambhaḥ
+viṣkambhakaḥ
 
 <34>
 
@@ -440,7 +442,7 @@ rājā — priye, serṣyaṃ prāyeṇa yoṣitāṃ bhavati hṛdayam | tena s
 
 [1,107]
 
-matiḥ — ˹aṇṇāo tāo itthiāo, jāo sarasappaüttassa vā dhammapahavāvārappavuttassa vā bhattuṇo hiaadiaṃ vihaṇandi |˼
+matiḥ — ˹aṇṇāo tāo itthiāo, jāo sarasappaüttassa vā dhammapahavāvārappavuttassa vā bhattuṇo hiaa≤tthidaṃ≥«diaṃ» vihaṇandi |˼
 
 [1,108]
 
@@ -531,10 +533,10 @@ tad etad vāṅmātraśravaṇam api gurutaraduritodayāya! ((punar anyato gatv�
 	paryāyagrathitākṣasūtravalayapratyekabījagraha-
 	vyagrāgrāṅgulayo haranti dhanināṃ vittāny, aho dāmbhikāḥ! || 2.5 ||
 
-((anyato gatvā vilokya |)) ete tridaṇḍavyapadeśajīvino dvaitādvaitamārgaparibhraṣṭā eva! aye! kasyaitad dvāropāntanikhātātiprāṃśuvaṃśakāṇḍatāṇḍavitadhautasitasūkṣmāmbarasahasram, itas tato vinyastakṛṣṇājinadṛṣadupalasamiccaṣālolūkhalamusalam, anavaratahutājyagandhidhūmaśyāmalitagaganamaṇḍalam amarasarito nātidūre vibhāty āśramamaṇḍalam? nūnam idaṃ kasyāpi gṛhamedhino gṛhaṃ bhaviṣyati | <52> bhavatu, yuktam asmākam atipavitram etad dvitridivasanivāsasthānam | ((praveśaṃ nāṭayati vilokya ca |)) aye!
+((anyato gatvā vilokya |)) ete tridaṇḍavyapadeśajīvino dvaitādvaitamārgaparibhraṣṭā eva! aye! kasyaitad dvāropāntanikhātātiprāṃśuvaṃśakāṇḍatāṇḍavitadhautasitasūkṣmāmbarasahasram, itas tato vinyastakṛṣṇājinadṛṣadupalasamiccaṣālolūkhalamusalam, anavaratahutājyagan≤dhī≥«dhi»dhūmaśyāmalitagaganamaṇḍalam amarasarito nātidūre vibhāty āśramamaṇḍalam? nūnam idaṃ kasyāpi gṛhamedhino gṛhaṃ bhaviṣyati | <52> bhavatu, yuktam asmākam atipavitram etad dvitridivasanivāsasthānam | ((praveśaṃ nāṭayati vilokya ca |)) aye!
 
 	mṛdbindulāñchitalalāṭabhujodaroraḥ-
-	kāṇṭhoṣṭhapṛṣṭhacibukorukapolajānuḥ |
+	kaṇṭhoṣṭhapṛṣṭhacibukorukapolajānuḥ |
 	cūḍāgrakarṇakaṭipāṇivirājamāna-
 	darbhāṅkuraḥ — sphurati! mūrta ivaiṣa dambhaḥ || 2.6 ||
 
@@ -645,7 +647,7 @@ ahaṅkāraḥ — ((svagatam)) aho! dāmbhikasya brāhmaṇasyātyuktiḥ! ((vi
 
 [2,41]
 
-dambhaḥ — ((vilokya sānandam |)) aye! āryaḥ pitāmaho 'asmākam ahaṅkāraḥ! ārya! dambho lobhātmajo 'haṃ bho abhivādaye!
+dambhaḥ — ((vilokya sānandam |)) aye! āryaḥ pitāmaho 'smākam ahaṅkāraḥ! ārya! dambho lobhātmajo 'haṃ bho abhivādaye!
 
 [2,42]
 
@@ -758,7 +760,7 @@ api ca, na kevalaṃ jagad, ātmaiva tāvad amībhir vañcyate! tathā hi —
 	hiṃsāyām athavā yatheṣṭagamane, strīṇāṃ parasvagrahe,
 	<68>kāryākāryakathāṃ tathāpi yad amī niṣpauruṣāḥ kurvate || 2.18 ||
 
-((vicintya, saślāgham |)) sarvathā lokāyatam eva śāstraṃ yatra pratyakśam eva pramāṇaṃ; pṛthivyaptejovāyavas tattvāni; arthakāmau puruṣārthau; bhūtany eva cetayante | nāsti paralokaḥ, mṛtyur evāpavargaḥ | tad etad asmadabhiprāyānubandhinā vācaspatinā praṇīya cārvākāya samarpitam | tena ca śiṣyopaśiṣyadvāreṇāsmiṃl loke bahulīkṛtaṃ tantram |
+((vicintya, saślāgham |)) sarvathā lokāyatam eva śāstraṃ yatra pratyakśam eva pramāṇaṃ; pṛthivyaptejovāyavas tattvāni; arthakāmau puruṣārthau; bhūtany eva cetayante | nāsti paralokaḥ, mṛtyur evāpavargaḥ | tad etad asmadabhiprāyānubandhinā vācaspatinā praṇīya cārvākāya samarpitam | tena ca śiṣyopaśiṣyadvāreṇāsmilm̐ loke bahulīkṛtaṃ tantram |
 
 [2,69]
 
@@ -771,7 +773,7 @@ cārvākaḥ — vatsa, jānāsi daṇḍanītir eva vidyā! atraiva vārtāntar
 	svargaḥ kartṛkriyādravya-
 	vināśe yadi yajvanām |
 	tato dāvāgnidagdhānāṃ
-	phalaṃ syad bhūri bhūruhām || 2.19 ||
+	phalaṃ syād bhūri bhūruhām || 2.19 ||
 
 api ca —_
 
@@ -789,7 +791,7 @@ api ca —_
 
 [2,76]
 
-śiṣyaḥ — ˹ācālia, jai eso evva puluattho jaṃ khajjae pijjaae, tā kitti edehiṃ titthiehiṃ saṃsālasokkhaṃ palihalia appā gholagholehiṃ palāasāṃtavaṇasaṭṭhakālāsaṇappahudihiṃ dukkhehiṃ khavijjadi |˼
+śiṣyaḥ — ˹ācālia, jai eso evva puluattho jaṃ khajjae pijja≤ea≥«ae», tā kitti edehiṃ titthiehiṃ saṃsālasokkhaṃ palihalia appā gholagholehiṃ palāasāṃtavaṇasaṭṭhakālāsaṇappahudihiṃ dukkhehiṃ khavijjadi |˼
 
 [2,77]
 
@@ -853,7 +855,7 @@ mahāmohaḥ — atha tatra kiyat saṃpannam?
 cārvākaḥ — deva —
 
 	vyatītavedārthapathaḥ prathīyasīṃ,
-	yatheṣṭhaceṣṭhāṃ gamito mahājanaḥ |
+	yatheṣṭaceṣṭāṃ gamito mahājanaḥ |
 	tad atra hetur na kalir na cāpy ahaṃ,
 	prabhuprasādo hi tanoti pauruṣam || 2.25 ||
 
@@ -893,7 +895,7 @@ mahāmohaḥ — ((sabhayam ātmagatam |)) āḥ! prasiddhamahāprabhāvā sā y
 	udvejayati sūkṣmo 'pi
 	caraṇaṃ kaṇṭakāṅkuraḥ || 2.27 ||
 
-((nepathyābhumukham avalokya)) ko 'tra bhoḥ?
+((nepathyābhimukham avalokya)) ko 'tra bhoḥ?
 
 [2,102]
 
@@ -919,7 +921,7 @@ dauvārikaḥ — yad ājñāpayati devaḥ | ((iti niṣkrāntaḥ |))
 
 [2,107]
 
-puruṣaḥ — ˹ahake ukkaladesādo āado mhi | tattha sāalatīlasaṇṇivese pulisottamasaggidaṃ devadāadaṇam | tassiṃ madamāṇehiṃ bhaṭṭakehiṃ mahālāasaāsaṃ pesido mhi | ((vilokya)) esā vālāṇasī | edaṃ lāaulam | jāva ppavisāmi | ((praviśya)) eso bhaṭṭako, cavvākeṇa satthaṃ kiṃvi mantaanto ciṭṭhadi | bhodu uvasappāmi ṇam | ((upsṛtya)) jedu, jedu, bhaṭṭako! edaṃ pattaṃ ṇilūpañjadu bhaṭṭako |˼ ((iti patram arpayati))
+puruṣaḥ — ˹ahake ukkaladesādo āado mhi | tattha sāalatīlasaṇṇivese pulisottamasaggidaṃ devadāadaṇam | tassiṃ madamāṇehiṃ bhaṭṭakehiṃ mahālāasaāsaṃ pesido mhi | ((vilokya)) esā vālāṇasī | edaṃ lāaülam | jāva ppavisāmi | ((praviśya)) eso bhaṭṭako, cavvākeṇa satthaṃ kiṃvi mantaanto ciṭṭhadi | bhodu uvasappāmi ṇam | ((upsṛtya)) jedu, jedu, bhaṭṭako! edaṃ pattaṃ ṇilūpañja≤dū≥«du» bhaṭṭako |˼ ((iti patram arpayati))
 
 [2,108]
 
@@ -931,7 +933,7 @@ puruṣaḥ — ˹bhaṭṭaka! pulisottamādo |˼
 
 [2,110]
 
-mahāmohaḥ — ((svāgatam)) kāryam atyāhitaṃ bhaviṣyati | ((prakāśam)) cārvāka! gaccha! kartavyeṣv avahitena bhavatā bhavitavyam |
+mahāmohaḥ — ((svagatam)) kāryam atyāhitaṃ bhaviṣyati | ((prakāśam)) cārvāka! gaccha! kartavyeṣv avahitena bhavatā bhavitavyam |
 
 [2,111]
 
@@ -972,7 +974,7 @@ dauvārikaḥ — ājñāpayatu devaḥ |
 
 [2,120]
 
-mahāmohaḥ — tāvad āhūyatāṃ krodho lobhāś ca |
+mahāmohaḥ — tāvad āhūyatāṃ krodho lobhaś ca |
 
 [2,121]
 
@@ -1028,7 +1030,7 @@ tṛṣṇā — ˹ajjaütta āṇavedu!˼
 
 lobhaḥ — priye, śrūyatām —_
 
-	kṣetragrāmavanādripattanapuradvīpakṣamā«ma»ṇḍala-
+	kṣetragrāmavanādripattanapuradvīpakṣamāmaṇḍala-
 	pratyāśāyatasūtrabaddhamanasāṃ labdhādhikaṃ dhyāyatāṃ |
 	tṛṣṇe devi, yadi prasīdasi, tanoṣy aṅgāni tuṅgāni cet,
 	tad bhoḥ prāṇabhṛtāṃ kutaḥ śamakathā brahmāṇḍalakṣair api? || 2.32 ||
@@ -1037,7 +1039,7 @@ lobhaḥ — priye, śrūyatām —_
 
 [2,136]
 
-tṛṣṇā — ˹ajjaütta, saaṃ jevva dāva ahaṃ edassiṃ atthe ṇiccaṃ ahijuttā | saṃpadaṃ ajjaüttassa aṇṇāe bamhaṇḍakoḍīhiṃ pi ṇa me udaraṃ pūraïssaṃdi!˼
+tṛṣṇā — ˹ajjaütta, saaṃ jevva dāva ahaṃ edassiṃ atthe ṇiccaṃ ahijuttā | saṃpadaṃ ajjaüttassa aṇṇāe bamhaṇḍakoḍīhiṃ pi ṇa me udaraṃ pūraïssa«ṃ»di!˼
 
 [2,137]
 
@@ -1058,10 +1060,12 @@ krodhaḥ — priye, sahadharmacāriṇyā tvayā, mātṛpitṛvadho 'pi mame�
 	keyaṃ mātā? piśācī! ka iva hi janako? bhrātaraḥ ke 'tra? kīṭā! |
 	vandhyo 'yaṃ bandhuvargaḥ kuṭilaviṭasuhṛcceṣṭitā jñātayo 'mī |
 
+[2,142]
+
 ((hastau niṣpīḍya))
 
-	āgarbhaṃ yāvad eṣāṃ kulam idam akhilaṃ naiva niḥśeṣayāmi |
-	sphurjantaḥ krodhavahner na dadhati viratiṃ tāvad aṅge sphuliṅgāḥ || 2.33 ||
+	ā≤ ≥garbhaṃ yāvad eṣāṃ kulam idam akhilaṃ naiva niḥśeṣayāmi |
+	≤sphū≥«sphu»rjantaḥ krodhavahner na dadhati viratiṃ tāvad aṅge sphuliṅgāḥ || 2.33 ||
 
 ((vilokya)) eṣa svāmī! tad upasarpāmaḥ!
 
@@ -1081,7 +1085,7 @@ sarve — yad ādiśati devaḥ | ((iti niṣkrāntāḥ))
 
 [2,148]
 
-mahāmohaḥ — “śraddhāyās tanayā” — ity upakṣepeṇopāyāntaram api hṛdayam ārūḍham | tathā hi, śānter mātā śraddhā, sā ca paratantrā | tat kenāpy upāyenopaniṣatsakāśāt tāvac chraddhāpakarṣaṇaṃ kartavyam | tato mātṛviyogaduḥkhād atimṛdulatarā śāntir uparatā bhaviṣyati, avasīdantī vā viraṃsyati | śraddhāṃ cākraṣṭuṃ mithyādṛṣṭir eva vilāsinī pragalbheti tasmin viṣaye saiva niyojyā | ((pārśvato vilokya |)) vibhramāvati! satvaram āhūyatāṃ mithyādṛṣṭivilāsinī!
+mahāmohaḥ — “śraddhāyās tanayā” — ity upakṣepeṇopāyāntaram api hṛdayam ārūḍham | tathā hi, śānter mātā śraddhā, sā ca paratantrā | tat kenāpy upāyenopaniṣatsakāśāt tāvac chraddhāpakarṣaṇaṃ kartavyam | tato mātṛviyogaduḥkhād atimṛdulatarā śāntir uparatā bhaviṣyati, avasīdantī vā viraṃsyati | śraddhāṃ cā≤karṣṭu≥«kraṣṭu»ṃ mithyādṛṣṭir eva vilāsinī pragalbheti tasmin viṣaye saiva niyojyā | ((pārśvato vilokya |)) vibhramāvati! satvaram āhūyatāṃ mithyādṛṣṭivilāsinī!
 
 [2,149]
 
@@ -1101,7 +1105,7 @@ mithyādṛṣṭiḥ — ˹kīsa maṃ alīasohaggaṃ saṃbhāvia viḍambesi
 
 [2,153]
 
-vibhramāvatī — ˹sahi, saṃpadaṃ jevva pekkhissaṃ aliattaṇaṃ sohaggassa | aṇṇaṃ ca ghuṇṇantaṇiddāulaṃ via ppiasahīe loaṇaṃ pekkhāmi | tā kiṃ khu ppiasahīe viṇiddadāe kālaṇam?˼
+vibhramāvatī — ˹sahi, saṃpadaṃ jevva pekkhissaṃ aliattaṇaṃ sohaggassa | aṇṇaṃ ca ghuṇṇantaṇiddāulaṃ via ≤pi≥«ppi»asahīe loaṇaṃ pekkhāmi | tā kiṃ khu ppiasahīe viṇiddadāe kālaṇam?˼
 
 <90>
 
@@ -1115,19 +1119,19 @@ vibhramāvatī — ˹ke uṇa piasahīe vallahā?˼
 
 [2,156]
 
-mithyādṛṣṭiḥ — ˹mahārāo, tado uvari kāmo, koho, loho a | ahava alaṃ viseseṇa! ettha ule jo jādo hiaaṇihidae rattidiahāi ahiramaī mae ṇa viṇābālo ṭhaviro juvāṇo a |˼
+mithyādṛṣṭiḥ — ˹mahārāo, tado uvari kāmo, koho, loho a | ahava alaṃ viseseṇa! ettha ule jo jādo hiaaṇihidae rattidiahāiṃ ahiramaï mae ṇa viṇābālo ṭhaviro juvāṇo a |˼
 
 [2,157]
 
-vibhramāvatī — ˹ṇaṃ kāmassa raī, kohassa hiṃsā, lohassa tiṇhā paramappiatti suṇiadi | tāsaṃ kadhaṃ piajaṇaṃ ṇiccaṃ ramaantī issaṃ ṇa jāṇesi?˼
+vibhramāvatī — ˹ṇaṃ kāmassa raī, kohassa hiṃsā, lohassa tiṇhā paramappia tti suṇiadi | tāsaṃ kadhaṃ piajaṇaṃ ṇiccaṃ ramaantī issaṃ ṇa jāṇesi?˼
 
 [2,158]
 
-mithyādṛṣṭiḥ — ˹issatti kiṃ bhaṇiadi? tāo vi mae viṇā muhuttaṃ vi ṇa tussanti!˼
+mithyādṛṣṭiḥ — ˹issa tti kiṃ bhaṇiadi? tāo vi mae viṇā muhuttaṃ vi ṇa tussanti!˼
 
 [2,159]
 
-vibhramāvatī — ˹ado jevva bhaṇāmi tuha sarisī suhaā iha puhivīe ṇatthi tti, jāe sohaggaveraggavijariahiaāo savattīo vi sampasādaṃ paḍicchanti | sahi, aṇṇaṃ vi bhaṇāmi | evaṃ ṇiddāulahiaā visaṃṭhulakkhalantacalaṇaneurajhaṃkāramuharāe gadīe mahārāaṃ saṃbhāvaaṃtī saṃkidahiaaṃ karissadi piasahitti takkemi |˼
+vibhramāvatī — ˹ado jevva bhaṇāmi tuha sarisī suhaā iha puhivīe ṇatthi tti, jāe sohaggavera≤ggvi≥«ggavi»jariahiaāo savattīo vi sampasādaṃ paḍicchanti | sahi, aṇṇaṃ vi bhaṇāmi | evaṃ ṇiddāulahiaā visaṃṭhulakkhalantacalaṇaneurajhaṃkāramuharāe gadīe mahārāaṃ saṃbhāvaaṃtī saṃkidahiaaṃ karissadi piasahitti takkemi |˼
 
 [2,160]
 
@@ -1161,13 +1165,13 @@ mahāmohaḥ — priye —_
 	anuhara hariṇākṣi śaṅkarārdha-
 	sthitahimaśailasutāvilāsalakṣmīm || 2.35 ||
 
-((mithādṛṣṭiḥ sasmitaṃ tathā karoti |))
+((mithyādṛṣṭiḥ sasmitaṃ tathā karoti |))
 
 <94>
 
 [2,168]
 
-mahāmohaḥ — ((āliṅganasukham abhinīya)) aho, priyāyāḥ pariṣvāṅgāt parāvṛttaṃ navayauvanam | tathā hi —
+mahāmohaḥ — ((āliṅganasukham abhinīya)) aho, priyāyāḥ pariṣvaṅgāt parāvṛttaṃ navayauvanam | tathā hi —
 
 	yaḥ prāg āsīd abhinavavayovibhramāvāptajanmā,
 	cittonmāthī vigataviṣayopaplavānandasāndraḥ |
@@ -1176,7 +1180,7 @@ mahāmohaḥ — ((āliṅganasukham abhinīya)) aho, priyāyāḥ pariṣvāṅ
 
 [2,170]
 
-mithyādṛṣṭiḥ — ˹mahārāa, ahaṃ vi saṃpadaṃ ṇavajovvaṇā saṃvuttā | ṇa khu bhāvāṇubandho ppemā kāleṇāvi vihaḍaï | āṇavedu, bhaṭṭā, kiṃṇimittaṃ bhaṭṭiṇā sumaridamhi?˼
+mithyādṛṣṭiḥ — ˹mahārāa, ahaṃ vi saṃpadaṃ ṇavajovvaṇā saṃvuttā | ṇa khu bhāvāṇubandho ppemā kāleṇāvi vihaḍaï | āṇavedu, bhaṭṭā, kiṃṇimittaṃ bhaṭṭiṇā sumarida mhi?˼
 
 [2,171]
 
@@ -1200,7 +1204,7 @@ mahāmohaḥ — yathaiva prakāśitair aṅgaiḥ sarvatra vicarasi, tathaiva p
 
 [2,176]
 
-mithyādṛṣṭiḥ — ˹eddahamettae visae alaṃ bhaṭṭiṇo ahiṇiveseṇa! vaaṇamatteṇa vva bhaṭṭiṇo dāsa vva savvo aṇṇāṃ karissadi | sā khu mae mitthā dhammo, mitthā mokkho, mitthā veamaggo, mitthā suhavigghaarāiṃ, mitthā satthappalavidāiṃ, mitthā saggaphalaṃ ti bhaṇiantī veamaggaṃ jevva parihalissadi, kiṃ uṇa uvaṇisadam | avi a —˼
+mithyādṛṣṭiḥ — ˹eddahamettae visae alaṃ bhaṭṭiṇo ahiṇiveseṇa! vaaṇamatteṇa vva bhaṭṭiṇo dāsa vva savvo aṇṇāṃ karissadi | sā khu mae mitthā dhammo, mitthā mokkho, mitthā veamaggo, mitthā suhavigghaarāiṃ satthappalavidāiṃ, mitthā saggaphalaṃ ti bhaṇiantī veamaggaṃ jevva parihalissadi, kiṃ uṇa uvaṇisadam | avi a —˼
 
 	˹visaāṇandavimukke
 	mokkhe dosāṇa daṃsaantīe |
@@ -1223,7 +1227,7 @@ mahāmohaḥ — tad bhavatu! svāgāram eva praviśāmaḥ |
 
 ((iti niṣkrāntāḥ sarve |))
 
-iti śrīkṛṣṇamiśrayativiracite prabodhacandrodaye mahāmohapradhāno nāma dvitīyo 'aṅkaḥ |
+iti śrīkṛṣṇamiśrayativiracite prabodhacandrodaye mahāmohapradhāno nāma dvitīyo 'ṅkaḥ |
 
 {3}
 
@@ -1249,12 +1253,11 @@ athavālaṃ jīvitasaṃbhāvanayā! yataḥ,
 	na mayā rahitā śraddhā
 	muhūrtam api jīvati || 3.2 ||
 
-tad vinā śraddhayā muhūrtam api śānter jīvitaṃ viḍambanam eva | tat sakhi, karuṇe, madarthaṃ citām āracaya! yāvad aciram eva hutāśanapraveśena tasyāḥ sahacarī
-bhavāmi |
+tad vinā śraddhayā muhūrtam api śānter jīvitaṃ viḍambanam eva | tat sakhi, karuṇe, madarthaṃ citām āracaya! yāvad aciram eva hutāśanapraveśena tasyāḥ sahacarī bhavāmi |
 
 [3,7]
 
-karuṇā — ((sāsram)) ˹sahi, evvaṃ visamajjolaṇajjālāvalītikkhāiṃ akkharāiṃ jappantī savvahā viluttajīviaṃ maṃ karesi | tā pasīda muhuttaaṃ dhāredu jīviaṃ, piasahī | jāva ido tado puṇṇesu assamesu muṇiaṇasamāülesu bhāīrahītīresu suṇiuṇaṃ ṇirūvamha | sā kadāi vi mahāmohabhīdā kahaṃ vi pacchaṇṇaṃ ṇivasaï |˼
+karuṇā — ((sāsram)) ˹sahi, evvaṃ visamajjolaṇajjālāvalītikkhāiṃ akkharāiṃ jappantī savvahā viluttajīviaṃ maṃ karesi | tā pasīda muhuttaaṃ dhāredu jīviaṃ, piasahī | jāva ido tado puṇṇesu assamesu muṇiaṇasamāulesu bhāīrahītīresu suṇiuṇaṃ ṇirūvamha | sā kadāi vi mahāmohabhīdā kahaṃ vi pacchaṇṇaṃ ṇivasaï |˼
 
 <102>
 
@@ -1269,7 +1272,7 @@ karuṇā — ((sāsram)) ˹sahi, evvaṃ visamajjolaṇajjālāvalītikkhāiṃ
 
 [3,10]
 
-karuṇā — ˹sahi, evvaṃ bhaṇāmi | jaï saccevva saddhā tado ṇa tāe īrisīṃ duggaïṃ saṃbhāvemi | ṇa khu tārisīo puṇṇamaīo tārisaṃ asaṃbhāvaṇijjaṃ vipattiṃ aṇuhondi |˼
+karuṇā — ˹sahi, evvaṃ bhaṇāmi | jaï ≤sattaī≥«saccevva» saddhā tado ṇa tāe īrisīṃ duggaïṃ saṃbhāvemi | ṇa khu tārisīo puṇṇamaīo tārisaṃ asaṃbhāvaṇijjaṃ vipattiṃ aṇuhondi |˼
 
 [3,11]
 
@@ -1359,7 +1362,7 @@ digambaraḥ — ˹ṇamo aluhantāṇam, aluhantāṇam! ṇavaduvālagharamajj
 
 [3,32]
 
-śraddhā — ˹kiṃ āṇavei lāaulaṃ?˼ ((śāntir mūrcchitā patati))
+śraddhā — ˹kiṃ āṇavei lāaülaṃ?˼ ((śāntir mūrcchitā patati))
 
 [3,33]
 
@@ -1416,13 +1419,15 @@ karuṇā — ˹sahi, ko eso? taruṇataratālatalupallavo lambantakasāapisaṅ
 
 [3,46]
 
-bhikṣuḥ — ((ākāśe)) bho, bho! upāsakāḥ! bhikṣavaś ca! śrūyatāṃ bhagavataḥ sugatasya vākyāmṛtam! ((pustakaṃ vācayati |)) paśyāmy ahaṃ divyena cakṣuṣā lokānāṃ sugatiṃ durgatiṃ ca | kṣaṇikāḥ sarve saṃskārāḥ | nāsty ātmā sthāyī | tasmād bhikṣuṣu dārān ākramatsu nerṣitavyam | cittamalaṃ hi tad yad īrṣyānāma | ((nepathyābhimukham avalokya |)) śraddhe! itas tāvat!
+bhikṣuḥ — ((ākāśe)) bho, bho! upāsakāḥ! bhikṣavaś ca! śrūyatāṃ bhagavataḥ sugatasya vākyāmṛtam! ((pustakaṃ vācayati |)) paśyāmy ahaṃ divyena cakṣuṣā lokānāṃ sugatiṃ durgatiṃ ca | kṣaṇikāḥ sarve saṃskārāḥ | nāsty ātmā sthāyī | tasmād bhikṣuṣu dārān ākramatsu nerṣitavyam | cittamalaṃ hi tad yad īrṣyā nāma | ((nepathyābhimukham avalokya |)) śraddhe! itas tāvat!
+
+[3,47]
 
 ((praviśya śraddhā |))
 
 [3,48]
 
-śraddhā — ˹āṇavedu lāaulam |˼
+śraddhā — ˹āṇavedu lāaülam |˼
 
 [3,49]
 
@@ -1432,7 +1437,7 @@ bhikṣuḥ — upāsakān bhikṣūṃś ca nirbharam āliṅgya sthīyatām!
 
 [3,50]
 
-śraddhā — ˹jaṃ āṇavedi lāaulam |˼ ((iti niṣkrāntā |))
+śraddhā — ˹jaṃ āṇavedi lāaülam |˼ ((iti niṣkrāntā |))
 
 [3,51]
 
@@ -1551,11 +1556,11 @@ somasiddhāntaḥ — ((parikramya |))
 
 [3,79]
 
-kṣapaṇakaḥ — ˹ale! ko eso kāvālaṃ vadaṃ dhāledi puliso | tā eṇaṃ pucchissam | ((upasṛtya |)) alele, kāvālia! ṇalatthimuṇḍadhāi!, kīliso tuha sokkho kīliso tuha mokkho?˼
+kṣapaṇakaḥ — ˹ale! ko eso kāvālaṃ vadaṃ dhāledi puliso | tā eṇaṃ pucchissam | ((upasṛtya |)) alele, kāvālia! ṇalatthimuṇḍadhā≤ī≥«i»!, kīliso tuha sokkho kīliso tuha mokkho?˼
 
 [3,80]
 
-kāpālīkāḥ — are, kṣapaṇaka! dharmaṃ tāvad asmākam avadhāraya!
+kāpālikaḥ — are, kṣapaṇaka! dharmaṃ tāvad asmākam avadhāraya!
 
 	mastiṣkāntravasābhidhāritamahāmāṃsāhutīr juhvatāṃ!
 	vahnau brahmakapālakalpitasurāpānena naḥ pāraṇā |
@@ -1574,7 +1579,7 @@ kṣapaṇakaḥ — ˹alihanta! alihanta! aho gholaṃ pāvaṃ! kāvālieṇa 
 
 [3,84]
 
-kāpālīkāḥ — ((sakrodham)) āḥ pāpa pākhaṇḍāpaśada! muṇḍitamuṇḍa! caṇḍālaveśa! keśaluñcaka! are! vipralambhakaḥ kila caturdaśabhuvanotpattisthitipralayapravartako vedāntasiddhāntaprasiddhavibhavo bhagavān bhavānīpatiḥ? darśayāmas tarhi dharmasyāsya mahimānam?
+kāpālikaḥ — ((sakrodham)) āḥ pāpa pākhaṇḍāpaśada! muṇḍitamuṇḍa! caṇḍālaveśa! keśaluñcaka! are! vipralambhakaḥ kila caturdaśabhuvanotpattisthitipralayapravartako vedāntasiddhāntaprasiddhavibhavo bhagavān bhavānīpatiḥ? darśayāmas tarhi dharmasyāsya mahimānam?
 
 	hariharasurajyeṣṭhaśreṣṭhān surān aham āhare |
 	viyati vahatāṃ nakṣatrāṇāṃ ruṇadhmi gatīr api |
@@ -1583,19 +1588,20 @@ kāpālīkāḥ — ((sakrodham)) āḥ pāpa pākhaṇḍāpaśada! muṇḍita
 
 [3,86]
 
-kṣapaṇakaḥ — ˹ale, kāvālia! ṇaṃ ado jevva bhaṇāmi — keṇa vi endajālieṇā māāṃ daṃsia vippaladdho tti!˼
+kṣapaṇakaḥ — ˹ale, kāvālia! ṇaṃ ado jevva bhaṇāmi — keṇa vi endajālieṇa māāṃ daṃsia vippaladdho tti!˼
 
 [3,87]
 
-kāpālīkāḥ — āḥ pāpa! punar api parameśvaram aindrajālikam ity ākṣipasi? tan na marṣanīyam asya daurātmyam! ((khaḍgam ākṛṣya)) tad aham asya...
+kāpālikaḥ — āḥ pāpa! punar api parameśvaram aindrajālikam ity ākṣipasi? tan na marṣaṇīyam asya daurātmyam! ((khaḍgam ākṛṣya)) tad aham asya...
 
 	etatkarālakaravālanikṛttakaṇṭha-
 	nāloccaladbahulaphenilabudbudaughaiḥ |
 	sārdhaṃ ḍamaḍḍamaruḍāṃkṛtihūtabhūta-
-
 	vargeṇa bhargagṛhiṇīṃ rudhirair dhinomi || 3.15 ||
 
 <122>
+
+[3,89]
 
 ((iti khaḍgam udyacchati |))
 
@@ -1609,7 +1615,7 @@ bhikṣuḥ — ((kāpālikaṃ vārayan)) bho, bho, mahābhāga! kautukaprayukt
 
 [3,92]
 
-kāpālīkāḥ — ((khaḍgam pratisaṃharati))
+kāpālikaḥ — ((khaḍgam pratisaṃharati))
 
 [3,93]
 
@@ -1617,7 +1623,7 @@ kṣapaṇakaḥ — ((samāśvasya)) ˹mahābhāo jaï saṃhalidagholalosāves
 
 [3,94]
 
-kāpālīkāḥ — pṛccha, pṛccha |
+kāpālikaḥ — pṛccha, pṛccha |
 
 [3,95]
 
@@ -1625,7 +1631,7 @@ kṣapaṇakaḥ — ˹sudo tumhāṇaṃ palamo dhammo | adha keliso sokkhamokk
 
 [3,96]
 
-kāpālīkāḥ — śṛṇu!
+kāpālikaḥ — śṛṇu!
 
 	dṛṣṭaṃ kvāpi sukhaṃ vinā na viṣayair. ānandabodhojjhitā
 	jīvasya sthitir eva muktir upalāvasthā kathaṃ prārthyate? |
@@ -1644,7 +1650,7 @@ kṣapaṇakaḥ — ˹ale, kāvālia! jaï ṇa lussasi tado bhaṇāmi | salī
 
 [3,100]
 
-kāpālīkāḥ — ((svagatam)) aye! aśraddhākṣiptam anayor antaḥkaraṇam | bhavatv | evaṃ tāvat | ((prakāśam)) śraddhe! itas tāvat!
+kāpālikaḥ — ((svagatam)) aye! aśraddhākṣiptam anayor antaḥkaraṇam | bhavatv | evaṃ tāvat | ((prakāśam)) śraddhe! itas tāvat!
 
 [3,101]
 
@@ -1652,7 +1658,7 @@ kāpālīkāḥ — ((svagatam)) aye! aśraddhākṣiptam anayor antaḥkaraṇa
 
 [3,102]
 
-karuṇā — ˹sahi, pekkha! rajasas sudā saddhā | sā esā —˼
+karuṇā — ˹sahi, pekkha! rajassa sudā saddhā | sā esā —˼
 
 	˹viphullaṇīluppalalolaloaṇā,
 	ṇaratthimālākidacālubhūsaṇā |
@@ -1665,7 +1671,7 @@ karuṇā — ˹sahi, pekkha! rajasas sudā saddhā | sā esā —˼
 
 [3,105]
 
-kāpālīkāḥ — priye, enaṃ durabhimāninaṃ bhikṣuṃ tāvad gṛhāṇa!
+kāpālikaḥ — priye, enaṃ durabhimāninaṃ bhikṣuṃ tāvad gṛhāṇa!
 
 ((śraddhā bhikṣum āliṅgati))
 
@@ -1692,28 +1698,29 @@ bhikṣuḥ — āḥ pāpa! vañcito 'si re kāpālinyāḥ parirambhamahotsave
 
 [3,112]
 
-kāpālīkāḥ — priye, kṣapaṇakaṃ gṛhāṇa |
+kāpālikaḥ — priye, kṣapaṇakaṃ gṛhāṇa |
 
 ((kāpāliṇī kṣapaṇakam āliṅgati))
 
 [3,114]
 
-kṣapaṇakaḥ — ((saromāñcam)) ˹aho arihanta! aho arihanta! kāvālinīe phalasasuhaṃ! aï, sundali! dedu! dedu! dāva puṇo aṅkapāliṃ! ((svagatam)) are, mahanto khu indiaviālo saṃvutto! tā kiṃ ettha juttaṃ? bhodu | picchiāe ḍhakissam |˼ ((tathā kṛtvā))
+kṣapaṇakaḥ — ((saromāñcam)) ˹aho arihanta! aho arihanta! kāvāliṇīe phalasasuhaṃ! aï, sundali! dedu! dedu! dāva puṇo aṅkapāliṃ! ((svagatam)) are, mahanto khu indiaviālo saṃvutto! tā kiṃ ettha juttaṃ? bhodu | picchiāe ḍhakissam |˼ ((tathā kṛtvā))
 
 <128>
 
-	˹ayi! pīṇaghaṇatthaṇasohiṇi! palitatthakulaṅgaviloalloaṇe! |
+	˹ayi! pīṇaghaṇatthaṇasohiṇi!
+	palitatthakulaṅgaviloalloaṇe! |
 	jaï lamasi kāvāliṇi, tā kiṃ kalissadi sāvakī? || 3.19 ||˼
 
 ˹aho, kāvāliaṃ jevva ekkaṃ daṃsaṇaṃ sokkhamokkhasāhaṇaṃ | bho, ācālia! ahaṃ tuha dāso saṃvutto | maṃ pi mahābhailavāṇusāsaṇe dikkhedu!˼
 
 [3,117]
 
-kāpālīkāḥ — upaviśyatām | ((ubhau tathā kurutaḥ |))
+kāpālikaḥ — upaviśyatām | ((ubhau tathā kurutaḥ |))
 
 [3,118]
 
-((kāpālīko bhājanaṃ samādāya dhyānaṃ nāṭayati))
+((kāpāliko bhājanaṃ samādāya dhyānaṃ nāṭayati))
 
 [3,119]
 
@@ -1721,7 +1728,7 @@ kāpālīkāḥ — upaviśyatām | ((ubhau tathā kurutaḥ |))
 
 [3,120]
 
-kāpālīkāḥ — ((pītvā śeṣaṃ bhikṣukṣapaṇakayor arpayati |))
+kāpālikaḥ — ((pītvā śeṣaṃ bhikṣukṣapaṇakayor arpayati |))
 
 	idaṃ pavitram amṛtam
 	pīyatāṃ, bhavabheṣajam |
@@ -1742,7 +1749,7 @@ bhikṣuḥ — kathaṃ kāpālikocchiṣṭāṃ surāṃ pāsyāmi?
 
 [3,125]
 
-kāpālīkāḥ — ((kiñcid vimṛṣya |)) kiṃ vimṛśasi, śraddhe? paśutvam anayor nādyāpy apanīyate | tenāsmadvadanasaṃsargaduṣṭāṃ pavitrāṃ surām etau manyete | tad, bhavatī, svavaktrāsavapūtāṃ kṛtvānayor upanayatu | <130> yatas tairthikā api vadanti “strīmukhaṃ tu sadā śuci” iti |
+kāpālikaḥ — ((kiñcid vimṛṣya |)) kiṃ vimṛśasi, śraddhe? paśutvam anayor nādyāpy apanīyate | tenāsmadvadanasaṃsargaduṣṭāṃ pavitrāṃ surām etau manyete | tad, bhavatī, svavaktrāsavapūtāṃ kṛtvānayor upanayatu | <130> yatas tairthikā api vadanti “strīmukhaṃ tu sadā śuci” iti |
 
 [3,126]
 
@@ -1775,13 +1782,13 @@ bhikṣuḥ — evaṃ kurvaḥ | ((tathā kurutaḥ |))
 
 [3,133]
 
-kāpālīkāḥ — priye, amūlyakrītaṃ dāsadvayaṃ labdham | tan nṛtyāvas tāvat! ((ubhau nṛtyataḥ |))
+kāpālikaḥ — priye, amūlyakrītaṃ dāsadvayaṃ labdham | tan nṛtyāvas tāvat! ((ubhau nṛtyataḥ |))
 
 <132>
 
 [3,134]
 
-kṣapaṇakaḥ — ˹ale bhikkua | eso kāvālio — ahavo ācālio — kāvālinīe saddhaṃ sohaṇaṃ ṇaccedi | tā edāe saddhaṃ amhe vi ṇaccāmha!˼
+kṣapaṇakaḥ — ˹ale bhikkua | eso kāvālio — ahavā ācālio — kāvāliṇīe saddhaṃ sohaṇaṃ ṇaccedi | tā edāe saddhaṃ amhe vi ṇaccāmha!˼
 
 [3,135]
 
@@ -1793,7 +1800,7 @@ kṣapaṇakaḥ — ˹“ayi pīṇaghaṇatthaṇa...”˼ ((ity ādi gāyati)
 
 [3,137]
 
-kāpālīkāḥ — kiyad etad āścaryaṃ paśya!
+kāpālikaḥ — kiyad etad āścaryaṃ paśya!
 
 	yatrānujjhitavāñchitārthaviṣayāsaṅge 'pi sidhyanty amūḥ
 	pratyāsannamahodayapraṇayinām aṣṭau mahāsiddhayaḥ |
@@ -1810,17 +1817,17 @@ bhikṣuḥ — ((vihasya)) ayam anabhyāsātiśayapītayā madirayā dūram unm
 
 [3,141]
 
-kāpālīkāḥ — evaṃ bhavatu | ((iti svamukhocchiṣṭaṃ tāmbūlaṃ kṣapaṇakāya dadāti))
+kāpālikaḥ — evaṃ bhavatu | ((iti svamukhocchiṣṭaṃ tāmbūlaṃ kṣapaṇakāya dadāti))
 
 <134>
 
 [3,142]
 
-kṣapaṇakaḥ — ((saṃjñāṃ labdhvā kṣaṇaṃ svasthībhūya |)) ˹ācāliaṃ evva edaṃ pucchissam | jādisī tuha sulāe āhalaṇattī kiṃ tādisī itthiāpulisesu vi atthi?˼
+kṣapaṇakaḥ — ((saṃjñāṃ labdhvā kṣaṇaṃ svasthībhūya |)) ˹ācāliaṃ evva edaṃ pucchissam | jādisī tuha sulāe āhalaṇasattī kiṃ tādisī itthiāpulisesu vi atthi?˼
 
 [3,143]
 
-kāpālīkāḥ — kiṃ viśeṣeṇa pṛcchyate? paśya —
+kāpālikaḥ — kiṃ viśeṣeṇa pṛcchyate? paśya —
 
 	vidyādharīṃ vātha surāṅganāṃ vā,
 	nāgāṅganāṃ vāpy atha yakṣakanyām |
@@ -1829,11 +1836,11 @@ kāpālīkāḥ — kiṃ viśeṣeṇa pṛcchyate? paśya —
 
 [3,145]
 
-kṣapaṇakaḥ — ˹bho, edaṃ mae gaṇideṇa ṇṇādaṃ — jaṃ savve amhe mahālāamahāmohassa kiṃkale tti |˼
+kṣapaṇakaḥ — ˹bho, edaṃ mae gaṇideṇa ṇṇādaṃ — jaṃ savve amhe mahālāamahāmohassa kiṃkaletti |˼
 
 [3,146]
 
-ubhau — yathājñātam āyuṣmatā, evam etat |
+ubhau — yathā≤ ≥jñātam āyuṣmatā, evam etat |
 
 [3,147]
 
@@ -1841,15 +1848,15 @@ kṣapaṇakaḥ — ˹tā lāakajjaṃ mantīyadu |˼
 
 [3,148]
 
-kāpālīkāḥ — kiṃ tat?
+kāpālikaḥ — kiṃ tat?
 
 [3,149]
 
-kṣapaṇakaḥ — ˹sattassa sudā saddhā mahālāassa aṇṇāe āhalaṇīe tti |˼
+kṣapaṇakaḥ — ˹sattassa sudā saddhā mahālāassa aṇṇāe āhalaṇīetti |˼
 
 [3,150]
 
-kāpālīkāḥ — kathaya kvāsau dāsyāḥ putrī? eṣa tām aciram eva vidyābalād upāharāmi |
+kāpālikaḥ — kathaya kvāsau dāsyāḥ putrī? eṣa tām aciram eva vidyābalād upāharāmi |
 
 [3,151]
 
@@ -1857,7 +1864,7 @@ kāpālīkāḥ — kathaya kvāsau dāsyāḥ putrī? eṣa tām aciram eva vid
 
 [3,152]
 
-śāntiḥ — sakhi, ambām uddviśyaiva hatāśānām ālāpaḥ; tad avadhānena tāvad ākarṇayāvaḥ |
+śāntiḥ — sakhi, ambām uddiśyaiva hatāśānām ālāpaḥ; tad avadhānena tāvad ākarṇayāvaḥ |
 
 <136>
 
@@ -1876,7 +1883,7 @@ kṣapaṇakaḥ — ((gāthāṃ gaṇayitvā |))
 
 [3,156]
 
-karuṇā — ((sānandam)) ˹sahi, diṭṭhiā vaḍḍhasi | sudaṃ viṇṇubhattīe devīe pāsavaṭṭiṇī saddhe tti |˼
+karuṇā — ((sānandam)) ˹sahi, diṭṭhiā vaḍḍhasi | sudaṃ viṇṇubhattīe devīe pāsavaṭṭiṇī saddhetti |˼
 
 [3,157]
 
@@ -1892,12 +1899,12 @@ kṣapaṇakaḥ — ((punar gaṇayitvā))
 
 	˹ṇatthi jale, ṇatthi vaṇe,
 	ṇatthi gilibilesu, ṇatthi pāāle |
-	sā viṇṇubhattisahido
+	so viṇṇubhattisahido
 	vattaï hiae mahappāṇam || 3.25 ||˼
 
 [3,161]
 
-kāpālīkāḥ — ((saviṣādam)) aho mahat kaṣṭam āpatitaṃ mahārājasya! tathā hi —
+kāpālikaḥ — ((saviṣādam)) aho mahat kaṣṭam āpatitaṃ mahārājasya! tathā hi —
 
 	mūlaṃ devī siddhaye viṣṇubhaktis,
 	tāṃ ca śraddhānuvratā sattvakanyā |
@@ -1916,7 +1923,7 @@ tathāpi tāvad asuvyayenāpi svāminaḥ prayojanam anuṣṭheyam | tan mahāb
 
 ((iti niṣkrāntāḥ sarve))
 
-iti śrīkṛṣṇamiśrayativiracite prabodhacandrodaye pāṣaṇḍaviḍambhano nāma tṛtīyo 'ṅkaḥ |
+iti śrīkṛṣṇamiśrayativiracite prabodhacandrodaye pāṣaṇḍaviḍambano nāma tṛtīyo 'ṅkaḥ |
 
 {4}
 
@@ -2010,7 +2017,7 @@ maitrī — ˹diṭṭhiā miī via saddūlamuhādo pabbhaṭṭā saddhā kkhem
 
 [4,21]
 
-śraddhā — tato devyā samupajātābhiniveśayā kathitam, “evaṃ asya durātmano mahāmohahatakasya mām avajñāya pravartamānasya samūlam unmūlanaṃ kariṣyamī!”ti | ādiṣṭā cāhaṃ devyā yathā, “gaccha, śraddhe, brūhi vivekam kāmakrodhādīnāṃ nirjayāyodyogaḥ kriyatām | tato vairāgyaṃ prādurbhaviṣyati | ahaṃ ca yathāsamayaṃ prāṇāyāmādyanuṣṭhānena yuṣmatsainyam anugrahīṣyāmi | ṛtaṃbharādayaś ca devyaḥ śāntyādikauśalenopaniṣaddevyā saṃgatasya bhavataḥ prabodhodayam anuvidhāsyantī”ti | tad aham idānīṃ vivekaniketaṃ prati prasthitā | tvaṃ punaḥ kim ācarantī divasān ativāhayasi?
+śraddhā — tato devyā samupajātābhiniveśayā kathitam, “evaṃ asya durātmano mahāmohahatakasya mām avajñāya pravartamānasya samūlam unmūlanaṃ kariṣyāmī!”ti | ādiṣṭā cāhaṃ devyā yathā, “gaccha, śraddhe, brūhi vivekam kāmakrodhādīnāṃ nirjayāyodyogaḥ kriyatām | tato vairāgyaṃ prādurbhaviṣyati | ahaṃ ca yathāsamayaṃ prāṇāyāmādyanuṣṭhānena yuṣmatsainyam anugrahīṣyāmi | ṛtaṃbharādayaś ca devyaḥ śāntyādikauśalenopaniṣaddevyā saṃgatasya bhavataḥ prabodhodayam anuvidhāsyantī”ti | tad aham idānīṃ vivekaniketaṃ prati prasthitā | tvaṃ punaḥ kim ācarantī divasān ativāhayasi?
 
 [4,22]
 
@@ -2019,7 +2026,6 @@ maitrī — ˹amhe vi catasso baïṇīo viṇṇubhattīe āṇāe viveasiddhik
 <148>
 
 	dhyāyanti māṃ sukhini, duḥkhini cānukampāṃ,
-
 	puṇyakriyeṣu muditāṃ, kumatāv upekṣām |
 	evaṃ prasādam upayāti hi rāgalobha-
 	dveṣādidoṣakaluṣo 'py ayam antarātmā || 4.5 ||
@@ -2071,7 +2077,7 @@ athavā saṃsāracakravāhakasya mahāmohasyābodho mūlam | tasya ca tattvāva
 	apanthānaṃ tu gacchantaṃ
 	sodaro 'pi vimuñcati” || 4.8 ||
 
-iti tattvavido vyāharanti | tathā ca devyā viṣṇubhaktyā samādiṣṭam “udyogaḥ kriyatām kāmādivijaye | tad aham api bhavadarthe gṛhītapakṣaive”ti | tatra kāmas tā<154>vat vastuvicāreṇaiva jīyate | tad bhavatu | tam eva tāvat tannirvijayāyādiśāmi | vetravati! āhūyatāṃ vastuvicāraḥ!
+iti tattvavido vyāharanti | tathā ca devyā viṣṇubhaktyā samādiṣṭam “udyogaḥ kriyatām kāmādivijaye | tad aham api bhavadarthe gṛhītapakṣaive”ti | tatra kāmas tā<154>vat ≤prathamo vīro≥ vastuvicāreṇaiva jīyate | tad bhavatu | tam eva tāvat tannirvijayāyādiśāmi | ve≤da≥«tra»vati! āhūyatāṃ vastuvicāraḥ!
 
 [4,37]
 
@@ -2096,7 +2102,7 @@ api ca yathāvastu vicārayatām amandamatīnām api piśitapiṇḍāvanaddhās
 ((ākāśe)) āḥ! pāpa kāmacaṇḍāla! kim evam anālambanam evāvirbhavatā bhavatā vyākulīkriyate mahājanaḥ? tathā hy ayam evaṃ manyate —
 
 	“bālā mām iyam icchatīnduvadanā sānandam udvīkṣate
-	nīlendīvaralocanā mama parīrambhaṃ bhṛśaṃ vāñchati |”
+	nīlendīvaralocanā mama pa≤ra≥«rī»rambhaṃ bhṛśaṃ vāñchati |”
 
 are mūḍha!
 
@@ -2184,7 +2190,7 @@ vastuvicāraḥ — yad ādiśati devaḥ | ((iti niṣkrāntaḥ))
 
 [4,64]
 
-rājā — vetravati! krodhasya vijayāya kṣamāhūyatām!
+rājā — ve≤da≥«tra»vati! krodhasya vijayāya kṣamāhūyatām!
 
 [4,65]
 
@@ -2237,7 +2243,6 @@ rājā — kṣame, asmin saṅgrāme durātmā krodhas tvayā jetavyaḥ |
 kṣamā — devasyānugrahān mahāmoham api jetuṃ paryāptāsmi; kiṃ punaḥ krodhaṃ tanucaramātram? tad aham acirād eva ...
 
 	taṃ pāpakāriṇam akāraṇabādhitāraṃ
-
 	svādhyāyadevapitṛyajñatapaḥkriyāṇām |
 	krodhaṃ sphuliṅgam iva dṛṣṭibhir udvamantaṃ —
 	kātyāyanīva mahiṣaṃ vinivārya hanmi || 4.18 ||
@@ -2261,7 +2266,7 @@ rājā — sādhu, sādhu |
 
 [4,81]
 
-kṣamā — deva, krodhasya vijayād eva tad anuyāyino 'pi hiṃsāpāruṣyamānamātsaryādayo vijitā eva bhaviṣyanti |
+kṣamā — deva, krodhasya vijayād eva tadanuyāyino 'pi hiṃsāpāruṣyamānamātsaryādayo vijitā eva bhaviṣyanti |
 
 [4,82]
 
@@ -2273,13 +2278,13 @@ kṣamā — yad ājñāpayati devaḥ | ((iti niṣkrāntā |))
 
 [4,84]
 
-rājā — ((pratīhārīṃ prati)) vetravati! āhūyatāṃ lobhasya jetā santoṣaḥ!
+rājā — ((pratīhārīṃ prati)) ve≤da≥«tra»vati! āhūyatāṃ lobhasya jetā santoṣaḥ!
 
 [4,85]
 
 pratīhārī — ˹jaṃ devo āṇavedi |˼ ((iti niṣkramya santoṣeṇa saha praviśati))
 
-santoṣaḥ ((vicintya sānukrośam))
+santoṣaḥ — ((vicintya sānukrośam))
 
 	phalaṃ svecchālabhyaṃ prativanam akhedaṃ kṣitiruhāṃ |
 	payaḥ sthāne sthāne śiśiramadhuraṃ puṇyasaritām |
@@ -2300,8 +2305,7 @@ idaṃ ca te lobhāndhasya ceṣṭitaṃ cetasi camatkāram ātanoti! yataḥ �
 	“lapsye, labdham idaṃ ca, labhyam adhikaṃ; tanmūlalabhyaṃ tato
 	labhyaṃ cāparam |” ity anāratam aho labhyaṃ dhanaṃ dhyāyasi |
 	naitad vetsi — punar bhavantam acirād āśāpiśācī balāt
-
-	sarvagrāsam iyaṃ grasiṣyati, mahālobhāndhakārāvṛtam || 4.22 ||
+	sarvagrāsam iyaṃ grasiṣyati, mahālobhāndhakā≤ra≥«rā»vṛtam || 4.22 ||
 
 api ca —_
 
@@ -2352,6 +2356,8 @@ santoṣaḥ — yad ājñāpayati devaḥ | so 'ham —
 	rakṣo'dhinātham iva dāśarathiḥ prasahya
 	nirjitya lobham avaśaṃ tarasā pinaṣmi || 4.25 ||
 
+[4,103]
+
 ((iti niṣkrāntaḥ))
 
 [4,104]
@@ -2376,7 +2382,6 @@ puruṣaḥ — yad ājñāpayati devaḥ | ((iti niṣkrāntaḥ))
 
 	sajjyantāṃ kumbhabhitticyutamadamadirāmattabhṛṅgāḥ karīndrā!
 	yujyantāṃ syandaneṣu prasabhajitamaruccaṇḍavegās turaṅgāḥ! |
-
 	kuntair nīlotpalānāṃ vanam iva kakubhām antarāle sṛjantaḥ
 	pādātāḥ saṃcarantu, prasabham asilasatpāṇayo 'py aśvavārāḥ || 4.26 ||
 
@@ -2412,7 +2417,6 @@ sārathiḥ — ((rathavegaṃ nirūpayan)) āyuṣman, paśya, paśya —
 iyaṃ ca nātidūre darśanapatham avatīrṇā tribhuvanapāvanī vārāṇasī nagarī |
 
 	amī dhārāyantraskhalitajalajhaṅkāramukharā,
-
 	vibhāvyante bhūyaḥ śaśikararucaḥ saudhaśikharāḥ |
 	vicitrā yatroccaiḥ śaradamalameghāntavilasat-
 	taḍillekhālakṣmīṃ vitarati patākāvalir iyam || 4.28 ||
@@ -2459,7 +2463,8 @@ sūtaḥ — āyuṣman, paśya, paśya! ete tāvat kāmakrodhalobhādayo 'smadd
 rājā — evam etat! tad bhavatu | svābhīṣṭasiddhaye bhagavantaṃ namasyāmaḥ | ((rathād avatīrya praviśyāvalokya ca |)) jaya, jaya, bhagavan!
 
 	amaracayacamūcakracūḍāmaṇiśreṇinīrājitopāntapādadvayāmbhoja! rājannakhadyotakirmīritasvarṇapīṭha! sphuraddvaitavibhrāntisantānasantāpasantaptavandārusaṃsāranidrāpahāraikadakṣa!kṣamāmaṇḍaloddhārasaṃhārasaṃghaṭṭasaṃghṛṣṭadaṃṣṭrāgrakoṭisphuracchailacakra! kramākrāntalokatraya!
-	<180>prabalabhujabaloddhūtagovardhanacchatranirvāritākhaṇḍalodyojitākāṇḍacaṇḍāmbuvāhātivarṣatrasadgokulatrāṇavismāpitāśeṣaviśvaprabho! |
+<180>
+	prabalabhujabaloddhūtagovardhanacchatranirvāritākhaṇḍalodyojitākāṇḍacaṇḍāmbuvāhātivarṣatrasadgokulatrāṇavismāpitāśeṣaviśvaprabho! |
 	vibudharipuvadhūvargasīmantasindūrasandhyāmayūkhacchaṭonmārjanoddāmadhāmādhipa! trastadaityendravakṣastaṭīpāṭanākuṇṭhabhāsvannakhaśreṇipāṇidvayasrastavistāriraktārṇavāmagnalokatraya!
 	tribhuvanaripukaiṭabhoddaṇḍakaṇṭhāsthikūṭasphuṭonmārjitodāttacakrasphurajjyotirulkāśatoḍḍāmaroddaṇḍa! khaṇḍenducūḍapriya! prauḍhadordaṇḍavibhrāntamanthācalakṣubdhadugdhāmbudhiprotthitaśrībhujāvallarīsaṃśleṣasaṃkrāntapīnastanābhogapatrāvalīlāñchitoraḥsthala! sthūlamuktāphalottārahāraprabhāmaṇḍalaprasphuratkaṇṭha! vaikuṇṭha! bhaktasya lokasya saṃsāramohacchidaṃ dehi bodhodayaṃ deva! tubhyaṃ namaḥ! || 4.32 ||
 
@@ -2483,7 +2488,7 @@ iti śrīkṛṣṇamiśraviracite prabodhacandrodayanāmni nāṭake vivekodyog
 
 [5,2]
 
-śraddhā — ((vicintya)) prasiddhaḥ khalv ayaṃ panthāḥ | yataḥ —
+śraddhā — ((vicintya)) prasiddhaḥ khalv ayaṃ panthāḥ | ya≤ ≥taḥ —
 
 	nirdahati kulam aśeṣaṃ
 	jñātīnāṃ vairasaṃbhavaḥ krodhaḥ |
@@ -2499,9 +2504,10 @@ iti śrīkṛṣṇamiśraviracite prabodhacandrodayanāmni nāṭake vivekodyog
 
 yena tathā krūraprakṛtiṣv api bhrātṛṣu kāmakrodhādiṣu kathāśeṣatāṃ gateṣu |
 
-	nikṛntatīva marmāṇi, dehaṃ śoṣayatīva me |
-
-	dahatīvāntarātmānaṃ krūraḥ śokāgnir ucchikhaḥ || 5.3 ||
+	nikṛntatīva marmāṇi,
+	dehaṃ śoṣayatīva me |
+	dahatīvāntarātmānaṃ
+	krūraḥ śokāgnir ucchikhaḥ || 5.3 ||
 
 <188>
 
@@ -2600,7 +2606,6 @@ viṣṇubhaktiḥ — tatas tataḥ?
 	vedopavedāṅgapurāṇadharma-
 	śāstretihāsādibhir ucchritaśrīḥ |
 	sarasvatī padmakarā śaśāṅka-
-
 	saṅkāśakāntiḥ sahasāvirāsīt || 5.6 ||
 
 [5,31]
@@ -2617,7 +2622,7 @@ viṣṇubhaktiḥ — tatas tataḥ?
 
 [5,34]
 
-śraddhā — tad anantaraṃ ca —_
+śraddhā — tadanantaraṃ ca —_
 
 	sāṃkhyanyāyakaṇādabhāṣitamahābhāṣyādiśāstrair vṛtā,
 	sphūrjannyāyasahasrabāhunivahair uddyotayantī diśaḥ |
@@ -2731,7 +2736,7 @@ manaḥ — ((sāsram)) hā! putrakāḥ! kva gatāḥ stha? datta me prativacan
 	vilumpati vivekitām, hṛdi ca moham unmīlaya-
 	ty. aho, grasati jīvitaṃ prasabham eṣa śokajvaraḥ || 5.12 ||
 
-((iti mūrcchiṭaṃ patati))
+((iti mūrcchitaṃ patati))
 
 [5,62]
 
@@ -2739,7 +2744,7 @@ saṅkalpaḥ — rājan, samāśvasihi! samāśvasihi!
 
 [5,63]
 
-manaḥ — ((samāśvasya)) kathaṃ devīpravṛttir api na mām evamavasthaṃ samāśvāsayati?
+manaḥ — ((samāśvasya)) kathaṃ devī pravṛttir api na mām evamavasthaṃ samāśvāsayati?
 
 [5,64]
 
@@ -2764,7 +2769,7 @@ saṅkalpaḥ — rājan, samāśvasihi! samāśvasihi!
 
 [5,69]
 
-manaḥ — ((samaśvasya)) alam asmākam ataḥ paraṃ jīvitena | saṃkalpa! citāṃ āracaya, yāvad analapraveśena śokānalaṃ nirvāpayāmi |
+manaḥ — ((samāśvasya)) alam asmākam ataḥ paraṃ jīvitena | saṃkalpa! citāṃ āracaya, yāvad analapraveśena śokānalaṃ nirvāpayāmi |
 
 [5,70]
 
@@ -2812,7 +2817,7 @@ sarasvatī — idaṃ cāparam akṛtyaṃ yad ātmahatyādhyavasāya iti | api 
 	kva cid upakṛtiḥ kartāmībhiḥ? kṛtā? kriyate 'thavā?
 	tava na ca bhavanty ete puṃsāṃ sukhāya parigrahāḥ |
 	dadhati virahe marmacchedaṃ, tadartham apārthakaṃ;
-	tad api vipulāyāsaiḥ sīdanty, aho bata! jantavaḥ || 5.17 ||
+	tad api vipulā≤yasāi≥«yāsai»ḥ sīdanty, aho bata! jantavaḥ || 5.17 ||
 
 api ca —_
 
@@ -2920,7 +2925,7 @@ manaḥ — ((vicintya socchvāsam |)) sarvathā trāto 'smi bhagavatyā | ((iti
 
 [5,105]
 
-sarasvatī — vatsa, samprati upadeśasahiṣṇu te hṛdayaṃ jatam | ata etad aparam ucyate —
+sarasvatī — vatsa, samprati upadeśasahiṣṇu te hṛdayaṃ jātam | ata etad aparam ucyate —
 
 <220>
 
@@ -2986,7 +2991,7 @@ vairāgyam — tāta, ko 'tra śokāveśaḥ? yataḥ —
 
 [5,120]
 
-manaḥ — ((sanandam)) devi, evam etat, yad āha vatsaḥ | saṃprati hi —
+manaḥ — ((sānandam)) devi, evam etat, yad āha vatsaḥ | saṃprati hi —
 
 	nāryas tā navayauvanā. madhukaravyāhāriṇas te drumāḥ.
 	pronmīlannavamallikāsurabhayo mandās ta evānilāḥ |
@@ -3062,7 +3067,7 @@ tad bhavatī tvaritataraṃ devīm upaniṣadam anunīya matsakāśam ānayatv�
 
 [6,8]
 
-śāntiḥ — ((upasṛtya))amba, kiṃ mantrayantī kva prasthitāsi?
+śāntiḥ — ((upasṛtya)) amba, kiṃ mantrayantī kva prasthitāsi?
 
 [6,9]
 
@@ -3151,7 +3156,7 @@ madhumatīṃ ca bhūmim āpannaḥ, sthānābhimāninībhir devatābhir upaccha
 
 	kanakasikatilasthalāḥ sravantīḥ,
 	pṛthujaghanāḥ kamalānanā varorūḥ |
-	marakatadalakomalā vanālir
+	marakatadalakomalā vanā≤lī≥«li»r
 	bhaja! nijapuṇyajitāṃś ca sarvabhogān” || 6.6 ||
 
 [6,30]
@@ -3250,11 +3255,10 @@ upaniṣat — sakhi! kathaṃ tathā niranukrośasya svāmino mukham ālokayi�
 
 [6,52]
 
-upaniṣat — sakhi, na dṛṣṭā tvayā me tādṛśī avasthā, yenaivaṃ bravīsi | śṛṇu —
+upaniṣat — sakhi, na dṛṣṭā tvayā me tādṛśy avasthā, yenaivaṃ bravīsi | śṛṇu —
 
 	bāhvor bhagnā dalitamaṇayaḥ śreṇayaḥ kaṅkaṇānāṃ,
 	cūḍāratnagrahanikṛtibhir dūṣitaḥ keśapāśaḥ |
-
 	kaiḥ kair nāhaṃ hatavidhibalād īhitā durvidagdhair
 	dāsīkartuṃ sapadi duritair dūrasaṃsthe viveke || 6.9 ||
 
@@ -3329,7 +3333,7 @@ tad bhavān pitṛtvenāsmāsu vartatām ity eṣa eva dharmaḥ |
 
 [6,70]
 
-((upaniṣat upasarpati |))
+((upaniṣad upasarpati |))
 
 [6,71]
 
@@ -3434,7 +3438,6 @@ rājā — ((sopahāsam)) aho! dhūmāndhakāraśyāmalitadṛśo duṣprajñatv
 <256>
 
 	ayaḥ svabhāvād acalaṃ balāc cala-
-
 	ty acetanaṃ cumbakasannidhāv iva |
 	tanoti viśvekṣitur īkṣiteritā
 	jaganti māyeśvarateyam īśituḥ || 6.16 ||
@@ -3545,7 +3548,6 @@ rājā — aho! durmatayas tarkavidyā etad api na jānanti! sarvaṃ prameyajā
 	ambhaḥśītakarāntarikṣanagarasvapnendrajālādivat,
 	kāryaṃ meyam asatyam etad, udayadhvaṃsādiyuktaṃ jagat |
 	śuktau rūpyam iva, srajīva bhujagaḥ, svātmāvabodhe harāv
-
 	ajñāte prabhavaty, athāstam ayate tattvāvabodhodayāt || 6.22 ||
 
 <264>
@@ -3630,7 +3632,7 @@ upaniṣat — evam etat | tathā hi —_
 
 puruṣaḥ — ((vivekaṃ prati)) bhagavan, uktam apy arthaṃ bhagavatyā na samyag avadhārayāmi |
 
-	avachinnasya bhinnasya,
+	avachinna≤syav bhi≥«sya bhi»nnasya,
 	jarāmaraṇadharmiṇaḥ |
 	mama bravīti devīyaṃ
 	nityānandacidātmatām || 6.27 ||
@@ -3662,7 +3664,7 @@ puruṣaḥ — ((sānandaṃ śrutam arthaṃ paribhāvayati |))
 
 [6,148]
 
-nididhyāsanam — ādiṣṭo 'smi bhagavatyā viṣṇubhaktyā yathā, “nigūḍham asmadabhiprāyam upaniṣad vivekena saha bodhayitavyā | tvayā ca puruṣeṇa vastavyam” iti | ((vilokya)) eṣā devī vivekapuruṣābhyāṃ nātidūre vartate | yāvad upasarpāmi | ((upasṛtya upaniṣadaṃ prati janāntikam |)) devyā viṣṇubhaktyā samādiṣṭaṃ yathā — “saṃkalpayonayo devatā bhavanti | mayā ca samādhānena viditaṃ tathā āpannasattvā bhavatīti | tatra ca krūrasattvā vidyā nāma kanyā tvadudare vartate prabodhacandraś ca | tatra vidyāṃ saṅkarṣaṇavidyayā manasi saṅkrāmayiṣyasi | prabodhacandraṃ puruṣe samarpya vatsavivekena saha matsamīpam āgamiṣyasīti |”
+nididhyāsanam — ādiṣṭo 'smi bhagavatyā viṣṇubhaktyā yathā, “nigūḍham asmadabhiprāyam upaniṣad vivekena saha bodhayitavyā | tvayā ca puruṣeṇa vastavyam” iti | ((vilokya)) eṣā devī vivekapuruṣābhyāṃ nātidūre vartate | yāvad upasarpāmi | ((upasṛtya upaniṣadaṃ prati janāntikam |)) devyā viṣṇubhaktyā samādiṣṭaṃ yathā — “saṃkalpayonayo devatā bhavanti | mayā ca samādhānena viditaṃ ta≤thāpa≥«thā āpa»nnasattvā bhavatīti | tatra ca krūrasattvā vidyā nāma kanyā tvadudare vartate prabodhacandraś ca | tatra vidyāṃ saṅkarṣaṇavidyayā manasi saṅkrāmayiṣyasi | prabodhacandraṃ puruṣe samarpya vatsavivekena saha matsamīpam āgamiṣyasīti |”
 
 [6,149]
 
@@ -3717,7 +3719,6 @@ puruṣaḥ — ((sāhlādam)) ehi putra! pariṣvajasva mām!
 puruṣaḥ — ((āliṅgya sānandam)) aho! vighaṭitatimirapaṭalaṃ saṃjātam! tathā hi —
 
 	mohāndhakāram avadhūya, vikalpanidrām
-
 	unmathya, ko 'py ajani bodhatuṣāraraśmiḥ |
 	śraddhāvivekamatiśāntiyamādi yena
 	viśvātmakaḥ sphurati — viṣṇur ahaṃ sa eṣaḥ || 6.31 ||
@@ -3766,7 +3767,7 @@ puruṣaḥ — kiṃ ataḥ param api priyam asti? yataḥ —
 	praśāntārātir agamad vivekaḥ kṛtakṛtyatām |
 	nīrajaske sadānande pade cāhaṃ niveśitaḥ || 6.35 ||
 
-tathāpīdam astu bharatavākyam!
+tathāpīdam astu≤...≥ bharatavākyam!
 
 	parjanyo 'smin jagati mahatīṃ vṛṣṭim iṣṭāṃ vidhattāṃ |
 	rājānaḥ kṣmāṃ galitavividhopaplavāṃ pālayantu |
