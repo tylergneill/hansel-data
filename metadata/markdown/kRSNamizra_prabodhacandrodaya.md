@@ -96,14 +96,16 @@ CC BY-NC-SA 4.0
 
 # Digitization Notes
 
-- (2000s) M. Kapstein: Edited text based primarily on 1936 Trivandrum edition (see CSL vol. intro p. liii) plus some more material not found in the Kerala recension and sourced from other editions. Formatted as Word document.
+- (2000s) M. Kapstein: Edited text based primarily on 1936 Trivandrum edition (see CSL vol. intro p. liii) plus some more material not found in the Kerala recension and sourced from other editions. Formatted as Word document .
+- (Jan 2026) M. Kapstein: Submitted original files to HANSEL as series of Word docs. 
 - (May 2026) M. Kapstein: Submitted more corrections.
 - (Feb–June 2026) T. Neill: Processed for HANSEL.
 - (July–Aug 2026) H. Isaacson and T. Neill: Fixed a few typos.
+- (Oct 2026) T. Neill: Reoriented etext toward CSL edition (especially page markers and improvements) and fixed a few dozen more typos.
 
 # File Creation Method
 
-I (T. Neill) produced this HANSEL edition by manually converting M. Kapstein's submitted Word files into plain text, standardizing some punctuation, and adding structural markup for HANSEL. The text has been recently proofread by M. Kapstein.
+I (T. Neill) produced this HANSEL edition by manually converting M. Kapstein's submitted Word files into plain text, standardizing some punctuation, and adding structural markup for HANSEL. During that process, the text was also proofread by M. Kapstein. Subsequently, I purchased the eCSL EPUB and used claude-sanskrit-scribe to transcribe its CSL-Romanized content to plain-text, which allowed me to further improve the etext through direct juxtaposition.
 
 # Text Type
 
@@ -119,8 +121,8 @@ Roman-like (ity evam, not ityevam)
 
 # Text Last Updated
 
-2026-08-03
+2026-10-02
 
 # Metadata Last Updated 
 
-2026-08-03
+2026-10-02
