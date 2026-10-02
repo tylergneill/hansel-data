@@ -2,14 +2,16 @@
 # --drama and --line-by-line are orthogonal: a drama text can have either, both, or neither.
 # --drama enables speech/stage-direction/Prakrit-chāyā parsing; it says nothing about coords.
 # --line-by-line emits <lb> for every physical source line; it works with any coordinate system.
+# --hide-milestones is display-only: <milestone> stays in the XML, hidden at render time.
 flag_map = {
-    "bANa_kAdambarI": '--line-by-line',
+    "bANa_kAdambarI": '--line-by-line --hide-milestones',
     "vAkyapadIyaprameyasaMgraha": '--line-by-line --extra-space-after-location',
     "zukasaptati_s": '--line-by-line --extra-space-after-location',
     "zukasaptati_o": '--line-by-line --extra-space-after-location',
     "kRSNamizra_prabodhacandrodaya": '--drama --chaya',
     "bhagavadajjuka": '--drama --line-by-line --chaya',
     "bhAskarabhaTTa_unmattarAghava": '--drama --line-by-line --chaya',
+    "virUpAkSadeva_unmattarAghava": '--drama --line-by-line --chaya',
 }
 
 # Maps text stem → (page_label, line_label) to override how editorial coordinates are displayed.

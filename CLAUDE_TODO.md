@@ -16,6 +16,33 @@ The `in_lg` parameter to `process_children()` is really "suppress line-break lab
 ### `--extra-space-after-location` in `convert_plaintext_to_xml.py`
 Defined as a CLI arg (line 22) but never used in txt-to-xml conversion — only meaningful in xml-to-txt. Must stay because `xml/regenerate.py` passes the same flag_map string to both directions and argparse would error if it were removed. Could be fixed by splitting flag_map into per-direction maps, but that's more churn than benefit right now.
 
+### `<sp>` duplicates the section loop's element rules — `convert_xml_to_html.py`
+Two loops decide how content renders: the section loop over `<div>` children (~line 1010)
+and the `<sp>` loop over speech children (~line 1029). Both independently handle `<p>`,
+`<lg>`, `<stage>` and coordinate markers, so any rule added to one must be added to the
+other by hand. Nothing enforces that, and the two have already drifted.
+
+Found via `<milestone>`, which ended up with four separate renderings depending only on
+where in the tree it landed: `<h2>` as a `<div>` child, `<h2>` from a milestone-only `<p>`,
+`<li class="milestone-verse">` inside an `<lg>`, and *nothing at all* inside an `<sp>`
+(virUpAkSadeva `<prastāvanā>` at txt line 123 — encoded correctly, present in the XML,
+silently dropped in HTML). Placement in the source decides visibility, which is not a
+distinction the markup is meant to carry.
+
+Fix: render each element type in one place — the shared `process_children()` walker that
+every path already funnels through — and let the loops handle only genuine container
+concerns (speaker attribution, speech divs, coordinate h2 placement). Removes the
+duplicate-by-hand requirement rather than adding a fifth special case next time.
+
+Scope: touches the main rendering loops, so needs the full-corpus diff (all 10 texts,
+XML structure + rich HTML) to confirm no output changes. Deferred as too broad to fold
+into the milestone work; the narrow fix there handles `<milestone>` in the shared walker.
+
+Related: `((iti niṣkrāntau))` closing a scene is absorbed into the preceding speaker's
+`<sp>` rather than closing it, which is what gave the following `<prastāvanā>` the wrong
+parent. Arguably an encoding question rather than a converter one — worth deciding
+separately whether a scene-closing stage direction should end the speech.
+
 ### `_is_condensed_lg()` duplication
 Identical 5-line helper in both `xml/convert_xml_to_plaintext.py` and `html/convert_xml_to_html.py`. Extracting to a shared module would require `sys.path` manipulation in both consumers (they run as standalone scripts from different directories). Not worth the import complexity for 5 lines.
 
