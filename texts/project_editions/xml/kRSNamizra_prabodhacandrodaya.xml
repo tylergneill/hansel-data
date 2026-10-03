@@ -182,7 +182,7 @@
             <seg type="prakrit" xml:lang="pra-Latn">accariaṃ accariaṃ | jeṇa taha ṇiabhuabalavikkamekkaṇibbhacchiasaalarāamaṇḍaleṇa ākaṇṇākiṭṭhakaṭhiṇakoaṇḍadaṇḍabahalaghaṇavarisantasantaasaradhārāṇiarajajjarijjantaturaṃga<pb n="10"/>taraṃgamālaṃ, ṇirantaraṇivaḍantatikkhakhaggavikkhittasahatthasatthapaliattottuṅgamāaṅgamahāmahīharasahassaṃ, bhamantabhuadaṇḍamandalāhihādaghuṇṇantasaalapattisalilasa<choice>
                 <sic>ṇghā</sic>
                 <corr>ṃghā</corr>
-              </choice>aṃ, kaṇṇaseṇṇasāaraṃ ṇimmahia | mahumahaṇeṇavva khīrasamuddaṃ āsādiā; samaravijaalacchī | tassa saṃpadaṃ saalamuṇiaṇasilāaṇijjo kahaṃ īriso uvasamo saṃvutto |<seg type="chāyā" xml:lang="san-Latn">āścaryam, āścaryam! yena tathā nijabhujabalavikramaikanirbhartsitasakalarājamaṇḍalenākarṇākṛṣṭakaṭhinakodaṇḍadaṇḍabahalaghanavarṣatsantataśaradhārānikarajarjaratturaṅgataraṅgamālaṃ nirantaranipatattīkṣṇakhadgavikṣiptasvahastaśastraparyastottuṅgamātaṅgamahāmahīdharasahasram bhramadbhujadaṇḍamandarābhighātaghūrṇamānasakalapattisalilasaṃghātaṃ karṇasainyasāgaraṃ nirmathya madhumathaneneva kṣīrasamudram āsāditā samaravijayalakṣmīḥ | tasya sāmprataṃ sakalamunijanaślāghanīyaḥ katham īdṛśa upaśamaḥ saṃvṛttaḥ |</seg>
+              </choice>aṃ, kaṇṇaseṇṇasāaraṃ ṇimmahia | mahumahaṇeṇa vva khīrasamuddaṃ āsādiā; samaravijaalacchī | tassa saṃpadaṃ saalamuṇiaṇasilāaṇijjo kahaṃ īriso uvasamo saṃvutto |<seg type="chāyā" xml:lang="san-Latn">āścaryam, āścaryam! yena tathā nijabhujabalavikramaikanirbhartsitasakalarājamaṇḍalenākarṇākṛṣṭakaṭhinakodaṇḍadaṇḍabahalaghanavarṣatsantataśaradhārānikarajarjaratturaṅgataraṅgamālaṃ nirantaranipatattīkṣṇakhadgavikṣiptasvahastaśastraparyastottuṅgamātaṅgamahāmahīdharasahasram bhramadbhujadaṇḍamandarābhighātaghūrṇamānasakalapattisalilasaṃghātaṃ karṇasainyasāgaraṃ nirmathya madhumathaneneva kṣīrasamudram āsāditā samaravijayalakṣmīḥ | tasya sāmprataṃ sakalamunijanaślāghanīyaḥ katham īdṛśa upaśamaḥ saṃvṛttaḥ |</seg>
             </seg>
           </p>
         </sp>
@@ -307,7 +307,7 @@
         <sp who="ratiḥ">
           <speaker>ratiḥ</speaker>
           <p n="1,49" xml:id="p1_l49">
-            <seg type="prakrit" xml:lang="pra-Latn">ajjaütta jaï evvaṃ, tā kiṃ ṇimittaṃ tumhāṇaṃ soarāṇaṃ vi īrisaṃ veram?<seg type="chāyā" xml:lang="san-Latn">āryaputra, yady evaṃ, tat kinnimittaṃ yuṣmākaṃ sodarāṇām apīdṛśaṃ vairam?</seg>
+            <seg type="prakrit" xml:lang="pra-Latn">ajjaütta jaï evvaṃ, tā kiṃṇimittaṃ tumhāṇaṃ soarāṇaṃ vi īrisaṃ veram?<seg type="chāyā" xml:lang="san-Latn">āryaputra, yady evaṃ, tat kinnimittaṃ yuṣmākaṃ sodarāṇām apīdṛśaṃ vairam?</seg>
             </seg>
             <pb n="24"/></p>
         </sp>
@@ -316,7 +316,7 @@
           <lg xml:id="p1_l50" n="1,50">
             <head>priye,</head>
             <l>ekāmiṣaprabhavam eva mahīpatīnām<caesura/>ujjṛmbhate jagati vairam iti prasiddham |</l>
-            <l>pṛthvīnimittam abhavat kurupāṇḍavānāṃ<caesura/>tīvras tathā hi bhuvanakṣayakṛdvirodhaḥ || 1.18 ||</l>
+            <l>pṛthvīnimittam abhavat kurupāṇḍavānāṃ<caesura/>tīvras tathā hi bhuvanakṣayakṛd virodhaḥ || 1.18 ||</l>
           </lg>
           <p>sarvam evaitaj jagad asmākaṃ pitryam upārjanaṃ, tac cāsmābhis tātavallabhatayā sarvam evākrāntam, teṣāṃ tu viralaḥ pracāraḥ | tenaite pāpāḥ sāṃprataṃ pitaram asmāṃś conmūlayitum udyatāḥ! </p>
         </sp>
@@ -485,7 +485,7 @@
           <lg xml:id="p1_l88" n="1,88">
             <head>priye,</head>
             <l>satatadhṛtir apy uccaiḥ śānto 'py avāptamahodayo<caesura/>'py adhigatanayo 'py antaḥsvaccho 'py udīritadhīr api |</l>
-            <l>tyajati sahajaṃ dhairyaṃ strībhiḥ pratāritamānasaḥ.<caesura/><pb n="36"/>svam api yad ayaṃ māyāsaṅgāt pumān iti vismṛtaḥ? || 1.25 ||</l>
+            <l>tyajati sahajaṃ dhairyaṃ strībhiḥ pratāritamānasaḥ.<caesura/><pb n="36"/> svam api yad ayaṃ māyāsaṅgāt pumān iti vismṛtaḥ? || 1.25 ||</l>
           </lg>
         </sp>
         <sp who="matiḥ">
@@ -528,7 +528,7 @@
         </sp>
         <sp who="rājā">
           <speaker>rājā</speaker>
-          <p n="1,98" xml:id="p1_l98">evam anayā durācārayā vicintitaṃ yad “ahaṃ tāvad gatayauvanā varṣīyasījātā | ayaṃ ca purāṇapuruṣaḥ svabhāvād eva viṣayarasavimukhaḥ | tataḥ svatanayam eva pārameśvarapade niveśayāmī”ti tam eva mātur abhiprāyam āsādya nitāntatatpratyāsannatayā tadrūpatām ivāpannena manasā navadvārāṇi purāṇi racayitvā | </p>
+          <p n="1,98" xml:id="p1_l98">evam anayā durācārayā vicintitaṃ yad “ahaṃ tāvad gatayauvanā varṣīyasī jātā | ayaṃ ca purāṇapuruṣaḥ svabhāvād eva viṣayarasavimukhaḥ | tataḥ svatanayam eva pārameśvarapade niveśayāmī”ti tam eva mātur abhiprāyam āsādya nitāntatatpratyāsannatayā tadrūpatām ivāpannena manasā navadvārāṇi purāṇi racayitvā | </p>
           <lg xml:id="p1_l98_2" n="1,98">
             <l>eko 'pi bahudhā teṣu vicchidyeva niveśitaḥ |</l>
             <l>svaceṣṭitam atho tasmin nidadhāti maṇāv iva || 1.28 ||</l>
@@ -860,10 +860,10 @@
           <p>api ca, na kevalaṃ jagad, ātmaiva tāvad amībhir vañcyate! tathā hi — </p>
           <lg xml:id="p2_l62_4" n="2,62">
             <l>tulyatve vapuṣāṃ mukhādyavayavair varṇakramaḥ kīdṛśo?<caesura/>yoṣeyaṃ vasu vā parasya tad amuṃ bhedaṃ na vidmo vayam |</l>
-            <l>hiṃsāyām athavā yatheṣṭagamane, strīṇāṃ parasvagrahe,<caesura/><pb n="68"/>kāryākāryakathāṃ tathāpi yad amī niṣpauruṣāḥ kurvate || 2.18 ||</l>
+            <l>hiṃsāyām athavā yatheṣṭagamane, strīṇāṃ parasvagrahe,<caesura/><pb n="68"/> kāryākāryakathāṃ tathāpi yad amī niṣpauruṣāḥ kurvate || 2.18 ||</l>
           </lg>
           <p>
-            <stage>vicintya, saślāgham |</stage> sarvathā lokāyatam eva śāstraṃ yatra pratyakśam eva pramāṇaṃ; pṛthivyaptejovāyavas tattvāni; arthakāmau puruṣārthau; bhūtany eva cetayante | nāsti paralokaḥ, mṛtyur evāpavargaḥ | tad etad asmadabhiprāyānubandhinā vācaspatinā praṇīya cārvākāya samarpitam | tena ca śiṣyopaśiṣyadvāreṇāsmilm̐ loke bahulīkṛtaṃ tantram | </p>
+            <stage>vicintya, saślāgham |</stage> sarvathā lokāyatam eva śāstraṃ yatra pratyakśam eva pramāṇaṃ; pṛthivyaptejovāyavas tattvāni; arthakāmau puruṣārthau; bhūtāny eva cetayante | nāsti paralokaḥ, mṛtyur evāpavargaḥ | tad etad asmadabhiprāyānubandhinā vācaspatinā praṇīya cārvākāya samarpitam | tena ca śiṣyopaśiṣyadvāreṇāsmilm̐ loke bahulīkṛtaṃ tantram | </p>
           <p xml:id="p2_l69" n="2,69">
             <stage>tataḥ praviśati cārvākaḥ śiṣyaś ca</stage>
           </p>
@@ -891,7 +891,7 @@
         <sp who="śiṣyaḥ">
           <speaker>śiṣyaḥ</speaker>
           <p n="2,76" xml:id="p2_l76">
-            <seg type="prakrit" xml:lang="pra-Latn">ācālia, jai eso evva puluattho jaṃ khajjae pijja<choice>
+            <seg type="prakrit" xml:lang="pra-Latn">ācālia, jaï eso evva puluattho jaṃ khajjae pijja<choice>
                 <sic>ea</sic>
                 <corr>ae</corr>
               </choice>, tā kitti edehiṃ titthiehiṃ saṃsālasokkhaṃ palihalia appā gholagholehiṃ palāasāṃtavaṇasaṭṭhakālāsaṇappahudihiṃ dukkhehiṃ khavijjadi |<seg type="chāyā" xml:lang="san-Latn">ācārya, yady eṣa eva puruṣārtho yat khādyate pīyate ca, tat kimity etais tairthikaiḥ saṃsārasaukhyaṃ parihṛtyātmā ghoraghoraiḥ parākasāntapanaṣaṣṭhakālāśanaprabhṛtibhir duḥkhaiḥ kṣapyate |</seg>
@@ -946,11 +946,10 @@
         </sp>
         <sp who="cārvākaḥ">
           <speaker>cārvākaḥ</speaker>
-          <p n="2,87" xml:id="p2_l87">devaprasādena kaler bhadram! nirvartitakartavyaśeṣaś ca devapādamūlaṃ draṣṭum icchati | yataḥ — </p>
+          <p n="2,87" xml:id="p2_l87">devaprasādena kaler bhadram! nirvartitakartavyaśeṣaś ca devapādamūlaṃ draṣṭum icchati | yataḥ — <pb n="74"/></p>
           <lg xml:id="p2_l87_2" n="2,87">
             <l>ājñām avāpya mahatīṃ dviṣatāṃ nikhātān<caesura/>nirvartya tāṃ sapadi labdhasukhaprasādaḥ |</l>
-            <l>
-              <pb n="74"/>uccaiḥ pramodam anumoditadarśanaḥ san<caesura/>dhanyo namasyati padāmburuhaṃ prabhūṇām || 2.24 ||</l>
+            <l>uccaiḥ pramodam anumoditadarśanaḥ san<caesura/>dhanyo namasyati padāmburuhaṃ prabhūṇām || 2.24 ||</l>
           </lg>
         </sp>
         <sp who="mahāmohaḥ">
@@ -969,7 +968,7 @@
             <l>agnihotraṃ trayo vedās<caesura/>tridaṇḍaṃ bhasmaguṇṭhanam |</l>
             <l>buddhipauruṣahīnānāṃ<caesura/>jīviketi bṛhaspatiḥ || 2.26 ||</l>
           </lg>
-          <p>tena kurukṣetrādiṣu tīrtheṣu tāvad devena svapne'pi vidyāprabodhodayo nāśaṅkanīyaḥ | </p>
+          <p>tena kurukṣetrādiṣu tīrtheṣu tāvad devena svapne 'pi vidyāprabodhodayo nāśaṅkanīyaḥ | </p>
         </sp>
         <sp who="mahāmohaḥ">
           <speaker>mahāmohaḥ</speaker>
@@ -1020,7 +1019,7 @@
         <sp who="puruṣaḥ">
           <speaker>puruṣaḥ</speaker>
           <p n="2,107" xml:id="p2_l107">
-            <seg type="prakrit" xml:lang="pra-Latn">ahake ukkaladesādo āado mhi | tattha sāalatīlasaṇṇivese pulisottamasaggidaṃ devadāadaṇam | tassiṃ madamāṇehiṃ bhaṭṭakehiṃ mahālāasaāsaṃ pesido mhi | <stage>vilokya</stage> esā vālāṇasī | edaṃ lāaülam | jāva ppavisāmi | <stage>praviśya</stage> eso bhaṭṭako, cavvākeṇa satthaṃ kiṃvi mantaanto ciṭṭhadi | bhodu uvasappāmi ṇam | <stage>upsṛtya</stage> jedu, jedu, bhaṭṭako! edaṃ pattaṃ ṇilūpañja<choice>
+            <seg type="prakrit" xml:lang="pra-Latn">ahake ukkaladesādo āado mhi | tattha sāalatīlasaṇṇivese pulisottamasaggidaṃ devadāadaṇam | tassiṃ madamāṇehiṃ bhaṭṭakehiṃ mahālāasaāsaṃ pesido mhi | <stage>vilokya</stage> esā vālāṇasī | edaṃ lāaülam | jāva ppavisāmi | <stage>praviśya</stage> eso bhaṭṭako, cavvākeṇa satthaṃ kiṃvi mantaanto ciṭṭhadi | bhodu uvasappāmi ṇam | <stage>upasṛtya</stage> jedu, jedu, bhaṭṭako! edaṃ pattaṃ ṇilūpañja<choice>
                 <sic>dū</sic>
                 <corr>du</corr>
               </choice> bhaṭṭako |<seg type="chāyā" xml:lang="san-Latn">aham utkaladeśād āgato 'smi | tatra sāgaratīrasanniveśe puruṣottamaśabditaṃ devatāyatanam | tasmin madamānābhyāṃ bhaṭṭārakābhyāṃ mahārājasakāśaṃ preṣito 'smi | eṣā vārāṇasī | etad rājakulam | yāvat praviśāmi | eṣa bhaṭṭārakaś cārvākeṇa sārdhaṃ kimapi mantrayaṃs tiṣṭhati | bhavatūpasarpāmy enam | jayatu jayatu bhaṭṭā<choice>
@@ -1056,7 +1055,7 @@
         <sp who="mahāmohaḥ">
           <speaker>mahāmohaḥ</speaker>
           <p n="2,112" xml:id="p2_l112">
-            <stage>patraṃ vācayati</stage> “svasti! śrīvārāṇasyāṃ mahārājādhirājaparameśvaramahāmohapādān puruṣottamāyatanād madamānau sāṣṭāṅgapātaṃ praṇamya vijñāpayataḥ | yathā bhadram avyāhatam! anyac ca, devī śāntir mātrā śraddhayā saha, vivekasya dautyam āpannā, vivekasaṃgamāya devīm upaniṣadam ahar niśaṃ pratibodhayati | api ca kāmasahacaro 'pi, <pb n="80"/> dharmo vairāgyādibhir upajapta iva lakṣyate | yataḥ, kāmād vibhidya kutaścin nigūḍhaḥ pracarati | tad etaj jñātvā, tatra devaḥ pramāṇam” iti |  </p>
+            <stage>patraṃ vācayati</stage> “svasti! śrīvārāṇasyāṃ mahārājādhirājaparameśvaramahāmohapādān puruṣottamāyatanād madamānau sāṣṭāṅgapātaṃ praṇamya vijñāpayataḥ | yathā bhadram avyāhatam! anyac ca, devī śāntir mātrā śraddhayā saha, vivekasya dautyam āpannā, vivekasaṃgamāya devīm upaniṣadam aharniśaṃ pratibodhayati | api ca kāmasahacaro 'pi, <pb n="80"/> dharmo vairāgyādibhir upajapta iva lakṣyate | yataḥ, kāmād vibhidya kutaścin nigūḍhaḥ pracarati | tad etaj jñātvā, tatra devaḥ pramāṇam” iti |  </p>
         </sp>
         <sp who="mahāmohaḥ">
           <speaker>mahāmohaḥ</speaker>
@@ -1111,11 +1110,10 @@
         </sp>
         <sp who="lobhaḥ">
           <speaker>lobhaḥ</speaker>
-          <p n="2,125" xml:id="p2_l125">are! madupagṛhītā manorathasaritparamparām api tāvan na tariṣyanti kiṃ punaḥ śāntyādīṃś cintayiṣyanti | paśya — </p>
+          <p n="2,125" xml:id="p2_l125">are! madupagṛhītā manorathasaritparamparām api tāvan na tariṣyanti kiṃ punaḥ śāntyādīṃś cintayiṣyanti | paśya — <pb n="84"/></p>
           <lg xml:id="p2_l125_2" n="2,125">
             <l>santy ete mama dantino madajalapramlānagaṇḍasthalā.<caesura/>vātavyāyatapātinaś ca turagā — bhūyo 'pi lapsye 'parān! |</l>
-            <l>
-              <pb n="84"/>etal labdham, idaṃ labhe; punar idaṃ labdhvādhikaṃ dhyāyatāṃ<caesura/>cintājarjaracetasāṃ bata nṛṇāṃ, kā nāma śānteḥ kathā? || 2.30 ||</l>
+            <l>etal labdham, idaṃ labhe; punar idaṃ labdhvādhikaṃ dhyāyatāṃ<caesura/>cintājarjaracetasāṃ bata nṛṇāṃ, kā nāma śānteḥ kathā? || 2.30 ||</l>
           </lg>
         </sp>
         <sp who="krodhaḥ">
@@ -1151,7 +1149,10 @@
         <sp who="tṛṣṇā">
           <speaker>tṛṣṇā</speaker>
           <p n="2,136" xml:id="p2_l136">
-            <seg type="prakrit" xml:lang="pra-Latn">ajjaütta, saaṃ jevva dāva ahaṃ edassiṃ atthe ṇiccaṃ ahijuttā | saṃpadaṃ ajjaüttassa aṇṇāe bamhaṇḍakoḍīhiṃ pi ṇa me udaraṃ pūraïssa<supplied>ṃ</supplied>di!<seg type="chāyā" xml:lang="san-Latn">āryaputra, svayam eva tāvad aham etasminn arthe nityam abhiyuktā | sāṃpratam āryaputrasyājñayā brahmāṇḍakoṭibhir api na me udaraṃ pūrayiṣyate |</seg>
+            <seg type="prakrit" xml:lang="pra-Latn">ajjaütta, saaṃ jevva dāva ahaṃ edassiṃ atthe ṇiccaṃ ahijuttā | saṃpadaṃ ajjaüttassa aṇṇāe bamhaṇḍakoḍīhiṃ pi ṇa me udaraṃ pūraï<choice>
+                <sic>ssa</sic>
+                <corr>ssaṃ</corr>
+              </choice>di!<seg type="chāyā" xml:lang="san-Latn">āryaputra, svayam eva tāvad aham etasminn arthe nityam abhiyuktā | sāṃpratam āryaputrasyājñayā brahmāṇḍakoṭibhir api na me udaraṃ pūrayiṣyate |</seg>
             </seg>
           </p>
         </sp>
@@ -1689,7 +1690,7 @@
         <sp who="kṣapaṇakaḥ">
           <speaker>kṣapaṇakaḥ</speaker>
           <p n="3,53" xml:id="p3_l53">
-            <stage>bhikṣum ālokyoccaiḥ śabdam</stage>
+            <stage>bhikṣum ālokyoccaiḥśabdam</stage>
             <seg type="prakrit" xml:lang="pra-Latn">alele! bhikkhua! ido dāva | kiṃ pi pucchissam |<seg type="chāyā" xml:lang="san-Latn">arere! bhikṣuka! itas tāvat | kim api pṛcchāmi |</seg>
             </seg>
           </p>
@@ -2455,17 +2456,16 @@
             <l>kāntety, utpalalocaneti, vipulaśroṇībharety, unnamat-<caesura/>pīnottuṅgapayodhareti, sumukhāmbhojeti, subhrūr iti |</l>
             <l>dṛṣṭvā mādyati modate 'bhiramate prastauti vidvān api<caesura/>pratyakṣāśuciputrikāṃ striyam. aho mohasya duśceṣṭitam! || 4.9 ||</l>
           </lg>
-          <p>api ca yathāvastu vicārayatām amandamatīnām api piśitapiṇḍāvanaddhāsthipañjaramayī svabhāvadurgandhabībhatsaveṣā nārīti nāsti vimatiḥ | tatra vispaṣṭa eva tāvad itaraguṇādhyāsaḥ | tathā hi — </p>
+          <p>api ca yathāvastu vicārayatām amandamatīnām api piśitapiṇḍāvanaddhāsthipañjaramayī svabhāvadurgandhabībhatsaveṣā nārīti nāsti vimatiḥ | tatra vispaṣṭa eva tāvad itaraguṇādhyāsaḥ | tathā hi — <pb n="156"/></p>
           <lg xml:id="p4_l38_3" n="4,38">
             <l>muktāhāralatā raṇanmaṇimayā haimās tulākoṭayo<caesura/>rāgaḥ kuṅkumasaṃbhavaḥ surabhayaḥ pauṣpā vicitrāḥ srajaḥ |</l>
-            <l>
-              <pb n="156"/>vāsaś citradukūlam alpamatibhir nāryām aho kalpitam<caesura/>bāhyāntaḥ paripaśyatāṃ tu nirayaṃ nārīti nāmnā kṛtaṃ || 4.10 ||</l>
+            <l>vāsaś citradukūlam alpamatibhir nāryām aho kalpitam<caesura/>bāhyāntaḥ paripaśyatāṃ tu nirayaṃ nārīti nāmnā kṛtaṃ || 4.10 ||</l>
           </lg>
           <p>
             <stage>ākāśe</stage> āḥ! pāpa kāmacaṇḍāla! kim evam anālambanam evāvirbhavatā bhavatā vyākulīkriyate mahājanaḥ? tathā hy ayam evaṃ manyate — </p>
           <lg xml:id="p4_l38_4" n="4,38">
             <l>“bālā mām iyam icchatīnduvadanā sānandam udvīkṣate<caesura/>nīlendīvaralocanā mama pa<choice>
-                <sic>ra</sic>
+                <sic>ri</sic>
                 <corr>rī</corr>
               </choice>rambhaṃ bhṛśaṃ vāñchati |”<caesura/></l>
           </lg>
@@ -2597,7 +2597,7 @@
         <sp who="kṣamā">
           <speaker>kṣamā</speaker>
           <p n="4,73" xml:id="p4_l73">
-            <stage>upaviśya</stage> ājñāpayatu devaḥ | kim artham āhūto dāsajanaḥ? </p>
+            <stage>upaviśya</stage> ājñāpayatu devaḥ | kimartham āhūto dāsajanaḥ? </p>
         </sp>
         <sp who="rājā">
           <speaker>rājā</speaker>
@@ -2619,8 +2619,8 @@
           <speaker>kṣamā</speaker>
           <p n="4,78" xml:id="p4_l78">deva, vijñāpayāmi | </p>
           <lg xml:id="p4_l78_2" n="4,78">
-            <l>“kruddhe — smeramukhāvadhīraṇam, athāviṣṭe — prasādakramo,<caesura/>vyākrośe — kuśaloktir, ātmaduritocchedotsavastāḍane |</l>
-            <l>dhig! jantor ajitātmano 'sya mahatī daivād upetā vipad<caesura/><pb n="166"/>durvāre”ti dayārasārdramanasaḥ, krodhasya kutrodayaḥ? || 4.19 ||</l>
+            <l>“kruddhe — smeramukhāvadhīraṇam, athāviṣṭe — prasādakramo,<caesura/>vyākrośe — kuśaloktir, ātmaduritocchedotsavas tāḍane |</l>
+            <l>dhig! jantor ajitātmano 'sya mahatī daivād upetā vipad<caesura/><pb n="166"/> durvāre”ti dayārasārdramanasaḥ, krodhasya kutrodayaḥ? || 4.19 ||</l>
           </lg>
         </sp>
         <sp who="rājā">
@@ -2661,10 +2661,10 @@
         </sp>
         <sp who="santoṣaḥ">
           <speaker>santoṣaḥ</speaker>
-          <p n="4,85" xml:id="p4_l85_2">
+          <p n="4,86" xml:id="p4_l86">
             <stage>vicintya sānukrośam</stage>
             <pb n="168"/></p>
-          <lg xml:id="p4_l85_3" n="4,85">
+          <lg xml:id="p4_l86_2" n="4,86">
             <l>phalaṃ svecchālabhyaṃ prativanam akhedaṃ kṣitiruhāṃ |</l>
             <l>payaḥ sthāne sthāne śiśiramadhuraṃ puṇyasaritām |</l>
             <l>mṛdusparśā śayyā sulalitalatāpallavamayī |</l>
@@ -2672,12 +2672,12 @@
           </lg>
           <p>
             <stage>ākāśe</stage> are mūrkha! durucchedaḥ khalv ayaṃ bhavato vyāmohaḥ | tathā hi — </p>
-          <lg xml:id="p4_l85_4" n="4,85">
+          <lg xml:id="p4_l86_3" n="4,86">
             <l>samārambhā bhagnāḥ kati kati na vārāṃs tava paśoḥ,<caesura/>pipāsos tucche 'smin draviṇamṛgatṛṣṇārṇavajale? |</l>
-            <l>tathāpi pratyāśā viramati na te? nāpi śatadhā<caesura/>vidīrṇaṃ yacceto niyatam aśanigrāvaghaṭitam? || 4.21 ||</l>
+            <l>tathāpi pratyāśā viramati na te? nāpi śatadhā<caesura/>vidīrṇaṃ yac ceto niyatam aśanigrāvaghaṭitam? || 4.21 ||</l>
           </lg>
           <p>idaṃ ca te lobhāndhasya ceṣṭitaṃ cetasi camatkāram ātanoti! yataḥ — <pb n="170"/></p>
-          <lg type="group" n="4,85" xml:id="p4_l85_5">
+          <lg type="group" n="4,86" xml:id="p4_l86_4">
             <lg>
               <l>“lapsye, labdham idaṃ ca, labhyam adhikaṃ; tanmūlalabhyaṃ tato<caesura/>labhyaṃ cāparam |” ity anāratam aho labhyaṃ dhanaṃ dhyāyasi |</l>
               <l>naitad vetsi — punar bhavantam acirād āśāpiśācī balāt<caesura/>sarvagrāsam iyaṃ grasiṣyati, mahālobhāndhakā<choice>
@@ -2775,7 +2775,9 @@
         </sp>
         <sp who="sārathiḥ">
           <speaker>sārathiḥ</speaker>
-          <p n="4,113" xml:id="p4_l113">deva! sajjīkṛto rathaḥ | tad ārohatv, āyuṣmān | <stage>rājā kṛtamaṅgalavidhir ārohaṇaṃ nāṭayati |</stage>
+          <p n="4,113" xml:id="p4_l113">deva! sajjīkṛto rathaḥ | tad ārohatv, āyuṣmān | </p>
+          <p xml:id="p4_l114" n="4,114">
+            <stage>rājā kṛtamaṅgalavidhir ārohaṇaṃ nāṭayati |</stage>
           </p>
         </sp>
         <sp who="sārathiḥ">
@@ -2937,7 +2939,7 @@
           <p n="5,26" xml:id="p5_l26">ākarṇayatu bhavatī | devyām ādikeśavāyatanād apakrāntāyām eva, kiñcid utsṛṣṭapāṭalimni bhagavati bhāsvati, vijayaghoṣaṇāhūyamānānekavaravīrabahulatarasiṃhanādabadhiritadigante, saṃtatarathaturaṅgakhurakhaṇḍitabhūmaṇḍalocchaladvipularajaḥpaṭalāntaritakiraṇamālini, prabalatarakarṇatālāsphālanoccalatsamadakarikumbhasindūrasandhyāyamānadaśadiśi, pralayajaladharadhvānabhīṣanarave, teṣām asmākaṃ ca saṃnaddhe sainyasāgare, mahārājavivekena naiyāyikaṃ darśanaṃ dautye prahitam | gatvā ca tenokto mahāmohaḥ — <pb n="194"/></p>
           <lg xml:id="p5_l26_2" n="5,26">
             <l>“viṣṇor āyatanāny apāsya, saritāṃ kūlāny, araṇyasthalīḥ<caesura/>puṇyāḥ, puṇyakṛtāṃ manāṃsi ca, bhavān mlecchān vrajet sānugaḥ |</l>
-            <l>no cet, santu kṛpāṇadāritabhavatpratyaṅgadhārākṣarad<caesura/>raktasphītavidīrṇavaktravisarat pheṭkāriṇaḥ pheravāḥ” || 5.5 ||</l>
+            <l>no cet, santu kṛpāṇadāritabhavatpratyaṅgadhārākṣarad-<caesura/>raktasphītavidīrṇavaktravisaratpheṭkāriṇaḥ pheravāḥ” || 5.5 ||</l>
           </lg>
         </sp>
         <sp who="viṣṇubhaktiḥ">
@@ -3122,7 +3124,7 @@
           <p n="5,76" xml:id="p5_l76">vatsa, snehadoṣa eṣaḥ | prasiddha evāyam arthaḥ snehaḥ sarvānarthaprabhava iti | tathā hi — </p>
           <lg xml:id="p5_l76_2" n="5,76">
             <l>upyante viṣavallibījaviṣamāḥ kleśāḥ priyākhyā narais;<caesura/>tebhyaḥ snehamayā bhavanti nacirād, vajrāgnigarbhāṅkurāḥ |</l>
-            <l>yebhyo 'mī śataśaḥ kukūlahutabhugdāhaṃ dahantaḥ śanair<caesura/><pb n="212"/>dehaṃ dīptaśikhāsahasraśikharā rohanti śokadrumāḥ || 5.16 ||</l>
+            <l>yebhyo 'mī śataśaḥ kukūlahutabhugdāhaṃ dahantaḥ śanair<caesura/><pb n="212"/> dehaṃ dīptaśikhāsahasraśikharā rohanti śokadrumāḥ || 5.16 ||</l>
           </lg>
         </sp>
         <sp who="manaḥ">
@@ -3307,7 +3309,7 @@
             <stage>sānandam</stage> devi, evam etat, yad āha vatsaḥ | saṃprati hi — </p>
           <lg xml:id="p5_l120_2" n="5,120">
             <l>nāryas tā navayauvanā. madhukaravyāhāriṇas te drumāḥ.<caesura/>pronmīlannavamallikāsurabhayo mandās ta evānilāḥ |</l>
-            <l>adyodāttavivekamārjitatamaḥstomavyalīkaṃ punas<caesura/><pb n="224"/>tān etān mṛgatṛṣṇikārṇavapayaḥprāyān manaḥ paśyati || 5.32 ||</l>
+            <l>adyodāttavivekamārjitatamaḥstomavyalīkaṃ punas<caesura/><pb n="224"/> tān etān mṛgatṛṣṇikārṇavapayaḥprāyān manaḥ paśyati || 5.32 ||</l>
           </lg>
         </sp>
         <sp who="sarasvatī">
@@ -3333,7 +3335,7 @@
           <p n="5,126" xml:id="p5_l126">yamaniyamādayaś cāmātyāḥ sādaram āyuṣmatā draṣṭavyāḥ | etair eva sahāyuṣmān sāmrājyam anutiṣṭhatu | tvayi ca svāsthyam āpanne kṣetrajño 'pi svāṃ prakṛtim āpatsyate | yataḥ — </p>
           <lg xml:id="p5_l126_2" n="5,126">
             <l>tvatsaṅgāc chāśvato 'pi, prabhavalayajaropapluto, buddhivṛtti-<caesura/>ṣv eko nāneva, devo ravir iva jaladher vīciṣu vyastamūrtiḥ |</l>
-            <l>tūṣṇīm ālambase cet, katham api vitatā, vatsa, saṃhṛtya vṛttīr,<caesura/><pb n="226"/>bhāty ādarśe prasanne ravir iva sahajānandasāndras tadātmā || 5.33 ||</l>
+            <l>tūṣṇīm ālambase cet, katham api vitatā, vatsa, saṃhṛtya vṛttīr,<caesura/><pb n="226"/> bhāty ādarśe prasanne ravir iva sahajānandasāndras tadātmā || 5.33 ||</l>
           </lg>
           <p>tad bhavatu | jñātīnām udakakṛtyāya nadīm avatarāmaḥ | </p>
         </sp>
@@ -3784,11 +3786,10 @@
         </sp>
         <sp who="upaniṣat">
           <speaker>upaniṣat</speaker>
-          <p n="6,116" xml:id="p6_l116">tato mayā bahubhiḥ śiṣyair upāsyamānās tarkavidyā avalokitāḥ | </p>
+          <p n="6,116" xml:id="p6_l116">tato mayā bahubhiḥ śiṣyair upāsyamānās tarkavidyā avalokitāḥ | <pb n="262"/></p>
           <lg xml:id="p6_l116_2" n="6,116">
             <l>kācid dvitriviśeṣakalpanaparā, nyāyaiḥ parā tanvatī<caesura/>vādaṃ sacchalajātinigrahamayair jalpaṃ vitaṇḍām api |</l>
-            <l>
-              <pb n="262"/>anyā tu prakṛter vibhajya puruṣasyodāharantī bhidāṃ<caesura/>tattvānāṃ gaṇanāparā mahadahaṃkārādisargakramaiḥ || 6.21 ||</l>
+            <l>anyā tu prakṛter vibhajya puruṣasyodāharantī bhidāṃ<caesura/>tattvānāṃ gaṇanāparā mahadahaṃkārādisargakramaiḥ || 6.21 ||</l>
           </lg>
         </sp>
         <sp who="puruṣaḥ">
@@ -3833,7 +3834,7 @@
                 <sic>h</sic>
                 <corr>ḥ</corr>
               </choice> śreṇayaḥ kaṅkaṇānāṃ,<caesura/>cūḍāratnagrahanikṛtibhir dūṣitaḥ keśapāśaḥ |</l>
-            <l>chinnā muktāvalir, apahṛtam, srastam aṅgād dukūlam,<caesura/><pb n="266"/>bhītā gītāśramam atha galannūpurāhaṃ praviṣṭā || 6.24 ||</l>
+            <l>chinnā muktāvalir, apahṛtam, srastam aṅgād dukūlam,<caesura/><pb n="266"/> bhītā gītāśramam atha galannūpurāhaṃ praviṣṭā || 6.24 ||</l>
           </lg>
         </sp>
         <sp who="puruṣaḥ">
@@ -3909,9 +3910,7 @@
           <speaker>vivekaḥ</speaker>
           <lg xml:id="p6_l144" n="6,144">
             <head>ayam ucyate —</head>
-            <l>eṣo 'smīti vivicya, netipadataś cittena sārdhaṃ kṛte,<caesura/>tattvānāṃ vilaye cidātmani parijñāte tvamarthe punaḥ |</l>
-            <l>
-              <pb n="270"/>śrutvā tat tvam asīti, bādhitabhavadhvāntaṃ, tad ātmaprabhaṃ,<caesura/>śāntaṃ jyotir anantam antaruditānandaṃ samuddyotate || 6.28 ||</l>
+            <l>eṣo 'smīti vivicya, netipadataś cittena sārdhaṃ kṛte,<caesura/>tattvānāṃ vilaye cidātmani parijñāte tvamarthe punaḥ |	<pb n="270"/><caesura/>śrutvā tat tvam asīti, bādhitabhavadhvāntaṃ, tad ātmaprabhaṃ,<caesura/>śāntaṃ jyotir anantam antaruditānandaṃ samuddyotate || 6.28 ||</l>
           </lg>
         </sp>
         <sp who="puruṣaḥ">

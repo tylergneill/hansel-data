@@ -225,8 +225,8 @@
                     "coord_id": "2_107"
                 },
                 {
-                    "sic": "",
-                    "corr": "ṃ",
+                    "sic": "ssa",
+                    "corr": "ssaṃ",
                     "page": "2",
                     "line": "136",
                     "coord_id": "2_136"
@@ -358,7 +358,7 @@
                     "coord_id": "4_31"
                 },
                 {
-                    "sic": "ra",
+                    "sic": "ri",
                     "corr": "rī",
                     "page": "4",
                     "line": "38",
@@ -389,8 +389,8 @@
                     "sic": "ra",
                     "corr": "rā",
                     "page": "4",
-                    "line": "85",
-                    "coord_id": "4_85"
+                    "line": "86",
+                    "coord_id": "4_86"
                 },
                 {
                     "sic": " ",
