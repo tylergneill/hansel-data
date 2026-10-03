@@ -79,6 +79,20 @@ class HtmlConverter:
         self._scanner = None  # lazy skrutable Scanner, created on first staggered verse
 
     # --- Content Processing Functions ---
+    @staticmethod
+    def _ensure_trailing_space(element):
+        """Make the text currently ending element (its last child's tail, else its text) end in a space."""
+        if len(element) > 0:
+            last_elem = element[-1]
+            if last_elem.tail:
+                if not last_elem.tail.endswith(' '):
+                    last_elem.tail += ' '
+            else:
+                last_elem.tail = ' '
+        elif element.text:
+            if not element.text.endswith(' '):
+                element.text += ' '
+
     def append_text(self, element, text, strip_leading_whitespace=False, treat_as_plain=True):
         """Appends text to an lxml element, handling children correctly.
 
@@ -288,6 +302,10 @@ class HtmlConverter:
             self.process_children(l_element, li, treat_as_plain, in_lg=True)
             return
 
+        l_element = copy.deepcopy(l_element)
+        self._mark_pre_caesura_hyphens(l_element)
+        caesura = l_element.find('caesura')
+
         # Split at the first <caesura/> only: build two synthetic <l> wrappers.
         # A 4-pāda verse has 3 caesuras (after pādas 1, 2, 3); only the first is a
         # split point here — the rest must survive as ordinary children of second_l
@@ -322,8 +340,34 @@ class HtmlConverter:
             first_l.append(lb_node)
 
         self.process_children(first_l, li, treat_as_plain, in_lg=True)
+        if caesura.get(self.PRE_CAESURA_HYPHEN_ATTR):
+            etree.SubElement(li, "span", {"class": "hyphen"}).text = "-"
         etree.SubElement(li, "br", {"class": "lb-br rich-text"})
         self.process_children(second_l, li, treat_as_plain, in_lg=True)
+
+    # Internal marker set on a (copied) <caesura> whose preceding text ended in a hyphen.
+    PRE_CAESURA_HYPHEN_ATTR = "_hyphen_before"
+
+    def _mark_pre_caesura_hyphens(self, l_element):
+        """Move a word-break hyphen ending the text before each <caesura/> onto the caesura.
+
+        A text not encoded line-by-line has no <lb break="no"/> to carry a hyphen where a
+        word or compound runs on into the next pāda, so the source hyphen stays in the text
+        (e.g. "kṣobha-<caesura/>laṅghita"). In this joined (paragraph) rendering it must
+        behave like the <lb break="no"/> hyphen: shown only with the pāda break itself.
+        The caller renders a span.hyphen wherever the marker is set. Mutates l_element,
+        so pass a copy."""
+        for caesura in l_element.findall('caesura'):
+            prev = caesura.getprevious()
+            text = prev.tail if prev is not None else l_element.text
+            if not text or not text.rstrip().endswith('-'):
+                continue
+            stripped = text.rstrip()[:-1]
+            if prev is not None:
+                prev.tail = stripped
+            else:
+                l_element.text = stripped
+            caesura.set(self.PRE_CAESURA_HYPHEN_ATTR, "yes")
 
     def _render_l_as_spans(self, l_element, target_div, treat_as_plain, in_lg):
         """Render an <l> element as one or more <span> elements.
@@ -436,16 +480,7 @@ class HtmlConverter:
                     etree.SubElement(html_node, "span", {"class": "hyphen"}).text = "-"
                 elif not pb_hyphen_before:
                     # Ensure a space precedes a non-hyphenated break.
-                    if len(html_node) > 0:
-                        last_elem = html_node[-1]
-                        if last_elem.tail:
-                            if not last_elem.tail.endswith(' '):
-                                last_elem.tail += ' '
-                        else:
-                            last_elem.tail = ' '
-                    elif html_node.text:
-                        if not html_node.text.endswith(' '):
-                            html_node.text += ' '
+                    self._ensure_trailing_space(html_node)
 
                 line_n = child.get("n")
                 if line_n:
@@ -474,6 +509,11 @@ class HtmlConverter:
             elif child.tag == 'pb':
                 if child.get("break") == "no":
                     etree.SubElement(html_node, "span", {"class": "hyphen"}).text = "-"
+                elif child.tail and child.tail[:1].isspace():
+                    # The tail's leading space (the word boundary) is stripped once the
+                    # pb-label is flushed, so carry it before the break instead, as for <lb>.
+                    # A tail without one marks a mid-word page turn: leave it joined.
+                    self._ensure_trailing_space(html_node)
 
                 self.current_page = child.get("n")
                 self.current_line = "1"
@@ -525,6 +565,9 @@ class HtmlConverter:
             elif child.tag == 'unclear':
                 unclear_span = etree.SubElement(html_node, "span", {"class": "unclear", "title": "unclear"})
                 self.process_children(child, unclear_span, treat_as_plain, in_lg=in_lg)
+            elif child.tag == 'caesura' and child.get(self.PRE_CAESURA_HYPHEN_ATTR):
+                # Later caesura of a 4-pāda <l> (see _mark_pre_caesura_hyphens)
+                etree.SubElement(html_node, "span", {"class": "hyphen"}).text = "-"
             elif child.tag == 'stage':
                 if not treat_as_plain:
                     for _ in range(self.pending_breaks):

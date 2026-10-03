@@ -507,8 +507,10 @@ class TeiTextBuilder:
                     # so the NEXT line (verse/prose) gets counted as a new physical
                     # line — flag it so the next content emits its own leading <lb>
                     # (see pending_bare_cue_lb). No XML element is emitted for the
-                    # cue's own line itself.
-                    s.pending_bare_cue_lb = True
+                    # cue's own line itself. Only meaningful when line_by_line: otherwise
+                    # that <lb> would be the sole one in the text, and a later own-line
+                    # page marker would "replace" it with a <pb>, dropping its tail text.
+                    s.pending_bare_cue_lb = s.line_by_line
                     self._finalize_physical_line(line)
                 if trailing_text:
                     # Check if trailing text is a pending head (e.g. "priye —_").
@@ -630,7 +632,9 @@ class TeiTextBuilder:
 
         prefix = ""
         if use_tail and not s.prev_line_hyphen and not s.suppress_join_space:
-            if sink_el.tag in ('lb', 'pb'):
+            # <caesura> is the sink for a verse's next physical line when not line_by_line
+            # (no <lb> follows it), so it needs the same join space as <lb>.
+            if sink_el.tag in ('lb', 'pb', 'caesura'):
                 prefix = " "
         s.suppress_join_space = False
 
@@ -1127,8 +1131,13 @@ class TeiTextBuilder:
                     s.last_tail_text_sink = None
     
         elif mode == "verse":
-            is_line_close = (bool(CLOSE_L_RE.search(post_text.rstrip())))
-            is_verse_close = (bool(COMBINED_VERSE_END_RE.search(post_text.rstrip())))
+            # A page marker ending the line (e.g. "punaḥ |\t<270>") leaves post_text empty;
+            # the danda before it still closes the line, so look past trailing markers.
+            close_text = post_text
+            if not close_text.strip() and filtered_matches and filtered_matches[-1]["handler"] == self._emit_pb_from_match:
+                close_text = content[:filtered_matches[-1]["match"].start()]
+            is_line_close = (bool(CLOSE_L_RE.search(close_text.rstrip())))
+            is_verse_close = (bool(COMBINED_VERSE_END_RE.search(close_text.rstrip())))
 
             if not is_line_close and content:
                 s.current_caesura = etree.SubElement(s.current_l, "caesura")
