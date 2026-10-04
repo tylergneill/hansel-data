@@ -54,9 +54,8 @@ STAGGERED_VERSE_CUE_RE = re.compile(r"^(\S+ —)(\t+)(.*)$")
 STAGE_DIRECTION_RE = re.compile(r"\(\(([^)]+)\)\)")
 PRAKRIT_RE = re.compile(r"˹([^˼]+)˼(?:\s*\((?!\()([^)]+)\))?")
 
-CHAR_FOR_PENDING_HEAD = "_"
-PENDING_HEAD_RE = re.compile(f"^(.*[\|—,])\s*{re.escape(CHAR_FOR_PENDING_HEAD)}$")
-PENDING_BACK_RE = re.compile(f"^{re.escape(CHAR_FOR_PENDING_HEAD)}(.*)$")
+CHAR_FOR_PENDING_BACK = "_"
+PENDING_BACK_RE = re.compile(f"^{re.escape(CHAR_FOR_PENDING_BACK)}(.*)$")
 
 # ----------------------------
 # Utility helpers
@@ -122,9 +121,6 @@ class TextBuildState:
 
     # verse group buffer
     verse_group_buffer: list[etree._Element] = field(default_factory=list)
-
-    # verse head buffer
-    pending_head_elem: Optional[etree._Element] = None
 
     # drama state
     current_sp: Optional[etree._Element] = None
@@ -513,37 +509,11 @@ class TeiTextBuilder:
                     s.pending_bare_cue_lb = s.line_by_line
                     self._finalize_physical_line(line)
                 if trailing_text:
-                    # Check if trailing text is a pending head (e.g. "priye —_").
-                    # When trailing_text is exactly "_", the punctuation
-                    # PENDING_HEAD_RE needs right before it is the speaker's own
-                    # em dash, which SPEAKER_RE already consumed out of
-                    # trailing_text — so match against the full line instead.
-                    pending_head_match = (PENDING_HEAD_RE.search(line) if trailing_text == CHAR_FOR_PENDING_HEAD
-                                           else PENDING_HEAD_RE.search(trailing_text))
-                    if pending_head_match:
-                        head_text = pending_head_match.group(1).strip()
-                        head_elem = etree.Element("head")
-                        head_elem.text = head_text
-                        s.pending_head_elem = head_elem
-                    else:
-                        # Open a <p> inside the <sp> for the trailing dialogue text
-                        self._open_location_for_sp()
-                        self._process_content_with_midline_elements(trailing_text, "prose", raw_line_for_hyphen_check=line)
-                        self._finalize_physical_line(line)
+                    # Open a <p> inside the <sp> for the trailing dialogue text
+                    self._open_location_for_sp()
+                    self._process_content_with_midline_elements(trailing_text, "prose", raw_line_for_hyphen_check=line)
+                    self._finalize_physical_line(line)
                 return
-
-        # verse starter on its own line (e.g. "uktaṃ ca |_")
-        pending_head_match = PENDING_HEAD_RE.search(line)
-        if pending_head_match:
-            self._close_p()
-            head_text = pending_head_match.group(1).strip()
-            head_elem = etree.Element("head")
-            head_elem.text = head_text
-            if s.line_by_line:
-                self._emit_lb(head_elem, "")
-
-            s.pending_head_elem = head_elem
-            return
 
         # verse back (e.g. "_iti |")
         pending_back_match = PENDING_BACK_RE.match(line)
@@ -798,9 +768,6 @@ class TeiTextBuilder:
 
         if working_lg is None:
             lg = etree.Element("lg")
-            if s.pending_head_elem is not None:
-                lg.append(s.pending_head_elem)
-                s.pending_head_elem = None
             if pre_tab.strip():
                 self._append_child_text(lg, "head", pre_tab)
                 pre_tab = ""

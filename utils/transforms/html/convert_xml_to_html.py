@@ -629,6 +629,14 @@ class HtmlConverter:
                 should_strip = (child.tag in ['lb', 'pb']) and not treat_as_plain
                 self.append_text(html_node, child.tail, strip_leading_whitespace=should_strip, treat_as_plain=treat_as_plain)
 
+    def _repeats_last_top_level_coord(self, n_attr):
+        """True if a top-level <p>/<lg> shares the location of the one just before it
+        (e.g. a prose lead-in and its verse, n="x,y" and xml:id …_2), in which case the
+        location marker was already emitted and must not be repeated. Records n_attr."""
+        repeat = n_attr == getattr(self, '_last_top_level_coord', None)
+        self._last_top_level_coord = n_attr
+        return repeat
+
     def _emit_editorial_coord_h2(self, content_div, n_attr):
         """Emit an editorial-coordinate <h3> to content_div for the given n attribute value.
 
@@ -1212,7 +1220,7 @@ class HtmlConverter:
                     self.current_verse = None
                     self.current_verse_part = None
                     n_attr = element.get("n")
-                    if n_attr:
+                    if n_attr and not self._repeats_last_top_level_coord(n_attr):
                         n_parts = n_attr.split(',')
                         page_part = n_parts[0].strip()
                         line_part = n_parts[1].strip() if len(n_parts) > 1 else "1"
@@ -1278,7 +1286,7 @@ class HtmlConverter:
                         is_condensed = _is_condensed_lg(element)
 
                     # Standard mode: emit location marker h2 before the verse
-                    if not is_condensed and n_attr:
+                    if not is_condensed and n_attr and not self._repeats_last_top_level_coord(n_attr):
                         if ',' not in n_attr:
                             raise ValueError(f"Standard-format <lg> has non-page,line n attribute: n=\"{n_attr}\". Use condensed verse format for verse-numbered lgs.")
 
