@@ -9,7 +9,7 @@
 	yat tattvaṃ viduṣāṃ nimīlati punaḥ, sragbhogibhogopamaṃ,
 	sāndrānandam upāsmahe tad amalaṃ svātmāvabodhaṃ mahaḥ || 1.1 ||
 
-api ca —_
+api ca —
 
 	antarnāḍīniyamitamarullaṅghitabrahmarandhraṃ,
 	svānte śāntipraṇayini samunmīlad ānandasāndram |
@@ -50,7 +50,7 @@ sūtradhāraḥ — ārye viditam eva bhavatyā —
 	gopālo bhūmipālān prasabham asilatāmitramātreṇa jitvā;
 	sāmrājye kīrtivarmā narapatitilako yena bhūyo 'bhyaṣeci || 1.4 ||
 
-api ca —_
+api ca —
 
 	adyāpy unmadayātudhānataruṇīcañcatkarāsphālana-
 	vyāvalgannṛkapālatālaraṇitair nṛtyatpiśācāṅganāḥ |
@@ -131,7 +131,7 @@ kāmaḥ — ((sakrodham, āḥ pāpeti pūrvoktam eva paṭhitvā)) nanu re re 
 	nipatanti dṛṣṭiviśikhā
 	yāvan nendīvarākṣīṇām || 1.11 ||
 
-api ca —_
+api ca —
 
 	ramyaṃ harmyatalaṃ, navāḥ sunayanā, guñjaddvirephā latāḥ,
 	pronmīlannavamallikā, surabhayo vātāḥ, sacandrāḥ kṣapāḥ |
@@ -153,7 +153,7 @@ kāmaḥ — priye, kutas tavedaṃ strīsvabhāvasulabhaṃ vivekād bhayam utp
 
 <20>
 
-tathā hi —_
+tathā hi —
 
 	ahalyāyā jāraḥ surapatir abhūd, ātmatanayāṃ
 	prajānātho 'yāsīd, abhajata guror indur abalām |
@@ -205,7 +205,7 @@ ratiḥ — ˹ajjaütta jaï evvaṃ, tā kiṃṇimittaṃ tumhāṇaṃ soarā
 
 [1,50]
 
-kāmaḥ — priye,_
+kāmaḥ — priye,
 
 <24>
 
@@ -345,7 +345,7 @@ matiḥ — ˹ajjaütta kiṃ appaṇo dosaṃ loo viāṇādi?˼
 
 [1,84]
 
-rājā — paśya —_
+rājā — paśya —
 
 	asāv ahaṅkāraparair durātmabhir
 	nibadhya taiḥ pāpaśaṭhair madādibhiḥ |
@@ -360,7 +360,7 @@ matiḥ — ˹ajjaütta, jado so sahaāṇandasundarasahāvo ṇiccappaāsapphur
 
 [1,88]
 
-rājā — priye,_
+rājā — priye,
 
 	satatadhṛtir apy uccaiḥ śānto 'py avāptamahodayo
 	'py adhigatanayo 'py antaḥsvaccho 'py udīritadhīr api |
@@ -446,7 +446,7 @@ matiḥ — ˹aṇṇāo tāo itthiāo, jāo sarasappaüttassa vā dhammapahavā
 
 [1,108]
 
-rājā — priye —_
+rājā — priye —
 
 	māninyāś ciraviprayogajanitāsūyākulāyā bhavec
 	chāntyāder anukūlanād upaniṣaddevyā mayā saṃgamaḥ |
@@ -776,14 +776,14 @@ cārvākaḥ — vatsa, jānāsi daṇḍanītir eva vidyā! atraiva vārtāntar
 	tato dāvāgnidagdhānāṃ
 	phalaṃ syād bhūri bhūruhām || 2.19 ||
 
-api ca —_
+api ca —
 
 <70>
 
 	nihatasya paśor yajñe svargaprāptir yadīṣyate |
 	svapitā yajamānena tatra kasmān na hanyate? || 2.20 ||
 
-api ca —_
+api ca —
 
 	mṛtānām api jantūnāṃ
 	śrāddhaṃ cet tṛptikāraṇam |
@@ -1012,7 +1012,7 @@ krodhaḥ — sakhe, viditas tvayā matprabhāvaḥ —
 	tvāṣṭraṃ vṛtram aghātayat surapatiś, candrārdhacūḍo 'cchinad
 	devo brahmaśiro, vasiṣṭhatanayān āghātayat kauśikaḥ |
 
-api cāhaṃ —_
+api cāhaṃ —
 
 	vidyāvanty api, kīrtimanty api, sadācārāvadātāny api,
 	proccaiḥ pauruṣabhūṣaṇāny api, kulāny uddhartum īśaḥ kṣaṇāt || 2.31 ||
@@ -1031,7 +1031,7 @@ tṛṣṇā — ˹ajjaütta āṇavedu!˼
 
 [2,134]
 
-lobhaḥ — priye, śrūyatām —_
+lobhaḥ — priye, śrūyatām —
 
 	kṣetragrāmavanādripattanapuradvīpakṣamāmaṇḍala-
 	pratyāśāyatasūtrabaddhamanasāṃ labdhādhikaṃ dhyāyatāṃ |
@@ -1161,7 +1161,7 @@ mithyādṛṣṭiḥ — ((upasṛtya)) ˹jaadu, jaadu, mahārāo!˼
 
 [2,165]
 
-mahāmohaḥ — priye —_
+mahāmohaḥ — priye —
 
 	dalitakucanakhāṅkam aṅkapālīṃ
 	racaya mamāṅkam upetya pīvaroru |
@@ -1187,7 +1187,7 @@ mithyādṛṣṭiḥ — ˹mahārāa, ahaṃ vi saṃpadaṃ ṇavajovvaṇā s
 
 [2,171]
 
-mahāmohaḥ — priye —_
+mahāmohaḥ — priye —
 
 	smaryate sā hi, vāmoru! cyutā yā hṛdayād bahiḥ |
 	maccittabhittau, bhavatī, śālabhañjīva rājate || 2.37 ||
@@ -1984,7 +1984,7 @@ maitrī — ((satrāsam)) ˹aho! hadāsā gholadaṃsaṇā! adha tāe āadāe k
 
 [4,13]
 
-śraddhā — śṛṇu —_
+śraddhā — śṛṇu —
 
 	śyenāvapātam avapatya padadvaye mām
 	ādāya dharmam apareṇa kareṇa ghorā |
@@ -2158,7 +2158,7 @@ rājā — sādhu, sādhu |
 
 [4,56]
 
-vastuvicāraḥ — api ca —_
+vastuvicāraḥ — api ca —
 
 	vipulapulināḥ kallolinyo nirantaranirjharī-
 	masṛṇitaśilāḥ śailāḥ sāndradrumā vanarājayaḥ |
@@ -2314,7 +2314,7 @@ idaṃ ca te lobhāndhasya ceṣṭitaṃ cetasi camatkāram ātanoti! yataḥ �
 	naitad vetsi — punar bhavantam acirād āśāpiśācī balāt
 	sarvagrāsam iyaṃ grasiṣyati, mahālobhāndhakā≤ra≥«rā»vṛtam || 4.22 ||
 
-api ca —_
+api ca —
 
 <170>
 
@@ -2325,7 +2325,7 @@ api ca —_
 
 [4,94]
 
-kiñca —_
+kiñca —
 
 	mṛtyur nṛtyati mūrdhni, śaśvad uragī ghorā jarārūpiṇī
 	tvām eṣā grasate, parigrahamayair gṛdhrair jagad grasyate |
@@ -2542,7 +2542,7 @@ viṣṇubhaktiḥ — vatse, etasmin vīravarakṣaye mahati sāmparāye jāte 
 
 [5,13]
 
-viṣṇubhaktiḥ — vatse —_
+viṣṇubhaktiḥ — vatse —
 
 	yady apy abhyudayaḥ prāyaḥ
 	pramāṇād avadhāryate |
@@ -2631,7 +2631,7 @@ viṣṇubhaktiḥ — tatas tataḥ?
 
 [5,34]
 
-śraddhā — tadanantaraṃ ca —_
+śraddhā — tadanantaraṃ ca —
 
 	sāṃkhyanyāyakaṇādabhāṣitamahābhāṣyādiśāstrair vṛtā,
 	sphūrjannyāyasahasrabāhunivahair uddyotayantī diśaḥ |
@@ -2646,7 +2646,7 @@ viṣṇubhaktiḥ — tatas tataḥ?
 
 [5,37]
 
-śraddhā — putri —_
+śraddhā — putri —
 
 	samānānvayajātānāṃ,
 	parasparavirodhinām |
@@ -2829,7 +2829,7 @@ sarasvatī — idaṃ cāparam akṛtyaṃ yad ātmahatyādhyavasāya iti | api 
 	dadhati virahe marmacchedaṃ, tadartham apārthakaṃ;
 	tad api vipulā≤yasāi≥«yāsai»ḥ sīdanty, aho bata! jantavaḥ || 5.17 ||
 
-api ca —_
+api ca —
 
 	tīrṇāḥ pūrṇāḥ kati na sarito? laṅghitāḥ ke na śailā?
 	nākrāntā vā kati vanabhuvaḥ, krūrasañcāraghorāḥ? |
@@ -2957,7 +2957,7 @@ vairāgyam — ((vicintya))
 	pratyagrakṣaradasravisrapiśitagrāsagrahaṃ gṛhṇato
 	gṛdhradhvāṅkṣavṛkāṃs tanau nipatataḥ ko vā kathaṃ vārayet? || 5.29 ||
 
-api ca —_
+api ca —
 
 	sadā lolā lakṣmīr — viṣayajarasāḥ, prāntavirasā;
 	vipadgehaṃ deho; mahad api dhanaṃ, bhūri nidhanam |
@@ -3117,7 +3117,7 @@ tad bhavatī tvaritataraṃ devīm upaniṣadam anunīya matsakāśam ānayatv�
 
 [6,17]
 
-śraddhā — śṛṇu, vatse —_
+śraddhā — śṛṇu, vatse —
 
 	nityānityavicāraṇā praṇayinī, vairāgyam ekaṃ suhṛt,
 	sanmitrāṇi yamādayaḥ, śamadamaprāyāḥ sakhāyo matāḥ |
@@ -3370,7 +3370,7 @@ puruṣaḥ — amba, kathyatām, kva bhavatyā nītā ete divasāḥ?
 
 [6,76]
 
-upaniṣat — svāmin —_
+upaniṣat — svāmin —
 
 	nītāny amūni maṭhacatvaraśūnyadevā-
 	gāreṣu mūrkhamukharaiḥ saha vāsarāṇi |
@@ -3396,7 +3396,7 @@ puruṣaḥ — tatas tataḥ?
 
 [6,83]
 
-upaniṣat — tataḥ, kadā cit —_
+upaniṣat — tataḥ, kadā cit —
 
 	kṛṣṇājināgnisamidājyajuhūsruvādi-
 	pātrais tatheṣṭipaśusomamukhair makhaiś ca |
@@ -3635,7 +3635,7 @@ puruṣaḥ — ((saharṣam)) katham? mamātmā parameśvaraḥ?
 
 [6,138]
 
-upaniṣat — evam etat | tathā hi —_
+upaniṣat — evam etat | tathā hi —
 
 	asau tvadanyo na sanātanaḥ pumān,
 	bhavān na devāt puruṣottamāt paraḥ |
@@ -3661,7 +3661,7 @@ puruṣaḥ — tadavabodhāya bhagavān upāyam ājñāpayatu |
 
 [6,144]
 
-vivekaḥ — ayam ucyate —_
+vivekaḥ — ayam ucyate —
 
 	eṣo 'smīti vivicya, netipadataś cittena sārdhaṃ kṛte,
 	tattvānāṃ vilaye cidātmani parijñāte tvamarthe punaḥ |	<270>
