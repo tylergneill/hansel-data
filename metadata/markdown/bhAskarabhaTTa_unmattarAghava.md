@@ -110,7 +110,7 @@ Devanāgarī-like (ityevam, not ity evam)
 
 # Text Last Updated
 
-2026-08-03
+2026-09-29
 
 # Metadata Last Updated 
 

@@ -3,6 +3,11 @@
     "has_toc": true,
     "toc": [
         {
+            "name": "nāndī",
+            "page": "1",
+            "id": "nāndī"
+        },
+        {
             "name": "prastāvanā",
             "page": "1",
             "id": "prastāvanā"
@@ -155,7 +160,7 @@
         {
             "type": "field",
             "label": "Text Last Updated",
-            "inline_text": "2026-08-03",
+            "inline_text": "2026-09-29",
             "content_html": ""
         },
         {
