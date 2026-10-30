@@ -124,9 +124,15 @@ def main(folder: str):
     version = version_content.splitlines()[0].split('"')[1]
 
     consolidated = {}
+    hidden = []
     all_warnings = []
     for md in metadata_markdown_in_dir.glob('*.md'):
         record = parse_markdown(md)
+        # "# Hidden" = true keeps a text off the website: its record is omitted and its
+        # filename listed under the top-level "hidden" key so the app can skip its files.
+        if str(record.get('Hidden', '')).strip().lower() == 'true':
+            hidden.append(record['Filename'])
+            continue
         translit_key = T.transliterate(md.stem)
         consolidated[translit_key] = record
         all_warnings.extend(validate_record(md.name, record))
@@ -151,8 +157,9 @@ def main(folder: str):
         if 'Additional Files' in consolidated[k]:
              consolidated[k]['Additional Files'] = parse_additional_files(consolidated[k]['Additional Files'])
 
-    # Add version to the consolidated data
+    # Add version and hidden list to the consolidated data
     consolidated['version'] = version
+    consolidated['hidden'] = sorted(hidden)
 
     metadata_json_file = root / 'metadata' / 'transforms' / 'metadata.json'
     metadata_json_file.write_text(json.dumps(consolidated, ensure_ascii=False, indent=2),
