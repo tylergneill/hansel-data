@@ -1,7 +1,3 @@
-# Hidden
-
-true
-
 # Title
 
 Unmattarāghava
