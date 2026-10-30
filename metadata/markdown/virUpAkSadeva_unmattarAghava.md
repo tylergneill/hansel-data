@@ -24,8 +24,8 @@ Krishnamacharya 1946
 
 # Edition
 
-- Editors: Vyākaraṇaśiromaṇi V. Krishnamacharya
-- Title: Unmattarāghava by Virūpāḳsadeva
+- Editor: Vyākaraṇaśiromaṇi V. Krishnamacharya
+- Title: Unmattarāghava by Virūpākṣadeva
 - Place: Madras \[Chennai\]
 - Publisher: The Adyar Library
 - Series: The Adyar Library Series
@@ -44,7 +44,7 @@ Krishnamacharya 1946
 
 - The complete work is extant.
 - The edition document contains a complete text.
-- The text fills 26 pages in the edition, with no intervening material.
+- The text fills 26 pages in the edition (pp. 1–26), with no intervening material.
 
 # File Size (KB)
 
@@ -58,7 +58,7 @@ Location markers (page,line) designate the start of each speech block or centere
 
 # Work Description
 
-Rāma Beside Himself (Unmattarāghava) is a one-act Sanskrit drama by the 15th-century Sangama king Virūpāḳsadeva that reimagines the famous golden deer episode of Vālmīki’s Rāmāyaṇa as an intensely lyrical study of madness (unmāda) occasioned by love in separation. In the traditional narrative, the demon Mārīca disguises himself as a golden deer in order to draw Rāma away and enable Rāvaṇa to abduct Sītā; Virūpāḳsadeva’s play...
+Rāma Beside Himself (Unmattarāghava) is a one-act Sanskrit drama by the 15th-century Sangama king Virūpākṣadeva that reimagines the famous golden deer episode of Vālmīki’s Rāmāyaṇa as an intensely lyrical study of madness (unmāda) occasioned by love in separation. In the traditional narrative, the demon Mārīca disguises himself as a golden deer in order to draw Rāma away and enable Rāvaṇa to abduct Sītā; Virūpākṣadeva’s play...
 
 # Genres
 
@@ -120,4 +120,4 @@ Devanāgarī-like (ityevam, not ity evam)
 
 # Metadata Last Updated 
 
-2026-09-15
+2026-10-30

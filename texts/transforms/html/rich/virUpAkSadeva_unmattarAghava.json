@@ -59,7 +59,7 @@
             "type": "field",
             "label": "Edition",
             "inline_text": null,
-            "content_html": "<ul>\n<li>Editors: Vyākaraṇaśiromaṇi V. Krishnamacharya</li>\n<li>Title: Unmattarāghava by Virūpāḳsadeva</li>\n<li>Place: Madras [Chennai]</li>\n<li>Publisher: The Adyar Library</li>\n<li>Series: The Adyar Library Series</li>\n<li>Series Part: 57</li>\n<li>Year: 1946</li>\n</ul>\n"
+            "content_html": "<ul>\n<li>Editor: Vyākaraṇaśiromaṇi V. Krishnamacharya</li>\n<li>Title: Unmattarāghava by Virūpākṣadeva</li>\n<li>Place: Madras [Chennai]</li>\n<li>Publisher: The Adyar Library</li>\n<li>Series: The Adyar Library Series</li>\n<li>Series Part: 57</li>\n<li>Year: 1946</li>\n</ul>\n"
         },
         {
             "type": "field",
@@ -71,7 +71,7 @@
             "type": "field",
             "label": "Extent",
             "inline_text": null,
-            "content_html": "<ul>\n<li>The complete work is extant.</li>\n<li>The edition document contains a complete text.</li>\n<li>The text fills 26 pages in the edition, with no intervening material.</li>\n</ul>\n"
+            "content_html": "<ul>\n<li>The complete work is extant.</li>\n<li>The edition document contains a complete text.</li>\n<li>The text fills 26 pages in the edition (pp. 1–26), with no intervening material.</li>\n</ul>\n"
         },
         {
             "type": "field",
@@ -88,7 +88,7 @@
         {
             "type": "field",
             "label": "Work Description",
-            "inline_text": "Rāma Beside Himself (Unmattarāghava) is a one-act Sanskrit drama by the 15th-century Sangama king Virūpāḳsadeva that reimagines the famous golden deer episode of Vālmīki’s Rāmāyaṇa as an intensely lyrical study of madness (unmāda) occasioned by love in separation. In the traditional narrative, the demon Mārīca disguises himself as a golden deer in order to draw Rāma away and enable Rāvaṇa to abduct Sītā; Virūpāḳsadeva’s play...",
+            "inline_text": "Rāma Beside Himself (Unmattarāghava) is a one-act Sanskrit drama by the 15th-century Sangama king Virūpākṣadeva that reimagines the famous golden deer episode of Vālmīki’s Rāmāyaṇa as an intensely lyrical study of madness (unmāda) occasioned by love in separation. In the traditional narrative, the demon Mārīca disguises himself as a golden deer in order to draw Rāma away and enable Rāvaṇa to abduct Sītā; Virūpākṣadeva’s play...",
             "content_html": ""
         },
         {
@@ -172,7 +172,7 @@
         {
             "type": "field",
             "label": "Metadata Last Updated",
-            "inline_text": "2026-09-15",
+            "inline_text": "2026-10-30",
             "content_html": ""
         },
         {
