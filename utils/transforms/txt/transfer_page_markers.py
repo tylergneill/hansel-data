@@ -34,6 +34,7 @@ MARKERS = {
 }
 
 CTX = 30
+FALLBACK_K = 500
 
 
 def marker_regex(value):
@@ -191,10 +192,10 @@ def pick_boundary_with_prior(hay, left, right, hits, expected_in_hay, scale_len,
 
 def trim_span_around(raw, i):
     a = i
-    while a > 0 and raw[a - 1] in " \t":
+    while a > 0 and raw[a - 1] in " \t\r\n":
         a -= 1
     b = i
-    while b < len(raw) and raw[b] in " \t":
+    while b < len(raw) and raw[b] in " \t\r\n":
         b += 1
     return a, b
 
@@ -250,8 +251,13 @@ def transfer_page_markers(suggester_src, base_src, marker="auto"):
         picked = pick_boundary_with_prior(hay, left, right, hits, expected_in_hay, sugg_len) if hits else None
 
         if picked is None:
-            boundary_norm = min(len(base_norm) - 1, cursor + sugg_len)
+            # No exact-run candidates: fuzzy-snap around the expected position instead.
+            expected = min(len(base_norm) - 1, cursor + sugg_len)
+            snapped = snap_boundary(base_norm, expected, left, right, K=FALLBACK_K)
+            boundary_norm = snapped[1] if snapped else expected
             score = 0.0; sL = sR = pos_bonus = None; hit_size = 0; cand_n = 0
+            if snapped:
+                score, _, sL, sR = snapped
         else:
             score, b_hay, sL, sR, pos_bonus, hit_size = picked
             boundary_norm = w0 + b_hay
