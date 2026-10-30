@@ -336,9 +336,9 @@
           <l>grāmaṃ janapadasyārthe ātmārthe pṛthivīṃ tyajet || 5.8 (= 37) ||<lb n="6"/></l>
         </lg>
         <p xml:id="p21_l6" n="21,6">tataḥ sā bālikā tātavacanaṃ śrutvā prāha | tāta tvayā yuktam uktam | <lb n="7"/> paraṃ svāmirahitānāṃ na kvāpi pūjā |  <lb n="8"/></p>
-        <lg type="group" n="21,8" xml:id="p21_l8">
+        <p xml:id="p21_l8" n="21,8">yata uktam | <lb n="9"/></p>
+        <lg type="group" n="21,8" xml:id="p21_l8_2">
           <lg>
-            <head>yata uktam |<lb n="9"/></head>
             <l>apradhānaḥ pradhānaḥ syād yadi seveta pārthivam |<lb n="10"/></l>
             <l>pradhāno 'py apradhānaḥ syād yadi sevāvivarjitaḥ || 5.9 (= 38) ||<lb n="11"/></l>
           </lg>
@@ -399,8 +399,8 @@
             <l>sattvasthire rāmajanārdanābhyām ādāya rājñaḥ kriyate śarīram || 5.20 (= 49) ||<lb n="11"/></l>
           </lg>
         </lg>
-        <lg xml:id="p23_l11" n="23,11">
-          <head>tathā ca bhārate |<lb n="12"/></head>
+        <p xml:id="p23_l11" n="23,11">tathā ca bhārate | <lb n="12"/></p>
+        <lg xml:id="p23_l11_2" n="23,11">
           <l>mā vṛkodara pādena ekādaśacamūpatim |<lb n="13"/></l>
           <l>pañcānām api yo bharttā nāsāprakṛtimāninī (?) || 5.21 (= 50) ||<lb n="14"/></l>
         </lg>
@@ -442,9 +442,9 @@
           <l>yasyārthās tasya mitrāṇi yasyārthās tasya bāndhavāḥ |<pb n="26"/></l>
           <l>yasyārthāḥ sa pumāṁl loke yasyārthāḥ sa ca paṇḍitaḥ || 6.3 (= 56) ||<lb n="2"/></l>
         </lg>
-        <lg type="group" n="26,2" xml:id="p26_l2">
+        <p xml:id="p26_l2" n="26,2">tathā ca bhārate | <lb n="3"/></p>
+        <lg type="group" n="26,2" xml:id="p26_l2_2">
           <lg>
-            <head>tathā ca bhārate |<lb n="3"/></head>
             <l>jīvanto 'pi mṛtāḥ pañca śrūyante kila bhārata |<lb n="4"/></l>
             <l>daridro vyādhito mūrkhaḥ pravāsī nityasevakaḥ || 6.4 (= 57) ||<lb n="5"/></l>
           </lg>
@@ -617,8 +617,8 @@
           </lg>
         </lg>
         <p xml:id="p45_l4" n="45,4">prabhāvaty āha | katham etat | śuka āha | asti dābhilākhyo grāmaḥ | <lb n="5"/> tatra vilocano grāmaṇīḥ | tadbhāryā rambhikābhidhā paranarapriyā |  <lb n="6"/> tāṃ ca tadbhartṛbhayān na ko 'pi kāmayate | tataḥ sā jalavyājāt ghaṭam  <lb n="7"/> ādāya vāpīṃ yayau | dṛṣṭvā ca tatra surūpaṃ pathikaṃ bhaṭṭaputraṃ krīḍārthaṃ  <lb n="8"/> dṛṣṭisaṃjñayā babhāṇa | so 'pi kāminīdṛṣṭisaṃcāracaturo viveda  <lb n="9"/> tadākūtam |  <lb n="10"/></p>
-        <lg xml:id="p45_l10" n="45,10">
-          <head>uktaṃ ca |<lb n="11"/></head>
+        <p xml:id="p45_l10" n="45,10">uktaṃ ca | <lb n="11"/></p>
+        <lg xml:id="p45_l10_2" n="45,10">
           <l>udīrito 'rthaḥ paśunāpi gṛhyate hayāś ca nāgāś ca vahanti noditāḥ |<lb n="12"/></l>
           <l>anuktam apy ūhati paṇḍito janaḥ pareṅgitajñānaphalā hi buddhayaḥ || 11.4 (= 86) ||<pb n="46"/></l>
         </lg>
@@ -862,14 +862,14 @@
             <l>avicāritagītārthā mṛgā yānti parābhavam || 21.5 (= 122) ||<lb n="4"/></l>
           </lg>
         </lg>
-        <lg xml:id="p71_l4" n="71,4">
-          <head>kirāte 'py uktam |<lb n="5"/></head>
+        <p xml:id="p71_l4" n="71,4">kirāte 'py uktam | <lb n="5"/></p>
+        <lg xml:id="p71_l4_2" n="71,4">
           <l>vrajanti te mūḍhadhiyaḥ parābhavaṃ bhavanti māyāviṣu ye na māyinaḥ |<lb n="6"/></l>
           <l>praviśya hi ghnanti śaṭhās tathāvidhān asaṃvṛtāṅgān niśitā iveṣavaḥ || 21.6 (= 123) ||<lb n="7"/></l>
         </lg>
         <p xml:id="p71_l7" n="71,7">kuṭṭinyā tat sarvaṃ jñātvā mantriṇe niveditam | mantriṇāpi rājñe | <lb n="8"/></p>
-        <lg xml:id="p71_l8" n="71,8">
-          <head>rājā prāha |<lb n="9"/></head>
+        <p xml:id="p71_l8" n="71,8">rājā prāha | <lb n="9"/></p>
+        <lg xml:id="p71_l8_2" n="71,8">
           <l>mā hohi suhaggāhī mā pattihi jaṃ ṇa diṭṭhapaccakkhaṃ |<lb n="10"/></l>
           <l>paccakkhammi vi diṭṭhe juttājuttaṃ viāṇāhi || 21.7 (= 124) || </l>
           <back>(•)<lb n="11"/></back>
@@ -1184,8 +1184,8 @@
           <l>viṣame yadi vetsi tvam uttaraṃ mūladevavat || 30.1 (= 175) ||<pb n="99"/></l>
         </lg>
         <p xml:id="p99_l1" n="99,1">astīha pṛthivyāṃ bhūtavāsaṃ nāma śmaśānam | tatra dvau piśācau karālottālanāmānau | <lb n="2"/> bhārye ca dhūmaprabhāmeghaprabhākhye tayoś ca | bhāryārāmaṇīyakatve  <lb n="3"/> vivādaḥ saṃvṛttaḥ | anyadā ca tābhyāṃ bhāryāsahitābhyāṃ  <lb n="4"/> mūladevo dṛṣṭo bāhubhyāṃ vidhṛtya pṛṣṭaḥ | kā anayor madhyād ramaṇīyā |  <lb n="5"/> anṛtaṃ vadantaṃ vyāpādayiṣyāmaḥ | tatkalatre virūpe bhīṣaṇe vṛddhe piśācinyau |  <lb n="6"/> sa ca yathārthavādī bhakṣitaḥ kim uttaraṃ kuryād iti | uttaram |  <lb n="7"/></p>
-        <lg xml:id="p99_l7" n="99,7">
-          <head>tenoktam |<lb n="8"/></head>
+        <p xml:id="p99_l7" n="99,7">tenoktam | <lb n="8"/></p>
+        <lg xml:id="p99_l7_2" n="99,7">
           <l>yā yasya vallabhā loke ramyā sā tasya nāparā |<lb n="9"/></l>
           <l>gadite dhūrtarājena tābhyāṃ muktaś ca tatkṣaṇāt || 30.2 (= 176) ||<lb n="10"/></l>
         </lg>
@@ -1428,8 +1428,8 @@
           <l>vyāghramārīkṛtāṃ buddhiṃ dvitīyāṃ vivadādhunā |<lb n="9"/></l>
           <l>mahat kautukam atrārthe vidyate me priyaṃvada || 43.2 (= 213) ||<lb n="10"/></l>
         </lg>
-        <lg xml:id="p128_l10" n="128,10">
-          <head>śukaḥ |<lb n="11"/></head>
+        <p xml:id="p128_l10" n="128,10">śukaḥ | <lb n="11"/></p>
+        <lg xml:id="p128_l10_2" n="128,10">
           <l>taṃ dṛṣṭvā kānane vyāghraṃ naṣṭaṃ jātaṃ bhayākulam |<lb n="12"/></l>
           <l>mṛgadhūrto hasann āha vyāghro naṣṭaḥ kuto bhayāt || 43.3 (= 214) ||<pb n="129"/></l>
         </lg>
@@ -1748,9 +1748,9 @@
             <l>nāyikāś ca tathā jñeyās tayoś ca śayanaṃ tridhā || 57.10 (= 262) ||<lb n="3"/></l>
           </lg>
         </lg>
-        <lg type="group" n="162,3" xml:id="p162_l3">
+        <p xml:id="p162_l3" n="162,3">tatra nāyakaguṇāḥ | <lb n="4"/></p>
+        <lg type="group" n="162,3" xml:id="p162_l3_2">
           <lg>
-            <head>tatra nāyakaguṇāḥ |<lb n="4"/></head>
             <l>hato manyusahasrair yaḥ saṃtapto madanāgninā |<lb n="5"/></l>
             <l>raktaś ca yo viraktāyāṃ so 'dhamaḥ parikīrtitaḥ || 57.11 (= 263) ||<lb n="6"/></l>
           </lg>
@@ -1763,9 +1763,9 @@
             <l>tayāpi kāmyate 'tyartham uttamaḥ so 'bhidhīyate || 57.13 (= 265) ||<lb n="10"/></l>
           </lg>
         </lg>
-        <lg type="group" n="162,10" xml:id="p162_l10">
+        <p xml:id="p162_l10" n="162,10">nāyikās tridhā | <lb n="11"/></p>
+        <lg type="group" n="162,10" xml:id="p162_l10_2">
           <lg>
-            <head>nāyikās tridhā |<lb n="11"/></head>
             <l>kārye gṛhṇāti roṣaṃ yā gataroṣā priyānugā |<lb n="12"/></l>
             <l>rasajñā kṛtyakuśalā sottamā nāyikā smṛtā || 57.14 (= 266) ||<pb n="163"/></l>
           </lg>
@@ -1778,9 +1778,9 @@
             <l>duḥkhaprasādhanābhijñākṛtajñā sādhamā matā || 57.16 (= 268) ||<lb n="5"/></l>
           </lg>
         </lg>
-        <lg type="group" n="163,5" xml:id="p163_l5">
+        <p xml:id="p163_l5" n="163,5">tayoś ca śayanaṃ tridhā | <lb n="6"/></p>
+        <lg type="group" n="163,5" xml:id="p163_l5_2">
           <lg>
-            <head>tayoś ca śayanaṃ tridhā |<lb n="6"/></head>
             <l>pārśvayor unnatiṃ nītaṃ nimnamadhye priyasya tat |<lb n="7"/></l>
             <l>vimardaṃ sahate 'tyarthaṃ suratāsaktayos tayoḥ || 57.17 (= 269) ||<lb n="8"/></l>
           </lg>
@@ -2176,8 +2176,8 @@
             <l>sukṛtaṃ skhalitaṃ cāryā na gṛhṇanti kṣamānvitāḥ || 70.13 (= 344) ||<lb n="12"/></l>
           </lg>
         </lg>
-        <lg xml:id="p201_l12" n="201,12">
-          <head>uktaṃ ca bhārate |<lb n="13"/></head>
+        <p xml:id="p201_l12" n="201,12">uktaṃ ca bhārate | <lb n="13"/></p>
+        <lg xml:id="p201_l12_2" n="201,12">
           <l>daśa dharmaṃ na jānanti dhṛtarāṣṭra nibodha tān |<lb n="14"/></l>
           <l>mattaḥ pramatta unmattaḥ śrāntaḥ kruddho bubhukṣitaḥ |<pb n="202"/></l>
           <l>tvaramāṇaś ca lubdhaś ca bhītaḥ kāmī ca te daśa || 70.14 (= 345) ||<lb n="2"/></l>

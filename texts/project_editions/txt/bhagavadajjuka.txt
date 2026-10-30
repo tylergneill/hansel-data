@@ -61,7 +61,7 @@ vidūṣakaḥ — ˹teṇa hi ayyo evva me uvadisadu |˼
 
 [10,9]
 
-sūtradhāraḥ — bāḍham |_
+sūtradhāraḥ — bāḍham |
 
 	jñānārthaṃ kṛtabuddhiḥ sanmārgeṇānugaccha gacchantam |
 
@@ -129,7 +129,7 @@ keṇa vihiṇā bhikkhaṃ āhiṇḍadi bhaavo |˼
 
 [14,9]
 
-parivrājakaḥ — śṛṇu |_
+parivrājakaḥ — śṛṇu |
 
 	amānakāmaḥ sahitavyadharṣaṇaḥ
 	kṛśāj janād bhaikṣakṛtātmadhāraṇaḥ |
@@ -269,7 +269,7 @@ m icchati |
 
 [18,15]
 
-parivrājakaḥ — śṛṇu |_
+parivrājakaḥ — śṛṇu |
 
 	yaḥ svapne gaganam upaiti so 'ntarātmā
 	so 'py ātmā vidhivihitaṃ prayāti yaś ca |
@@ -309,7 +309,7 @@ parivrājakaḥ — laukikam abhihitam | yataś ca bhedam upagatānāṃ sattvā
 
 [20,9]
 
-parivrājakaḥ — śṛṇu |_
+parivrājakaḥ — śṛṇu |
 
 	khapavanasalilānāṃ tejasaś caikadeśād
 	upacitacalamūrtiḥ pārthivadravyarāśiḥ |
@@ -442,7 +442,7 @@ parivrājakaḥ — śrutiḥ pramāṇaṃ nāham | kutaḥ |
 
 [24,15]
 
-parivrājakaḥ — mā maivam |_
+parivrājakaḥ — mā maivam |
 
 	pramāṇaṃ kuru yal loke pramāṇīkriyate budhaiḥ |
 	nāpramāṇaṃ pramāṇasthāḥ kariṣyantīti niścayaḥ || 13 ||
@@ -508,7 +508,7 @@ parivrājakaḥ — akālyaṃ vartate lobhaḥ |
 
 [26,16]
 
-parivrājakaḥ — mā maivam |_
+parivrājakaḥ — mā maivam |
 
 	mahātmabhiḥ sevitapūjitaṃ dvijaiḥ
 	surāsurāṇām api buddhisaṃmatam |
@@ -524,7 +524,7 @@ ko eso joo ṇāma |˼
 
 [28,1]
 
-parivrājakaḥ — śṛṇu |_
+parivrājakaḥ — śṛṇu |
 
 	jñānamūlaṃ tapaḥsāraṃ sattvasthaṃ dvandvanāśanam |
 	muktaṃ dveṣāc ca rāgāc ca yoga ity abhidhīyate || 15 ||
@@ -717,7 +717,7 @@ parivrājakaḥ — eṣa na vyavaharāmi |
 
 [34,12]
 
-yamapuruṣaḥ — eṣa bhoḥ |_
+yamapuruṣaḥ — eṣa bhoḥ |
 
 	bhūtāni yo harati karmahatāni loke
 	yaḥ prāṇināṃ sukṛtaduṣkṛtakarmasākṣī |
@@ -726,7 +726,7 @@ yamapuruṣaḥ — eṣa bhoḥ |_
 
 <36>
 
-tasmāt |_
+tasmāt |
 
 	nānārāṣṭranadīvanācalavatīṃ bhūmiṃ samālokayan
 	me≤dhai≥«ghai»s toyabharāvanamranicayaiḥ pracchādyamāno bhṛśam |
@@ -1116,7 +1116,7 @@ mātā — ˹jadappahudi vāleṇa daṭṭhā tadappahudi asambaddhāṇi mante
 
 [48,12]
 
-rāmilakaḥ — evam |_
+rāmilakaḥ — evam |
 
 	vyaktam asyā gataṃ cetas tataḥ śūnye tapasvinī |
 	śarīre 'nyena kenāpi sattvayuktena dharṣitā || 29 ||
@@ -1368,7 +1368,7 @@ vaidyaḥ — ˹ṇa hu amhāṇaṃ visao | ṇamo bhodīe | gacchāmi dāva ah
 
 [56,13]
 
-yamapuruṣaḥ — ((praviśya)) bhoḥ |_
+yamapuruṣaḥ — ((praviśya)) bhoḥ |
 
 	garbhasravaiś ca piṭakajvarakarṇarogair
 	gulmādhiśūlahṛdayākṣiśirorugādyaiḥ |

@@ -199,9 +199,9 @@ Similarly, I have rendered the "nepathye" stage direction as speaker identificat
         </sp>
         <sp who="sūtradhāraḥ">
           <speaker>sūtradhāraḥ</speaker>
-          <lg xml:id="p10_l9" n="10,9">
-            <head>bāḍham |</head>
-            <l>jñānārthaṃ kṛtabuddhiḥ sanmārgeṇānugaccha gacchantam |<lb n="10"/></l>
+          <p n="10,9" xml:id="p10_l9">bāḍham | <lb n="10"/></p>
+          <lg xml:id="p10_l9_2" n="10,9">
+            <l>jñānārthaṃ kṛtabuddhiḥ sanmārgeṇānugaccha gacchantam |<lb n="11"/></l>
           </lg>
         </sp>
         <sp who="(nepathye)">
@@ -255,10 +255,10 @@ Similarly, I have rendered the "nepathye" stage direction as speaker identificat
         </sp>
         <sp who="parivrājakaḥ">
           <speaker>parivrājakaḥ</speaker>
-          <lg xml:id="p14_l9" n="14,9">
-            <head>śṛṇu |</head>
-            <l>amānakāmaḥ sahitavyadharṣaṇaḥ<caesura/><lb n="10"/> kṛśāj janād bhaikṣakṛtātmadhāraṇaḥ |<lb n="11"/></l>
-            <l>carāmi doṣavyasanottaraṃ jagad<caesura/><lb n="12"/> dhradaṃ bahugrāham ivāpramādavān || 4 ||<lb n="13"/></l>
+          <p n="14,9" xml:id="p14_l9">śṛṇu | <lb n="10"/></p>
+          <lg xml:id="p14_l9_2" n="14,9">
+            <l>amānakāmaḥ sahitavyadharṣaṇaḥ<caesura/><lb n="11"/> kṛśāj janād bhaikṣakṛtātmadhāraṇaḥ |<lb n="12"/></l>
+            <l>carāmi doṣavyasanottaraṃ jagad<caesura/><lb n="13"/> dhradaṃ bahugrāham ivāpramādavān || 4 ||<lb n="14"/></l>
           </lg>
         </sp>
         <sp who="śāṇḍilyaḥ">
@@ -425,10 +425,10 @@ Similarly, I have rendered the "nepathye" stage direction as speaker identificat
         </sp>
         <sp who="parivrājakaḥ">
           <speaker>parivrājakaḥ</speaker>
-          <lg xml:id="p18_l15" n="18,15">
-            <head>śṛṇu |</head>
-            <l>yaḥ svapne gaganam upaiti so 'ntarātmā<caesura/><lb n="16"/> so 'py ātmā vidhivihitaṃ prayāti yaś ca |<lb n="17"/></l>
-            <l>deho 'yaṃ nara iti sañjñito 'nyathā vā<caesura/><lb n="18"/> karmātmā śramasukhabhājanaṃ narāṇām || 8 ||<lb n="19"/></l>
+          <p n="18,15" xml:id="p18_l15">śṛṇu | <lb n="16"/></p>
+          <lg xml:id="p18_l15_2" n="18,15">
+            <l>yaḥ svapne gaganam upaiti so 'ntarātmā<caesura/><lb n="17"/> so 'py ātmā vidhivihitaṃ prayāti yaś ca |<lb n="18"/></l>
+            <l>deho 'yaṃ nara iti sañjñito 'nyathā vā<caesura/><lb n="19"/> karmātmā śramasukhabhājanaṃ narāṇām || 8 ||<lb n="20"/></l>
           </lg>
         </sp>
         <sp who="śāṇḍilyaḥ">
@@ -473,10 +473,10 @@ Similarly, I have rendered the "nepathye" stage direction as speaker identificat
         </sp>
         <sp who="parivrājakaḥ">
           <speaker>parivrājakaḥ</speaker>
-          <lg xml:id="p20_l9" n="20,9">
-            <head>śṛṇu |</head>
-            <l>khapavanasalilānāṃ tejasaś caikadeśād<caesura/><lb n="10"/> upacitacalamūrtiḥ pārthivadravyarāśiḥ |<lb n="11"/></l>
-            <l>śravaṇanayanajihvānāsikāsparśavedī<caesura/><lb n="12"/> nara iti kṛtasañjñaḥ ko 'py ahaṃ prāṇidharmā || 9 ||<lb n="13"/></l>
+          <p n="20,9" xml:id="p20_l9">śṛṇu | <lb n="10"/></p>
+          <lg xml:id="p20_l9_2" n="20,9">
+            <l>khapavanasalilānāṃ tejasaś caikadeśād<caesura/><lb n="11"/> upacitacalamūrtiḥ pārthivadravyarāśiḥ |<lb n="12"/></l>
+            <l>śravaṇanayanajihvānāsikāsparśavedī<caesura/><lb n="13"/> nara iti kṛtasañjñaḥ ko 'py ahaṃ prāṇidharmā || 9 ||<lb n="14"/></l>
           </lg>
         </sp>
         <sp who="śāṇḍilyaḥ">
@@ -624,10 +624,10 @@ Similarly, I have rendered the "nepathye" stage direction as speaker identificat
         </sp>
         <sp who="parivrājakaḥ">
           <speaker>parivrājakaḥ</speaker>
-          <lg xml:id="p24_l15" n="24,15">
-            <head>mā maivam |</head>
-            <l>pramāṇaṃ kuru yal loke pramāṇīkriyate budhaiḥ |<lb n="16"/></l>
-            <l>nāpramāṇaṃ pramāṇasthāḥ kariṣyantīti niścayaḥ || 13 ||<lb n="17"/></l>
+          <p n="24,15" xml:id="p24_l15">mā maivam | <lb n="16"/></p>
+          <lg xml:id="p24_l15_2" n="24,15">
+            <l>pramāṇaṃ kuru yal loke pramāṇīkriyate budhaiḥ |<lb n="17"/></l>
+            <l>nāpramāṇaṃ pramāṇasthāḥ kariṣyantīti niścayaḥ || 13 ||<lb n="18"/></l>
           </lg>
         </sp>
         <sp who="śāṇḍilyaḥ">
@@ -705,10 +705,10 @@ Similarly, I have rendered the "nepathye" stage direction as speaker identificat
         </sp>
         <sp who="parivrājakaḥ">
           <speaker>parivrājakaḥ</speaker>
-          <lg xml:id="p26_l16" n="26,16">
-            <head>mā maivam |</head>
-            <l>mahātmabhiḥ sevitapūjitaṃ dvijaiḥ<caesura/><lb n="17"/> surāsurāṇām api buddhisaṃmatam |<lb n="18"/></l>
-            <l>avāryam akṣobhyam acintyam avyayaṃ<caesura/><lb n="19"/> mahan mayā yogaphalaṃ niṣevyate || 14 ||<lb n="20"/></l>
+          <p n="26,16" xml:id="p26_l16">mā maivam | <lb n="17"/></p>
+          <lg xml:id="p26_l16_2" n="26,16">
+            <l>mahātmabhiḥ sevitapūjitaṃ dvijaiḥ<caesura/><lb n="18"/> surāsurāṇām api buddhisaṃmatam |<lb n="19"/></l>
+            <l>avāryam akṣobhyam acintyam avyayaṃ<caesura/><lb n="20"/> mahan mayā yogaphalaṃ niṣevyate || 14 ||<lb n="21"/></l>
           </lg>
         </sp>
         <sp who="śāṇḍilyaḥ">
@@ -720,10 +720,10 @@ Similarly, I have rendered the "nepathye" stage direction as speaker identificat
         </sp>
         <sp who="parivrājakaḥ">
           <speaker>parivrājakaḥ</speaker>
-          <lg xml:id="p28_l1" n="28,1">
-            <head>śṛṇu |</head>
-            <l>jñānamūlaṃ tapaḥsāraṃ sattvasthaṃ dvandvanāśanam |<lb n="2"/></l>
-            <l>muktaṃ dveṣāc ca rāgāc ca yoga ity abhidhīyate || 15 ||<lb n="3"/></l>
+          <p n="28,1" xml:id="p28_l1">śṛṇu | <lb n="2"/></p>
+          <lg xml:id="p28_l1_2" n="28,1">
+            <l>jñānamūlaṃ tapaḥsāraṃ sattvasthaṃ dvandvanāśanam |<lb n="3"/></l>
+            <l>muktaṃ dveṣāc ca rāgāc ca yoga ity abhidhīyate || 15 ||<lb n="4"/></l>
           </lg>
         </sp>
         <sp who="śāṇḍilyaḥ">
@@ -977,23 +977,21 @@ Similarly, I have rendered the "nepathye" stage direction as speaker identificat
         </sp>
         <sp who="yamapuruṣaḥ">
           <speaker>yamapuruṣaḥ</speaker>
-          <lg type="group" n="34,12" xml:id="p34_l12">
-            <lg>
-              <head>eṣa bhoḥ |</head>
-              <l>bhūtāni yo harati karmahatāni loke<caesura/><lb n="13"/> yaḥ prāṇināṃ sukṛtaduṣkṛtakarmasākṣī |<lb n="14"/></l>
-              <l>ukto 'smi tena śamanena yamena dehe<caesura/><lb n="15"/> prāṇān prajāvadhividhau viniyojayeti || 20 ||<pb n="36"/></l>
-            </lg>
-            <lg>
-              <head>tasmāt |<lb n="2"/></head>
-              <l>nānārāṣṭranadīvanācalavatīṃ bhūmiṃ samālokayan<caesura/><lb n="3"/> me<choice>
-                  <sic>dhai</sic>
-                  <corr>ghai</corr>
-                </choice>s toyabharāvanamranicayaiḥ pracchādyamāno bhṛśam |<lb n="4"/></l>
-              <l>tīrtvā cāraṇasiddhakinnarayutaṃ vātoddhatābhraṃ nabhaḥ<caesura/><lb n="5"/> samprāpto 'smi yamena yatra vihitas tarkād ivāhaṃ puram || 21 ||<lb n="6"/></l>
-            </lg>
+          <p n="34,12" xml:id="p34_l12">eṣa bhoḥ | <lb n="13"/></p>
+          <lg xml:id="p34_l12_2" n="34,12">
+            <l>bhūtāni yo harati karmahatāni loke<caesura/><lb n="14"/> yaḥ prāṇināṃ sukṛtaduṣkṛtakarmasākṣī |<lb n="15"/></l>
+            <l>ukto 'smi tena śamanena yamena dehe<caesura/><lb n="16"/> prāṇān prajāvadhividhau viniyojayeti || 20 ||<pb n="36"/></l>
+          </lg>
+          <p>tasmāt | <lb n="2"/></p>
+          <lg xml:id="p34_l12_3" n="34,12">
+            <l>nānārāṣṭranadīvanācalavatīṃ bhūmiṃ samālokayan<caesura/><lb n="3"/> me<choice>
+                <sic>dhai</sic>
+                <corr>ghai</corr>
+              </choice>s toyabharāvanamranicayaiḥ pracchādyamāno bhṛśam |<lb n="4"/></l>
+            <l>tīrtvā cāraṇasiddhakinnarayutaṃ vātoddhatābhraṃ nabhaḥ<caesura/><lb n="5"/> samprāpto 'smi yamena yatra vihitas tarkād ivāhaṃ puram || 21 ||<lb n="6"/></l>
           </lg>
           <p>tat kva nu khalu sā | aye | iyaṃ sā | <lb n="7"/></p>
-          <lg xml:id="p34_l12_2" n="34,12">
+          <lg xml:id="p34_l12_4" n="34,12">
             <l>sapallavais taptasuvarṇavarṇair<caesura/><lb n="8"/> aśokapuṣpastabakair manojñaiḥ |<lb n="9"/></l>
             <l>antarhitā bhāti varāṅganaiṣā<caesura/><lb n="10"/> sandhyābhrajālair iva candralekhā || 22 ||<lb n="11"/></l>
           </lg>
@@ -1519,10 +1517,10 @@ Similarly, I have rendered the "nepathye" stage direction as speaker identificat
         </sp>
         <sp who="rāmilakaḥ">
           <speaker>rāmilakaḥ</speaker>
-          <lg xml:id="p48_l12" n="48,12">
-            <head>evam |</head>
-            <l>vyaktam asyā gataṃ cetas tataḥ śūnye tapasvinī |<lb n="13"/></l>
-            <l>śarīre 'nyena kenāpi sattvayuktena dharṣitā || 29 ||<lb n="14"/></l>
+          <p n="48,12" xml:id="p48_l12">evam | <lb n="13"/></p>
+          <lg xml:id="p48_l12_2" n="48,12">
+            <l>vyaktam asyā gataṃ cetas tataḥ śūnye tapasvinī |<lb n="14"/></l>
+            <l>śarīre 'nyena kenāpi sattvayuktena dharṣitā || 29 ||<lb n="15"/></l>
           </lg>
           <p xml:id="p48_l15" n="48,15">
             <stage>praviśya vaidyaś ceṭī ca |</stage>
@@ -1865,12 +1863,13 @@ Similarly, I have rendered the "nepathye" stage direction as speaker identificat
         </sp>
         <sp who="yamapuruṣaḥ">
           <speaker>yamapuruṣaḥ</speaker>
-          <lg xml:id="p56_l13" n="56,13">
-            <head>((praviśya)) bhoḥ |</head>
-            <l>garbhasravaiś ca piṭakajvarakarṇarogair<caesura/><lb n="14"/> gulmādhiśūlahṛdayākṣiśirorugādyaiḥ |<lb n="15"/></l>
-            <l>asmin kṣaṇe bahuvidhaiḥ khalu vidravaiś ca<caesura/><lb n="16"/> kṣipraṃ kṛtā yamapurābhimukhāś ca jīvāḥ || 35 ||<lb n="17"/></l>
+          <p n="56,13" xml:id="p56_l13">
+            <stage>praviśya</stage> bhoḥ | <lb n="14"/></p>
+          <lg xml:id="p56_l13_2" n="56,13">
+            <l>garbhasravaiś ca piṭakajvarakarṇarogair<caesura/><lb n="15"/> gulmādhiśūlahṛdayākṣiśirorugādyaiḥ |<lb n="16"/></l>
+            <l>asmin kṣaṇe bahuvidhaiḥ khalu vidravaiś ca<caesura/><lb n="17"/> kṣipraṃ kṛtā yamapurābhimukhāś ca jīvāḥ || 35 ||<lb n="18"/></l>
           </lg>
-          <p>yāvad aham api bhagavatsandeśam anutiṣṭhāmi | <stage>gaṇikām upetya |</stage> bhagavan | mucyatāṃ <lb n="18"/> vṛṣalyāḥ śarīram |  <lb n="19"/></p>
+          <p>yāvad aham api bhagavatsandeśam anutiṣṭhāmi | <stage>gaṇikām upetya |</stage> bhagavan | mucyatāṃ <lb n="19"/> vṛṣalyāḥ śarīram |  <lb n="20"/></p>
         </sp>
         <sp who="gaṇikā">
           <speaker>gaṇikā</speaker>

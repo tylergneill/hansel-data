@@ -54,9 +54,8 @@ STAGGERED_VERSE_CUE_RE = re.compile(r"^(\S+ —)(\t+)(.*)$")
 STAGE_DIRECTION_RE = re.compile(r"\(\(([^)]+)\)\)")
 PRAKRIT_RE = re.compile(r"˹([^˼]+)˼(?:\s*\((?!\()([^)]+)\))?")
 
-CHAR_FOR_PENDING_HEAD = "_"
-PENDING_HEAD_RE = re.compile(f"^(.*[\|—,])\s*{re.escape(CHAR_FOR_PENDING_HEAD)}$")
-PENDING_BACK_RE = re.compile(f"^{re.escape(CHAR_FOR_PENDING_HEAD)}(.*)$")
+CHAR_FOR_PENDING_BACK = "_"
+PENDING_BACK_RE = re.compile(f"^{re.escape(CHAR_FOR_PENDING_BACK)}(.*)$")
 
 # ----------------------------
 # Utility helpers
@@ -123,9 +122,6 @@ class TextBuildState:
     # verse group buffer
     verse_group_buffer: list[etree._Element] = field(default_factory=list)
 
-    # verse head buffer
-    pending_head_elem: Optional[etree._Element] = None
-
     # drama state
     current_sp: Optional[etree._Element] = None
 
@@ -181,6 +177,62 @@ class TextBuildState:
 # Module-level helpers
 # ----------------------------
 
+# Editorial markup (≤sic≥«corr», ≤del≥, «supplied», ¿unclear¿) → TEI tag of the outer element.
+# CHOICE_RE comes first: on a shared start position, the longer ≤…≥«…» match must win over ≤…≥.
+EDITORIAL_MARKERS = (
+    (CHOICE_RE, "choice"),
+    (DEL_RE, "del"),
+    (SUPPLIED_RE, "supplied"),
+    (UNCLEAR_RE, "unclear"),
+)
+EDITORIAL_KINDS = {kind for _, kind in EDITORIAL_MARKERS}
+
+
+def _editorial_matches(text: str) -> list[tuple[str, re.Match]]:
+    """Non-overlapping editorial-markup matches in text, as (kind, match) in text order."""
+    candidates = [(kind, m) for marker_re, kind in EDITORIAL_MARKERS for m in marker_re.finditer(text)]
+    candidates.sort(key=lambda x: (x[1].start(), -x[1].end()))
+    matches, last_end = [], -1
+    for kind, m in candidates:
+        if m.start() >= last_end:
+            matches.append((kind, m))
+            last_end = m.end()
+    return matches
+
+
+def _build_editorial_element(parent: etree._Element, kind: str, m: re.Match, fill=None) -> etree._Element:
+    """Append the TEI element for one editorial-markup match to parent and return it.
+    `fill(el, text)` sets the text of <sic>/<del> (the parts that may span source lines);
+    by default it is set as-is."""
+    if fill is None:
+        def fill(el, text):
+            el.text = text
+    el = etree.SubElement(parent, kind)
+    if kind == "choice":
+        fill(etree.SubElement(el, "sic"), m.group(1))
+        etree.SubElement(el, "corr").text = m.group(2)
+    elif kind == "del":
+        fill(el, m.group(1))
+    else:
+        el.text = m.group(1)
+    return el
+
+
+def _append_text_with_editorial_markup(parent: etree._Element, text: str) -> None:
+    """Append text to the end of parent, converting editorial markup into TEI elements."""
+    last_el = parent[-1] if len(parent) else None
+    pos = 0
+    for kind, m in _editorial_matches(text) + [(None, None)]:
+        chunk = text[pos:m.start()] if m is not None else text[pos:]
+        if last_el is None:
+            parent.text = (parent.text or '') + chunk
+        else:
+            last_el.tail = (last_el.tail or '') + chunk
+        if m is not None:
+            last_el = _build_editorial_element(parent, kind, m)
+            pos = m.end()
+
+
 def _attach_chaya_lg(parent_lg: etree._Element, chaya_text: str) -> None:
     """Attach an <lg type="chāyā"> to parent_lg, splitting chaya_text on newlines into separate <l> elements."""
     inner_lg = etree.SubElement(parent_lg, "lg", {"type": "chāyā"})
@@ -189,7 +241,7 @@ def _attach_chaya_lg(parent_lg: etree._Element, chaya_text: str) -> None:
         line = line.strip()
         if line:
             l_el = etree.SubElement(inner_lg, "l")
-            l_el.text = line
+            _append_text_with_editorial_markup(l_el, line)
 
 
 # Builder class
@@ -451,41 +503,17 @@ class TeiTextBuilder:
                     # so the NEXT line (verse/prose) gets counted as a new physical
                     # line — flag it so the next content emits its own leading <lb>
                     # (see pending_bare_cue_lb). No XML element is emitted for the
-                    # cue's own line itself.
-                    s.pending_bare_cue_lb = True
+                    # cue's own line itself. Only meaningful when line_by_line: otherwise
+                    # that <lb> would be the sole one in the text, and a later own-line
+                    # page marker would "replace" it with a <pb>, dropping its tail text.
+                    s.pending_bare_cue_lb = s.line_by_line
                     self._finalize_physical_line(line)
                 if trailing_text:
-                    # Check if trailing text is a pending head (e.g. "priye —_").
-                    # When trailing_text is exactly "_", the punctuation
-                    # PENDING_HEAD_RE needs right before it is the speaker's own
-                    # em dash, which SPEAKER_RE already consumed out of
-                    # trailing_text — so match against the full line instead.
-                    pending_head_match = (PENDING_HEAD_RE.search(line) if trailing_text == CHAR_FOR_PENDING_HEAD
-                                           else PENDING_HEAD_RE.search(trailing_text))
-                    if pending_head_match:
-                        head_text = pending_head_match.group(1).strip()
-                        head_elem = etree.Element("head")
-                        head_elem.text = head_text
-                        s.pending_head_elem = head_elem
-                    else:
-                        # Open a <p> inside the <sp> for the trailing dialogue text
-                        self._open_location_for_sp()
-                        self._process_content_with_midline_elements(trailing_text, "prose", raw_line_for_hyphen_check=line)
-                        self._finalize_physical_line(line)
+                    # Open a <p> inside the <sp> for the trailing dialogue text
+                    self._open_location_for_sp()
+                    self._process_content_with_midline_elements(trailing_text, "prose", raw_line_for_hyphen_check=line)
+                    self._finalize_physical_line(line)
                 return
-
-        # verse starter on its own line (e.g. "uktaṃ ca |_")
-        pending_head_match = PENDING_HEAD_RE.search(line)
-        if pending_head_match:
-            self._close_p()
-            head_text = pending_head_match.group(1).strip()
-            head_elem = etree.Element("head")
-            head_elem.text = head_text
-            if s.line_by_line:
-                self._emit_lb(head_elem, "")
-
-            s.pending_head_elem = head_elem
-            return
 
         # verse back (e.g. "_iti |")
         pending_back_match = PENDING_BACK_RE.match(line)
@@ -574,7 +602,9 @@ class TeiTextBuilder:
 
         prefix = ""
         if use_tail and not s.prev_line_hyphen and not s.suppress_join_space:
-            if sink_el.tag in ('lb', 'pb'):
+            # <caesura> is the sink for a verse's next physical line when not line_by_line
+            # (no <lb> follows it), so it needs the same join space as <lb>.
+            if sink_el.tag in ('lb', 'pb', 'caesura'):
                 prefix = " "
         s.suppress_join_space = False
 
@@ -640,7 +670,7 @@ class TeiTextBuilder:
             if m:
                 chaya = etree.SubElement(s.chaya_prakrit_seg, "seg", {"type": "chāyā"})
                 chaya.set(f"{{{_XML_NS}}}lang", "san-Latn")
-                chaya.text = m.group(1)
+                _append_text_with_editorial_markup(chaya, m.group(1))
                 s.awaiting_chaya = False
                 s.chaya_prakrit_seg = None
                 # TODO (line-by-line + drama): this line is consumed without emitting an <lb>.
@@ -738,9 +768,6 @@ class TeiTextBuilder:
 
         if working_lg is None:
             lg = etree.Element("lg")
-            if s.pending_head_elem is not None:
-                lg.append(s.pending_head_elem)
-                s.pending_head_elem = None
             if pre_tab.strip():
                 self._append_child_text(lg, "head", pre_tab)
                 pre_tab = ""
@@ -892,7 +919,7 @@ class TeiTextBuilder:
         if chaya_text is not None:
             chaya = etree.SubElement(seg, "seg", {"type": "chāyā"})
             chaya.set(f"{{{_XML_NS}}}lang", "san-Latn")
-            chaya.text = chaya_text
+            _append_text_with_editorial_markup(chaya, chaya_text)
         elif not s.chaya_list:
             # No companion list — expect chāyā on the next line (legacy inline format)
             s.awaiting_chaya = True
@@ -900,7 +927,8 @@ class TeiTextBuilder:
         self._add_inline_element(seg)
 
     def _set_text_with_embedded_stages(self, parent: etree._Element, text: str):
-        """Append text into parent, creating <stage>, <pb>, and (when line_by_line) <lb> sub-elements."""
+        """Append text into parent, creating <stage>, <pb>, editorial-markup (<choice>, <del>,
+        <supplied>, <unclear>), and (when line_by_line) <lb> sub-elements."""
         s = self.state
         # Collect all inline markers sorted by position
         matches = []
@@ -908,12 +936,36 @@ class TeiTextBuilder:
             matches.append(('stage', m))
         for m in MID_LINE_PAGE_RE.finditer(text):
             matches.append(('pb', m))
+        matches.extend(_editorial_matches(text))
         # '\n' sentinels are line-break markers inserted by the open-prakrit accumulator
         for m in re.finditer(r'\n', text):
             matches.append(('lb', m))
-        matches.sort(key=lambda x: x[1].start())
+        # On a shared start position the longer span wins (e.g. ≤…≥«…» over ≤…≥)
+        matches.sort(key=lambda x: (x[1].start(), -x[1].end()))
 
         lb_break_idx = 0  # index into open_prakrit_lb_breaks
+
+        def fill_with_lbs(el: etree._Element, inner: str):
+            # \n sentinels inside a span's content (stage, sic, del): emit <lb> elements within it.
+            # Use open_prakrit_lb_breaks for break="no" detection (hyphens were already
+            # stripped by the Prakrit accumulator before joining with \n).
+            # These \n's are consumed here (never seen by the outer 'lb' branch, since
+            # they fall inside the span's match), so lb_break_idx must advance in step
+            # with lb_breaks, or every subsequent <lb> outside the span reads the wrong slot.
+            nonlocal lb_break_idx
+            parts = inner.split('\n')
+            el.text = parts[0]
+            lb_breaks = s.open_prakrit_lb_breaks
+            for part in parts[1:]:
+                s.lb_count += 1
+                lb_attrs = {"n": str(s.lb_count)}
+                if lb_breaks and lb_break_idx < len(lb_breaks) and lb_breaks[lb_break_idx]:
+                    lb_attrs["break"] = "no"
+                lb_break_idx += 1
+                inner_lb = etree.SubElement(el, "lb", lb_attrs)
+                s.last_emitted_lb = inner_lb
+                inner_lb.tail = part
+
         last_end = 0
         last_el = None
         for kind, m in matches:
@@ -927,28 +979,9 @@ class TeiTextBuilder:
 
             if kind == 'stage':
                 el = etree.SubElement(parent, "stage")
-                inner = m.group(1)
-                if '\n' in inner:
-                    # \n sentinels inside stage content: emit <lb> elements within the stage.
-                    # Use open_prakrit_lb_breaks for break="no" detection (hyphens were already
-                    # stripped by the Prakrit accumulator before joining with \n).
-                    # These \n's are consumed here (never seen by the outer 'lb' branch, since
-                    # they fall inside this match's span), so lb_break_idx must advance in step
-                    # with lb_breaks, or every subsequent <lb> outside the stage reads the wrong slot.
-                    parts = inner.split('\n')
-                    el.text = parts[0]
-                    lb_breaks = s.open_prakrit_lb_breaks
-                    for part in parts[1:]:
-                        s.lb_count += 1
-                        lb_attrs = {"n": str(s.lb_count)}
-                        if lb_breaks and lb_break_idx < len(lb_breaks) and lb_breaks[lb_break_idx]:
-                            lb_attrs["break"] = "no"
-                        lb_break_idx += 1
-                        inner_lb = etree.SubElement(el, "lb", lb_attrs)
-                        s.last_emitted_lb = inner_lb
-                        inner_lb.tail = part
-                else:
-                    el.text = inner
+                fill_with_lbs(el, m.group(1))
+            elif kind in EDITORIAL_KINDS:
+                el = _build_editorial_element(parent, kind, m, fill=fill_with_lbs)
             elif kind == 'pb':
                 page, line_no = m.group(1), m.group(2)
                 attrs = {"n": page}
@@ -1065,8 +1098,13 @@ class TeiTextBuilder:
                     s.last_tail_text_sink = None
     
         elif mode == "verse":
-            is_line_close = (bool(CLOSE_L_RE.search(post_text.rstrip())))
-            is_verse_close = (bool(COMBINED_VERSE_END_RE.search(post_text.rstrip())))
+            # A page marker ending the line (e.g. "punaḥ |\t<270>") leaves post_text empty;
+            # the danda before it still closes the line, so look past trailing markers.
+            close_text = post_text
+            if not close_text.strip() and filtered_matches and filtered_matches[-1]["handler"] == self._emit_pb_from_match:
+                close_text = content[:filtered_matches[-1]["match"].start()]
+            is_line_close = (bool(CLOSE_L_RE.search(close_text.rstrip())))
+            is_verse_close = (bool(COMBINED_VERSE_END_RE.search(close_text.rstrip())))
 
             if not is_line_close and content:
                 s.current_caesura = etree.SubElement(s.current_l, "caesura")
