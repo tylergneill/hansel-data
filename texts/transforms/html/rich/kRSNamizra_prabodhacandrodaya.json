@@ -253,8 +253,8 @@
                     "coord_id": "2_148"
                 },
                 {
-                    "sic": "pi",
-                    "corr": "ppi",
+                    "sic": "ppi",
+                    "corr": "pi",
                     "page": "2",
                     "line": "153",
                     "coord_id": "2_153"
