@@ -3,7 +3,7 @@
 TEI builder
 
 Renders the HANSEL data model (lightly marked plaintext) into a simplified TEI-XML form:
-<div>, <p>, <lg>/<l>, <pb>, <cb>, <lb>, <head>, <back>, <note>, <milestone>.
+<div>, <p>, <lg>/<l>, <pb>, <cb>, <lb>, <head>, <back>, <note>, <label>.
 
 See DATA_MODEL.md for more details.
 """
@@ -485,7 +485,7 @@ class TeiTextBuilder:
             note = additional_structure_note_match.group(0)
             # A wrapped note carries \n sentinels marking where the source broke;
             # the label itself is stored as a single line.
-            self._emit_milestone(note.replace('\n', ' '), source_lines=note.count('\n') + 1)
+            self._emit_label(note.replace('\n', ' '), source_lines=note.count('\n') + 1)
             self._finalize_physical_line(line)
             return
 
@@ -1221,15 +1221,44 @@ class TeiTextBuilder:
         else:
             s.lb_count = 1
 
-    def _emit_milestone(self, label: str, source_lines: int = 1) -> None:
-        """Emit a <milestone>. ``source_lines`` is the number of physical source
-        lines the note occupied — more than one when a <...> span was wrapped and
-        spliced back together, so line numbering downstream stays in step."""
+    def _emit_label(self, label: str, source_lines: int = 1) -> None:
+        """Emit a <...> structural-note line as a <label> holding the printed words.
+
+        Every such line maps to one <label>, appended to the current <div>. A label
+        names a part of the text and is not spoken by anyone, so any open speech,
+        paragraph and verse group is closed first (<label> is also not allowed
+        directly inside <sp>).
+
+        ``source_lines`` is the number of physical source lines the note occupied —
+        more than one when a <...> span was wrapped and spliced back together, so
+        line numbering downstream stays in step.
+
+        If a [x,y] location marker opened a paragraph just for this label (as with
+        the dramas' closing colophons), that paragraph is empty and is discarded on
+        closing; its location moves onto the <label> as @n and @xml:id instead, so
+        the coordinate is not lost.
+        """
         s = self.state
         s.lb_count += source_lines
-        container = self._get_container()
+        p = s.current_p
+        own_location = None
+        if p is not None and p.get("n") and not (p.text or "").strip() and len(p) == 0:
+            own_location = p.get("n")
+        self._close_sp()
+        self._flush_verse_group_buffer()
+        self._close_p()
+        self._close_lg()
         label = re.sub(r'[<>]', '', label)
-        etree.SubElement(container, "milestone", {"n": label})
+        label_el = etree.SubElement(s.current_div, "label")
+        if own_location is not None:
+            # _close_p reclaimed the empty paragraph's xml:id; claim it again here.
+            label_el.set(f"{{{_XML_NS}}}id", self._next_loc_xml_id())
+            label_el.set("n", own_location)
+        label_el.text = label
+        # Forget the last <lb>: otherwise a <pb> right after the label would replace
+        # that <lb> back inside the closed speech, putting the page break before
+        # the label and changing document order.
+        s.last_emitted_lb = None
 
     def _open_location(self, label: str) -> None:
         s = self.state

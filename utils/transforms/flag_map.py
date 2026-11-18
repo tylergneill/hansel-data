@@ -2,7 +2,7 @@
 # --drama and --line-by-line are orthogonal: a drama text can have either, both, or neither.
 # --drama enables speech/stage-direction/Prakrit-chāyā parsing; it says nothing about coords.
 # --line-by-line emits <lb> for every physical source line; it works with any coordinate system.
-# --hide-milestones is display-only: <milestone> stays in the XML, hidden at render time.
+# --hide-milestones is display-only: <label> stays in the XML, hidden at render time.
 flag_map = {
     "bANa_kAdambarI": '--line-by-line --hide-milestones',
     "vAkyapadIyaprameyasaMgraha": '--line-by-line --extra-space-after-location',

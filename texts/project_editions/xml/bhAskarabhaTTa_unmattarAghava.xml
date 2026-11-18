@@ -127,8 +127,8 @@
       </div>
       <div n="prastāvanā">
         <p xml:id="p1_l7" n="1,7">
-          <milestone n="(nāndyante)"/>
-        </p>
+          <stage>nāndyante</stage>
+          <lb n="8"/></p>
         <sp who="sūtradhāraḥ">
           <speaker>sūtradhāraḥ</speaker>
           <p n="1,8" xml:id="p1_l8">
@@ -208,10 +208,10 @@
           </lg>
           <p xml:id="p2_l23" n="2,23">
             <stage>iti niṣkrāntau |</stage>
-            <milestone n="prastāvanā |"/>
-            <pb n="3"/></p>
+            <lb n="24"/></p>
         </sp>
-      </div>
+        <label>prastāvanā |</label>
+        <pb n="3"/></div>
       <div n="prathamo'ṅkaḥ">
         <p xml:id="p3_l1" n="3,1">
           <stage>tataḥ praviśati puṣpāvacayaṃ nāṭayantī sītā sakhī ca |</stage>
@@ -1018,10 +1018,8 @@
             <l>samayavihitavarṣaḥ sasyapūrṇāṃ dharitrīṃ<caesura/><lb n="24"/> janayatu jaladaughaḥ prerito vāsavena |<lb n="25"/></l>
             <l>bhavajalanidhimadhye majjatāṃ mānavānāṃ<caesura/><lb n="26"/> bhavatu taraṇirūpā saṃgatiḥ sajjanānām || 43 ||<lb n="27"/></l>
           </lg>
-          <p xml:id="p16_l27" n="16,27">
-            <milestone n="saṃpūrṇam |"/>
-          </p>
         </sp>
+        <label xml:id="p16_l27" n="16,27">saṃpūrṇam |</label>
       </div>
     </body>
   </text>

@@ -122,7 +122,7 @@
   <text>
     <body>
       <div n="pūrvabhāga">
-        <pb n="1"/><milestone n="kādambarī |"/>
+        <pb n="1"/><label>kādambarī |</label>
         <lg n="1.1" xml:id="v1_1">
           <l n="a">rajojuṣe janmani sattvavṛttaye<caesura/><lb n="3"/> sthitau prajānāṃ pralaye tamaḥspṛśe |<lb n="4"/></l>
           <l n="c">ajāya sargasthitināśahetave<caesura/><lb n="5"/> trayīmayāya triguṇātmane namaḥ ||<lb n="6"/></l>
@@ -478,8 +478,8 @@
         <p xml:id="p237_l7" n="237,7">jānāmi te garīyasīṃ prītim | kevalamakaṭhoraśirīṣapuṣpamṛduprakṛteḥ <lb n="8"/> kutaḥ prāgalbhyametāvannārījanasya viśeṣato bālabhāvabhājaḥ kumārīlo<lb n="9" break="no"/>kasya | sāhasakāriṇyastā yāḥ svayaṃ saṃdiśanti samupasarpanti vā | <lb n="10"/> svayaṃ sāhasaṃ saṃdiśantī bālā jihremi | kiṃ vā saṃdiśāmi | atipri<lb n="11" break="no"/>yosīti paunaruktyaṃ tavāhaṃ priyātmeti jaḍapraśnastvayi garīyānanurāga <lb n="12"/> iti veśyālāpastvayā vinā na jīvāmītyanubhavavirodhaḥ paribhavati  <lb n="13"/> māmanaṅga ityātmadoṣopālambho manobhavenāhaṃ bhavate dattetyupasarpaṇo<lb n="14" break="no"/>pāyo balāddhṛtosi mayeti bandhakīdhārṣṭyamavaśyamāgantavyamiti saubhā<lb n="15" break="no"/>gyagarvaḥ svayamāgacchāmīti strīcāpalamananyaraktoyaṃ parijana iti <lb n="16"/> svabhaktinivedanalāghavaṃ pratyākhyānaśaṅkayā na saṃdiśāmītyaprabuddhabodha<lb n="17" break="no"/>namanapekṣitānujīvitaduḥkhadāruṇā syāmityatipraṇayitā jñāsyasi mara<lb n="18" break="no"/>ṇena prītimityasaṃbhāvyameveti | </p>
       </div>
       <div n="uttarabhāga">
-        <pb n="239"/><milestone n="kādambarī |"/>
-        <milestone n="uttarabhāgaḥ |"/>
+        <pb n="239"/><label>kādambarī |</label>
+        <label>uttarabhāgaḥ |</label>
         <lg n="2.1" xml:id="v2_1">
           <l n="a">dehadvayārdhaghaṭanāracitaṃ śarīra<caesura/><lb n="4" break="no"/>mekaṃ yayoranupalakṣitasaṃdhibhedam |<lb n="5"/></l>
           <l n="c">vande sudurghaṭakathāpariśeṣasiddhyai<caesura/><lb n="6"/> sṛṣṭergurū girisutāparameśvarau tau ||<lb n="7"/></l>
