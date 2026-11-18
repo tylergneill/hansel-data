@@ -40,7 +40,8 @@ def regenerate_html(xml_dir, plain_dir, rich_dir, standalone=False):
         if labels:
             command.extend(["--page-label", labels[0], "--line-label", labels[1]])
 
-        subprocess.run(command)
+        # check=True: a failing file must stop the regen, not be silently skipped
+        subprocess.run(command, check=True)
 
     # Pass 2: Generate all rich files
     for filename in xml_files:
@@ -63,7 +64,7 @@ def regenerate_html(xml_dir, plain_dir, rich_dir, standalone=False):
         if labels:
             command.extend(["--page-label", labels[0], "--line-label", labels[1]])
 
-        subprocess.run(command)
+        subprocess.run(command, check=True)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Regenerate HTML files from XML.")
