@@ -1409,6 +1409,106 @@ class TeiTextBuilder:
 
         s.verse_group_buffer.clear()
 
+
+# ----------------------------
+# Header helpers
+# ----------------------------
+
+_MONTHS = ["january", "february", "march", "april", "may", "june", "july",
+           "august", "september", "october", "november", "december"]
+# Range separator: en dash, em dash or hyphen, with or without surrounding spaces.
+_DATE_RANGE_SEP_RE = re.compile(r"\s*[–—-]\s*")
+# One end of a date: an optional month name (full or abbreviated) and an optional year.
+_DATE_PART_RE = re.compile(r"^(?:(?P<month>[A-Za-z]+)\.?)?\s*(?P<year>\d{4})?$")
+_ISO_DATE_RE = re.compile(r"^\d{4}(?:-\d{2}(?:-\d{2})?)?$")
+_DECADE_RE = re.compile(r"^(?P<decade>\d{3})0s$")
+
+
+def _month_number(name: str) -> Optional[int]:
+    """Return 1–12 for an English month name or an abbreviation of at least 3 letters
+    ("Aug", "Sept", "June"), else None."""
+    name = name.lower()
+    if len(name) < 3:
+        return None
+    for i, month in enumerate(_MONTHS, start=1):
+        if month.startswith(name):
+            return i
+    return None
+
+
+def _parse_date_part(text: str) -> Optional[tuple[Optional[int], Optional[str]]]:
+    """Split one end of a date ("Aug 2026", "Jan", "2016") into (month, year).
+
+    Either may be None, but not both. Returns None if the text is not of this shape.
+    """
+    m = _DATE_PART_RE.match(text.strip())
+    if not m or not (m.group("month") or m.group("year")):
+        return None
+    month = None
+    if m.group("month"):
+        month = _month_number(m.group("month"))
+        if month is None:
+            return None
+    return month, m.group("year")
+
+
+def _w3c_date(month: Optional[int], year: str) -> str:
+    """Format a year and optional month as a W3C date ("2026" or "2026-08")."""
+    return f"{year}-{month:02d}" if month else year
+
+
+def change_date_attributes(text: str) -> dict[str, str]:
+    """Turn a free-text contributor date from the metadata into TEI date attributes.
+
+    The metadata records when each contribution happened in human wording. TEI's
+    ``@when``/``@from``/``@to`` need W3C dates, so this maps the wording onto them:
+
+    - an ISO date is kept as is:         "2022-02-01"     → {"when": "2022-02-01"}
+    - a single year or month:            "Aug 2026"       → {"when": "2026-08"}
+    - a range (–, — or -, spaced or not): "Jan–Mar 2026"   → {"from": "2026-01", "to": "2026-03"}
+      A month without a year borrows the year of the other end; a range may also
+      cross years ("Dec 2025 – Jan 2026") or be years only ("2016–2017").
+    - a decade:                          "2000s"          → {"from": "2000", "to": "2009"}
+    - anything else ("Date unknown"):    {}
+
+    ``from``/``to`` are used rather than ``notBefore``/``notAfter`` because SARIT's
+    schema removes the latter from ``<change>``. The caller keeps the original wording
+    as a ``<date>`` child, so nothing is lost when no attribute can be derived.
+    """
+    text = (text or "").strip()
+    if not text:
+        return {}
+    if _ISO_DATE_RE.match(text):
+        return {"when": text}
+    decade = _DECADE_RE.match(text)
+    if decade:
+        start = decade.group("decade") + "0"
+        return {"from": start, "to": decade.group("decade") + "9"}
+
+    parts = _DATE_RANGE_SEP_RE.split(text)
+    if len(parts) == 1:
+        single = _parse_date_part(parts[0])
+        if single is None or single[1] is None:
+            return {}
+        return {"when": _w3c_date(*single)}
+    if len(parts) != 2:
+        return {}
+
+    start, end = _parse_date_part(parts[0]), _parse_date_part(parts[1])
+    if start is None or end is None:
+        return {}
+    (start_month, start_year), (end_month, end_year) = start, end
+    # "Jan–Mar 2026": the first month takes the year written at the end.
+    start_year = start_year or end_year
+    end_year = end_year or start_year
+    if start_year is None:
+        return {}
+    # Both ends must be the same kind (month or bare year), or the range is ambiguous.
+    if (start_month is None) != (end_month is None):
+        return {}
+    return {"from": _w3c_date(start_month, start_year), "to": _w3c_date(end_month, end_year)}
+
+
 class TeiHeaderBuilder:
     def __init__(self, template_path: Path, licenses_path: Path):
         self.template_path = template_path
@@ -1626,6 +1726,24 @@ class TeiHeaderBuilder:
             idx = parent.index(change_template)
             parent.remove(change_template)
 
+            def make_change(when: str, who: str, desc: str) -> etree._Element:
+                """Build one <change>. The free-text date is kept as a leading <date>
+                child (e.g. "<date>Jan–Mar 2026</date>: description"), and W3C
+                @when or @from/@to are derived from it where possible."""
+                new_change = etree.Element("change", nsmap=self.ns)
+                for attr, value in change_date_attributes(when).items():
+                    new_change.set(attr, value)
+                if who: new_change.set('who', who)
+                if desc and 'HANSEL' in desc:
+                    new_change.set('ana', '#hansel-contributor')
+                if when:
+                    date_el = etree.SubElement(new_change, "date")
+                    date_el.text = when
+                    date_el.tail = f": {desc}" if desc else None
+                else:
+                    new_change.text = desc
+                return new_change
+
             if isinstance(notes, dict):
                 for key, desc in notes.items():
                     when, who = '', ''
@@ -1638,13 +1756,8 @@ class TeiHeaderBuilder:
                         # Fallback if the key is not in the expected format
                         who = key.strip()
 
-                    new_change = etree.Element("change", nsmap=self.ns)
-                    if when: new_change.set('when', when)
-                    if who: new_change.set('who', who)
-                    if desc and 'HANSEL' in desc:
-                        new_change.set('ana', '#hansel-contributor')
-                    new_change.text = desc.strip() if isinstance(desc, str) else ''
-                    parent.insert(idx, new_change)
+                    desc = desc.strip() if isinstance(desc, str) else ''
+                    parent.insert(idx, make_change(when, who, desc))
                     idx += 1
             elif isinstance(notes, list):
                 # Fallback for list of strings or dicts
@@ -1667,43 +1780,18 @@ class TeiHeaderBuilder:
                             else:
                                 desc = note.strip()
 
-                    new_change = etree.Element("change", nsmap=self.ns)
-                    if when: new_change.set('when', when)
-                    if who: new_change.set('who', who)
-                    if desc and 'HANSEL' in desc:
-                        new_change.set('ana', '#hansel-contributor')
-                    new_change.text = desc
-                    parent.insert(idx, new_change)
+                    parent.insert(idx, make_change(when, who, desc))
                     idx += 1
-
-        # Set from/to dates on publicationStmt/date based on contributor changes
-        revision_desc = root.find('.//tei:revisionDesc', self.ns)
-        if revision_desc is not None:
-            years = []
-            for change in revision_desc.findall('change', self.ns):
-                if change.get('ana') == '#hansel-contributor':
-                    when = change.get('when')
-                    if when:
-                        found_years = re.findall(r'\b(\d{4})\b', when)
-                        for year_str in found_years:
-                            years.append(int(year_str))
-
-            if years:
-                min_year = min(years)
-                max_year = max(years)
-
-                pub_stmt_date = root.find('.//tei:publicationStmt/tei:date', self.ns)
-                if pub_stmt_date is not None:
-                    pub_stmt_date.set('from', str(min_year))
-                    pub_stmt_date.set('to', str(max_year))
 
         if 'Text Type' in self.metadata and 'Prose with verse' in self.metadata['Text Type']:
             boilerplate_file = Path("utils/transforms/xml/template_components/textual_units/prose_with_verse.xml")
             if boilerplate_file.exists():
-                p_template = root.find(".//tei:p[@id='intermediate-textual-units']", namespaces=self.ns)
+                # xpath, not find: ElementPath can't address the xml: prefix
+                matches = root.xpath(".//tei:p[@xml:id='intermediate-textual-units']", namespaces=self.ns)
+                p_template = matches[0] if matches else None
                 if p_template is not None:
                     boilerplate_content = etree.fromstring(boilerplate_file.read_text(encoding='utf-8'))
-                    boilerplate_content.set('id', 'intermediate-textual-units')
+                    boilerplate_content.set(f"{{{_XML_NS}}}id", 'intermediate-textual-units')
                     p_template.getparent().replace(p_template, boilerplate_content)
 
         # Clean up any remaining placeholders
@@ -1715,3 +1803,9 @@ class TeiHeaderBuilder:
             for attr_name, attr_value in elem.attrib.items():
                 if '{{' in attr_value:
                     elem.set(attr_name, re.sub(r'{{[A-Z_0-9]+}}', '', attr_value))
+
+        # The edition note is optional: drop it when {{IMPRINT_NOTE}} was left empty,
+        # rather than leaving an empty <note/> in the <bibl>.
+        for note in root.findall('.//tei:sourceDesc/tei:bibl/tei:note', self.ns):
+            if not (note.text or '').strip() and len(note) == 0:
+                note.getparent().remove(note)

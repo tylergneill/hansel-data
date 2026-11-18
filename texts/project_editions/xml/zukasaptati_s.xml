@@ -44,7 +44,7 @@
             <p>HANSEL assumes no responsibility for unauthorised use that infringes rights.</p>
           </licence>
         </availability>
-        <date when="2026-02-03" from="2025" to="2025">February 03, 2026</date>
+        <date when="2026-02-03">February 03, 2026</date>
       </publicationStmt>
       <notesStmt>
         <note>The work's frame story takes place over seventy nights. In the frame, a pet parrot belongs to a young, lonely woman named Prabhāvatī, and he seeks to keep her faithful while her merchant husband, Madanavinoda, is away on business. Each night, when Prabhāvatī is tempted to meet a lover, the clever bird tells her a story meant to dissuade her. After seventy nights of such tales, her husband returns, and she has remained true, bringing the drama to a close. The stories feature clever protagonists who extricate themselves from difficult situations, especially women who outsmart men in episodes involving adultery.</note>
@@ -53,23 +53,21 @@
         <bibl>
           <title>Die Çukasaptati. Textus Simplicior.</title>
           <editor>Schmidt, Richard</editor>
-          <imprint>
-            <publisher>Deutsche Morgenländische Gesellschaft</publisher>
-            <pubPlace>Leipzig</pubPlace>
-            <date>1893</date>
-          </imprint>
+          <publisher>Deutsche Morgenländische Gesellschaft</publisher>
+          <pubPlace>Leipzig</pubPlace>
+          <date>1893</date>
+          <series>
+            <title level="s">Abhandlungen für die Kunde des Morgenlandes</title>
+            <biblScope>Band X, No. 1</biblScope>
+          </series>
+          <note>Band X as a whole (Nos. 1–4) was published in 1897.</note>
         </bibl>
-        <series>
-          <title level="s">Abhandlungen für die Kunde des Morgenlandes</title>
-          <biblScope>Band X, No. 1</biblScope>
-        </series>
-        <note>Band X as a whole (Nos. 1–4) was published in 1897.</note>
       </sourceDesc>
     </fileDesc>
     <encodingDesc>
       <editorialDecl>
-        <p id="file-creation-method">I (Tyler Neill) produced this HANSEL edition by manually converting the original Word document to plaintext and then automatically adding XML markup. The text still needs a final proofread.</p>
-        <p id="transliteration">
+        <p xml:id="file-creation-method">I (Tyler Neill) produced this HANSEL edition by manually converting the original Word document to plaintext and then automatically adding XML markup. The text still needs a final proofread.</p>
+        <p xml:id="transliteration">
           The source edition is printed in Devanāgarī; the electronic text uses lossless IAST transliteration.
           IAST differs slightly from ISO 15919; conversion can be achieved via:
           <list>
@@ -93,8 +91,8 @@
             </item>
           </list>
         </p>
-        <p id="word-division">Roman-like (ity evam, not ityevam)</p>
-        <p id="error-markup">
+        <p xml:id="word-division">Roman-like (ity evam, not ityevam)</p>
+        <p xml:id="error-markup">
           Improvements and uncertainties:
           <list>
             <item>Replacement: <choice>
@@ -110,12 +108,12 @@
             </item>
           </list>
         </p>
-        <p id="intermediate-textual-units">Prose paragraphs are enclosed in the normal <tag>p</tag> tags. Verse passages are enclosed in line-group tag <tag>lg</tag>, with one parent <tag>lg</tag> for groups of verses, and verse halves are individually tagged with <tag>l</tag>. <tag>p</tag> and parent <tag>lg</tag> have location markers.</p>
+        <p xml:id="intermediate-textual-units">Prose paragraphs are enclosed in the normal <tag>p</tag> tags. Verse passages are enclosed in line-group tag <tag>lg</tag>, with one parent <tag>lg</tag> for groups of verses, and verse halves are individually tagged with <tag>l</tag>. <tag>p</tag> and parent <tag>lg</tag> have location markers.</p>
       </editorialDecl>
     </encodingDesc>
     <revisionDesc>
-      <change when="2020–2025">V. Gostishchev: Typed up from edition, intensively proofread and structured.</change>
-      <change when="July 2025" ana="#hansel-contributor">Tyler Neill: Restructured for HANSEL.</change>
+      <change from="2020" to="2025"><date>2020–2025</date>: V. Gostishchev: Typed up from edition, intensively proofread and structured.</change>
+      <change when="2025-07" ana="#hansel-contributor"><date>July 2025</date>: Tyler Neill: Restructured for HANSEL.</change>
     </revisionDesc>
   </teiHeader>
   <text>

@@ -45,7 +45,7 @@
             <p>HANSEL assumes no responsibility for unauthorised use that infringes rights.</p>
           </licence>
         </availability>
-        <date when="2026-04-24" from="2025" to="2025">April 24, 2026</date>
+        <date when="2026-04-24">April 24, 2026</date>
       </publicationStmt>
       <notesStmt>
         <note>Ślokavārttika is one of the foundational texts of classical Indian philosophy, especially for understanding how Sanskrit intellectuals argued about knowledge, language, and authority. In it, Kumārila argues that Vedic language is a reliable means for knowing what human beings ought to do, not because of the intention of any human or divine author, but because of stable, conventional relations inherent in language itself. Though formally a commentary on parts of Jaimini’s Mīmāṃsāsūtra, the work functions less as explanation than as intertextual polemic, sharpening debates with Buddhists, Naiyāyikas, and rival Mīmāṃsakas in tightly compressed verse. For getting started with this notoriously difficult text, the most reliable English-language resources are the Stanford Encyclopedia of Philosophy articles on Mīmāṃsā and Testimony (śabda), together with John Taber’s essays on Kumārila and svataḥ prāmāṇya.</note>
@@ -54,23 +54,20 @@
         <bibl>
           <title>Ślokavārttika of Śrī Kumārila Bhaṭṭa with the Commentary Nyāyaratnākara of Śrī Pārthasārathi Miśra.</title>
           <editor>Dvārikādāsa Śāstrī</editor>
-          <imprint>
-            <publisher>Tara Publications</publisher>
-            <pubPlace>Varanasi</pubPlace>
-            <date>1978</date>
-          </imprint>
+          <publisher>Tara Publications</publisher>
+          <pubPlace>Varanasi</pubPlace>
+          <date>1978</date>
+          <series>
+            <title level="s"/>
+            <biblScope/>
+          </series>
         </bibl>
-        <series>
-          <title level="s"/>
-          <biblScope/>
-        </series>
-        <note/>
       </sourceDesc>
     </fileDesc>
     <encodingDesc>
       <editorialDecl>
-        <p id="file-creation-method">I (Tyler Neill) produced this HANSEL edition by minimally adapting the corresponding file in the Pramāṇa NLP collection by adding page numbers. The Pramāṇa NLP file had been manually converted from Helmut Krasser's Word document into plain text, also by myself a few years earlier, mainly using regular expressions. Krasser's original Word file had been manually typed from the edition in an abstracted fashion, namely by extracting only the Ślokavārtika content and ignoring both Pārthasārathi Miśra's commentary and all physical aspects of the edition (e.g., page numbers). The text is known to contain errors and still needs a final proofread.</p>
-        <p id="transliteration">
+        <p xml:id="file-creation-method">I (Tyler Neill) produced this HANSEL edition by minimally adapting the corresponding file in the Pramāṇa NLP collection by adding page numbers. The Pramāṇa NLP file had been manually converted from Helmut Krasser's Word document into plain text, also by myself a few years earlier, mainly using regular expressions. Krasser's original Word file had been manually typed from the edition in an abstracted fashion, namely by extracting only the Ślokavārtika content and ignoring both Pārthasārathi Miśra's commentary and all physical aspects of the edition (e.g., page numbers). The text is known to contain errors and still needs a final proofread.</p>
+        <p xml:id="transliteration">
           The source edition is printed in Devanāgarī; the electronic text uses lossless IAST transliteration.
           IAST differs slightly from ISO 15919; conversion can be achieved via:
           <list>
@@ -94,8 +91,8 @@
             </item>
           </list>
         </p>
-        <p id="word-division">Roman-like (ity evam, not ityevam), but inconsistent</p>
-        <p id="error-markup">
+        <p xml:id="word-division">Roman-like (ity evam, not ityevam), but inconsistent</p>
+        <p xml:id="error-markup">
           Improvements and uncertainties:
           <list>
             <item>Replacement: <choice>
@@ -111,13 +108,13 @@
             </item>
           </list>
         </p>
-        <p id="intermediate-textual-units">.</p>
+        <p xml:id="intermediate-textual-units">.</p>
       </editorialDecl>
     </encodingDesc>
     <revisionDesc>
-      <change when="Date unknown" who="H. Krasser">Created.</change>
-      <change when="2017–2021" who="Tyler Neill">Supplied missing _Arthāpattipariccheda_ (5.8), restructured for Pramāṇa NLP collection.</change>
-      <change when="2025" who="Tyler Neill" ana="#hansel-contributor">Added page numbers for HANSEL structure, corrected about 150 unmetrical verses.</change>
+      <change who="H. Krasser"><date>Date unknown</date>: Created.</change>
+      <change from="2017" to="2021" who="Tyler Neill"><date>2017–2021</date>: Supplied missing _Arthāpattipariccheda_ (5.8), restructured for Pramāṇa NLP collection.</change>
+      <change when="2025" who="Tyler Neill" ana="#hansel-contributor"><date>2025</date>: Added page numbers for HANSEL structure, corrected about 150 unmetrical verses.</change>
     </revisionDesc>
   </teiHeader>
   <text>

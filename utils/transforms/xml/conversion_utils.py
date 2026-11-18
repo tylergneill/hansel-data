@@ -47,6 +47,11 @@ def serialize(root: etree._Element, pretty_print: bool = True) -> str:
         for el in root.xpath("//caesura | //lb | //pb"):
             if el.tail and el.tail.isspace():
                 el.tail = None
+        # <change> is mixed content starting with a <date> child; keep it inline
+        # ("<change ...><date>Aug 2026</date>: ...") instead of indenting the <date>.
+        for el in root.xpath("//*[local-name()='change']"):
+            if el.text and el.text.isspace():
+                el.text = None
     return etree.tostring(root, encoding="unicode", pretty_print=pretty_print)
 
 

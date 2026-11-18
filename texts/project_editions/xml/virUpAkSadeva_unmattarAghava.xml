@@ -45,7 +45,7 @@
             <p>HANSEL assumes no responsibility for unauthorised use that infringes rights.</p>
           </licence>
         </availability>
-        <date when="2026-10-30" from="2026" to="2026">October 30, 2026</date>
+        <date when="2026-10-30">October 30, 2026</date>
       </publicationStmt>
       <notesStmt>
         <note>Rāma Beside Himself (Unmattarāghava) is a one-act Sanskrit drama by the 15th-century Sangama king Virūpākṣadeva that reimagines the famous golden deer episode of Vālmīki’s Rāmāyaṇa as an intensely lyrical study of madness (unmāda) occasioned by love in separation. In the traditional narrative, the demon Mārīca disguises himself as a golden deer in order to draw Rāma away and enable Rāvaṇa to abduct Sītā; Virūpākṣadeva’s play...</note>
@@ -54,23 +54,20 @@
         <bibl>
           <title>Unmattarāghava by Virūpākṣadeva</title>
           <editor>Vyākaraṇaśiromaṇi V. Krishnamacharya</editor>
-          <imprint>
-            <publisher>The Adyar Library</publisher>
-            <pubPlace>Madras \[Chennai\]</pubPlace>
-            <date>1946</date>
-          </imprint>
+          <publisher>The Adyar Library</publisher>
+          <pubPlace>Madras \[Chennai\]</pubPlace>
+          <date>1946</date>
+          <series>
+            <title level="s">The Adyar Library Series</title>
+            <biblScope>57</biblScope>
+          </series>
         </bibl>
-        <series>
-          <title level="s">The Adyar Library Series</title>
-          <biblScope>57</biblScope>
-        </series>
-        <note/>
       </sourceDesc>
     </fileDesc>
     <encodingDesc>
       <editorialDecl>
-        <p id="file-creation-method">I (T. Neill) produced this HANSEL edition. I first manually extracted T. Richard's submitted Word document to plain-text, then added basic structural markup (page breaks, tabbed verses, marking of stage directions and Prakrit). Next, I re-OCRed the PDF (Cloud Vision and Sarvam Vision auto-harmonized with Gemini 2.5 Flash) to recover line-break information, then merged this information into the structured transcript. Finally, I interviewed T. Richard for much of the metadata (the Work Description is entirely his) and ingested the data into HANSEL. T. Richard and I then proofread and reviewed presentation features together (shoutout to Yohevet Coffee Shop in Brooklyn!)</p>
-        <p id="transliteration">
+        <p xml:id="file-creation-method">I (T. Neill) produced this HANSEL edition. I first manually extracted T. Richard's submitted Word document to plain-text, then added basic structural markup (page breaks, tabbed verses, marking of stage directions and Prakrit). Next, I re-OCRed the PDF (Cloud Vision and Sarvam Vision auto-harmonized with Gemini 2.5 Flash) to recover line-break information, then merged this information into the structured transcript. Finally, I interviewed T. Richard for much of the metadata (the Work Description is entirely his) and ingested the data into HANSEL. T. Richard and I then proofread and reviewed presentation features together (shoutout to Yohevet Coffee Shop in Brooklyn!)</p>
+        <p xml:id="transliteration">
           The source edition is printed in Devanāgarī; the electronic text uses lossless IAST transliteration.
           IAST differs slightly from ISO 15919; conversion can be achieved via:
           <list>
@@ -94,8 +91,8 @@
             </item>
           </list>
         </p>
-        <p id="word-division">Devanāgarī-like (ityevam, not ity evam)</p>
-        <p id="error-markup">
+        <p xml:id="word-division">Devanāgarī-like (ityevam, not ity evam)</p>
+        <p xml:id="error-markup">
           Improvements and uncertainties:
           <list>
             <item>Replacement: <choice>
@@ -111,12 +108,12 @@
             </item>
           </list>
         </p>
-        <p id="intermediate-textual-units">.</p>
+        <p xml:id="intermediate-textual-units">.</p>
       </editorialDecl>
     </encodingDesc>
     <revisionDesc>
-      <change when="March – September 2026" who="T. Richard">Manually transcribed the edition and formatted as a Google Doc. (( Justified textual improvements in separate doc. ?? ))</change>
-      <change when="September 2026" who="T. Neill" ana="#hansel-contributor">Exported Google Doc tab ((s)) as Word doc ((s)) and processed for HANSEL.</change>
+      <change from="2026-03" to="2026-09" who="T. Richard"><date>March – September 2026</date>: Manually transcribed the edition and formatted as a Google Doc. (( Justified textual improvements in separate doc. ?? ))</change>
+      <change when="2026-09" who="T. Neill" ana="#hansel-contributor"><date>September 2026</date>: Exported Google Doc tab ((s)) as Word doc ((s)) and processed for HANSEL.</change>
     </revisionDesc>
   </teiHeader>
   <text>

@@ -34,24 +34,22 @@
         <bibl>
           <title>{{EDITION_TITLE}}</title>
           <editor>{{EDITION_EDITOR}}</editor>
-          <imprint>
-            <publisher>{{EDITION_PUBLISHER}}</publisher>
-            <pubPlace>{{EDITION_PLACE}}</pubPlace>
-            <date>{{EDITION_YEAR}}</date>
-          </imprint>
+          <publisher>{{EDITION_PUBLISHER}}</publisher>
+          <pubPlace>{{EDITION_PLACE}}</pubPlace>
+          <date>{{EDITION_YEAR}}</date>
+          <series>
+            <title level="s">{{SERIES_TITLE}}</title>
+            <biblScope>{{SERIES_PART}}</biblScope>
+          </series>
+          <note>{{IMPRINT_NOTE}}</note>
         </bibl>
-        <series>
-          <title level="s">{{SERIES_TITLE}}</title>
-          <biblScope>{{SERIES_PART}}</biblScope>
-        </series>
-        <note>{{IMPRINT_NOTE}}</note>
       </sourceDesc>
     </fileDesc>
 
     <encodingDesc>
       <editorialDecl>
-        <p id="file-creation-method">{{FILE_CREATION_METHOD}}</p>
-        <p id="transliteration">
+        <p xml:id="file-creation-method">{{FILE_CREATION_METHOD}}</p>
+        <p xml:id="transliteration">
           The source edition is printed in Devanāgarī; the electronic text uses lossless IAST transliteration.
           IAST differs slightly from ISO 15919; conversion can be achieved via:
           <list>
@@ -63,8 +61,8 @@
             <item><code>o → ō</code></item>
           </list>
         </p>
-        <p id="word-division">{{WORD_DIVISION_STYLE}}</p>
-        <p id="error-markup">
+        <p xml:id="word-division">{{WORD_DIVISION_STYLE}}</p>
+        <p xml:id="error-markup">
           Improvements and uncertainties:
           <list>
             <item>Replacement: <choice><sic>before</sic><corr>after</corr></choice></item>
@@ -73,7 +71,7 @@
             <item>Unclear: <unclear/></item>
           </list>
         </p>
-        <p id="intermediate-textual-units">{{INTERMEDIATE_TEXTUAL_UNITS}}.</p>
+        <p xml:id="intermediate-textual-units">{{INTERMEDIATE_TEXTUAL_UNITS}}.</p>
       </editorialDecl>
     </encodingDesc>
 
