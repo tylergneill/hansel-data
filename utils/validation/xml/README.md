@@ -22,6 +22,7 @@ HANSEL's XML is validated against its own customization of SARIT's schema. SARIT
 | Change | Why |
 |---|---|
 | `schemaSpec/@ident` is `hansel`; own `teiHeader` title | identifies the customization |
+| `sp/@who` allowed (SARIT deletes it) | drama: each speech points at its speaker's `castList` role |
 
 Everything HANSEL's schema accepts is still standard TEI, which `make validate-tei-all` checks against stock `tei_all`.
 
