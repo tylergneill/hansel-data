@@ -23,6 +23,8 @@ HANSEL's XML is validated against its own customization of SARIT's schema. SARIT
 |---|---|
 | `schemaSpec/@ident` is `hansel`; own `teiHeader` title | identifies the customization |
 | `sp/@who` allowed (SARIT deletes it) | drama: each speech points at its speaker's `castList` role |
+| `lg/@type` adds `group` | several verses sharing one location marker are wrapped in `<lg type="group">` |
+| `seg/@type` adds `prakrit`, `chāyā` | drama: a Prakrit passage and its Sanskrit chāyā are paired as two `<seg>`s |
 
 Everything HANSEL's schema accepts is still standard TEI, which `make validate-tei-all` checks against stock `tei_all`.
 

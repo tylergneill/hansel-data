@@ -1381,6 +1381,8 @@
                   <attDef ident="type" mode="change">
                      <valList mode="add" type="closed">
                         <valItem ident="anuṣṭubh"/>
+                        <!-- HANSEL: wraps several verses (child <lg>s) that share one location marker. -->
+                        <valItem ident="group"/>
                         <valItem ident="chāyā"/>
                         <valItem ident="kulaka"/>
                         <valItem ident="kārikā"/>
@@ -2283,6 +2285,9 @@
                   <attDef ident="type" mode="change">
                      <valList mode="add" type="closed">
                         <valItem ident="commentary"/>
+                        <!-- HANSEL: drama speech in Prakrit and its Sanskrit chāyā, paired as two segs. -->
+                        <valItem ident="prakrit"/>
+                        <valItem ident="chāyā"/>
                         <valItem ident="pāda"/>
                         <valItem ident="scribal_remark"/>
                         <valItem ident="sutra"/>
