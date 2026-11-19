@@ -3,7 +3,7 @@
 TEI builder
 
 Renders the HANSEL data model (lightly marked plaintext) into a simplified TEI-XML form:
-<div>, <p>, <lg>/<l>, <pb>, <cb>, <lb>, <head>, <back>, <note>, <label>.
+<div>, <p>, <lg>/<l>, <pb>, <cb>, <lb>, <head>, <trailer>, <note>, <label>.
 
 See DATA_MODEL.md for more details.
 """
@@ -840,16 +840,22 @@ class TeiTextBuilder:
         is_verse_close = self._process_content_with_midline_elements(verse_payload, "verse", line)
 
         if back_text and back_text.strip():
-            milestone_to_move = s.last_tail_text_sink
-            back_el = self._append_child_text(working_lg, "back", back_text)
+            # Text after the closing daṇḍa marker on the verse's last line (e.g.
+            # "|| 2.14 || iti |") becomes a <trailer> at the end of the <lg>.
+            # place="inline": in print it stays on the same line as the last pāda.
+            # A trailing <lb>/<pb> on that line moves into the trailer with it.
+            break_to_move = s.last_tail_text_sink
+            back_el = self._append_child_text(working_lg, "trailer", back_text)
+            if back_el is not None:
+                back_el.set("place", "inline")
             if (
-                    milestone_to_move is not None
-                    and milestone_to_move.tag in ('lb', 'pb')
+                    break_to_move is not None
+                    and break_to_move.tag in ('lb', 'pb')
                     and back_el is not None
             ):
-                parent = milestone_to_move.getparent()
+                parent = break_to_move.getparent()
                 if parent is not None and parent.tag == 'l':
-                    back_el.append(milestone_to_move)
+                    back_el.append(break_to_move)
 
         if is_verse_close:
             if has_prakrit_close:

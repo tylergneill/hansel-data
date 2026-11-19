@@ -264,11 +264,11 @@ class XMLToPlaintext:
             self._start_new_line()
         elif tag == 'l':
             next_el = el.getnext()
-            if next_el is not None and etree.QName(next_el.tag).localname == 'back':
+            if next_el is not None and etree.QName(next_el.tag).localname == 'trailer':
                 pass
             else:
                 self._start_new_line()
-        elif tag == 'back':
+        elif tag == 'trailer':
             self._start_new_line()
         elif tag == 'head':
             has_lb_child = any(child.tag.endswith('lb') for child in el)

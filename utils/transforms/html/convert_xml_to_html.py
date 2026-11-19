@@ -749,7 +749,7 @@ class HtmlConverter:
                         self.append_text(p_tag, child.text, treat_as_plain=treat_as_plain)
                 elif child.tag == 'l':
                     self._render_l_as_spans(child, target_div, treat_as_plain, in_lg=(not treat_as_plain))
-                elif child.tag == 'back':
+                elif child.tag == 'trailer':
                     if len(target_div) > 0:
                         last_element = target_div[-1]
                         self.process_children(child, last_element, treat_as_plain, in_lg=(not treat_as_plain))
@@ -807,7 +807,7 @@ class HtmlConverter:
                         for sub_child in child:
                             if sub_child.tag == 'l':
                                 self._render_l_as_li(sub_child, chaya_ul, False)
-                    elif child.tag == 'back':
+                    elif child.tag == 'trailer':
                         if len(padas_ul) > 0:
                             self.process_children(child, padas_ul[-1], False, in_lg=True)
                         else:
@@ -888,7 +888,7 @@ class HtmlConverter:
                         b_tag = etree.SubElement(li_elem, "b")
                         b_tag.text = verse_n
                         b_tag.tail = " ||" + trailing_ws
-            elif child.tag == 'back':
+            elif child.tag == 'trailer':
                 if len(padas_ul) > 0:
                     self.process_children(child, padas_ul[-1], False, in_lg=True)
 

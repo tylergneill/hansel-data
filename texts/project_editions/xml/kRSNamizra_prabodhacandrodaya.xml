@@ -810,7 +810,7 @@
           <lg xml:id="p2_l53_2" n="2,53">
             <l>“yasya hastau ca pādau ca<caesura/> manaś caiva susaṃyatam |</l>
             <l>vidyā tapaś ca kīrtiś ca<caesura/> sa tīrthaphalam aśnute” || 2.14 || </l>
-            <back>iti |</back>
+            <trailer place="inline">iti |</trailer>
           </lg>
         </sp>
         <sp who="(nepathye)">
@@ -3183,7 +3183,7 @@
           <lg xml:id="p5_l96_2" n="5,96">
             <l>“akāṇḍapātajātānām<caesura/> ārdrāṇāṃ marmabhedinām |</l>
             <l>gāḍhaśokaprahārāṇām<caesura/> acintaiva mahauṣadham” || 5.25 || </l>
-            <back>iti |</back>
+            <trailer place="inline">iti |</trailer>
           </lg>
         </sp>
         <sp who="manaḥ">
@@ -3669,7 +3669,7 @@
           <lg xml:id="p6_l90_2" n="6,90">
             <l>“yasmād viśvam udeti, yatra ramate, yasmin punar līyate —<caesura/> bhāṣā yasya jagad vibhāti, sahajānandojjvalaṃ yanmahaḥ |</l>
             <l>śāntaṃ, śāśvatam, akriyaṃ, yam apunarbhāvāya bhūteśvaraṃ<caesura/> dvaitadhvāntam apāsya yānti kṛtinaḥ — prastaumi taṃ pūruṣam” || 6.14 || </l>
-            <back>iti |</back>
+            <trailer place="inline">iti |</trailer>
           </lg>
           <p>yajñavidyā vicintya — </p>
           <lg xml:id="p6_l90_3" n="6,90">
@@ -3837,7 +3837,7 @@
           <lg xml:id="p6_l133_2" n="6,133">
             <l>“tān ahaṃ dviṣataḥ krūrān,<caesura/> saṃsāreṣu narādhamān |</l>
             <l>kṣipāmy ajasram aśubhān<caesura/> āsurīṣv eva yoniṣu” || 6.25 || </l>
-            <back>iti |</back>
+            <trailer place="inline">iti |</trailer>
           </lg>
         </sp>
         <sp who="puruṣaḥ">
