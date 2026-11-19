@@ -63,6 +63,10 @@ GEMINI.md
 utils/validation/xml/oxygen_comparison/*.txt
 utils/validation/xml/oxygen_comparison/*.csv
 
+# XML validation: per-run SVRL reports (build/ and the .cache download folder are
+# already covered by the general patterns above)
+utils/validation/xml/cli/reports/
+
 # Transform scratch space — all script output (debug images, test PDFs,
 # resplit manifests) goes in a tmp/ next to the script that makes it.
 utils/transforms/*/tmp/*

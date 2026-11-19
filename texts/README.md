@@ -13,7 +13,7 @@ The `original_submissions/` directory preserves first-imported files exactly as 
 Curated project editions live in `project_editions/xml/` and `project_editions/txt/`. TEI-XML and plain-text are maintained as co-equal working formats; their correspondence is outlined in `DATA_MODEL.md` and enforced by the round-trip scripts described in the top-level README.
 
 Together, these co-editions are streamlined for consistent NLP processing, manually proofed over time, and validated before publication. Validation currently includes:
-- schema validation of XML against the SARIT Simple profile
+- schema validation of XML against the HANSEL schema (derived from SARIT's `sarit.odd`) and stock TEI `tei_all`
 - structural checks of plain-text via `utils/validation/txt/validate.py -s`
 
 Metadata about editorial state and outstanding tasks is recorded in the corresponding files under `metadata/markdown`.

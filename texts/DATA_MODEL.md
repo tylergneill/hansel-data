@@ -1,6 +1,6 @@
 # HANSEL Text Data Model
 
-HANSEL maintains two co-equal, losslessly convertible representations of its digital editions: TEI-XML and lightly marked-up plain-text. Via TEI, texts are validated against the SARIT "Simple" schema (`schemas/sarit.rng` + `schemas/sarit.isosch`) by the workflows in `utils/validation/xml/`.
+HANSEL maintains two co-equal, losslessly convertible representations of its digital editions: TEI-XML and lightly marked-up plain-text. Via TEI, texts are validated against the HANSEL schema (`schemas/hansel.rng` + `schemas/hansel.isosch`, derived from SARIT's `sarit.odd`) by the workflows in `utils/validation/xml/`.
 
 Within that schema, the project focuses on a subset of possible text representations:
 
