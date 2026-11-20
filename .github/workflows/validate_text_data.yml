@@ -1,9 +1,8 @@
 name: Validate text data
 
 on:
+  # Every branch push, so a branch's checks show before any pull request.
   push:
-    branches:
-      - main
   pull_request:
     branches:
       - main
@@ -36,3 +35,36 @@ jobs:
     - run: echo "running validation script"
     - name: Run script
       run: .github/scripts/validate_text_data.sh
+
+  # TEI-XML project editions: the HANSEL schema (RELAX NG + Schematron) and the
+  # stock TEI tei_all cross-check. Uses the pip-only engines from requirements.txt
+  # (pyjing needs Java, which setup-java provides; saxonche needs none).
+  # See utils/validation/xml/README.md.
+  validate-xml:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Set up Java (for Jing)
+      uses: actions/setup-java@v4
+      with:
+        distribution: temurin
+        java-version: '17'
+
+    - name: Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Validate XML against the HANSEL schema
+      run: make validate JING=pyjing SAXON="python saxon_cli.py"
+
+    - name: Cross-check XML against TEI tei_all
+      run: make validate-tei-all JING=pyjing
