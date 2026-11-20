@@ -1405,7 +1405,7 @@
                   <attDef ident="change" mode="delete"/>
                   <attDef ident="cert" mode="delete"/>
                   <attDef ident="source" mode="delete"/>
-                  <!-- HANSEL: sp/@who kept (SARIT deletes it); drama speeches point at castList roles. -->
+                  <!-- HANSEL: sp/@who kept (SARIT deletes it); drama speeches record the speaker's name in it. -->
                </attList>
             </elementSpec>
             <elementSpec ident="speaker" mode="change">

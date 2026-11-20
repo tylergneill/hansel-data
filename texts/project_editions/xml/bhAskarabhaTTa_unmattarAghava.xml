@@ -113,7 +113,7 @@
     </encodingDesc>
     <revisionDesc>
       <change from="2026-03" to="2026-07" who="T. Richard"><date>March – July 2026</date>: Manually transcribed the edition and formatted as a Google Doc. Justified textual improvements in separate doc.</change>
-      <change from="2026-06" to="2026-07" who="T. Neill" ana="#hansel-contributor"><date>June — July 2026</date>: Exported Google Doc tabs as Word docs and processed for HANSEL.</change>
+      <change from="2026-06" to="2026-07" who="T. Neill"><date>June — July 2026</date>: Exported Google Doc tabs as Word docs and processed for HANSEL.</change>
       <change when="2026-08" who="H. Isaacson and T. Neill"><date>Aug 2026</date>: Fixed a few typos.</change>
     </revisionDesc>
   </teiHeader>

@@ -112,7 +112,7 @@
     </encodingDesc>
     <revisionDesc>
       <change from="2016" to="2017" who="Charles Li"><date>2016–2017</date>: Typed up; removed brackets with folio/line numbers, e.g. (2r5:) for easier searching; added notes in brackets at the beginning of some paragraphs, indicating the pages being transcribed and also the verses being commented, e.g, "2,222" is 2nd kāṇḍa, verse 222, which information is from Rau, in the margin notes.</change>
-      <change when="2026-01" who="Tyler Neill" ana="#hansel-contributor"><date>Jan 2026</date>: Re-OCR (using two models, on 1981 edition, merged with AI), manual reconciliation of differences relative to previous version, some more light proofreading, markup for HANSEL.</change>
+      <change when="2026-01" who="Tyler Neill"><date>Jan 2026</date>: Re-OCR (using two models, on 1981 edition, merged with AI), manual reconciliation of differences relative to previous version, some more light proofreading, markup for HANSEL.</change>
     </revisionDesc>
   </teiHeader>
   <text>

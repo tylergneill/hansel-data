@@ -123,7 +123,7 @@ Similarly, I have rendered the "nepathye" stage direction as speaker identificat
     <revisionDesc>
       <change from="2025-12" to="2026-01" who="Christian Ferstl"><date>Dec 2025 – Jan 2026</date>: Manually prepared transcript of edition, modified punctuation, added some (not all) inter-word spacing, added Sanskrit chāyās from Achan 1925.</change>
       <change when="2026-01" who="Roland Steiner"><date>Jan 2026</date>: Submitted plaintext file of edition with identical text to that printed in 2006.</change>
-      <change from="2026-01" to="2026-03" who="Tyler Neill" ana="#hansel-contributor"><date>Jan–Mar 2026</date>: Processed for HANSEL.</change>
+      <change from="2026-01" to="2026-03" who="Tyler Neill"><date>Jan–Mar 2026</date>: Processed for HANSEL.</change>
       <change when="2026-08" who="T. Neill"><date>Aug 2026</date>: Fixed a few typos, repaired PDF-page links.</change>
     </revisionDesc>
   </teiHeader>

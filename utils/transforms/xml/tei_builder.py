@@ -1769,8 +1769,6 @@ class TeiHeaderBuilder:
                 for attr, value in change_date_attributes(when).items():
                     new_change.set(attr, value)
                 if who: new_change.set('who', who)
-                if desc and 'HANSEL' in desc:
-                    new_change.set('ana', '#hansel-contributor')
                 if when:
                     date_el = etree.SubElement(new_change, "date")
                     date_el.text = when

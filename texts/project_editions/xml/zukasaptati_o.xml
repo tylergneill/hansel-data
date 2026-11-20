@@ -117,7 +117,7 @@
     <revisionDesc>
       <change when="2022-08" who="Suhas Mahesh (Ambuda user `suhasm`)"><date>Aug 2022</date>: Item created, Google Cloud Vision OCR performed.</change>
       <change from="2023-03" to="2023-05" who="Ambuda user `shivjun1685`"><date>Mar–May 2023</date>: Proofread once.</change>
-      <change from="2025-05" to="2025-07" who="Tyler Neill" ana="#hansel-contributor"><date>May–Jul 2025</date>: Second OCR and merge with previous corrections, proofread final time, restructured for HANSEL.</change>
+      <change from="2025-05" to="2025-07" who="Tyler Neill"><date>May–Jul 2025</date>: Second OCR and merge with previous corrections, proofread final time, restructured for HANSEL.</change>
     </revisionDesc>
   </teiHeader>
   <text>

@@ -77,7 +77,7 @@
 
     <revisionDesc>
       <!-- DUPLICATE <change>…</change> FOR MORE CONTRIBUTIONS -->
-      <change when="{{CHANGE_DATE_1}}" who="{{CHANGE_WHO_1}}" ana="hansel-contributor">{{CHANGE_DESC_1}}</change>
+      <change when="{{CHANGE_DATE_1}}" who="{{CHANGE_WHO_1}}">{{CHANGE_DESC_1}}</change>
     </revisionDesc>
   </teiHeader>
 </TEI>

@@ -115,7 +115,7 @@
     </encodingDesc>
     <revisionDesc>
       <change when="2022-02-01" who="Andrew Ollett"><date>2022-02-01</date>: Initial OCR (using Google Cloud Vision, on 1883 edition), some proofreading, XML markup for SARIT, uploaded to GitHub.</change>
-      <change from="2024" to="2025" who="Tyler Neill" ana="#hansel-contributor"><date>2024–2025</date>: Second OCR (using two models, on 1885 edition, merged with AI), manual reconciliation of differences relative to previous version, some more proofreading, markup for HANSEL.</change>
+      <change from="2024" to="2025" who="Tyler Neill"><date>2024–2025</date>: Second OCR (using two models, on 1885 edition, merged with AI), manual reconciliation of differences relative to previous version, some more proofreading, markup for HANSEL.</change>
       <change when="2026" who="Tyler Neill"><date>2026</date>: Reorientation toward 1889; third OCR (using Sarvam Vision, on 1889 edition), manual reconciliation of differences.</change>
     </revisionDesc>
   </teiHeader>
