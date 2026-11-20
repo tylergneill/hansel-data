@@ -4,3 +4,6 @@ pillow
 pymupdf
 py-gfm
 skrutable
+# XML validation (utils/validation/xml): pyjing (Jing; needs Java) and SaxonC-HE (no Java)
+jingtrang
+saxonche

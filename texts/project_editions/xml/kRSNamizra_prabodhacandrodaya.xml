@@ -45,7 +45,7 @@
             <p>HANSEL assumes no responsibility for unauthorised use that infringes rights.</p>
           </licence>
         </availability>
-        <date when="2026-10-02" from="2026" to="2026">October 02, 2026</date>
+        <date when="2026-10-02">October 02, 2026</date>
       </publicationStmt>
       <notesStmt>
         <note/>
@@ -54,23 +54,21 @@
         <bibl>
           <title>The Rise of Wisdom Moon</title>
           <editor>Matthew Kapstein</editor>
-          <imprint>
-            <publisher>New York University Press &amp; JCC Foundation</publisher>
-            <pubPlace>New York</pubPlace>
-            <date>2009</date>
-          </imprint>
+          <publisher>New York University Press &amp; JCC Foundation</publisher>
+          <pubPlace>New York</pubPlace>
+          <date>2009</date>
+          <series>
+            <title level="s"/>
+            <biblScope/>
+          </series>
+          <note>Differences from the text printed in Clay are (1) more standard IAST representation without Clay sandhi-and-compound notations, (2) chāyā placed adjacent to corresponding Prakrit, and (3) numerous corrected readings.</note>
         </bibl>
-        <series>
-          <title level="s"/>
-          <biblScope/>
-        </series>
-        <note>Differences from the text printed in Clay are (1) more standard IAST representation without Clay sandhi-and-compound notations, (2) chāyā placed adjacent to corresponding Prakrit, and (3) numerous corrected readings.</note>
       </sourceDesc>
     </fileDesc>
     <encodingDesc>
       <editorialDecl>
-        <p id="file-creation-method">I (T. Neill) produced this HANSEL edition by manually converting M. Kapstein's submitted Word files into plain text, standardizing some punctuation, and adding structural markup for HANSEL. During that process, the text was also proofread by M. Kapstein. Subsequently, I purchased the eCSL EPUB and used claude-sanskrit-scribe to transcribe its CSL-Romanized content to plain-text, which allowed me to further improve the etext through direct juxtaposition.</p>
-        <p id="transliteration">
+        <p xml:id="file-creation-method">I (T. Neill) produced this HANSEL edition by manually converting M. Kapstein's submitted Word files into plain text, standardizing some punctuation, and adding structural markup for HANSEL. During that process, the text was also proofread by M. Kapstein. Subsequently, I purchased the eCSL EPUB and used claude-sanskrit-scribe to transcribe its CSL-Romanized content to plain-text, which allowed me to further improve the etext through direct juxtaposition.</p>
+        <p xml:id="transliteration">
           The source edition is printed in Devanāgarī; the electronic text uses lossless IAST transliteration.
           IAST differs slightly from ISO 15919; conversion can be achieved via:
           <list>
@@ -94,8 +92,8 @@
             </item>
           </list>
         </p>
-        <p id="word-division">Roman-like (ity evam, not ityevam)</p>
-        <p id="error-markup">
+        <p xml:id="word-division">Roman-like (ity evam, not ityevam)</p>
+        <p xml:id="error-markup">
           Improvements and uncertainties:
           <list>
             <item>Replacement: <choice>
@@ -111,16 +109,16 @@
             </item>
           </list>
         </p>
-        <p id="intermediate-textual-units">.</p>
+        <p xml:id="intermediate-textual-units">.</p>
       </editorialDecl>
     </encodingDesc>
     <revisionDesc>
-      <change when="2000s" who="M. Kapstein">Edited text based primarily on 1936 Trivandrum edition (see CSL vol. intro p. liii) plus some more material not found in the Kerala recension and sourced from other editions. Formatted as Word document .</change>
-      <change when="Jan 2026" who="M. Kapstein" ana="#hansel-contributor">Submitted original files to HANSEL as series of Word docs.</change>
-      <change when="May 2026" who="M. Kapstein">Submitted more corrections.</change>
-      <change when="Feb–June 2026" who="T. Neill" ana="#hansel-contributor">Processed for HANSEL.</change>
-      <change when="July–Aug 2026" who="H. Isaacson and T. Neill">Fixed a few typos.</change>
-      <change when="Oct 2026" who="T. Neill">Reoriented etext toward CSL edition (especially page markers and improvements) and fixed a few dozen more typos.</change>
+      <change from="2000" to="2009" who="M. Kapstein"><date>2000s</date>: Edited text based primarily on 1936 Trivandrum edition (see CSL vol. intro p. liii) plus some more material not found in the Kerala recension and sourced from other editions. Formatted as Word document .</change>
+      <change when="2026-01" who="M. Kapstein"><date>Jan 2026</date>: Submitted original files to HANSEL as series of Word docs.</change>
+      <change when="2026-05" who="M. Kapstein"><date>May 2026</date>: Submitted more corrections.</change>
+      <change from="2026-02" to="2026-06" who="T. Neill"><date>Feb–June 2026</date>: Processed for HANSEL.</change>
+      <change from="2026-07" to="2026-08" who="H. Isaacson and T. Neill"><date>July–Aug 2026</date>: Fixed a few typos.</change>
+      <change when="2026-10" who="T. Neill"><date>Oct 2026</date>: Reoriented etext toward CSL edition (especially page markers and improvements) and fixed a few dozen more typos.</change>
     </revisionDesc>
   </teiHeader>
   <text>
@@ -812,7 +810,7 @@
           <lg xml:id="p2_l53_2" n="2,53">
             <l>“yasya hastau ca pādau ca<caesura/> manaś caiva susaṃyatam |</l>
             <l>vidyā tapaś ca kīrtiś ca<caesura/> sa tīrthaphalam aśnute” || 2.14 || </l>
-            <back>iti |</back>
+            <trailer place="inline">iti |</trailer>
           </lg>
         </sp>
         <sp who="(nepathye)">
@@ -3185,7 +3183,7 @@
           <lg xml:id="p5_l96_2" n="5,96">
             <l>“akāṇḍapātajātānām<caesura/> ārdrāṇāṃ marmabhedinām |</l>
             <l>gāḍhaśokaprahārāṇām<caesura/> acintaiva mahauṣadham” || 5.25 || </l>
-            <back>iti |</back>
+            <trailer place="inline">iti |</trailer>
           </lg>
         </sp>
         <sp who="manaḥ">
@@ -3671,7 +3669,7 @@
           <lg xml:id="p6_l90_2" n="6,90">
             <l>“yasmād viśvam udeti, yatra ramate, yasmin punar līyate —<caesura/> bhāṣā yasya jagad vibhāti, sahajānandojjvalaṃ yanmahaḥ |</l>
             <l>śāntaṃ, śāśvatam, akriyaṃ, yam apunarbhāvāya bhūteśvaraṃ<caesura/> dvaitadhvāntam apāsya yānti kṛtinaḥ — prastaumi taṃ pūruṣam” || 6.14 || </l>
-            <back>iti |</back>
+            <trailer place="inline">iti |</trailer>
           </lg>
           <p>yajñavidyā vicintya — </p>
           <lg xml:id="p6_l90_3" n="6,90">
@@ -3839,7 +3837,7 @@
           <lg xml:id="p6_l133_2" n="6,133">
             <l>“tān ahaṃ dviṣataḥ krūrān,<caesura/> saṃsāreṣu narādhamān |</l>
             <l>kṣipāmy ajasram aśubhān<caesura/> āsurīṣv eva yoniṣu” || 6.25 || </l>
-            <back>iti |</back>
+            <trailer place="inline">iti |</trailer>
           </lg>
         </sp>
         <sp who="puruṣaḥ">

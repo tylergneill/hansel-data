@@ -6,6 +6,8 @@ charset-normalizer==3.4.9
     # via requests
 idna==3.18
     # via requests
+jingtrang==0.3.0
+    # via -r requirements.in
 lxml==6.1.1
     # via -r requirements.in
 markdown==3.10.3
@@ -22,6 +24,8 @@ pymupdf==1.28.2
     # via -r requirements.in
 requests==2.34.2
     # via skrutable
+saxonche==13.1.1
+    # via -r requirements.in
 skrutable==2.9.2
     # via -r requirements.in
 urllib3==2.7.0

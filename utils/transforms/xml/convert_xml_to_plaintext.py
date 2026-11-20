@@ -200,10 +200,14 @@ class XMLToPlaintext:
             if self._pending_l_tabs:
                 self._append(self._pending_l_tabs)
                 self._pending_l_tabs = ""
-        elif tag == 'milestone':
+        elif tag == 'label':
             self._start_new_line()
-            self._append(el.get('n'))
-            self._start_new_line()
+            n = el.get('n')
+            if n:
+                # a label with its own location marker, e.g. a closing colophon
+                self._append(f"[{n}]")
+                self._start_new_line()
+            self._append("<")
         elif tag == 'note':
             self._append("(")
         elif tag == 'caesura':
@@ -250,6 +254,9 @@ class XMLToPlaintext:
             self._sp_header_emitted = False
         elif tag == 'stage':
             self._append("))")
+        elif tag == 'label':
+            self._append(">")
+            self._start_new_line()
         elif tag == 'seg' and el.get('type') == 'prakrit':
             self._append("˼")
             self._in_prakrit_seg = False
@@ -257,11 +264,11 @@ class XMLToPlaintext:
             self._start_new_line()
         elif tag == 'l':
             next_el = el.getnext()
-            if next_el is not None and etree.QName(next_el.tag).localname == 'back':
+            if next_el is not None and etree.QName(next_el.tag).localname == 'trailer':
                 pass
             else:
                 self._start_new_line()
-        elif tag == 'back':
+        elif tag == 'trailer':
             self._start_new_line()
         elif tag == 'head':
             has_lb_child = any(child.tag.endswith('lb') for child in el)

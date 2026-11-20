@@ -45,7 +45,7 @@
             <p>HANSEL assumes no responsibility for unauthorised use that infringes rights.</p>
           </licence>
         </availability>
-        <date when="2026-03-30" from="2026" to="2026">March 30, 2026</date>
+        <date when="2026-03-30">March 30, 2026</date>
       </publicationStmt>
       <notesStmt>
         <note>Ratnāvalī (“Precious Garland”) is a five-chapter work traditionally attributed to Nāgārjuna, composed in 500 didactic verses addressed to a king. It combines ethical instruction, political counsel, and the Madhyamaka analysis of emptiness, presenting Buddhist practice as concerned both with worldly welfare (abhyudaya) and with ultimate liberation (naiḥśreyasa). The opening sections distinguish these two aims, while later portions develop explicitly bodhisattva-oriented commitments and sustained reflections on the conduct and responsibilities of rulership. Rather than functioning as a purely technical treatise on emptiness, the text brings philosophical insight and practical governance into deliberate conversation, grounding compassion, generosity, and nonviolence in the recognition that self, power, and kingdom lack intrinsic existence. Long transmitted through Tibetan and Chinese translations (including the Indian commentary of Ajitamitra), the work has recently acquired renewed textual interest with the surfacing of a complete Sanskrit manuscript in Tibet. That manuscript forms the basis of the present edition and the electronic text made available here. Thorough peer review of the edition and the underlying manuscript are still a desideratum.</note>
@@ -54,23 +54,20 @@
         <bibl>
           <title>Ratnāvalī: Critical Edition of the Sanskrit Manuscript from Xizang [梵文写本《宝鬘论颂》校勘与研究]</title>
           <editor>Phur Tsham [普仓, Pǔcāng]</editor>
-          <imprint>
-            <publisher>Tibet Tibetan Ancient Books Publishing House [西藏藏文古籍出版社]</publisher>
-            <pubPlace>Lhasa</pubPlace>
-            <date>2024</date>
-          </imprint>
+          <publisher>Tibet Tibetan Ancient Books Publishing House [西藏藏文古籍出版社]</publisher>
+          <pubPlace>Lhasa</pubPlace>
+          <date>2024</date>
+          <series>
+            <title level="s">Palm-Leaf Scripture Special Text Excavation Series [贝叶经特殊文本专项挖掘系列丛书]</title>
+            <biblScope>3</biblScope>
+          </series>
         </bibl>
-        <series>
-          <title level="s">Palm-Leaf Scripture Special Text Excavation Series [贝叶经特殊文本专项挖掘系列丛书]</title>
-          <biblScope>3</biblScope>
-        </series>
-        <note/>
       </sourceDesc>
     </fileDesc>
     <encodingDesc>
       <editorialDecl>
-        <p id="file-creation-method">I (Tyler Neill) produced this HANSEL edition by copying embedded text from the posted PDF, then processing to remove extraneous material, followed by thorough proofreading and structuring for HANSEL. The text should be fully in line with the edition.</p>
-        <p id="transliteration">
+        <p xml:id="file-creation-method">I (Tyler Neill) produced this HANSEL edition by copying embedded text from the posted PDF, then processing to remove extraneous material, followed by thorough proofreading and structuring for HANSEL. The text should be fully in line with the edition.</p>
+        <p xml:id="transliteration">
           The source edition is printed in Devanāgarī; the electronic text uses lossless IAST transliteration.
           IAST differs slightly from ISO 15919; conversion can be achieved via:
           <list>
@@ -94,8 +91,8 @@
             </item>
           </list>
         </p>
-        <p id="word-division">Roman-like (ity evam, not ityevam)</p>
-        <p id="error-markup">
+        <p xml:id="word-division">Roman-like (ity evam, not ityevam)</p>
+        <p xml:id="error-markup">
           Improvements and uncertainties:
           <list>
             <item>Replacement: <choice>
@@ -111,12 +108,12 @@
             </item>
           </list>
         </p>
-        <p id="intermediate-textual-units">.</p>
+        <p xml:id="intermediate-textual-units">.</p>
       </editorialDecl>
     </encodingDesc>
     <revisionDesc>
-      <change when="2024–2025" who="Phur Tsham">Published book, posted on Academia.edu.</change>
-      <change when="Jan–Feb 2026" who="Tyler Neill" ana="#hansel-contributor">Extracted text from PDF, processed for HANSEL.</change>
+      <change from="2024" to="2025" who="Phur Tsham"><date>2024–2025</date>: Published book, posted on Academia.edu.</change>
+      <change from="2026-01" to="2026-02" who="Tyler Neill"><date>Jan–Feb 2026</date>: Extracted text from PDF, processed for HANSEL.</change>
     </revisionDesc>
   </teiHeader>
   <text>

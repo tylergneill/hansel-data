@@ -52,7 +52,7 @@
             <p>HANSEL assumes no responsibility for unauthorised use that infringes rights.</p>
           </licence>
         </availability>
-        <date when="2026-08-03" from="2026" to="2026">August 03, 2026</date>
+        <date when="2026-08-03">August 03, 2026</date>
       </publicationStmt>
       <notesStmt>
         <note/>
@@ -61,25 +61,22 @@
         <bibl>
           <title>Die Heiligen-Hetäre: Eine indische Yoga-Komödie</title>
           <editor/>
-          <imprint>
-            <publisher>P. Kirchheim Verlag</publisher>
-            <pubPlace>Munich</pubPlace>
-            <date>2006</date>
-          </imprint>
+          <publisher>P. Kirchheim Verlag</publisher>
+          <pubPlace>Munich</pubPlace>
+          <date>2006</date>
+          <series>
+            <title level="s"/>
+            <biblScope/>
+          </series>
         </bibl>
-        <series>
-          <title level="s"/>
-          <biblScope/>
-        </series>
-        <note/>
       </sourceDesc>
     </fileDesc>
     <encodingDesc>
       <editorialDecl>
-        <p id="file-creation-method">I (T. Neill) produced this HANSEL edition. I first manually converted R. Steiner's and M. Straube's submitted plain-text file by adding basic structural markup (tabbed verses, stage directions, Prakrit). I then did the same for Christian Ferstl's separately submitted manual transcript, which contained inter-word spacing (and also hyphenation for compounds, which I removed), Sanskrit chāyās (supplied/adapted from Achan 1925), and a few corrections of typos. Next, I re-OCRed the PDF to recover line-break information, then merged this information into the structured transcript. Finally, I added structural markup for HANSEL and gave the Sanskrit portion of the main text a full proofread, during which I checked word separation. The Prakrit and Sanskrit chāyā material still need to be proofread.
+        <p xml:id="file-creation-method">I (T. Neill) produced this HANSEL edition. I first manually converted R. Steiner's and M. Straube's submitted plain-text file by adding basic structural markup (tabbed verses, stage directions, Prakrit). I then did the same for Christian Ferstl's separately submitted manual transcript, which contained inter-word spacing (and also hyphenation for compounds, which I removed), Sanskrit chāyās (supplied/adapted from Achan 1925), and a few corrections of typos. Next, I re-OCRed the PDF to recover line-break information, then merged this information into the structured transcript. Finally, I added structural markup for HANSEL and gave the Sanskrit portion of the main text a full proofread, during which I checked word separation. The Prakrit and Sanskrit chāyā material still need to be proofread.
 For technical reasons, in cases where a line started with a combination stage direction and speaker identification, I have inverted the order to place the latter first and the former second (e.g. “praviśya vidūṣakaḥ |” becomes “vidūṣakaḥ — ((praviśya))”.) This can be considered a bug which I should fix later.
 Similarly, I have rendered the "nepathye" stage direction as speaker identification</p>
-        <p id="transliteration">
+        <p xml:id="transliteration">
           The source edition is printed in Devanāgarī; the electronic text uses lossless IAST transliteration.
           IAST differs slightly from ISO 15919; conversion can be achieved via:
           <list>
@@ -103,8 +100,8 @@ Similarly, I have rendered the "nepathye" stage direction as speaker identificat
             </item>
           </list>
         </p>
-        <p id="word-division">Roman-like (ity evam, not ityevam)</p>
-        <p id="error-markup">
+        <p xml:id="word-division">Roman-like (ity evam, not ityevam)</p>
+        <p xml:id="error-markup">
           Improvements and uncertainties:
           <list>
             <item>Replacement: <choice>
@@ -120,14 +117,14 @@ Similarly, I have rendered the "nepathye" stage direction as speaker identificat
             </item>
           </list>
         </p>
-        <p id="intermediate-textual-units">.</p>
+        <p xml:id="intermediate-textual-units">.</p>
       </editorialDecl>
     </encodingDesc>
     <revisionDesc>
-      <change when="Dec 2025 – Jan 2026" who="Christian Ferstl">Manually prepared transcript of edition, modified punctuation, added some (not all) inter-word spacing, added Sanskrit chāyās from Achan 1925.</change>
-      <change when="Jan 2026" who="Roland Steiner">Submitted plaintext file of edition with identical text to that printed in 2006.</change>
-      <change when="Jan–Mar 2026" who="Tyler Neill" ana="#hansel-contributor">Processed for HANSEL.</change>
-      <change when="Aug 2026" who="T. Neill">Fixed a few typos, repaired PDF-page links.</change>
+      <change from="2025-12" to="2026-01" who="Christian Ferstl"><date>Dec 2025 – Jan 2026</date>: Manually prepared transcript of edition, modified punctuation, added some (not all) inter-word spacing, added Sanskrit chāyās from Achan 1925.</change>
+      <change when="2026-01" who="Roland Steiner"><date>Jan 2026</date>: Submitted plaintext file of edition with identical text to that printed in 2006.</change>
+      <change from="2026-01" to="2026-03" who="Tyler Neill"><date>Jan–Mar 2026</date>: Processed for HANSEL.</change>
+      <change when="2026-08" who="T. Neill"><date>Aug 2026</date>: Fixed a few typos, repaired PDF-page links.</change>
     </revisionDesc>
   </teiHeader>
   <text>

@@ -48,7 +48,7 @@
             <p>HANSEL assumes no responsibility for unauthorised use that infringes rights.</p>
           </licence>
         </availability>
-        <date when="2025-11-28" from="2025" to="2025">November 28, 2025</date>
+        <date when="2025-11-28">November 28, 2025</date>
       </publicationStmt>
       <notesStmt>
         <note>The work's frame story takes place over seventy nights. In the frame, a pet parrot belongs to a young, lonely woman named Prabhāvatī, and he seeks to keep her faithful while her merchant husband, Madanasena (cp. Madanavinoda in the _simplicior_ text), is away on business. Each night, when Prabhāvatī is tempted to meet a lover, the clever bird tells her a story meant to dissuade her. After seventy nights of such tales, her husband returns, and she has remained true, bringing the drama to a close. The stories feature clever protagonists who extricate themselves from difficult situations, especially women who outsmart men in episodes involving adultery.</note>
@@ -57,23 +57,20 @@
         <bibl>
           <title>Der Textus ornatior der Śukasaptati</title>
           <editor>Schmidt, Richard</editor>
-          <imprint>
-            <publisher>Verlag der Königlichen Akademie</publisher>
-            <pubPlace>München</pubPlace>
-            <date>1899</date>
-          </imprint>
+          <publisher>Verlag der Königlichen Akademie</publisher>
+          <pubPlace>München</pubPlace>
+          <date>1899</date>
+          <series>
+            <title level="s">Abhandlungen der Philosophisch-Philologischen Classe der Königlich Bayerischen Akademie der Wissenschaften</title>
+            <biblScope>Band XXI</biblScope>
+          </series>
         </bibl>
-        <series>
-          <title level="s">Abhandlungen der Philosophisch-Philologischen Classe der Königlich Bayerischen Akademie der Wissenschaften</title>
-          <biblScope>Band XXI</biblScope>
-        </series>
-        <note/>
       </sourceDesc>
     </fileDesc>
     <encodingDesc>
       <editorialDecl>
-        <p id="file-creation-method">I (Tyler Neill) produced this HANSEL edition by first extracting the text page-by-page from the Ambuda website “Proofing” section. I then ran a PDF of the edition through both Google Cloud Vision OCR (via Skrutable) and Gemini 2.0 Flash (via Dharmamitra). These two OCR outputs were then automatically harmonized using Gemini 2.5 Pro (via direct API and using a custom prompt). This harmonized OCR output was then contrasted against the Ambuda-derived version using Meld and differences were reconciled individually with reference to the PDF. I then fully proofread the text, word by word. Finally, I contributed content improvements back to Ambuda using its page-by-page Proofing interface.</p>
-        <p id="transliteration">
+        <p xml:id="file-creation-method">I (Tyler Neill) produced this HANSEL edition by first extracting the text page-by-page from the Ambuda website “Proofing” section. I then ran a PDF of the edition through both Google Cloud Vision OCR (via Skrutable) and Gemini 2.0 Flash (via Dharmamitra). These two OCR outputs were then automatically harmonized using Gemini 2.5 Pro (via direct API and using a custom prompt). This harmonized OCR output was then contrasted against the Ambuda-derived version using Meld and differences were reconciled individually with reference to the PDF. I then fully proofread the text, word by word. Finally, I contributed content improvements back to Ambuda using its page-by-page Proofing interface.</p>
+        <p xml:id="transliteration">
           The source edition is printed in Devanāgarī; the electronic text uses lossless IAST transliteration.
           IAST differs slightly from ISO 15919; conversion can be achieved via:
           <list>
@@ -97,8 +94,8 @@
             </item>
           </list>
         </p>
-        <p id="word-division">Devanāgarī-like (ityevam, not ity evam)</p>
-        <p id="error-markup">
+        <p xml:id="word-division">Devanāgarī-like (ityevam, not ity evam)</p>
+        <p xml:id="error-markup">
           Improvements and uncertainties:
           <list>
             <item>Replacement: <choice>
@@ -114,13 +111,13 @@
             </item>
           </list>
         </p>
-        <p id="intermediate-textual-units">Prose paragraphs are enclosed in the normal <tag>p</tag> tags. Verse passages are enclosed in line-group tag <tag>lg</tag>, with one parent <tag>lg</tag> for groups of verses, and verse halves are individually tagged with <tag>l</tag>. <tag>p</tag> and parent <tag>lg</tag> have location markers.</p>
+        <p xml:id="intermediate-textual-units">Prose paragraphs are enclosed in the normal <tag>p</tag> tags. Verse passages are enclosed in line-group tag <tag>lg</tag>, with one parent <tag>lg</tag> for groups of verses, and verse halves are individually tagged with <tag>l</tag>. <tag>p</tag> and parent <tag>lg</tag> have location markers.</p>
       </editorialDecl>
     </encodingDesc>
     <revisionDesc>
-      <change when="Aug 2022" who="Suhas Mahesh (Ambuda user `suhasm`)">Item created, Google Cloud Vision OCR performed.</change>
-      <change when="Mar–May 2023" who="Ambuda user `shivjun1685`">Proofread once.</change>
-      <change when="May–Jul 2025" who="Tyler Neill" ana="#hansel-contributor">Second OCR and merge with previous corrections, proofread final time, restructured for HANSEL.</change>
+      <change when="2022-08" who="Suhas Mahesh (Ambuda user `suhasm`)"><date>Aug 2022</date>: Item created, Google Cloud Vision OCR performed.</change>
+      <change from="2023-03" to="2023-05" who="Ambuda user `shivjun1685`"><date>Mar–May 2023</date>: Proofread once.</change>
+      <change from="2025-05" to="2025-07" who="Tyler Neill"><date>May–Jul 2025</date>: Second OCR and merge with previous corrections, proofread final time, restructured for HANSEL.</change>
     </revisionDesc>
   </teiHeader>
   <text>
@@ -323,7 +320,7 @@
           <head>tathā hi |</head>
           <l>ayameva paro dharmo hyayameva paraṃ tapaḥ |<lb n="19"/></l>
           <l>patiśuśrūṣaṇaṃ yatra tatstrīṇāṃ svargahetukam <del>|</del>«||</l>
-          <back>»<lb n="20"/></back>
+          <trailer place="inline">»<lb n="20"/></trailer>
         </lg>
         <p xml:id="p324_l20" n="324,20">etāvatāsmadīyaṃ samastamapi vyavasitaṃ caritārthaṃ bhavati | <lb n="21"/></p>
         <lg xml:id="p324_l21" n="324,21">

@@ -36,7 +36,8 @@ def run_conversion(script_name, in_dir, in_ext, out_dir, out_ext, flag_map, dire
             chaya_path = in_dir / 'chaya' / f'{stem}.txt'
             if chaya_path.exists():
                 command.extend(['--chaya', str(chaya_path)])
-        subprocess.run(command)
+        # check=True: a failing file must stop the regen, not be silently skipped
+        subprocess.run(command, check=True)
 
 
 def main():
