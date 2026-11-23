@@ -185,8 +185,8 @@
                 {
                     "sic": "ṇghā",
                     "corr": "ṃghā",
-                    "page": "10",
-                    "line": "1",
+                    "page": "1",
+                    "line": "15",
                     "coord_id": "1_15"
                 },
                 {
@@ -346,15 +346,15 @@
                 {
                     "sic": "prathamo vīro",
                     "corr": "",
-                    "page": "154",
-                    "line": "1",
+                    "page": "4",
+                    "line": "31",
                     "coord_id": "4_31"
                 },
                 {
                     "sic": "da",
                     "corr": "tra",
-                    "page": "154",
-                    "line": "1",
+                    "page": "4",
+                    "line": "31",
                     "coord_id": "4_31"
                 },
                 {
@@ -451,8 +451,8 @@
                 {
                     "sic": "...",
                     "corr": "",
-                    "page": "278",
-                    "line": "1",
+                    "page": "6",
+                    "line": "167",
                     "coord_id": "6_167"
                 }
             ]
