@@ -1046,6 +1046,9 @@ class TeiTextBuilder:
 
         if mode == "prose":
             if not HYPHEN_EOL_RE.search(content):
+                # The space that ends the line; the join space before the line's
+                # first word was already added, so none goes in front of this one.
+                s.suppress_join_space = True
                 self._append(" ")
 
             if s.line_by_line:
