@@ -358,14 +358,13 @@ class TeiTextBuilder:
                 # Build spliced line: join with \n so stage text preserves line boundaries
                 all_stage_parts = middle_lines + [stage_frag]
                 continuation = '\n'.join(l.strip() for l in all_stage_parts)
-                spliced = first_line + '\n' + continuation
+                # Text after )) stays on the closing line: it is part of the same
+                # physical line, so it must not get a line break of its own.
+                spliced = first_line + '\n' + continuation + stage_tail.rstrip()
                 s.in_open_stage = False
                 s.open_stage_lines = []
                 s.at_block_start = at_block_start
                 self._handle_line(spliced)
-                # If there was text after )) on the closing line, dispatch it as its own line.
-                if stage_tail.strip():
-                    self._handle_line(stage_tail.strip())
             else:
                 s.open_stage_lines.append(line)
             return
