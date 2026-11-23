@@ -29,10 +29,6 @@ def configure_cli(parser: argparse.ArgumentParser):
              "whose lines do not follow printed lines"
     )
     parser.add_argument(
-        "--extra-space-after-location", action="store_true",
-        help="Add extra blank line after location markers (only used in xml-plaintext script)."
-    )
-    parser.add_argument(
         "--drama", action="store_true",
         help="Drama mode: handle speakers, stage directions, and Prakrit chāyās"
     )

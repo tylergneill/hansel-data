@@ -116,12 +116,10 @@ class _Verse:
 class TxtWriter:
     """Writes the <body> of one HANSEL TEI edition as plain text."""
 
-    def __init__(self, line_by_line: bool, extra_space_after_location: bool = False):
+    def __init__(self, line_by_line: bool):
         # line_by_line: the text has an <lb> for every physical line, so page
         # markers always stand on their own line.
         self.line_by_line = line_by_line
-        # extra_space_after_location: layout only; a blank line after each [location].
-        self.extra_space_after_location = extra_space_after_location
         self.lines: list[str] = [""]  # the last entry is the line being written
         self.chaya: list[str] = []  # companion-file entries, in document order
         self.verse: Optional[_Verse] = None  # set while inside an <l>
@@ -214,8 +212,7 @@ class TxtWriter:
         if has_location_marker(el):
             self.blank()
             self.own_line(f"[{el.get('n')}]")
-            if self.extra_space_after_location:
-                self.blank()
+            self.blank()  # house layout: a blank line after each [location] line
 
     def p(self, p, on_cue_line: bool = False) -> None:
         if on_cue_line:
@@ -435,20 +432,18 @@ class TxtWriter:
         self.verse = verse
 
 
-def convert(xml_path: Path, extra_space_after_location: bool = False) -> tuple[str, list[str]]:
+def convert(xml_path: Path) -> tuple[str, list[str]]:
     """Return (plain text, chāyā entries) for one TEI file."""
-    return convert_element(etree.parse(str(xml_path)).getroot(), extra_space_after_location)
+    return convert_element(etree.parse(str(xml_path)).getroot())
 
 
-def convert_element(root, extra_space_after_location: bool = False) -> tuple[str, list[str]]:
+def convert_element(root) -> tuple[str, list[str]]:
     """Return (plain text, chāyā entries) for a TEI element containing <body>
-    (the whole <TEI>, or the <text> the builder returns).
-    extra_space_after_location only changes layout (see the flag in flag_map)."""
+    (the whole <TEI>, or the <text> the builder returns)."""
     body = root.find(".//{*}body")
     if body is None:
         return "", []
-    writer = TxtWriter(line_by_line=body.find(".//{*}lb") is not None,
-                       extra_space_after_location=extra_space_after_location)
+    writer = TxtWriter(line_by_line=body.find(".//{*}lb") is not None)
     writer.body(body)
     return writer.text(), writer.chaya
 
@@ -459,8 +454,6 @@ def configure_cli(parser: argparse.ArgumentParser):
     parser.add_argument("out", type=Path, help="Destination plain-text file")
     parser.add_argument("--chaya", action="store_true",
                         help="Also write the chāyās to the companion file chaya/<name> next to OUT.")
-    parser.add_argument("--extra-space-after-location", action="store_true",
-                        help="Layout: put a blank line after each [location] line.")
     # Accepted for compatibility with flag_map, which is shared with the builder;
     # the writer reads what it needs from the XML itself.
     for flag in ("--line-by-line", "--no-line-by-line", "--drama"):
@@ -471,7 +464,7 @@ def cli():
     parser = argparse.ArgumentParser()
     configure_cli(parser)
     args = parser.parse_args()
-    plaintext, chaya = convert(args.src, args.extra_space_after_location)
+    plaintext, chaya = convert(args.src)
     args.out.write_text(plaintext, encoding="utf-8")
     print(f"Wrote {args.out}")
     if args.chaya and chaya:

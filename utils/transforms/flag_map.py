@@ -8,9 +8,6 @@
 flag_map = {
     "bANa_kAdambarI": '--hide-milestones',
     "kumArilabhaTTa_zlokavArtika": '--no-line-by-line',
-    "vAkyapadIyaprameyasaMgraha": '--extra-space-after-location',
-    "zukasaptati_s": '--extra-space-after-location',
-    "zukasaptati_o": '--extra-space-after-location',
     "kRSNamizra_prabodhacandrodaya": '--drama --chaya --no-line-by-line',
     "bhagavadajjuka": '--drama --chaya',
     "bhAskarabhaTTa_unmattarAghava": '--drama --chaya',

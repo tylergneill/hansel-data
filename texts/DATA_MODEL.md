@@ -43,7 +43,6 @@ Drama texts (`--drama`) add these:
 - Line by line is the default: the text follows the printed lines, and every physical line ends in `<lb n="…"/>` (`break="no"` after a hyphen), so prose line breaks survive the round trip. `--no-line-by-line` marks a text whose lines do not follow printed lines (e.g. one line per speech); there only paragraphs, verse lines and page breaks are recorded.
 - `--drama`: speeches, stage directions, Prakrit (above). `--chaya`: read the companion file.
 - `--hide-milestones`: display only (HTML).
-- `--extra-space-after-location`: plain-text layout only: the writer puts a blank line after each `[location]` line.
 
 ## Location markers and condensed verse format
 
@@ -79,7 +78,7 @@ Symbols found in printed editions should be interpreted into one of these patter
 `utils/transforms/xml/roundtrip.py` (`make roundtrip`) builds txt → XML → txt′ → XML′ for every edition, in memory, and promises:
 
 - **XML′ is identical to XML.** Whatever the writer produces rebuilds into exactly the same edition. This is checked strictly; a text that fails is a bug in the builder or the writer.
-- **txt′ equals the original txt up to layout**, i.e. up to what the XML does not record: blank lines (except that a speaker cue starts a block), trailing whitespace, chāyā indentation, and, in `--no-line-by-line` texts, where prose lines break. The writer uses one canonical layout for these (blank lines around markers, sections, labels and speeches; a page marker that ends a paragraph stands apart).
+- **txt′ equals the original txt up to layout**, i.e. up to what the XML does not record: blank lines (except that a speaker cue starts a block), trailing whitespace, chāyā indentation, and, in `--no-line-by-line` texts, where prose lines break. The writer uses one canonical layout for these (a blank line after each `[location]` line and around sections, labels and speeches; a page marker that ends a paragraph stands apart).
 
 `python utils/transforms/xml/roundtrip.py --diff STEM` shows the remaining differences for one text. To write the reverse conversion to files, `utils/transforms/xml/regenerate.py --txt` writes into `utils/transforms/xml/tmp/txt` (git-ignored); it never writes over the project-edition txt files.
 

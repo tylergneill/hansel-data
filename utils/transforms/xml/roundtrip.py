@@ -100,7 +100,7 @@ def check(stem: str, show_diff: bool = False) -> dict:
     chaya = load_chaya_list(chaya_path) if chaya_src else []
 
     xml = serialize(build(src, flags, chaya))
-    txt2, chaya2 = convert_element(build(src, flags, chaya), "--extra-space-after-location" in flags)
+    txt2, chaya2 = convert_element(build(src, flags, chaya))
     try:
         xml2 = serialize(build(txt2, flags, chaya2))
     except Exception as e:  # the writer's output does not even rebuild
