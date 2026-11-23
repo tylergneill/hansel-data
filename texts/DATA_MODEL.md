@@ -81,7 +81,7 @@ Symbols found in printed editions should be interpreted into one of these patter
 - **XML′ is identical to XML.** Whatever the writer produces rebuilds into exactly the same edition. This is checked strictly; a text that fails is a bug in the builder or the writer.
 - **txt′ equals the original txt up to layout**, i.e. up to what the XML does not record: blank lines (except that a speaker cue starts a block), trailing whitespace, chāyā indentation, and, in texts without `--line-by-line`, where prose lines break. The writer uses one canonical layout for these (blank lines around markers, sections, labels and speeches; a page marker that ends a paragraph stands apart).
 
-`python utils/transforms/xml/roundtrip.py --diff STEM` shows the remaining differences for one text. To write the reverse conversion to files, `utils/transforms/xml/regenerate.py --txt` writes into `utils/transforms/xml/tmp/txt` (git-ignored); it never writes over the txt sources.
+`python utils/transforms/xml/roundtrip.py --diff STEM` shows the remaining differences for one text. To write the reverse conversion to files, `utils/transforms/xml/regenerate.py --txt` writes into `utils/transforms/xml/tmp/txt` (git-ignored); it never writes over the project-edition txt files.
 
 ## Character set and punctuation
 
