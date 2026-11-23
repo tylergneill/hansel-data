@@ -691,6 +691,11 @@ class TeiTextBuilder:
                 attrs["n"] = seg
             s.current_l = etree.SubElement(s.current_lg, "l", attrs)
             s.last_tail_text_sink = None
+        elif seg:
+            # A half without a closing daṇḍa (e.g. 1.1a) runs on into the next
+            # labelled line (1.1b) inside the same <l>: record both letters,
+            # n="ab", so the pāda labels survive.
+            s.current_l.set("n", (s.current_l.get("n") or "") + seg)
 
         self._process_content_with_midline_elements(rest, "verse", rest)
 
