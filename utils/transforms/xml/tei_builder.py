@@ -59,7 +59,7 @@ SPEAKER_RE = re.compile(r"^(\S+) —\s*(.*)$")
 # verse content (same indent convention as a pure-tab verse line) rather than prose.
 STAGGERED_VERSE_CUE_RE = re.compile(r"^(\S+ —)(\t+)(.*)$")
 STAGE_DIRECTION_RE = re.compile(r"\(\(([^)]+)\)\)")
-PRAKRIT_RE = re.compile(r"˹([^˼]+)˼(?:\s*\((?!\()([^)]+)\))?")
+PRAKRIT_RE = re.compile(r"˹([^˼]+)˼")
 
 CHAR_FOR_PENDING_BACK = "_"
 PENDING_BACK_RE = re.compile(f"^{re.escape(CHAR_FOR_PENDING_BACK)}(.*)$")
@@ -132,15 +132,10 @@ class TextBuildState:
     # drama state
     current_sp: Optional[etree._Element] = None
 
-    # chāyā state (multi-line Prakrit/chāyā support)
-    awaiting_chaya: bool = False
-    chaya_prakrit_seg: Optional[etree._Element] = None  # prose: <seg type="prakrit"> to nest chāyā inside
-    chaya_target_lg: Optional[etree._Element] = None    # verse: the <lg> to attach chāyā <lg> to
-    in_chaya_verse: bool = False                        # True while processing chāyā verse lines
-    chaya_inner_lg: Optional[etree._Element] = None     # the <lg type="chāyā"> being built
-    in_prakrit_verse: bool = False                      # True while inside ˹...˼ verse markers
+    in_prakrit_verse: bool = False  # True while inside ˹...˼ verse markers
 
-    # external chāyā list (new companion-file format): consumed sequentially
+    # chāyās from the companion file (chaya/<stem>.txt), one per ˹...˼ span,
+    # consumed in order
     chaya_list: list = field(default_factory=list)
     chaya_index: int = 0
 
@@ -463,11 +458,6 @@ class TeiTextBuilder:
             s.open_prakrit_at_block_start = at_block_start
             return
 
-        # CHĀYĀ DISPATCH — intercept lines when awaiting chāyā after ˹...˼
-        if s.awaiting_chaya:
-            if self._handle_chaya_line(line):
-                return
-
         # HANDLE STRUCTURE-ONLY LINES
 
         # 1) Section marker {label}
@@ -706,77 +696,7 @@ class TeiTextBuilder:
 
         self._process_content_with_midline_elements(rest, "verse", rest)
 
-    def _handle_chaya_line(self, line: str) -> bool:
-        """Handle a line when awaiting_chaya is True. Returns True if the line was consumed."""
-        s = self.state
-        stripped = line.strip()
-
-        # --- Prose chāyā (single line): entire line is (...) ---
-        if s.chaya_prakrit_seg is not None and not s.in_chaya_verse:
-            m = re.match(r'^\((.+)\)$', stripped)
-            if m:
-                chaya = etree.SubElement(s.chaya_prakrit_seg, "seg", {"type": "chāyā"})
-                chaya.set(f"{{{_XML_NS}}}lang", "san-Latn")
-                _append_text_with_editorial_markup(chaya, m.group(1))
-                s.awaiting_chaya = False
-                s.chaya_prakrit_seg = None
-                # TODO (line-by-line + drama): this line is consumed without emitting an <lb>.
-                # For the current use-case (Prabodhacandrodaya), chāyās are pulled from endnotes
-                # and do not correspond to a physical line in the edition, so skipping <lb> is
-                # correct. But a text where the chāyā appears inline on the page WOULD need an
-                # <lb> here. When that case arises, a plaintext marker (or a text-level flag)
-                # will be needed to distinguish the two situations before this can be fixed.
-                return True
-
-        # --- Verse chāyā start: tab + ( ---
-        if s.chaya_target_lg is not None and not s.in_chaya_verse:
-            m = re.match(r'^\t\((.*)$', line)
-            if m:
-                inner_lg = etree.SubElement(s.chaya_target_lg, "lg", {"type": "chāyā"})
-                inner_lg.set(f"{{{_XML_NS}}}lang", "san-Latn")
-                s.chaya_inner_lg = inner_lg
-                s.in_chaya_verse = True
-                # Process the rest as a verse line (strip the leading '(')
-                reconstructed = '\t' + m.group(1)
-                # Check if this single line also closes with )
-                if reconstructed.rstrip().endswith(')'):
-                    reconstructed = reconstructed.rstrip()[:-1]
-                    s.current_l = None
-                    self._handle_verse_line(reconstructed, target_lg_override=inner_lg)
-                    self._finalize_physical_line(line)
-                    # Close chāyā state
-                    s.awaiting_chaya = False
-                    s.chaya_target_lg = None
-                    s.chaya_inner_lg = None
-                    s.in_chaya_verse = False
-                else:
-                    s.current_l = None
-                    self._handle_verse_line(reconstructed, target_lg_override=inner_lg)
-                    self._finalize_physical_line(line)
-                return True
-
-        # --- Verse chāyā continuation / end ---
-        if s.in_chaya_verse and s.chaya_inner_lg is not None:
-            # Check if line ends with ) — signals end of chāyā verse
-            content = line
-            is_end = False
-            if content.rstrip().endswith(')'):
-                content = content.rstrip()[:-1]
-                is_end = True
-
-            self._handle_verse_line(content, target_lg_override=s.chaya_inner_lg)
-            self._finalize_physical_line(line)
-
-            if is_end:
-                s.awaiting_chaya = False
-                s.chaya_target_lg = None
-                s.chaya_inner_lg = None
-                s.in_chaya_verse = False
-            return True
-
-        return False
-
-    def _handle_verse_line(self, line: str, target_lg_override: Optional[etree._Element] = None) -> None:
+    def _handle_verse_line(self, line: str) -> None:
         s = self.state
 
         # Detect and strip Prakrit verse markers ˹ and ˼
@@ -801,13 +721,9 @@ class TeiTextBuilder:
         tab_indent = 1 + len(after_tab) - len(after_tab.lstrip("\t"))
         after_tab = after_tab.lstrip("\t")
 
-        # Determine the lg to operate on
-        if target_lg_override is not None:
-            working_lg = target_lg_override
-        else:
-            working_lg = s.current_lg
+        working_lg = s.current_lg
 
-        if pre_tab.strip() and working_lg is not None and target_lg_override is None:
+        if pre_tab.strip() and working_lg is not None:
             s.verse_group_buffer.append(working_lg)
             s.current_lg = None
             working_lg = None
@@ -819,8 +735,7 @@ class TeiTextBuilder:
                 self._append_child_text(lg, "head", pre_tab)
                 pre_tab = ""
             working_lg = lg
-            if target_lg_override is None:
-                s.current_lg = lg
+            s.current_lg = lg
 
         if s.current_l is None:
             if pre_tab.strip():
@@ -878,20 +793,14 @@ class TeiTextBuilder:
         if is_verse_close:
             if has_prakrit_close:
                 s.in_prakrit_verse = False
-                if s.chaya_list:
-                    # Companion-file mode: attach chāyā immediately from list
-                    chaya_text = s.chaya_list[s.chaya_index] if s.chaya_index < len(s.chaya_list) else None
-                    s.chaya_index += 1
-                    if chaya_text is not None:
-                        _attach_chaya_lg(working_lg, chaya_text)
-                else:
-                    # Legacy inline format — expect chāyā on next lines
-                    s.awaiting_chaya = True
-                    s.chaya_target_lg = working_lg
-            if target_lg_override is None:
-                if s.current_lg is not None:
-                    s.verse_group_buffer.append(s.current_lg)
-                s.current_lg = None
+                # The next companion-file chāyā belongs to this verse.
+                chaya_text = s.chaya_list[s.chaya_index] if s.chaya_index < len(s.chaya_list) else None
+                s.chaya_index += 1
+                if chaya_text is not None:
+                    _attach_chaya_lg(working_lg, chaya_text)
+            if s.current_lg is not None:
+                s.verse_group_buffer.append(s.current_lg)
+            s.current_lg = None
             s.current_l = None
 
     def _emit_pb_from_match(self, match: re.Match):
@@ -966,22 +875,13 @@ class TeiTextBuilder:
         seg = etree.Element("seg", {"type": "prakrit"})
         seg.set(f"{{{_XML_NS}}}lang", "pra-Latn")
         self._set_text_with_embedded_stages(seg, match.group(1))
-        # Determine chāyā text: prefer companion-file list, then inline, then next-line
-        chaya_text = None
-        if s.chaya_list:
-            if s.chaya_index < len(s.chaya_list):
-                chaya_text = s.chaya_list[s.chaya_index]
-            s.chaya_index += 1
-        elif match.group(2):
-            chaya_text = match.group(2)
+        # The next companion-file chāyā belongs to this Prakrit span.
+        chaya_text = s.chaya_list[s.chaya_index] if s.chaya_index < len(s.chaya_list) else None
+        s.chaya_index += 1
         if chaya_text is not None:
             chaya = etree.SubElement(seg, "seg", {"type": "chāyā"})
             chaya.set(f"{{{_XML_NS}}}lang", "san-Latn")
             _append_text_with_editorial_markup(chaya, chaya_text)
-        elif not s.chaya_list:
-            # No companion list — expect chāyā on the next line (legacy inline format)
-            s.awaiting_chaya = True
-            s.chaya_prakrit_seg = seg
         self._add_inline_element(seg)
 
     def _set_text_with_embedded_stages(self, parent: etree._Element, text: str):
