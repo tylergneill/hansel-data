@@ -267,8 +267,8 @@
     "Filename": "zukasaptati_s",
     "Original Submission Filetype": ".doc"
   },
-  "kumārilabhaṭṭa_ślokavārtika": {
-    "Title": "Ślokavārtika",
+  "kumārilabhaṭṭa_ślokavārttika": {
+    "Title": "Ślokavārttika",
     "Pandit Work ID": "88597",
     "Author": "Kumārila Bhaṭṭa",
     "Pandit Author IDs": "85206",
@@ -319,13 +319,13 @@
       "(2017–2021) Tyler Neill: Supplied missing _Arthāpattipariccheda_ (5.8), restructured for Pramāṇa NLP collection.",
       "(2025) Tyler Neill: Added page numbers for HANSEL structure, corrected about 150 unmetrical verses."
     ],
-    "File Creation Method": "I (Tyler Neill) produced this HANSEL edition by minimally adapting the corresponding file in the Pramāṇa NLP collection by adding page numbers. The Pramāṇa NLP file had been manually converted from Helmut Krasser's Word document into plain text, also by myself a few years earlier, mainly using regular expressions. Krasser's original Word file had been manually typed from the edition in an abstracted fashion, namely by extracting only the Ślokavārtika content and ignoring both Pārthasārathi Miśra's commentary and all physical aspects of the edition (e.g., page numbers). The text is known to contain errors and still needs a final proofread.",
+    "File Creation Method": "I (Tyler Neill) produced this HANSEL edition by minimally adapting the corresponding file in the Pramāṇa NLP collection by adding page numbers. The Pramāṇa NLP file had been manually converted from Helmut Krasser's Word document into plain text, also by myself a few years earlier, mainly using regular expressions. Krasser's original Word file had been manually typed from the edition in an abstracted fashion, namely by extracting only the Ślokavārttika content and ignoring both Pārthasārathi Miśra's commentary and all physical aspects of the edition (e.g., page numbers). The text is known to contain errors and still needs a final proofread.",
     "Text Type": "Numbered verse",
     "Word Division Style": "Roman-like (ity evam, not ityevam), but inconsistent",
     "Original Submission Last Updated": "2025-07-24",
     "Text Last Updated": "2026-04-24",
-    "Metadata Last Updated": "2025-12-17",
-    "Filename": "kumArilabhaTTa_zlokavArtika",
+    "Metadata Last Updated": "2026-11-23",
+    "Filename": "kumArilabhaTTa_zlokavArttika",
     "Original Submission Filetype": ".doc"
   },
   "vākyapadīyaprameyasaṃgraha": {
@@ -587,7 +587,7 @@
     "Filename": "bhagavadajjuka",
     "Original Submission Filetype": ".txt"
   },
-  "version": "2026-10-30",
+  "version": "2026-11-23",
   "hidden": [
     "virUpAkSadeva_unmattarAghava"
   ]
