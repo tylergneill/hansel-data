@@ -4,7 +4,7 @@ XML -> plain text: write a HANSEL TEI edition back out in its plain-text form.
 This is the inverse of ``tei_builder.TeiTextBuilder``. The two directions follow
 the same correspondence table, ``texts/DATA_MODEL.md``; the contract is that
 
-    txt -> XML -> txt  gives back the source txt (up to the normalisations
+    txt -> XML -> txt  gives back the original txt (up to the normalisations
                        listed in DATA_MODEL.md, e.g. blank lines), and
     XML -> txt -> XML  gives back the same XML, byte for byte.
 
@@ -27,12 +27,12 @@ lines end:
 Inside ``<l>`` each new physical line gets its verse prefix: one tab, or in the
 condensed format the half-verse label (``[1.1b]<TAB>``).
 
-The XML does not say everything about the source layout (see "Round trip" in
+The XML does not say everything about the plain-text layout (see "Round trip" in
 DATA_MODEL.md). Where it is silent the writer produces one canonical layout,
 for example a blank line before every speaker cue (which the builder needs) and
 around section and location markers.
 
-Chāyās are not written inline: like the sources, they go to a companion file
+Chāyās are not written inline: as in the project editions, they go to a companion file
 ``chaya/<stem>.txt``, one entry per Prakrit passage, entries separated by a blank
 line, verse entries one tab-indented line per verse half.
 """
@@ -67,11 +67,11 @@ def real_text(text: Optional[str]) -> str:
 
 
 def has_location_marker(el) -> bool:
-    """True if a ``[location]`` line in the source opened this element.
+    """True if a ``[location]`` line in the plain text opened this element.
 
     The builder gives every element under one location the location as @n, but
     only the first gets the bare xml:id ``make_xml_id(n)``; later ones get
-    ``_2``, ``_3`` ... So the bare id marks where the source line was.
+    ``_2``, ``_3`` ... So the bare id marks where the [location] line was.
     """
     n = el.get("n")
     return bool(n) and el.get(XML_ID) == make_xml_id(n)
@@ -261,7 +261,7 @@ class TxtWriter:
         if not (on_cue_line or nested):
             self.marker(lg)
             self.newline()
-        # A Prakrit verse is the <lg> that carries a chāyā <lg>: the source wraps
+        # A Prakrit verse is the <lg> that carries a chāyā <lg>: the plain text wraps
         # it in ˹...˼ and keeps the chāyā in the companion file.
         ls = [c for c in lg if local(c) == "l"]
         prakrit = any(local(c) == "lg" and c.get("type") == "chāyā" for c in lg)

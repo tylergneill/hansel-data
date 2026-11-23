@@ -3,11 +3,11 @@ Round-trip check for the txt <-> XML pipeline.
 
 For every project edition (or the stems given on the command line) this runs
 
-    source txt --builder--> XML --writer--> txt' --builder--> XML'
+    txt --builder--> XML --writer--> txt' --builder--> XML'
 
 entirely in memory (nothing under texts/ is written) and reports two things:
 
-* txt fidelity: how many lines of txt' differ from the source txt, both
+* txt fidelity: how many lines of txt' differ from the original txt, both
   strictly and ignoring blank lines and trailing whitespace (the layout the XML
   does not record; see "Round trip" in texts/DATA_MODEL.md). The chāyā companion
   file is compared the same way.
@@ -121,7 +121,7 @@ def check(stem: str, show_diff: bool = False) -> dict:
     if show_diff:
         sys.stdout.writelines(difflib.unified_diff(
             [l + "\n" for l in layout_insensitive(a, lbl)], [l + "\n" for l in layout_insensitive(b, lbl)],
-            f"{stem}.txt (source)", f"{stem}.txt (round trip)", n=1))
+            f"{stem}.txt (original)", f"{stem}.txt (round trip)", n=1))
         sys.stdout.writelines(difflib.unified_diff(
             xml.splitlines(True), xml2.splitlines(True), f"{stem} XML", f"{stem} XML'", n=2))
     return result

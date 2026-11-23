@@ -1,6 +1,6 @@
 # HANSEL Text Data Model
 
-HANSEL maintains two representations of its digital editions: lightly marked-up plain-text, which is the source that editors write, and TEI-XML, which is generated from it by `utils/transforms/xml/tei_builder.py` and can be converted back by `utils/transforms/xml/convert_xml_to_plaintext.py`. This document is the contract between the two: every construct below is listed with its form on both sides, and "Round trip" says exactly what survives the trip back. Via TEI, texts are validated against the HANSEL schema (`schemas/hansel.rng` + `schemas/hansel.isosch`, derived from SARIT's `sarit.odd`) by the workflows in `utils/validation/xml/`.
+HANSEL maintains two co-equal representations of its digital editions: TEI-XML and lightly marked-up plain-text, convertible in both directions without loss of content (`utils/transforms/xml/tei_builder.py` and `utils/transforms/xml/convert_xml_to_plaintext.py`). This document is the contract between the two: every construct below is listed with its form on both sides, and "Round trip" says exactly which details of layout a conversion normalizes. Via TEI, texts are validated against the HANSEL schema (`schemas/hansel.rng` + `schemas/hansel.isosch`, derived from SARIT's `sarit.odd`) by the workflows in `utils/validation/xml/`.
 
 Within that schema, the project focuses on a subset of possible text representations:
 
@@ -79,7 +79,7 @@ Symbols found in printed editions should be interpreted into one of these patter
 `utils/transforms/xml/roundtrip.py` (`make roundtrip`) builds txt → XML → txt′ → XML′ for every edition, in memory, and promises:
 
 - **XML′ is identical to XML.** Whatever the writer produces rebuilds into exactly the same edition. This is checked strictly; a text that fails is a bug in the builder or the writer.
-- **txt′ equals the source up to layout**, i.e. up to what the XML does not record: blank lines (except that a speaker cue starts a block), trailing whitespace, chāyā indentation, and, in texts without `--line-by-line`, where prose lines break. The writer uses one canonical layout for these (blank lines around markers, sections, labels and speeches; a page marker that ends a paragraph stands apart).
+- **txt′ equals the original txt up to layout**, i.e. up to what the XML does not record: blank lines (except that a speaker cue starts a block), trailing whitespace, chāyā indentation, and, in texts without `--line-by-line`, where prose lines break. The writer uses one canonical layout for these (blank lines around markers, sections, labels and speeches; a page marker that ends a paragraph stands apart).
 
 `python utils/transforms/xml/roundtrip.py --diff STEM` shows the remaining differences for one text. To write the reverse conversion to files, `utils/transforms/xml/regenerate.py --txt` writes into `utils/transforms/xml/tmp/txt` (git-ignored); it never writes over the txt sources.
 
