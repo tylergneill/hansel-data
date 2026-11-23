@@ -501,19 +501,11 @@ class HtmlConverter:
                     # A tail without one marks a mid-word page turn: leave it joined.
                     self._ensure_trailing_space(html_node)
 
-                self.current_page = child.get("n")
-                self.current_line = "1"
                 if not in_lg:
                     # A <pb> immediately following an <lb> should produce one break,
                     # not two — reset before incrementing.
                     self.pending_breaks = max(self.pending_breaks, 1)
-                pb_a = etree.Element("a", {"class": "pb-label rich-text", "data-page": self.current_page,
-                                           "target": "_blank"})
-                if self.page_label != "p":
-                    pb_a.text = f'(p.{self.current_page})'
-                else:
-                    pb_a.text = f'({self.page_label}.{self.current_page}, {self.line_label}.1)' if not self.no_line_numbers else f'({self.page_label}.{self.current_page})'
-                self.pending_label = pb_a
+                self.pending_label = self._page_break_label(child.get("n"))
             elif child.tag == 'choice':
                 corr_span = etree.SubElement(html_node, "span", {"class": "correction"})
                 sic = child.find('sic')
@@ -658,6 +650,26 @@ class HtmlConverter:
         repeat = n_attr == getattr(self, '_last_top_level_coord', None)
         self._last_top_level_coord = n_attr
         return repeat
+
+    def _page_break_label(self, page_n):
+        """Return the pending (p.N) label <a> for a <pb n=page_n>.
+
+        With the usual page/line coordinates, a page break also moves the
+        current location to line 1 of the new page. With custom editorial
+        coordinates (e.g. ch./u. in Prabodhacandrodaya) the PDF page is a
+        separate system: the label shows it, but current_page/current_line
+        keep the editorial coordinate, which the corrections list and line
+        labels report.
+        """
+        pb_a = etree.Element("a", {"class": "pb-label rich-text", "data-page": page_n, "target": "_blank"})
+        if self.page_label != "p":
+            pb_a.text = f'(p.{page_n})'
+        else:
+            self.current_page = page_n
+            self.current_line = "1"
+            pb_a.text = (f'({self.page_label}.{page_n}, {self.line_label}.1)' if not self.no_line_numbers
+                         else f'({self.page_label}.{page_n})')
+        return pb_a
 
     def _emit_editorial_coord_h2(self, content_div, n_attr):
         """Emit an editorial-coordinate <h3> to content_div for the given n attribute value.
@@ -1062,15 +1074,7 @@ class HtmlConverter:
                     self._emit_label_heading(element, content_div)
 
                 elif element.tag == "pb":
-                    self.current_page = element.get("n")
-                    self.current_line = "1"
-                    pb_a = etree.Element("a", {"class": "pb-label rich-text", "data-page": self.current_page,
-                                               "target": "_blank"})
-                    if self.page_label != "p":
-                        pb_a.text = f'(p.{self.current_page})'
-                    else:
-                        pb_a.text = f'({self.page_label}.{self.current_page}, {self.line_label}.1)' if not self.no_line_numbers else f'({self.page_label}.{self.current_page})'
-                    self.pending_label = pb_a
+                    self.pending_label = self._page_break_label(element.get("n"))
 
                 elif element.tag == "sp":
                     # Drama: speech container.
@@ -1105,13 +1109,6 @@ class HtmlConverter:
                                 verses_ul = None
                                 self._emit_editorial_coord_h2(content_div, n_attr)
                                 last_sp_location = n_attr
-                            elif self.page_label != "p":
-                                # Same location, custom editorial coords: no new h2, but restore
-                                # current_page/line from the n attribute. A <pb> inside the
-                                # preceding sibling may have clobbered them with a PDF page number.
-                                n_parts = n_attr.split(',')
-                                self.current_page = n_parts[0].strip()
-                                self.current_line = n_parts[1].strip() if len(n_parts) > 1 else "1"
 
                         # Lazily create speech containers (or re-create after a reset).
                         if not self.only_plain and speech_div is None:

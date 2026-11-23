@@ -13,7 +13,7 @@ def load_chaya_list(chaya_path: Path) -> list[str]:
     return entries
 
 
-def build_tei_text(src: Path, line_by_line: bool = False, drama: bool = False, chaya_path: Path = None) -> etree._Element:
+def build_tei_text(src: Path, line_by_line: bool = True, drama: bool = False, chaya_path: Path = None) -> etree._Element:
     text = src.read_text(encoding="utf-8")
     lines = text.splitlines()
     chaya_list = load_chaya_list(chaya_path) if chaya_path else []
@@ -24,12 +24,9 @@ def build_tei_text(src: Path, line_by_line: bool = False, drama: bool = False, c
 def configure_cli(parser: argparse.ArgumentParser):
     add_shared_argparse_args(parser, input_type="plaintext")
     parser.add_argument(
-        "--line-by-line", action="store_true",
-        help="Every newline gets <lb>"
-    )
-    parser.add_argument(
-        "--extra-space-after-location", action="store_true",
-        help="Add extra blank line after location markers (only used in xml-plaintext script)."
+        "--line-by-line", action=argparse.BooleanOptionalAction, default=True,
+        help="Every physical line gets <lb> (the default); --no-line-by-line for texts "
+             "whose lines do not follow printed lines"
     )
     parser.add_argument(
         "--drama", action="store_true",
