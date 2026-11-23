@@ -266,7 +266,9 @@ class TeiTextBuilder:
 
     def build(self, lines: list[str]) -> etree._Element:
         for raw in lines:
-            self._handle_line(raw.rstrip("\n"))
+            # Trailing whitespace is never meaningful in the source; dropping it
+            # here keeps stray spaces out of the XML.
+            self._handle_line(raw.rstrip())
         self._close_sp()
         self._flush_verse_group_buffer()
         # If no {section} markers were encountered, all content went directly into <body>.
