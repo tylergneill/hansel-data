@@ -5,19 +5,25 @@ For every project edition (or the stems given on the command line) this runs
 
     txt --builder--> XML --writer--> txt' --builder--> XML'
 
-entirely in memory (nothing under texts/ is written) and reports two things:
+entirely in memory (nothing under texts/ is written) and prints one row per
+text. The columns:
 
-* txt fidelity: how many lines of txt' differ from the original txt, both
-  strictly and ignoring blank lines and trailing whitespace (the layout the XML
-  does not record; see "Round trip" in texts/DATA_MODEL.md). The chāyā companion
-  file is compared the same way.
-* XML stability: whether XML' is identical to XML. This is the stronger promise:
+* lines: number of lines in the original txt.
+* strict: lines of txt' that differ from the original txt, compared exactly
+  (every added or removed line counts, blank lines and trailing spaces
+  included).
+* layout: the same count after ignoring what the XML does not record: blank
+  lines, trailing whitespace and, in --no-line-by-line texts, where prose lines
+  wrap (see "Round trip" in texts/DATA_MODEL.md). This should be 0.
+* chāyā: the layout-insensitive count for the chāyā companion file, with
+  leading indentation also ignored. This should be 0.
+* XML'=XML: whether XML' is identical to XML. This is the stronger promise:
   whatever the writer produces must rebuild into exactly the same edition.
 
 Usage:
     python utils/transforms/xml/roundtrip.py              # summary table
     python utils/transforms/xml/roundtrip.py --diff STEM  # also show diffs for one text
-    python utils/transforms/xml/roundtrip.py --strict     # exit 1 unless every text is exact
+    python utils/transforms/xml/roundtrip.py --strict     # exit 1 unless layout and chāyā are 0
 
 Exit status is 1 if any XML' differs from XML (or, with --strict, if any txt
 differs in more than layout).

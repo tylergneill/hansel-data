@@ -80,6 +80,18 @@ Symbols found in printed editions should be interpreted into one of these patter
 - **XML′ is identical to XML.** Whatever the writer produces rebuilds into exactly the same edition. This is checked strictly; a text that fails is a bug in the builder or the writer.
 - **txt′ equals the original txt up to layout**, i.e. up to what the XML does not record: blank lines (except that a speaker cue starts a block), trailing whitespace, chāyā indentation, and, in `--no-line-by-line` texts, where prose lines break. The writer uses one canonical layout for these (a blank line after each `[location]` line and around sections, labels and speeches; a page marker that ends a paragraph stands apart).
 
+`make roundtrip` prints one row per text with these columns:
+
+| Column | Meaning |
+|---|---|
+| lines | Lines in the original txt. |
+| strict | Lines of txt′ that differ from the original txt, compared exactly, blank lines and trailing spaces included. Nonzero here is expected and means only layout differs. |
+| layout | The same count after ignoring the layout listed above. Should be 0. |
+| chāyā | The layout-insensitive count for the chāyā companion file, ignoring indentation too. Should be 0. |
+| XML′=XML | Whether XML′ is identical to XML. Must be yes; the command exits 1 otherwise. |
+
+With `--strict`, the command also exits 1 unless layout and chāyā are 0.
+
 `python utils/transforms/xml/roundtrip.py --diff STEM` shows the remaining differences for one text. To write the reverse conversion to files, `utils/transforms/xml/regenerate.py --txt` writes into `utils/transforms/xml/tmp/txt` (git-ignored); it never writes over the project-edition txt files.
 
 ## Character set and punctuation
