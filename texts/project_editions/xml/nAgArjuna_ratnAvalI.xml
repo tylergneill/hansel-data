@@ -1040,11 +1040,12 @@
           <l n="cd">ā bhavād amitaṃ lokam uddharan kiṃ viṣatsyati ||<pb n="151"/></l>
         </lg>
         <lg n="3.26" xml:id="v3_26">
-          <l n="abcd">alpo 'pi duḥkhinaḥ kālo duḥsaho 'tibahuḥ kim<choice>
+          <l n="ab">alpo 'pi duḥkhinaḥ kālo duḥsaho 'tibahuḥ kim<choice>
               <sic>n</sic>
               <corr> u |</corr>
             </choice>
-            <caesura/>kālo 'nanto 'py aduḥkhasya sukhinaḥ kena bādhakaḥ ||</l>
+          </l>
+          <l n="cd">kālo 'nanto 'py aduḥkhasya sukhinaḥ kena bādhakaḥ ||</l>
         </lg>
         <lg n="3.27" xml:id="v3_27">
           <l n="ab">śarīraduḥkhaṃ naivāsya duḥkhaṃ syāt kena mānasam |</l>
@@ -1243,8 +1244,9 @@
           <l n="cd">tathāpi vacanaṃ vādyaṃ svārthe maunam ato 'nyathā ||</l>
         </lg>
         <lg n="3.76" xml:id="v3_76">
-          <l n="abcd">yathā vādī tathā kārī bhaviṣyasi dṛḍhavrataḥ <supplied>|</supplied>
-            <caesura/>bhaviṣyasi tataḥ khyātaḥ pramāṇaṃ paramaṃ bhuvi ||<pb n="173"/></l>
+          <l n="ab">yathā vādī tathā kārī bhaviṣyasi dṛḍhavrataḥ <supplied>|</supplied>
+          </l>
+          <l n="cd">bhaviṣyasi tataḥ khyātaḥ pramāṇaṃ paramaṃ bhuvi ||<pb n="173"/></l>
         </lg>
         <lg n="3.77" xml:id="v3_77">
           <l n="ab">supavīkṣitakāritvaṃ sarvatraiva sadāstu te |</l>

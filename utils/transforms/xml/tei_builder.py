@@ -45,6 +45,13 @@ CLOSE_L_RE = re.compile(_SINGLE_OR_DOUBLE_DANDA + r"(?:[ \n]|$)")
 HYPHEN_EOL_RE = re.compile(r"-\s*$")  # tweak later if you need fancy hyphens
 MID_LINE_PAGE_RE = re.compile(r"<(\d+)(?:,(\d+))?>")
 COMBINED_VERSE_END_RE = re.compile(f"{VERSE_MARKER_RE.pattern}|{VERSE_BACK_BOUNDARY_RE.pattern}")
+
+
+def _editorial_spans(text: str) -> list[tuple[int, int]]:
+    """(start, end) of every editorial-markup span (≤…≥«…», ≤…≥, «…», ¿…¿) in text."""
+    return [m.span() for rx in (CHOICE_RE, DEL_RE, SUPPLIED_RE, UNCLEAR_RE) for m in rx.finditer(text)]
+
+
 # Drama-specific regexes
 SPEAKER_RE = re.compile(r"^(\S+) —\s*(.*)$")
 # Staggered dialogue verse fragment sharing a physical line with the speaker cue,
@@ -834,14 +841,19 @@ class TeiTextBuilder:
         verse_payload = after_tab
         back_text = ""
 
-        # find the last verse marker on the line
-        last_match = None
+        # find the last verse marker on the line. A marker inside an editorial
+        # span (e.g. the supplied "||" of ≤|≥«||») ends the verse only where the
+        # span ends, so the span is never cut in two.
+        verse_end = None
         for m in COMBINED_VERSE_END_RE.finditer(after_tab):
-            last_match = m
+            verse_end = m.end()
+            for span in _editorial_spans(after_tab):
+                if span[0] < m.start() < span[1]:
+                    verse_end = span[1]
 
-        if last_match:
-            verse_payload = after_tab[:last_match.end()]
-            back_text = after_tab[last_match.end():]
+        if verse_end is not None:
+            verse_payload = after_tab[:verse_end]
+            back_text = after_tab[verse_end:]
 
         is_verse_close = self._process_content_with_midline_elements(verse_payload, "verse", line)
 
@@ -1149,6 +1161,13 @@ class TeiTextBuilder:
             close_text = post_text
             if not close_text.strip() and filtered_matches and filtered_matches[-1]["handler"] == self._emit_pb_from_match:
                 close_text = content[:filtered_matches[-1]["match"].start()]
+            # A line ending in editorial markup (e.g. "...«|»" or "≤|≥«||»") closes
+            # if the reading text of that markup ends in a daṇḍa.
+            if not close_text.strip() and filtered_matches:
+                last = filtered_matches[-1]
+                reading_group = {self._emit_choice: 2, self._emit_supplied: 1, self._emit_unclear: 1}
+                if last["handler"] in reading_group:
+                    close_text = last["match"].group(reading_group[last["handler"]])
             is_line_close = (bool(CLOSE_L_RE.search(close_text.rstrip())))
             is_verse_close = (bool(COMBINED_VERSE_END_RE.search(close_text.rstrip())))
 
