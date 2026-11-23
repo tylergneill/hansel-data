@@ -1,6 +1,6 @@
 # Title
 
-Ślokavārtika
+Ślokavārttika
 
 # Pandit Work ID
 
@@ -116,7 +116,7 @@ CC BY-NC-SA 4.0
 
 # File Creation Method
 
-I (Tyler Neill) produced this HANSEL edition by minimally adapting the corresponding file in the Pramāṇa NLP collection by adding page numbers. The Pramāṇa NLP file had been manually converted from Helmut Krasser's Word document into plain text, also by myself a few years earlier, mainly using regular expressions. Krasser's original Word file had been manually typed from the edition in an abstracted fashion, namely by extracting only the Ślokavārtika content and ignoring both Pārthasārathi Miśra's commentary and all physical aspects of the edition (e.g., page numbers). The text is known to contain errors and still needs a final proofread.
+I (Tyler Neill) produced this HANSEL edition by minimally adapting the corresponding file in the Pramāṇa NLP collection by adding page numbers. The Pramāṇa NLP file had been manually converted from Helmut Krasser's Word document into plain text, also by myself a few years earlier, mainly using regular expressions. Krasser's original Word file had been manually typed from the edition in an abstracted fashion, namely by extracting only the Ślokavārttika content and ignoring both Pārthasārathi Miśra's commentary and all physical aspects of the edition (e.g., page numbers). The text is known to contain errors and still needs a final proofread.
 
 # Text Type
 
@@ -136,4 +136,4 @@ Roman-like (ity evam, not ityevam), but inconsistent
 
 # Metadata Last Updated 
 
-2025-12-17
+2026-11-23

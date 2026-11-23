@@ -7,7 +7,7 @@
 # --hide-milestones is display-only: <label> stays in the XML, hidden at render time.
 flag_map = {
     "bANa_kAdambarI": '--hide-milestones',
-    "kumArilabhaTTa_zlokavArtika": '--no-line-by-line',
+    "kumArilabhaTTa_zlokavArttika": '--no-line-by-line',
     "kRSNamizra_prabodhacandrodaya": '--drama --chaya --no-line-by-line',
     "bhagavadajjuka": '--drama --chaya',
     "bhAskarabhaTTa_unmattarAghava": '--drama --chaya',
