@@ -256,7 +256,7 @@ def _attach_chaya_lg(parent_lg: etree._Element, chaya_text: str) -> None:
 # Builder class
 # ----------------------------
 class TeiTextBuilder:
-    def __init__(self, line_by_line: bool = False, drama: bool = False, chaya_list: list = None):
+    def __init__(self, line_by_line: bool = True, drama: bool = False, chaya_list: list = None):
         self.state = TextBuildState(
             line_by_line=line_by_line,
             drama=drama,

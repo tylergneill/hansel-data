@@ -6,7 +6,7 @@ import sys
 
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
 sys.path.append(str(PROJECT_ROOT))
-from utils.transforms.flag_map import flag_map, editorial_coord_labels_map
+from utils.transforms.flag_map import flag_map, editorial_coord_labels_map, is_line_by_line
 
 XML_DIR = os.path.join(PROJECT_ROOT, "texts/project_editions/xml")
 HTML_PLAIN_DIR = os.path.join(PROJECT_ROOT, "texts/transforms/html/plain")
@@ -52,7 +52,7 @@ def regenerate_html(xml_dir, plain_dir, rich_dir, standalone=False):
         command = ["python", CONVERSION_SCRIPT, xml_path, rich_html_path]
 
         flags = flag_map.get(stem, "")
-        if "--line-by-line" not in flags:
+        if not is_line_by_line(flags):
             command.append("--no-line-numbers")
         if "--drama" in flags:
             command.append("--drama")

@@ -36,7 +36,7 @@ from conversion_utils import serialize  # noqa: E402
 from convert_plaintext_to_xml import load_chaya_list  # noqa: E402
 from convert_xml_to_plaintext import convert_element  # noqa: E402
 from tei_builder import TeiTextBuilder  # noqa: E402
-from utils.transforms.flag_map import flag_map  # noqa: E402
+from utils.transforms.flag_map import flag_map, is_line_by_line  # noqa: E402
 
 TXT_DIR = PROJECT_ROOT / "texts" / "project_editions" / "txt"
 
@@ -44,7 +44,7 @@ TXT_DIR = PROJECT_ROOT / "texts" / "project_editions" / "txt"
 def build(txt: str, flags: str, chaya: list[str]):
     """Build the TEI <text> element from txt, as the regen pipeline does."""
     builder = TeiTextBuilder(
-        line_by_line="--line-by-line" in flags,
+        line_by_line=is_line_by_line(flags),
         drama="--drama" in flags,
         chaya_list=chaya,
     )
@@ -57,7 +57,7 @@ STRUCTURAL_RE = re.compile(r"^(\t|\[[^\]]+\]\t|[\[{<].*[\]}>]$)")
 
 def layout_insensitive(lines: list[str], line_by_line: bool = True) -> list[str]:
     """Normalize what the XML does not record: blank lines, trailing whitespace
-    and, in a text without <lb> (no --line-by-line), where prose lines break.
+    and, in a text without <lb> (--no-line-by-line), where prose lines break.
     There each prose run (up to the next marker, verse line or speaker cue) is
     rejoined into one line; verse lines and marker lines stay as they are."""
     out, prose = [], []
@@ -108,7 +108,7 @@ def check(stem: str, show_diff: bool = False) -> dict:
     chaya_txt2 = "\n\n".join(chaya2) + "\n" if chaya2 else ""
 
     a, b = src.splitlines(), txt2.splitlines()
-    lbl = "--line-by-line" in flags
+    lbl = is_line_by_line(flags)
     result = {
         "stem": stem,
         "lines": len(a),

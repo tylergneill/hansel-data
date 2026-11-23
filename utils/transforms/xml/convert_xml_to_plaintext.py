@@ -463,7 +463,7 @@ def configure_cli(parser: argparse.ArgumentParser):
                         help="Layout: put a blank line after each [location] line.")
     # Accepted for compatibility with flag_map, which is shared with the builder;
     # the writer reads what it needs from the XML itself.
-    for flag in ("--line-by-line", "--drama"):
+    for flag in ("--line-by-line", "--no-line-by-line", "--drama"):
         parser.add_argument(flag, action="store_true", help=argparse.SUPPRESS)
 
 
