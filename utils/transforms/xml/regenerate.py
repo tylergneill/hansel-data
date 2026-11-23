@@ -44,7 +44,10 @@ def main():
     parser = argparse.ArgumentParser(description="Regenerate XML from plaintext or vice-versa, cleaning stale files.")
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument('--xml', action='store_true', help='Convert plaintext to XML and update headers.')
-    group.add_argument('--txt', action='store_true', help='Convert XML to plaintext.')
+    group.add_argument('--txt', action='store_true',
+                       help='Convert XML back to plaintext (into --out-dir, never over the txt sources).')
+    parser.add_argument('--out-dir', type=Path, default=Path(__file__).resolve().parent / 'tmp' / 'txt',
+                        help='Where --txt writes (default: utils/transforms/xml/tmp/txt, which git ignores).')
     args = parser.parse_args()
 
     if args.xml:
@@ -75,11 +78,17 @@ def main():
         )
 
     elif args.txt:
+        # The txt files are the sources, so the reverse conversion must not write
+        # over them. Compare its output with the sources (or run roundtrip.py).
+        out_dir = args.out_dir.resolve()
+        if out_dir == (TEXTS_DIR / 'project_editions' / 'txt').resolve():
+            sys.exit("Refusing to write over the txt sources; pick another --out-dir.")
+        out_dir.mkdir(parents=True, exist_ok=True)
         run_conversion(
             script_name=PROJECT_ROOT / 'utils/transforms/xml/convert_xml_to_plaintext.py',
             in_dir=TEXTS_DIR / 'project_editions' / 'xml',
             in_ext='.xml',
-            out_dir=TEXTS_DIR / 'project_editions' / 'txt',
+            out_dir=out_dir,
             out_ext='.txt',
             flag_map=flag_map,
             direction='txt',
