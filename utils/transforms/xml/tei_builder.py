@@ -1208,8 +1208,16 @@ class TeiTextBuilder:
             # Fallback for when no <lb> are emitted.
             # If we're mid-verse, current_l is the right target even if it hasn't
             # been appended to the DOM yet (verse group is buffered until flush).
+            pending_lg = s.current_lg if s.current_lg is not None and s.current_lg.getparent() is None \
+                else (s.verse_group_buffer[-1] if s.verse_group_buffer else None)
             if s.current_l is not None:
                 container = s.current_l
+            elif pending_lg is not None and pending_lg.findall("l"):
+                # A verse that is still buffered (not yet in the tree) comes after
+                # everything already in the tree, so the break goes at its end:
+                # into its inline trailer if it has one, else into its last line.
+                last = pending_lg[-1]
+                container = last if last.tag == "trailer" else pending_lg.findall("l")[-1]
             else:
                 last_elem_list = s.current_div.xpath('(.//l | .//p)[last()]')
                 if last_elem_list:
